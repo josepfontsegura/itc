@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem("itc-theme");if(!t){t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})()</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 1 - Sequences of random variables - ITC 2026</title>
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+</head>
+<body>
+<nav class="navbar">
+  <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  <a class="navbar-brand" href="index.html">
+    <img src="../img/upf-logo.svg" alt="UPF" style="height:42px;margin-right:0.75rem"> <span class="navbar-brand-text">Information theory and coding 2026</span>
+  </a>
+  <div class="navbar-actions">
+    <button class="search-toggle" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-hint">⌘K</span></button>
+    <button class="theme-toggle" aria-label="Toggle dark mode"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+  </div>
+  <div class="lang-switcher">
+    <a href="../ca/lecture1.html">CA</a>
+    <a href="../es/lecture1.html">ES</a>
+    <a href="../en/lecture1.html" class="active">EN</a>
+  </div>
+</nav>
+<div class="page">
+                <aside class="sidebar">
+    <details class="sidebar-section">
+      <summary><h4>General</h4></summary>
+      <a href="index.html">Home</a>
+      <a href="guide.html">Learning guide</a>
+      <a href="https://gestioacademica.upf.edu/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&amp;idiomaPais=ca.ES&amp;_anoAcademico=2025&amp;_codAsignatura=23970" target="_blank">Teaching guide<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      <a href="https://aulaglobal.upf.edu/course/view.php?id=87593" target="_blank">Aula Global<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+    </details>
+    <details class="sidebar-section" open>
+      <summary><h4>Lecture notes</h4></summary>
+      <a href="lecture1.html" class="active">1. Sequences of random variables</a>
+      <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
+      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
+      <span class="sidebar-disabled">4. Huffman codes</span>
+      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
+      <span class="sidebar-disabled">6. Error probability of channel codes</span>
+      <span class="sidebar-disabled">7. Linear codes</span>
+      <span class="sidebar-disabled">8. Channel capacity</span>
+      <span class="sidebar-disabled">9. Information measures</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exercises</h4></summary>
+      <a href="exercises1.html">1. Random variables</a>
+      <a href="exercises2.html">2. Concentration inequalities</a>
+      <span class="sidebar-disabled">3. Prefix-free codes</span>
+      <span class="sidebar-disabled">4. Huffman codes</span>
+      <span class="sidebar-disabled">5. Data compression</span>
+      <span class="sidebar-disabled">6. Error probability</span>
+      <span class="sidebar-disabled">7. Linear codes</span>
+      <span class="sidebar-disabled">8. Channel capacity</span>
+      <span class="sidebar-disabled">9. Information measures</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Quiz</h4></summary>
+      <a href="quiz1.html">Topics 1–2</a>
+      <span class="sidebar-disabled">Topics 3–5</span>
+      <span class="sidebar-disabled">Topics 6–9</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exams</h4></summary>
+      <span class="sidebar-disabled">Final 2025</span>
+      <span class="sidebar-disabled">Resit 2025</span>
+    </details>
+  </aside>
+  <main class="content">
+    <div class="lecture-header">
+      <h1>Lecture 1. Sequences of random variables <a class="pdf-link" href="../pdf/ITC-2026-Lecture1-en.pdf">pdf</a></h1>
+    </div>
+
+
+<h2>Introduction</h2>
+
+<p>
+Information theory is a scientific discipline that originated from the study of the mathematical foundations of data compression and transmission. Information theory intersects disparate disciplines such as electrical engineering (data transmission and compression, wireless communications), probability and statistics (large deviations and hypothesis testing), mathematics (inequalities), physics (quantum systems), computer science (Kolmogorov complexity) and economics (portfolio theory). It was founded by Claude E. Shannon in 1948 in his landmark paper “A Mathematical Theory of Communication", published by the Bell System Technical Journal. The paper was a result of 8 years of research and immediately received the attention of the community.
+</p>
+<p>
+   
+As Shannon wrote in his paper “the fundamental problem of communication is that of reproducing at one point either exactly or approximately a message selected at another point". The standard way this is done is by means of an encoder and decoder, as shown in Figure 1.1. The <strong>source</strong> is the device that produces the message (information) to be transmitted, which can be analog including speech and temperature, or digital such as an email. The <strong>encoder</strong>, based on the source information, constructs an electromagnetic waveform to be transmitter over the channel. The encoder itself consists of a source encoder that removes the redundancy present in the source, a channel encoder that introduces redundancy tailored to the channel errors, and a modulator that converts the digital encoded data into a suitable waveform. The <strong>channel</strong> models all the disturbances introduced to the transmitted waveform by physics of the transmission medium and the receiver, including noise and fading in optical fibers, Ethernet, wireless; but also imperfections in data storage systems including DVD, flash drives or DNA. Finally, the <strong>decoder</strong> inverts all the steps introduced at the encoder and tries to estimate what the source message was. 
+</p>
+<figure><img src="../img/tikz/lecture1-fig1.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
+<p>
+<figcaption>Figure 1.1. Basic block diagram of a communications system.</figcaption>
+<a id="fig:block"></a>
+</p>
+<p>
+In this course, we will assume that the source has been previously sampled and quantized, and that the modulation and demodulation parts are included in the channel model. As a result, the information source $U$, the channel input $X$ and the channel output $Y$ are discrete quantities. The objective of the course is to understand the fundamental limits of data compression and data transmission, as well as to study the performance of source codes and channel codes. To do so, we will model the information sources and communication channels by means of random variables, or more specifically, by <strong>sequences of random variables</strong>.
+</p>
+
+<h2>Random variables</h2>
+
+<p>
+In many disciplines, including electrical engineering, physics, biology or economics,  randomness at the outcome of an experiment is observed. Hence, one is interested in studying the probabilistic behavior of a system and to design the system accordingly based on such randomness. For example, since in data compression we will design codes to represent a random source using bits, we will study the average length of such codes. Or since in data transmission we will design codes to send information over a random channel, we will study the probability that there is a decoding error.
+</p>
+<p>
+A discrete random variable is the mathematical object that describes the behavior of an experiment with a finite amount of possible outcomes. We use capital letter $X$ to denote the random variable, calligraphic ${\cal X}$ to denote the alphabet of $X$ or the set of possible values, and $P_X(x)$ the probability distribution of $X$ over the set ${\cal X}$, where $x\in{\cal X}$, and $P_X(x)$ represents the probability that “$X=x$”, that is $P_X(x)=\mathbb{P}[X=x]$. The probability of any event is a number in the $[0,1]$ interval, implying that the probability distribution of any discrete random variable satisfies the conditions
+$$\begin{gather}
+	\sum_{x\in{\cal X}}P_X(x) = 1,\tag{1.1}\\
+	P_X(x)\geq 0 \text{ for all } x\in{\cal X}.\tag{1.2}
+\end{gather}$$
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Example 1.1.</span> 
+The outcome of the experiment of a coin flip is either heads or tails. For an unfair coin, we can represent the outcome as the random variable $X$ taking values in ${\cal X}=\{\text{heads},\text{tails}\}$ with probability distribution $P_X(x)\in\bigl\{\tfrac 13,\tfrac 23 \bigr\}$. In this example, ${\cal X}$ is a set of cardinality $|{\cal X}|=2$ as it has two elements. The notation $P_X(x)\in\bigl\{\tfrac 13,\tfrac 23 \bigr\}$ is interpreted as $P_X(\text{heads})=\frac 13$ and $P_X(\text{tails})=\frac 23$, since the probability density $P_X(x)$ is a function of $x$. We can easily check that both $(1.1)$ and $(1.2)$ are satisfied, in particular that $\sum_{x\in{\cal X}}P_X(x)=\sum_{x\in\{\text{heads},\text{tails}\}}P_X(x) =P_X(\text{heads}) + P_X(\text{tails}) = \frac 13 + \frac 23 = 1$. 
+</p>
+
+</div>
+
+
+<div class="env-block env-example"><p><span class="env-label">Example 1.2.</span> 
+	A random variable takes values over the alphabet $\{a,b,c\}$, with probability distribution $P_X(a)=P_X(b)=\frac 15$. From the condition $(1.1)$, we deduce that $P_X(c)=1-P_X(a)-P_X(b)=1-\frac 15 - \frac 15 = \frac 35$.
+</p>
+
+</div>
+
+<p>
+An event can be represented as the set ${\cal A}$ of values of $X$ that satisfy the event, and the probability of the event can be calculated as
+$$
+	\mathbb{P}[X\in{\cal A}] = \sum_{x\in{\cal A}} P_X(x). \tag{1.3}$$
+Sometimes it is useful to calculate the probability of the complementary event, ${\cal A}^c$, the set of values of $X$ that do not satisfy the event. Since the sum of all possible values is $1$, we can write that
+$$
+	\mathbb{P}[X\in{\cal A}] = 1 - \mathbb{P}[X\in{\cal A}^c] = 1 - \sum_{x\in{\cal A}^c} P_X(x). \tag{1.4}$$
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 1.1.</span> 
+Let $X$ be a random variable taking values in $\{0,1,2,3\}$ with equal probability. What is the probability that $X$ is odd? And the probability that $X$ is even?
+</p>
+
+<details class="solution"><summary>Show solution</summary>
+<p>
+	If all values are equiprobable, then the probability distribution of $X$ is $P_X(x)=\frac 14$, or $\bigl\{ \frac 14,\frac 14,\frac 14,\frac 14 \bigr\}$. The event “$X$ is odd” can be represented by the set ${\cal A}=\{1,3\}$  so that $\mathbb{P}[X\text{ is odd}]=\mathbb{P}[X\in{\cal A}]=\sum_{x\in\{1,3\}}P_X(x) = P_X(1)+P_X(3)=\frac 14 + \frac 14 = \frac 12$. The probability that “$X$ is even” can be calculated by noting that it is the complementary event and then $\mathbb{P}[X\text{ is even}] = 1 - \mathbb{P}[X\text{ is odd}] = 1 - \frac 12 = \frac 12$.
+</p>
+
+</details>
+
+
+</div>
+
+
+<h2>Jointly-distributed random variables</h2>
+
+<p>
+In some applications, we have a couple of random variables $X$ and $Y$, each respectively taking values over the alphabets ${\cal X}$ and ${\cal Y}$, governed by a joint probability distribution $P_{XY}(x,y)$. As a probability distribution, it happens that
+$$
+	\sum_{x\in{\cal X}}\sum_{y\in{\cal Y}}P_{XY}(x,y) = 1,\tag{1.5}
+$$
+while $P_{XY}(x,y)\geq 0$ for all $x\in{\cal X}$ and $y\in{\cal Y}$. The joint probability is a function of $x$ and $y$ and is interpreted as the probability that “$X=x$” <u>and</u> “$Y=y$”, usually written as the intersection, but we rather prefer using a comma, that is $P_{XY}(x,y)=\mathbb{P}[X=x,Y=y]$. The double summation in $(1.5)$ suggests that summing only over one variable leads to a probability distribution itself as a function of the other random variable. These are called the marginal distributions, that is
+$$\begin{gather}
+	P_X(x)=\sum_{y\in{\cal Y}}P_{XY}(x,y)\tag{1.6}\\
+	P_Y(y)=\sum_{x\in{\cal X}}P_{XY}(x,y)\tag{1.7}.
+\end{gather}$$
+Both $(1.6)$ and $(1.7)$ are probability distributions since, summed over $x$ and $y$ respectively, give $1$. The marginal distributions allow to define a new quantity called the conditional distribution, that is the ratio between the joint distribution and the marginal distribution:
+$$\begin{gather}
+	P_{X|Y}(x|y)=\frac{P_{XY}(x,y)}{P_Y(y)},\tag{1.8}\\
+	P_{Y|X}(y|x)=\frac{P_{XY}(x,y)}{P_X(x)}.\tag{1.9}
+\end{gather}$$
+Isolating $P_{XY}(x,y)$ from both equations above leads to the celebrated Bayes' theorem that relates the previous knowledge of a random variable over another random variable with the probability of the first random variable itself, that is
+$$
+	P_{Y|X}(y|x) = \frac{P_{X|Y}(x|y) P_Y(y)}{P_X(x)}.
+	\tag{1.10}
+$$
+</p>
+<p>
+Note that the conditional distribution $P_{Y|X}(y|x)$ is a valid probability distribution of the random variable $Y$ with previous knowledge on $X=x$, since $\smash{\sum_{y \in {\cal Y}} P_{Y|X}(y|x) = \sum_{y\in{\cal Y}}\frac{P_{XY}(x,y)}{P_X(x)} = \frac{\sum_{y\in{\cal Y}} P_{XY}(x,y)}{P_X(x)} = \frac{P_X(x)}{P_X(x)} = 1}$. A similar result holds for $P_{X|Y}(x|y)$.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 1.2.</span> 
+	Consider the random variables $X$ and $Y$, both taking values over the alphabet $\{a,b\}$ with joint probability distribution $P_{XY}(a,a)=\frac 16$, $P_{XY}(a,b)=\frac 13$ and $P_{XY}(b,a)=0$. What is the probability distribution of $Y$ conditioned on $X=b$?
+</p>
+
+<details class="solution"><summary>Show solution</summary>
+<p>
+The answer to this question is $P_{Y|X}(y|b)$, a probability distribution of a random variable that takes values over the alphabet $\{a,b\}$, 	hence two numbers that add up to one, $P_{Y|X}(a|b)$ and $P_{Y|X}(b|b)$. From $(1.5)$, we have that $\sum_{x\in\{a,b\}}\sum_{y\in\{a,b\}}P_{XY}(x,y)=P_{XY}(a,a)+P_{XY}(a,b)+P_{XY}(b,a)+P_{XY}(b,b)=1$, implying that $P_{XY}(b,b)=1-\frac 16-\frac 13-0=\frac 12$. To determine the conditional distribution $P_{Y|X}(y|b)$ we first need the marginal probability $P_X(b)$. Using $(1.6)$, we have $P_X(b)=\sum_{y\in\{a,b\}} P_{XY}(b,y) = P_{XY}(b,a)+P_{XY}(b,b) = \frac 12$. Now can calculate $P_{Y|X}(a|b)=\frac{P_{XY}(b,a)}{P_X(b)}=\frac{0}{1/2} = 0$ and $P_{Y|X}(b|b)=\frac{P_{XY}(b,b)}{P_X(b)}=\frac{1/2}{1/2} = 1$. The answer is $\{0,1\}$, meaning that knowing $X=b$ implies that $Y=b$ with probability $1$.
+</p>
+
+</details>
+
+
+</div>
+
+<p>
+We can calculate what is the probability of some event on $Y$ conditioned on $X=x$ as 
+$$
+	\mathbb{P}[Y\in{\cal A}|X=x] = \sum_{y\in{\cal A}} P_{Y|X}(y|x),
+	\tag{1.11}
+$$
+or similarly for the probability of some event on $X$ conditioned on $Y=y$. More importantly, $P_{Y|X}(y|x)$ <u>is not</u> a probability distribution on $X$, <u>nor</u> is $P_{X|Y}(x|y)$ a probability distribution on $Y$. A last useful result is obtained after combining the definition of the conditional distributions, the marginal distributions the conditional probability $(1.11)$, usually called the law of total probability:
+$$\begin{gather}
+	\mathbb{P}[Y\in{\cal A}] =  \sum_{x\in{\cal X}} \mathbb{P}[Y\in{\cal A}|X=x] P_X(x).
+	\tag{1.12}
+\end{gather}$$
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 1.3.</span> 
+A random variable $X$ takes values over the alphabet $\{1,2\}$ with probability distribution $\{1,0\}$. Conditioned on $X=x$, another random variable $Y$ takes values over $\{1,2,3\}$ with probability distribution $\bigl\{ \frac{2-x}{3},\frac{x}{3},\frac 13 \bigr\}$. What is the probability that $Y$ is odd?
+</p>
+
+<details class="solution"><summary>Show solution</summary>
+<p>
+	Conditioned on $X=1$, we have that $P_{Y|X}(y|1)\in\bigl\{\frac 13,\frac 13,\frac 13\bigr\}$, while conditioned on $X=2$ we have that $P_{Y|X}(y|2)\in\bigl\{0,\frac 23,\frac 13\bigr\}$. Then, $\mathbb{P}[Y\text{ is odd}|X=1]=\sum_{y\in\{1,3\}}P_{Y|X}(y|1)=\frac 23$, while $\mathbb{P}[Y\text{ is odd}|X=2]=\sum_{y\in\{1,3\}}P_{Y|X}(y|2)=\frac 13$. Finally, $\mathbb{P}[Y\text{is odd}]=\sum_{x\in\{1,2\}} \mathbb{P}[Y\text{is odd}|X=x]P_X(x)=\frac 23 \cdot 1 + \frac 13\cdot 0 = \frac 23.$
+</p>
+
+</details>
+
+
+</div>
+
+<p>
+The joint distribution of two random variables $X$ and $Y$ satisfies the <strong>chain rule</strong>:
+$$
+P_{XY}(x,y)=P_{Y|X}(y|x)P_{X}(x)=P_{X|Y}(x|y)P_{Y}(y). \tag{1.13}$$
+If $X$ and $Y$ are <strong>independent</strong>, then $P_{Y|X}(y|x)=P_{Y}(y)$, $P_{X|Y}(x|y)=P_{X}(x)$ and therefore
+$$
+	P_{XY}(x,y)=P_X(x)P_Y(y). \tag{1.14}$$
+</p>
+
+<h2>Sequences of random variables</h2>
+
+<p>
+Information sources and communication channels will be described by sequences of random variables such as $(X_1,\ldots,X_n)$, where $n$ is the length of the sequence. Such sequence is characterized by the joint probability distribution $P_{X_1\cdots X_n}(x_1,\ldots,x_n)$ and, usually, each random variable $X_i$ will take values over the same alphabet ${\cal X}$. As in $(1.1)$ or $(1.5)$, it holds that
+$$
+	\sum_{(x_1,\ldots,x_n)\in{\cal X}^n} P_{X_1\cdots X_n}(x_1,\ldots,x_n) = 1, \tag{1.15}$$
+where ${\cal X}^n={\cal X}\times \ldots \times {\cal X}$ is the Cartesian product of the alphabets. An example will clarify this.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Example 1.3.</span> 
+	Consider the sequence of random variables $(X_1,X_2,X_3)$, each $X_i$ taking value over the alphabet ${\cal X}=\{a,b\}$. The alphabet of $(X_1,X_2,X_3)$ is the Cartesian product ${\cal X}^3 = \{a,b\}\times \{a,b\} \times \{a,b\}$, that is, all the possible combinations ${\cal X}^3=\{aaa,aab,aba,abb,baa,bab,bba,bbb\}$. The cardinality of this new alphabet is $|{\cal X}^3|=|{\cal X}|^3=2^3=8$. A possible probability distribution for $(X_1,X_2,X_3)$ is  $P_{X_1X_2X_3}(x_1,x_2,x_3)=\frac 18$, but another one could be $P_{X_1X_2X_3}(aaa)=P_{X_1X_2X_3}(bbb)=\frac 12$ and $P_{X_1X_2X_3}(x_1,x_2,x_3)=0$ otherwise.
+</p>
+
+</div>
+
+<p>
+The chain rule permits to write the joint probability distribution of any element in the alphabet of $(X_1,\ldots,X_n)$ as the product
+$$
+	P_{X_1\cdots X_n}(x_1,\ldots,x_n)= P_{X_1}(x_1)P_{X_2|X_1}(x_2|x_1)P_{X_3|X_2X_1}(x_3|x_2,x_1) \cdots P_{X_n|X_{n-1}\cdots X_1}(x_n|x_{n-1},\ldots,x_1). \tag{1.16}$$
+We say that $(X_1,\ldots,X_n)$ is a <strong>sequence of independent random variables</strong> if
+$$
+	P_{X_1\cdots X_n}(x_1,\ldots,x_n) = \prod_{i=1}^n P_{X_i}(x_i). \tag{1.17}$$
+Furthermore, it is a <strong>sequence of independent and identically distributed (i.i.d.) random variables</strong> if
+$$
+	P_{X_1\cdots X_n}(x_1,\ldots,x_n) = \prod_{i=1}^n P_{X}(x_i), \tag{1.18}$$
+that is, all the random variables $X_i$ are independent and  have the same probability distribution $P_X(x)$. 
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 1.4.</span> 
+	A discrete memoryless source is described by the sequence of i.i.d. random variables $(U_1,U_2,U_3)$ where each $U_i$ takes values in $\{0,1\}$ with probability distribution $\{p,1-p\}$. What is the probability that the source outputs a sequence that has a zero at the last position?
+	
+</p>
+<details class="solution"><summary>Show solution</summary>
+<p>
+		We are asked to calculate $P_{U_3}(0)$. One way to solve this is to calculate the marginal distribution $P_{U_3}(u_3)$ from the joint distribution. Since the sequence of random variables is i.i.d., the joint distribution satisfies $P_{U_1U_2U_3}(u_1,u_2,u_3) = P_{U}(u_1)P_{U}(u_2)P_{U}(u_3)$, leading to
+		$$\begin{gather}
+			P_{U_1U_2U_3}(000)=P_{U}(0)P_{U}(0)P_{U}(0)=p^3 \tag{1.19}\\
+			P_{U_1U_2U_3}(001)=P_{U}(0)P_{U}(0)P_{U}(1)=p^2(1-p) \tag{1.20}\\
+			P_{U_1U_2U_3}(010)=P_{U}(0)P_{U}(1)P_{U}(0)=p^2(1-p) \tag{1.21}\\
+			P_{U_1U_2U_3}(011)=P_{U}(0)P_{U}(1)P_{U}(1)=p(1-p)^2 \tag{1.22}\\
+			P_{U_1U_2U_3}(100)=P_{U}(1)P_{U}(0)P_{U}(0)=p^2(1-p) \tag{1.23}\\
+			P_{U_1U_2U_3}(101)=P_{U}(1)P_{U}(0)P_{U}(1)=p(1-p)^2 \tag{1.24}\\
+			P_{U_1U_2U_3}(110)=P_{U}(1)P_{U}(1)P_{U}(0)=p(1-p)^2 \tag{1.25}\\
+			P_{U_1U_2U_3}(111)=P_{U}(1)P_{U}(1)P_{U}(1)=(1-p)^3 \tag{1.26}\end{gather}$$
+		Hence,
+		$$\begin{align}
+			P_{U_3}(0) &= \sum_{(u_1,u_2)\in\{0,1\}^2} P_{U_1U_2U_3}(u_1,u_2,0) = P_{U_1U_2U_3}(000) + P_{U_1U_2U_3}(010) + P_{U_1U_2U_3}(100)+ P_{U_1U_2U_3}(110) \tag{1.27}\\
+			&= p^3+2p^2(1-p)+p(1-p)^2 \tag{1.28}\\
+			&= p, \tag{1.29}\end{align}$$
+		which is simply $P_U(0)$ since the sequence is independent and identically distributed.
+</p>
+
+</details>
+
+
+</div>
+
+<p>
+Similarly to $(1.8)$ and $(1.9)$, we can also define joint conditional distributions of sequences of random variables. Let $(X_1,\ldots,X_n)$ and $(Y_1,\ldots,Y_n)$ be two sequences of random variables with conditional distribution $P_{Y_1\cdots Y_n|X_1\cdots X_n}(y_1,\ldots,y_n|x_1,\ldots,x_n)$. The sequence $(Y_1,\ldots,Y_n)$ is <strong>conditionally i.i.d.</strong> given $(X_1,\ldots,X_n)$ if
+$$
+	P_{Y_1\cdots Y_n|X_1\cdots X_n}(y_1,\ldots,y_n|x_1,\ldots,x_n) = \prod_{i=1}^n P_{Y|X}(y_i|x_i).
+	\tag{1.30}
+$$
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Example 1.4.</span> 
+<a id="ex:1.8"></a>
+A discrete memoryless channel is described by the input sequence $(X_1,X_2,X_3)$, where each $X_i$ takes values in $\{a,b\}$, and a  output sequence $(Y_1,Y_2,Y_3)$ where each $Y_i$ also takes values in $\{a,b\}$. The channel can be characterized by $(1.30)$ where, for example, $P_{Y|X}(y|x)$ corresponds to the arrow connecting the node $X=x$ to node $Y=t$ in the following graph:
+</p>
+<p>
+<figure><img src="../img/tikz/lecture1-fig2.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
+
+</div>
+<p>
+The channel is memoryless in the sense that <u>given</u> the input sequence $(X_1,X_2,X_3)$, the output sequence is conditionally i.i.d., for instance, the conditional probability $P_{Y_1Y_2Y_3|X_1X_2X_3}(aba|aab)$ can be written as
+$$
+	P_{Y_1Y_2Y_3|X_1X_2X_3}(aba|aab) = P_{Y|X}(a|a) P_{Y|X}(b|a) P_{Y|X}(a|b).
+	\tag{1.31}
+$$
+From the graph we know that $P_{Y|X}(a|a)=\frac 13$ and that $P_{Y|X}(b|b)=\frac 12$. As conditional distributions (see the discussion after equation $(1.10)$ above), we also know that $P_{Y|X}(a|a)+P_{Y|X}(b|a)=1$ and that $P_{Y|X}(a|b)+P_{Y|X}(b|b)=1$, from which we deduce that $P_{Y|X}(b|a)=\frac 23$ and that $P_{Y|X}(a|b)=\frac 12$. Using these values in $(1.31)$ we can calculate $P_{Y_1Y_2Y_3|X_1X_2X_3}(aba|aab)=\frac 13\cdot \frac 23 \cdot \frac 12 = \frac 19$.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 1.5.</span> 
+	Consider the discrete memoryless channel described in Example 1.8. Assuming that the input sequence $(X_1,X_2,X_3)$ has probability distribution
+	$$
+		P_{X_1X_2X_3}(x_1,x_2,x_3) = \begin{cases}
+			\frac 12 & x_1=x_2=x_3\\
+			0 & \text{otherwise},
+		\end{cases}
+		\tag{1.32}
+	$$
+	calculate the probability distribution of the output sequence.
+	
+</p>
+<details class="solution"><summary>Show solution</summary>
+<p>
+		We are asked to determine the probability distribution $P_{Y_1Y_2Y_3}(y_1,y_2,y_3)$, so a function of $(y_1,y_2,y_3)$ or, equivalently since $(y_1,y_2,y_3)\in\{a,b\}^3=\{aaa,aab,aba,abb,baa,bab,bba,bbb\}$, 8 numbers that add up to one. From the total probability law in $(1.12)$ and the conditionally independence in $(1.30)$, we can write
+		$$\begin{align}
+			P_{Y_1Y_2Y_3}(y_1,y_2,y_3) &= \sum_{(x_1,x_2,x_3)\in\{a,b\}^3} P_{Y_1Y_2Y_3|X_1X_2X_3}(y_1,y_2,y_3|x_1,x_2,x_3)P_{X_1X_2X_3}(x_1,x_2,x_3) \tag{1.33}\\
+			&= \sum_{(x_1,x_2,x_3)\in\{a,b\}^3} P_{Y|X}(y_1|x_1)P_{Y|X}(y_2|x_2)P_{Y|X}(y_3|x_3) P_{X_1X_2X_3}(x_1,x_2,x_3).
+			\tag{1.34}
+		\end{align}$$
+		Note that since the distribution $P_{X_1X_2X_3}(x_1,x_2,x_3)$ cannot be written as the product of independent and identical distributions, the distribution $P_{Y_1Y_2Y_3}(y_1,y_2,y_3)$ cannot be expressed as the product of independent and identical distributions either.
+		Since the input sequence $(X_1,X_2,X_3)$ has non-zero probability only for $aaa$ and $bbb$, according to $(1.32)$, the summation in $(1.34)$ has only two terms, namely
+		$$\begin{align}
+			P_{Y_1Y_2Y_3}(y_1,y_2,y_3) & = P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)P_{X_1X_2X_3}(aaa) \tag{1.35}\\ &  ~ \hspace{4em} + P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b)P_{X_1X_2X_3}(bbb) \tag{1.36}\\
+			&= \frac 12 P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)  + \frac 12 P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b). \tag{1.37}\end{align}$$
+		It only remains to determine the numbers of the probability distribution, that is
+		$$\begin{gather}
+			P_{Y_1Y_2Y_3}(aaa) = \frac 12 P_{Y|X}(a|a)^3 + \frac 12 P_{Y|X}(a|b)^3 = \frac 12\cdot \left(\frac{1}{3}\right)^3 + \frac 12\cdot \left(\frac{1}{2}\right)^3 = \frac{35}{432}, \tag{1.38}\\
+			P_{Y_1Y_2Y_3}(aab) = \frac 12 P_{Y|X}(a|a)^2P_{Y|X}(b|a) + \frac 12 P_{Y|X}(a|b)^2P_{Y|X}(b|b) = \frac 12\cdot \left(\frac{1}{3}\right)^2\frac 23 + \frac 12\cdot \left(\frac{1}{2}\right)^2\frac 12 = \frac{43}{432}, \tag{1.39}\end{gather}$$
+		and so on.
+	
+</p>
+</details>
+
+
+</div>
+
+  </main>
+</div>
+<footer class="footer">
+  Universitat Pompeu Fabra · Information theory and coding 2026 &middot;
+  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>

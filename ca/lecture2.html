@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem("itc-theme");if(!t){t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})()</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema 2 - Funcions de variables aleatòries i desigualtats de concentració - ITC 2026</title>
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+</head>
+<body>
+<nav class="navbar">
+  <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  <a class="navbar-brand" href="index.html">
+    <img src="../img/upf-logo.svg" alt="UPF" style="height:42px;margin-right:0.75rem"> <span class="navbar-brand-text">Teoria de la informació i la codificació 2026</span>
+  </a>
+  <div class="navbar-actions">
+    <button class="search-toggle" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-hint">⌘K</span></button>
+    <button class="theme-toggle" aria-label="Toggle dark mode"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+  </div>
+  <div class="lang-switcher">
+    <a href="../ca/lecture2.html" class="active">CA</a>
+    <a href="../es/lecture2.html">ES</a>
+    <a href="../en/lecture2.html">EN</a>
+  </div>
+</nav>
+<div class="page">
+                <aside class="sidebar">
+    <details class="sidebar-section">
+      <summary><h4>General</h4></summary>
+      <a href="index.html">Inici</a>
+      <a href="guide.html">Guia d'aprenentatge</a>
+      <a href="https://gestioacademica.upf.edu/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&amp;idiomaPais=ca.ES&amp;_anoAcademico=2025&amp;_codAsignatura=23970" target="_blank">Guia docent<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      <a href="https://aulaglobal.upf.edu/course/view.php?id=87616" target="_blank">Aula Global<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+    </details>
+    <details class="sidebar-section" open>
+      <summary><h4>Apunts</h4></summary>
+      <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
+      <a href="lecture2.html" class="active">2. Funcions de VA i desigualtats de concentració</a>
+      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
+      <span class="sidebar-disabled">4. Codis de Huffman</span>
+      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
+      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
+      <span class="sidebar-disabled">7. Codis lineals</span>
+      <span class="sidebar-disabled">8. Capacitat de canal</span>
+      <span class="sidebar-disabled">9. Mesures d'informació</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exercicis</h4></summary>
+      <a href="exercises1.html">1. Variables aleatòries</a>
+      <a href="exercises2.html">2. Desigualtats de concentració</a>
+      <span class="sidebar-disabled">3. Codis sense prefixe</span>
+      <span class="sidebar-disabled">4. Codis de Huffman</span>
+      <span class="sidebar-disabled">5. Compressió de font</span>
+      <span class="sidebar-disabled">6. Probabilitat d'error</span>
+      <span class="sidebar-disabled">7. Codis lineals</span>
+      <span class="sidebar-disabled">8. Capacitat de canal</span>
+      <span class="sidebar-disabled">9. Mesures d'informació</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Qüestionari</h4></summary>
+      <a href="quiz1.html">Temes 1–2</a>
+      <span class="sidebar-disabled">Temes 3–5</span>
+      <span class="sidebar-disabled">Temes 6–9</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exàmens</h4></summary>
+      <span class="sidebar-disabled">Final 2025</span>
+      <span class="sidebar-disabled">Recuperació 2025</span>
+    </details>
+  </aside>
+  <main class="content">
+    <div class="lecture-header">
+      <h1>Tema 2. Funcions de variables aleatòries i desigualtats de concentració <a class="pdf-link" href="../pdf/ITC-2026-Lecture2-ca.pdf">pdf</a></h1>
+    </div>
+
+
+<h2>Introducció</h2>
+
+<p>
+Encara que a la lliçó 1 vam veure que tota la informació sobre una (seqüència de) variable(s) aleatòria(es) està(n) continguda(es) en la distribució de probabilitat, se'n poden extreure altres quantitats importants com valors esperats de funcions de la pròpia variable aleatòria. Les més conegudes són la mitjana i la variància d'una variable aleatòria $X$ amb distribució de probabilitat $P_X(x)$ definida sobre l'alfabet ${\cal X}$, donades respectivament per
+$$\begin{gather}
+	\text{mitjana}(X) = \mathbb{E}[X] \tag{2.1}\\
+	\text{var}(X) = \mathbb{E}[(X-\mathbb{E}[X])^2] = \mathbb{E}[X^2]-(\mathbb{E}[X])^2 \geq 0.
+	\tag{2.2}
+\end{gather}$$
+A dalt, presentem l'operador d'esperança, definit per a qualsevol funció $f(x)$ com
+$$
+	\mathbb{E}[f(X)] = \sum_{x\in{\cal X}} f(x) P_X(x).
+	\tag{2.3}
+$$
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 2.1.</span> 
+ 	Quin és el valor de $p$ que maximitza la variància d'una variable aleatòria $X$ que pren valors sobre l'alfabet $\{0,1\}$ amb distribució de probabilitat $\{p,1-p\}$?
+</p>
+
+<details class="solution"><summary>Mostra la solució</summary>
+<p>
+	Primer observem que $0\leq p \leq 1$ perquè $X$ tingui una distribució de probabilitat vàlida. La mitjana de $X$ ve donada per $\mathbb{E}[X]=\sum_{x\in{\cal X}} x P_X(x) = 0\cdot P_X(0) + 1 \cdot P_X(1) = P_X(1) = 1-p$. El moment de segon ordre és $\mathbb{E}[X^2]=\sum_{x\in{\cal X}}x^2P_X(x) = 0^2 \cdot P_X(0) + 1^2\cdot P_X(1) = 1-p$. Per tant, $\text{var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2 = 1-p-(1-p)^2 = p - p^2=p(1-p)$. La derivada de la variància respecte a $p$ és $1-2p$, que és positiva per a $p\lt \frac 12$, igual a zero per a $p=\frac 12$ i negativa per a $p\gt \frac 12$, cosa que implica que hi ha un màxim a $p=\frac 12$. El valor d'aquesta variància és $\text{var}(X)=\frac 14$.
+</p>
+
+</details>
+
+
+</div>
+
+
+<h2>Funcions de variables aleatòries</h2>
+
+<p>
+Donada una variable aleatòria $X$, la sortida d'una funció determinista $f(x)$ és una altra variable aleatòria, és a dir $Y=f(X)$, amb distribució de probabilitat $P_Y(y)$ i alfabet ${\cal Y}$. Òbviament, ambdues variables aleatòries estan relacionades. Per exemple, calcular l'esperança de $Y$ es pot fer de dues maneres: una primer trobant la distribució de probabilitat $P_Y(y)$ i usant que $\mathbb{E}[Y]=\sum_{y\in{\cal Y}}P_Y(y)$, però com ja vam veure a $(2.3)$, una altra opció és expressar la suma de probabilitat en termes de la variable aleatòria subjacent $X$, és a dir, $\mathbb{E}[Y]=\mathbb{E}[f(X)]=\sum_{x\in{\cal X}}f(x) P_X(x)$. Ambdós són equivalents i un pot ser més convenient que l'altre depenent del problema.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 2.2.</span> 
+ 	Sigui $X$ una variable aleatòria equiprobable a $\{-1,0,1\}$. Quina és la variància de $|X|$?
+</p>
+
+<details class="solution"><summary>Mostra la solució</summary>
+<p>
+	Podem resoldre aquest problema de dues maneres. Una és descobrir la distribució de probabilitat de $Y=|X|$ i després calcular la variància; l'altra és calcular directament la variància escrivint les esperances respecte a la variable aleatòria subjacent $X$. Comencem amb la primera. El valor absolut de $X$ prendrà valors $\{0,1\}$, ja que $|-1|=|1|=1$. Per la llei de probabilitat total, la distribució de probabilitat de $Y$ satisfà $P_Y(y)=\sum_{x\in{\cal A}} P_{Y|X}(y|x)P_X(x)$, on ${\cal A}$ és el conjunt de valors de $X$ tal que $Y=y$. Per exemple, per a $Y=0$, només tenim $x\in\{0\}$ i, atès que $P_{Y|X}(0|0)=1$ com que $|X|$ és una funció determinista, $P_Y(0)=P_X(0)=\frac 13$. De manera similar, per a $Y=1$ tenim $x\in\{-1,1\}$. De nou, $P_{Y|X}(1|-1)=P_{Y|X}(1|1)=1$ i per tant $P_Y(1)=P_X(-1)+P_X(1)=\frac 23$. Només queda calcular ${\rm var}(Y)$ usant $(2.2)$, és a dir:
+ 	$$\begin{gather}
+		\mathbb{E}[Y^2] = \sum_{y\in\{0,1\}} y^2 P_Y(y) = 0^2 \cdot P_Y(0) + 1^2 \cdot  P_Y(1) =  \frac 23, \tag{2.4}\\
+		(\mathbb{E}[Y])^2 = \Biggl(  \sum_{y\in\{0,1\}} y P_Y(y)   \Biggr)^2  = \Biggl( 0 \cdot P_Y(0) + 1 \cdot P_Y(1)   \Biggr)^2  = \biggl( \frac 23 \biggr)^2 = \frac 49. \tag{2.5}\end{gather}$$
+ 	Aleshores, ${\rm var}(Y)=\frac 23 - \frac 49 = \frac 29$.
+</p>
+<p>
+	La segona manera implica directament:
+ 	$$\begin{gather}
+		\mathbb{E}[Y^2] = \mathbb{E}[|X|^2] = \sum_{x\in\{-1,0,1\}} |x|^2 P_X(x) = |-1|^2\cdot P_X(-1) + |0|^2\cdot P_X(0) + |1|^2 \cdot P_X(1) = \frac 23, \tag{2.6}\\
+		(\mathbb{E}[Y])^2 = (\mathbb{E}[|X|])^2 = \Biggl(  \sum_{x\in\{-1,0,1\}} |x| P_X(x)   \Biggr)^2  = \Biggl(  |-1|\cdot P_X(-1) + |0| \cdot P_X(0) + |1|\cdot P_X(1) \Biggr)^2 = \biggl( \frac 23 \biggr)^2 = \frac 49, \tag{2.7}\end{gather}$$
+ 	conduint al mateix resultat.
+</p>
+
+</details>
+
+
+</div>
+
+<p>
+També trobarem funcions que involucren tres variables aleatòries. Per exemple:
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Exemple 2.1.</span> 
+ 	Siguin $X$ i $Y$ dues variables aleatòries independents, ambdues prenent valors a $\{0,1\}$ amb distribució de probabilitat $\bigl\{ \frac 12,\frac 12\}$, i definim una nova variable aleatòria com $Z=X+Y$. Totes les combinacions possibles de la suma $X+Y$ donen com a resultat l'alfabet de $Z$, és a dir, $\{0,1,2\}$. A continuació, podem escriure en general que
+ 	$$\begin{gather}
+	P_Z(z)=\sum_{(x,y)\in\{0,1\}^2} P_{XYZ}(x,y,z), \tag{2.8}\end{gather}$$
+	on $P_{XYZ}(x,y,z)$ és la distribució conjunta de les tres variables aleatòries. Tal distribució sempre es pot factoritzar com $P_{XYZ}(x,y,z)=P_{Z|XY}(z|x,y)P_{XY}(x,y)$ i, atès que $X$ i $Y$ són independents, també com $P_{XYZ}(x,y,z)=P_{Z|XY}(z|x,y)P_{X}(x)P_Y(y)$. Ara, per exemple, per determinar $P_Z(1)$ observem que atès que $X+Y$ (l'operació de suma) és una funció determinista, tenim que $P_{Z|XY}(1,0,0)=0$, $P_{Z|XY}(1,0,1)=1$, $P_{Z|XY}(1,1,0)=1$ i $P_{Z|XY}(1,1,1)=0$. Combinant-ho tot,
+ 	$$\begin{align}
+		P_Z(1) &= \sum_{(x,y)\in\{0,1\}^2} P_{XYZ}(x,y,1) \tag{2.9}\\
+		       &= \sum_{(x,y)\in\{0,1\}^2} P_{Z|XY}(1,x,y)P_X(x)P_Y(y) \tag{2.10}\\
+		       & = \frac 14 \left(P_{Z|XY}(1,0,0) + P_{Z|XY}(1,0,1) + P_{Z|XY}(1,1,0) + P_{Z|XY}(1,1,1)  \right) \tag{2.11}\\
+		       &= \frac 12. \tag{2.12}\end{align}$$
+ 	De manera similar podem determinar que $P_Z(0)=P_Z(2)=\frac 14$.
+</p>
+
+</div>
+
+
+<h2>Desigualtats de Markov i Chebyshev</h2>
+
+<p>
+Per a una variable aleatòria positiva $X$ i un valor $a\gt 0$, la <strong>desigualtat de Markov</strong> estableix que
+$$
+	\mathbb{P}[X \geq a] \leq \frac{\mathbb{E}[X]}{a}.
+	\tag{2.13}
+$$
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Exemple 2.2.</span> 
+<a id="ex:2.4"></a>
+Suposem que 	$X$ pren valors a $\{1,2,3\}$ amb igual probabilitat. Aleshores, podem calcular $\mathbb{P}[X>a]$ com una funció de $a$ usant que
+$$
+	\mathbb{P}[X\geq a] = \sum_{x\in{\cal A}} P_X(x), \tag{2.14}$$
+on ${\cal A}$ és el conjunt de valors de $X$ que satisfan l'esdeveniment “$X\geq a$”. Per a $a\in(-\infty,1]$, els tres valors satisfan la condició, per tant $\mathbb{P}[X\geq a]=1$. Per a $a\in(1,2]$ només dos valors satisfan la condició, per tant $\mathbb{P}[X\geq a]=\frac 23$. En conclusió, obtenim la funció de distribució $F_X(x)$ de la variable aleatòria $X$ avaluada a $a$, és a dir
+$$
+	\mathbb{P}[X\geq a] = \begin{cases}
+ 	1 & a \in (-\infty,1]\\
+ 	\frac 23 & a \in (1,2]\\
+ 	\frac 13 & a \in (2,3]\\
+ 	0 & a \in (3,+\infty);
+ \end{cases} \tag{2.15}$$
+mentre que el límit superior de Markov a $(2.13)$ ve donat per $\frac{\mathbb{E}[X]}{a} = \frac{2}{a}$. Representant gràficament ambdues quantitats juntes, obtenim la Figura 2.1, validant la desigualtat per a aquest exemple.
+</p>
+<figure><img src="../img/tikz/lecture2-fig1.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
+	<figcaption>Figura 2.1. Desigualtat de Markov a l'Exemple 2.4.</figcaption>
+	<a id="fig:2.1"></a>
+</p>
+
+</div>
+
+<p>
+Per altra banda, la <strong>desigualtat de Chebyshev</strong> relaciona la probabilitat que una variable aleatòria $X$ es trobi a certa distància de la mitjana a través de la seva variància. Sigui $X$ una variable aleatòria amb una variància ${\rm var}(X)$ diferent de zero. Per a qualsevol $k\gt 0$, tenim que
+$$
+	\mathbb{P}\bigl[|X-\mathbb{E}[X]| \geq k\bigr] \leq \frac{{\rm var}(X)}{k^2}.
+	\tag{2.16}
+$$
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 2.3.</span> 
+<a id="prob:2.5"></a>
+ 	Per a un enter $n\geq 1$, definim la variable aleatòria $Z$ com $Z=X_1+\ldots+X_n$, on $(X_1,\ldots,X_n)$ és una seqüència de variables aleatòries i.i.d., cadascuna distribuïda com $X_i\in\{0,1\}$ amb distribució de probabilitat $\{1-p,p\}$. Quan $n\to\infty$ i per a qualsevol $k\gt 0$, a què convergeix $ \mathbb{P}\bigl[|Z-np| \lt  nk\bigr]$?
+ 	
+</p>
+<details class="solution"><summary>Mostra la solució</summary>
+<p>
+		La probabilitat de l'enunciat s'assembla a la desigualtat de Chebyshev a $(2.16)$. Primer, notem que $\mathbb{E}[Z]=\mathbb{E}[X_1+\ldots+X_n]=\mathbb{E}[X_1]+\ldots+\mathbb{E}[X_n]=n \mathbb{E}[X]$, on $\mathbb{E}[X]=(1-p)\cdot 0 + p\cdot 1 = p$. Per això,
+	 	$$
+			\mathbb{P}\bigl[|Z-np| < nk\bigr] = \mathbb{P}\bigl[|Z-\mathbb{E}[Z]| < nk\bigr] = 1 - \mathbb{P}\bigl[|Z-\mathbb{E}[Z]| \geq nk\bigr] \geq 1 - \frac{{\rm var}(Z)}{n^2k^2}. \tag{2.17}$$
+	 	Com que les $X_i$ són independents, la variància de la suma és la suma de les variàncies, és a dir
+	 	$$
+			{\rm var}(Z) = {\rm var}(X_1+\ldots+X_n) = {\rm var}(X_1)+\ldots+{\rm var}(X_n) = n {\rm var}(X), \tag{2.18}$$
+	 	on ${\rm var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2 = p-p^2=p(1-p)$. Combinant-ho tot, obtenim que
+	 	$$
+			\mathbb{P}\bigl[|Z-np| < nk\bigr] \geq 1 - \frac{p(1-p)}{nk^2}. \tag{2.19}$$
+	 	Com que $n\to\infty$, la desigualtat anterior dóna com a resultat
+	 	$$
+			\lim_{n\to\infty} \mathbb{P}\bigl[|Z-np| < nk\bigr] \geq 1. \tag{2.20}$$
+	 	Com que una probabilitat no pot excedir $1$, podem concloure que $ \lim_{n\to\infty} \mathbb{P}\bigl[|Z-np| \lt  nk\bigr] = 1$.
+	
+</p>
+</details>
+
+
+</div>
+
+<p>
+El resultat del Problema 2.5 és una reformulació de la ben coneguda llei feble dels grans nombres.
+</p>
+
+<h2>La llei feble dels grans nombres</h2>
+
+<p>
+Considerem una seqüència de variables aleatòries independents i idènticament distribuïdes (iid) $(X_1,\ldots,X_n)$, cadascuna $X_i$ amb esperança finita $\mathbb{E}[X]$ i variància ${\rm var}(X)$. Aleshores, la mitjana mostral definida com
+$$
+	\overline{X} = \frac{X_1+\ldots+X_n}{n}, \tag{2.21}$$
+convergeix (en probabilitat) a la mitjana estadística $\mathbb{E}[X]$. Matemàticament parlant,
+$$
+	\lim_{n\to\infty} \mathbb{P}\left[|\overline{X}-\mathbb{E}[X]|< \epsilon \right] = 1, \tag{2.22}$$
+és a dir, la probabilitat que la mitjana mostral estigui lluny de la mitjana estadística s'anul·la com $n\to\infty$.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 2.4.</span> 
+Considerem la seqüència de variables aleatòries iid $(X_1,\ldots,X_n)$ on cada $X_i$ pren valors a $\{1,e\}$ amb igual probabilitat i definim una nova variable aleatòria $Y$ com
+$$
+	Y = \frac{\ln(X_1)+\ldots+\ln(X_n)}{n}. \tag{2.23}$$
+Aleshores, com $n\to\infty$, la variable aleatòria $Y$ convergeix a?
+</p>
+
+<details class="solution"><summary>Mostra la solució</summary>
+<p>
+ 	Com que $(X_1,\ldots,X_n)$ és una seqüència de variables aleatòries iid i $\ln(x)$ és una funció determinista de cada variable aleatòria, $\bigl(\ln(X_1),\ldots,\ln(X_n)\bigr)$ també és una seqüència de variables aleatòries iid. Observem a més que $Y$ és la mitjana mostral de la variable aleatòria $\ln(X)$, amb mitjana $\mathbb{E}[\ln(X)] = \sum_{x\in\{1,e\}} \ln(x) P_X(x) = \frac 12 \ln(1) + \frac 12 \ln(e) = \frac 12$ i variància ${\rm var}(\ln(X))=\mathbb{E}[\ln(X)^2]-(\mathbb{E}[\ln(X)])^2 = \sum_{x\in\{1,e\}} \ln(x)^2P_X(x) - \left( \frac 12 \right)^2 = \frac 12 \ln(1)^2 + \frac 12 \ln(e)^2 - \frac 14 = \frac 12 - \frac 14$. Atès que $\ln(X)$ té esperança i variància finites, per la llei feble dels grans nombres, $Y$ convergeix (en probabilitat) a la mitjana estadística $\mathbb{E}[\ln(X)]$, és a dir, $\frac 12$.
+</p>
+
+</details>
+
+
+</div>
+
+  </main>
+</div>
+<footer class="footer">
+  Universitat Pompeu Fabra · Teoria de la informació i la codificació 2026 &middot;
+  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>

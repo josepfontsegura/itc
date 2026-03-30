@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem("itc-theme");if(!t){t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})()</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 2 - Functions of random variables and concentration inequalities - ITC 2026</title>
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+</head>
+<body>
+<nav class="navbar">
+  <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  <a class="navbar-brand" href="index.html">
+    <img src="../img/upf-logo.svg" alt="UPF" style="height:42px;margin-right:0.75rem"> <span class="navbar-brand-text">Information theory and coding 2026</span>
+  </a>
+  <div class="navbar-actions">
+    <button class="search-toggle" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-hint">⌘K</span></button>
+    <button class="theme-toggle" aria-label="Toggle dark mode"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+  </div>
+  <div class="lang-switcher">
+    <a href="../ca/lecture2.html">CA</a>
+    <a href="../es/lecture2.html">ES</a>
+    <a href="../en/lecture2.html" class="active">EN</a>
+  </div>
+</nav>
+<div class="page">
+                <aside class="sidebar">
+    <details class="sidebar-section">
+      <summary><h4>General</h4></summary>
+      <a href="index.html">Home</a>
+      <a href="guide.html">Learning guide</a>
+      <a href="https://gestioacademica.upf.edu/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&amp;idiomaPais=ca.ES&amp;_anoAcademico=2025&amp;_codAsignatura=23970" target="_blank">Teaching guide<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      <a href="https://aulaglobal.upf.edu/course/view.php?id=87593" target="_blank">Aula Global<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+    </details>
+    <details class="sidebar-section" open>
+      <summary><h4>Lecture notes</h4></summary>
+      <a href="lecture1.html">1. Sequences of random variables</a>
+      <a href="lecture2.html" class="active">2. Functions of RV &amp; concentration ineq.</a>
+      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
+      <span class="sidebar-disabled">4. Huffman codes</span>
+      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
+      <span class="sidebar-disabled">6. Error probability of channel codes</span>
+      <span class="sidebar-disabled">7. Linear codes</span>
+      <span class="sidebar-disabled">8. Channel capacity</span>
+      <span class="sidebar-disabled">9. Information measures</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exercises</h4></summary>
+      <a href="exercises1.html">1. Random variables</a>
+      <a href="exercises2.html">2. Concentration inequalities</a>
+      <span class="sidebar-disabled">3. Prefix-free codes</span>
+      <span class="sidebar-disabled">4. Huffman codes</span>
+      <span class="sidebar-disabled">5. Data compression</span>
+      <span class="sidebar-disabled">6. Error probability</span>
+      <span class="sidebar-disabled">7. Linear codes</span>
+      <span class="sidebar-disabled">8. Channel capacity</span>
+      <span class="sidebar-disabled">9. Information measures</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Quiz</h4></summary>
+      <a href="quiz1.html">Topics 1–2</a>
+      <span class="sidebar-disabled">Topics 3–5</span>
+      <span class="sidebar-disabled">Topics 6–9</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exams</h4></summary>
+      <span class="sidebar-disabled">Final 2025</span>
+      <span class="sidebar-disabled">Resit 2025</span>
+    </details>
+  </aside>
+  <main class="content">
+    <div class="lecture-header">
+      <h1>Lecture 2. Functions of random variables and concentration inequalities <a class="pdf-link" href="../pdf/ITC-2026-Lecture2-en.pdf">pdf</a></h1>
+    </div>
+<p>\definecolor{Pantone186}{RGB}{200,16,46}
+</p>
+
+<h2>Introduction</h2>
+
+<p>
+Although we saw in Lecture 1 that all the information about a (sequence of) random variable(s) is contained in the probability distribution, other important quantities can be extracted as expected values of functions of the random variable itself. The best known are the mean and the variance of a random variable $X$ with probability distribution $P_X(x)$ defined over the alphabet ${\cal X}$, respectively given by
+$$\begin{gather}
+	\text{mean}(X) = \mathbb{E}[X] \tag{2.1}\\
+	\text{var}(X) = \mathbb{E}[(X-\mathbb{E}[X])^2] = \mathbb{E}[X^2]-(\mathbb{E}[X])^2 \geq 0.
+	\tag{2.2}
+\end{gather}$$
+Above, we introduced the expectation operator, defined for any function $f(x)$ as
+$$
+	\mathbb{E}[f(X)] = \sum_{x\in{\cal X}} f(x) P_X(x).
+	\tag{2.3}
+$$
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 2.1.</span> 
+	What is value of $p$ that maximizes the variance of a random variable $X$ taking values over the alphabet $\{0,1\}$ with probability distribution $\{p,1-p\}$?
+</p>
+
+<details class="solution"><summary>Show solution</summary>
+<p>
+	We first note that $0\leq p \leq 1$ for $X$ to have a valid probability distribution. The mean of $X$ is given by $\mathbb{E}[X]=\sum_{x\in{\cal X}} x P_X(x) = 0\cdot P_X(0) + 1 \cdot P_X(1) = P_X(1) = 1-p$. The second-order moment is given by $\mathbb{E}[X^2]=\sum_{x\in{\cal X}}x^2P_X(x) = 0^2 \cdot P_X(0) + 1^2\cdot P_X(1) = (1-p)$. Hence, $\text{var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2 = 1-p-(1-p)^2 = p - p^2=p(1-p)$. The derivative of the variance with respect to $p$ is $1-2p$, which is positive for $p\lt \frac 12$, equal to zero or $p=\frac 12$ and negative for $p\gt \frac 12$, implying that there is a maximum at $p=\frac 12$. The value of such variance is $\text{var}(X)=\frac 14$.
+</p>
+
+</details>
+
+
+</div>
+
+
+<h2>Functions of random variables</h2>
+
+<p>
+Given a random variable $X$, the output of a deterministic function $f(x)$ is another random variable, that is $Y=f(X)$, with probability distribution $P_Y(y)$ and alphabet ${\cal Y}$. Obviously, both random variables are related. For example, calculating the expectation of $Y$ can be done in two ways: one by first finding the probability distribution $P_Y(y)$ and using that $\mathbb{E}[Y]=\sum_{y\in{\cal Y}}P_Y(y)$, but as we already saw in $(2.3)$, another option is to express the probability summation in terms of the underlying random variable $X$, that is, $\mathbb{E}[Y]=\mathbb{E}[f(X)]=\sum_{x\in{\cal X}}f(x) P_X(x)$. Both are equivalent, and one might be more convenient than the other depending on the problem.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 2.2.</span> 
+	Let $X$ be an equiprobable random variable in $\{-1,0,1\}$. What is the variance of $|X|$?
+</p>
+
+<details class="solution"><summary>Show solution</summary>
+<p>
+	We can solve this problem in two ways. One is to discover the probability distribution of $Y=|X|$ and then calculate the variance, the other one is to directly calculate the variance by writing the expectations with respect to the underlying random variable $X$. Let us start with the first one. The absolute value of $X$ will take values over $\{0,1\}$, since $|-1|=|1|=1$. By the law of total probability, the  probability distribution  of $Y$ satisfies $P_Y(y)=\sum_{x\in{\cal A}} P_{Y|X}(y|x)P_X(x)$, where ${\cal A}$ is the set of values of $X$ such that $Y=y$. For example, for $Y=0$, we only have  $x\in\{0\}$ and, since $P_{Y|X}(0|0)=1$ as $|X|$ is a deterministic function, $P_Y(0)=P_X(0)=\frac 13$. Similarly, for $Y=1$ we have $x\in\{-1,1\}$. Again, $P_{Y|X}(1|-1)=P_{Y|X}(1|1)=1$ and therefore $P_Y(1)=P_X(-1)+P_X(1)=\frac 23$. It only remains to calculate ${\rm var}(Y)$ using $(2.2)$ from:
+	$$\begin{gather}
+		\mathbb{E}[Y^2] = \sum_{y\in\{0,1\}} y^2 P_Y(y) = 0^2 \cdot P_Y(0) + 1^2 \cdot  P_Y(1) =  \frac 23, \tag{2.4}\\
+		(\mathbb{E}[Y])^2 = \Biggl(  \sum_{y\in\{0,1\}} y P_Y(y)   \Biggr)^2  = \Biggl( 0 \cdot P_Y(0) + 1 \cdot P_Y(1)   \Biggr)^2  = \biggl( \frac 23 \biggr)^2 = \frac 49. \tag{2.5}\end{gather}$$
+	Then, ${\rm var}(Y)=\frac 23 - \frac 49 = \frac 29$. 
+	
+	The second way involves:
+	$$\begin{gather}
+		\mathbb{E}[Y^2] = \mathbb{E}[|X|^2] = \sum_{x\in\{-1,0,1\}} |x|^2 P_X(x) = |-1|^2\cdot P_X(-1) + |0|^2\cdot P_X(0) + |1|^2 \cdot P_X(1) = \frac 23, \tag{2.6}\\
+		(\mathbb{E}[Y])^2 = (\mathbb{E}[|X|])^2 = \Biggl(  \sum_{x\in\{-1,0,1\}} |x| P_X(x)   \Biggr)^2  = \Biggl(  |-1|\cdot P_X(-1) + |0| \cdot P_X(0) + |1|\cdot P_X(1) \Biggr)^2 = \biggl( \frac 23 \biggr)^2 = \frac 49, \tag{2.7}\end{gather}$$
+	leading to the same result.
+</p>
+
+</details>
+
+
+</div>
+
+<p>
+We will also encounter functions involving three random variables. For example:
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Example 2.1.</span> 
+	Let $X$ and $Y$ be two independent random variables both taking values in $\{0,1\}$ with probability distribution $\bigl\{ \frac 12,\frac 12\}$, and define a new random variable as $Z=X+Y$. All the possible combinations of the sum $X+Y$ leads to the alphabet of $Z$, that is, $\{0,1,2\}$. Next, we can write in general that
+	$$\begin{gather}
+	P_Z(z)=\sum_{(x,y)\in\{0,1\}^2} P_{XYZ}(x,y,z), \tag{2.8}\end{gather}$$
+	where $P_{XYZ}(x,y,z)$ is the joint distribution of the three random variables. Such distribution can be always factorized as $P_{XYZ}(x,y,z)=P_{Z|XY}(z|xy)P_{XY}(x,y)$ and, since $X$ and $Y$ are independent, further as $P_{XYZ}(x,y,z)=P_{Z|XY}(z|xy)P_{X}(x)P_Y(y)$. Now, for example, to determine $P_Z(1)$ we note that since $X+Y$ (the sum operation) is a deterministic function we have that $P_{Z|XY}(1,0,0)=0$, $P_{Z|XY}(1,0,1)=1$, $P_{Z|XY}(1,1,0)=1$ and $P_{Z|XY}(1,1,1)=0$. Combining everything,
+	$$\begin{align}
+		P_Z(1) &= \sum_{(x,y)\in\{0,1\}^2} P_{XYZ}(x,y,1) \tag{2.9}\\
+		       &= \sum_{(x,y)\in\{0,1\}^2} P_{Z|XY}(1,x,y)P_X(x)P_Y(y) \tag{2.10}\\
+		       & = \frac 14 \left(P_{Z|XY}(1,0,0) + P_{Z|XY}(1,0,1) + P_{Z|XY}(1,1,0) + P_{Z|XY}(1,1,1)  \right) \tag{2.11}\\
+		       &= \frac 12. \tag{2.12}\end{align}$$ 
+	In a similar way we can determine that $P_Z(0)=P_Z(2)=\frac 14$.
+</p>
+
+</div>
+
+
+<h2>Markov's and Chebyshev's inequalities</h2>
+
+<p>
+For a positive random variable $X$ and a value $a\gt 0$, <strong>Markov's inequality</strong> states that
+$$
+	\mathbb{P}[X \geq a] \leq \frac{\mathbb{E}[X]}{a}.
+	\tag{2.13}
+$$
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Example 2.2.</span> 
+<a id="ex:2.4"></a>
+Suppose	$X$ takes values in $\{1,2,3\}$ with equal probability. Then, we can calculate $\mathbb{P}[X>a]$ as a function of $a$ using that
+$$
+	\mathbb{P}[X\geq a] = \sum_{x\in{\cal A}} P_X(x), \tag{2.14}$$
+where ${\cal A}$ is the set of values of $X$ satisfying the event “$X\geq a$”. For $a\in(-\infty,1]$, all three values satisfy the condition, therefore $\mathbb{P}[X\geq a]=1$. For $a\in(1,2]$ only two values satisfy the condition hence $\mathbb{P}[X\geq a]=\frac 23$. In conclusion, we obtain the cumulative distribution function (c.d.f.) of the random variable $X$ evaluated at $a$:
+$$
+	\mathbb{P}[X\geq a] = \begin{cases}
+ 	1 & a \in (-\infty,1]\\
+ 	\frac 23 & a \in (1,2]\\
+ 	\frac 13 & a \in (2,3]\\
+ 	0 & a \in (3,+\infty);
+ \end{cases} \tag{2.15}$$
+while Markov's upper bound in $(2.13)$ is given by $\frac{\mathbb{E}[X]}{a} = \frac{2}{a}$. Plotting both quantities together, we obtain Figure 2.1, validating the inequality for this example.
+</p>
+<figure><img src="../img/tikz/lecture2-fig1.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
+	<figcaption>Figure 2.1. Markov's inequality in Example 2.4.</figcaption>
+	<a id="fig:2.1"></a>
+</p>
+
+</div>
+
+<p>
+On the other hand, <strong>Chebyshev's inequality</strong> relates the probability that a random variable $X$ is at some distance from the mean with its variance. Let $X$ be a random variable with a non-zero variance ${\rm var}(X)$. For any $k\gt 0$,
+$$
+	\mathbb{P}\bigl[|X-\mathbb{E}[X]| \geq k\bigr] \leq \frac{{\rm var}(X)}{k^2}.
+	\tag{2.16}
+$$
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 2.3.</span> 
+<a id="prob:2.5"></a>
+	For an integer $n\geq 1$, we define the random variable $Z$ as $Z=X_1+\ldots+X_n$, where $(X_1,\ldots,X_n)$ is a sequence of i.i.d. random variables each distributed as $X_i\in\{0,1\}$ with probability distribution $\{1-p,p\}$. Then, as $n\to\infty$ and for any $k\gt 0$, the probabilty $\mathbb{P}\bigl[|Z-np| \lt  nk\bigr]$ converges to...?
+	
+</p>
+<details class="solution"><summary>Show solution</summary>
+<p>
+		The probability in the statement resembles that of Chebyshev's inequality in $(2.16)$. First, we note that $\mathbb{E}[Z]=\mathbb{E}[X_1+\ldots+X_n]=\mathbb{E}[X_1]+\ldots+\mathbb{E}[X_n]=n \mathbb{E}[X]$, where $\mathbb{E}[X]=(1-p)\cdot 0 + p\cdot 1 = p$. Hence,
+		$$
+			\mathbb{P}\bigl[|Z-np| < nk\bigr] = \mathbb{P}\bigl[|Z-\mathbb{E}[Z]| < nk\bigr] = 1 - \mathbb{P}\bigl[|Z-\mathbb{E}[Z]| \geq nk\bigr] \geq 1 - \frac{{\rm var}(Z)}{n^2k^2}. \tag{2.17}$$
+		Since $X_i$ are independent, the variance of the sum is the sum of variances, that is
+		$$
+			{\rm var}(Z) = {\rm var}(X_1+\ldots+X_n) = {\rm var}(X_1)+\ldots+{\rm var}(X_n) = n {\rm var}(X), \tag{2.18}$$
+		where ${\rm var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2 = p-p^2=p(1-p)$.  Combining everything, we obtain that
+		$$
+			\mathbb{P}\bigl[|Z-np| < nk\bigr] \geq 1 - \frac{p(1-p)}{nk^2}. \tag{2.19}$$
+		As $n\to\infty$, the inequality above results in
+		$$
+			\lim_{n\to\infty} \mathbb{P}\bigl[|Z-np| < nk\bigr] \geq 1. \tag{2.20}$$
+		Since a probability cannot exceed $1$, we can conclude that $ \lim_{n\to\infty} \mathbb{P}\bigl[|Z-np| \lt  nk\bigr] = 1$.
+	
+</p>
+</details>
+
+
+</div>
+
+<p>
+The result of Problem 2.5 is a rephrasing of the well-known weak law of large numbers.
+</p>
+
+<h2>The weak law of large numbers</h2>
+
+<p>
+Consider a sequence of independent and identically distributed (i.i.d.) random variables $(X_1,\ldots,X_n)$, each $X_i$ with finite expectation $\mathbb{E}[X]$ and variance ${\rm var}(X)$. Then, the sample mean defined as
+$$
+	\overline{X} = \frac{X_1+\ldots+X_n}{n}, \tag{2.21}$$
+converges (in probability) to the statistical mean $\mathbb{E}[X]$. Mathematically speaking, 
+$$
+	\lim_{n\to\infty} \mathbb{P}\left[|\overline{X}-\mathbb{E}[X]|< \epsilon \right] = 1, \tag{2.22}$$
+that is, the probability that the sample mean is far away from the statistical mean vanishes as $n\to\infty$.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 2.4.</span> 
+Consider the sequence of i.i.d. random variables $(X_1,\ldots,X_n)$ where each $X_i$ takes values in $\{1,e\}$ with equal probability and define a new random variable $Y$ as
+$$
+	Y = \frac{\ln(X_1)+\ldots+\ln(X_n)}{n}. \tag{2.23}$$ 	
+Then, as $n\to\infty$, the random variable $Y$ converges to?
+</p>
+
+<details class="solution"><summary>Show solution</summary>
+<p>
+	Since $(X_1,\ldots,X_n)$ is a sequence of i.i.d. random  variables and $\ln(x)$ is a deterministic function of each random variable, $\bigl(\ln(X_1),\ldots,\ln(X_n)\bigr)$ is also a sequence of i.i.d. random variables. We further note that $Y$ is the sample mean of the random variable $\ln(X)$, with mean $\mathbb{E}[\ln(X)] = \sum_{x\in\{1,e\}} \ln(x) P_X(x) = \frac 12 \ln(1) + \frac 12 \ln(e) = \frac 12$ and variance ${\rm var}(\ln(X))=\mathbb{E}[\ln(X)^2]-(\mathbb{E}[\ln(X)])^2 = \sum_{x\in\{1,e\}} \ln(x)^2P_X(x) - \left( \frac 12 \right)^2 = \frac 12 \ln(1)^2 + \frac 12 \ln(e)^2 - \frac 14 = \frac 12 - \frac 14$. Given that $\ln(X)$ has finite expectation and variance, by the weak law of large numbers, $Y$ converges (in probability) to the statistical mean $\mathbb{E}[\ln(X)]$, that is, $\frac 12$.
+</p>
+
+</details>
+
+
+</div>
+
+  </main>
+</div>
+<footer class="footer">
+  Universitat Pompeu Fabra · Information theory and coding 2026 &middot;
+  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>

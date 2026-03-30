@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem("itc-theme");if(!t){t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})()</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios: 1. Secuencias de variables aleatorias - ITC 2026</title>
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  <a class="navbar-brand" href="index.html">
+    <img src="../img/upf-logo.svg" alt="UPF" style="height:42px;margin-right:0.75rem"> <span class="navbar-brand-text">Teoría de la información y codificación 2026</span>
+  </a>
+  <div class="navbar-actions">
+    <button class="search-toggle" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-hint">⌘K</span></button>
+    <button class="theme-toggle" aria-label="Toggle dark mode"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+  </div>
+  <div class="lang-switcher">
+    <a href="../ca/exercises1.html">CA</a>
+    <a href="../es/exercises1.html" class="active">ES</a>
+    <a href="../en/exercises1.html">EN</a>
+  </div>
+</nav>
+
+<div class="page">
+        <aside class="sidebar">
+    <details class="sidebar-section">
+      <summary><h4>General</h4></summary>
+      <a href="index.html">Inicio</a>
+      <a href="guide.html">Guía de aprendizaje</a>
+      <a href="https://gestioacademica.upf.edu/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&amp;idiomaPais=ca.ES&amp;_anoAcademico=2025&amp;_codAsignatura=23970" target="_blank">Guía docente<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      <a href="https://aulaglobal.upf.edu/course/view.php?id=87616" target="_blank">Aula Global<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Apuntes</h4></summary>
+      <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
+      <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
+      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
+      <span class="sidebar-disabled">4. Códigos de Huffman</span>
+      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
+      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
+      <span class="sidebar-disabled">7. Códigos lineales</span>
+      <span class="sidebar-disabled">8. Capacidad de canal</span>
+      <span class="sidebar-disabled">9. Medidas de información</span>
+    </details>
+    <details class="sidebar-section" open>
+      <summary><h4>Ejercicios</h4></summary>
+      <a href="exercises1.html" class="active">1. Variables aleatorias</a>
+      <a href="exercises2.html">2. Desigualdades de concentración</a>
+      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
+      <span class="sidebar-disabled">4. Códigos de Huffman</span>
+      <span class="sidebar-disabled">5. Compresión de fuente</span>
+      <span class="sidebar-disabled">6. Probabilidad de error</span>
+      <span class="sidebar-disabled">7. Códigos lineales</span>
+      <span class="sidebar-disabled">8. Capacidad de canal</span>
+      <span class="sidebar-disabled">9. Medidas de información</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Cuestionario</h4></summary>
+      <a href="quiz1.html">Temas 1–2</a>
+      <span class="sidebar-disabled">Temas 3–5</span>
+      <span class="sidebar-disabled">Temas 6–9</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exámenes</h4></summary>
+      <span class="sidebar-disabled">Final 2025</span>
+      <span class="sidebar-disabled">Recuperación 2025</span>
+    </details>
+  </aside>
+
+  <main class="content">
+    <div class="lecture-header">
+      <h1>Ejercicios: 1. Secuencias de variables aleatorias</h1>
+    </div>
+
+    <button id="expand-all" data-expand="Mostrar todas las soluciones" data-collapse="Ocultar todas las soluciones" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostrar todas las soluciones</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.1.</span> Knowing that la probabilidad that the fuente outputs the sequence $210$ is $\frac{1}{36}$, cuál es la probabilidad that the fuente outputs the sequence $02$?</p>
+  <p>(a) $\frac{1}{12}$<br>
+  (b) $\frac{1}{6}$<br>
+  (c) Ambas (a) and (b) are compatible answers.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>The statement implies that $P_U(2)=\frac 12$ and por lo tanto that $P_{U_1U_2U_3}(210)=\frac 12P_U(1)P_U(0)=\frac{1}{36}$. Together with $P_U(0)+P_U(1)=\frac 12$, encontramos that the distribution is either $\bigl\{ \frac 16,\frac 13,\frac 12 \bigr\}$ or $\bigl\{ \frac 13,\frac 16,\frac 12 \bigr\}$. The question asks for $P_U(0)P_U(2)$, which can be wither $\frac{1}{12}$ or $\frac{1}{6}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.2.</span> Which is la probabilidad that the fuente does not output the all-$2$ sequence?</p>
+  <p>(a) $\frac{1}{2^n}$<br>
+  (b) $\frac{1}{4^n}$<br>
+  (c) $1-2^{-n}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Dado que la probabilidad that the fuente outputs the all-$2$ sequence is $P_{U_1\cdots U_n}(2\cdots 2)=P_U(2)^n=2^{-n}$, the complementary event happens with probability $1-2^{-n}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.3.</span> Cuál de las siguientes pairs of sequences do not have the same probability?</p>
+  <p>(a) $0012$ and $0201$<br>
+  (b) $1111$ and $2222$<br>
+  (c) $1212$ and $2121$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>As a discrete memoryless fuente, la probabilidad of a sequence only depends on the number of occurrences of each symbol.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.4.</span> Which is la probabilidad that the output sequence is $abb$ conditioned on the input sequence being $cba$?</p>
+  <p>(a) $0$<br>
+  (b) $\frac 13$<br>
+  (c) Ninguna de las otras.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>La probabilidad is given by 
+$$
+P_{Y|X}(a|c)P_{Y|X}(b|b)P_{Y|X}(b|a) = \frac 12 \cdot 1 \cdot \frac 23 = \frac 13.
+$$</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.5.</span> Which is la probabilidad that, knowing that $(X_1,X_2,X_3)=bbb$, $(Y_1,Y_2,Y_3)$ is $aaa$?</p>
+  <p>(a) $1$<br>
+  (b) $0$<br>
+  (c) $\frac 18$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Conditioned on $(X_1,X_2,X_3)=bbb$, la probabilidad that the output sequence is $aaa$ is $\mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=bbb] = P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa|bbb)$. Dado que the canal is memoryless, the conditional distribution is given by $P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa|bbb)=P_{Y|X}(a|b)^3=0^3=0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.6.</span> Which is la probabilidad that $(Y_1,Y_2,Y_3)=bbb$?</p>
+  <p>(a) $\frac{59}{648}$<br>
+  (b) $\frac{307}{648}$<br>
+  (c) $\frac{35}{648}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>By the total probability law, we can calculate la probabilidad that $(Y_1,Y_2,Y_3)$ is $bbb$ as $\sum_{(x_1,x_2,x_3)\in\{a,b,c\}^3} \mathbb{P}[(Y_1,Y_2,Y_3)=bbb|(X_1,X_2,X_3)=(x_1,x_2,x_3)]P_{X_1X_2X_3}(x_1,x_2,x_3)$. We know $(X_1,X_2,X_3)$ only takes three possible values with non-zero probability, so we only have to calculate the following probabilities
+ 	$$
+		\mathbb{P}[(Y_1,Y_2,Y_3)=bbb|(X_1,X_2,X_3)=aaa] = \tfrac{8}{27}\\
+		\mathbb{P}[(Y_1,Y_2,Y_3)=bbb|(X_1,X_2,X_3)=bbb] = 1\\
+		\mathbb{P}[(Y_1,Y_2,Y_3)=bbb|(X_1,X_2,X_3)=ccc] = \tfrac 18.
+	$$
+	For example, to find the first one we used that $
+	P_{Y_1Y_2Y_3|X_1X_2X_3}(bbb|aaa)=P_{Y|X}(b|a)^3$. Plugging the numbers in the summation and noting that $P_{X_1X_2X_3}(bbb)=P_{X_1X_2X_3}(ccc)=P_{X_1X_2X_3}(aaa)=\frac 13$, obtenemos the result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.7.</span> The distribution of $(U_1,U_2)$, in lexicographic order, is given by</p>
+  <p>(a) $\bigl\{ \frac{1}{4},\frac{1}{12},\frac{1}{6},\frac{1}{12},\frac{1}{36},\frac{1}{18},\frac{1}{6},\frac{1}{18},\frac{1}{9} \bigr\}$<br>
+  (b) $\bigl\{ \frac 19, \frac{1}{18}, \frac{1}{6}, \frac{1}{18},\frac{1}{36} , \frac{1}{12}, \frac{1}{6}, \frac{1}{12}, \frac{1}{4}\bigr\}$<br>
+  (c) Ninguna de las otras.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Together with $P_U(0)+P_U(1)+P_U(2)=1$, encontramos that $P_U(0)=\frac 12$, $P_U(1)=\frac 16$ and $P_U(2)=\frac 13$. Dado que symbols are i.i.d., the distribution of $(U_1,U_2)$ satisfies $P_{U_1U_2}(u_1,u_2)=P_U(u_1)P_U(u_2)$, for each $(u_1,u_2)\in\{0,1,2\}^2=\{00,01,02,10,11,12,20,21,22\}$, lo que lleva a the result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.8.</span> Which is la probabilidad that the fuente outputs a sequence containing at least one symbol $0$?</p>
+  <p>(a) $\frac 34$<br>
+  (b) $\frac 12$<br>
+  (c) $\frac 49$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>The event ``$(U_1,U_2)$ has exactly one symbol $0$'' is described by the set of outut sequences containing exactly one symbol $0$, that is ${\cal A}=\{00,01,02,10,20\}$. Por lo tanto, $\mathbb{P}[\text{$(U_1,U_2)$ has exactly one symbol $0$}]=\mathbb{P}[(U_1,U_2)\in{\cal A}]=\sum_{(u_1,u_2)\in{\cal A}}P_{U_1U_2}(u_1,u_2)$. Using the distribution in question 1, obtenemos the result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.9.</span> Which is la probabilidad that the fuente outputs the all $0$ sequence?</p>
+  <p>(a) $\frac{1}{3^n}$<br>
+  (b) $\frac{1}{2^n}$<br>
+  (c) $\frac{1}{6^n}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>As a sequence of i.i.d. variables aleatorias, we have that $\mathbb{P}[(U_1,\ldots,U_n)=0\cdots 0]=P_{U_1\cdots U_n}(0\cdots 0) = \prod_{i=1}^n P_U(0) = \frac{1}{2^n}.$</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.10.</span> Cuál de las siguientes corresponds to la probabilidad distribution of $Y$?</p>
+  <p>(a) $\bigl\{ \frac 13P_X(a)+P_X(b)+\frac 12 P_X(c) , \frac 23 P_X(a) + \frac 12 P_X(c) \bigr\}$<br>
+  (b) $\bigl\{ \frac 13P_X(a)+\frac 12 P_X(c) , \frac 23 P_X(a) + P_X(b) + \frac 12 P_X(c) \bigr\}$<br>
+  (c) Ninguna de las otras</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>La probabilidad distribution of $Y$ is given by $\{P_Y(a),P_Y(b)\}$. By the total probability law, $P_Y(y) = \sum_{x\in\{a,b,c\}}P_{Y|X}(y|x)P_X(x)$. For example, $P_Y(a) = P_{Y|X}(a|a)P_X(a) + P_{Y|X}(a|b)P_X(b) + P_{Y|X}(a|c)P_X(c)$. Substituting the numbers obtenemos the result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.11.</span> Which is la probabilidad that $(Y_1,Y_2,Y_3)=aaa$?</p>
+  <p>(a) $\frac{59}{648}$<br>
+  (b) $\frac{59}{324}$<br>
+  (c) $\frac{35}{648}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>By the total probability law, we can calculate la probabilidad that $(Y_1,Y_2,Y_3)$ is $aaa$ as $\sum_{(x_1,x_2,x_3)\in\{a,b,c\}^3} \mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=(x_1,x_2,x_3)]P_{X_1X_2X_3}(x_1,x_2,x_3)$. We know $(X_1,X_2,X_3)$ only takes three possible values with non-zero probability, so we only have to calculate the following probabilities
+ 	$$
+		\mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=aaa] = \tfrac{1}{27}\\
+		\mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=bbb] = 0\\
+		\mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=ccc] = \tfrac 18.
+	$$
+	For example, to find the first one we used that $
+	P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa|aaa)=P_{Y|X}(a|a)^3$. Plugging the numbers in the summation and noting that $P_{X_1X_2X_3}(bbb)=P_{X_1X_2X_3}(ccc)=P_{X_1X_2X_3}(aaa)=\frac 13$, obtenemos the result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.12.</span> A discrete memoryless fuente produces i.i.d. symbols from the alphabet $\{a,b\}$ with $P(a)=\tfrac{1}{3}$. Cuál es la probabilidad of the sequence $abba$?</p>
+  <p>(a) $\tfrac{4}{81}$<br>
+  (b) $\tfrac{2}{27}$<br>
+  (c) $\tfrac{4}{27}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Dado que the fuente is memoryless, $P(abba) = P(a)P(b)P(b)P(a) = \tfrac{1}{3}\cdot\tfrac{2}{3}\cdot\tfrac{2}{3}\cdot\tfrac{1}{3} = \tfrac{4}{81}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.13.</span> Let $X$ and $Y$ be two independientes variables aleatorias with $X\in\{0,1\}$ equiprobable and $Y\in\{0,1,2\}$ equiprobable. Cuál es $\mathbb{E}[XY]$?</p>
+  <p>(a) $\tfrac{1}{2}$<br>
+  (b) $1$<br>
+  (c) $\tfrac{1}{3}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>By independence, $\mathbb{E}[XY]=\mathbb{E}[X]\mathbb{E}[Y]=\tfrac{1}{2}\cdot 1 = \tfrac{1}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.14.</span> A ternary fuente emits symbols from $\{0,1,2\}$ with probabilities $\{\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{4}\}$. For a sequence of length $n=2$, how many distinct sequences have probability $\tfrac{1}{8}$?</p>
+  <p>(a) $2$<br>
+  (b) $4$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>A sequence has probability $\tfrac{1}{8}$ when it consists of one symbol with probability $\tfrac{1}{2}$ and one with probability $\tfrac{1}{4}$. The possible sequences are $01$, $02$, $10$, $20$, giving $4$ sequences.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.15.</span> A discrete memoryless fuente emits i.i.d. symbols from $\{a,b,c\}$ with $P(a)=\tfrac{1}{2}$, $P(b)=\tfrac{1}{3}$, $P(c)=\tfrac{1}{6}$. Cuál es la probabilidad that a sequence of length $2$ contains no $a$?</p>
+  <p>(a) $\tfrac{1}{4}$<br>
+  (b) $\tfrac{1}{2}$<br>
+  (c) $\tfrac{2}{9}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La probabilidad of no $a$ in a single symbol is $1-\tfrac{1}{2}=\tfrac{1}{2}$. For two independientes symbols, la probabilidad is $\bigl(\tfrac{1}{2}\bigr)^2=\tfrac{1}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.16.</span> Consideremos a binario symmetric canal with probabilidad de cruce $p=\tfrac{1}{4}$. If the input is $X=0$, cuál es la probabilidad that the output sequence $(Y_1,Y_2)$ equals $(0,1)$ when two independientes uses of the canal are made?</p>
+  <p>(a) $\tfrac{3}{16}$<br>
+  (b) $\tfrac{1}{4}$<br>
+  (c) $\tfrac{1}{16}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Dado que the canal is memoryless, $P(Y_1=0,Y_2=1|X_1=0,X_2=0)=P(Y=0|X=0)P(Y=1|X=0)=(1-p)p=\tfrac{3}{4}\cdot\tfrac{1}{4}=\tfrac{3}{16}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.17.</span> A fair coin is flipped $n$ times independientesly. Let $S_n$ be the number of heads. Cuál es $\mathbb{E}[S_n/n]$?</p>
+  <p>(a) $\tfrac{1}{2}$<br>
+  (b) $\tfrac{1}{n}$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Dado que $\mathbb{E}[S_n]=\tfrac{n}{2}$ for a fair coin, we have $\mathbb{E}[S_n/n]=\tfrac{1}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.18.</span> Let $(X_1,X_2,X_3)$ be i.i.d. with $P(X_i=0)=\tfrac{1}{3}$ and $P(X_i=1)=\tfrac{2}{3}$. Cuál es the most probable sequence?</p>
+  <p>(a) $111$<br>
+  (b) $000$<br>
+  (c) $110$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Dado que $P(1)>P(0)$, the most probable sequence is the all-ones sequence, with probability $\bigl(\tfrac{2}{3}\bigr)^3=\tfrac{8}{27}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.19.</span> A discrete memoryless canal has input $X\in\{0,1\}$ and output $Y=X$. If $P_X(0)=\tfrac{3}{4}$, cuál es $P_Y(1)$?</p>
+  <p>(a) $\tfrac{1}{4}$<br>
+  (b) $\tfrac{3}{4}$<br>
+  (c) $\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Dado que $Y=X$ deterministically, $P_Y(1)=P_X(1)=1-\tfrac{3}{4}=\tfrac{1}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.20.</span> Two variables aleatorias $X\in\{0,1\}$ and $Y\in\{0,1\}$ satisfy $P_{XY}(0,0)=P_{XY}(1,1)=\tfrac{1}{2}$. Are $X$ and $Y$ independientes?</p>
+  <p>(a) No, porque $P_{XY}(0,0)\neq P_X(0)P_Y(0)$<br>
+  (b) Yes, porque $P_X(0)=P_Y(0)=\tfrac{1}{2}$<br>
+  (c) It depends on the marginals</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>We have $P_X(0)=P_Y(0)=\tfrac{1}{2}$, so $P_X(0)P_Y(0)=\tfrac{1}{4}\neq\tfrac{1}{2}=P_{XY}(0,0)$. Por lo tanto $X$ and $Y$ are not independientes.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.21.</span> Let $X$ be a variable aleatoria taking values in $\{1,2,3,4\}$ con igual probabilidad. Cuál es $\text{var}(X)$?</p>
+  <p>(a) $\tfrac{5}{4}$<br>
+  (b) $\tfrac{5}{3}$<br>
+  (c) $\tfrac{3}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>We have $\mathbb{E}[X]=\tfrac{10}{4}=\tfrac{5}{2}$ and $\mathbb{E}[X^2]=\tfrac{1+4+9+16}{4}=\tfrac{30}{4}=\tfrac{15}{2}$. Por lo tanto $\text{var}(X)=\tfrac{15}{2}-\tfrac{25}{4}=\tfrac{5}{4}$.</p>
+  </details>
+</div>
+
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.22.</span>
+  Dada una fuente binaria i.i.d. con $P(0)=\tfrac{1}{4}$, encuentre la probabilidad de la secuencia $0110$.</p>
+  <p>(a) $\tfrac{9}{256}$<br>
+  (b) $\tfrac{3}{64}$<br>
+  (c) $\tfrac{1}{16}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como la fuente es i.i.d., $P(0110) = P(0)P(1)P(1)P(0) = \tfrac{1}{4}\cdot\tfrac{3}{4}\cdot\tfrac{3}{4}\cdot\tfrac{1}{4} = \tfrac{9}{256}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.23.</span>
+  Para un canal sin memoria con probabilidades de transición $P(Y{=}0|X{=}0)=0.9$, $P(Y{=}0|X{=}1)=0.2$, ¿cuánto vale $P(Y{=}0|X{=}1)$?</p>
+  <p>(a) $0.2$<br>
+  (b) $0.8$<br>
+  (c) $0.9$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La probabilidad de transición $P(Y{=}0|X{=}1)=0.2$ viene dada directamente en el enunciado del problema.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.24.</span>
+  Una fuente emite símbolos de $\{a,b,c,d\}$ uniformemente al azar. ¿Cuántas secuencias de longitud $2$ tienen probabilidad $\tfrac{1}{16}$?</p>
+  <p>(a) $4$<br>
+  (b) $8$<br>
+  (c) $16$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Cada símbolo tiene probabilidad $\tfrac{1}{4}$, así que toda secuencia de longitud $2$ tiene probabilidad $\tfrac{1}{4}\cdot\tfrac{1}{4}=\tfrac{1}{16}$. Hay $4^2=16$ secuencias.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.25.</span>
+  Para una fuente ternaria i.i.d. con $P(0)=\tfrac{1}{2}$, $P(1)=P(2)=\tfrac{1}{4}$, ¿qué secuencia de longitud $3$ es menos probable: $000$, $012$ o $222$?</p>
+  <p>(a) $000$<br>
+  (b) $012$<br>
+  (c) $222$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>$P(000)=\tfrac{1}{8}$, $P(012)=\tfrac{1}{2}\cdot\tfrac{1}{4}\cdot\tfrac{1}{4}=\tfrac{1}{32}$, $P(222)=\tfrac{1}{64}$. La menos probable es $222$.</p>
+  </details>
+</div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  Universitat Pompeu Fabra &middot; Teoría de la información y codificación 2026 &middot;
+  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> &middot; <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>

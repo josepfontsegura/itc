@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem("itc-theme");if(!t){t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})()</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema 1 - Seqüències de variables aleatòries - ITC 2026</title>
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+</head>
+<body>
+<nav class="navbar">
+  <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  <a class="navbar-brand" href="index.html">
+    <img src="../img/upf-logo.svg" alt="UPF" style="height:42px;margin-right:0.75rem"> <span class="navbar-brand-text">Teoria de la informació i la codificació 2026</span>
+  </a>
+  <div class="navbar-actions">
+    <button class="search-toggle" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-hint">⌘K</span></button>
+    <button class="theme-toggle" aria-label="Toggle dark mode"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+  </div>
+  <div class="lang-switcher">
+    <a href="../ca/lecture1.html" class="active">CA</a>
+    <a href="../es/lecture1.html">ES</a>
+    <a href="../en/lecture1.html">EN</a>
+  </div>
+</nav>
+<div class="page">
+                <aside class="sidebar">
+    <details class="sidebar-section">
+      <summary><h4>General</h4></summary>
+      <a href="index.html">Inici</a>
+      <a href="guide.html">Guia d'aprenentatge</a>
+      <a href="https://gestioacademica.upf.edu/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&amp;idiomaPais=ca.ES&amp;_anoAcademico=2025&amp;_codAsignatura=23970" target="_blank">Guia docent<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      <a href="https://aulaglobal.upf.edu/course/view.php?id=87616" target="_blank">Aula Global<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+    </details>
+    <details class="sidebar-section" open>
+      <summary><h4>Apunts</h4></summary>
+      <a href="lecture1.html" class="active">1. Seqüències de variables aleatòries</a>
+      <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
+      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
+      <span class="sidebar-disabled">4. Codis de Huffman</span>
+      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
+      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
+      <span class="sidebar-disabled">7. Codis lineals</span>
+      <span class="sidebar-disabled">8. Capacitat de canal</span>
+      <span class="sidebar-disabled">9. Mesures d'informació</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exercicis</h4></summary>
+      <a href="exercises1.html">1. Variables aleatòries</a>
+      <a href="exercises2.html">2. Desigualtats de concentració</a>
+      <span class="sidebar-disabled">3. Codis sense prefixe</span>
+      <span class="sidebar-disabled">4. Codis de Huffman</span>
+      <span class="sidebar-disabled">5. Compressió de font</span>
+      <span class="sidebar-disabled">6. Probabilitat d'error</span>
+      <span class="sidebar-disabled">7. Codis lineals</span>
+      <span class="sidebar-disabled">8. Capacitat de canal</span>
+      <span class="sidebar-disabled">9. Mesures d'informació</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Qüestionari</h4></summary>
+      <a href="quiz1.html">Temes 1–2</a>
+      <span class="sidebar-disabled">Temes 3–5</span>
+      <span class="sidebar-disabled">Temes 6–9</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exàmens</h4></summary>
+      <span class="sidebar-disabled">Final 2025</span>
+      <span class="sidebar-disabled">Recuperació 2025</span>
+    </details>
+  </aside>
+  <main class="content">
+    <div class="lecture-header">
+      <h1>Tema 1. Seqüències de variables aleatòries <a class="pdf-link" href="../pdf/ITC-2026-Lecture1-ca.pdf">pdf</a></h1>
+    </div>
+
+
+<h2>Introducció</h2>
+
+<p>
+La teoria de la informació és una disciplina científica que es va originar a partir de l'estudi dels fonaments matemàtics de la compressió i transmissió de dades. La teoria de la informació creua disciplines dispars com ara les telecomunicacions (transmissió i compressió de dades, comunicacions sense fil), probabilitat i estadística (grans desviacions i prova d'hipòtesis), matemàtiques (desigualtats), física (sistemes quàntics), informàtica (complexitat de Kolmogorov) i economia. Va ser fundat per Claude E. Shannon l'any 1948 en el seu article històric “A Mathematical Theory of Communication”, publicat pel Bell System Technical Journal. El document va ser el resultat de 8 anys d'investigació i va rebre immediatament l'atenció de la comunitat.
+</p>
+<p>
+Tal com va escriure Shannon en el seu article, “el problema fonamental de la comunicació és reproduir en un punt exactament o aproximadament un missatge seleccionat en un altre punt”. La forma estàndard de fer-ho és mitjançant un codificador i un descodificador, com es mostra a la Figura 1.1. La <strong>font</strong> és el dispositiu que produeix el missatge (informació) que s'ha de transmetre, que pot ser analògic, com la veu o la temperatura; o digital, com ara un correu electrònic. El <strong>codificador</strong>, a partir de la informació de la font, construeix una forma d'ona electromagnètica que s'ha de transmetre a través del canal. El codificador està format per un codificador de font que elimina la redundància de la font, un codificador de canal que introdueix redundància adaptada als errors del canal, i un modulador que converteix les dades codificades en una forma d'ona. El <strong>canal</strong> modela totes les pertorbacions introduïdes per la física del mitjà de transmissió i del receptor, incloent-hi el soroll i l'esvaïment en fibres òptiques, cables Ethernet, xarxes sense fil; però també imperfeccions en els sistemes d'emmagatzematge de dades, com ara el DVD, els discos flash o l'ADN. Finalment, el <strong>descodificador</strong> inverteix tots els passos introduïts al codificador i intenta esbrinar quin era el missatge de font original.
+</p>
+<figure><img src="../img/tikz/lecture1-fig1.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
+<p>
+<figcaption>Figura 1.1. Diagrama bàsic d'un sistema de comunicacions.</figcaption>
+<a id="fig:block"></a>
+</p>
+<p>
+En aquest curs, assumirem que la font ha estat prèviament mostrejada i quantificada, i que les parts de modulació i demodulació estan incloses en el model de canal. Com a resultat, la font d'informació $U$, l'entrada del canal $X$ i la sortida del canal $Y$ són quantitats discretes. L'objectiu de l'assignatura és comprendre els límits fonamentals de la compressió de font i la transmissió de dades, així com estudiar el rendiment dels codis de font i dels codis de canal. Per fer-ho, modelarem les fonts d'informació i els canals de comunicació mitjançant variables aleatòries, o més concretament, mitjançant <strong>seqüències de variables aleatòries</strong>.
+</p>
+
+<h2>Variables aleatòries</h2>
+
+<p>
+En moltes disciplines, com ara les telecomunicacions, la física, la biologia o l'economia, s'observa l'aleatorietat en el resultat d'un experiment. Per tant, un està interessat a estudiar el comportament probabilístic d'un sistema i dissenyar el sistema en conseqüència basant-se en aquesta aleatorietat. Per exemple, com que en la compressió de dades dissenyarem codis per representar una font aleatòria mitjançant bits, estudiarem la longitud mitjana d'aquests codis. O com que en la transmissió de dades dissenyarem codis per enviar informació per un canal aleatori, estudiarem la probabilitat que hi hagi un error de descodificació.
+</p>
+<p>
+Una variable aleatòria discreta és l'objecte matemàtic que descriu el comportament d'un experiment amb una quantitat finita de possibles resultats. Utilitzem la majúscula $X$ per indicar la variable aleatòria, la cal·ligràfica ${\cal X}$ per indicar l'alfabet de $X$ o el conjunt de valors possibles, i $P_X(x)$ la distribució de probabilitat de $X$ sobre el conjunt ${\cal X}$, on $x\in{\cal X}$ i $P_X(x)$ representen la probabilitat que “$X=x$”, és a dir $P_X(x)=\mathbb{P}[X=x]$. La probabilitat de qualsevol esdeveniment és un nombre en l'interval $[0,1]$, la qual cosa implica que la distribució de probabilitat de qualsevol variable aleatòria discreta compleix les condicions
+$$\begin{gather}
+	\sum_{x\in{\cal X}}P_X(x) = 1,\tag{1.1}\\
+	P_X(x)\geq 0 \text{ per a tot } x\in{\cal X}.\tag{1.2}
+\end{gather}$$
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Exemple 1.1.</span> 
+El resultat de l'experiment d'un llançament de moneda és cara o creu. Per a una moneda esbaixada, podem representar el resultat com la variable aleatòria $X$ prenent valors a ${\cal X}=\{\text{cara},\text{creu}\}$ amb distribució de probabilitat $P_X(x)\in\bigl\{\tfrac 13,\tfrac 23 \bigr\}$. En aquest exemple, ${\cal X}$ és un conjunt de cardinalitat $|{\cal X}|=2$ ja que té dos elements. La notació $P_X(x)\in\bigl\{\tfrac 13,\tfrac 23 \bigr\}$ s'interpreta com a $P_X(\text{cara})=\frac 13$ i $P_X(\text{creu})=\frac 23$, ja que la densitat de probabilitat $P_X(x)$ és funció de $x$. Podem comprovar fàcilment que $(1.1)$ i $(1.2)$ es compleixen, en particular que $\sum_{x\in{\cal X}}P_X(x)=\sum_{x\in\{\text{cara},\text{creu}\}}P_X(x) =P_X(\text{cara}) + P_X(\text{creu}) = \frac 13 + \frac 23 = 1$.
+</p>
+
+</div>
+
+
+<div class="env-block env-example"><p><span class="env-label">Exemple 1.2.</span> 
+ 	Una variable aleatòria pren valors sobre l'alfabet $\{a,b,c\}$, amb distribució de probabilitat $P_X(a)=P_X(b)=\frac 15$. De la condició $(1.1)$, deduïm que $P_X(c)=1-P_X(a)-P_X(b)=1-\frac 15 - \frac 15 = \frac 35$.
+</p>
+
+</div>
+
+<p>
+Un esdeveniment es pot representar com el conjunt ${\cal A}$ de valors de $X$ que satisfan l'esdeveniment, i la probabilitat de l'esdeveniment es pot calcular com
+$$
+	\mathbb{P}[X\in{\cal A}] = \sum_{x\in{\cal A}} P_X(x). \tag{1.3}$$
+De vegades és útil calcular la probabilitat de l'esdeveniment complementari, ${\cal A}^c$, el conjunt de valors de $X$ que no compleixen l'esdeveniment. Com que la suma de tots els valors possibles és $1$, podem escriure que
+$$
+	\mathbb{P}[X\in{\cal A}] = 1 - \mathbb{P}[X\in{\cal A}^c] = 1 - \sum_{x\in{\cal A}^c} P_X(x). \tag{1.4}$$
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.1.</span> 
+Sigui $X$ una variable aleatòria que pren els valors en $\{0,1,2,3\}$ amb la mateixa probabilitat. Quina és la probabilitat que $X$ sigui senar? I la probabilitat que $X$ sigui parell?
+</p>
+
+<details class="solution"><summary>Mostra la solució</summary>
+<p>
+	Si tots els valors són equiprobables, la distribució de probabilitat de $X$ és $P_X(x)=\frac 14$ o $\bigl\{ \frac 14,\frac 14,\frac 14,\frac 14 \bigr\}$. L'esdeveniment “$X$ és senar” es pot representar pel conjunt ${\cal A}=\{1,3\}$ de manera que $\mathbb{P}[X\text{ és senar}]=\mathbb{P}[X\in{\cal A}]=\sum_{x\in\{1,3\}}P_X(x) = P_X(1)+P_X(3)=\frac 14 + \frac 14 = \frac 12$. La probabilitat que “$X$ és parell” es pot calcular observant que és l'esdeveniment complementari i després $\mathbb{P}[X\text{ és parell}] = 1 - \mathbb{P}[X\text{ és senar}] = 1 - \frac 12 = \frac 12$.
+</p>
+
+</details>
+
+
+</div>
+
+
+<h2>Variables aleatòries distribuïdes conjuntament</h2>
+
+<p>
+En algunes aplicacions, tenim un parell de variables aleatòries $X$ i $Y$, cadascuna prenent valors respectivament sobre els alfabets ${\cal X}$ i ${\cal Y}$, governades per una distribució de probabilitat conjunta $P_{XY}(x,y)$. Com a distribució de probabilitat, passa que
+$$
+	\sum_{x\in{\cal X}}\sum_{y\in{\cal Y}}P_{XY}(x,y) = 1,\tag{1.5}
+$$
+mentre que $P_{XY}(x,y)\geq 0$ per a tots $x\in{\cal X}$ i $y\in{\cal Y}$. La probabilitat conjunta és una funció de $x$ i $y$ i s'interpreta com la probabilitat que “$X=x$” <u>i</u> “$Y=y$”, normalment escrit com a intersecció, però preferim utilitzar una coma, és a dir $P_{XY}(x,y)=\mathbb{P}[X=x,Y=y]$. La doble suma de $(1.5)$ suggereix que sumar només una variable condueix a una distribució de probabilitat en funció de l'altra variable aleatòria. Aquestes s'anomenen distribucions marginals, és a dir
+$$\begin{gather}
+	P_X(x)=\sum_{y\in{\cal Y}}P_{XY}(x,y)\tag{1.6}\\
+	P_Y(y)=\sum_{x\in{\cal X}}P_{XY}(x,y)\tag{1.7}.
+\end{gather}$$
+Ambdues $(1.6)$ i  $(1.7)$ són distribucions de probabilitat ja que, sumades a $x$ i $y$ respectivament, donen $1$. Les distribucions marginals permeten definir una nova quantitat anomenada distribució condicional, que és la relació entre la distribució conjunta i la distribució marginal:
+$$\begin{gather}
+	P_{X|Y}(x|y)=\frac{P_{XY}(x,y)}{P_Y(y)},\tag{1.8}\\
+	P_{Y|X}(y|x)=\frac{P_{XY}(x,y)}{P_X(x)}.\tag{1.9}
+\end{gather}$$
+Aïllar $P_{XY}(x,y)$ de les dues equacions anteriors porta al famós teorema de Bayes que relaciona el coneixement previ d'una variable aleatòria sobre una altra variable aleatòria amb la probabilitat de la primera variable aleatòria en si, és a dir
+$$
+	P_{Y|X}(y|x) = \frac{P_{X|Y}(x|y) P_Y(y)}{P_X(x)}.
+	\tag{1.10}
+$$
+Tingueu en compte que la distribució condicionada $P_{Y|X}(y|x)$ és una distribució de probabilitat vàlida de la variable aleatòria $Y$ amb coneixements previs a $X=x$, ja que $\sum_{y \in {\cal Y}} P_{Y|X}(y|x) = \sum_{y\in{\cal Y}}\frac{P_{XY}(x,y)}{P_X(x)} = \frac{\sum_{y\in{\cal Y}} P_{XY}(x,y)}{P_X(x)} = \frac{P_X(x)}{P_X(x)} = 1$. Un resultat similar és vàlid per a $P_{X|Y}(x|y)$.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.2.</span> 
+ 	Considereu les variables aleatòries $X$ i $Y$, totes dues prenent valors sobre l'alfabet $\{a,b\}$ amb distribució de probabilitat conjunta $P_{XY}(a,a)=\frac 16$, $P_{XY}(a,b)=\frac 13$ i $P_{XY}(b,a)=0$. Quina és la distribució de probabilitat de $Y$ condicionada a $X=b$?
+</p>
+
+<details class="solution"><summary>Mostra la solució</summary>
+<p>
+La resposta a aquesta pregunta és $P_{Y|X}(y|b)$, una distribució de probabilitat d'una variable aleatòria que pren valors sobre l'alfabet $\{a,b\}$, 	per tant, dos nombres que sumen un, $P_{Y|X}(a|b)$ i $P_{Y|X}(b|b)$. A partir de $(1.5)$, tenim que $\sum_{x\in\{a,b\}}\sum_{y\in\{a,b\}}P_{XY}(x,y)=P_{XY}(a,a)+P_{XY}(a,b)+P_{XY}(b,a)+P_{XY}(b,b)=1$, el que implica que $P_{XY}(b,b)=1-\frac 16-\frac 13-0=\frac 12$. Per determinar la distribució condicional $P_{Y|X}(y|b)$ primer necessitem la probabilitat marginal $P_X(b)$. Utilitzant  $(1.6)$, tenim $P_X(b)=\sum_{y\in\{a,b\}} P_{XY}(b,y) = P_{XY}(b,a)+P_{XY}(b,b) = \frac 12$. Ara es pot calcular $P_{Y|X}(a|b)=\frac{P_{XY}(b,a)}{P_X(b)}=\frac{0}{1/2} = 0$ i $P_{Y|X}(b|b)=\frac{P_{XY}(b,b)}{P_X(b)}=\frac{1/2}{1/2} = 1$. La resposta és $\{0,1\}$, és a dir que conèixer $X=b$ implica que $Y=b$ amb probabilitat $1$.
+</p>
+
+</details>
+
+
+</div>
+
+<p>
+Podem calcular quina és la probabilitat d'un esdeveniment a $Y$ condicionat a $X=x$ com
+$$
+	\mathbb{P}[Y\in{\cal A}|X=x] = \sum_{y\in{\cal A}} P_{Y|X}(y|x),
+	\tag{1.11}
+$$
+o de manera similar per a la probabilitat d'algun esdeveniment a $X$ condicionat a $Y=y$. Més important encara, $P_{Y|X}(y|x)$ <u>no és</u> una distribució de probabilitat a $X$, <u>nor</u> és $P_{X|Y}(x|y)$ una distribució de probabilitat a $Y$. Un últim resultat útil s'obté després de combinar la definició de les distribucions condicionals, les distribucions marginals la probabilitat condicional $(1.11)$, normalment anomenada llei de la probabilitat total:
+$$\begin{gather}
+	\mathbb{P}[Y\in{\cal A}] =  \sum_{x\in{\cal X}} \mathbb{P}[Y\in{\cal A}|X=x] P_X(x).
+	\tag{1.12}
+\end{gather}$$
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.3.</span> 
+Una variable aleatòria $X$ pren valors sobre l'alfabet $\{1,2\}$ amb distribució de probabilitat $\{1,0\}$. Condicionada a $X=x$, una altra variable aleatòria $Y$ pren valors per sobre de $\{1,2,3\}$ amb distribució de probabilitat $\bigl\{ \frac{2-x}{3},\frac{x}{3},\frac 13 \bigr\}$. Quina és la probabilitat que $Y$ sigui senar?
+</p>
+
+<details class="solution"><summary>Mostra la solució</summary>
+<p>
+	Condicionat a $X=1$, tenim  $P_{Y|X}(y|1)\in\bigl\{\frac 13,\frac 13,\frac 13\bigr\}$, mentre que condicionat a $X=2$ tenim $P_{Y|X}(y|2)\in\bigl\{0,\frac 23,\frac 13\bigr\}$. Aleshores, $\mathbb{P}[Y\text{ és senar}|X=1]=\sum_{y\in\{1,3\}}P_{Y|X}(y|1)=\frac 23$ i $\mathbb{P}[Y\text{ és senar}|X=2]=\sum_{y\in\{1,3\}}P_{Y|X}(y|2)=\frac 13$. Finalment, $\mathbb{P}[Y\text{ és senar}]=\sum_{x\in\{1,2\}} \mathbb{P}[Y\text{ és senar}|X=x]P_X(x)=\frac 23 \cdot 1 + \frac 13\cdot 0 = \frac 23.$
+</p>
+
+</details>
+
+
+</div>
+
+<p>
+La distribució conjunta de dues variables aleatòries \(X\) i \(Y\) satisfà la <strong>regla de la cadena</strong>:
+$$
+P_{XY}(x,y)=P_{Y|X}(y|x)P_{X}(x)=P_{X|Y}(x|y)P_{Y}(y). \tag{1.13}$$
+Si \(X\) i \(Y\) són <strong>independents</strong>, aleshores \(P_{Y|X}(y|x)=P_{Y}(y)\), \(P_{X|Y}(x|y)=P_{X}(x)\) i per tant
+$$
+P_{XY}(x,y)=P_X(x)P_Y(y). \tag{1.14}$$
+</p>
+
+<h2>Seqüències de variables aleatòries</h2>
+
+<p>
+Les fonts d'informació i els canals de comunicació es descriuran mitjançant seqüències de variables aleatòries com ara $(X_1,\ldots,X_n)$, on $n$ és la longitud de la seqüència. Aquesta seqüència es caracteritza per la distribució de probabilitat conjunta $P_{X_1\cdots X_n}(x_1,\ldots,x_n)$ i, normalment, cada variable aleatòria $X_i$ prendrà valors sobre el mateix alfabet ${\cal X}$. De forma similar a $(1.1)$ o $(1.5)$, tenim que
+$$
+	\sum_{(x_1,\ldots,x_n)\in{\cal X}^n} P_{X_1\cdots X_n}(x_1,\ldots,x_n) = 1, \tag{1.15}$$
+on ${\cal X}^n={\cal X}\times \ldots \times {\cal X}$ és el producte cartesià dels alfabets. Un exemple ho aclarirà.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Exemple 1.3.</span> 
+	Considereu la seqüència de variables aleatòries $(X_1,X_2,X_3)$, cadascuna $X_i$ pren valor sobre l'alfabet ${\cal X}=\{a,b\}$. L'alfabet de $(X_1,X_2,X_3)$ és el producte cartesià ${\cal X}^3 = \{a,b\}\times \{a,b\} \times \{a,b\}$, és a dir, totes les combinacions possibles ${\cal X}^3=\{aaa,aab,aba,abb,baa,bab,bba,bbb\}$. La cardinalitat d'aquest nou alfabet és $|{\cal X}^3|=|{\cal X}|^3=2^3=8$. Una possible distribució de probabilitat per a $(X_1,X_2,X_3)$ és $P_{X_1X_2X_3}(x_1,x_2,x_3)=\frac 18$, però una altra podria ser $P_{X_1X_2X_3}(aaa)=P_{X_1X_2X_3}(bbb)=\frac 12$ i $P_{X_1X_2X_3}(x_1,x_2,x_3)=0$ en cas contrari.
+</p>
+
+</div>
+
+<p>
+La regla de la cadena permet escriure la distribució conjunta de probabilitat de qualsevol element de l'alfabet de $(X_1,\ldots,X_n)$ com a producte
+$$
+	P_{X_1\cdots X_n}(x_1,\ldots,x_n)= P_{X_1}(x_1)P_{X_2|X_1}(x_2|x_1)P_{X_3|X_2X_1}(x_3|x_2,x_1) \cdots P_{X_n|X_{n-1}\cdots X_1}(x_n|x_{n-1},\ldots,x_1). \tag{1.16}$$
+Diem que $(X_1,\ldots,X_n)$ és una <strong>seqüència de variables aleatòries independents</strong> si
+$$
+	P_{X_1\cdots X_n}(x_1,\ldots,x_n) = \prod_{i=1}^n P_{X_i}(x_i). \tag{1.17}$$
+A més, és una <strong>seqüència de variables aleatòries independents i idènticament distribuïdes (i.i.d.)</strong> si
+$$
+	P_{X_1\cdots X_n}(x_1,\ldots,x_n) = \prod_{i=1}^n P_{X}(x_i), \tag{1.18}$$
+és a dir, totes les variables aleatòries $X_i$ són independents i tenen la mateixa distribució de probabilitat $P_X(x)$.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.4.</span> 
+ 	Una font discreta sense memòria es descriu per la seqüència de variables aleatòries i.i.d. $(U_1,U_2,U_3)$ on cadascuna $U_i$ pren valors en $\{0,1\}$ amb distribució de probabilitat $\{p,1-p\}$. Quina és la probabilitat que la font produeixi una seqüència que tingui un zero a l'última posició?
+ 	
+</p>
+<details class="solution"><summary>Mostra la solució</summary>
+<p>
+	 	Se'ns demana que calculem $P_{U_3}(0)$. Una manera de resoldre-ho és calcular la distribució marginal $P_{U_3}(u_3)$ a partir de la distribució conjunta. Com que la seqüència de variables aleatòries és i.i.d., la distribució conjunta compleix $P_{U_1U_2U_3}(u_1,u_2,u_3) = P_{U}(u_1)P_{U}(u_2)P_{U}(u_3)$, donant lloc a
+	 	$$\begin{gather}
+			P_{U_1U_2U_3}(000)=P_{U}(0)P_{U}(0)P_{U}(0)=p^3 \tag{1.19}\\
+			P_{U_1U_2U_3}(001)=P_{U}(0)P_{U}(0)P_{U}(1)=p^2(1-p) \tag{1.20}\\
+			P_{U_1U_2U_3}(010)=P_{U}(0)P_{U}(1)P_{U}(0)=p^2(1-p) \tag{1.21}\\
+			P_{U_1U_2U_3}(011)=P_{U}(0)P_{U}(1)P_{U}(1)=p(1-p)^2 \tag{1.22}\\
+			P_{U_1U_2U_3}(100)=P_{U}(1)P_{U}(0)P_{U}(0)=p^2(1-p) \tag{1.23}\\
+			P_{U_1U_2U_3}(101)=P_{U}(1)P_{U}(0)P_{U}(1)=p(1-p)^2 \tag{1.24}\\
+			P_{U_1U_2U_3}(110)=P_{U}(1)P_{U}(1)P_{U}(0)=p(1-p)^2 \tag{1.25}\\
+			P_{U_1U_2U_3}(111)=P_{U}(1)P_{U}(1)P_{U}(1)=(1-p)^3 \tag{1.26}\end{gather}$$
+		Per tant,
+	 	$$\begin{align}
+			P_{U_3}(0) &= \sum_{(u_1,u_2)\in\{0,1\}^2} P_{U_1U_2U_3}(u_1,u_2,0) = P_{U_1U_2U_3}(000) + P_{U_1U_2U_3}(010) + P_{U_1U_2U_3}(100)+ P_{U_1U_2U_3}(110) \tag{1.27}\\
+			&= p^3+2p^2(1-p)+p(1-p)^2 \tag{1.28}\\
+			&= p, \tag{1.29}\end{align}$$
+	 	que és simplement $P_U(0)$ ja que $U_3$ és independent de la resta de variables i té la mateixa distribució $P_U(u)$.
+</p>
+
+</details>
+
+
+</div>
+
+<p>
+De manera similar a $(1.8)$ i a $(1.9)$, també podem definir distribucions condicionades conjuntes de seqüències de variables aleatòries. Siguin $(X_1,\ldots,X_n)$ i $(Y_1,\ldots,Y_n)$ dues seqüències de variables aleatòries amb distribució condicional $P_{Y_1\cdots Y_n|X_1\cdots X_n}(y_1,\ldots,y_n|x_1,\ldots,x_n)$. La seqüència $(Y_1,\ldots,Y_n)$ és <strong>condicionalment i.i.d.</strong> donada la seqüència $(X_1,\ldots,X_n)$ si
+$$
+	P_{Y_1\cdots Y_n|X_1\cdots X_n}(y_1,\ldots,y_n|x_1,\ldots,x_n) = \prod_{i=1}^n P_{Y|X}(y_i|x_i).
+	\tag{1.30}
+$$
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Exemple 1.4.</span> 
+<a id="ex:1.8"></a>
+Un canal discret sense memòria es descriu per la seqüència d'entrada $(X_1,X_2,X_3)$, on cada $X_i$ pren valors en $\{a,b\}$, i una seqüència de sortida $(Y_1,Y_2,Y_3) $ on cada $Y_i$ també pren valors en $\{a,b\}$. El canal es pot caracteritzar per $(1.30)$ on, per exemple, $P_{Y|X}(y|x)$ correspon a la fletxa que connecta el node $X=x$ amb el node $Y=t $ al gràfic següent:
+</p>
+<p>
+<figure><img src="../img/tikz/lecture1-fig2.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
+
+</div>
+<p>
+El canal no té memòria en el sentit que <u>donada</u> la seqüència d'entrada $(X_1,X_2,X_3)$, la seqüència de sortida és condicionalment i.i.d., per exemple, la probabilitat condicional $P_{Y_1Y_2Y_3|X_1X_2X_3}(aba|aab)$ es pot escriure com
+$$
+	P_{Y_1Y_2Y_3|X_1X_2X_3}(aba|aab) = P_{Y|X}(a|a) P_{Y|X}(b|a) P_{Y|X}(a|b).
+	\tag{1.31}
+$$
+A partir del gràfic sabem que $P_{Y|X}(a|a)=\frac 13$ i que $P_{Y|X}(b|b)=\frac 12$. Com a distribucions condicionals (vegeu la discussió posterior a l'equació $(1.10)$ anterior), també sabem que $P_{Y|X}(a|a)+P_{Y|X}(b|a)=1$ i que $P_{Y|X}(a|b)+P_{Y|X}(b|b)=1$, de les quals deduïm que $P_{Y|X}(b|a)=\frac 23$ i que $P_{Y|X}(a|b)=\frac 12$. Utilitzant aquests valors a $(1.31)$ podem calcular $P_{Y_1Y_2Y_3|X_1X_2X_3}(aba|aab)=\frac 13\cdot \frac 23 \cdot \frac 12 = \frac 19$.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.5.</span> 
+ 	Considereu el canal discret sense memòria descrit a l'Exemple 1.8. Suposant que la seqüència d'entrada $(X_1,X_2,X_3)$ té distribució de probabilitat
+ 	$$
+		P_{X_1X_2X_3}(x_1,x_2,x_3) = \begin{cases}
+			\frac 12 & x_1=x_2=x_3\\
+			0 & \text{altrament},
+		\end{cases}
+		\tag{1.32}
+	$$
+ 	calcular la distribució de probabilitat de la seqüència de sortida.
+ 	
+</p>
+<details class="solution"><summary>Mostra la solució</summary>
+<p>
+		Volem determinar la distribució de probabilitat $P_{Y_1Y_2Y_3}(y_1,y_2,y_3)$, per tant una funció de $(y_1,y_2,y_3)$ o, de manera equivalent a $(y_1,y_2,y_3)\in\{a,b\}^3=\{aaa,aab,aba,abb,baa,bab,bba,bbb\}$, 8 nombres que sumen u. A partir de la llei de probabilitat total a $(1.12)$ i la independència condicional a $(1.30)$, podem escriure
+	 	$$\begin{align}
+			P_{Y_1Y_2Y_3}(y_1,y_2,y_3) &= \sum_{(x_1,x_2,x_3)\in\{a,b\}^3} P_{Y_1Y_2Y_3|X_1X_2X_3}(y_1,y_2,y_3|x_1,x_2,x_3)P_{X_1X_2X_3}(x_1,x_2,x_3) \tag{1.33}\\
+			&= \sum_{(x_1,x_2,x_3)\in\{a,b\}^3} P_{Y|X}(y_1|x_1)P_{Y|X}(y_2|x_2)P_{Y|X}(y_3|x_3) P_{X_1X_2X_3}(x_1,x_2,x_3).
+			\tag{1.34}
+		\end{align}$$
+	 	Cal tenir en compte que com que la distribució $P_{X_1X_2X_3}(x_1,x_2,x_3)$ no es pot escriure com el producte de distribucions independents i idèntiques, la distribució $P_{Y_1Y_2Y_3}(y_1,y_2,y_3)$ tampoc es pot expressar com el producte de distribucions independents i idèntiques.
+	 	Com que la seqüència d'entrada $(X_1,X_2,X_3)$ només té una probabilitat diferent de zero per a $aaa$ i $bbb$, la suma $(1.34)$ només té dos termes, és a dir
+	 	$$\begin{align}
+			P_{Y_1Y_2Y_3}(y_1,y_2,y_3) & = P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)P_{X_1X_2X_3}(aaa) \tag{1.35}\\ &  ~ \hspace{4em} + P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b)P_{X_1X_2X_3}(bbb) \tag{1.36}\\
+			&= \frac 12 P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)  + \frac 12 P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b). \tag{1.37}\end{align}$$
+		Només queda determinar els números de la distribució de probabilitat, és a dir
+	 	$$\begin{gather}
+			P_{Y_1Y_2Y_3}(aaa) = \frac 12 P_{Y|X}(a|a)^3 + \frac 12 P_{Y|X}(a|b)^3 = \frac 12\cdot \left(\frac{1}{3}\right)^3 + \frac 12\cdot \left(\frac{1}{2}\right)^3 = \frac{35}{432}, \tag{1.38}\\
+			P_{Y_1Y_2Y_3}(aab) = \frac 12 P_{Y|X}(a|a)^2P_{Y|X}(b|a) + \frac 12 P_{Y|X}(a|b)^2P_{Y|X}(b|b) = \frac 12\cdot \left(\frac{1}{3}\right)^2\frac 23 + \frac 12\cdot \left(\frac{1}{2}\right)^2\frac 12 = \frac{43}{432}, \tag{1.39}\end{gather}$$
+	 	etcètera.
+ 	
+</p>
+</details>
+
+
+</div>
+
+  </main>
+</div>
+<footer class="footer">
+  Universitat Pompeu Fabra · Teoria de la informació i la codificació 2026 &middot;
+  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>

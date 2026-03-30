@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem("itc-theme");if(!t){t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})()</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicis: 2. Funcions de variables aleatòries i desigualtats de concentració - ITC 2026</title>
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  <a class="navbar-brand" href="index.html">
+    <img src="../img/upf-logo.svg" alt="UPF" style="height:42px;margin-right:0.75rem"> <span class="navbar-brand-text">Teoria de la informació i la codificació 2026</span>
+  </a>
+  <div class="navbar-actions">
+    <button class="search-toggle" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-hint">⌘K</span></button>
+    <button class="theme-toggle" aria-label="Toggle dark mode"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+  </div>
+  <div class="lang-switcher">
+    <a href="../ca/exercises2.html" class="active">CA</a>
+    <a href="../es/exercises2.html">ES</a>
+    <a href="../en/exercises2.html">EN</a>
+  </div>
+</nav>
+
+<div class="page">
+        <aside class="sidebar">
+    <details class="sidebar-section">
+      <summary><h4>General</h4></summary>
+      <a href="index.html">Inici</a>
+      <a href="guide.html">Guia d'aprenentatge</a>
+      <a href="https://gestioacademica.upf.edu/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&amp;idiomaPais=ca.ES&amp;_anoAcademico=2025&amp;_codAsignatura=23970" target="_blank">Guia docent<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      <a href="https://aulaglobal.upf.edu/course/view.php?id=87616" target="_blank">Aula Global<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Apunts</h4></summary>
+      <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
+      <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
+      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
+      <span class="sidebar-disabled">4. Codis de Huffman</span>
+      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
+      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
+      <span class="sidebar-disabled">7. Codis lineals</span>
+      <span class="sidebar-disabled">8. Capacitat de canal</span>
+      <span class="sidebar-disabled">9. Mesures d'informació</span>
+    </details>
+    <details class="sidebar-section" open>
+      <summary><h4>Exercicis</h4></summary>
+      <a href="exercises1.html">1. Variables aleatòries</a>
+      <a href="exercises2.html" class="active">2. Desigualtats de concentració</a>
+      <span class="sidebar-disabled">3. Codis sense prefixe</span>
+      <span class="sidebar-disabled">4. Codis de Huffman</span>
+      <span class="sidebar-disabled">5. Compressió de font</span>
+      <span class="sidebar-disabled">6. Probabilitat d'error</span>
+      <span class="sidebar-disabled">7. Codis lineals</span>
+      <span class="sidebar-disabled">8. Capacitat de canal</span>
+      <span class="sidebar-disabled">9. Mesures d'informació</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Qüestionari</h4></summary>
+      <a href="quiz1.html">Temes 1–2</a>
+      <span class="sidebar-disabled">Temes 3–5</span>
+      <span class="sidebar-disabled">Temes 6–9</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exàmens</h4></summary>
+      <span class="sidebar-disabled">Final 2025</span>
+      <span class="sidebar-disabled">Recuperació 2025</span>
+    </details>
+  </aside>
+
+  <main class="content">
+    <div class="lecture-header">
+      <h1>Exercicis: 2. Funcions de variables aleatòries i desigualtats de concentració</h1>
+    </div>
+
+    <button id="expand-all" data-expand="Mostra totes les solucions" data-collapse="Amaga totes les solucions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostra totes les solucions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.1.</span> Una font $X$ que pren valors $\{-1,0,1\}$ amb igual probabilitat es comprimeix utilitzant el codi binari lliure de prefixos òptim. La funció $\ell(x)$ retorna la longitud de la versió codificada del símbol $x\in\{-1,0,1\}$. Quin és el valor de la cota superior de Chebyshev per a la probabilitat $\mathbb{P}[|\ell(X)-L_{\rm av}|\geq L_{\rm av}]$, on $L_{\rm av}$ és la longitud mitjana del codi?</p>
+  <p>(a) $0$<br>
+  (b) $\frac{2}{15}$<br>
+  (c) $\frac{2}{25}$<br>
+  (d) $\frac{27}{25}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p></p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.2.</span> Una font $X$ que pren valors $\{-2,-1,1,2\}$ amb igual probabilitat és comprimida utilitzant el codi binari lliure de prefixos òptim. Per a cada símbol $x \in \{-2,-1,1,2\}$, la funció $\ell(x)$ retorna la longitud de la seva versió codificada. Quin és el valor de la probabilitat $\mathbb{P}\bigr[|\ell(X)-L_{\rm av}|\geq \mathbb{E}[X]\bigr]$, on $L_{\rm av}$ és la longitud mitjana del codi?</p>
+  <p>(a) $0$<br>
+  (b) $\frac{2}{25}$<br>
+  (c) $1$<br>
+  (d) Indeterminació</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>El codi òptim (de Huffman) és donat per $\{00,01,10,11\}$, per tant $\ell(x)=L_{\rm av}=2$. Com que $\mathbb{E}[X]=0$, la probabilitat és $1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.3.</span> Quina de les següents is correct for $\mathbb{E}[X]$ and $\mathbb{E}[Y]$?</p>
+  <p>(a) $\mathbb{E}[X] = \tfrac{7}{10}$ and $\mathbb{E}[Y] = \tfrac{2}{5}$<br>
+  (b) $\mathbb{E}[X] = \tfrac{2}{5}$ and $\mathbb{E}[Y] = \tfrac{7}{10}$<br>
+  (c) $\mathbb{E}[X] = \tfrac{7}{10}$ and $\mathbb{E}[Y] = \tfrac{3}{5}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>By normalization, we deduce that $P_{XY}(1,1) = \tfrac{2}{5}$.
+Atès que $X$ and $Y$ are binari, $\mathbb{E}[X] = P_X(1)$ and $\mathbb{E}[Y] = P_Y(1)$. Using
+$
+P_X(1) = P_{XY}(1,0) + P_{XY}(1,1) = \tfrac{3}{10} + \tfrac{2}{5} = \tfrac{7}{10}
+$
+and
+$
+P_Y(1) = P_{XY}(0,1) + P_{XY}(1,1) = \tfrac{1}{5} + \tfrac{2}{5} = \tfrac{3}{5},
+$
+trobem that la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.4.</span> Quin és the alphabet and probability distribution of $Z$, respectively?</p>
+  <p>(a) $\{0,1\}$ and $\bigl\{\tfrac12, \tfrac12\bigr\}$<br>
+  (b) $\{0,1,2\}$ and $\bigl\{\tfrac{1}{10}, \tfrac{1}{2}, \tfrac{2}{5}\bigr\}$<br>
+  (c) $\{0,1\}$ and $\bigl\{\tfrac{2}{5}, \tfrac{3}{5}\bigr\}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Atès que $Z = 0$ when $X=Y$, that is $(0,0)$ or $(1,1)$, we get
+ $
+    P_Z(0) = P_{XY}(0,0) + P_{XY}(1,1) = \tfrac{1}{10} + \tfrac{2}{5} = \tfrac{1}{10} + \tfrac{4}{10} = \tfrac{5}{10} = \tfrac12.
+  $
+ Also, $Z=1$ when $X\neq Y$, that is $(0,1)$ or $(1,0)$, per tant
+ $
+    P_Z(1) = \tfrac{1}{5} + \tfrac{3}{10} = \tfrac{2}{10} + \tfrac{3}{10} = \tfrac{5}{10} = \tfrac12.
+  $
+ Per tant, $Z\in\{0,1\}$ amb igual probabilitat.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.5.</span> Quin és the value of $\mathbb{E}[\log_2(1+Z)]$?</p>
+  <p>(a) $\tfrac{1}{2}$<br>
+  (b) $\tfrac{13}{10}$<br>
+  (c) $1+\log_2(3)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Atès que $Z$ is 0 or 1 equiprobably, $\mathbb{E}[\log_2(1+Z)] = \log_2(1)\cdot\tfrac12 + \log_2(2)\cdot\tfrac12 = \tfrac12.$</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.6.</span> Quin és the value of $\text{var}(Z\oplus Z)$?</p>
+  <p>(a) $\tfrac{41}{100}$<br>
+  (b) $\tfrac{1}{4}$<br>
+  (c) $0$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Atès que $Z\oplus Z = 0$ with probability one, its variance is zero.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.7.</span> Quina de les següents statements és certa? You can reason by elimination.</p>
+  <p>(a) $|\mathcal{U}| = 2^n$<br>
+  (b) $\displaystyle\lim_{n\to\infty} \frac{g(2^n)}{P_U(2^n)} = -\infty$<br>
+  (c) $\displaystyle\lim_{n\to\infty} n P_U(u) = 0$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>$|\mathcal{U}| = n$ and $P_U(u) = 1/n$ for all $u$, so that $\lim_{n\to\infty} n P_U(u) = 1$. Also, $g(2^n)/P_U(2^n) = (-n/2)/(1/n) = -n^2/2$ so that $\lim_{n\to\infty} \frac{g(2^n)}{P_U(2^n)} = -\infty$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.8.</span> Find the formula for the sum of natural numbers between $1$ and $n$ and use the result to find the mean of $g(U)$, $\mathrm{E}[g(U)]$. If you use ChatGPT at any step, make sure the answer is correct.</p>
+  <p>(a) $-\frac{1}{4}n(n+1)$<br>
+  (b) $-\frac{1}{4}(n+1)$<br>
+  (c) $-\frac{1}{2}(n+1)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>The sum of natural numbers between $1$ and $n$ is $\frac{n(n+1)}{2}$; atès que $g(u)$ has a minus sign, the mean of $g(u)$ is $-\frac{n+1}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.9.</span> Find the formula giving the sum of the squares of natural numbers between $1$ and $n$ and use the result to find the mean of $g^2(U)$, $\mathrm{E}[g^2(U)]$.</p>
+  <p>(a) $\frac{1}{4}(n+1)^2$<br>
+  (b) $\frac{1}{12}(n+1)(n+\frac{1}{2})$<br>
+  (c) $\frac{1}{6}(n+1)(2n+1)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>The sum of the squares of natural numbers between $1$ and $n$ is $\frac{n(n+1)(2n+1)}{6}$; atès que $g(2^a)=-a/2$, the mean of $g^2(u)$ is $1/4$ times the sum of squares divided by $n$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.10.</span> For which value of $n$ is the variance of $g(U)$ equal to $1$?</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $7$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>The variance can be calculated as $\frac{1}{48}(n^2-1)$, which is $1$ for $n=7$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.11.</span> Let $X$ be a non-negative variable aleatòria with $\mathbb{E}[X]=4$. What does Markov's inequality say about $\mathbb{P}[X\geq 8]$?</p>
+  <p>(a) $\mathbb{P}[X\geq 8]\leq \tfrac{1}{2}$<br>
+  (b) $\mathbb{P}[X\geq 8]\leq 2$<br>
+  (c) $\mathbb{P}[X\geq 8]\leq \tfrac{1}{4}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Markov's inequality states $\mathbb{P}[X\geq a]\leq \tfrac{\mathbb{E}[X]}{a}=\tfrac{4}{8}=\tfrac{1}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.12.</span> Let $X$ have mean $\mu=3$ and variance $\sigma^2=1$. Quin és the Chebyshev bound on $\mathbb{P}[|X-3|\geq 2]$?</p>
+  <p>(a) $\tfrac{1}{4}$<br>
+  (b) $\tfrac{1}{2}$<br>
+  (c) $\tfrac{3}{4}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Chebyshev's inequality gives $\mathbb{P}[|X-\mu|\geq k]\leq \tfrac{\sigma^2}{k^2}=\tfrac{1}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.13.</span> Let $X_1,\ldots,X_n$ be i.i.d. with $\mathbb{E}[X_i]=\mu$ and $\text{var}(X_i)=\sigma^2$. Quin és $\text{var}\bigl(\tfrac{1}{n}\sum_{i=1}^n X_i\bigr)$?</p>
+  <p>(a) $\tfrac{\sigma^2}{n}$<br>
+  (b) $\sigma^2$<br>
+  (c) $n\sigma^2$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>By independence, $\text{var}\bigl(\tfrac{1}{n}\sum X_i\bigr)=\tfrac{1}{n^2}\sum \text{var}(X_i)=\tfrac{n\sigma^2}{n^2}=\tfrac{\sigma^2}{n}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.14.</span> A fair die is rolled $n$ times and $Y=\tfrac{1}{n}\sum_{i=1}^n X_i$ is the sample mean. By the law of large numbers, what does $Y$ converge to as $n\to\infty$?</p>
+  <p>(a) $\tfrac{7}{2}$<br>
+  (b) $3$<br>
+  (c) $\tfrac{1}{6}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>The law of large numbers states that $Y$ converges in probability to $\mathbb{E}[X_i]=\tfrac{1+2+3+4+5+6}{6}=\tfrac{7}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.15.</span> Let $Z$ be a variable aleatòria with $\mathbb{E}[Z]=0$ and $\mathbb{E}[Z^2]=9$. Using Chebyshev's inequality, quin és an upper bound on $\mathbb{P}[|Z|\geq 6]$?</p>
+  <p>(a) $\tfrac{1}{4}$<br>
+  (b) $\tfrac{1}{2}$<br>
+  (c) $\tfrac{3}{4}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>We have $\text{var}(Z)=\mathbb{E}[Z^2]-(\mathbb{E}[Z])^2=9$. Chebyshev gives $\mathbb{P}[|Z|\geq 6]\leq \tfrac{9}{36}=\tfrac{1}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.16.</span> Let $X$ be a non-negative variable aleatòria. Quina de les següents is a consequence of Markov's inequality?</p>
+  <p>(a) $\mathbb{P}[X\geq a]\leq \tfrac{\mathbb{E}[X]}{a}$ for all $a>0$<br>
+  (b) $\mathbb{P}[X\geq a]\geq \tfrac{\mathbb{E}[X]}{a}$ for all $a>0$<br>
+  (c) $\mathbb{P}[X\geq a]= \tfrac{\mathbb{E}[X]}{a}$ for all $a>0$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Markov's inequality provides an upper bound on the tail probability of a non-negative variable aleatòria.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.17.</span> Let $X_1,\ldots,X_{100}$ be i.i.d. Bernoulli$(\tfrac{1}{2})$. Using Chebyshev's inequality, quin és an upper bound on $\mathbb{P}\bigl[|\bar{X}-\tfrac{1}{2}|\geq \tfrac{1}{10}\bigr]$, where $\bar{X}=\tfrac{1}{100}\sum X_i$?</p>
+  <p>(a) $\tfrac{1}{4}$<br>
+  (b) $\tfrac{1}{2}$<br>
+  (c) $\tfrac{1}{100}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>We have $\text{var}(\bar{X})=\tfrac{1}{400}$. Chebyshev gives $\mathbb{P}\bigl[|\bar{X}-\tfrac{1}{2}|\geq \tfrac{1}{10}\bigr]\leq \tfrac{1/400}{1/100}=\tfrac{1}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.18.</span> For a variable aleatòria $X$ with mean $\mu$, Chebyshev's inequality can be stated as $\mathbb{P}[|X-\mu|\geq k\sigma]\leq$</p>
+  <p>(a) $\tfrac{1}{k^2}$<br>
+  (b) $\tfrac{\sigma}{k}$<br>
+  (c) $k^2\sigma^2$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Chebyshev's inequality in this form gives $\mathbb{P}[|X-\mu|\geq k\sigma]\leq \tfrac{\text{var}(X)}{k^2\sigma^2}=\tfrac{1}{k^2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.19.</span> Let $g(x)=x^2$ and $X$ uniform on $\{-1,0,1\}$. Quin és $\mathbb{E}[g(X)]$?</p>
+  <p>(a) $\tfrac{2}{3}$<br>
+  (b) $1$<br>
+  (c) $\tfrac{1}{3}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>$\mathbb{E}[X^2]=\tfrac{1}{3}(1+0+1)=\tfrac{2}{3}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.20.</span> If $X_1,\ldots,X_n$ are i.i.d. with finite mean $\mu$ and finite variance, the weak law of large numbers states that $\bar{X}_n\to\mu$ in</p>
+  <p>(a) probability<br>
+  (b) distribution<br>
+  (c) mean square</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>The weak law of large numbers states convergence in probability: for any $\epsilon>0$, $\mathbb{P}[|\bar{X}_n-\mu|\geq\epsilon]\to 0$ as $n\to\infty$.</p>
+  </details>
+</div>
+
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.21.</span>
+  $X$ pren valors $\{-1,0,1\}$ amb probabilitats $\{\tfrac{1}{4},\tfrac{1}{2},\tfrac{1}{4}\}$. Trobeu $\text{var}(X)$.</p>
+  <p>(a) $\tfrac{1}{2}$<br>
+  (b) $1$<br>
+  (c) $\tfrac{1}{4}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>$\mathbb{E}[X]=\tfrac{1}{4}(-1)+\tfrac{1}{2}(0)+\tfrac{1}{4}(1)=0$. $\mathbb{E}[X^2]=\tfrac{1}{4}(1)+0+\tfrac{1}{4}(1)=\tfrac{1}{2}$. Per tant $\text{var}(X)=\tfrac{1}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.22.</span>
+  Una variable aleatòria no negativa satisfà $\mathbb{E}[X]=6$. Què diu la desigualtat de Markov sobre $P(X\geq 12)$?</p>
+  <p>(a) $P(X\geq 12)\leq \tfrac{1}{2}$<br>
+  (b) $P(X\geq 12)\leq \tfrac{1}{4}$<br>
+  (c) $P(X\geq 12)\leq \tfrac{1}{6}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per la desigualtat de Markov, $P(X\geq a)\leq \tfrac{\mathbb{E}[X]}{a}=\tfrac{6}{12}=\tfrac{1}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.23.</span>
+  Una variable aleatòria té mitjana $\mu=5$ i variància $\sigma^2=4$. Què diu la desigualtat de Chebyshev sobre $P(|X-5|\geq 4)$?</p>
+  <p>(a) $P(|X-5|\geq 4)\leq \tfrac{1}{4}$<br>
+  (b) $P(|X-5|\geq 4)\leq \tfrac{1}{2}$<br>
+  (c) $P(|X-5|\geq 4)\leq \tfrac{1}{16}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per la desigualtat de Chebyshev, $P(|X-\mu|\geq k)\leq \tfrac{\sigma^2}{k^2}=\tfrac{4}{16}=\tfrac{1}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.24.</span>
+  Per a variables aleatòries i.i.d. $X_i$ amb $\mathbb{E}[X_i]=2$ i $\text{var}(X_i)=1$, què diu la llei dels grans nombres sobre $\tfrac{1}{n}\sum_{i=1}^n X_i$ quan $n\to\infty$?</p>
+  <p>(a) Convergeix en probabilitat a $2$<br>
+  (b) Convergeix en probabilitat a $1$<br>
+  (c) Convergeix en probabilitat a $0$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per la llei feble dels grans nombres, la mitjana mostral $\tfrac{1}{n}\sum_{i=1}^n X_i$ convergeix en probabilitat a $\mathbb{E}[X_i]=2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.25.</span>
+  $X$ és uniforme sobre $\{1,2,3,4,5,6\}$. Trobeu $\mathbb{E}[X^2]$.</p>
+  <p>(a) $\tfrac{91}{6}$<br>
+  (b) $\tfrac{49}{4}$<br>
+  (c) $\tfrac{7}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>$\mathbb{E}[X^2]=\tfrac{1}{6}(1+4+9+16+25+36)=\tfrac{91}{6}$.</p>
+  </details>
+</div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  Universitat Pompeu Fabra &middot; Teoria de la informació i la codificació 2026 &middot;
+  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> &middot; <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>

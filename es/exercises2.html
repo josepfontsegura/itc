@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem("itc-theme");if(!t){t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})()</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios: 2. Funciones de variables aleatorias y desigualdades de concentración - ITC 2026</title>
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  <a class="navbar-brand" href="index.html">
+    <img src="../img/upf-logo.svg" alt="UPF" style="height:42px;margin-right:0.75rem"> <span class="navbar-brand-text">Teoría de la información y codificación 2026</span>
+  </a>
+  <div class="navbar-actions">
+    <button class="search-toggle" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-hint">⌘K</span></button>
+    <button class="theme-toggle" aria-label="Toggle dark mode"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+  </div>
+  <div class="lang-switcher">
+    <a href="../ca/exercises2.html">CA</a>
+    <a href="../es/exercises2.html" class="active">ES</a>
+    <a href="../en/exercises2.html">EN</a>
+  </div>
+</nav>
+
+<div class="page">
+        <aside class="sidebar">
+    <details class="sidebar-section">
+      <summary><h4>General</h4></summary>
+      <a href="index.html">Inicio</a>
+      <a href="guide.html">Guía de aprendizaje</a>
+      <a href="https://gestioacademica.upf.edu/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&amp;idiomaPais=ca.ES&amp;_anoAcademico=2025&amp;_codAsignatura=23970" target="_blank">Guía docente<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      <a href="https://aulaglobal.upf.edu/course/view.php?id=87616" target="_blank">Aula Global<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Apuntes</h4></summary>
+      <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
+      <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
+      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
+      <span class="sidebar-disabled">4. Códigos de Huffman</span>
+      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
+      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
+      <span class="sidebar-disabled">7. Códigos lineales</span>
+      <span class="sidebar-disabled">8. Capacidad de canal</span>
+      <span class="sidebar-disabled">9. Medidas de información</span>
+    </details>
+    <details class="sidebar-section" open>
+      <summary><h4>Ejercicios</h4></summary>
+      <a href="exercises1.html">1. Variables aleatorias</a>
+      <a href="exercises2.html" class="active">2. Desigualdades de concentración</a>
+      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
+      <span class="sidebar-disabled">4. Códigos de Huffman</span>
+      <span class="sidebar-disabled">5. Compresión de fuente</span>
+      <span class="sidebar-disabled">6. Probabilidad de error</span>
+      <span class="sidebar-disabled">7. Códigos lineales</span>
+      <span class="sidebar-disabled">8. Capacidad de canal</span>
+      <span class="sidebar-disabled">9. Medidas de información</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Cuestionario</h4></summary>
+      <a href="quiz1.html">Temas 1–2</a>
+      <span class="sidebar-disabled">Temas 3–5</span>
+      <span class="sidebar-disabled">Temas 6–9</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exámenes</h4></summary>
+      <span class="sidebar-disabled">Final 2025</span>
+      <span class="sidebar-disabled">Recuperación 2025</span>
+    </details>
+  </aside>
+
+  <main class="content">
+    <div class="lecture-header">
+      <h1>Ejercicios: 2. Funciones de variables aleatorias y desigualdades de concentración</h1>
+    </div>
+
+    <button id="expand-all" data-expand="Mostrar todas las soluciones" data-collapse="Ocultar todas las soluciones" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostrar todas las soluciones</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.1.</span> ¿Cuál de las siguientes es correcta?</p>
+  <p>(a) $\mathbb{E}[X] = \tfrac{7}{10}$ y $\mathbb{E}[Y] = \tfrac{2}{5}$<br>
+  (b) $\mathbb{E}[X] = \tfrac{2}{5}$ y $\mathbb{E}[Y] = \tfrac{7}{10}$<br>
+  (c) $\mathbb{E}[X] = \tfrac{7}{10}$ y $\mathbb{E}[Y] = \tfrac{3}{5}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Dado que $\sum_{x,y} P_{XY}(x,y) = 1$, deducimos que $P_{XY}(1,1) = \tfrac{2}{5}$. Una consecuencia de que las variables sean binarias es que $\mathbb{E}[X] = P_X(1)$ y $\mathbb{E}[Y] = P_Y(1)$. Al calcular $P_X(1) = P_{XY}(1,0) + P_{XY}(1,1) = \tfrac{3}{10} + \tfrac{2}{5} = \tfrac{7}{10}$
+y
+$P_Y(1) = P_{XY}(0,1) + P_{XY}(1,1) = \tfrac{1}{5} + \tfrac{2}{5} = \tfrac{3}{5}$, obtenemos la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.2.</span> ¿Cuál es el alfabeto de $Z$ y su distribución de probabilidad, respectivamente?</p>
+  <p>(a) $\{0,1,2\}$ y $\bigl\{\tfrac{1}{10} , \tfrac{1}{2}, \tfrac{2}{5}\bigr\}$<br>
+  (b) $\{0,1,2\}$ y $\bigl\{\tfrac{3}{10},  \tfrac{1}{5}, \tfrac{1}{2}\bigr\}$<br>
+  (c) $\{0,1\}$ y $\bigl\{\tfrac 25 , \tfrac 35 \bigr\}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Se tiene $Z = 0$ cuando $(X,Y)=(0,0)$, de modo que $P_Z(0)= \tfrac{1}{10}$. Además, $Z=1$ cuando $(X,Y)=(0,1)$ o $(1,0)$, entonces $P_Z(1)=\tfrac{1}{5} + \tfrac{3}{10} = \tfrac{1}{2}$. Finalmente, $Z=2$ cuando $(X,Y)=(1,1)$, por lo que $P_Z(2)=\tfrac{2}{5}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.3.</span> ¿Cuál es el valor de $\mathbb{E}[Z]$?</p>
+  <p>(a) $\tfrac{6}{5}$<br>
+  (b) $\tfrac{13}{10}$<br>
+  (c) $\tfrac{7}{5}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Por linealidad de la esperanza, $\mathbb{E}[Z] = \mathbb{E}[X+Y] = \mathbb{E}[X] + \mathbb{E}[Y] = \tfrac{7}{10} + \tfrac{3}{5} = \tfrac{7}{10} + \tfrac{6}{10} = \tfrac{13}{10}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.4.</span> ¿Cuál es el valor de $\text{var}(Z)$?</p>
+  <p>(a) $\tfrac{9}{25}$<br>
+  (b) $\tfrac 25$<br>
+  (c) $\tfrac{41}{100}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Primero calculamos $\mathbb{E}[Z^2]$ de la distribución de $Z$, esto es
+$
+\mathbb{E}[Z^2] = 0^2 \cdot \tfrac{1}{10} + 1^2 \cdot \tfrac{1}{2} + 2^2 \cdot \tfrac{2}{5} = \tfrac{21}{10}.
+$
+Dado que $\mathbb{E}[Z] = \tfrac{13}{10}$, se cumple
+$$
+\text{var}(Z) = \mathbb{E}[Z^2] - (\mathbb{E}[Z])^2 = \tfrac{41}{100}.
+$$</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.5.</span> Para $n=3$, ¿cuáles de los siguientes valores corresponden a la probabilidad exacta $\mathbb{P}[Y\ge \tfrac 23]$ y a la cota dada por la desigualdad de Markov, respectivamente?</p>
+  <p>(a) Ambos son $\tfrac 12$<br>
+  (b) $\tfrac 12$ y $\tfrac 34$<br>
+  (c) $\tfrac 18$ y $\tfrac 12$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>De la pregunta anterior, se tiene
+$$
+\mathbb{P}[Y \ge \tfrac23]
+= P_Y\Bigl(\tfrac23\Bigr) + P_Y(1)
+= \tfrac12.
+$$
+La desigualdad de Markov para esta probabilidad establece
+$$
+\mathbb{P}[Y \ge \tfrac23] \le \frac{\mathbb{E}[Y]}{\tfrac23}.
+$$
+Como $\mathbb{E}[Y] = \tfrac12$, resulta $\frac{\tfrac12}{\tfrac23} = \tfrac34$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.6.</span> Para $n=3$, ¿cuáles de los siguientes valores corresponden a la probabilidad exacta $\mathbb{P}[|Y - \mathbb{E}[Y]| \ge \tfrac12]$ y a la cota dada por la desigualdad de Chebyshev, respectivamente?</p>
+  <p>(a) $\tfrac 14$ y $\tfrac 13$<br>
+  (b) $\tfrac 16$ y $\tfrac 12$<br>
+  (c) $\tfrac 13$ y $\tfrac 23$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Sea $Z = |Y - \mathbb{E}[Y]| = |\,Y - \tfrac12|$. Observamos que $Y - \tfrac12$ toma valores en $\{-\tfrac12, -\tfrac16, \tfrac16, \tfrac12\}$ con probabilidad $\{\tfrac{1}{8},\tfrac{3}{8},\tfrac{3}{8},\tfrac{1}{8}\}$. Por ello, $Z$ toma valores en $\{\tfrac16,\tfrac12\}$ con probabilidad $\{\tfrac34,\tfrac14\}$. Entonces,
+$$
+\mathbb{P}[|Y - \mathbb{E}[Y]| \ge \tfrac12]
+= \mathbb{P}[Z \ge \tfrac12]
+= P_Z(\tfrac12)
+= \tfrac14.
+$$
+Por otro lado, la desigualdad de Chebyshev para esta probabilidad es
+$$
+\mathbb{P}[|Y - \mathbb{E}[Y]| \ge \tfrac12]
+\le \frac{\text{var}(Y)}{\left(\tfrac12\right)^2}.
+$$
+Dado que
+$$
+\text{var}(Y) = \mathbb{E}[Y^2] - (\mathbb{E}[Y])^2 = \tfrac13 - \Bigl(\tfrac12\Bigr)^2 = \tfrac{1}{12},
+$$
+se concluye que
+$$
+\mathbb{P}[|Y - \tfrac12| \ge \tfrac12]
+\le \frac{\tfrac{1}{12}}{\tfrac14}
+= \tfrac13.
+$$
+De este modo se obtiene la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.7.</span> ¿Cuál de las siguientes afirmaciones es verdadera? Podéis razonar por eliminación.</p>
+  <p>(a) <br>
+  (b) $|\mathcal{U}| = 2^n$<br>
+  (c) $\displaystyle\lim_{n\to\infty} \frac{g(2^n)}{P_U(2^n)} = -\infty$<br>
+  (d) $\displaystyle\lim_{n\to\infty} n P_U(u) = 0$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>$|\mathcal{U}| = n$ y $P_U(u) = 1/n$ para todo $u$, por lo que $\lim_{n\to\infty} P_U(u) = 0$. Además, $g(2^n)/P_U(2^n) = -n/(1/n) = -n^2$ por lo que $\lim_{n\to\infty} \frac{g(2^n)}{P_U(2^n)} = -\infty$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.8.</span> Buscad la fórmula para la suma de los números naturales entre $1$ y $n$ y usad el resultado para encontrar la media de $g(U)$, $\mathrm{E}[g(U)]$. Si usáis ChatGPT en algún paso, aseguráos de que la respuesta es correcta.</p>
+  <p>(a) $-\frac{1}{2}n(n+1)$<br>
+  (b) $-\frac{1}{2}(n+1)$<br>
+  (c) $-\frac{1}{2}n$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>La suma de los números naturales entre $1$ y $n$ es $n(n+1)/2$; como $g(u)$ tiene un signo menos la media de $g(u)$ es $-(n+1)/2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.9.</span> Buscad la fórmula que da la suma de los cuadrados de los números naturales entre $1$ y $n$ y usad el resultado para encontrar la media de $g^2(U)$, $\mathrm{E}[g^2(U)]$.</p>
+  <p>(a) $\frac{1}{4}(n+1)^2$<br>
+  (b) $\frac{1}{3}(n+1)(n+\frac{1}{2})$<br>
+  (c) $-\frac{1}{6}(n+1)(2n+1)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>La suma de los cuadrados de los números naturales entre $1$ y $n$ es $n(n+1)(2n+1)/6$; al elevar al cuadrado el signo de $g(u)$ no afecta</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.10.</span> ¿Qué valor de $n$ minimiza la varianza de $g(U)$?</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $7$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La varianza se puede calcular como $\frac{1}{12}(n^2-1)$, que es mínima para $n = 1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.11.</span> ¿Cuánto vale la cota superior a la probabilidad $\mathrm{Pr}\bigl[g(\mathbf{V})  \leq -2n\bigr]$ en la desigualdad de Markov?</p>
+  <p>(a) $\frac{1}{2}$<br>
+  (b) $-\frac{1}{2}$<br>
+  (c) No se puede calcular</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>$g(\mathbf{V})$ es negativa y la desigualdad de Markov acota $\mathrm{Pr}\bigl[-g(\mathbf{V})  \geq 2n\bigr]$ superiormente por $$\frac{-\mathrm{E}[g(\mathbf{V})]}{2n} = \frac{1}{2}.$$</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.12.</span> ¿Cuánto vale $\mathrm{Pr}\bigl[g(\mathbf{V})  \leq -2n\bigr]$?</p>
+  <p>(a) $\frac{1}{2}$<br>
+  (b) $0$<br>
+  (c) $-\frac{1}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>De hecho, $g(\mathbf{V})$ es una v.a. constante, de valor $-n$, por lo que la probabilidad de que sea inferior a $-2n$ es cero.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.13.</span> ¿Cuánto vale la probabilidad $$\mathrm{Pr}\bigl[\big|g(\mathbf{V}) - \mathrm{E}[g(\mathbf{V})]\big| \geq 0 \bigr]?$$</p>
+  <p>(a) $0$<br>
+  (b) $1$<br>
+  (c) Ninguna de las anteriores</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>La probabilidad es $1$ porque $\big|g(\mathbf{V}) - \mathrm{E}[g(\mathbf{V})]\big|$ es siempre mayor o igual que cero.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.14.</span> ¿Cuánto vale la cota superior a la probabilidad $$\mathrm{Pr}\bigl[\big|g(\mathbf{V}) - \mathrm{E}[g(\mathbf{V})]\big| \geq \epsilon \bigr]$$ en la desigualdad de Chebyshev, para $\epsilon > 0$?</p>
+  <p>(a) $0$<br>
+  (b) $1$<br>
+  (c) Ninguna de las anteriores</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $g(\mathbf{V})$ es constante, su varianza es cero y la cota superior en la desigualdad es también cero.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.15.</span> A fuente $X$ taking values in $\{-1,0,1\}$ con igual probabilidad is compressed using the optimal binario sin prefijo código. The function $\ell(x)$ returns the length of the encódigod version of the symbol $x\in\{-1,0,1\}$. Cuál es the value of the Chebyshev's upper bound to la probabilidad $\mathbb{P}[|\ell(X)-L_{\rm av}|\geq L_{\rm av}]$, where $L_{\rm av}$ is la longitud media of the código?</p>
+  <p>(a) $0$<br>
+  (b) $\frac{2}{15}$<br>
+  (c) $\frac{2}{25}$<br>
+  (d) $\frac{27}{25}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>La probabilidad $\mathbb{P}[|\ell(X)-L_{\rm av}|\geq L_{\rm av}]$ is of the form of Chebyshev's inequality dado que $\mathbb{E}[\ell(X)]=L_{\rm av}$, and is given by $\frac{{\rm Var}(\ell(X))}{L_{\rm av}^2}$. After constructing the optimal (Huffman) código for $X$, encontramos that $\ell(X)\in\{1,2,2\}$ con igual probabilidad, lo que lleva a ${\rm Var}(\ell(X)) = \frac 29$ and $\mathbb{E}[\ell(X)]=\frac 53$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.16.</span> A fuente $X$ taking values in $\{-2,-1,1,2\}$ con igual probabilidad is compressed using the optimal binario sin prefijo código. For each symbol $x\in\{-2,-1,1,2\}$, the function $\ell(x)$ returns the length of its encódigod version. Cuál es the value of la probabilidad $\mathbb{P}\bigr[|\ell(X)-L_{\rm av}|\geq \mathbb{E}[X]\bigr]$, where $L_{\rm av}$ is la longitud media of the código?</p>
+  <p>(a) $0$<br>
+  (b) $\frac{2}{25}$<br>
+  (c) $1$<br>
+  (d) Indeterminate</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>The optimal (Huffman) código is given by $\{00,01,10,11\}$, por lo tanto $\ell(x)=L_{\rm av}=2$. Dado que $\mathbb{E}[X]=0$, la probabilidad is $1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.17.</span> Let $X$ be a non-negative variable aleatoria with $\mathbb{E}[X]=4$. What does Markov's inequality say about $\mathbb{P}[X\geq 8]$?</p>
+  <p>(a) $\mathbb{P}[X\geq 8]\leq \tfrac{1}{2}$<br>
+  (b) $\mathbb{P}[X\geq 8]\leq 2$<br>
+  (c) $\mathbb{P}[X\geq 8]\leq \tfrac{1}{4}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Markov's inequality states $\mathbb{P}[X\geq a]\leq \tfrac{\mathbb{E}[X]}{a}=\tfrac{4}{8}=\tfrac{1}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.18.</span> Let $X$ have mean $\mu=3$ and variance $\sigma^2=1$. Cuál es the Chebyshev bound on $\mathbb{P}[|X-3|\geq 2]$?</p>
+  <p>(a) $\tfrac{1}{4}$<br>
+  (b) $\tfrac{1}{2}$<br>
+  (c) $\tfrac{3}{4}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Chebyshev's inequality gives $\mathbb{P}[|X-\mu|\geq k]\leq \tfrac{\sigma^2}{k^2}=\tfrac{1}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.19.</span> Let $X_1,\ldots,X_n$ be i.i.d. with $\mathbb{E}[X_i]=\mu$ and $\text{var}(X_i)=\sigma^2$. Cuál es $\text{var}\bigl(\tfrac{1}{n}\sum_{i=1}^n X_i\bigr)$?</p>
+  <p>(a) $\tfrac{\sigma^2}{n}$<br>
+  (b) $\sigma^2$<br>
+  (c) $n\sigma^2$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>By independence, $\text{var}\bigl(\tfrac{1}{n}\sum X_i\bigr)=\tfrac{1}{n^2}\sum \text{var}(X_i)=\tfrac{n\sigma^2}{n^2}=\tfrac{\sigma^2}{n}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.20.</span> A fair die is rolled $n$ times and $Y=\tfrac{1}{n}\sum_{i=1}^n X_i$ is the sample mean. By the law of large numbers, what does $Y$ converge to as $n\to\infty$?</p>
+  <p>(a) $\tfrac{7}{2}$<br>
+  (b) $3$<br>
+  (c) $\tfrac{1}{6}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>The law of large numbers states that $Y$ converges in probability to $\mathbb{E}[X_i]=\tfrac{1+2+3+4+5+6}{6}=\tfrac{7}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.21.</span> Let $Z$ be a variable aleatoria with $\mathbb{E}[Z]=0$ and $\mathbb{E}[Z^2]=9$. Using Chebyshev's inequality, cuál es an upper bound on $\mathbb{P}[|Z|\geq 6]$?</p>
+  <p>(a) $\tfrac{1}{4}$<br>
+  (b) $\tfrac{1}{2}$<br>
+  (c) $\tfrac{3}{4}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>We have $\text{var}(Z)=\mathbb{E}[Z^2]-(\mathbb{E}[Z])^2=9$. Chebyshev gives $\mathbb{P}[|Z|\geq 6]\leq \tfrac{9}{36}=\tfrac{1}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.22.</span> Let $X$ be a non-negative variable aleatoria. Cuál de las siguientes is a consequence of Markov's inequality?</p>
+  <p>(a) $\mathbb{P}[X\geq a]\leq \tfrac{\mathbb{E}[X]}{a}$ for all $a>0$<br>
+  (b) $\mathbb{P}[X\geq a]\geq \tfrac{\mathbb{E}[X]}{a}$ for all $a>0$<br>
+  (c) $\mathbb{P}[X\geq a]= \tfrac{\mathbb{E}[X]}{a}$ for all $a>0$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Markov's inequality provides an upper bound on the tail probability of a non-negative variable aleatoria.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.23.</span> Let $X_1,\ldots,X_{100}$ be i.i.d. Bernoulli$(\tfrac{1}{2})$. Using Chebyshev's inequality, cuál es an upper bound on $\mathbb{P}\bigl[|\bar{X}-\tfrac{1}{2}|\geq \tfrac{1}{10}\bigr]$, where $\bar{X}=\tfrac{1}{100}\sum X_i$?</p>
+  <p>(a) $\tfrac{1}{4}$<br>
+  (b) $\tfrac{1}{2}$<br>
+  (c) $\tfrac{1}{100}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>We have $\text{var}(\bar{X})=\tfrac{1}{400}$. Chebyshev gives $\mathbb{P}\bigl[|\bar{X}-\tfrac{1}{2}|\geq \tfrac{1}{10}\bigr]\leq \tfrac{1/400}{1/100}=\tfrac{1}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.24.</span> For a variable aleatoria $X$ with mean $\mu$, Chebyshev's inequality can be stated as $\mathbb{P}[|X-\mu|\geq k\sigma]\leq$</p>
+  <p>(a) $\tfrac{1}{k^2}$<br>
+  (b) $\tfrac{\sigma}{k}$<br>
+  (c) $k^2\sigma^2$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Chebyshev's inequality in this form gives $\mathbb{P}[|X-\mu|\geq k\sigma]\leq \tfrac{\text{var}(X)}{k^2\sigma^2}=\tfrac{1}{k^2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 2.25.</span> Let $g(x)=x^2$ and $X$ uniform on $\{-1,0,1\}$. Cuál es $\mathbb{E}[g(X)]$?</p>
+  <p>(a) $\tfrac{2}{3}$<br>
+  (b) $1$<br>
+  (c) $\tfrac{1}{3}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>$\mathbb{E}[X^2]=\tfrac{1}{3}(1+0+1)=\tfrac{2}{3}$.</p>
+  </details>
+</div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  Universitat Pompeu Fabra &middot; Teoría de la información y codificación 2026 &middot;
+  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> &middot; <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>

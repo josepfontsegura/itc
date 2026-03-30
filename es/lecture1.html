@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem("itc-theme");if(!t){t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})()</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema 1 - Secuencias de variables aleatorias - ITC 2026</title>
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+</head>
+<body>
+<nav class="navbar">
+  <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  <a class="navbar-brand" href="index.html">
+    <img src="../img/upf-logo.svg" alt="UPF" style="height:42px;margin-right:0.75rem"> <span class="navbar-brand-text">Teoría de la información y codificación 2026</span>
+  </a>
+  <div class="navbar-actions">
+    <button class="search-toggle" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-hint">⌘K</span></button>
+    <button class="theme-toggle" aria-label="Toggle dark mode"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+  </div>
+  <div class="lang-switcher">
+    <a href="../ca/lecture1.html">CA</a>
+    <a href="../es/lecture1.html" class="active">ES</a>
+    <a href="../en/lecture1.html">EN</a>
+  </div>
+</nav>
+<div class="page">
+                <aside class="sidebar">
+    <details class="sidebar-section">
+      <summary><h4>General</h4></summary>
+      <a href="index.html">Inicio</a>
+      <a href="guide.html">Guía de aprendizaje</a>
+      <a href="https://gestioacademica.upf.edu/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&amp;idiomaPais=ca.ES&amp;_anoAcademico=2025&amp;_codAsignatura=23970" target="_blank">Guía docente<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      <a href="https://aulaglobal.upf.edu/course/view.php?id=87616" target="_blank">Aula Global<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+    </details>
+    <details class="sidebar-section" open>
+      <summary><h4>Apuntes</h4></summary>
+      <a href="lecture1.html" class="active">1. Secuencias de variables aleatorias</a>
+      <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
+      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
+      <span class="sidebar-disabled">4. Códigos de Huffman</span>
+      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
+      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
+      <span class="sidebar-disabled">7. Códigos lineales</span>
+      <span class="sidebar-disabled">8. Capacidad de canal</span>
+      <span class="sidebar-disabled">9. Medidas de información</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Ejercicios</h4></summary>
+      <a href="exercises1.html">1. Variables aleatorias</a>
+      <a href="exercises2.html">2. Desigualdades de concentración</a>
+      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
+      <span class="sidebar-disabled">4. Códigos de Huffman</span>
+      <span class="sidebar-disabled">5. Compresión de fuente</span>
+      <span class="sidebar-disabled">6. Probabilidad de error</span>
+      <span class="sidebar-disabled">7. Códigos lineales</span>
+      <span class="sidebar-disabled">8. Capacidad de canal</span>
+      <span class="sidebar-disabled">9. Medidas de información</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Cuestionario</h4></summary>
+      <a href="quiz1.html">Temas 1–2</a>
+      <span class="sidebar-disabled">Temas 3–5</span>
+      <span class="sidebar-disabled">Temas 6–9</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exámenes</h4></summary>
+      <span class="sidebar-disabled">Final 2025</span>
+      <span class="sidebar-disabled">Recuperación 2025</span>
+    </details>
+  </aside>
+  <main class="content">
+    <div class="lecture-header">
+      <h1>Tema 1. Secuencias de variables aleatorias <a class="pdf-link" href="../pdf/ITC-2026-Lecture1-es.pdf">pdf</a></h1>
+    </div>
+
+
+<h2>Introducción</h2>
+
+<p>
+La teoría de la información es una disciplina científica originada en el estudio de los fundamentos matemáticos de la compresión y transmisión de datos. Cruza disciplinas dispares como las telecomunicaciones (transmisión y compresión de datos, comunicaciones inalámbricas), probabilidad y estadística (grandes desviaciones y prueba de hipótesis), matemáticas (desigualdades), física (sistemas cuánticos), informática (complejidad de Kolmogorov) y economía. Fue fundada por Claude E. Shannon en 1948 en su artículo histórico “A Mathematical Theory of Communication”, publicado por el Bell System Technical Journal. El documento fue resultado de 8 años de investigación y recibió inmediatamente la atención de la comunidad.
+</p>
+<p>
+Tal como escribió Shannon, “el problema fundamental de la comunicación es reproducir en un punto exactamente o aproximadamente un mensaje seleccionado en otro punto”. La forma estándar de hacerlo es mediante un codificador y un decodificador, como se muestra en la Figura 1.1. La <strong>fuente</strong> produce el mensaje (información) a transmitir, que puede ser analógico (voz, temperatura) o digital (correo electrónico). El <strong>codificador</strong> construye, a partir de la información de la fuente, una forma de onda electromagnética para transmitir por el canal. Consta de un codificador de fuente que elimina redundancia, un codificador de canal que introduce redundancia adaptada a los errores del canal, y un modulador que convierte los datos codificados en forma de onda. El <strong>canal</strong> modela las perturbaciones introducidas por la física del medio de transmisión y del receptor, incluyendo ruido y desvanecimiento en fibras ópticas, cables Ethernet, redes inalámbricas; pero también imperfecciones en sistemas de almacenamiento como el DVD, los discos flash o el ADN. El <strong>decodificador</strong> invierte los pasos del codificador e intenta recuperar el mensaje original.
+</p>
+<figure><img src="../img/tikz/lecture1-fig1.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
+<p>
+<figcaption>Figura 1.1. Diagrama básico de un sistema de comunicaciones.</figcaption>
+<a id="fig:block"></a>
+</p>
+<p>
+En este curso, asumiremos que la fuente ha sido previamente muestreada y cuantificada, y que la modulación y demodulación están incluidas en el modelo de canal. Como resultado, la fuente $U$, la entrada del canal $X$ y la salida del canal $Y$ son cantidades discretas. El objetivo es comprender los límites fundamentales de la compresión de fuente y la transmisión de datos, y estudiar el rendimiento de los códigos de fuente y de canal. Para ello, modelaremos las fuentes y los canales mediante variables aleatorias, o más concretamente, mediante <strong>secuencias de variables aleatorias</strong>.
+</p>
+
+<h2>Variables aleatorias</h2>
+
+<p>
+En muchas disciplinas, como las telecomunicaciones, la física, la biología o la economía, se observa aleatoriedad en el resultado de un experimento. Por tanto, interesa estudiar el comportamiento probabilístico de un sistema y diseñarlo en consecuencia. Por ejemplo, en compresión de datos diseñaremos códigos para representar una fuente aleatoria mediante bits, y estudiaremos la longitud media de dichos códigos. En transmisión de datos diseñaremos códigos para enviar información por un canal aleatorio, y estudiaremos la probabilidad de error de decodificación.
+</p>
+<p>
+Una variable aleatoria discreta describe el comportamiento de un experimento con una cantidad finita de posibles resultados. Utilizamos la mayúscula $X$ para la variable aleatoria, la caligráfica ${\cal X}$ para su alfabeto o conjunto de valores posibles, y $P_X(x)$ para la distribución de probabilidad de $X$ sobre ${\cal X}$, donde $x\in{\cal X}$ y $P_X(x)$ representa la probabilidad de que “$X=x$”, es decir $P_X(x)=\mathbb{P}[X=x]$. Como la probabilidad de cualquier evento pertenece al intervalo $[0,1]$, la distribución de probabilidad de cualquier variable aleatoria discreta cumple
+$$\begin{gather}
+	\sum_{x\in{\cal X}}P_X(x) = 1,\tag{1.1}\\
+	P_X(x)\geq 0 \text{ para todo } x\in{\cal X}.\tag{1.2}
+\end{gather}$$
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 1.1.</span> 
+El resultado de lanzar una moneda es cara o cruz. Para una moneda sesgada, representamos el resultado como la variable aleatoria $X$ con valores en ${\cal X}=\{\text{cara},\text{cruz}\}$ y distribución $P_X(x)\in\bigl\{\tfrac 13,\tfrac 23 \bigr\}$. Aquí, ${\cal X}$ tiene cardinalidad $|{\cal X}|=2$. La notación $P_X(x)\in\bigl\{\tfrac 13,\tfrac 23 \bigr\}$ se interpreta como $P_X(\text{cara})=\frac 13$ y $P_X(\text{cruz})=\frac 23$, ya que $P_X(x)$ es función de $x$. Se comprueba fácilmente que $(1.1)$ y $(1.2)$ se cumplen: $\sum_{x\in{\cal X}}P_X(x)=P_X(\text{cara}) + P_X(\text{cruz}) = \frac 13 + \frac 23 = 1$.
+</p>
+
+</div>
+
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 1.2.</span> 
+ 	Una variable aleatoria toma valores sobre el alfabeto $\{a,b,c\}$, con distribución de probabilidad $P_X(a)=P_X(b)=\frac 15$. De la condición $(1.1)$, deducimos que $P_X(c)=1-P_X(a)-P_X(b)=1-\frac 15 - \frac 15 = \frac 35$.
+</p>
+
+</div>
+
+<p>
+Un evento se representa como el conjunto ${\cal A}$ de valores de $X$ que lo satisfacen, y su probabilidad se calcula como
+$$
+	\mathbb{P}[X\in{\cal A}] = \sum_{x\in{\cal A}} P_X(x). \tag{1.3}$$
+A veces es útil calcular la probabilidad del evento complementario ${\cal A}^c$. Como la suma sobre todos los valores es $1$,
+$$
+	\mathbb{P}[X\in{\cal A}] = 1 - \mathbb{P}[X\in{\cal A}^c] = 1 - \sum_{x\in{\cal A}^c} P_X(x). \tag{1.4}$$
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.1.</span> 
+Sea $X$ una variable aleatoria que toma valores en $\{0,1,2,3\}$ con la misma probabilidad. ¿Cuál es la probabilidad de que $X$ sea impar? ¿Y la probabilidad de que $X$ sea par?
+</p>
+
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+	Si todos los valores son equiprobables, $P_X(x)=\frac 14$. El evento “$X$ es impar” corresponde al conjunto ${\cal A}=\{1,3\}$, así que $\mathbb{P}[X\text{ es impar}]=\sum_{x\in\{1,3\}}P_X(x) = P_X(1)+P_X(3)=\frac 14 + \frac 14 = \frac 12$. Como “$X$ es par” es el evento complementario, $\mathbb{P}[X\text{ es par}] = 1 - \frac 12 = \frac 12$.
+</p>
+
+</details>
+
+
+</div>
+
+
+<h2>Variables aleatorias distribuidas conjuntamente</h2>
+
+<p>
+En algunas aplicaciones, tenemos un par de variables aleatorias $X$ e $Y$ con valores en los alfabetos ${\cal X}$ e ${\cal Y}$, gobernadas por una distribución de probabilidad conjunta $P_{XY}(x,y)$. Se cumple que
+$$
+	\sum_{x\in{\cal X}}\sum_{y\in{\cal Y}}P_{XY}(x,y) = 1,\tag{1.5}
+$$
+mientras que $P_{XY}(x,y)\geq 0$ para todos $x\in{\cal X}$ e $y\in{\cal Y}$. La probabilidad conjunta se interpreta como la probabilidad de que “$X=x$” <u>y</u> “$Y=y$”, es decir $P_{XY}(x,y)=\mathbb{P}[X=x,Y=y]$. La doble suma de $(1.5)$ sugiere que sumar sobre una variable conduce a una distribución de probabilidad de la otra. Estas son las distribuciones marginales:
+$$\begin{gather}
+	P_X(x)=\sum_{y\in{\cal Y}}P_{XY}(x,y)\tag{1.6}\\
+	P_Y(y)=\sum_{x\in{\cal X}}P_{XY}(x,y)\tag{1.7}.
+\end{gather}$$
+Ambas $(1.6)$ y  $(1.7)$ son distribuciones de probabilidad ya que, sumadas sobre $x$ e $y$ respectivamente, dan $1$. A partir de ellas se define la distribución condicional, como cociente entre la distribución conjunta y la marginal:
+$$\begin{gather}
+	P_{X|Y}(x|y)=\frac{P_{XY}(x,y)}{P_Y(y)},\tag{1.8}\\
+	P_{Y|X}(y|x)=\frac{P_{XY}(x,y)}{P_X(x)}.\tag{1.9}
+\end{gather}$$
+Aislar $P_{XY}(x,y)$ de las dos ecuaciones anteriores lleva al teorema de Bayes:
+$$
+	P_{Y|X}(y|x) = \frac{P_{X|Y}(x|y) P_Y(y)}{P_X(x)}.
+	\tag{1.10}
+$$
+Nótese que $P_{Y|X}(y|x)$ es una distribución de probabilidad válida de $Y$ dado $X=x$, ya que $\sum_{y \in {\cal Y}} P_{Y|X}(y|x) = \frac{\sum_{y\in{\cal Y}} P_{XY}(x,y)}{P_X(x)} = \frac{P_X(x)}{P_X(x)} = 1$. Análogamente para $P_{X|Y}(x|y)$.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.2.</span> 
+ 	Sean $X$ e $Y$ con valores en $\{a,b\}$ y distribución conjunta $P_{XY}(a,a)=\frac 16$, $P_{XY}(a,b)=\frac 13$ y $P_{XY}(b,a)=0$. ¿Cuál es la distribución de $Y$ condicionada a $X=b$?
+</p>
+
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+Buscamos $P_{Y|X}(y|b)$, dos números que suman uno: $P_{Y|X}(a|b)$ y $P_{Y|X}(b|b)$. De $(1.5)$, $P_{XY}(a,a)+P_{XY}(a,b)+P_{XY}(b,a)+P_{XY}(b,b)=1$, lo que implica $P_{XY}(b,b)=1-\frac 16-\frac 13-0=\frac 12$. Necesitamos la marginal $P_X(b)$. Por  $(1.6)$, $P_X(b)=P_{XY}(b,a)+P_{XY}(b,b) = \frac 12$. Entonces $P_{Y|X}(a|b)=\frac{P_{XY}(b,a)}{P_X(b)}=\frac{0}{1/2} = 0$ y $P_{Y|X}(b|b)=\frac{P_{XY}(b,b)}{P_X(b)}=\frac{1/2}{1/2} = 1$. La respuesta es $\{0,1\}$: saber que $X=b$ implica $Y=b$ con probabilidad $1$.
+</p>
+
+</details>
+
+
+</div>
+
+<p>
+Podemos calcular cuál es la probabilidad de un evento en $Y$ condicionado a $X=x$ como
+$$
+	\mathbb{P}[Y\in{\cal A}|X=x] = \sum_{y\in{\cal A}} P_{Y|X}(y|x),
+	\tag{1.11}
+$$
+o similarmente para un evento en $X$ condicionado a $Y=y$. Importante: $P_{Y|X}(y|x)$ <u>no es</u> una distribución de probabilidad en $X$, <u>ni</u> $P_{X|Y}(x|y)$ lo es en $Y$. Combinando distribuciones condicionales, marginales y $(1.11)$ se obtiene la ley de la probabilidad total:
+$$\begin{gather}
+	\mathbb{P}[Y\in{\cal A}] =  \sum_{x\in{\cal X}} \mathbb{P}[Y\in{\cal A}|X=x] P_X(x).
+	\tag{1.12}
+\end{gather}$$
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.3.</span> 
+Una variable aleatoria $X$ toma valores sobre el alfabeto $\{1,2\}$ con distribución de probabilidad $\{1,0\}$. Condicionada a $X=x$, otra variable aleatoria $Y$ toma valores sobre $\{1,2,3\}$ con distribución de probabilidad $\bigl\{ \frac{2-x}{3},\frac{x}{3},\frac 13 \bigr\}$. ¿Cuál es la probabilidad de que $Y$ sea impar?
+</p>
+
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+	Condicionado a $X=1$, tenemos  $P_{Y|X}(y|1)\in\bigl\{\frac 13,\frac 13,\frac 13\bigr\}$, mientras que condicionado a $X=2$ tenemos $P_{Y|X}(y|2)\in\bigl\{0,\frac 23,\frac 13\bigr\}$. Entonces, $\mathbb{P}[Y\text{ es impar}|X=1]=\sum_{y\in\{1,3\}}P_{Y|X}(y|1)=\frac 23$ y $\mathbb{P}[Y\text{ es impar}|X=2]=\sum_{y\in\{1,3\}}P_{Y|X}(y|2)=\frac 13$. Finalmente, $\mathbb{P}[Y\text{ es impar}]=\sum_{x\in\{1,2\}} \mathbb{P}[Y\text{ es impar}|X=x]P_X(x)=\frac 23 \cdot 1 + \frac 13\cdot 0 = \frac 23.$
+</p>
+
+</details>
+
+
+</div>
+
+<p>
+La distribución conjunta de dos variables aleatorias \(X\) e \(Y\) satisface la <strong>regla de la cadena</strong>:
+$$
+P_{XY}(x,y)=P_{Y|X}(y|x)P_{X}(x)=P_{X|Y}(x|y)P_{Y}(y). \tag{1.13}$$
+Si \(X\) e \(Y\) son <strong>independientes</strong>, entonces \(P_{Y|X}(y|x)=P_{Y}(y)\), \(P_{X|Y}(x|y)=P_{X}(x)\) y por tanto
+$$
+P_{XY}(x,y)=P_X(x)P_Y(y). \tag{1.14}$$
+</p>
+
+<h2>Secuencias de variables aleatorias</h2>
+
+<p>
+Las fuentes y los canales se describirán mediante secuencias de variables aleatorias $(X_1,\ldots,X_n)$, donde $n$ es la longitud de la secuencia, caracterizada por la distribución conjunta $P_{X_1\cdots X_n}(x_1,\ldots,x_n)$, y donde cada $X_i$ toma valores en el mismo alfabeto ${\cal X}$. De forma similar a $(1.1)$ o $(1.5)$,
+$$
+	\sum_{(x_1,\ldots,x_n)\in{\cal X}^n} P_{X_1\cdots X_n}(x_1,\ldots,x_n) = 1, \tag{1.15}$$
+donde ${\cal X}^n={\cal X}\times \ldots \times {\cal X}$ es el producto cartesiano de los alfabetos. Un ejemplo lo aclarará.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 1.3.</span> 
+	Sea $(X_1,X_2,X_3)$ con cada $X_i$ tomando valores en ${\cal X}=\{a,b\}$. El alfabeto de $(X_1,X_2,X_3)$ es ${\cal X}^3 = \{a,b\}\times \{a,b\} \times \{a,b\}=\{aaa,aab,aba,abb,baa,bab,bba,bbb\}$, con cardinalidad $|{\cal X}^3|=|{\cal X}|^3=2^3=8$. Una posible distribución es $P_{X_1X_2X_3}(x_1,x_2,x_3)=\frac 18$; otra podría ser $P_{X_1X_2X_3}(aaa)=P_{X_1X_2X_3}(bbb)=\frac 12$ y $P_{X_1X_2X_3}(x_1,x_2,x_3)=0$ en caso contrario.
+</p>
+
+</div>
+
+<p>
+La regla de la cadena permite escribir la distribución conjunta como producto
+$$
+	P_{X_1\cdots X_n}(x_1,\ldots,x_n)= P_{X_1}(x_1)P_{X_2|X_1}(x_2|x_1)P_{X_3|X_2X_1}(x_3|x_2,x_1) \cdots P_{X_n|X_{n-1}\cdots X_1}(x_n|x_{n-1},\ldots,x_1). \tag{1.16}$$
+Decimos que $(X_1,\ldots,X_n)$ es una <strong>secuencia de variables aleatorias independientes</strong> si
+$$
+	P_{X_1\cdots X_n}(x_1,\ldots,x_n) = \prod_{i=1}^n P_{X_i}(x_i). \tag{1.17}$$
+Además, es una <strong>secuencia de variables aleatorias independientes e idénticamente distribuidas (i.i.d.)</strong> si
+$$
+	P_{X_1\cdots X_n}(x_1,\ldots,x_n) = \prod_{i=1}^n P_{X}(x_i), \tag{1.18}$$
+es decir, todas las variables aleatorias $X_i$ son independientes y tienen la misma distribución de probabilidad $P_X(x)$.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.4.</span> 
+ 	Una fuente discreta sin memoria se describe por la secuencia i.i.d. $(U_1,U_2,U_3)$ donde cada $U_i$ toma valores en $\{0,1\}$ con distribución $\{p,1-p\}$. ¿Cuál es la probabilidad de que la fuente produzca una secuencia con un cero en la última posición?
+ 	
+</p>
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+	 	Se pide calcular $P_{U_3}(0)$. Podemos obtener la marginal $P_{U_3}(u_3)$ a partir de la conjunta. Como la secuencia es i.i.d., $P_{U_1U_2U_3}(u_1,u_2,u_3) = P_{U}(u_1)P_{U}(u_2)P_{U}(u_3)$, dando lugar a
+	 	$$\begin{gather}
+			P_{U_1U_2U_3}(000)=P_{U}(0)P_{U}(0)P_{U}(0)=p^3 \tag{1.19}\\
+			P_{U_1U_2U_3}(001)=P_{U}(0)P_{U}(0)P_{U}(1)=p^2(1-p) \tag{1.20}\\
+			P_{U_1U_2U_3}(010)=P_{U}(0)P_{U}(1)P_{U}(0)=p^2(1-p) \tag{1.21}\\
+			P_{U_1U_2U_3}(011)=P_{U}(0)P_{U}(1)P_{U}(1)=p(1-p)^2 \tag{1.22}\\
+			P_{U_1U_2U_3}(100)=P_{U}(1)P_{U}(0)P_{U}(0)=p^2(1-p) \tag{1.23}\\
+			P_{U_1U_2U_3}(101)=P_{U}(1)P_{U}(0)P_{U}(1)=p(1-p)^2 \tag{1.24}\\
+			P_{U_1U_2U_3}(110)=P_{U}(1)P_{U}(1)P_{U}(0)=p(1-p)^2 \tag{1.25}\\
+			P_{U_1U_2U_3}(111)=P_{U}(1)P_{U}(1)P_{U}(1)=(1-p)^3 \tag{1.26}\end{gather}$$
+		Por tanto,
+	 	$$\begin{align}
+			P_{U_3}(0) &= \sum_{(u_1,u_2)\in\{0,1\}^2} P_{U_1U_2U_3}(u_1,u_2,0) = P_{U_1U_2U_3}(000) + P_{U_1U_2U_3}(010) + P_{U_1U_2U_3}(100)+ P_{U_1U_2U_3}(110) \tag{1.27}\\
+			&= p^3+2p^2(1-p)+p(1-p)^2 \tag{1.28}\\
+			&= p, \tag{1.29}\end{align}$$
+	 	que es simplemente $P_U(0)$ ya que $U_3$ es independiente del resto de variables y tiene la misma distribución $P_U(u)$.
+</p>
+
+</details>
+
+
+</div>
+
+<p>
+De forma similar a $(1.8)$ y $(1.9)$, definimos distribuciones condicionadas conjuntas. Sean $(X_1,\ldots,X_n)$ y $(Y_1,\ldots,Y_n)$ dos secuencias con distribución condicional $P_{Y_1\cdots Y_n|X_1\cdots X_n}(y_1,\ldots,y_n|x_1,\ldots,x_n)$. La secuencia $(Y_1,\ldots,Y_n)$ es <strong>condicionalmente i.i.d.</strong> dada $(X_1,\ldots,X_n)$ si
+$$
+	P_{Y_1\cdots Y_n|X_1\cdots X_n}(y_1,\ldots,y_n|x_1,\ldots,x_n) = \prod_{i=1}^n P_{Y|X}(y_i|x_i).
+	\tag{1.30}
+$$
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 1.4.</span> 
+<a id="ex:1.8"></a>
+Un canal discreto sin memoria tiene entrada $(X_1,X_2,X_3)$ con cada $X_i$ en $\{a,b\}$, y salida $(Y_1,Y_2,Y_3) $ con cada $Y_i$ en $\{a,b\}$. Se caracteriza por $(1.30)$ donde $P_{Y|X}(y|x)$ corresponde a la flecha que conecta $X=x$ con $Y=t $ en el gráfico siguiente:
+</p>
+<p>
+<figure><img src="../img/tikz/lecture1-fig2.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
+
+</div>
+<p>
+El canal no tiene memoria en el sentido de que <u>dada</u> la entrada $(X_1,X_2,X_3)$, la salida es condicionalmente i.i.d. Por ejemplo, $P_{Y_1Y_2Y_3|X_1X_2X_3}(aba|aab)$ se escribe como
+$$
+	P_{Y_1Y_2Y_3|X_1X_2X_3}(aba|aab) = P_{Y|X}(a|a) P_{Y|X}(b|a) P_{Y|X}(a|b).
+	\tag{1.31}
+$$
+Del gráfico, $P_{Y|X}(a|a)=\frac 13$ y $P_{Y|X}(b|b)=\frac 12$. Como las condicionales suman $1$, deducimos $P_{Y|X}(b|a)=\frac 23$ y $P_{Y|X}(a|b)=\frac 12$. Sustituyendo en $(1.31)$, $P_{Y_1Y_2Y_3|X_1X_2X_3}(aba|aab)=\frac 13\cdot \frac 23 \cdot \frac 12 = \frac 19$.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.5.</span> 
+ 	Para el canal del Ejemplo 1.8, suponga que la entrada $(X_1,X_2,X_3)$ tiene distribución
+ 	$$
+		P_{X_1X_2X_3}(x_1,x_2,x_3) = \begin{cases}
+			\frac 12 & x_1=x_2=x_3\\
+			0 & \text{en caso contrario},
+		\end{cases}
+		\tag{1.32}
+	$$
+ 	Calcular la distribución de la secuencia de salida.
+ 	
+</p>
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+		Queremos $P_{Y_1Y_2Y_3}(y_1,y_2,y_3)$ para $(y_1,y_2,y_3)\in\{a,b\}^3$, es decir, 8 números que suman uno. Por la ley de probabilidad total $(1.12)$ y la independencia condicional $(1.30)$,
+	 	$$\begin{align}
+			P_{Y_1Y_2Y_3}(y_1,y_2,y_3) &= \sum_{(x_1,x_2,x_3)\in\{a,b\}^3} P_{Y_1Y_2Y_3|X_1X_2X_3}(y_1,y_2,y_3|x_1,x_2,x_3)P_{X_1X_2X_3}(x_1,x_2,x_3) \tag{1.33}\\
+			&= \sum_{(x_1,x_2,x_3)\in\{a,b\}^3} P_{Y|X}(y_1|x_1)P_{Y|X}(y_2|x_2)P_{Y|X}(y_3|x_3) P_{X_1X_2X_3}(x_1,x_2,x_3).
+			\tag{1.34}
+		\end{align}$$
+	 	Como $P_{X_1X_2X_3}$ no es producto de distribuciones i.i.d., tampoco lo será $P_{Y_1Y_2Y_3}$.
+	 	Como la entrada solo tiene probabilidad no nula para $aaa$ y $bbb$, la suma $(1.34)$ tiene solo dos términos:
+	 	$$\begin{align}
+			P_{Y_1Y_2Y_3}(y_1,y_2,y_3) & = P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)P_{X_1X_2X_3}(aaa) \tag{1.35}\\ &  ~ \hspace{4em} + P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b)P_{X_1X_2X_3}(bbb) \tag{1.36}\\
+			&= \frac 12 P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)  + \frac 12 P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b). \tag{1.37}\end{align}$$
+		Solo queda evaluar, por ejemplo
+	 	$$\begin{gather}
+			P_{Y_1Y_2Y_3}(aaa) = \frac 12 P_{Y|X}(a|a)^3 + \frac 12 P_{Y|X}(a|b)^3 = \frac 12\cdot \left(\frac{1}{3}\right)^3 + \frac 12\cdot \left(\frac{1}{2}\right)^3 = \frac{35}{432}, \tag{1.38}\\
+			P_{Y_1Y_2Y_3}(aab) = \frac 12 P_{Y|X}(a|a)^2P_{Y|X}(b|a) + \frac 12 P_{Y|X}(a|b)^2P_{Y|X}(b|b) = \frac 12\cdot \left(\frac{1}{3}\right)^2\frac 23 + \frac 12\cdot \left(\frac{1}{2}\right)^2\frac 12 = \frac{43}{432}, \tag{1.39}\end{gather}$$
+	 	etcétera.
+ 	
+</p>
+</details>
+
+
+</div>
+
+  </main>
+</div>
+<footer class="footer">
+  Universitat Pompeu Fabra · Teoría de la información y codificación 2026 &middot;
+  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem("itc-theme");if(!t){t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})()</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Information theory and coding 2026 - UPF</title>
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  <a class="navbar-brand" href="index.html">
+    <img src="../img/upf-logo.svg" alt="UPF" style="height:42px;margin-right:0.75rem"> <span class="navbar-brand-text">Information theory and coding 2026</span>
+  </a>
+  <div class="navbar-actions">
+    <button class="search-toggle" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-hint">⌘K</span></button>
+    <button class="theme-toggle" aria-label="Toggle dark mode"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+  </div>
+  <div class="lang-switcher">
+    <a href="../ca/index.html">CA</a>
+    <a href="../es/index.html">ES</a>
+    <a href="index.html" class="active">EN</a>
+  </div>
+</nav>
+
+<div class="page">
+                  <aside class="sidebar">
+    <details class="sidebar-section" open>
+      <summary><h4>General</h4></summary>
+      <a href="index.html" class="active">Home</a>
+      <a href="guide.html">Learning guide</a>
+      <a href="https://gestioacademica.upf.edu/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&amp;idiomaPais=ca.ES&amp;_anoAcademico=2025&amp;_codAsignatura=23970" target="_blank">Teaching guide<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      <a href="https://aulaglobal.upf.edu/course/view.php?id=87593" target="_blank">Aula Global<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Lecture notes</h4></summary>
+      <a href="lecture1.html">1. Sequences of random variables</a>
+      <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
+      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
+      <span class="sidebar-disabled">4. Huffman codes</span>
+      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
+      <span class="sidebar-disabled">6. Error probability of channel codes</span>
+      <span class="sidebar-disabled">7. Linear codes</span>
+      <span class="sidebar-disabled">8. Channel capacity</span>
+      <span class="sidebar-disabled">9. Information measures</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exercises</h4></summary>
+      <a href="exercises1.html">1. Random variables</a>
+      <a href="exercises2.html">2. Concentration inequalities</a>
+      <span class="sidebar-disabled">3. Prefix-free codes</span>
+      <span class="sidebar-disabled">4. Huffman codes</span>
+      <span class="sidebar-disabled">5. Data compression</span>
+      <span class="sidebar-disabled">6. Error probability</span>
+      <span class="sidebar-disabled">7. Linear codes</span>
+      <span class="sidebar-disabled">8. Channel capacity</span>
+      <span class="sidebar-disabled">9. Information measures</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Quiz</h4></summary>
+      <a href="quiz1.html">Topics 1–2</a>
+      <span class="sidebar-disabled">Topics 3–5</span>
+      <span class="sidebar-disabled">Topics 6–9</span>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exams</h4></summary>
+      <span class="sidebar-disabled">Final 2025</span>
+      <span class="sidebar-disabled">Resit 2025</span>
+    </details>
+  </aside>
+
+  <main class="content">
+    <div class="lecture-header">
+      <h1>Course overview</h1>
+    </div>
+
+    <figure class="hero-image">
+      <img src="../img/shannon-bell-labs.png" alt="Claude Shannon at Bell Labs during World War II, writing equations on a blackboard">
+      <figcaption>Claude E. Shannon at Bell Labs, founder of information theory.</figcaption>
+    </figure>
+
+    <h2>Description</h2>
+    <p>Information theory studies the mathematical foundations of compression and digital data transmission. Originally proposed by Claude Shannon in 1948, information theory not only establishes the fundamental limits of storage and communication, but also studies the codes that achieve these limits. Codes are data processing methods to reduce the probability of error for compressing an information source, and for transmitting information through a communication channel.</p>
+    <p>Information theory and coding have had a great impact on society in recent decades, facilitating the development of many applications in the digital information era: ZIP files, MP3 or JPG compression, ADSL, compact disc, mobile or satellite communication. Learn more about the life of Claude Shannon and the influence of his work in the information society:</p>
+
+    <p style="text-align:center;margin:1rem 0"><a href="https://youtu.be/z2Whj_nL-x8" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.2rem;background:var(--upf-red);color:#fff;border-radius:6px;font-weight:500;text-decoration:none">&#9654; Watch introductory video</a></p>
+
+    <p>The objectives of this course are exploring the basic concepts of information theory and coding, familiarizing with the mathematical models of information sources and channels, understanding the proof methodologies of the fundamental limits of source compression and data transmission, as well as the structure and operational meaning of codes. Relevant resources of the course include:</p>
+
+    <p style="text-align:center;margin:1rem 0;display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap">
+      <a href="guide.html" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;text-decoration:none">Learning guide</a>
+      <a href="https://gestioacademica.upf.edu/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&amp;idiomaPais=ca.ES&amp;_anoAcademico=2025&amp;_codAsignatura=23970" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;text-decoration:none">Teaching guide</a>
+      <a href="https://aulaglobal.upf.edu/course/view.php?id=87593" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;text-decoration:none">Aula Global</a>
+    </p>
+
+    <h2>Lecture notes</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3><a href="lecture1.html">1. Sequences of random variables</a></h3>
+        <a class="pdf-link" href="../pdf/ITC-2026-Lecture1-en.pdf">pdf</a>
+      </div>
+      <div class="card">
+        <h3><a href="lecture2.html">2. Functions of random variables and concentration inequalities</a></h3>
+        <a class="pdf-link" href="../pdf/ITC-2026-Lecture2-en.pdf">pdf</a>
+      </div>
+      <div class="card card-disabled">
+        <h3><a href="lecture3.html">3. Prefix-free binary source codes</a></h3>
+        <a class="pdf-link" href="../pdf/ITC-2026-Lecture3-en.pdf">pdf</a>
+      </div>
+      <div class="card card-disabled">
+        <h3><a href="lecture4.html">4. Huffman codes</a></h3>
+        <a class="pdf-link" href="../pdf/ITC-2026-Lecture4-en.pdf">pdf</a>
+      </div>
+      <div class="card card-disabled">
+        <h3><a href="lecture5.html">5. Fundamental limits in data compression</a></h3>
+        <a class="pdf-link" href="../pdf/ITC-2026-Lecture5-en.pdf">pdf</a>
+      </div>
+      <div class="card card-disabled">
+        <h3><a href="lecture6.html">6. Error probability of channel codes</a></h3>
+        <a class="pdf-link" href="../pdf/ITC-2026-Lecture6-en.pdf">pdf</a>
+      </div>
+      <div class="card card-disabled">
+        <h3><a href="lecture7.html">7. Linear codes</a></h3>
+        <a class="pdf-link" href="../pdf/ITC-2026-Lecture7-en.pdf">pdf</a>
+      </div>
+      <div class="card card-disabled">
+        <h3><a href="lecture8.html">8. Channel capacity</a></h3>
+        <a class="pdf-link" href="../pdf/ITC-2026-Lecture8-en.pdf">pdf</a>
+      </div>
+      <div class="card card-disabled">
+        <h3><a href="lecture9.html">9. Information measures</a></h3>
+        <a class="pdf-link" href="../pdf/ITC-2026-Lecture9-en.pdf">pdf</a>
+      </div>
+    </div>
+
+    <h2>Evaluation</h2>
+    <table>
+      <thead>
+        <tr><th>Component</th><th>Weight</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Final exam</strong></td><td><strong>60%</strong></td><td>During the exam period. Contains theoretical questions and problems on all content covered in theory and seminars during the term.</td></tr>
+        <tr><td>Seminar deliveries</td><td>15%</td><td>At the end of the session, in groups of 2&ndash;3 students, with solutions to problems according to each seminar's instructions.</td></tr>
+        <tr><td>Comprehension assignments</td><td>15%</td><td>Throughout the course, individual, in written or audiovisual format according to each assignment's instructions.</td></tr>
+        <tr><td>Seminar-question competition</td><td>5%</td><td>In the last week of the course, in groups of 2&ndash;3 students. Assessment considers problem preparation, solution development, and problem solving.</td></tr>
+        <tr><td>Kahoot questions</td><td>5%</td><td>During theory sessions, to be answered individually.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Schedule &mdash; Group T1</h2>
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Time</th><th>Room</th><th>Session</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Wed 25 Mar</td><td>16:30&ndash;18:30</td><td>52.223</td><td><a href="lecture1.html">Lecture 1</a> (theory)</td></tr>
+        <tr><td>Fri 27 Mar</td><td>16:30&ndash;18:30</td><td>52.015</td><td><a href="lecture1.html">Lecture 1</a> (seminar)</td></tr>
+        <tr><td>Wed 8 Apr</td><td>16:30&ndash;18:30</td><td>52.223</td><td><a href="lecture2.html">Lecture 2</a> (theory)</td></tr>
+        <tr><td>Fri 10 Apr</td><td>16:30&ndash;18:30</td><td>52.015</td><td><a href="lecture2.html">Lecture 2</a> (seminar)</td></tr>
+        <tr><td>Wed 15 Apr</td><td>16:30&ndash;18:30</td><td>52.223</td><td>Review session (topics 1&ndash;2)</td></tr>
+        <tr><td>Thu 16 Apr</td><td>18:30&ndash;20:30</td><td>52.223</td><td><a href="lecture3.html">Lecture 3</a> (theory)</td></tr>
+        <tr><td>Fri 17 Apr</td><td>16:30&ndash;18:30</td><td>52.015</td><td><a href="lecture3.html">Lecture 3</a> (seminar) &mdash; <strong>Assignment 1 due</strong></td></tr>
+        <tr><td>Wed 22 Apr</td><td>16:30&ndash;18:30</td><td>52.223</td><td><a href="lecture4.html">Lecture 4</a> (theory)</td></tr>
+        <tr><td>Fri 24 Apr</td><td>16:30&ndash;18:30</td><td>52.015</td><td><a href="lecture4.html">Lecture 4</a> (seminar)</td></tr>
+        <tr><td>Wed 29 Apr</td><td>16:30&ndash;18:30</td><td>52.223</td><td><a href="lecture5.html">Lecture 5</a> (theory)</td></tr>
+        <tr><td>Thu 30 Apr</td><td>18:30&ndash;20:30</td><td>52.015</td><td><a href="lecture5.html">Lecture 5</a> (seminar)</td></tr>
+        <tr><td>Wed 6 May</td><td>16:30&ndash;18:30</td><td>52.223</td><td><a href="lecture6.html">Lecture 6</a> (theory)</td></tr>
+        <tr><td>Fri 8 May</td><td>16:30&ndash;18:30</td><td>52.015</td><td><a href="lecture6.html">Lecture 6</a> (seminar) &mdash; <strong>Assignment 2 due</strong></td></tr>
+        <tr><td>Wed 13 May</td><td>16:30&ndash;18:30</td><td>52.223</td><td>Review session (topics 3&ndash;5)</td></tr>
+        <tr><td>Thu 14 May</td><td>18:30&ndash;20:30</td><td>52.223</td><td><a href="lecture7.html">Lecture 7</a> (theory)</td></tr>
+        <tr><td>Fri 15 May</td><td>16:30&ndash;18:30</td><td>52.015</td><td><a href="lecture7.html">Lecture 7</a> (seminar)</td></tr>
+        <tr><td>Wed 20 May</td><td>16:30&ndash;18:30</td><td>52.223</td><td><a href="lecture8.html">Lecture 8</a> (theory)</td></tr>
+        <tr><td>Fri 22 May</td><td>16:30&ndash;18:30</td><td>52.015</td><td><a href="lecture8.html">Lecture 8</a> (seminar)</td></tr>
+        <tr><td>Wed 27 May</td><td>16:30&ndash;18:30</td><td>52.223</td><td><a href="lecture9.html">Lecture 9</a> (theory)</td></tr>
+        <tr><td>Fri 29 May</td><td>16:30&ndash;18:30</td><td>52.015</td><td><a href="lecture9.html">Lecture 9</a> (seminar) &mdash; <strong>Assignment 3 due</strong></td></tr>
+        <tr><td>Tue 2 Jun</td><td>14:30&ndash;16:30</td><td>52.019</td><td>Competition (preparation)</td></tr>
+        <tr><td>Wed 3 Jun</td><td>16:30&ndash;18:30</td><td>52.223</td><td>Review session (topics 6&ndash;9)</td></tr>
+        <tr><td>Fri 5 Jun</td><td>16:30&ndash;18:30</td><td>52.015</td><td>Competition (results &amp; seminar)</td></tr>
+        <tr style="background:var(--upf-red-light)"><td><strong>Fri 19 Jun</strong></td><td><strong>14:30&ndash;16:30</strong></td><td><strong>52.015</strong></td><td><strong>Final exam</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Practice</h2>
+    <p>Put your knowledge to the test! The exercises section contains practice problems with detailed solutions inspired by past seminars and exams, organized by topic. The interactive quiz features 20 multiple-choice questions covering all 9 topics of the course, with immediate feedback and a final score.</p>
+    <p style="text-align:center;margin:1rem 0;display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap">
+      <a href="exercises.html" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;text-decoration:none">Exercises</a>
+      <a href="quiz.html" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;text-decoration:none">Quiz</a>
+    </p>
+
+
+
+
+
+
+
+  </main>
+</div>
+
+<footer class="footer">
+  Universitat Pompeu Fabra &middot; Information theory and coding 2026 &middot;
+  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> &middot; <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>
