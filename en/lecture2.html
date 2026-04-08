@@ -111,7 +111,7 @@ $$
 <h2>Functions of random variables</h2>
 
 <p>
-Given a random variable $X$, the output of a deterministic function $f(x)$ is another random variable, that is $Y=f(X)$, with probability distribution $P_Y(y)$ and alphabet ${\cal Y}$. Obviously, both random variables are related. For example, calculating the expectation of $Y$ can be done in two ways: one by first finding the probability distribution $P_Y(y)$ and using that $\mathbb{E}[Y]=\sum_{y\in{\cal Y}}P_Y(y)$, but as we already saw in $(2.3)$, another option is to express the probability summation in terms of the underlying random variable $X$, that is, $\mathbb{E}[Y]=\mathbb{E}[f(X)]=\sum_{x\in{\cal X}}f(x) P_X(x)$. Both are equivalent, and one might be more convenient than the other depending on the problem.
+Given a random variable $X$, the output of a deterministic function $f(x)$ is another random variable, that is $Y=f(X)$, with probability distribution $P_Y(y)$ and alphabet ${\cal Y}$. Obviously, both random variables are related. For example, calculating the expectation of $Y$ can be done in two ways: one by first finding the probability distribution $P_Y(y)$ and using that $\mathbb{E}[Y]=\sum_{y\in{\cal Y}} y\,P_Y(y)$, but as we already saw in $(2.3)$, another option is to express the probability summation in terms of the underlying random variable $X$, that is, $\mathbb{E}[Y]=\mathbb{E}[f(X)]=\sum_{x\in{\cal X}}f(x) P_X(x)$. Both are equivalent, and one might be more convenient than the other depending on the problem.
 </p>
 
 <div class="env-block env-problem"><p><span class="env-label">Problem 2.2.</span> 
@@ -146,11 +146,11 @@ We will also encounter functions involving three random variables. For example:
 	Let $X$ and $Y$ be two independent random variables both taking values in $\{0,1\}$ with probability distribution $\bigl\{ \frac 12,\frac 12\}$, and define a new random variable as $Z=X+Y$. All the possible combinations of the sum $X+Y$ leads to the alphabet of $Z$, that is, $\{0,1,2\}$. Next, we can write in general that
 	$$\begin{gather}
 	P_Z(z)=\sum_{(x,y)\in\{0,1\}^2} P_{XYZ}(x,y,z), \tag{2.8}\end{gather}$$
-	where $P_{XYZ}(x,y,z)$ is the joint distribution of the three random variables. Such distribution can be always factorized as $P_{XYZ}(x,y,z)=P_{Z|XY}(z|xy)P_{XY}(x,y)$ and, since $X$ and $Y$ are independent, further as $P_{XYZ}(x,y,z)=P_{Z|XY}(z|xy)P_{X}(x)P_Y(y)$. Now, for example, to determine $P_Z(1)$ we note that since $X+Y$ (the sum operation) is a deterministic function we have that $P_{Z|XY}(1,0,0)=0$, $P_{Z|XY}(1,0,1)=1$, $P_{Z|XY}(1,1,0)=1$ and $P_{Z|XY}(1,1,1)=0$. Combining everything,
+	where $P_{XYZ}(x,y,z)$ is the joint distribution of the three random variables. Such distribution can be always factorized as $P_{XYZ}(x,y,z)=P_{Z|XY}(z|xy)P_{XY}(x,y)$ and, since $X$ and $Y$ are independent, further as $P_{XYZ}(x,y,z)=P_{Z|XY}(z|xy)P_{X}(x)P_Y(y)$. Now, for example, to determine $P_Z(1)$ we note that since $X+Y$ (the sum operation) is a deterministic function we have that $P_{Z|XY}(1|0,0)=0$, $P_{Z|XY}(1|0,1)=1$, $P_{Z|XY}(1|1,0)=1$ and $P_{Z|XY}(1|1,1)=0$. Combining everything,
 	$$\begin{align}
 		P_Z(1) &= \sum_{(x,y)\in\{0,1\}^2} P_{XYZ}(x,y,1) \tag{2.9}\\
-		       &= \sum_{(x,y)\in\{0,1\}^2} P_{Z|XY}(1,x,y)P_X(x)P_Y(y) \tag{2.10}\\
-		       & = \frac 14 \left(P_{Z|XY}(1,0,0) + P_{Z|XY}(1,0,1) + P_{Z|XY}(1,1,0) + P_{Z|XY}(1,1,1)  \right) \tag{2.11}\\
+		       &= \sum_{(x,y)\in\{0,1\}^2} P_{Z|XY}(1|x,y)P_X(x)P_Y(y) \tag{2.10}\\
+		       & = \frac 14 \left(P_{Z|XY}(1|0,0) + P_{Z|XY}(1|0,1) + P_{Z|XY}(1|1,0) + P_{Z|XY}(1|1,1)  \right) \tag{2.11}\\
 		       &= \frac 12. \tag{2.12}\end{align}$$ 
 	In a similar way we can determine that $P_Z(0)=P_Z(2)=\frac 14$.
 </p>
@@ -200,7 +200,7 @@ $$
 
 <div class="env-block env-problem"><p><span class="env-label">Problem 2.3.</span> 
 <a id="prob:2.5"></a>
-	For an integer $n\geq 1$, we define the random variable $Z$ as $Z=X_1+\ldots+X_n$, where $(X_1,\ldots,X_n)$ is a sequence of i.i.d. random variables each distributed as $X_i\in\{0,1\}$ with probability distribution $\{1-p,p\}$. Then, as $n\to\infty$ and for any $k\gt 0$, the probabilty $\mathbb{P}\bigl[|Z-np| \lt  nk\bigr]$ converges to...?
+	For an integer $n\geq 1$, we define the random variable $Z$ as $Z=X_1+\ldots+X_n$, where $(X_1,\ldots,X_n)$ is a sequence of i.i.d. random variables each distributed as $X_i\in\{0,1\}$ with probability distribution $\{1-p,p\}$. Then, as $n\to\infty$ and for any $k\gt 0$, the probability $\mathbb{P}\bigl[|Z-np| \lt  nk\bigr]$ converges to...?
 	
 </p>
 <details class="solution"><summary>Show solution</summary>

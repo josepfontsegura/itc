@@ -110,7 +110,7 @@ $$
 <h2>Funcions de variables aleatòries</h2>
 
 <p>
-Donada una variable aleatòria $X$, la sortida d'una funció determinista $f(x)$ és una altra variable aleatòria, és a dir $Y=f(X)$, amb distribució de probabilitat $P_Y(y)$ i alfabet ${\cal Y}$. Òbviament, ambdues variables aleatòries estan relacionades. Per exemple, calcular l'esperança de $Y$ es pot fer de dues maneres: una primer trobant la distribució de probabilitat $P_Y(y)$ i usant que $\mathbb{E}[Y]=\sum_{y\in{\cal Y}}P_Y(y)$, però com ja vam veure a $(2.3)$, una altra opció és expressar la suma de probabilitat en termes de la variable aleatòria subjacent $X$, és a dir, $\mathbb{E}[Y]=\mathbb{E}[f(X)]=\sum_{x\in{\cal X}}f(x) P_X(x)$. Ambdós són equivalents i un pot ser més convenient que l'altre depenent del problema.
+Donada una variable aleatòria $X$, la sortida d'una funció determinista $f(x)$ és una altra variable aleatòria, és a dir $Y=f(X)$, amb distribució de probabilitat $P_Y(y)$ i alfabet ${\cal Y}$. Òbviament, ambdues variables aleatòries estan relacionades. Per exemple, calcular l'esperança de $Y$ es pot fer de dues maneres: una primer trobant la distribució de probabilitat $P_Y(y)$ i usant que $\mathbb{E}[Y]=\sum_{y\in{\cal Y}} y\,P_Y(y)$, però com ja vam veure a $(2.3)$, una altra opció és expressar la suma de probabilitat en termes de la variable aleatòria subjacent $X$, és a dir, $\mathbb{E}[Y]=\mathbb{E}[f(X)]=\sum_{x\in{\cal X}}f(x) P_X(x)$. Ambdós són equivalents i un pot ser més convenient que l'altre depenent del problema.
 </p>
 
 <div class="env-block env-problem"><p><span class="env-label">Problema 2.2.</span> 
@@ -146,11 +146,11 @@ També trobarem funcions que involucren tres variables aleatòries. Per exemple:
  	Siguin $X$ i $Y$ dues variables aleatòries independents, ambdues prenent valors a $\{0,1\}$ amb distribució de probabilitat $\bigl\{ \frac 12,\frac 12\}$, i definim una nova variable aleatòria com $Z=X+Y$. Totes les combinacions possibles de la suma $X+Y$ donen com a resultat l'alfabet de $Z$, és a dir, $\{0,1,2\}$. A continuació, podem escriure en general que
  	$$\begin{gather}
 	P_Z(z)=\sum_{(x,y)\in\{0,1\}^2} P_{XYZ}(x,y,z), \tag{2.8}\end{gather}$$
-	on $P_{XYZ}(x,y,z)$ és la distribució conjunta de les tres variables aleatòries. Tal distribució sempre es pot factoritzar com $P_{XYZ}(x,y,z)=P_{Z|XY}(z|x,y)P_{XY}(x,y)$ i, atès que $X$ i $Y$ són independents, també com $P_{XYZ}(x,y,z)=P_{Z|XY}(z|x,y)P_{X}(x)P_Y(y)$. Ara, per exemple, per determinar $P_Z(1)$ observem que atès que $X+Y$ (l'operació de suma) és una funció determinista, tenim que $P_{Z|XY}(1,0,0)=0$, $P_{Z|XY}(1,0,1)=1$, $P_{Z|XY}(1,1,0)=1$ i $P_{Z|XY}(1,1,1)=0$. Combinant-ho tot,
+	on $P_{XYZ}(x,y,z)$ és la distribució conjunta de les tres variables aleatòries. Tal distribució sempre es pot factoritzar com $P_{XYZ}(x,y,z)=P_{Z|XY}(z|x,y)P_{XY}(x,y)$ i, atès que $X$ i $Y$ són independents, també com $P_{XYZ}(x,y,z)=P_{Z|XY}(z|x,y)P_{X}(x)P_Y(y)$. Ara, per exemple, per determinar $P_Z(1)$ observem que atès que $X+Y$ (l'operació de suma) és una funció determinista, tenim que $P_{Z|XY}(1|0,0)=0$, $P_{Z|XY}(1|0,1)=1$, $P_{Z|XY}(1|1,0)=1$ i $P_{Z|XY}(1|1,1)=0$. Combinant-ho tot,
  	$$\begin{align}
 		P_Z(1) &= \sum_{(x,y)\in\{0,1\}^2} P_{XYZ}(x,y,1) \tag{2.9}\\
-		       &= \sum_{(x,y)\in\{0,1\}^2} P_{Z|XY}(1,x,y)P_X(x)P_Y(y) \tag{2.10}\\
-		       & = \frac 14 \left(P_{Z|XY}(1,0,0) + P_{Z|XY}(1,0,1) + P_{Z|XY}(1,1,0) + P_{Z|XY}(1,1,1)  \right) \tag{2.11}\\
+		       &= \sum_{(x,y)\in\{0,1\}^2} P_{Z|XY}(1|x,y)P_X(x)P_Y(y) \tag{2.10}\\
+		       & = \frac 14 \left(P_{Z|XY}(1|0,0) + P_{Z|XY}(1|0,1) + P_{Z|XY}(1|1,0) + P_{Z|XY}(1|1,1)  \right) \tag{2.11}\\
 		       &= \frac 12. \tag{2.12}\end{align}$$
  	De manera similar podem determinar que $P_Z(0)=P_Z(2)=\frac 14$.
 </p>

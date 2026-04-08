@@ -110,7 +110,7 @@ $$
 <h2>Funciones de variables aleatorias</h2>
 
 <p>
-Dada una variable aleatoria $X$, la salida de una función determinista $f(x)$ es otra variable aleatoria, es decir $Y=f(X)$, con distribución de probabilidad $P_Y(y)$ y alfabeto ${\cal Y}$. Obviamente, ambas variables aleatorias están relacionadas. Por ejemplo, calcular la esperanza de $Y$ se puede hacer de dos maneras: una primero encontrando la distribución de probabilidad $P_Y(y)$ y usando que $\mathbb{E}[Y]=\sum_{y\in{\cal Y}}P_Y(y)$, pero como ya vimos en $(2.3)$, otra opción es expresar la suma de probabilidad en términos de la variable aleatoria subyacente $X$, es decir, $\mathbb{E}[Y]=\mathbb{E}[f(X)]=\sum_{x\in{\cal X}}f(x) P_X(x)$. Ambos son equivalentes y uno puede ser más conveniente que el otro dependiendo del problema.
+Dada una variable aleatoria $X$, la salida de una función determinista $f(x)$ es otra variable aleatoria, es decir $Y=f(X)$, con distribución de probabilidad $P_Y(y)$ y alfabeto ${\cal Y}$. Obviamente, ambas variables aleatorias están relacionadas. Por ejemplo, calcular la esperanza de $Y$ se puede hacer de dos maneras: una primero encontrando la distribución de probabilidad $P_Y(y)$ y usando que $\mathbb{E}[Y]=\sum_{y\in{\cal Y}} y\,P_Y(y)$, pero como ya vimos en $(2.3)$, otra opción es expresar la suma de probabilidad en términos de la variable aleatoria subyacente $X$, es decir, $\mathbb{E}[Y]=\mathbb{E}[f(X)]=\sum_{x\in{\cal X}}f(x) P_X(x)$. Ambos son equivalentes y uno puede ser más conveniente que el otro dependiendo del problema.
 </p>
 
 <div class="env-block env-problem"><p><span class="env-label">Problema 2.2.</span> 
@@ -145,11 +145,11 @@ También encontraremos funciones que involucran tres variables aleatorias. Por e
  	Sean $X$ y $Y$ dos variables aleatorias independientes, ambas tomando valores en $\{0,1\}$ con distribución de probabilidad $\bigl\{ \frac 12,\frac 12\}$, y definimos una nueva variable aleatoria como $Z=X+Y$. Todas las combinaciones posibles de la suma $X+Y$ dan como resultado el alfabeto de $Z$, es decir, $\{0,1,2\}$. A continuación, podemos escribir en general que
  	$$\begin{gather}
 	P_Z(z)=\sum_{(x,y)\in\{0,1\}^2} P_{XYZ}(x,y,z), \tag{2.8}\end{gather}$$
-	donde $P_{XYZ}(x,y,z)$ es la distribución conjunta de las tres variables aleatorias. Tal distribución siempre se puede factorizar como $P_{XYZ}(x,y,z)=P_{Z|XY}(z|x,y)P_{XY}(x,y)$ y, dado que $X$ y $Y$ son independientes, también como $P_{XYZ}(x,y,z)=P_{Z|XY}(z|x,y)P_{X}(x)P_Y(y)$. Ahora, por ejemplo, para determinar $P_Z(1)$ observamos que dado que $X+Y$ (la operación de suma) es una función determinista, tenemos que $P_{Z|XY}(1,0,0)=0$, $P_{Z|XY}(1,0,1)=1$, $P_{Z|XY}(1,1,0)=1$ y $P_{Z|XY}(1,1,1)=0$. Combinando todo,
+	donde $P_{XYZ}(x,y,z)$ es la distribución conjunta de las tres variables aleatorias. Tal distribución siempre se puede factorizar como $P_{XYZ}(x,y,z)=P_{Z|XY}(z|x,y)P_{XY}(x,y)$ y, dado que $X$ y $Y$ son independientes, también como $P_{XYZ}(x,y,z)=P_{Z|XY}(z|x,y)P_{X}(x)P_Y(y)$. Ahora, por ejemplo, para determinar $P_Z(1)$ observamos que dado que $X+Y$ (la operación de suma) es una función determinista, tenemos que $P_{Z|XY}(1|0,0)=0$, $P_{Z|XY}(1|0,1)=1$, $P_{Z|XY}(1|1,0)=1$ y $P_{Z|XY}(1|1,1)=0$. Combinando todo,
  	$$\begin{align}
 		P_Z(1) &= \sum_{(x,y)\in\{0,1\}^2} P_{XYZ}(x,y,1) \tag{2.9}\\
-		       &= \sum_{(x,y)\in\{0,1\}^2} P_{Z|XY}(1,x,y)P_X(x)P_Y(y) \tag{2.10}\\
-		       & = \frac 14 \left(P_{Z|XY}(1,0,0) + P_{Z|XY}(1,0,1) + P_{Z|XY}(1,1,0) + P_{Z|XY}(1,1,1)  \right) \tag{2.11}\\
+		       &= \sum_{(x,y)\in\{0,1\}^2} P_{Z|XY}(1|x,y)P_X(x)P_Y(y) \tag{2.10}\\
+		       & = \frac 14 \left(P_{Z|XY}(1|0,0) + P_{Z|XY}(1|0,1) + P_{Z|XY}(1|1,0) + P_{Z|XY}(1|1,1)  \right) \tag{2.11}\\
 		       &= \frac 12. \tag{2.12}\end{align}$$
  	De manera similar podemos determinar que $P_Z(0)=P_Z(2)=\frac 14$.
 </p>
@@ -183,7 +183,7 @@ $$
 mientras que el límite superior de Markov en $(2.13)$ viene dado por $\frac{\mathbb{E}[X]}{a} = \frac{2}{a}$. Graficando ambas cantidades juntas, obtenemos la Figura 2.1, validando la desigualdad para este ejemplo.
 </p>
 <figure><img src="../img/tikz/lecture2-fig1.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
-	<figcaption>Figura 2.1. Desigualdad de Markov's en el Ejemplo 2.4.</figcaption>
+	<figcaption>Figura 2.1. Desigualdad de Markov en el Ejemplo 2.4.</figcaption>
 	<a id="fig:2.1"></a>
 </p>
 
