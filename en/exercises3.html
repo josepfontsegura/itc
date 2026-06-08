@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -40,44 +40,488 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html" class="active">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Coming soon</h1>
+      <h1>Exercises: 3. Prefix-free binary source codes</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">This content will be available as the course progresses.</p>
+
+    <button id="expand-all" data-expand="Show all solutions" data-collapse="Hide all solutions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Show all solutions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.1.</span> Which of the following statements is correct? In your answer to this question, you must also explain why the others are incorrect.</p>
+  <p>(a) The code $\{a,b,c,ac\}$ is uniquely decodable.<br>
+  (b) The code $\{aa,ab,ba,bb\}$ is not uniquely decodable.<br>
+  (c) The code $\{aaa,aab,aac,bbb\}$ is prefix free.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>Code (a) is not uniquely decodable since the string $ac$ can be read as the single codeword $ac$ or as $a$ followed by $c$. Code (b) is prefix-free (equal-length distinct codewords) hence uniquely decodable, so the statement that it is not is false. Code (c) is prefix-free, the correct statement.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.2.</span> Which of the following is a valid prefix-free code for the source?</p>
+  <p>(a) All binary sequences of $3$ bits.<br>
+  (b) The code resulting from the concatenation of the code for $\{a,b,c\}$ given by $\{0,1,10\}$.<br>
+  (c) A code given by different sequences of $4$ bits.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>The source takes values in the alphabet
+$$
+\{aa,ab,ac,ba,bb,bc,ca,cb,cc\},
+$$
+hence a valid code consists of $9$ binary sequences. In (a), there are only $8$ different binary sequences of $3$ bits, which is insufficient. The code resulting from the concatenation of the code (b) is
+$$
+\{00,01,010,10,11,110,100,101,1010\}
+$$
+which is clearly not prefix free. Any code given by $9$ different sequences of $4$ bits is a prefix-free code.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.3.</span> Which of the following statements is incorrect? In your answer to this question, you must also explain why the others are correct.</p>
+  <p>(a) The resulting code is prefix free with average length $\tfrac{10}{3}$ bits.<br>
+  (b) The entropy of the source is $2\log_2(3)$ bits.<br>
+  (c) The average length of the code is $1.05155\%$ higher than the entropy.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>The resulting code is given by
+$$
+\{00,010,011,100,1010,1011,110,1110,1111\},
+$$
+which is prefix free. Since the source emits equiprobable symbols, each codeword is used with probability $\tfrac 19$ leading to an average length of $\tfrac{10}{3}$ bits. The entropy of the source is given by
+$$
+\sum_{i=1}^9 p_i\log_2\tfrac{1}{p_i} = 9\cdot\tfrac 19\log_2(9)=\log_2(9)=2\log_2(3),
+$$
+and the ratio between the average length and the entropy is $1.05155$, implying that the average length is $5.155\%$ higher than the entropy.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.4.</span> What is now the average length of the code in question 5?</p>
+  <p>(a) The same as before.<br>
+  (b) $\tfrac{59}{18}$ bits<br>
+  (c) $\tfrac{8}{3}$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>We have two ways of calculating the average length. Since the code is constructed as the concatenation $X=(X_1,X_2)$, the average length is given by $L_{\rm av}(X)=L_{\rm av}(X_1)+L_{\rm av}(X_2)$. The first symbol is encoded using the code $\{0,10,11\}$ with equal probability, hence $L_{\rm av}(X_1)=\tfrac 53$. The average length for the second emitted symbol depends on the first symbol: with probability $\tfrac 13$ (the first symbol is $a$) the average length of the second encoded symbol is $\tfrac 12\cdot 1 + \tfrac 14\cdot 2 + \tfrac 14\cdot 2 = \tfrac 32$; while with probability $\tfrac 23$ (the first symbol is either $b$ or $c$), the average length of the second encoded symbol is $\tfrac 53$. Altogether, we obtain
+$$
+L_{\rm av}(X) = \frac 53 + \frac 13\cdot \frac 32 + \frac 23 \cdot \frac 53 = \frac{59}{18}.
+$$
+The second way is to find the joint distribution of the source $U=(U_1,U_2)$ as $P_U(u)=P_{U_1}(u_1)P_{U_2|U_1}(u_2|u_1)$. For example, $P_U(aa)=P_{U_1}(a)P_{U_2|U_1}(a|a) = \tfrac 13\cdot \tfrac 12 = \tfrac 16$, or $P_U(ca)=P_{U_1}(c)P_{U_2|U_1}(a|c) = \tfrac 13\cdot \tfrac 13 = \tfrac 19$. Proceeding in the same way for all symbols in the source, we obtain the probability distribution
+$$
+\biggl\{ \frac 16, \frac{1}{12},\frac{1}{12}, \frac 19, \frac 19,\frac 19,\frac 19,\frac 19,\frac 19
+\biggr\}
+$$
+Since the code has length distribution
+$$
+\{2,3,3,3,4,4,3,4,4\},
+$$
+combining both results leads to the same answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.5.</span></p>
+  <p>A source $S$ has alphabet $\{a,b,c\}$ and probability distribution $\{0.4, 0.59999, 0.00001\}$. Consider the codes given by $\mathcal{C}_1=\{00, 11, 1010101010\}$ and $\mathcal{C}_2=\{000, 11, 101\}$. Indicate the true answer, justifying your choice and why the others are incorrect.</p>
+  <p>(a) $\mathcal{C}_1$ is more efficient than $\mathcal{C}_2$.<br>
+  (b) One of the two codes is not prefix-free.<br>
+  (c) For any sequence of three source symbols, the length of the encoded sequence using $\mathcal{C}_1$ will be shorter than the encoded sequence using $\mathcal{C}_2$.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Answer (a) is true because $L_{\rm av}(\mathcal{C}_1) = 2.00008$ and $L_{\rm av}(\mathcal{C}_2) = 2.40001$. Answer (b) is false since both codes are prefix-free. Answer (c) is false, as for all sequences that contain symbol $c$ the code $\mathcal{C}_1$ will lead to a longer sequence than $\mathcal{C}_2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.6.</span></p>
+  <p>For $r\geq 2$, consider a source taking values in $\{1,\ldots,r\}$ and a code whose lengths are given by $\ell_j=\lceil \log_2(j+1)\rceil$, where $\lceil x \rceil$ is the ceiling operator. Indicate the false answer, justifying your choice and why the others are correct. You may use that $\lceil x \rceil &lt; x + 1$.</p>
+  <p>(a) There exists a prefix-free code for any $r$.<br>
+  (b) The value in Kraft's inequality satisfies $\sum_{j=1}^r 2^{-\ell_j} &gt; \sum_{j=1}^r \frac{1}{2(j+1)}$.<br>
+  (c) Some codewords can have the same length.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Answer (a) is false because Kraft's inequality $\sum_{j=1}^r 2^{-\ell_j} \leq 1$ is satisfied only for $r=2$ and $r=3$. Answer (b) is true because, using that $\lceil \log_2(j+1)\rceil &lt; \log_2(j+1)+1$, we have $$\sum_{j=1}^{r} 2^{-\lceil \log_2(j+1)\rceil} &gt; \sum_{j=1}^{r}2^{-\log_2(j+1)-1} = \sum_{j=1}^{r}\frac{1}{2 (j+1)}.$$ Answer (c) is true because of the ceiling operator.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.7.</span></p>
+  <p>You are given a binary prefix-free code for a source $S$ that can take values $\{a,b,c,d,e,f\}$. It is known that $P_S(a)=P_S(b)=P_S(c)=\frac{1}{4}$ and that $P_S(d)=\frac{1}{8}$. Knowing that the code has a binary tree representation with no empty leaves, indicate which answer is false, justifying your choice and why the others are correct.</p>
+  <p>(a) For such code, for sure $L_{\rm av} &gt; H(S)$.<br>
+  (b) For such code, Kraft's inequality is satisfied with equality.<br>
+  (c) The maximum length of a codeword for this code is at most 5.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Answer (a) is false, since we can find a code such that $L_{\rm av}=H(S)$. Answer (b) is true since we are told that there are no empty leaves. Answer (c) is true, because knowing the alphabet size and the fact that there are no empty leaves, the tallest tree has depth five.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.8.</span></p>
+  <p>A source $S$ taking values in $\{1,2,3,4\}$ with probability distribution $\{\frac{1}{4}, \frac{1}{4}, \frac{3}{8}, \frac{1}{8}\}$ is compressed using a code with lengths $\{1,1,2,3\}$. Find the false answer, justifying your choice and why the others are correct.</p>
+  <p>(a) The code can not be uniquely decodable.<br>
+  (b) The entropy of the source satisfies $H(S)&lt;2$.<br>
+  (c) It holds that $L_{\rm av}=\mathbb{E}[S]$, where $\mathbb{E}[S]$ is the expected value of the source.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>Answer (a) is correct since with two codewords of length 1 the code is necessarily not uniquely decodable. Answer (b) is correct as the entropy is $1.90564$. Finally, answer (c) is false because $\mathbb{E}[S]=\frac{19}{8}$ while $L_{\rm av}=\frac{13}{8}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.9.</span></p>
+  <p>A randomly generated binary source code with codewords $\{\boldsymbol{x}_1,\boldsymbol{x}_2\}$, such that each codeword is independently selected from the set $\{0,01,10\}$ with probability distribution $\bigl\{\tfrac12,\tfrac13,\tfrac16\bigr\}$, is used to represent a discrete memoryless source taking values in $\{a,b\}$ with probability distribution $\bigl\{\tfrac13,\tfrac23\bigr\}$. What is the probability of generating a uniquely decodable code with average length $\tfrac53$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac14$<br>
+  (c) $\tfrac19$<br>
+  (d) $\tfrac{1}{12}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>From all possible randomly generated codes, only $\{0,01\}$ and $\{0,10\}$ satisfy both conditions on unique decodability and average length. The probabilities of such codes are $\tfrac 16$ and $\tfrac{1}{12}$, respectively, whose sum leads to the correct answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.10.</span></p>
+  <p>A discrete source takes values in the set $\{a,b,c\}$ with probabilities $\{p,2p,3p\}$ for some parameter $p\neq 0$. What is the average length of the optimal binary prefix-free code for this source?</p>
+  <p>(a) $\log_2(3)$<br>
+  (b) $\tfrac 32$<br>
+  (c) $2$<br>
+  (d) $\tfrac{4+3\log_2(3)}{6}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>Only $p=\tfrac 16$ leads to a valid probability distribution. The Huffman code for the source has lengths $\{2,2,1\}$, so $L_{\rm av}=9p=\tfrac 32$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.11.</span></p>
+  <p>For a given discrete source $X$, the optimal binary prefix-free code is given by $\{0,10,11\}$ and satisfies $L_{\rm av}=H(X)$. A new source is constructed as $Y=(X_1,X_2)$, where $X_1$ and $X_2$ are independent and both have the same distribution as $X$. What is the average length of the optimal binary prefix-free code for $Y$?</p>
+  <p>(a) $\log_2(9)$<br>
+  (b) $\frac{10}{3}$<br>
+  (c) $3$<br>
+  (d) $4$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>If $L_{\rm av}=H(X)$, then the distribution of $X$ is given by powers of $2$, that is, $\bigl\{ \frac 12, \frac 14, \frac 14 \bigr\}$. Since the source is memoryless, we can calculate the probabilities of $Y$, find the optimal (Huffman) code of $Y$, and obtain its average length.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.12.</span></p>
+  <p>A binary code $\{0,10,110,111\}$ is used for a source with $4$ symbols. Is this code prefix-free?</p>
+  <p>(a) Yes<br>
+  (b) No, because $0$ is a prefix of $10$<br>
+  (c) No, because $110$ is a prefix of $111$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>No codeword is a prefix of another: $0$ is not a prefix of $10$, since the first bits differ. Checking all pairs confirms prefix-freeness.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.13.</span> What is the Kraft value of the code $\{0,10,110,111\}$?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{7}{8}$<br>
+  (c) $\tfrac{3}{4}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The Kraft value is $2^{-1}+2^{-2}+2^{-3}+2^{-3}=\tfrac{1}{2}+\tfrac{1}{4}+\tfrac{1}{8}+\tfrac{1}{8}=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.14.</span> A source has entropy $H(X)=2.5$ bits. What can be said about the average length $L_{\rm av}$ of any binary prefix-free code for this source?</p>
+  <p>(a) $L_{\rm av}\geq 2.5$<br>
+  (b) $L_{\rm av}\leq 2.5$<br>
+  (c) $L_{\rm av}= 2.5$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By the source coding theorem, the average length of any uniquely decodable (hence prefix-free) code satisfies $L_{\rm av}\geq H(X)=2.5$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.15.</span> Is the code $\{0,01,011\}$ uniquely decodable?</p>
+  <p>(a) No<br>
+  (b) Yes, it is prefix-free<br>
+  (c) Yes, but not prefix-free</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The codeword $0$ is a prefix of $01$, and $01$ is a prefix of $011$. The sequence $011$ can be decoded as either the third symbol or the first followed by the second, so it is not uniquely decodable.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.16.</span> Does there exist a binary prefix-free code with codeword lengths $\{1,2,2,3\}$?</p>
+  <p>(a) Yes, because the Kraft inequality is satisfied<br>
+  (b) No, the Kraft inequality is violated<br>
+  (c) Only if the source has $4$ symbols</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>The Kraft value is $2^{-1}+2^{-2}+2^{-2}+2^{-3}=\tfrac{4+2+2+1}{8}=\tfrac{9}{8}&gt;1$, so the Kraft inequality is violated and no such code exists.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.17.</span> A binary source code $\{00,01,10,11\}$ is used for a source with $4$ equiprobable symbols. What is the average length?</p>
+  <p>(a) $2$ bits<br>
+  (b) $1$ bit<br>
+  (c) $4$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Each codeword has length $2$ and all symbols are equiprobable, so $L_{\rm av}=2$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.18.</span></p>
+  <p>For a source with $r$ equiprobable symbols, the entropy is $\log_2(r)$ bits. What is the minimum possible average length of a binary <em>fixed-length</em> prefix-free code?</p>
+  <p>(a) $\lceil\log_2(r)\rceil$ bits<br>
+  (b) $\log_2(r)$ bits exactly<br>
+  (c) $r$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>A fixed-length binary code must assign the same number of bits to each of the $r$ symbols, and $\lceil\log_2(r)\rceil$ bits suffice to index them all, so the minimum fixed length is $\lceil\log_2(r)\rceil$ bits. When $r$ is a power of $2$ this equals $\log_2(r)$; otherwise $\lceil\log_2(r)\rceil&gt;\log_2(r)$. Using $\log_2(r)$ exactly is in general impossible with a fixed integer length, and $r$ bits is far larger than necessary.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.19.</span> A code for a source $\{a,b,c\}$ has codewords $\{0,10,11\}$. What is the Kraft value?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{3}{4}$<br>
+  (c) $\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The Kraft value is $2^{-1}+2^{-2}+2^{-2}=\tfrac{1}{2}+\tfrac{1}{4}+\tfrac{1}{4}=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.20.</span> Which of the following codes is uniquely decodable but NOT prefix-free?</p>
+  <p>(a) $\{0,01,11\}$<br>
+  (b) $\{0,10,11\}$<br>
+  (c) $\{0,01,10\}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The code $\{0,01,11\}$ is not prefix-free since $0$ is a prefix of $01$. However, it can be shown to be uniquely decodable. The code $\{0,10,11\}$ is prefix-free.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.21.</span></p>
+  <p>A source takes values in $\{a,b\}$ with $P(a)=p$ and $P(b)=1-p$. For what value of $p$ does the optimal binary prefix-free code achieve $L_{\rm av}=H(X)$?</p>
+  <p>(a) $p=\tfrac{1}{2}$<br>
+  (b) Any $p$<br>
+  (c) $p=\tfrac{1}{4}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>For a binary source, any prefix-free code assigns length $1$ to both symbols, so $L_{\rm av}=1$ always. The entropy $H(X)=h_2(p)=1$ only when $p=\tfrac{1}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.22.</span></p>
+  <p>A binary code with codeword lengths $\{\ell_1,\ell_2\}$ encodes a two-symbol source with the <em>uniform</em> distribution $\{\tfrac12,\tfrac12\}$, achieving an average length of $\tfrac52$. The first codeword has length $\ell_1=1$.</p><p>What is the length $\ell_2$ of the second codeword?</p>
+  <p>(a) $\ell_2=4$<br>
+  (b) $\ell_2=5$<br>
+  (c) $\ell_2=2$<br>
+  (d) $\ell_2=3$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The average length is $L_{\rm av}=\tfrac12\ell_1+\tfrac12\ell_2$. With $\ell_1=1$ and $L_{\rm av}=\tfrac52$, we get $\tfrac12(1)+\tfrac12\ell_2=\tfrac52$, so $\tfrac12\ell_2=2$ and $\ell_2=4$. (Note $5$ comes from forgetting to subtract $\ell_1$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.23.</span></p>
+  <p>A binary code has codeword lengths $\{1,4\}$ (one codeword of length $1$, one of length $4$). It is used over a two-symbol source with distribution $\{\tfrac13,\tfrac23\}$, assigning the shorter codeword to the more probable symbol to minimize the average length.</p><p>What is the resulting average length?</p>
+  <p>(a) $2$ bits<br>
+  (b) $3$ bits<br>
+  (c) $\tfrac52$ bits<br>
+  (d) $\tfrac53$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Assign the length-$1$ codeword to the probability-$\tfrac23$ symbol and the length-$4$ codeword to the probability-$\tfrac13$ symbol: $L_{\rm av}=\tfrac23\cdot1+\tfrac13\cdot4=\tfrac23+\tfrac43=\tfrac63=2$. The swapped (suboptimal) assignment $\tfrac13\cdot1+\tfrac23\cdot4=3$ is larger, so $2$ bits is the minimal value.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.24.</span></p>
+  <p>Consider three statements about binary source codes. Exactly one is false. Which statement is the false one?</p><ol><li>The code $\{0,\,01,\,001\}$ is not prefix-free but is uniquely decodable.</li><li>The code $\{1,\,01,\,001\}$ is prefix-free and uniquely decodable.</li><li>The code $\{0,\,1,\,01\}$ is not uniquely decodable.</li></ol>
+  <p>(a) Statement 1: $\{0,\,01,\,001\}$ is not prefix-free but uniquely decodable<br>
+  (b) Statement 2: $\{1,\,01,\,001\}$ is prefix-free and uniquely decodable<br>
+  (c) Statement 3: $\{0,\,1,\,01\}$ is not uniquely decodable<br>
+  (d) None of them is false; all three are true</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>In $\{0,\,01,\,001\}$, the word $0$ is a prefix of the others, so it is correctly <em>not</em> prefix-free. However, concatenating $0$ and $01$ gives $0\cdot 01 = 001$, which equals the third codeword, so $001$ has two decodings (symbols 1,2 or symbol 3). Hence it is <strong>not</strong> uniquely decodable, making statement 1 <strong>false</strong>. (Statement 3 is true by the same kind of collision $0\cdot 1 = 01$; statement 2 is true since each word is leading $0$s ended by a single $1$, hence prefix-free $\Rightarrow$ uniquely decodable.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.25.</span></p>
+  <p>A binary prefix-free code is represented by a binary tree of depth $5$. The tree has exactly one empty leaf (a leaf position not assigned to any codeword), located at depth $5$. Compute the <em>Kraft value</em> $\displaystyle\sum_{i=1}^{r} 2^{-\ell_i}$, where $\ell_i$ are the depths of the occupied leaves.</p>
+  <p>(a) $\dfrac{31}{32} = 1 - 2^{-5}$<br>
+  (b) $1$<br>
+  (c) $\dfrac{15}{16} = 1 - 2^{-4}$<br>
+  (d) $\dfrac{1}{32} = 2^{-5}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>A <strong>full</strong> binary tree, where every leaf carries the weight $2^{-(\text{depth})}$, sums to exactly $1$ (each parent's weight equals its two children's). Here one leaf at depth $5$ is empty, so it contributes $2^{-5}$ to the full-tree total of $1$ but is <em>not</em> counted as a codeword. Thus $\sum_i 2^{-\ell_i} = 1 - 2^{-5} = 1 - \tfrac{1}{32} = \tfrac{31}{32}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.26.</span></p>
+  <p>A binary prefix-free code with $3$ codewords satisfies Kraft's inequality with value $\frac{7}{8}$, that is $\sum_{i=1}^{3} 2^{-\ell_i}=\frac{7}{8}$. The code encodes a source whose $3$ symbols are <em>equiprobable</em>. Calculate the average codeword length $L_{\mathrm{av}}$.</p>
+  <p>(a) $L_{\mathrm{av}}=2$ bits per symbol<br>
+  (b) $L_{\mathrm{av}}=\log_2 3\approx 1.585$ bits per symbol<br>
+  (c) $L_{\mathrm{av}}=\frac{7}{8}$ bits per symbol<br>
+  (d) $L_{\mathrm{av}}=3$ bits per symbol</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The lengths are forced by $2^{-\ell_1}+2^{-\ell_2}+2^{-\ell_3}=\frac{7}{8}$: exactly one codeword has length $1$ (two would already give $1&gt;\frac78$, none would give at most $\frac34&lt;\frac78$), and the remaining $\frac78-\frac12=\frac38=\frac14+\frac18$ forces lengths $2$ and $3$. Hence the multiset is $\{1,2,3\}$. With a uniform source $\mathbb{P}(x_i)=\frac13$, so $L_{\mathrm{av}}=\frac13(1+2+3)=\frac63=2$ bits per symbol.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.27.</span></p>
+  <p>A binary prefix-free code is used over a source with a <em>uniform</em> distribution and achieves an average codeword length of $L_{\rm av}=\frac{39}{11}$ bits. What is the maximum possible size $M$ of the source alphabet?</p>
+  <p>(a) $M=11$<br>
+  (b) $M=12$<br>
+  (c) $M=10$<br>
+  (d) $M=8$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>For a uniform source $H(U)=\log_2 M$, and any prefix-free code satisfies $L_{\rm av}\ge H(U)$. Thus $\frac{39}{11}\ge\log_2 M$, giving $M\le 2^{39/11}=2^{3.545\ldots}\approx 11.68$, so $M\le 11$. The value $M=11$ is attainable: 5 codewords of length $3$ and 6 of length $4$ give $\sum_i 2^{-\ell_i}=\tfrac58+\tfrac{6}{16}=1$ (Kraft holds) and $L_{\rm av}=\frac{5\cdot3+6\cdot4}{11}=\frac{39}{11}$. Since $\log_2 12=3.585&gt;3.545$, $M=12$ is impossible. Hence $M_{\max}=11$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.28.</span></p>
+  <p>A source $U$ is uniform on $\{1,2,3\}$ and is encoded as $1\mapsto\texttt{1}$, $2\mapsto\texttt{10}$, $3\mapsto\texttt{11}$. Let $\ell(U)$ be the codeword length in bits and let $H(U)$ be the entropy in bits. Compute $\mathbb{P}\big[\ell(U)\ge H(U)\big]$.</p>
+  <p>(a) $\tfrac23$<br>
+  (b) $\tfrac13$<br>
+  (c) $1$<br>
+  (d) $\log_2 3$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The lengths are $\ell(1)=1$ and $\ell(2)=\ell(3)=2$, so $\ell(U)=1$ with probability $\tfrac13$ and $\ell(U)=2$ with probability $\tfrac23$. The entropy is $H(U)=\log_2 3\approx 1.585$ bits. Since $1&lt;1.585$ but $2\ge 1.585$, the event $\{\ell(U)\ge H(U)\}$ equals $\{\ell(U)=2\}=\{U\in\{2,3\}\}$. Hence the probability is $\tfrac23$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.29.</span></p>
+  <p>Consider a binary code with length distribution $\{1,2,3,3,5,5\}$. Is the claim <em>"there exists a prefix-free binary code with these lengths"</em> true or false, and why?</p>
+  <p>(a) False: $K=\frac{17}{16}&gt;1$, so Kraft fails and no such code exists<br>
+  (b) True: $K=1$ exactly, so a prefix-free code exists<br>
+  (c) True: $K=\frac{15}{16}&lt;1$, so a prefix-free code exists<br>
+  (d) False: $K=\frac{17}{16}&gt;1$, and no code of any kind with these lengths exists</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Compute the Kraft sum: $K=2^{-1}+2^{-2}+2^{-3}+2^{-3}+2^{-5}+2^{-5}=\frac{16+8+4+4+1+1}{32}=\frac{34}{32}=\frac{17}{16}=1.0625$. Since $K&gt;1$, the disjoint leaf regions would exceed the whole tree, so <strong>no</strong> prefix-free code with these lengths exists. The claim is <strong>false</strong>. (Option 3 is wrong because non-prefix-free codes with arbitrary lengths always exist.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.30.</span></p>
+  <p>A given binary code has length distribution $\{1,2,2\}$. Is the claim <em>"this code is surely prefix-free"</em> true or false?</p>
+  <p>(a) False: $K=1$ only guarantees some prefix-free code exists; e.g. $\{0,00,01\}$ has these lengths but is not prefix-free<br>
+  (b) True: since $K=1\le 1$, any code with these lengths is prefix-free<br>
+  (c) False: $K=\frac{3}{2}&gt;1$, so no code with these lengths can be prefix-free<br>
+  (d) True: $\{0,10,11\}$ is prefix-free, so every code with these lengths is too</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Kraft gives $K=2^{-1}+2^{-2}+2^{-2}=\frac{1}{2}+\frac{1}{4}+\frac{1}{4}=1\le 1$, so <em>some</em> prefix-free code with these lengths exists (e.g. $\{0,10,11\}$). But Kraft is a condition on the multiset of lengths, not on a particular code. The counterexample $\{0,00,01\}$ has lengths $\{1,2,2\}$ yet $0$ is a prefix of $00$ and $01$, so it is <strong>not</strong> prefix-free. The claim is <strong>false</strong>.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.31.</span></p>
+  <p>Consider the length distribution $\{1,2,3,3,3\}$. Is the claim <em>"we cannot find a prefix-free binary code with these lengths"</em> true or false?</p>
+  <p>(a) True: $K=\frac{9}{8}&gt;1$, so Kraft fails and no prefix-free code exists<br>
+  (b) False: $K=1$, so a prefix-free code does exist<br>
+  (c) False: $K=\frac{7}{8}&lt;1$, so a prefix-free code does exist<br>
+  (d) True: $K=\frac{9}{8}&gt;1$, but only because the three length-3 words clash</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Kraft sum: $K=2^{-1}+2^{-2}+2^{-3}+2^{-3}+2^{-3}=\frac{4+2+1+1+1}{8}=\frac{9}{8}=1.125$. Since $K&gt;1$, the disjoint leaf regions would cover more than the whole tree, which is impossible, so <strong>no</strong> prefix-free code with these lengths exists. The claim that none can be found is therefore <strong>true</strong>.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.32.</span></p>
+  <p>A binary prefix-free code has $4$ codewords with positive-integer lengths $\ell_1,\ell_2,\ell_3,\ell_4$ satisfying Kraft's equality $\sum_{i=1}^{4} 2^{-\ell_i} = \frac{15}{16}$. What is the (unique) set of four lengths?</p>
+  <p>(a) $\{1,2,3,4\}$<br>
+  (b) $\{2,2,3,4\}$<br>
+  (c) $\{1,2,2,4\}$<br>
+  (d) $\{2,3,4,4\}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Multiply by $16=2^4$: the condition becomes $\sum_i 2^{4-\ell_i}=15$. Any $\ell_i\ge 5$ adds a non-integer fraction, so all $\ell_i\le 4$, and the terms $a_i=2^{4-\ell_i}$ are coins from $\{8,4,2,1\}$ that must sum to $15$. The only length-$4$ multiset of these coins summing to $15$ is one of each, $\{8,4,2,1\}$, giving lengths $\{1,2,3,4\}$. Check: $2^{-1}+2^{-2}+2^{-3}+2^{-4}=\frac{15}{16}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.33.</span></p>
+  <p>For the code with $\sum_{i=1}^{4} 2^{-\ell_i} = \frac{15}{16}$ (positive-integer lengths), how many codewords have length exactly $4$?</p>
+  <p>(a) Exactly one<br>
+  (b) None<br>
+  (c) Exactly two<br>
+  (d) It cannot be determined</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Writing $a_i=2^{4-\ell_i}\in\{8,4,2,1\}$ with $\sum a_i=15$, a length-$4$ codeword corresponds to a coin of value $1$ (the only odd coin). If zero coins equalled $1$, the remaining even coins $\{2,4,8\}$ would sum to an even number, never the odd total $15$; and the multiset is forced uniquely to $\{8,4,2,1\}$, ruling out two or more. Hence exactly one codeword has length $4$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 3.34.</span></p>
+  <p>A binary <em>prefix-free</em> source code has the nine codeword lengths $\{1,3,3,4,4,5,5,5,5\}$. It is known that the code's average length equals the <em>entropy</em> of the source. Calculate this average length (in bits per symbol).</p>
+  <p>(a) $\dfrac{19}{8}=2.375$ bits/symbol<br>
+  (b) $\dfrac{34}{9}\approx 3.778$ bits/symbol<br>
+  (c) $\dfrac{27}{8}=3.375$ bits/symbol<br>
+  (d) $3.5$ bits/symbol</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Equality $L_{\rm av}=H(U)$ holds iff the source is dyadic with $p_i=2^{-\ell_i}$ (the relative entropy $\sum_i p_i\log_2\frac{p_i}{2^{-\ell_i}}$ vanishes). The Kraft sum $\tfrac12+2\cdot\tfrac18+2\cdot\tfrac1{16}+4\cdot\tfrac1{32}=1$ confirms validity. Then $L_{\rm av}=\sum_i 2^{-\ell_i}\ell_i=\tfrac12\cdot1+2\cdot\tfrac18\cdot3+2\cdot\tfrac1{16}\cdot4+4\cdot\tfrac1{32}\cdot5=\tfrac{19}{8}=2.375$ bits/symbol. (The value $\tfrac{34}{9}$ is an arbitrary distractor.)</p>
+  </details>
+</div>
+
   </main>
 </div>
 

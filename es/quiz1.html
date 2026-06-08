@@ -242,7 +242,7 @@
 </nav>
 
 <div class="page">
-                  <aside class="sidebar">
+                                          <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -254,36 +254,36 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html" class="active">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
 
@@ -367,66 +367,66 @@
 
   // ---- Quiz data ----
   var questions = [
-// KAHOOT 1: Temas 1-2
+// KAHOOT 1
     {
-      topic: "Temas 1\u20132: Variables aleatorias",
-      q: "¿Cuál es la media de una variable aleatoria que toma valores $\\{0,1,3\\}$ con probabilidades $\\bigl\\{\\tfrac12,\\tfrac13,\\tfrac16\\bigr\\}$?",
-      options: ["$1$", "$\\tfrac56$", "$\\tfrac34$", "$\\tfrac23$"],
+      topic: "Tema 1: Ley de la probabilidad total",
+      q: "Dos variables aleatorias $X$ e $Y$ toman valores en $\\{0,1\\}$ con $P(X=0)=\\tfrac12$, $P(Y=1\\,|\\,X=0)=\\tfrac13$ y $P(Y=1\\,|\\,X=1)=\\tfrac34$. Entonces $P(Y=1)=\\tfrac{13}{24}$.",
+      options: ["Verdadero", "Falso"],
+      correct: 0
+    },
+    {
+      topic: "Tema 1: Independencia vs. marginales iguales",
+      q: "Dos variables aleatorias $X$ e $Y$ toman valores en $\\{0,1\\}$ con $P_{XY}(0,0)=P_{XY}(1,1)=\\tfrac{2}{5}$ y $P_{XY}(0,1)=P_{XY}(1,0)=\\tfrac{1}{10}$. Como ambas marginales son $\\bigl\\{\\tfrac12,\\tfrac12\\bigr\\}$, $X$ e $Y$ son independientes.",
+      options: ["Verdadero", "Falso"],
       correct: 1
     },
     {
-      topic: "Temas 1\u20132: Variables aleatorias",
-      q: "Un bit aleatorio tiene media $1-p$. ¿Cuál es la probabilidad de que el bit sea igual a $1$?",
-      options: ["$1-p$", "$p$", "$\\tfrac12$", "$p^2$"],
+      topic: "Tema 1: Fuente i.i.d., evento \u00abal menos uno\u00bb",
+      q: "Una fuente discreta sin memoria emite tres s\u00edmbolos i.i.d. de $\\{a,b\\}$ con $P(a)=\\tfrac14$. La probabilidad de que la secuencia de longitud $3$ emitida contenga al menos una $a$ es $\\tfrac{37}{64}$.",
+      options: ["Verdadero", "Falso"],
       correct: 0
     },
     {
-      topic: "Temas 1\u20132: Variables aleatorias",
-      q: "Sean $X$ e $Y$ dos bits con probabilidades conjuntas $P_{XY}(x,y)=\\tfrac14$ para todo $(x,y)\\in\\{0,1\\}^2$. ¿Son $X$ e $Y$ independientes?",
-      options: ["No", "Sí"],
+      topic: "Tema 1: Salida de un canal sin memoria",
+      q: "Para un canal discreto sin memoria, la secuencia de salida $(Y_1,\\ldots,Y_n)$ siempre es una secuencia de variables aleatorias i.i.d., con independencia de la distribuci\u00f3n de la entrada.",
+      options: ["Verdadero", "Falso"],
       correct: 1
     },
     {
-      topic: "Temas 1\u20132: Variables aleatorias",
-      q: "Para los bits $X$ e $Y$ con $P_{Y|X}(0|0)=\\tfrac14$ y $P_{Y|X}(1|1)=\\tfrac23$, ¿cuál es $P_{Y|X}(1|0)$?",
-      options: ["$\\tfrac34$", "$\\tfrac12$", "$\\tfrac13$", "$\\tfrac23$"],
+      topic: "Tema 1: Teorema de Bayes (a posteriori)",
+      q: "Dos variables aleatorias $X$ e $Y$ toman valores en $\\{0,1\\}$ con $P(X=0)=\\tfrac13$, $P(Y=1\\,|\\,X=0)=\\tfrac12$ y $P(Y=1\\,|\\,X=1)=\\tfrac14$. Entonces $P(X=0\\,|\\,Y=1)=\\tfrac12$.",
+      options: ["Verdadero", "Falso"],
       correct: 0
     },
     {
-      topic: "Temas 1\u20132: Variables aleatorias",
-      q: "Dado $P_{XY}(0,0)=\\tfrac18$, $P_{XY}(0,1)=\\tfrac38$, $P_{XY}(1,0)=\\tfrac14$, ¿cuál es $P_Y(1)$?",
-      options: ["$\\tfrac38$", "$\\tfrac58$", "$\\tfrac12$", "$\\tfrac14$"],
+      topic: "Tema 2: Varianza de una suma",
+      q: "Sea $X$ que toma valores en $\\{0,1\\}$ con probabilidad igual $\\tfrac12$ y sea $Y=1-X$. Entonces $\\mathrm{var}(X+Y)=\\mathrm{var}(X)+\\mathrm{var}(Y)=\\tfrac12$.",
+      options: ["Verdadero", "Falso"],
       correct: 1
     },
     {
-      topic: "Temas 1\u20132: Variables aleatorias",
-      q: "Sea $V$ uniforme sobre $\\{1,4\\}$ y definimos $Y=\\log_{2}(V)$. ¿Cuál es $\\mathbb{E}[Y]$?",
-      options: ["$1$", "$\\tfrac12$", "$0$", "$2$"],
+      topic: "Tema 2: Desigualdad de Markov sobre una funci\u00f3n",
+      q: "Una variable aleatoria $X$ (no necesariamente no negativa) satisface $E[X^2]=4$. Aplicando la desigualdad de Markov a $X^2$, $P(|X|\\geq 4)\\leq \\tfrac14$.",
+      options: ["Verdadero", "Falso"],
       correct: 0
     },
     {
-      topic: "Temas 1\u20132: Variables aleatorias",
-      q: "Una variable $W$ toma valores $\\{0,3,6\\}$ con probabilidades $\\{\\tfrac12,\\tfrac14,\\tfrac14\\}$. La desigualdad de Markov da una cota superior de $P[W\\ge5]$ igual a",
-      options: ["$0.25$", "$0.45$", "$0.50$", "$0.75$"],
+      topic: "Tema 2: Chebyshev puede no ser informativo",
+      q: "Una variable aleatoria $X$ toma valores en $\\{-1,1\\}$ con probabilidad igual, de modo que $E[X]=0$ y $\\mathrm{var}(X)=1$. La desigualdad de Chebyshev garantiza que $P\\bigl(|X-0|\\geq 1\\bigr)\\leq \\tfrac12$.",
+      options: ["Verdadero", "Falso"],
       correct: 1
     },
     {
-      topic: "Temas 1\u20132: Variables aleatorias",
-      q: "Una variable $X$ tiene varianza $\\tfrac19$. Chebyshev acota $P\\!\\bigl[|X-\\mathbb{E}[X]|\lt 1\\bigr]$ por",
-      options: ["$\\tfrac89$", "$\\tfrac13$", "$\\tfrac1{18}$", "$\\tfrac19$"],
+      topic: "Tema 2: LDGN para una funci\u00f3n de las muestras",
+      q: "Sea $(X_1,\\ldots,X_n)$ i.i.d. con cada $X_i\\in\\{0,2\\}$ equiprobable. Cuando $n\\to\\infty$, la media $\\tfrac{X_1^2+\\cdots+X_n^2}{n}$ converge en probabilidad a $2$.",
+      options: ["Verdadero", "Falso"],
       correct: 0
     },
     {
-      topic: "Temas 1\u20132: Variables aleatorias",
-      q: "Sean $X$ e $Y$ letras independientes, cada una uniforme sobre $\\{a,b,d\\}$. ¿Cuál es la probabilidad de que ambas sean $d$?",
-      options: ["$\\tfrac19$", "$\\tfrac13$", "$\\tfrac23$", "$\\tfrac16$"],
-      correct: 0
-    },
-    {
-      topic: "Temas 1\u20132: Variables aleatorias",
-      q: "Para bits i.i.d. equiprobables $X_1,X_2,\\dots$ definimos $\\bar X_n=\\frac1n\\sum_{i=1}^n X_i$. ¿Cuál es el límite de $\\mathbb{P}\\bigl[|\\bar X_n-\\tfrac12|\gt 0.05\\bigr]$ cuando $n\\to\\infty$?",
-      options: ["$0$", "$1$", "$0.05$", "$0.95$"],
-      correct: 0
+      topic: "Tema 2: LDGN, media geom\u00e9trica vs. aritm\u00e9tica",
+      q: "Sea $(X_1,\\ldots,X_n)$ i.i.d. con cada $X_i\\in\\{1,4\\}$ equiprobable. Cuando $n\\to\\infty$, la media geom\u00e9trica $(X_1\\cdots X_n)^{1/n}$ converge en probabilidad a $\\tfrac52$.",
+      options: ["Verdadero", "Falso"],
+      correct: 1
     }
   ];
 

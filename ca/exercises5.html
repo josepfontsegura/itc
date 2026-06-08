@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -40,44 +40,535 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html" class="active">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Properament</h1>
+      <h1>Exercicis: 5. Límits fonamentals en compressió de font</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Aquest contingut estarà disponible a mesura que avanci el curs.</p>
+
+    <button id="expand-all" data-expand="Mostra totes les solucions" data-collapse="Amaga totes les solucions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostra totes les solucions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.1.</span> La longitud mitjana del codi lliure de prefixos òptim per a una font discreta sense memòria $X=(U_1,\ldots,U_{20})$ on cada $U_i$ pren valors a $\{a,b,c,d\}$ amb probabilitats $\{\frac 12, \frac 14, \frac 18, \frac 18\}$ es trobarà a l'interval</p>
+  <p>(a) $[35,36)$<br>
+  (b) $\bigl[\frac 74,  \frac{11}{4})$<br>
+  (c) $\bigl[\frac 74,  \frac{9}{5})$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La longitud mitjana del codi lliure de prefixos òptim per a $X$ compleix $H(X)\leq L_{\rm av} &lt; H(X)+1$. Com que la font no té memòria, l'entropia de $X$ és $H(X)=nH(U)$, on $H(U)=\frac 74$, fet que condueix al resultat correcte.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.2.</span> Quina de les afirmacions següents sobre una font d'informació binària $X=(U_1,\ldots,U_n)$ és certa? En la resposta, també cal justificar per què les altres són falses.</p>
+  <p>(a) Si la font no té memòria, llavors $H(X)=n$.<br>
+  (b) Si $X\in\{00\cdots 0,11\cdots 1\}$ amb igual probabilitat, la longitud mitjana del codi òptim és $1$ bit.<br>
+  (c) Si els bits són independents i equiprobables, llavors el codi de Huffman per a $X$ té longitud mitjana $L_{\rm av}&gt;n$.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>A (a), tenim símbols independents i idènticament distribuïts de manera que $H(X)=nH(U)$. Tanmateix, en general $H(U) \leq  1$ (amb igualtat només per a bits equiprobables), de manera que $H(X)\leq n$. A (b), $X$ té només dos símbols, així que el codi lliure de prefixos òptim és, per exemple, $\{1,0\}$, amb longitud mitjana $L_{\rm av}=1$. Finalment, si els bits són equiprobables i independents, llavors $P_X(x)=2^{-n}$. Després de construir el codi de Huffman, totes les fulles de l'arbre resultant s'utilitzen i tenen profunditat $n$, per tant $L_{\rm av}=n$ (amb igualtat).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.3.</span> Una font discreta $X=(U_1,U_2,U_3)$ emet tres símbols consecutius i independents, cadascun prenent valors sobre l'alfabet $\{a,b,c\}$ amb distribucions <u>diferents</u>: $U_1$ té distribució $\{\frac 13,\frac 13,\frac 13\}$, $U_2$ té distribució $\{\frac 12,\frac 14,\frac 14\}$ i $U_3$ té distribució $\{\frac 23, \frac 16, \frac 16\}$. Qualsevol codi binari lliure de prefixos per a $X$ té una longitud mitjana més gran o igual que</p>
+  <p>(a) $\frac 76 + 2\log_2(3)$<br>
+  (b) $\frac{13}{6} + \frac 32 \log_2(3)$<br>
+  (c) Cap de les altres</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La longitud mitjana de qualsevol codi lliure de prefixos compleix $L_{\rm av}\geq H(X)$, on $H(X)$ és l'entropia de la font. Com que els símbols són independents, tenim que $H(X)=H(U_1)+H(U_2)+H(U_3)$. Calculant les tres entropies i després d'algunes manipulacions matemàtiques, obtenim la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.4.</span> Quin valor de $p$ maximitza l'eficiència del codi de Huffman per a una font $\{a,b,c\}$ amb probabilitats $\{p,p,1-2p\}$ on $p\in\bigl(0,\frac 13\bigr)$? Pots fer servir una eina matemàtica per resoldre numèricament aquesta pregunta.</p>
+  <p>(a) $\frac 13$<br>
+  (b) $\frac 14$<br>
+  (c) $\frac 15$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>L'eficiència del codi de Huffman ve donada per $\frac{H(X)}{L_{\rm av}}$, on $H(X)=-2p\log_2(p)-(1-2p)\log_2(1-2p)$. Si $p&lt;\frac 13$, llavors $a$ o $b$ són els símbols menys probables i el codi de Huffman resultant tindrà longituds $\{2,2,1\}$, i per tant $L_{\rm av}= 1+2p$. Amb una eina matemàtica representem l'eficiència en funció de $p$ a l'interval $\bigl( 0,\frac 13\bigr)$ i observem que té un màxim a $p=\frac 14$, donant una eficiència màxima d'$1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.5.</span> Considera una font discreta sense memòria $X=(U_1,\cdots,U_n)$ on cada $U_i$ pren valors a $\{a,b,c\}$ amb igual probabilitat. Sense construir explícitament cap codi, sinó utilitzant una fita superior de la longitud mitjana del codi òptim per a $X$, quina és la mida de bloc $n$ més petita tal que l'eficiència de codificació sigui com a mínim del $95\%$?</p>
+  <p>(a) $11$<br>
+  (b) $12$<br>
+  (c) $13$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Com que $X$ no té memòria, l'eficiència del codi lliure de prefixos òptim està fitada inferiorment com $e_n&gt;\frac{H(U)}{H(U)+\frac 1n}$. L'entropia d'$U$ és $H(U)=\log_2(3)$ perquè els símbols són equiprobables. Per garantir una eficiència de com a mínim el $95\%$, necessitem que $\frac{\log_2(3)}{\log_2(3)+\frac 1n} \geq 0.95$. Aïllant $n$, trobem que $n\geq \frac{0.95}{(1-0.95)\log_2(3)}\approx 11.9877$, de manera que necessitem com a mínim $n=12$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.6.</span> Considera una altra font discreta sense memòria $V$ que també pren valors sobre $\{a,b,c,d,e\}$ però amb distribució de probabilitat $\bigl\{ \frac 12, \frac 14, \frac 18 , \frac{1}{16}, \frac{1}{16} \bigr\}$. Quina és l'eficiència del codi òptim per a $V$?</p>
+  <p>(a) $0.882353$<br>
+  (b) $0.941176$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>El codi de Huffman té distribució de longituds $\{1,2,3,4,4\}$ i longitud mitjana $L_{\rm av}=\frac{15}{8}$, que coincideix amb l'entropia $H(V)$, per tant l'eficiència és $1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.7.</span></p>
+  <p>Sigui $W$ una font el codi binari òptim de la qual té longituds de paraula codi donades per una permutació de $\{2,2,2,3,3\}$, amb entropia $H(W)=2.123938$ bits. Sigui $X=(W_1,\dots,W_n)$ format per $n$ còpies i.i.d. de $W$. Suposeu que $X$ es codifica codificant individualment cada $W_i$ amb aquell codi. En quin interval es troba l'eficiència d'aquest codi quan $n\to\infty$?</p>
+  <p>(a) $\left[0,\frac 12\right)$<br>
+  (b) $\left[\frac 12,\frac{24}{25}\right)$<br>
+  (c) $\left[\frac{24}{25},1\right]$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Codificar $W$ amb un codi amb distribució de longituds donada per una permutació de $\{2,2,2,3,3\}$ porta a una longitud mitjana entre $\frac{133}{60}$ i $\frac{79}{30}$, de manera que la longitud mitjana de $X$ està entre $\frac{133}{60}n$ i $\frac{79}{30}n$. Com que $X$ no té memòria, $H(X)=nH(W)$ amb $H(W)=2.123938$. Combinant tots dos resultats, l'eficiència es troba entre $0.806559$ i $0.958168$, que cau dins de $\left[\frac 12,\frac{24}{25}\right)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.8.</span></p>
+  <p>Sigui $W$ una font amb entropia $H(W)=2.123938$ bits, codificada amb un codi binari sense prefix òptim de longitud mitjana $L_{\mathrm{av}}=\frac{131}{60}$ bits. Quina és l'eficiència de codificació $\eta=H(W)/L_{\mathrm{av}}$?</p>
+  <p>(a) $0.958168$<br>
+  (b) $0.972796$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>L'eficiència de codificació és $\eta=\dfrac{H(W)}{L_{\mathrm{av}}}=\dfrac{2.123938}{131/60}=\dfrac{2.123938}{2.183333}\approx 0.9728$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.9.</span></p>
+  <p>Sigui $X=(W_1,\dots,W_n)$ format per $n$ còpies i.i.d. d'una font $W$ amb entropia $H(W)=2.123938$ bits. Suposeu que $n=100$, de manera que $H(X)=nH(W)=212.3938$ bits. Quin dels valors següents és un valor possible de la longitud mitjana del codi òptim per a $X$?</p>
+  <p>(a) $213$<br>
+  (b) $228$<br>
+  (c) $233$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Sabem que la longitud mitjana del codi òptim per a $X$ està acotada com $H(X)\leq L_{\rm av} &lt; H(X)+1$. Com que $H(X)=nH(W)=212.3938$, tenim $212.3938\leq L_{\rm av} &lt; 213.3938$, de manera que només $213$ és possible.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.10.</span></p>
+  <p>Un generador de paraules aleatòries emet paraules de $r$ lletres, on cada lletra pertany a un alfabet de mida $n$. Quina és l'entropia binària màxima del generador de paraules aleatòries?</p>
+  <p>(a) $\log_2(r)$<br>
+  (b) $\log_2(n)$<br>
+  (c) $r\log_2(n)$<br>
+  (d) $n\log_2(r)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>El generador de paraules aleatòries es pot descriure com una font discreta $X=(U_1,\ldots,U_r)$ on cada $U_i$ pren valors en un alfabet de cardinalitat $n$. L'entropia de $X$ satisfà $H(X)\leq\log_2|{\cal X}|$, on ${\cal X}$ és l'alfabet de $X$. Utilitzant que $|{\cal X}|=n^r$, obtenim la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.11.</span></p>
+  <p>Considereu una font $W_n$ que emet seqüències de $n$ bits i.i.d. tals que la probabilitat de l'$1$ és el doble de la probabilitat del $0$. La longitud mitjana del codi binari òptim lliure de prefixos per representar $W_n$ es denota $L_{\rm av}(W_n)$. Quin és el valor de la raó següent?</p>$$\frac{L_{\rm av}(W_1)}{L_{\rm av}(W_2)}$$
+  <p>(a) $1$<br>
+  (b) $\tfrac{9}{23}$<br>
+  (c) $\tfrac{9}{17}$<br>
+  (d) $\tfrac12$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Clarament $L_{\rm av}(W_1)=1$. Utilitzant que cada bit pren valors $\{0,1\}$ amb distribució de probabilitat $\bigl\{\tfrac13,\tfrac23\bigr\}$, obtenim que $W_2\in\{00,01,10,11\}$ amb probabilitats $\bigl\{\tfrac19,\tfrac29,\tfrac29,\tfrac49\bigr\}$. El codi de Huffman per a $W_2$ té distribució de longituds $\{3,3,2,1\}$, cosa que porta a $L_{\rm av}(W_2)=\tfrac{17}{9}$, i a la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.12.</span></p>
+  <p>Una font discreta sense memòria $W_n=(X_1,\ldots,X_n)$, on cada $X_i$ pren valors en $\{a,b,c\}$ amb distribució de probabilitat $\bigl\{\tfrac12,\tfrac13,\tfrac16\bigr\}$, es representa mitjançant dos esquemes de codificació. A l'esquema de codificació (a), dissenyem el codi binari òptim lliure de prefixos per a $X_1$ i després representem cada símbol $X_i$ amb el mateix codi. A l'esquema de codificació (b), dissenyem el codi binari òptim lliure de prefixos per a $W_n$. La longitud mitjana per representar $W_n$ amb els esquemes de codificació (a) i (b) es denota respectivament $L_{\rm av}^{\text{(a)}}(W_n)$ i $L_{\rm av}^{\text{(b)}}(W_n)$. Quin és el valor del límit següent?</p>$$\lim_{n\to\infty} \frac{L_{\rm av}^{\text{(b)}}(W_n)}{L_{\rm av}^{\text{(a)}}(W_n)}$$
+  <p>(a) $\tfrac{4+3\log_2(3)}{10}$<br>
+  (b) $\tfrac{4+3\log_2(3)}{9}$<br>
+  (c) $\tfrac{4+3\log_2(3)}{6}$<br>
+  (d) $\tfrac{4+3\log_2(3)}{11}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>El codi de Huffman per a $X_1$ té distribució de longituds $\{1,2,2\}$ i longitud mitjana $L_{\rm av}(X_1)=\tfrac32$. A l'esquema de codificació (a), tenim $L_{\rm av}(W_n) = \sum_{i=1}^n L_{\rm av}(X_i) = \tfrac{3n}{2}$ pel fet de concatenar el mateix codi. D'altra banda, quan $n\to\infty$ la longitud mitjana del codi de Huffman per a $W_n$ satisfà $\frac1n L_{\rm av}(W_n) = H(X_1)$. Combinant tots dos fets i utilitzant que $H(X_1)= \tfrac 23 + \tfrac{\log_2(3)}{2}$, obtenim la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.13.</span></p>
+  <p>Una font discreta sense memòria $W_n=(X_1,\ldots,X_n)$, on cada $X_i\in\{a,b,c,d,e,f\}$ amb igual probabilitat, es codifica amb el codi binari òptim lliure de prefixos. En quin dels intervals següents es troba la longitud mitjana per símbol del codi binari òptim lliure de prefixos per a $W_{3}$?</p>
+  <p>(a) $\bigl[\tfrac{3+3\log_2(3)}{2},\tfrac{3\log_2(3) + 4}{2} \bigr)$<br>
+  (b) $\bigl[\tfrac{1+\log_2(3)}{2},\tfrac{3\log_2(3) + 4}{6} \bigr)$<br>
+  (c) $\bigl[1+\log_2(3),\tfrac{3\log_2(3) + 4}{3} \bigr)$<br>
+  (d) $\bigl[3+3\log_2(3),3\log_2(3) + 4 \bigr)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>La longitud mitjana per símbol del codi de Huffman per a $W_3$ es troba a $\bigl[H(X_1),H(X_1)+\tfrac 13\bigr)$. Utilitzant que $H(X_1)=\log_2(6)$, obtenim el resultat.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.14.</span></p>
+  <p>Definiu la variable aleatòria $Z$ com $Z=\log_2 P_X(X)$, on $X$ és una font discreta sense memòria $X=(U_1,\ldots,U_r)$, amb cada $U_i$ prenent valors en el conjunt $\{1,2,3,\ldots,n\}$ amb igual probabilitat. Quin és el valor esperat de $Z$?</p>
+  <p>(a) $r\log_2(n)$<br>
+  (b) $-r\log_2(n)$<br>
+  (c) $n\log_2(r)$<br>
+  (d) $-n\log_2(r)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Com que $P_X(x)=\tfrac{1}{n^r}$ per a tot $x$, la variable aleatòria és determinista amb valor $\log_2(n^{-r})$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.15.</span> Una font discreta sense memòria $X=(U_1,\ldots,U_n)$ amb $U_i\in\{a,b\}$ equiprobables es comprimeix amb el codi binari lliure de prefixos òptim. Quina és la longitud mitjana per símbol quan $n\to\infty$?</p>
+  <p>(a) $1$ bit<br>
+  (b) $2$ bits<br>
+  (c) $\log_2(n)$ bits</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Pel teorema de codificació de font, $\tfrac{1}{n}L_{\rm av}(X)\to H(U)=1$ bit quan $n\to\infty$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.16.</span> Per a una font sense memòria amb entropia per símbol $H(U)=1.5$ bits, la longitud mitjana per símbol del codi òptim per a blocs de $n$ símbols compleix</p>
+  <p>(a) $L_{\rm av}/n \in [1.5, 1.5+1/n)$<br>
+  (b) $L_{\rm av}/n = 1.5$ exactament<br>
+  (c) $L_{\rm av}/n &lt; 1.5$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per les fites de l'entropia, $H(X)\leq L_{\rm av} &lt; H(X)+1$, i $H(X)=nH(U)$, de manera que $H(U)\leq L_{\rm av}/n &lt; H(U)+1/n$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.17.</span> Una font binària sense memòria té $P(0)=\tfrac{3}{4}$. Quina és la mida mínima de bloc $n$ necessària perquè l'eficiència de codificació del codi òptim superi el $99\%$?</p>
+  <p>(a) $n\geq 123$<br>
+  (b) $n\geq 12$<br>
+  (c) $n\geq 50$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>L'eficiència és $\geq \tfrac{H(U)}{H(U)+1/n}$. Cal que $\tfrac{H(U)}{H(U)+1/n}\geq 0.99$, és a dir, $n\geq \tfrac{0.99}{0.01 \cdot H(U)}$. Amb $H(U)=h_2(3/4)\approx 0.8113$, obtenim $n\geq 122.03$, que s'arrodoneix cap amunt a $n\geq 123$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.18.</span> El teorema de codificació de font estableix que, per a una DMS amb entropia $H$, la longitud mitjana per símbol de qualsevol codi unívocament descodificable compleix</p>
+  <p>(a) $L_{\rm av}/n \geq H$<br>
+  (b) $L_{\rm av}/n \leq H$<br>
+  (c) $L_{\rm av}/n = H$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>El teorema de codificació de font estableix que $H$ és una fita inferior de la longitud mitjana per símbol assolible per a qualsevol codi unívocament descodificable.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.19.</span> Una font $X=(U_1,U_2)$ té $U_1,U_2$ independents, amb $U_1\in\{a,b\}$ amb probabilitats $\{\tfrac{3}{4},\tfrac{1}{4}\}$ i $U_2\in\{c,d\}$ equiprobables. Quant val $H(X)$?</p>
+  <p>(a) $h_2(\tfrac{1}{4})+1$<br>
+  (b) $h_2(\tfrac{1}{4})$<br>
+  (c) $2h_2(\tfrac{1}{4})$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per independència, $H(X)=H(U_1)+H(U_2)=h_2(\tfrac{1}{4})+1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.20.</span> L'eficiència d'un codi lliure de prefixos es defineix com</p>
+  <p>(a) $H(X)/L_{\rm av}$<br>
+  (b) $L_{\rm av}/H(X)$<br>
+  (c) $H(X)-L_{\rm av}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>L'eficiència de codificació és la raó entre l'entropia i la longitud mitjana de la paraula codi, $H(X)/L_{\rm av}\leq 1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.21.</span> Una DMS amb $H(U)=2$ bits es codifica amb blocs de $n=10$ símbols. La longitud mitjana del codi òptim per a $X=(U_1,\ldots,U_{10})$ es troba a</p>
+  <p>(a) $[20,21)$<br>
+  (b) $[18,19)$<br>
+  (c) $[21,22)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Les fites de l'entropia donen $H(X)\leq L_{\rm av}&lt;H(X)+1$. Com que $H(X)=10\cdot 2=20$, obtenim $L_{\rm av}\in[20,21)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.22.</span> Si una font $U$ té entropia $H(U)=\log_2(5)$ i el codi òptim té $L_{\rm av}=\tfrac{12}{5}$, l'eficiència de codificació és aproximadament</p>
+  <p>(a) $0.9675$<br>
+  (b) $1$<br>
+  (c) $0.8293$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>L'eficiència és $H(U)/L_{\rm av}=\log_2(5)/(12/5)\approx 2.3219/2.4=0.9675$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.23.</span></p>
+  <p>Una font discreta sense memòria emet símbols de $\mathcal{X}=\{a,b,c\}$ amb probabilitats proporcionals a $\{p,\,2p,\,3p\}$ ($p\neq 0$). Quina és la longitud mitjana de paraula codi del codi binari lliure de prefixos <em>òptim</em> per a aquesta font?</p>
+  <p>(a) $\tfrac{3}{2}=1.5$ bits<br>
+  (b) $\approx 1.459$ bits<br>
+  (c) $\tfrac{5}{3}\approx 1.667$ bits<br>
+  (d) $2$ bits</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Normalitzant $p+2p+3p=6p=1$ s'obté $\mathbb{P}(a)=\tfrac16$, $\mathbb{P}(b)=\tfrac13$, $\mathbb{P}(c)=\tfrac12$. El codi lliure de prefixos òptim és el de Huffman: fusiona les dues més petites ($\tfrac16,\tfrac26$) en $\tfrac12$, i després amb $c$, donant $\ell(c)=1$, $\ell(a)=\ell(b)=2$. Per tant $L_{\rm av}=2\cdot\tfrac16+2\cdot\tfrac26+1\cdot\tfrac36=\tfrac{9}{6}=\tfrac32$ bits. (El valor $1.459$ és l'entropia $H(X)$, una fita inferior, no la longitud òptima assolible.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.24.</span></p>
+  <p>Una font discreta $X$ és uniforme sobre l'alfabet $\mathcal{X}=\{a,b,c,d,e,f,g\}$ (set símbols), cadascun amb probabilitat $\frac{1}{7}$. Determineu la longitud mitjana per símbol (en bits) del codi binari lliure de prefixos <em>òptim</em> per a $X$.</p>
+  <p>(a) $\frac{20}{7}\approx 2.857$ bits<br>
+  (b) $\log_2 7\approx 2.807$ bits<br>
+  (c) $3$ bits<br>
+  (d) $\frac{19}{7}\approx 2.714$ bits</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>L'algoritme de Huffman dóna les longituds òptimes. Com que $7$ no és potència de $2$, les longituds òptimes són una barreja de $2$ i $3$: construint l'arbre s'obté una paraula codi de longitud $2$ i sis de longitud $3$ (conjunt de longituds $\{2,3,3,3,3,3,3\}$). Kraft es compleix amb igualtat: $2^{-2}+6\cdot 2^{-3}=\frac14+\frac34=1$. Amb símbols equiprobables, $L_{\rm av}=\frac{1}{7}(2+6\cdot 3)=\frac{20}{7}\approx 2.857$ bits, que supera l'entropia $H(X)=\log_2 7\approx 2.807$, tal com exigeix $L_{\rm av}\ge H(X)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.25.</span></p>
+  <p>Una font discreta sense memòria emet un bloc $X=(U_1,\ldots,U_{10})$ de $n=10$ símbols i.i.d., cada $U_i$ uniforme a $\mathcal{X}=\{1,2,3,4,5,6\}$ (probabilitat $\tfrac{1}{6}$ cadascun). Es dissenya un codi lliure de prefixos òptim (de Huffman) per a tot el bloc. En quin interval es troba la longitud mitjana per símbol $L_n$? Feu servir $\log_2 3\approx 1.58496$.</p>
+  <p>(a) $[2.58496,\ 2.68496)$ bits/símbol<br>
+  (b) $[2.58496,\ 3.58496)$ bits/símbol<br>
+  (c) $[2.32193,\ 2.42193)$ bits/símbol<br>
+  (d) $[2.68496,\ 2.78496)$ bits/símbol</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per a una font i.i.d., el codi de bloc òptim compleix $H(U)\le L_n&lt; H(U)+\tfrac{1}{n}$. Aquí $H(U)=\log_2 6=1+\log_2 3\approx 2.58496$ bits ($\log_2 5$ és un esquer). Amb $n=10$ el marge és $\tfrac{1}{10}=0.1$, donant $2.58496\le L_n&lt;2.68496$. Per tant $L_n\in[2.58496,\ 2.68496)$ bits/símbol.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.26.</span></p>
+  <p>Una font discreta sense memòria $X$ pren valors a $\{a,b\}$ amb $P_X(a)=0.8$, $P_X(b)=0.2$. Construïm un codi de Huffman binari per a blocs $W=(X_1,X_2,X_3)\in\mathcal{X}^3$. El codi de Huffman òptim assigna profunditat $1$ a $aaa$, profunditat $3$ a cada bloc amb una $b$, i profunditat $5$ a cada bloc amb dues $b$ i a $bbb$.</p><p>Calcula la longitud mitjana de paraula codi $L_{\rm av}$ (en bits per bloc).</p>
+  <p>(a) $L_{\rm av}=2.184$ bits/bloc<br>
+  (b) $L_{\rm av}=0.728$ bits/bloc<br>
+  (c) $L_{\rm av}=3$ bits/bloc<br>
+  (d) $L_{\rm av}=2.4$ bits/bloc</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Probabilitats dels blocs: $aaa$ té $P=0.512$ (profunditat $1$); cada bloc amb una $b$ té $P=0.128$, n'hi ha tres (profunditat $3$); cada bloc amb dues $b$ té $P=0.032$, n'hi ha tres, més $bbb$ amb $P=0.008$ (tots profunditat $5$). Aleshores $L_{\rm av}=1(0.512)+3(3\cdot0.128)+5(3\cdot0.032+0.008)=0.512+1.152+0.520=2.184$ bits/bloc. El valor $0.728$ és el $L_3$ per símbol, no $L_{\rm av}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.27.</span></p>
+  <p>Per a la font anterior (codi de Huffman amb $n=3$), la longitud mitjana de paraula codi és $L_{\rm av}=2.184$ bits per bloc.</p><p>Calcula la longitud mitjana per símbol de la font $L_3=L_{\rm av}/3$.</p>
+  <p>(a) $L_3\approx 0.728$ bits/símbol<br>
+  (b) $L_3\approx 2.184$ bits/símbol<br>
+  (c) $L_3\approx 6.552$ bits/símbol<br>
+  (d) $L_3\approx 0.780$ bits/símbol</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Dividint la longitud per bloc per la mida del bloc $n=3$: $L_3=2.184/3\approx0.728$ bits/símbol. El valor $2.184$ oblida dividir; $6.552$ multiplica en lloc de dividir; $0.780$ és $L_2$ (el resultat per a $n=2$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.28.</span></p>
+  <p>Per a la font binària amb $P_X(a)=0.8$, $P_X(b)=0.2$, recorda $H(X)=h_2(0.2)\approx 0.722$ bits i les longituds de Huffman per símbol $L_1=1$, $L_2=0.78$, $L_3\approx 0.728$ bits.</p><p>Quin ordenament relaciona correctament aquestes quantitats?</p>
+  <p>(a) $H(X)\le L_3\le L_2\le L_1$<br>
+  (b) $L_1\le L_2\le L_3\le H(X)$<br>
+  (c) $L_3\le H(X)\le L_2\le L_1$<br>
+  (d) $H(X)\le L_2\le L_3\le L_1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Substituint els nombres: $0.722\le 0.728\le 0.78\le 1.0$, per tant $H(X)\le L_3\le L_2\le L_1$. Cada $L_n$ compleix $H(X)\le L_n&lt;H(X)+\tfrac1n$, i la longitud per símbol decreix cap a l'entropia a mesura que creix la longitud del bloc. $L_3$ ha d'estar per sobre de $H(X)$ (mai per sota) i per sota de $L_2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.29.</span></p>
+  <p>Una font discreta sense memòria $X$ sobre $\{a,b\}$ té $P_X(a)=0.8$, $P_X(b)=0.2$. L'agrupem en paraules de longitud $n=3$ i apliquem el <em>codi de Shannon</em> amb longituds $\ell(w)=\lceil -\log_2 P_W(w)\rceil$. Les probabilitats dels blocs són $0.512$ ($1$ bloc), $0.128$ ($3$ blocs), $0.032$ ($3$ blocs), $0.008$ ($1$ bloc), donant longituds de Shannon $1,3,5,7$ respectivament. Calcula la longitud mitjana per símbol $L_3=L_{\rm av}/3$.</p>
+  <p>(a) $L_3 \approx 0.7333$ bits/símbol<br>
+  (b) $L_3 \approx 2.200$ bits/símbol<br>
+  (c) $L_3 \approx 0.7219$ bits/símbol<br>
+  (d) $L_3 \approx 1.333$ bits/símbol</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Pondera cada longitud de Shannon per la probabilitat total del seu grup: $L_{\rm av}=1(0.512)+3(3\cdot 0.128)+5(3\cdot 0.032)+7(0.008)=0.512+1.152+0.480+0.056=2.200$ bits/bloc. Dividint per $n=3$ s'obté $L_3=2.200/3\approx 0.7333$ bits/símbol. (El valor $2.200$ és la longitud per bloc, no per símbol; $0.7219$ és l'entropia $H(X)$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.30.</span></p>
+  <p>Per al codi de Shannon anterior, les longituds de paraula codi sobre els $8$ blocs de longitud $3$ són: una de longitud $1$, tres de longitud $3$, tres de longitud $5$ i una de longitud $7$. Avalua la suma de Kraft $\sum_w 2^{-\ell(w)}$ i decideix si existeix un codi sense prefixos amb aquestes longituds.</p>
+  <p>(a) $\sum_w 2^{-\ell(w)} = \tfrac{125}{128} \approx 0.9766 \le 1$, així que existeix un codi sense prefixos<br>
+  (b) $\sum_w 2^{-\ell(w)} = 1$ exactament, així que el codi és òptim i sense prefixos<br>
+  (c) $\sum_w 2^{-\ell(w)} = \tfrac{129}{128} \approx 1.008 &gt; 1$, així que no existeix cap codi sense prefixos<br>
+  (d) $\sum_w 2^{-\ell(w)} \approx 0.512 \le 1$, així que existeix un codi sense prefixos</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Suma $2^{-\ell}$ sobre els grups: $1\cdot 2^{-1}+3\cdot 2^{-3}+3\cdot 2^{-5}+1\cdot 2^{-7}=\tfrac12+\tfrac38+\tfrac3{32}+\tfrac1{128}=\tfrac{64+48+12+1}{128}=\tfrac{125}{128}\approx 0.9766$. Com que és $\le 1$, es compleix la desigualtat de Kraft i existeix un codi sense prefixos amb aquestes longituds (amb marge $0.0234$). La regla de Shannon sempre compleix Kraft perquè $2^{-\ell(w)}\le P_W(w)$ i les probabilitats sumen $1$; la suma és estrictament menor que $1$, no igual, així que el codi no és òptim.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.31.</span></p>
+  <p>La mateixa font té entropia $H(X)\approx 0.7219$ bits. El codi de bloc de Shannon ($n=3$) assoleix $L_3\approx 0.7333$ bits/símbol, mentre que el codi de bloc òptim de Huffman assoleix $L_3^{\text{Huff}}\approx 0.728$ bits/símbol. Quina afirmació compara correctament aquests valors amb la fita de codificació de font $L_3 &lt; H(X)+\tfrac{1}{3}$?</p>
+  <p>(a) Tots dos compleixen $H(X)\le L_3 &lt; H(X)+\tfrac13=1.0553$; Shannon ($0.7333$) és lleugerament pitjor que Huffman ($0.728$)<br>
+  (b) Shannon ($0.7333$) supera Huffman ($0.728$) perquè la regla de Shannon és òptima<br>
+  (c) Shannon viola la fita ja que $0.7333 &gt; H(X)+\tfrac13$<br>
+  (d) Tots dos són iguals a $H(X)=0.7219$ exactament, assolint el límit de l'entropia</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>El teorema de codificació de font dóna $H(X)\le L_3 &lt; H(X)+\tfrac1n$, aquí $0.7219\le L_3 &lt; 1.0553$. Tots dos codis es troben en aquest interval: Shannon $0.7333$ i Huffman $0.728$ superen $H(X)$ i queden per sota de $1.0553$. Com que les longituds de Shannon $\lceil-\log_2 P_W\rceil$ són subòptimes, Shannon ($0.7333$) és lleugerament pitjor que l'òptim de Huffman ($0.728$); només Huffman assoleix el mínim per bloc.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.32.</span></p>
+  <p>Una font $X$ és uniforme sobre $\mathcal{X}=\{-1,0,1\}$, és a dir $\mathbb{P}[X=x]=\tfrac13$ per a cada símbol. Es comprimeix amb el codi binari prefix òptim (Huffman), que dóna longituds de paraula codi $\{1,2,2\}$ bits, amb longitud mitjana $L_{\rm av}=\tfrac53$ bits i $\mathrm{Var}(\ell(X))=\tfrac29$. Calcula el valor de la cota superior de Txebixev sobre $\mathbb{P}\big[\,|\ell(X)-L_{\rm av}|\geq L_{\rm av}\,\big]$.</p>
+  <p>(a) $\dfrac{2}{25}=0.08$<br>
+  (b) $\dfrac{2}{5}=0.4$<br>
+  (c) $\dfrac{2}{9}\approx 0.22$<br>
+  (d) $\dfrac{6}{25}=0.24$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La desigualtat de Txebixev dóna $\mathbb{P}[|Y-\mathbb{E}[Y]|\ge a]\le \mathrm{Var}(Y)/a^2$. Aquí $Y=\ell(X)$, la seva mitjana és $L_{\rm av}=\tfrac53$, i la desviació és $a=L_{\rm av}=\tfrac53$. Per tant la cota és $\dfrac{\mathrm{Var}(\ell(X))}{L_{\rm av}^2}=\dfrac{2/9}{25/9}=\dfrac{2}{25}=0.08$. El distractor $0.4$ oblida elevar $a$ al quadrat, i $2/9$ usa $a=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.33.</span></p>
+  <p>La sortida d'una font discreta és la seqüència aleatòria $\boldsymbol{X}=(X_1,\ldots,X_m)$, on cada símbol $X_j$ pren valors en l'alfabet $\{1,2,\ldots,n\}$ (no se suposa independència ni uniformitat). Tots els logaritmes són en base $2$. Quina de les afirmacions següents és certa en general?</p>
+  <p>(a) La longitud mitjana de qualsevol codi binari lliure de prefixos per a $\boldsymbol{X}$ és com a mínim $m\log_2 n$.<br>
+  (b) L'entropia de $\boldsymbol{X}$ està fitada superiorment per $n\,H(X_1)$.<br>
+  (c) La longitud mitjana del codi binari lliure de prefixos òptim per a $\boldsymbol{X}$ és com a màxim $m\log_2 n + 1$.<br>
+  (d) La probabilitat de cada seqüència possible és igual a $\frac{1}{n^m}$.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Per subadditivitat i la propietat d'entropia màxima, $H(\boldsymbol{X})\le\sum_{j=1}^m H(X_j)\le m\log_2 n$. El teorema de codificació de font dona, per al codi òptim, $L_{\mathrm{av}}&lt;H(\boldsymbol{X})+1\le m\log_2 n+1$, de manera que l'opció (c) és certa sense suposicions addicionals. L'opció (a) falla perquè la fita inferior real és $L_{\mathrm{av}}\ge H(\boldsymbol{X})$, que és inferior a $m\log_2 n$ tret que la font sigui i.i.d. uniforme. L'opció (b) confon la longitud del bloc $m$ amb la mida de l'alfabet $n$ (la subadditivitat té $m$ termes), i l'opció (d) requereix una font i.i.d. uniforme, que aquí no es pressuposa. L'afirmació certa és que la longitud mitjana òptima és com a màxim $m\log_2 n+1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.34.</span></p>
+  <p>Per a una font discreta $X$, el codi binari lliure de prefixos òptim és $\{0, 10, 11\}$ i satisfà $L_{\rm av} = H(X)$ (la longitud mitjana és igual a l'entropia, en bits). Una nova font és $Y = (X_1, X_2)$ amb $X_1, X_2$ <em>independents</em>, cadascuna distribuïda com $X$. Quina és la longitud mitjana del codi binari lliure de prefixos òptim per a $Y$?</p>
+  <p>(a) $3$ bits<br>
+  (b) $1.5$ bits<br>
+  (c) $4$ bits<br>
+  (d) $2.25$ bits</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que $L_{\rm av}=H(X)$, la distribució és diàdica amb $p_i=2^{-\ell_i}$ a partir de les longituds $\{1,2,2\}$, donant $p=\{\tfrac12,\tfrac14,\tfrac14\}$ i $H(X)=\tfrac12+\tfrac12+\tfrac12=\tfrac32$ bits. Per a $X_1,X_2$ independents, l'entropia se suma: $H(Y)=2H(X)=3$ bits. La distribució del parell també és diàdica (productes de potències de dos), de manera que el codi òptim assoleix la igualtat: $L_{\rm av}(Y)=H(Y)=3$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.35.</span></p>
+  <p>Una font binària sense memòria té $P_X(a)=0.8$, $P_X(b)=0.2$, així que $H(X)=h_2(0.2)=0.721928$ bits. Apliquem un codi de Huffman a blocs de $n$ símbols i definim l'eficiència $e_n=H(X)/L_n$, on $L_n=L_{\rm av}/n$. Per a $n=1$ el codi òptim assigna un bit a cadascun dels dos símbols, així que $L_1=1$. Calcula $e_1$.</p>
+  <p>(a) $e_1\approx 0.722$<br>
+  (b) $e_1\approx 0.926$<br>
+  (c) $e_1=1.000$<br>
+  (d) $e_1\approx 0.278$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Amb $n=1$ un codi de Huffman binari ha d'usar un bit per símbol, així que $L_1=L_{\rm av}=1$. L'eficiència és $e_1=H(X)/L_1=0.721928/1=0.722$. El valor $1.000$ igualaria erròniament $L_1$ amb $H(X)$, i $0.278$ és la redundància complementària $1-H(X)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.36.</span></p>
+  <p>Per a la font $P_X(a)=0.8$, $P_X(b)=0.2$ ($H(X)=0.721928$ bits), codifiquem amb Huffman blocs de $n=2$ símbols. Les probabilitats de bloc són $P(aa)=0.64$, $P(ab)=P(ba)=0.16$, $P(bb)=0.04$, donant longituds de Huffman $1,2,3,3$. Calcula $e_2=H(X)/L_2$ amb $L_2=L_{\rm av}/2$.</p>
+  <p>(a) $e_2\approx 0.926$<br>
+  (b) $e_2\approx 0.463$<br>
+  (c) $e_2\approx 0.722$<br>
+  (d) $e_2\approx 0.992$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La longitud mitjana de bloc és $L_{\rm av}=0.64(1)+0.16(2)+0.16(3)+0.04(3)=1.560$ bits per bloc, així que $L_2=1.560/2=0.7800$ bits per símbol. Aleshores $e_2=0.721928/0.7800=0.926$. Oblidar dividir $L_{\rm av}$ entre $n$ dona el valor erroni $0.463$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.37.</span></p>
+  <p>Per a la font $P_X(a)=0.8$, $P_X(b)=0.2$ ($H(X)=0.721928$ bits), la codificació de Huffman per blocs dona les eficiències per símbol $e_1\approx0.722$, $e_2\approx0.926$, $e_3\approx0.992$, $e_4\approx0.975$, $e_5\approx0.978$. Quin és el menor $n$ per al qual $e_n\ge 0.99$?</p>
+  <p>(a) $n=3$<br>
+  (b) $n=2$<br>
+  (c) $n=4$<br>
+  (d) $n=5$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Examinant les eficiències, $e_1,e_2&lt;0.99$ mentre que $e_3\approx0.99166\ge0.99$. Com que $n=3$ és el primer índex que arriba al llindar (cal notar que $e_4,e_5$ tornen a baixar de $0.99$), la resposta és $n=3$. Triar $n=4$ o $n=5$ assumeix erròniament un creixement monòton un cop superat el llindar.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.38.</span></p>
+  <p>Per a la font $P_X(a)=0.8$, $P_X(b)=0.2$, les eficiències de codificació de Huffman per blocs són $e_1\approx0.722$, $e_2\approx0.926$, $e_3\approx0.992$, $e_4\approx0.975$, $e_5\approx0.978$. És la successió $e_n$ monòtona creixent en $n$?</p>
+  <p>(a) No: no és monòtona, ja que $e_3\approx0.992&gt;e_4\approx0.975$<br>
+  (b) Sí: $e_n$ creix estrictament amb cada $n$<br>
+  (c) Sí: $e_n$ és monòtona perquè el teorema de codificació de font garanteix $e_n\to 1$<br>
+  (d) No: $e_n$ és estrictament decreixent en $n$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Tot i que $e_1&lt;e_2&lt;e_3$, l'eficiència baixa de $e_3\approx0.992$ a $e_4\approx0.975$ abans de tornar a pujar a $e_5\approx0.978$, per tant no és monòtona. Huffman optimitza cada longitud de bloc per separat, i la redundància $L_n-H(X)$ depèn irregularment de com s'alineen les $2^n$ probabilitats de bloc amb valors diàdics. La teoria només garanteix $L_n\to H(X)$ (així $e_n\to1$) quan $n\to\infty$, no una aproximació monòtona.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.39.</span></p>
+  <p>Per a la font $P_X(a)=0.8$, $P_X(b)=0.2$ amb $H(X)=0.721928$ bits, les fites de codificació de font donen la fita inferior analítica de l'eficiència $e_n\ge \dfrac{H(X)}{H(X)+1/n}$. Avalua aquesta fita inferior a $n=3$ (recorda que el valor real és $e_3\approx0.992$).</p>
+  <p>(a) $\approx 0.684$, molt per sota del valor real $e_3\approx0.992$ (la fita és poc ajustada)<br>
+  (b) $\approx 0.992$, essencialment ajustada a $n=3$<br>
+  (c) $\approx 0.819$, lleugerament per sota del valor real<br>
+  (d) $\approx 0.722$, igual a $H(X)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Substituint $n=3$: $\dfrac{0.721928}{0.721928+1/3}=\dfrac{0.721928}{1.055261}=0.684$. L'eficiència real $e_3\approx0.992$ la supera àmpliament, per tant la fita és poc ajustada: assumeix el pitjor cas $L_n$ proper a $H(X)+1/n$, mentre que la redundància real de Huffman per a aquesta font no diàdica és molt menor.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 5.40.</span></p>
+  <p>Considereu una font discreta sense memòria $X=(U_1,U_2,U_3)$ on cada $U_i$ pren valors en $\{0,1,2\}$ amb probabilitats $\left\{\tfrac12,\tfrac14,\tfrac14\right\}$. Sigui $Y=\log_2 P_X(X)$. Fent servir la desigualtat de Txebixev, calculeu la cota inferior de $\mathbb{P}\!\left[\,|Y-\mathbb{E}[Y]|&lt;2\,\right]$.</p>
+  <p>(a) $\tfrac{13}{16}$<br>
+  (b) $\tfrac{3}{16}$<br>
+  (c) $\tfrac{1}{4}$<br>
+  (d) $\tfrac{15}{16}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per la manca de memòria $Y=\sum_{i=1}^3 Z_i$ amb $Z=\log_2 P_U(U)$ que pren $-1$ (prob $\tfrac12$) i $-2$ (prob $\tfrac12$). Aleshores $\mathbb{E}[Z]=-\tfrac32$, $\mathrm{Var}(Z)=\tfrac52-\tfrac94=\tfrac14$, per tant $\mathrm{Var}(Y)=3\cdot\tfrac14=\tfrac34$. Txebixev amb $\varepsilon=2$ dona $\mathbb{P}[|Y-\mathbb{E}[Y]|\ge2]\le\tfrac{3/4}{4}=\tfrac{3}{16}$, així que el complement compleix $\mathbb{P}[|Y-\mathbb{E}[Y]|&lt;2]\ge 1-\tfrac{3}{16}=\tfrac{13}{16}$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

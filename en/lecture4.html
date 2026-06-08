@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -38,48 +38,220 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html" class="active">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
-      <h1>Coming soon</h1>
+      <h1>Lecture 4. Huffman codes <a class="pdf-link" href="../pdf/ITC-2026-Lecture4-en.pdf">pdf</a></h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">This content will be available as the course progresses.</p>
+
+
+<h2>Introduction</h2>
+
+<p>
+In the previous lecture, we saw that binary prefix-free codes allow to represent a source without errors. But, which is the optimal code in terms of efficiency, i.e., the one that minimizes the average length?
+</p>
+<p>
+Consider a source $U$ taking values in $\{1,\ldots,r\}$ with probability distribution $\{p_1,\ldots,p_r\}$. In order to find the binary prefix-free source code that minimizes the average length
+$$
+\Lav = \sum_{j=1}^r \pii\li, \tag{4.1}$$
+if the probabilities are ordered as
+$$
+p_1\geq p_2\geq \cdots\geq p_r, \tag{4.2}$$
+then the optimal code must choose a length distribution $\{\ell_1,\ell_2,\dotsc,\ell_r\}$ such that
+$$
+\ell_1\leq\ell_2\leq\cdots\leq \ell_r. \tag{4.3}$$
+Any other choice results in a suboptimal code in terms of minimizing the expected length! The codes satisfying such condition are <strong>Huffman codes</strong>.
+</p>
+<p>
+So far, our study of the tree representation of source codes has only taken into account the alphabet of the source and lengths of the resulting codewords. We now incorporate the probabilities of the source in order to derive the optimal source codes.  A rooted tree with probabilities is a finite rooted tree with probabilities assigned to each node and leaf such that the probability of a node is the sum of the probabilities of its children nodes, and the root has probability $1$. Figure 4.1 illustrates a possible tree with probabilities
+</p>
+<figure><img src="../img/tikz/lecture4-fig1.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure>
+<p>
+<figcaption>Example of a binary rooted tree with probabilities.</figcaption>
+<a id="fig:tree_prob"></a>
+</p>
+
+<h2>Huffman Codes</h2>
+<p>
+Huffman codes, invented by David Huffman while he was a doctoral student at MIT in the 1950s, are the optimal source codes, that can be described using 3 elementary steps. Consider a discrete source taking values in $\{1,\ldots,r\}$ with probability distribution $\{p_1,\ldots,p_r\}$. To determine a Huffman code:
+</p>
+
+<ul>
+</p>
+<p>
+<li><strong>1.</strong> Create $r$ leaves corresponding to the $r$ symbols, and sort them in decreasing probability.
+<li><strong>2.</strong> Merge the $2$ least probable nodes into one new node, labeled with probability sum.
+<li><strong>3.</strong> Go back to Step 1 until the root is reached.
+</p>
+<p>
+</ul>
+
+<p>
+Let us see an example.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Example 4.1.</span> 
+<a id="ex:1"></a>
+Design the optimal source code for a source taking values in $\{a,b,c,d,e\}$ with probability distribution $\{0.4,0.2,0.2,0.1,0.1\}$. We start by writing the $r=5$ leaves corresponding to the $r$ symbols in decreasing probability, as in Figure 4.2(a). We next merge the 2 least probable nodes into a new node, labeled with probability $0.1+0.1=0.2$ as in Figure 4.2(b). Now, we repeat the procedure but with the nodes that still have no parent. The 2 least probable nodes are the ones with probability $0.2$, hence merged into a new node as in Figure 4.2(c). At this point, we can choose whether to merge the non-parented node of probability $0.2$ with either the leaf of probability $0.4$ or the node with the same probability created in the previous step. We choose the second option as in Figure 4.2(d), creating a new node of probability $0.6$. The last step in Figure 4.2(e) results in the rooted binary tree. It only remains to label the binary tree as we did in the previous lecture and obtain the prefix-free code $\{0,10,110,1110,1111\}$ for the source $\{a,b,c,d,e\}$, as in Figure 4.2(f). The Huffman code that we obtained is prefix-free, hence uniquely decodable, with lengths distribution $\{1,2,3,4,4\}$. When used to represent the source $U$, its average length is
+$$
+\Lav=1 \cdot 0.4 + 2\cdot 0.2 + 3\cdot 0.2 + 4\cdot 0.1 + 4\cdot 0.1 = 2.2 \tag{4.4}$$
+bits per symbol. There are points in the algorithm where it is possible to group nodes differently. In this case, the code will be different, but will still have the same average length!
+</p>
+
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;align-items:center"><figure><img src="../img/tikz/fig-01.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/fig-02.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/fig-03.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/fig-04.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure></div>
+<br>
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;align-items:center"><figure><img src="../img/tikz/lecture4-fig2.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/lecture4-fig3.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure></div>
+<p>
+<figcaption>Construction of a Huffman code 	in Example 4.1.</figcaption>
+<a id="fig:1"></a>
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 4.2.</span> 
+<a id="prob:1"></a>
+Find a Huffman code for the source in Example 4.1 with a length distribution different from $\{1,2,3,4,4\}$.
+</p>
+
+</div>
+
+
+<details class="solution"><summary>Show solution</summary>
+<p>
+We follow the same steps as in Figure 4.2(a)--(c), but at the next step, we combine the two leaves of probabilities $0.4$ and $0.2$ into a new node of probability $0.6$, and follow the algorithm to obtain the binary tree in Figure 4.3. The obtained prefix-free code is $\{00,01,10,110,111\}$, with length distribution $\{2,2,2,3,3\}$ and, even though the code has a length distribution different from the one obtained in Example 4.1, the average length is still
+$$
+	L_{\rm av} = 2\cdot 0.4 + 2\cdot 0.2 + 2\cdot 0.2 + 3\cdot 0.1 + 3\cdot 0.1 = 2.2 \tag{4.5}$$
+bits per symbol. 
+</p>
+
+</details>
+
+<figure><img src="../img/tikz/lecture4-fig4.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure>
+<figcaption>Binary tree of Problem 4.2.</figcaption>
+<a id="fig:2"></a>
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 4.3.</span> 
+	What is the average length of the Huffman code for a source taking values in $\{a,b,c\}$ with probability distribution $\{p,p,1-2p\}$ where $0&lt;p&lt;\frac 12$?
+</p>
+
+</div>
+
+
+<details class="solution"><summary>Show solution</summary>
+<p>
+	If $0&lt;p&lt; \frac 13$, then $a$ and $b$ are the least probable symbols and the Huffman algorithm leads to a length distribution $\{2,2,1\}$, for example the code $\{10,11,0\}$. In this case $L_{\rm av}=1+2p$. If $p=\frac 13$, the three symbols have the same probability so $\{1,2,2\}$, $\{2,1,2\}$ and $\{2,2,1\}$ are possible length distributions, and $L_{\rm av}=\frac 53$. If $\frac 13 &lt; p &lt; \frac 12$, then $c$ is the least probable node and the length distribution after Huffman coding is either $\{1,2,2\}$ or $\{2,1,2\}$, and $L_{\rm av}=2-p$. 
+</p>
+
+</details>
+
+<p>
+The analysis of the average length of Huffman codes, though optimal, is difficult, and in particular, expressing it as a function of the entropy of the source. Suppose that we could construct a code for a source $U$, taking values on alphabet $\{1,\ldots,r\}$ with probabilities $\{p_1,\dotsc,p_r\}$ such that the lengths of the codewords satisfy exactly $\li = \log_2\frac{1}{\pii}$. In general this is difficult, since the resulting lengths are not integers. However, if we were able to do this, then $
+\Lav = \sum_{j=1}^r\pii\li =  \sum_{j=1}^r\pii\log_2\frac{1}{\pii} = -\sum_{j=1}^r p_j \log_2 p_j = H(U)$; the expected length is equal to the entropy! This would obviously be the best code. Since in general, $\li$ are not necessarily integers, consider now the following
+$$
+\li = \Big\lceil \log_2\frac{1}{\pii}\Big\rceil \tag{4.6}$$
+where $\lceil x\rceil$ is the smallest integer greater or equal to $x$, satisfying
+$$
+	\log_2 \frac{1}{p_j} \leq \ell_j &lt; \log_2 \frac{1}{p_j}  + 1.
+	\tag{4.7}
+$$
+Using the left-hand side inequality in $(4.7)$, we have that Kraft's inequality is met:
+$$
+\sum_{j=1}^r2^{-\li} \leq \sum_{j=1}^r 2^{-\log_2 \frac{1}{p_j}}  = \sum_{j=1}^r \pii = 1, \tag{4.8}$$
+implying that there exists a binary prefix-free code with these lengths. Since Huffman code leads to the smallest average length as possible, it follows that
+$$\begin{align}
+\Lav & \leq  \sum_{j=1}^r\pii\li \tag{4.9}\\
+&= \sum_{j=1}^r\pii \Big\lceil \log_2\frac{1}{\pii}\Big\rceil \tag{4.10}\\
+&&lt;\sum_{j=1}^r\pii \Big( \log_2\frac{1}{\pii}+1\Big)\tag{4.11}\\
+&=H(U) + 1, \tag{4.12}\end{align}$$
+where in $(4.11)$ we used the right-hand side inequality in $(4.7)$. Hence, we can conclude that the average length $L_{\rm av}$ of the optimal code for a source $U$, given by Huffman coding, satisfies 
+$$
+H(U) \leq \Lav&lt;H(U)+1,
+\tag{4.13}
+$$
+where $H(U)$ is the entropy of the source.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 4.4.</span> 
+<a id="prob:3"></a>
+	Consider a discrete memoryless source $U$ taking values over $\{a,b\}$ with distribution $\bigl\{ \frac 13, \frac 23 \bigr\}$. Find the optimal code for $U$, calculate the average length and check that the inequality $(4.13)$ is satisfied. 
+</p>
+
+</div>
+
+
+<details class="solution"><summary>Show solution</summary>
+<p>
+	In this case, the resulting Huffman code is either $\{0,1\}$ or $\{1,0\}$, of length distribution $\{1,1\}$ and average length $L_{\rm av}=1$ bits per symbol. Since $H(U)=-\sum_{j=1}^r p_j \log_2 p_j = -\frac 13 \log_2 \frac 13 - \frac 23 \log_2\frac 23 \approx 0.918296$, we indeed have that $0.918296 \leq L_{\rm av} &lt; 1.918296$. 
+</p>
+
+</details>
+
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 4.5.</span> 
+<a id="prob:4"></a>
+Consider two consecutive symbols $(U_1,U_2)$ of a discrete memoryless source where each $U_i$ is described as in Problem 4.4. Find the optimal code for $(U_1,U_2)$, calculate the average length per symbol, and check that the inequality $(4.13)$ is satisfied. Compare your results to that of Problem 4.4.
+</p>
+
+</div>
+
+
+<details class="solution"><summary>Show solution</summary>
+<p>
+	We first construct the alphabet and the probability distribution for $(U_1,U_2)$. The alphabet is the Cartesian product $\{a,b\}\times\{a,b\}=\{aa,ab,ba,bb\}$ and, since symbols are i.i.d., the probability distribution is $\{ \frac 19 , \frac 29, \frac 29, \frac 49\}$. After sorting the probabilities and following the Huffman algorithm, we obtain the binary tree in Figure 4.4. A possible Huffman code is then $\{111,110,10,0\}$, of lengths $\{3,3,2,1\}$ and average length
+	$$
+		L_{\rm av} = 3\cdot \frac 19 + 3 \cdot\frac 29 + 2\cdot\frac 29 + 1\cdot\frac  49 = \frac{17}{9} \approx 1.88889 \tag{4.14}$$
+	bits for two source symbols. In this case, the entropy of $(U_1,U_2)$ is given by
+	$$
+	H(U_1,U_2)=-\sum_{j=1}^r p_j \log_2 p_j = -\frac 19\log_2\frac 19 - \frac 29\log_2 \frac 29 - \frac 29\log_2\frac 29 - \frac 49\log_2\frac 49 \approx 1.83659,
+	$$
+	hence $(4.13)$ is satisfied as expected because $1.83659 \leq L_{\rm av} &lt; 2.83659$. Compared to the Huffman code in Problem 4.4, we observe that the Huffman code $\{111,110,10,0\}$ has average length $1.88889$ bits to encode two source symbols, which corresponds to an average length of $\frac{1.88889}{2}= 0.944444$ bits per symbol, slightly smaller than $1$.
+</p>
+
+</details>
+
+<figure><img src="../img/tikz/lecture4-fig5.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure>
+<figcaption>Binary tree with probabilities of Problem 4.5.</figcaption>
+<a id="fig:3"></a>
+</p>
+<p>
+In Problem 4.5 we have seen that we can do better if we encode blocks of symbols of a discrete memoryless source rather than encoding a single symbol. The benefit increases if we find codes for long source sequences $(U_1,\ldots,U_n)$ as $n\to\infty$. This is the topic of our next lecture.</p>
   </main>
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Information theory and coding 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

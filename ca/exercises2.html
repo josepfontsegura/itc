@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -40,36 +40,36 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html" class="active">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
 
@@ -81,224 +81,186 @@
     <button id="expand-all" data-expand="Mostra totes les solucions" data-collapse="Amaga totes les solucions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostra totes les solucions</button>
 
     <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.1.</span> Una font $X$ que pren valors $\{-1,0,1\}$ amb igual probabilitat es comprimeix utilitzant el codi binari lliure de prefixos òptim. La funció $\ell(x)$ retorna la longitud de la versió codificada del símbol $x\in\{-1,0,1\}$. Quin és el valor de la cota superior de Chebyshev per a la probabilitat $\mathbb{P}[|\ell(X)-L_{\rm av}|\geq L_{\rm av}]$, on $L_{\rm av}$ és la longitud mitjana del codi?</p>
+  <p><span class="env-label">Exercici 2.1.</span></p>
+  <p>Sigui $(X,Y)$ amb distribució conjunta $P_{XY}(1,0)=\tfrac{3}{10}$, $P_{XY}(0,1)=\tfrac{1}{5}$, $P_{XY}(0,0)=\tfrac{1}{10}$ (de manera que $P_{XY}(1,1)=\tfrac{2}{5}$ per normalització). Quina de les opcions següents és correcta per a $\mathbb{E}[X]$ i $\mathbb{E}[Y]$?</p>
+  <p>(a) $\mathbb{E}[X] = \tfrac{7}{10}$ i $\mathbb{E}[Y] = \tfrac{2}{5}$<br>
+  (b) $\mathbb{E}[X] = \tfrac{2}{5}$ i $\mathbb{E}[Y] = \tfrac{7}{10}$<br>
+  (c) $\mathbb{E}[X] = \tfrac{7}{10}$ i $\mathbb{E}[Y] = \tfrac{3}{5}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Per normalització, deduïm que $P_{XY}(1,1) = \tfrac{2}{5}$. Com que $X$ i $Y$ són binàries, $\mathbb{E}[X] = P_X(1)$ i $\mathbb{E}[Y] = P_Y(1)$. Fent servir $P_X(1) = P_{XY}(1,0) + P_{XY}(1,1) = \tfrac{3}{10} + \tfrac{2}{5} = \tfrac{7}{10}$ i $P_Y(1) = P_{XY}(0,1) + P_{XY}(1,1) = \tfrac{1}{5} + \tfrac{2}{5} = \tfrac{3}{5}$, trobem la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.2.</span></p>
+  <p>Sigui $(X,Y)$ amb $P_{XY}(0,0)=\tfrac{1}{10}$, $P_{XY}(0,1)=\tfrac{1}{5}$, $P_{XY}(1,0)=\tfrac{3}{10}$, $P_{XY}(1,1)=\tfrac{2}{5}$, i sigui $Z=\mathbb{1}\{X\neq Y\}$. Quins són, respectivament, l'alfabet i la distribució de probabilitat de $Z$?</p>
+  <p>(a) $\{0,1\}$ i $\bigl\{\tfrac12, \tfrac12\bigr\}$<br>
+  (b) $\{0,1,2\}$ i $\bigl\{\tfrac{1}{10}, \tfrac{1}{2}, \tfrac{2}{5}\bigr\}$<br>
+  (c) $\{0,1\}$ i $\bigl\{\tfrac{2}{5}, \tfrac{3}{5}\bigr\}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que $Z = 0$ quan $X=Y$, és a dir $(0,0)$ o $(1,1)$, obtenim $P_Z(0) = P_{XY}(0,0) + P_{XY}(1,1) = \tfrac{1}{10} + \tfrac{2}{5} = \tfrac{1}{10} + \tfrac{4}{10} = \tfrac{5}{10} = \tfrac12$. A més, $Z=1$ quan $X\neq Y$, és a dir $(0,1)$ o $(1,0)$, d'on $P_Z(1) = \tfrac{1}{5} + \tfrac{3}{10} = \tfrac{2}{10} + \tfrac{3}{10} = \tfrac{5}{10} = \tfrac12$. Per tant, $Z\in\{0,1\}$ amb igual probabilitat.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.3.</span></p>
+  <p>Sigui $Z\in\{0,1\}$ amb $P_Z(0)=P_Z(1)=\tfrac12$. Quin és el valor de $\mathbb{E}[\log_2(1+Z)]$?</p>
+  <p>(a) $\tfrac{1}{2}$<br>
+  (b) $\tfrac{13}{10}$<br>
+  (c) $1+\log_2(3)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que $Z$ val $0$ o $1$ de manera equiprobable, $\mathbb{E}[\log_2(1+Z)] = \log_2(1)\cdot\tfrac12 + \log_2(2)\cdot\tfrac12 = \tfrac12$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.4.</span></p>
+  <p>Quin és el valor de $\operatorname{var}(Z\oplus Z)$?</p>
+  <p>(a) $\tfrac{41}{100}$<br>
+  (b) $\tfrac{1}{4}$<br>
+  (c) $0$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Com que $Z\oplus Z = 0$ amb probabilitat u, la seva variància és zero.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.5.</span></p>
+  <p>Sigui $U$ uniforme sobre $\mathcal{U}$ amb $|\mathcal{U}|=n$ (de manera que $P_U(u)=1/n$ per a tot $u$), i sigui $g(x)=-\tfrac12\log_2(x)$ (de manera que $g(2^n)=-n/2$). Quina de les afirmacions següents és certa? Podeu raonar per eliminació.</p>
+  <p>(a) $|\mathcal{U}| = 2^n$<br>
+  (b) $\displaystyle\lim_{n\to\infty} \frac{g(2^n)}{P_U(2^n)} = -\infty$<br>
+  (c) $\displaystyle\lim_{n\to\infty} n P_U(u) = 0$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>$|\mathcal{U}| = n$ i $P_U(u) = 1/n$ per a tot $u$, de manera que $\lim_{n\to\infty} n P_U(u) = 1$. A més, $g(2^n)/P_U(2^n) = (-n/2)/(1/n) = -n^2/2$, de manera que $\lim_{n\to\infty} \frac{g(2^n)}{P_U(2^n)} = -\infty$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.6.</span></p>
+  <p>Una font $X$ que pren valors a $\{-1,0,1\}$ amb igual probabilitat es comprimeix amb el codi binari lliure de prefixos òptim. La funció $\ell(x)$ retorna la longitud de la versió codificada del símbol $x\in\{-1,0,1\}$. Quin és el valor de la cota superior de Txebixev sobre la probabilitat $\mathbb{P}[|\ell(X)-L_{\rm av}|\geq L_{\rm av}]$, on $L_{\rm av}$ és la longitud mitjana del codi?</p>
   <p>(a) $0$<br>
   (b) $\frac{2}{15}$<br>
   (c) $\frac{2}{25}$<br>
   (d) $\frac{27}{25}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
-    <p></p>
+    <p>La probabilitat $\mathbb{P}[|\ell(X)-L_{\rm av}|\geq L_{\rm av}]$ té la forma de la desigualtat de Txebixev, ja que $\mathbb{E}[\ell(X)]=L_{\rm av}$, i està acotada per $\frac{{\rm Var}(\ell(X))}{L_{\rm av}^2}$. Després de construir el codi òptim (Huffman) per a $X$, trobem que $\ell(X)\in\{1,2,2\}$ amb igual probabilitat, cosa que porta a ${\rm Var}(\ell(X)) = \frac{2}{9}$ i $\mathbb{E}[\ell(X)]=\frac{5}{3}$. Per tant la cota val $\frac{2/9}{25/9}=\frac{2}{25}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.2.</span> Una font $X$ que pren valors $\{-2,-1,1,2\}$ amb igual probabilitat és comprimida utilitzant el codi binari lliure de prefixos òptim. Per a cada símbol $x \in \{-2,-1,1,2\}$, la funció $\ell(x)$ retorna la longitud de la seva versió codificada. Quin és el valor de la probabilitat $\mathbb{P}\bigr[|\ell(X)-L_{\rm av}|\geq \mathbb{E}[X]\bigr]$, on $L_{\rm av}$ és la longitud mitjana del codi?</p>
+  <p><span class="env-label">Exercici 2.7.</span></p>
+  <p>Una font $X$ que pren valors a $\{-2,-1,1,2\}$ amb igual probabilitat es comprimeix amb el codi binari lliure de prefixos òptim. Per a cada símbol $x\in\{-2,-1,1,2\}$, la funció $\ell(x)$ retorna la longitud de la seva versió codificada. Quin és el valor de la probabilitat $\mathbb{P}\bigl[|\ell(X)-L_{\rm av}|\geq \mathbb{E}[X]\bigr]$, on $L_{\rm av}$ és la longitud mitjana del codi?</p>
   <p>(a) $0$<br>
   (b) $\frac{2}{25}$<br>
   (c) $1$<br>
-  (d) Indeterminació</p>
+  (d) Indeterminat</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
-    <p>El codi òptim (de Huffman) és donat per $\{00,01,10,11\}$, per tant $\ell(x)=L_{\rm av}=2$. Com que $\mathbb{E}[X]=0$, la probabilitat és $1$.</p>
+    <p>El codi òptim (Huffman) és $\{00,01,10,11\}$, per tant $\ell(x)=L_{\rm av}=2$. Com que $\mathbb{E}[X]=0$, l'esdeveniment $|\ell(X)-L_{\rm av}|\geq 0$ es compleix sempre, de manera que la probabilitat és $1$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.3.</span> Quina de les següents is correct for $\mathbb{E}[X]$ and $\mathbb{E}[Y]$?</p>
-  <p>(a) $\mathbb{E}[X] = \tfrac{7}{10}$ and $\mathbb{E}[Y] = \tfrac{2}{5}$<br>
-  (b) $\mathbb{E}[X] = \tfrac{2}{5}$ and $\mathbb{E}[Y] = \tfrac{7}{10}$<br>
-  (c) $\mathbb{E}[X] = \tfrac{7}{10}$ and $\mathbb{E}[Y] = \tfrac{3}{5}$</p>
-  <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
-    <p>By normalization, we deduce that $P_{XY}(1,1) = \tfrac{2}{5}$.
-Atès que $X$ and $Y$ are binari, $\mathbb{E}[X] = P_X(1)$ and $\mathbb{E}[Y] = P_Y(1)$. Using
-$
-P_X(1) = P_{XY}(1,0) + P_{XY}(1,1) = \tfrac{3}{10} + \tfrac{2}{5} = \tfrac{7}{10}
-$
-and
-$
-P_Y(1) = P_{XY}(0,1) + P_{XY}(1,1) = \tfrac{1}{5} + \tfrac{2}{5} = \tfrac{3}{5},
-$
-trobem that la resposta correcta.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.4.</span> Quin és the alphabet and probability distribution of $Z$, respectively?</p>
-  <p>(a) $\{0,1\}$ and $\bigl\{\tfrac12, \tfrac12\bigr\}$<br>
-  (b) $\{0,1,2\}$ and $\bigl\{\tfrac{1}{10}, \tfrac{1}{2}, \tfrac{2}{5}\bigr\}$<br>
-  (c) $\{0,1\}$ and $\bigl\{\tfrac{2}{5}, \tfrac{3}{5}\bigr\}$</p>
-  <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Atès que $Z = 0$ when $X=Y$, that is $(0,0)$ or $(1,1)$, we get
- $
-    P_Z(0) = P_{XY}(0,0) + P_{XY}(1,1) = \tfrac{1}{10} + \tfrac{2}{5} = \tfrac{1}{10} + \tfrac{4}{10} = \tfrac{5}{10} = \tfrac12.
-  $
- Also, $Z=1$ when $X\neq Y$, that is $(0,1)$ or $(1,0)$, per tant
- $
-    P_Z(1) = \tfrac{1}{5} + \tfrac{3}{10} = \tfrac{2}{10} + \tfrac{3}{10} = \tfrac{5}{10} = \tfrac12.
-  $
- Per tant, $Z\in\{0,1\}$ amb igual probabilitat.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.5.</span> Quin és the value of $\mathbb{E}[\log_2(1+Z)]$?</p>
-  <p>(a) $\tfrac{1}{2}$<br>
-  (b) $\tfrac{13}{10}$<br>
-  (c) $1+\log_2(3)$</p>
-  <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Atès que $Z$ is 0 or 1 equiprobably, $\mathbb{E}[\log_2(1+Z)] = \log_2(1)\cdot\tfrac12 + \log_2(2)\cdot\tfrac12 = \tfrac12.$</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.6.</span> Quin és the value of $\text{var}(Z\oplus Z)$?</p>
-  <p>(a) $\tfrac{41}{100}$<br>
-  (b) $\tfrac{1}{4}$<br>
-  (c) $0$</p>
-  <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
-    <p>Atès que $Z\oplus Z = 0$ with probability one, its variance is zero.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.7.</span> Quina de les següents statements és certa? You can reason by elimination.</p>
-  <p>(a) $|\mathcal{U}| = 2^n$<br>
-  (b) $\displaystyle\lim_{n\to\infty} \frac{g(2^n)}{P_U(2^n)} = -\infty$<br>
-  (c) $\displaystyle\lim_{n\to\infty} n P_U(u) = 0$</p>
-  <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
-    <p>$|\mathcal{U}| = n$ and $P_U(u) = 1/n$ for all $u$, so that $\lim_{n\to\infty} n P_U(u) = 1$. Also, $g(2^n)/P_U(2^n) = (-n/2)/(1/n) = -n^2/2$ so that $\lim_{n\to\infty} \frac{g(2^n)}{P_U(2^n)} = -\infty$.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.8.</span> Find the formula for the sum of natural numbers between $1$ and $n$ and use the result to find the mean of $g(U)$, $\mathrm{E}[g(U)]$. If you use ChatGPT at any step, make sure the answer is correct.</p>
-  <p>(a) $-\frac{1}{4}n(n+1)$<br>
-  (b) $-\frac{1}{4}(n+1)$<br>
-  (c) $-\frac{1}{2}(n+1)$</p>
-  <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
-    <p>The sum of natural numbers between $1$ and $n$ is $\frac{n(n+1)}{2}$; atès que $g(u)$ has a minus sign, the mean of $g(u)$ is $-\frac{n+1}{4}$.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.9.</span> Find the formula giving the sum of the squares of natural numbers between $1$ and $n$ and use the result to find the mean of $g^2(U)$, $\mathrm{E}[g^2(U)]$.</p>
-  <p>(a) $\frac{1}{4}(n+1)^2$<br>
-  (b) $\frac{1}{12}(n+1)(n+\frac{1}{2})$<br>
-  (c) $\frac{1}{6}(n+1)(2n+1)$</p>
-  <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
-    <p>The sum of the squares of natural numbers between $1$ and $n$ is $\frac{n(n+1)(2n+1)}{6}$; atès que $g(2^a)=-a/2$, the mean of $g^2(u)$ is $1/4$ times the sum of squares divided by $n$.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.10.</span> For which value of $n$ is the variance of $g(U)$ equal to $1$?</p>
-  <p>(a) $1$<br>
-  (b) $2$<br>
-  (c) $7$</p>
-  <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
-    <p>The variance can be calculated as $\frac{1}{48}(n^2-1)$, which is $1$ for $n=7$.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.11.</span> Let $X$ be a non-negative variable aleatòria with $\mathbb{E}[X]=4$. What does Markov's inequality say about $\mathbb{P}[X\geq 8]$?</p>
+  <p><span class="env-label">Exercici 2.8.</span></p>
+  <p>Sigui $X$ una variable aleatòria no negativa amb $\mathbb{E}[X]=4$. Què diu la desigualtat de Markov sobre $\mathbb{P}[X\geq 8]$?</p>
   <p>(a) $\mathbb{P}[X\geq 8]\leq \tfrac{1}{2}$<br>
   (b) $\mathbb{P}[X\geq 8]\leq 2$<br>
   (c) $\mathbb{P}[X\geq 8]\leq \tfrac{1}{4}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Markov's inequality states $\mathbb{P}[X\geq a]\leq \tfrac{\mathbb{E}[X]}{a}=\tfrac{4}{8}=\tfrac{1}{2}$.</p>
+    <p>La desigualtat de Markov estableix que $\mathbb{P}[X\geq a]\leq \tfrac{\mathbb{E}[X]}{a}=\tfrac{4}{8}=\tfrac{1}{2}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.12.</span> Let $X$ have mean $\mu=3$ and variance $\sigma^2=1$. Quin és the Chebyshev bound on $\mathbb{P}[|X-3|\geq 2]$?</p>
+  <p><span class="env-label">Exercici 2.9.</span></p>
+  <p>Sigui $X$ amb mitjana $\mu=3$ i variància $\sigma^2=1$. Quina és la cota de Txebixev sobre $\mathbb{P}[|X-3|\geq 2]$?</p>
   <p>(a) $\tfrac{1}{4}$<br>
   (b) $\tfrac{1}{2}$<br>
   (c) $\tfrac{3}{4}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Chebyshev's inequality gives $\mathbb{P}[|X-\mu|\geq k]\leq \tfrac{\sigma^2}{k^2}=\tfrac{1}{4}$.</p>
+    <p>La desigualtat de Txebixev dóna $\mathbb{P}[|X-\mu|\geq k]\leq \tfrac{\sigma^2}{k^2}=\tfrac{1}{4}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.13.</span> Let $X_1,\ldots,X_n$ be i.i.d. with $\mathbb{E}[X_i]=\mu$ and $\text{var}(X_i)=\sigma^2$. Quin és $\text{var}\bigl(\tfrac{1}{n}\sum_{i=1}^n X_i\bigr)$?</p>
+  <p><span class="env-label">Exercici 2.10.</span></p>
+  <p>Siguin $X_1,\ldots,X_n$ i.i.d. amb $\mathbb{E}[X_i]=\mu$ i $\operatorname{var}(X_i)=\sigma^2$. Quant val $\operatorname{var}\bigl(\tfrac{1}{n}\sum_{i=1}^n X_i\bigr)$?</p>
   <p>(a) $\tfrac{\sigma^2}{n}$<br>
   (b) $\sigma^2$<br>
   (c) $n\sigma^2$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>By independence, $\text{var}\bigl(\tfrac{1}{n}\sum X_i\bigr)=\tfrac{1}{n^2}\sum \text{var}(X_i)=\tfrac{n\sigma^2}{n^2}=\tfrac{\sigma^2}{n}$.</p>
+    <p>Per independència, $\operatorname{var}\bigl(\tfrac{1}{n}\sum X_i\bigr)=\tfrac{1}{n^2}\sum \operatorname{var}(X_i)=\tfrac{n\sigma^2}{n^2}=\tfrac{\sigma^2}{n}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.14.</span> A fair die is rolled $n$ times and $Y=\tfrac{1}{n}\sum_{i=1}^n X_i$ is the sample mean. By the law of large numbers, what does $Y$ converge to as $n\to\infty$?</p>
+  <p><span class="env-label">Exercici 2.11.</span></p>
+  <p>Es llança un dau equilibrat $n$ vegades i $Y=\tfrac{1}{n}\sum_{i=1}^n X_i$ és la mitjana mostral. Per la llei dels grans nombres, cap a quin valor convergeix $Y$ quan $n\to\infty$?</p>
   <p>(a) $\tfrac{7}{2}$<br>
   (b) $3$<br>
   (c) $\tfrac{1}{6}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>The law of large numbers states that $Y$ converges in probability to $\mathbb{E}[X_i]=\tfrac{1+2+3+4+5+6}{6}=\tfrac{7}{2}$.</p>
+    <p>La llei dels grans nombres estableix que $Y$ convergeix en probabilitat cap a $\mathbb{E}[X_i]=\tfrac{1+2+3+4+5+6}{6}=\tfrac{7}{2}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.15.</span> Let $Z$ be a variable aleatòria with $\mathbb{E}[Z]=0$ and $\mathbb{E}[Z^2]=9$. Using Chebyshev's inequality, quin és an upper bound on $\mathbb{P}[|Z|\geq 6]$?</p>
+  <p><span class="env-label">Exercici 2.12.</span></p>
+  <p>Sigui $Z$ una variable aleatòria amb $\mathbb{E}[Z]=0$ i $\mathbb{E}[Z^2]=9$. Fent servir la desigualtat de Txebixev, quina és una cota superior de $\mathbb{P}[|Z|\geq 6]$?</p>
   <p>(a) $\tfrac{1}{4}$<br>
   (b) $\tfrac{1}{2}$<br>
   (c) $\tfrac{3}{4}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>We have $\text{var}(Z)=\mathbb{E}[Z^2]-(\mathbb{E}[Z])^2=9$. Chebyshev gives $\mathbb{P}[|Z|\geq 6]\leq \tfrac{9}{36}=\tfrac{1}{4}$.</p>
+    <p>Tenim $\operatorname{var}(Z)=\mathbb{E}[Z^2]-(\mathbb{E}[Z])^2=9$. Txebixev dóna $\mathbb{P}[|Z|\geq 6]\leq \tfrac{9}{36}=\tfrac{1}{4}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.16.</span> Let $X$ be a non-negative variable aleatòria. Quina de les següents is a consequence of Markov's inequality?</p>
-  <p>(a) $\mathbb{P}[X\geq a]\leq \tfrac{\mathbb{E}[X]}{a}$ for all $a>0$<br>
-  (b) $\mathbb{P}[X\geq a]\geq \tfrac{\mathbb{E}[X]}{a}$ for all $a>0$<br>
-  (c) $\mathbb{P}[X\geq a]= \tfrac{\mathbb{E}[X]}{a}$ for all $a>0$</p>
+  <p><span class="env-label">Exercici 2.13.</span> Sigui $X$ una variable aleatòria no negativa. Quina de les opcions següents és una conseqüència de la desigualtat de Markov?</p>
+  <p>(a) $\mathbb{P}[X\geq a]\leq \tfrac{\mathbb{E}[X]}{a}$ per a tot $a&gt;0$<br>
+  (b) $\mathbb{P}[X\geq a]\geq \tfrac{\mathbb{E}[X]}{a}$ per a tot $a&gt;0$<br>
+  (c) $\mathbb{P}[X\geq a]= \tfrac{\mathbb{E}[X]}{a}$ per a tot $a&gt;0$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Markov's inequality provides an upper bound on the tail probability of a non-negative variable aleatòria.</p>
+    <p>La desigualtat de Markov proporciona una fita superior sobre la probabilitat de cua d'una variable aleatòria no negativa.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.17.</span> Let $X_1,\ldots,X_{100}$ be i.i.d. Bernoulli$(\tfrac{1}{2})$. Using Chebyshev's inequality, quin és an upper bound on $\mathbb{P}\bigl[|\bar{X}-\tfrac{1}{2}|\geq \tfrac{1}{10}\bigr]$, where $\bar{X}=\tfrac{1}{100}\sum X_i$?</p>
+  <p><span class="env-label">Exercici 2.14.</span> Siguin $X_1,\ldots,X_{100}$ variables i.i.d. Bernoulli$(\tfrac{1}{2})$. Fent servir la desigualtat de Txebixev, quina és una fita superior de $\mathbb{P}\bigl[|\bar{X}-\tfrac{1}{2}|\geq \tfrac{1}{10}\bigr]$, on $\bar{X}=\tfrac{1}{100}\sum X_i$?</p>
   <p>(a) $\tfrac{1}{4}$<br>
   (b) $\tfrac{1}{2}$<br>
   (c) $\tfrac{1}{100}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>We have $\text{var}(\bar{X})=\tfrac{1}{400}$. Chebyshev gives $\mathbb{P}\bigl[|\bar{X}-\tfrac{1}{2}|\geq \tfrac{1}{10}\bigr]\leq \tfrac{1/400}{1/100}=\tfrac{1}{4}$.</p>
+    <p>Tenim $\text{var}(\bar{X})=\tfrac{1}{400}$. La desigualtat de Txebixev dona $\mathbb{P}\bigl[|\bar{X}-\tfrac{1}{2}|\geq \tfrac{1}{10}\bigr]\leq \tfrac{1/400}{1/100}=\tfrac{1}{4}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.18.</span> For a variable aleatòria $X$ with mean $\mu$, Chebyshev's inequality can be stated as $\mathbb{P}[|X-\mu|\geq k\sigma]\leq$</p>
+  <p><span class="env-label">Exercici 2.15.</span> Per a una variable aleatòria $X$ amb mitjana $\mu$, la desigualtat de Txebixev es pot expressar com $\mathbb{P}[|X-\mu|\geq k\sigma]\leq$</p>
   <p>(a) $\tfrac{1}{k^2}$<br>
   (b) $\tfrac{\sigma}{k}$<br>
   (c) $k^2\sigma^2$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Chebyshev's inequality in this form gives $\mathbb{P}[|X-\mu|\geq k\sigma]\leq \tfrac{\text{var}(X)}{k^2\sigma^2}=\tfrac{1}{k^2}$.</p>
+    <p>La desigualtat de Txebixev en aquesta forma dona $\mathbb{P}[|X-\mu|\geq k\sigma]\leq \tfrac{\text{var}(X)}{k^2\sigma^2}=\tfrac{1}{k^2}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.19.</span> Let $g(x)=x^2$ and $X$ uniform on $\{-1,0,1\}$. Quin és $\mathbb{E}[g(X)]$?</p>
+  <p><span class="env-label">Exercici 2.16.</span> Sigui $g(x)=x^2$ i $X$ uniforme sobre $\{-1,0,1\}$. Quant val $\mathbb{E}[g(X)]$?</p>
   <p>(a) $\tfrac{2}{3}$<br>
   (b) $1$<br>
   (c) $\tfrac{1}{3}$</p>
@@ -309,74 +271,314 @@ trobem that la resposta correcta.</p>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.20.</span> If $X_1,\ldots,X_n$ are i.i.d. with finite mean $\mu$ and finite variance, the weak law of large numbers states that $\bar{X}_n\to\mu$ in</p>
-  <p>(a) probability<br>
-  (b) distribution<br>
-  (c) mean square</p>
+  <p><span class="env-label">Exercici 2.17.</span></p>
+  <p>Una variable aleatòria $X$ pren valors a $\{-1,0,1\}$ amb $P_X(-1)=\frac14$, $P_X(0)=\frac12$, $P_X(1)=\frac14$. Calcula la variància de $X$.</p>
+  <p>(a) $\mathrm{var}(X)=\tfrac12$<br>
+  (b) $\mathrm{var}(X)=0$<br>
+  (c) $\mathrm{var}(X)=\tfrac14$<br>
+  (d) $\mathrm{var}(X)=1$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>The weak law of large numbers states convergence in probability: for any $\epsilon>0$, $\mathbb{P}[|\bar{X}_n-\mu|\geq\epsilon]\to 0$ as $n\to\infty$.</p>
+    <p>Per simetria $\mathbb{E}[X]=(-1)\tfrac14+0\cdot\tfrac12+1\cdot\tfrac14=0$. El segon moment és $\mathbb{E}[X^2]=1\cdot\tfrac14+0+1\cdot\tfrac14=\tfrac12$. Per tant $\mathrm{var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2=\tfrac12-0=\tfrac12$. (El $0$ usa malament $\mathbb{E}[X]$; el $\tfrac14$ oblida una cua.)</p>
   </details>
 </div>
 
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.18.</span></p>
+  <p>Per a $X\in\{-1,0,1\}$ amb $P_X(-1)=\frac14$, $P_X(0)=\frac12$, $P_X(1)=\frac14$, sigui $Y=X^2$. Calcula $\mathrm{var}(Y)$.</p>
+  <p>(a) $\mathrm{var}(Y)=\tfrac14$<br>
+  (b) $\mathrm{var}(Y)=\tfrac12$<br>
+  (c) $\mathrm{var}(Y)=\tfrac18$<br>
+  (d) $\mathrm{var}(Y)=0$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>$Y=X^2$ té $P_Y(0)=P_X(0)=\tfrac12$ i $P_Y(1)=P_X(-1)+P_X(1)=\tfrac12$. Aleshores $\mathbb{E}[Y]=\tfrac12$ i $\mathbb{E}[Y^2]=\tfrac12$ (ja que $Y^2=Y$ a $\{0,1\}$), de manera que $\mathrm{var}(Y)=\tfrac12-(\tfrac12)^2=\tfrac14$. (El valor $\tfrac12$ seria $\mathrm{var}(X)$; elevar al quadrat és no lineal i cal recalcular la variància.)</p>
+  </details>
+</div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.21.</span>
-  $X$ pren valors $\{-1,0,1\}$ amb probabilitats $\{\tfrac{1}{4},\tfrac{1}{2},\tfrac{1}{4}\}$. Trobeu $\text{var}(X)$.</p>
-  <p>(a) $\tfrac{1}{2}$<br>
+  <p><span class="env-label">Exercici 2.19.</span></p>
+  <p>Per a $X\in\{-1,0,1\}$ amb $P_X(-1)=\frac14$, $P_X(0)=\frac12$, $P_X(1)=\frac14$, és $\mathbb{E}[X^2]$ igual a $(\mathbb{E}[X])^2$? Tria l'afirmació i la raó correctes.</p>
+  <p>(a) No: $\mathbb{E}[X^2]=\tfrac12&gt;0=(\mathbb{E}[X])^2$, ja que $\mathbb{E}[X^2]-(\mathbb{E}[X])^2=\mathrm{var}(X)&gt;0$ aquí<br>
+  (b) Sí: sempre són iguals perquè l'esperança és lineal<br>
+  (c) No: $\mathbb{E}[X^2]&lt;(\mathbb{E}[X])^2$ perquè la variància és negativa aquí<br>
+  (d) Sí: coincideixen perquè $\mathbb{E}[X]=0$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>No són iguals. Reordenant la fórmula de la variància s'obté $\mathbb{E}[X^2]-(\mathbb{E}[X])^2=\mathrm{var}(X)\ge 0$, sempre no negatiu perquè la variància és l'esperança d'un quadrat. La igualtat només es dona si $\mathrm{var}(X)=0$ ($X$ constant). Aquí $\mathrm{var}(X)=\tfrac12&gt;0$, així que $\mathbb{E}[X^2]=\tfrac12&gt;0=(\mathbb{E}[X])^2$, estrictament.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.20.</span></p>
+  <p>Siguin $X$ i $Y$ variables aleatòries independents amb $\mathbb{E}[X]=\mathbb{E}[Y]=0$ i variàncies $\sigma_X^2$ i $\sigma_Y^2$. Definim $Z=aX^2+bY^2$ amb $a,b&gt;0$. Per a $t&gt;0$, quina és una fita superior vàlida de $\mathbb{P}[Z\geq t]$?</p>
+  <p>(a) $\dfrac{a\sigma_X^2+b\sigma_Y^2}{t}$<br>
+  (b) $\dfrac{a\sigma_X^2+b\sigma_Y^2}{t^2}$<br>
+  (c) $\dfrac{a^2\sigma_X^2+b^2\sigma_Y^2}{t}$<br>
+  (d) $\dfrac{\sigma_X^2+\sigma_Y^2}{t}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que $a,b&gt;0$ i $X^2,Y^2\geq 0$, $Z\geq 0$, així que s'aplica la desigualtat de Markov: $\mathbb{P}[Z\geq t]\leq \mathbb{E}[Z]/t$. Per linealitat, $\mathbb{E}[Z]=a\mathbb{E}[X^2]+b\mathbb{E}[Y^2]$, i com que les mitjanes són zero, $\mathbb{E}[X^2]=\sigma_X^2$ i $\mathbb{E}[Y^2]=\sigma_Y^2$. Per tant $\mathbb{E}[Z]=a\sigma_X^2+b\sigma_Y^2$ i la fita és $\dfrac{a\sigma_X^2+b\sigma_Y^2}{t}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.21.</span></p>
+  <p>Una variable aleatòria discreta $X$ pren els valors $\{-\sqrt{2},\,+\sqrt{2}\}$, cadascun amb probabilitat $\tfrac{1}{2}$. Per a $\epsilon&gt;0$, quina és la cota superior de Chebyshev sobre $\mathbb{P}\big[\,|X^2-2|\geq\epsilon\,\big]$?</p>
+  <p>(a) $0$<br>
+  (b) $\dfrac{2}{\epsilon^2}$<br>
+  (c) $\dfrac{1}{\epsilon^2}$<br>
+  (d) $\dfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Sigui $Y=X^2$. Com que $X=\pm\sqrt{2}$, tenim $Y=(\pm\sqrt{2})^2=2$ amb probabilitat u, és a dir, $X^2$ és la constant $2$. Aleshores $\mathbb{E}[X^2]=2$ i $\mathrm{var}(X^2)=0$. L'esdeveniment és exactament la desviació de $X^2$ respecte de la seva mitjana, de manera que Chebyshev dona $\mathbb{P}[\,|X^2-2|\geq\epsilon\,]\leq \mathrm{var}(X^2)/\epsilon^2 = 0/\epsilon^2 = \boxed{0}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.22.</span></p>
+  <p>Sigui $X_1$ que pren valors a $\{0,1,2\}$ amb $P_X(0)=\tfrac14$, $P_X(1)=\tfrac12$, $P_X(2)=\tfrac14$, de manera que $\mathbb{E}[X_1]=1$. Fent servir la <em>desigualtat de Markov</em>, calcula la fita superior de $\mathbb{P}[X_1\geq 2]$.</p>
+  <p>(a) $\tfrac12$<br>
+  (b) $\tfrac14$<br>
+  (c) $1$<br>
+  (d) $\tfrac18$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La desigualtat de Markov per a una variable no negativa dona $\mathbb{P}[X_1\geq a]\leq \mathbb{E}[X_1]/a$. Amb $a=2$ i $\mathbb{E}[X_1]=1$, la fita és $1/2$. (El valor exacte $P_X(2)=\tfrac14$ és més petit, per tant la fita és vàlida però poc ajustada.) La resposta és $\tfrac12$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.23.</span></p>
+  <p>Siguin $X_1,\ldots,X_n$ i.i.d. amb $\mathrm{var}(X_i)=\tfrac12$, i sigui $\bar X_n=\tfrac1n\sum_{i=1}^n X_i$ la mitjana mostral. Calcula $\mathrm{var}(\bar X_n)$.</p>
+  <p>(a) $\dfrac{1}{2n}$<br>
+  (b) $\dfrac{1}{2n^2}$<br>
+  (c) $\dfrac{1}{2}$<br>
+  (d) $\dfrac{n}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per independència, $\mathrm{var}(\bar X_n)=\tfrac{1}{n^2}\sum_{i=1}^n\mathrm{var}(X_i)=\tfrac{1}{n^2}\cdot n\cdot\tfrac12=\tfrac{1}{2n}$. El factor $1/n^2$ es combina amb els $n$ termes i deixa un sol $1/n$. La resposta és $\tfrac{1}{2n}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.24.</span></p>
+  <p>Amb $\bar X_n$ la mitjana mostral de variables i.i.d., $\mathbb{E}[\bar X_n]=1$ i $\mathrm{var}(\bar X_n)=\tfrac{1}{2n}$. Fent servir la <em>desigualtat de Txebixev</em>, calcula el nombre mínim de mostres $n$ tal que $\mathbb{P}\bigl[\,|\bar X_n-1|&lt;\tfrac12\,\bigr]\geq 0.9$.</p>
+  <p>(a) $n=20$<br>
+  (b) $n=10$<br>
+  (c) $n=5$<br>
+  (d) $n=40$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La condició $\mathbb{P}[|\bar X_n-1|&lt;\tfrac12]\geq 0.9$ equival a $\mathbb{P}[|\bar X_n-1|\geq\tfrac12]\leq 0.1$. Txebixev dona $\mathbb{P}[|\bar X_n-1|\geq\tfrac12]\leq \dfrac{\mathrm{var}(\bar X_n)}{(1/2)^2}=\dfrac{1/(2n)}{1/4}=\dfrac{2}{n}$. Imposant $\tfrac{2}{n}\leq 0.1$ s'obté $n\geq 20$. (Dividir per $k=\tfrac12$ en lloc de $k^2=\tfrac14$ dona erròniament $10$.) La resposta és $n=20$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.25.</span></p>
+  <p>Sigui $X$ uniforme sobre $\{1,2,\ldots,M\}$, de manera que $P_X(x)=\tfrac{1}{M}$. Definim $Y=f(X)$ amb $f(x)=P_X(x)$. Calcula $\mathrm{var}(Y)$.</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac{1}{M}$<br>
+  (c) $\tfrac{1}{M^2}$<br>
+  (d) $\tfrac{M^2-1}{12}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que $f(x)=P_X(x)=\tfrac1M$ no depèn de $x$, $Y\equiv\tfrac1M$ és una variable constant (degenerada). Aleshores $\mathbb{E}[Y]=\tfrac1M$ i $\mathbb{E}[Y^2]=\tfrac1{M^2}$, així que $\mathrm{var}(Y)=\tfrac1{M^2}-(\tfrac1M)^2=0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.26.</span></p>
+  <p>Sigui $X$ uniforme sobre $\{1,2,\ldots,M\}$. Definim $Y=f(X)$ amb $f(x)=x^2$. Fent servir $\sum_{n=1}^{M} n^2=\tfrac{M(M+1)(2M+1)}{6}$, calcula $\mathbb{E}[Y]$.</p>
+  <p>(a) $\dfrac{(M+1)(2M+1)}{6}$<br>
+  (b) $\dfrac{M(M+1)(2M+1)}{6}$<br>
+  (c) $\dfrac{(M+1)^2}{4}$<br>
+  (d) $\dfrac{M+1}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per la llei de l'estadístic inconscient, $\mathbb{E}[Y]=\mathbb{E}[X^2]=\tfrac1M\sum_{n=1}^{M} n^2=\tfrac1M\cdot\tfrac{M(M+1)(2M+1)}{6}=\tfrac{(M+1)(2M+1)}{6}$. La segona opció oblida el factor $\tfrac1M$ de la mitjana; l'última és $\mathbb{E}[X]$, no $\mathbb{E}[X^2]$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.27.</span></p>
+  <p>Sigui $X$ uniforme sobre $\{1,2,3,4\}$ (de manera que $P_X(x)=\tfrac14$) i sigui $Y=f(X)$ amb $f(x)=|x-2|$. Definim $Z=\log_2 P_Y(Y)$. Calcula $\mathbb{E}[Z]$ (en bits).</p>
+  <p>(a) $-\tfrac32$<br>
+  (b) $\tfrac32$<br>
+  (c) $-2$<br>
+  (d) $-1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Aplicant $|x-2|$ obtenim $Y\in\{0,1,2\}$ amb $P_Y(0)=\tfrac14$, $P_Y(1)=\tfrac14+\tfrac14=\tfrac12$, $P_Y(2)=\tfrac14$. Aleshores $\mathbb{E}[Z]=\sum_y P_Y(y)\log_2 P_Y(y)=\tfrac14(-2)+\tfrac12(-1)+\tfrac14(-2)=-\tfrac32$ bits. Observa que $-\mathbb{E}[Z]=\tfrac32=H(Y)$; l'opció $+\tfrac32$ oblida el signe.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.28.</span></p>
+  <p>Siguin $X_1,X_2,X_3,X_4$ variables aleatòries i.i.d. Bernoulli$(\tfrac12)$ a $\{0,1\}$, i sigui $Y=\tfrac14(X_1+X_2+X_3+X_4)$. Quina de les opcions següents és la funció de massa de probabilitat correcta de $Y$?</p>
+  <p>(a) $\mathbb{P}[Y=0]=\tfrac{1}{16},\ \mathbb{P}[Y=\tfrac14]=\tfrac{4}{16},\ \mathbb{P}[Y=\tfrac12]=\tfrac{6}{16},\ \mathbb{P}[Y=\tfrac34]=\tfrac{4}{16},\ \mathbb{P}[Y=1]=\tfrac{1}{16}$<br>
+  (b) $\mathbb{P}[Y=0]=\tfrac{1}{5},\ \mathbb{P}[Y=\tfrac14]=\tfrac{1}{5},\ \mathbb{P}[Y=\tfrac12]=\tfrac{1}{5},\ \mathbb{P}[Y=\tfrac34]=\tfrac{1}{5},\ \mathbb{P}[Y=1]=\tfrac{1}{5}$<br>
+  (c) $\mathbb{P}[Y=0]=\tfrac{4}{16},\ \mathbb{P}[Y=\tfrac14]=\tfrac{1}{16},\ \mathbb{P}[Y=\tfrac12]=\tfrac{6}{16},\ \mathbb{P}[Y=\tfrac34]=\tfrac{1}{16},\ \mathbb{P}[Y=1]=\tfrac{4}{16}$<br>
+  (d) $\mathbb{P}[Y=0]=\tfrac{1}{16},\ \mathbb{P}[Y=\tfrac14]=\tfrac{2}{16},\ \mathbb{P}[Y=\tfrac12]=\tfrac{10}{16},\ \mathbb{P}[Y=\tfrac34]=\tfrac{2}{16},\ \mathbb{P}[Y=1]=\tfrac{1}{16}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Escrivim $S=X_1+\cdots+X_4=4Y$. Les $2^4=16$ cadenes binàries són igualment probables, cadascuna amb probabilitat $\tfrac{1}{16}$, i $S$ compta els uns. El nombre de cadenes amb $k$ uns és $\binom{4}{k}=1,4,6,4,1$ per a $k=0,1,2,3,4$. Dividint per $16$ s'obté $\mathbb{P}[Y=\tfrac{k}{4}]=\tfrac{1}{16},\tfrac{4}{16},\tfrac{6}{16},\tfrac{4}{16},\tfrac{1}{16}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.29.</span></p>
+  <p>Amb $Y=\tfrac14(X_1+X_2+X_3+X_4)$ per a variables i.i.d. Bernoulli$(\tfrac12)$ (de manera que $\mathbb{P}[Y=\tfrac{k}{4}]=\binom{4}{k}/16$ i $\mathbb{E}[Y]=\tfrac12$), calcula la probabilitat exacta $\mathbb{P}[Y\geq\tfrac34]$ i la cota superior de Markov corresponent. Quin parell és correcte?</p>
+  <p>(a) exacta $=\tfrac{5}{16}\approx0.3125$, cota de Markov $=\tfrac{2}{3}\approx0.667$<br>
+  (b) exacta $=\tfrac{1}{16}\approx0.0625$, cota de Markov $=\tfrac{2}{3}\approx0.667$<br>
+  (c) exacta $=\tfrac{5}{16}\approx0.3125$, cota de Markov $=\tfrac{3}{8}=0.375$<br>
+  (d) exacta $=\tfrac{4}{16}=0.25$, cota de Markov $=\tfrac{3}{2}=1.5$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Els valors amb $Y\geq\tfrac34$ són $Y=\tfrac34$ i $Y=1$, de manera que $\mathbb{P}[Y\geq\tfrac34]=\tfrac{4}{16}+\tfrac{1}{16}=\tfrac{5}{16}=0.3125$. La desigualtat de Markov per a la $Y$ no negativa dona $\mathbb{P}[Y\geq a]\leq\mathbb{E}[Y]/a$; amb $\mathbb{E}[Y]=\tfrac12$ i $a=\tfrac34$ la cota és $\tfrac{1/2}{3/4}=\tfrac{2}{3}\approx0.667$. El valor exacte queda força per sota d'aquesta cota poc ajustada.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.30.</span></p>
+  <p>Amb $Y=\tfrac14(X_1+X_2+X_3+X_4)$ per a variables i.i.d. Bernoulli$(\tfrac12)$, tenim $\mathbb{E}[Y]=\tfrac12$ i $\mathrm{var}(Y)=\tfrac{1}{16}$. Calcula la probabilitat exacta $\mathbb{P}[\,|Y-\tfrac12|\geq\tfrac12\,]$ i la cota superior de Txebixov corresponent. Quin parell és correcte?</p>
+  <p>(a) exacta $=\tfrac{1}{8}=0.125$, cota de Txebixov $=\tfrac{1}{4}=0.25$<br>
+  (b) exacta $=\tfrac{1}{4}=0.25$, cota de Txebixov $=\tfrac{1}{8}=0.125$<br>
+  (c) exacta $=\tfrac{1}{8}=0.125$, cota de Txebixov $=\tfrac{1}{8}=0.125$<br>
+  (d) exacta $=\tfrac{2}{16}=0.125$, cota de Txebixov $=\tfrac{1}{2}=0.5$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>L'esdeveniment $|Y-\tfrac12|\geq\tfrac12$ només es realitza amb $Y=0$ i $Y=1$, de manera que la probabilitat exacta és $\tfrac{1}{16}+\tfrac{1}{16}=\tfrac{2}{16}=\tfrac18=0.125$. La desigualtat de Txebixov dona $\mathbb{P}[|Y-\mathbb{E}[Y]|\geq\varepsilon]\leq\mathrm{var}(Y)/\varepsilon^2$; amb $\mathrm{var}(Y)=\tfrac{1}{16}$ i $\varepsilon=\tfrac12$ la cota és $\tfrac{1/16}{1/4}=\tfrac14=0.25$. El valor exacte $0.125$ satisfà aquesta cota.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.31.</span></p>
+  <p>Sigui $V$ una font binària i.i.d. equiprobable i $\mathbf{V}=(V_1,\ldots,V_n)$ una seqüència de longitud $n$. Definiu $g(\mathbf{v})=\log_2 P_{\mathbf{V}}(\mathbf{v})$. Trobeu la cota superior de Markov sobre $\mathbb{P}\bigl[g(\mathbf{V})\leq -n/2\bigr]$.</p>
+  <p>(a) $2$<br>
   (b) $1$<br>
-  (c) $\tfrac{1}{4}$</p>
+  (c) $1/2$<br>
+  (d) $1/n$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>$\mathbb{E}[X]=\tfrac{1}{4}(-1)+\tfrac{1}{2}(0)+\tfrac{1}{4}(1)=0$. $\mathbb{E}[X^2]=\tfrac{1}{4}(1)+0+\tfrac{1}{4}(1)=\tfrac{1}{2}$. Per tant $\text{var}(X)=\tfrac{1}{2}$.</p>
+    <p>Cada seqüència té probabilitat $2^{-n}$, així que $g(\mathbf{V})=-n$ sempre, i $\mathbb{E}[g]=-n$. Amb $X=-g\geq 0$ i $\mathbb{E}[X]=n$, l'esdeveniment $g\leq -n/2$ és $X\geq n/2$. Markov dona $\mathbb{P}[X\geq n/2]\leq \mathbb{E}[X]/(n/2)=n/(n/2)=2$. La cota és $2$ (buida, perquè supera $1$).</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.22.</span>
-  Una variable aleatòria no negativa satisfà $\mathbb{E}[X]=6$. Què diu la desigualtat de Markov sobre $P(X\geq 12)$?</p>
-  <p>(a) $P(X\geq 12)\leq \tfrac{1}{2}$<br>
-  (b) $P(X\geq 12)\leq \tfrac{1}{4}$<br>
-  (c) $P(X\geq 12)\leq \tfrac{1}{6}$</p>
+  <p><span class="env-label">Exercici 2.32.</span></p>
+  <p>Per a una font binària i.i.d. equiprobable, $\mathbf{V}=(V_1,\ldots,V_n)$ i $g(\mathbf{v})=\log_2 P_{\mathbf{V}}(\mathbf{v})$. Calculeu el valor exacte de $\mathbb{P}\bigl[g(\mathbf{V})\leq -n/2\bigr]$.</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $1/2$<br>
+  (d) $2^{-n/2}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Per la desigualtat de Markov, $P(X\geq a)\leq \tfrac{\mathbb{E}[X]}{a}=\tfrac{6}{12}=\tfrac{1}{2}$.</p>
+    <p>Com que cada seqüència té probabilitat $2^{-n}$, $g(\mathbf{V})=-n$ de manera determinista. Per a tot $n\geq 1$, $-n\leq -n/2$, així que l'esdeveniment $\{g\leq -n/2\}$ és segur: $\mathbb{P}=1$. És coherent amb la cota de Markov $2$ ($1\leq 2$) però molt més ajustat.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.23.</span>
-  Una variable aleatòria té mitjana $\mu=5$ i variància $\sigma^2=4$. Què diu la desigualtat de Chebyshev sobre $P(|X-5|\geq 4)$?</p>
-  <p>(a) $P(|X-5|\geq 4)\leq \tfrac{1}{4}$<br>
-  (b) $P(|X-5|\geq 4)\leq \tfrac{1}{2}$<br>
-  (c) $P(|X-5|\geq 4)\leq \tfrac{1}{16}$</p>
+  <p><span class="env-label">Exercici 2.33.</span></p>
+  <p>Per a una font binària i.i.d. equiprobable, $g(\mathbf{v})=\log_2 P_{\mathbf{V}}(\mathbf{v})$ amb $\mathbf{V}=(V_1,\ldots,V_n)$. Calculeu $\mathbb{P}\bigl[\,|g(\mathbf{V})-\mathbb{E}[g(\mathbf{V})]|\geq 0\,\bigr]$.</p>
+  <p>(a) $1$<br>
+  (b) $0$<br>
+  (c) $1/2$<br>
+  (d) $n$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Per la desigualtat de Chebyshev, $P(|X-\mu|\geq k)\leq \tfrac{\sigma^2}{k^2}=\tfrac{4}{16}=\tfrac{1}{4}$.</p>
+    <p>Un valor absolut sempre és $\geq 0$, així que és l'esdeveniment segur sigui quina sigui la distribució: $\mathbb{P}=1$. Concretament $g(\mathbf{V})=-n=\mathbb{E}[g]$, així que la desviació és exactament $0$ i $|0|\geq 0$ es compleix amb certesa.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.24.</span>
-  Per a variables aleatòries i.i.d. $X_i$ amb $\mathbb{E}[X_i]=2$ i $\text{var}(X_i)=1$, què diu la llei dels grans nombres sobre $\tfrac{1}{n}\sum_{i=1}^n X_i$ quan $n\to\infty$?</p>
-  <p>(a) Convergeix en probabilitat a $2$<br>
-  (b) Convergeix en probabilitat a $1$<br>
-  (c) Convergeix en probabilitat a $0$</p>
+  <p><span class="env-label">Exercici 2.34.</span></p>
+  <p>Per a una font binària i.i.d. equiprobable, $g(\mathbf{v})=\log_2 P_{\mathbf{V}}(\mathbf{v})$ amb $\mathbf{V}=(V_1,\ldots,V_n)$. Trobeu la cota superior de Txebixev sobre $\mathbb{P}\bigl[\,|g(\mathbf{V})-\mathbb{E}[g(\mathbf{V})]|\geq\epsilon\,\bigr]$ per a $\epsilon&gt;0$.</p>
+  <p>(a) $0$<br>
+  (b) $1$<br>
+  (c) $n/\epsilon^2$<br>
+  (d) $1/\epsilon^2$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Per la llei feble dels grans nombres, la mitjana mostral $\tfrac{1}{n}\sum_{i=1}^n X_i$ convergeix en probabilitat a $\mathbb{E}[X_i]=2$.</p>
+    <p>Txebixev: $\mathbb{P}[|g-\mathbb{E}[g]|\geq\epsilon]\leq \mathrm{var}(g)/\epsilon^2$. Com que $g(\mathbf{V})=-n$ és determinista, $\mathrm{var}(g)=0$, així que la cota és $0/\epsilon^2=0$ per a tot $\epsilon&gt;0$. És ajustada: una variable determinista mai no es desvia de la seva mitjana.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 2.25.</span>
-  $X$ és uniforme sobre $\{1,2,3,4,5,6\}$. Trobeu $\mathbb{E}[X^2]$.</p>
-  <p>(a) $\tfrac{91}{6}$<br>
-  (b) $\tfrac{49}{4}$<br>
-  (c) $\tfrac{7}{2}$</p>
+  <p><span class="env-label">Exercici 2.35.</span></p>
+  <p>Sigui $U$ uniforme en $\mathcal{U}=\{2^1,2^2,\ldots,2^n\}$ i sigui $g(u)=-\log_2\!\big(\sqrt{u}\big)$. Utilitzant $\sum_{k=1}^{n}k=\frac{n(n+1)}{2}$, quant val $\mathbb{E}[g(U)]$?</p>
+  <p>(a) $-\dfrac{n+1}{4}$<br>
+  (b) $-\dfrac{n+1}{2}$<br>
+  (c) $-\dfrac{n(n+1)}{2}$<br>
+  (d) $\dfrac{n+1}{4}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>$\mathbb{E}[X^2]=\tfrac{1}{6}(1+4+9+16+25+36)=\tfrac{91}{6}$.</p>
+    <p>Indexem els resultats com $u=2^a$ amb $a\in\{1,\ldots,n\}$, cadascun amb probabilitat $\tfrac1n$. Per la regla de la potència del logaritme, $g(2^a)=-\tfrac12\log_2(2^a)=-\tfrac a2$. Aleshores $\mathbb{E}[g(U)]=-\tfrac{1}{2n}\sum_{a=1}^n a=-\tfrac{1}{2n}\cdot\tfrac{n(n+1)}{2}=-\tfrac{n+1}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.36.</span></p>
+  <p>Sigui $U$ uniforme en $\mathcal{U}=\{2^1,2^2,\ldots,2^n\}$ i sigui $g(u)=-\log_2\!\big(\sqrt{u}\big)$. Utilitzant $\sum_{k=1}^{n}k^2=\frac{n(n+1)(2n+1)}{6}$, quant val $\mathbb{E}[g^2(U)]$?</p>
+  <p>(a) $\dfrac{(n+1)(2n+1)}{24}$<br>
+  (b) $\dfrac{(n+1)(2n+1)}{6}$<br>
+  (c) $\dfrac{(n+1)(2n+1)}{12}$<br>
+  (d) $\dfrac{(n+1)^2}{16}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Amb $g(2^a)=-\tfrac a2$, tenim $g^2(2^a)=\tfrac{a^2}{4}$. Per LOTUS, $\mathbb{E}[g^2(U)]=\tfrac{1}{4n}\sum_{a=1}^n a^2=\tfrac{1}{4n}\cdot\tfrac{n(n+1)(2n+1)}{6}=\tfrac{(n+1)(2n+1)}{24}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.37.</span></p>
+  <p>Sigui $U$ uniforme en $\mathcal{U}=\{2^1,2^2,\ldots,2^n\}$ i sigui $g(u)=-\log_2\!\big(\sqrt{u}\big)$. Donat $\mathbb{E}[g(U)]=-\tfrac{n+1}{4}$ i $\mathbb{E}[g^2(U)]=\tfrac{(n+1)(2n+1)}{24}$, per a quin valor de $n$ es compleix $\mathrm{var}(g(U))=1$?</p>
+  <p>(a) $n=7$<br>
+  (b) $n=49$<br>
+  (c) $n=5$<br>
+  (d) $n=8$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Utilitzant $\mathrm{var}=\mathbb{E}[g^2]-(\mathbb{E}[g])^2=\tfrac{(n+1)(2n+1)}{24}-\tfrac{(n+1)^2}{16}$, traient factor $\tfrac{n+1}{48}$ obtenim $\mathrm{var}=\tfrac{(n+1)(n-1)}{48}=\tfrac{n^2-1}{48}$. Imposant que valgui $1$: $n^2-1=48$, d'on $n^2=49$ i (arrel entera positiva) $n=7$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.38.</span></p>
+  <p>Sigui $(X_1,\ldots,X_n)$ i.i.d. uniforme sobre $\{1,2,\ldots,M\}$ i sigui $\overline{X}=\frac{X_1+\cdots+X_n}{\sqrt{n}}$. Utilitzant la desigualtat de Markov, quina cota es compleix per a $\mathbb{P}[\overline{X}\geq n]$?</p>
+  <p>(a) $\mathbb{P}[\overline{X}\geq n]\leq \dfrac{M+1}{2\sqrt{n}}$<br>
+  (b) $\mathbb{P}[\overline{X}\geq n]\leq \dfrac{M+1}{2n}$<br>
+  (c) $\mathbb{P}[\overline{X}\geq n]\leq \dfrac{M+1}{2\sqrt{n}}\cdot n=\dfrac{(M+1)\sqrt{n}}{2}$<br>
+  (d) $\mathbb{P}[\overline{X}\geq n]\leq \dfrac{M-1}{2\sqrt{n}}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que cada $X_i\geq 1$, $\overline{X}$ és no negativa, així que Markov dona $\mathbb{P}[\overline{X}\geq a]\leq \mathbb{E}[\overline{X}]/a$. Per linealitat $\mathbb{E}[\overline{X}]=\frac{n\,\mathbb{E}[X]}{\sqrt{n}}=\sqrt{n}\cdot\frac{M+1}{2}$ ja que $\mathbb{E}[X]=\frac{M+1}{2}$. Amb $a=n$: $\mathbb{P}[\overline{X}\geq n]\leq \frac{\sqrt{n}(M+1)/2}{n}=\frac{M+1}{2\sqrt{n}}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.39.</span></p>
+  <p>Sigui $(X_1,\ldots,X_n)$ i.i.d. uniforme sobre $\{1,2,\ldots,M\}$ (per tant $\mathrm{var}(X)=\frac{M^2-1}{12}$) i sigui $\overline{X}=\frac{X_1+\cdots+X_n}{\sqrt{n}}$. Quant val $\mathrm{var}(\overline{X})$?</p>
+  <p>(a) $\mathrm{var}(\overline{X})=\dfrac{M^2-1}{12}$<br>
+  (b) $\mathrm{var}(\overline{X})=\dfrac{M^2-1}{12n}$<br>
+  (c) $\mathrm{var}(\overline{X})=\dfrac{M^2-1}{12\sqrt{n}}$<br>
+  (d) $\mathrm{var}(\overline{X})=\dfrac{n(M^2-1)}{12}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Amb la regla d'escalat $\mathrm{var}(cY)=c^2\mathrm{var}(Y)$ amb $c=1/\sqrt{n}$ i la independència: $\mathrm{var}(\overline{X})=\frac{1}{n}\sum_{i=1}^n\mathrm{var}(X_i)=\frac{1}{n}\cdot n\,\mathrm{var}(X)=\mathrm{var}(X)=\frac{M^2-1}{12}$. L'escalat $\sqrt{n}$ cancel·la exactament el factor $n$, per la qual cosa la variància és independent de $n$ (la normalització del TCL).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 2.40.</span></p>
+  <p>Sigui $(X_1,\ldots,X_n)$ i.i.d. uniforme sobre $\{1,2,\ldots,M\}$ amb $\overline{X}=\frac{X_1+\cdots+X_n}{\sqrt{n}}$, de manera que $\mathrm{var}(\overline{X})=\frac{M^2-1}{12}$ (constant en $n$). Per a $M\geq 2$ i $\epsilon&gt;0$, utilitzant la desigualtat de Txebixev, quina probabilitat de desviació té <em>garantida</em> la convergència a $0$ quan $n\to\infty$?</p>
+  <p>(a) $\mathbb{P}\big[|\overline{X}-\mathbb{E}[\overline{X}]|\geq \sqrt{n\epsilon}\big]$<br>
+  (b) $\mathbb{P}\big[|\overline{X}-\mathbb{E}[\overline{X}]|\geq \tfrac{1}{\sqrt{n\epsilon}}\big]$<br>
+  (c) $\mathbb{P}\big[|\overline{X}-\mathbb{E}[\overline{X}]|\geq \epsilon\big]$<br>
+  (d) Totes tres convergeixen a $0$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Txebixev dona $\mathbb{P}[|\overline{X}-\mathbb{E}[\overline{X}]|\geq t]\leq \frac{M^2-1}{12\,t^2}$. Per a $t=\sqrt{n\epsilon}$, $t^2=n\epsilon$ i la cota és $\frac{M^2-1}{12n\epsilon}\to 0$. Per a $t=\frac{1}{\sqrt{n\epsilon}}$ la cota creix com $n$, i per a $t=\epsilon$ fix la cota és una constant; cap de les dues disminueix. Com que $\mathrm{var}(\overline{X})$ no decreix amb $n$, només el llindar creixent $\sqrt{n\epsilon}$ garanteix la convergència a $0$.</p>
   </details>
 </div>
 

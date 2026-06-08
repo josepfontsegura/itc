@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -40,44 +40,488 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html" class="active">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Ejercicios: 3. Códigos de fuente binarios sin prefijo</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+    <button id="expand-all" data-expand="Mostrar todas las soluciones" data-collapse="Ocultar todas las soluciones" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostrar todas las soluciones</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.1.</span> ¿Cuál de las siguientes afirmaciones es correcta? En tu respuesta a esta pregunta, también debes explicar por qué las otras son incorrectas.</p>
+  <p>(a) El código $\{a,b,c,ac\}$ es unívocamente descodificable.<br>
+  (b) El código $\{aa,ab,ba,bb\}$ no es unívocamente descodificable.<br>
+  (c) El código $\{aaa,aab,aac,bbb\}$ es libre de prefijos.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>El código (a) no es unívocamente descodificable, ya que la cadena $ac$ se puede leer como la única palabra código $ac$ o como $a$ seguida de $c$. El código (b) es libre de prefijos (palabras código distintas de la misma longitud) y, por tanto, unívocamente descodificable, de modo que la afirmación de que no lo es es falsa. El código (c) es libre de prefijos, la afirmación correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.2.</span> ¿Cuál de los siguientes es un código libre de prefijos válido para la fuente?</p>
+  <p>(a) Todas las secuencias binarias de $3$ bits.<br>
+  (b) El código resultante de la concatenación del código para $\{a,b,c\}$ dado por $\{0,1,10\}$.<br>
+  (c) Un código formado por secuencias diferentes de $4$ bits.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>La fuente toma valores en el alfabeto
+$$
+\{aa,ab,ac,ba,bb,bc,ca,cb,cc\},
+$$
+por lo que un código válido consta de $9$ secuencias binarias. En (a), solo hay $8$ secuencias binarias diferentes de $3$ bits, lo cual es insuficiente. El código resultante de la concatenación del código (b) es
+$$
+\{00,01,010,10,11,110,100,101,1010\}
+$$
+que claramente no es libre de prefijos. Cualquier código formado por $9$ secuencias diferentes de $4$ bits es un código libre de prefijos.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.3.</span> ¿Cuál de las siguientes afirmaciones es incorrecta? En tu respuesta a esta pregunta, también debes explicar por qué las otras son correctas.</p>
+  <p>(a) El código resultante es libre de prefijos con longitud media $\tfrac{10}{3}$ bits.<br>
+  (b) La entropía de la fuente es $2\log_2(3)$ bits.<br>
+  (c) La longitud media del código es un $1.05155\%$ superior a la entropía.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>El código resultante viene dado por
+$$
+\{00,010,011,100,1010,1011,110,1110,1111\},
+$$
+que es libre de prefijos. Como la fuente emite símbolos equiprobables, cada palabra código se utiliza con probabilidad $\tfrac 19$, lo que conduce a una longitud media de $\tfrac{10}{3}$ bits. La entropía de la fuente viene dada por
+$$
+\sum_{i=1}^9 p_i\log_2\tfrac{1}{p_i} = 9\cdot\tfrac 19\log_2(9)=\log_2(9)=2\log_2(3),
+$$
+y la razón entre la longitud media y la entropía es $1.05155$, lo que implica que la longitud media es un $5.155\%$ superior a la entropía.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.4.</span> ¿Cuál es ahora la longitud media del código de la pregunta 5?</p>
+  <p>(a) La misma que antes.<br>
+  (b) $\tfrac{59}{18}$ bits<br>
+  (c) $\tfrac{8}{3}$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Tenemos dos maneras de calcular la longitud media. Como el código se construye como la concatenación $X=(X_1,X_2)$, la longitud media viene dada por $L_{\rm av}(X)=L_{\rm av}(X_1)+L_{\rm av}(X_2)$. El primer símbolo se codifica usando el código $\{0,10,11\}$ con igual probabilidad, por tanto $L_{\rm av}(X_1)=\tfrac 53$. La longitud media del segundo símbolo emitido depende del primer símbolo: con probabilidad $\tfrac 13$ (el primer símbolo es $a$) la longitud media del segundo símbolo codificado es $\tfrac 12\cdot 1 + \tfrac 14\cdot 2 + \tfrac 14\cdot 2 = \tfrac 32$; mientras que con probabilidad $\tfrac 23$ (el primer símbolo es $b$ o $c$), la longitud media del segundo símbolo codificado es $\tfrac 53$. En conjunto, obtenemos
+$$
+L_{\rm av}(X) = \frac 53 + \frac 13\cdot \frac 32 + \frac 23 \cdot \frac 53 = \frac{59}{18}.
+$$
+La segunda manera consiste en hallar la distribución conjunta de la fuente $U=(U_1,U_2)$ como $P_U(u)=P_{U_1}(u_1)P_{U_2|U_1}(u_2|u_1)$. Por ejemplo, $P_U(aa)=P_{U_1}(a)P_{U_2|U_1}(a|a) = \tfrac 13\cdot \tfrac 12 = \tfrac 16$, o $P_U(ca)=P_{U_1}(c)P_{U_2|U_1}(a|c) = \tfrac 13\cdot \tfrac 13 = \tfrac 19$. Procediendo de la misma manera para todos los símbolos de la fuente, obtenemos la distribución de probabilidad
+$$
+\biggl\{ \frac 16, \frac{1}{12},\frac{1}{12}, \frac 19, \frac 19,\frac 19,\frac 19,\frac 19,\frac 19
+\biggr\}
+$$
+Como el código tiene distribución de longitudes
+$$
+\{2,3,3,3,4,4,3,4,4\},
+$$
+combinar ambos resultados lleva a la misma respuesta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.5.</span></p>
+  <p>Una fuente $S$ tiene alfabeto $\{a,b,c\}$ y distribución de probabilidad $\{0.4, 0.59999, 0.00001\}$. Considere los códigos dados por $\mathcal{C}_1=\{00, 11, 1010101010\}$ y $\mathcal{C}_2=\{000, 11, 101\}$. Indique la respuesta verdadera, justificando su elección y por qué las demás son incorrectas.</p>
+  <p>(a) $\mathcal{C}_1$ es más eficiente que $\mathcal{C}_2$.<br>
+  (b) Uno de los dos códigos no es libre de prefijos.<br>
+  (c) Para cualquier secuencia de tres símbolos de la fuente, la longitud de la secuencia codificada con $\mathcal{C}_1$ será más corta que la secuencia codificada con $\mathcal{C}_2$.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La respuesta (a) es verdadera porque $L_{\rm av}(\mathcal{C}_1) = 2.00008$ y $L_{\rm av}(\mathcal{C}_2) = 2.40001$. La respuesta (b) es falsa porque ambos códigos son libres de prefijos. La respuesta (c) es falsa, ya que para todas las secuencias que contienen el símbolo $c$ el código $\mathcal{C}_1$ dará una secuencia más larga que $\mathcal{C}_2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.6.</span></p>
+  <p>Para $r\geq 2$, considere una fuente que toma valores en $\{1,\ldots,r\}$ y un código cuyas longitudes son $\ell_j=\lceil \log_2(j+1)\rceil$, donde $\lceil x \rceil$ es el operador techo. Indique la respuesta falsa, justificando su elección y por qué las demás son correctas. Puede utilizar que $\lceil x \rceil &lt; x + 1$.</p>
+  <p>(a) Existe un código libre de prefijos para cualquier $r$.<br>
+  (b) El valor de la desigualdad de Kraft cumple $\sum_{j=1}^r 2^{-\ell_j} &gt; \sum_{j=1}^r \frac{1}{2(j+1)}$.<br>
+  (c) Algunas palabras código pueden tener la misma longitud.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La respuesta (a) es falsa porque la desigualdad de Kraft $\sum_{j=1}^r 2^{-\ell_j} \leq 1$ solo se cumple para $r=2$ y $r=3$. La respuesta (b) es verdadera porque, utilizando que $\lceil \log_2(j+1)\rceil &lt; \log_2(j+1)+1$, tenemos $$\sum_{j=1}^{r} 2^{-\lceil \log_2(j+1)\rceil} &gt; \sum_{j=1}^{r}2^{-\log_2(j+1)-1} = \sum_{j=1}^{r}\frac{1}{2 (j+1)}.$$ La respuesta (c) es verdadera debido al operador techo.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.7.</span></p>
+  <p>Se da un código binario libre de prefijos para una fuente $S$ que puede tomar los valores $\{a,b,c,d,e,f\}$. Se sabe que $P_S(a)=P_S(b)=P_S(c)=\frac{1}{4}$ y que $P_S(d)=\frac{1}{8}$. Sabiendo que el código tiene una representación en árbol binario sin hojas vacías, indique qué respuesta es falsa, justificando su elección y por qué las demás son correctas.</p>
+  <p>(a) Para este código, seguro que $L_{\rm av} &gt; H(S)$.<br>
+  (b) Para este código, la desigualdad de Kraft se cumple con igualdad.<br>
+  (c) La longitud máxima de una palabra código de este código es como máximo 5.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La respuesta (a) es falsa, ya que podemos encontrar un código tal que $L_{\rm av}=H(S)$. La respuesta (b) es verdadera porque se nos dice que no hay hojas vacías. La respuesta (c) es verdadera, porque conociendo el tamaño del alfabeto y el hecho de que no hay hojas vacías, el árbol más alto tiene profundidad cinco.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.8.</span></p>
+  <p>Una fuente $S$ que toma valores en $\{1,2,3,4\}$ con distribución de probabilidad $\{\frac{1}{4}, \frac{1}{4}, \frac{3}{8}, \frac{1}{8}\}$ se comprime mediante un código con longitudes $\{1,1,2,3\}$. Encuentre la respuesta falsa, justificando su elección y por qué las demás son correctas.</p>
+  <p>(a) El código no puede ser unívocamente descodificable.<br>
+  (b) La entropía de la fuente cumple $H(S)&lt;2$.<br>
+  (c) Se cumple que $L_{\rm av}=\mathbb{E}[S]$, donde $\mathbb{E}[S]$ es el valor esperado de la fuente.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>La respuesta (a) es correcta porque con dos palabras código de longitud 1 el código necesariamente no es unívocamente descodificable. La respuesta (b) es correcta ya que la entropía es $1.90564$. Finalmente, la respuesta (c) es falsa porque $\mathbb{E}[S]=\frac{19}{8}$ mientras que $L_{\rm av}=\frac{13}{8}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.9.</span></p>
+  <p>Un código binario de fuente generado aleatoriamente con palabras código $\{\boldsymbol{x}_1,\boldsymbol{x}_2\}$, de modo que cada palabra código se selecciona independientemente del conjunto $\{0,01,10\}$ con distribución de probabilidad $\bigl\{\tfrac12,\tfrac13,\tfrac16\bigr\}$, se utiliza para representar una fuente discreta sin memoria que toma valores en $\{a,b\}$ con distribución de probabilidad $\bigl\{\tfrac13,\tfrac23\bigr\}$. ¿Cuál es la probabilidad de generar un código unívocamente descodificable con longitud media $\tfrac53$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac14$<br>
+  (c) $\tfrac19$<br>
+  (d) $\tfrac{1}{12}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>De todos los códigos posibles generados aleatoriamente, solo $\{0,01\}$ y $\{0,10\}$ cumplen las dos condiciones de descodificabilidad única y longitud media. Las probabilidades de dichos códigos son $\tfrac 16$ y $\tfrac{1}{12}$, respectivamente, cuya suma lleva a la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.10.</span></p>
+  <p>Una fuente discreta toma valores en el conjunto $\{a,b,c\}$ con probabilidades $\{p,2p,3p\}$ para algún parámetro $p\neq 0$. ¿Cuál es la longitud media del código binario libre de prefijos óptimo para esta fuente?</p>
+  <p>(a) $\log_2(3)$<br>
+  (b) $\tfrac 32$<br>
+  (c) $2$<br>
+  (d) $\tfrac{4+3\log_2(3)}{6}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Solo $p=\tfrac 16$ lleva a una distribución de probabilidad válida. El código de Huffman para la fuente tiene longitudes $\{2,2,1\}$, de modo que $L_{\rm av}=9p=\tfrac 32$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.11.</span></p>
+  <p>Para una fuente discreta dada $X$, el código binario libre de prefijos óptimo es $\{0,10,11\}$ y cumple $L_{\rm av}=H(X)$. Se construye una nueva fuente como $Y=(X_1,X_2)$, donde $X_1$ y $X_2$ son independientes y ambas tienen la misma distribución que $X$. ¿Cuál es la longitud media del código binario libre de prefijos óptimo para $Y$?</p>
+  <p>(a) $\log_2(9)$<br>
+  (b) $\frac{10}{3}$<br>
+  (c) $3$<br>
+  (d) $4$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Si $L_{\rm av}=H(X)$, entonces la distribución de $X$ viene dada por potencias de $2$, es decir, $\bigl\{ \frac 12, \frac 14, \frac 14 \bigr\}$. Como la fuente es sin memoria, podemos calcular las probabilidades de $Y$, encontrar el código óptimo (de Huffman) de $Y$ y obtener su longitud media.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.12.</span></p>
+  <p>Un código binario $\{0,10,110,111\}$ se utiliza para una fuente con $4$ símbolos. ¿Es este código libre de prefijos?</p>
+  <p>(a) Sí<br>
+  (b) No, porque $0$ es prefijo de $10$<br>
+  (c) No, porque $110$ es prefijo de $111$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Ninguna palabra código es prefijo de otra: $0$ no es prefijo de $10$, ya que los primeros bits son distintos. Comprobando todos los pares se confirma que el código es libre de prefijos.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.13.</span> ¿Cuál es el valor de Kraft del código $\{0,10,110,111\}$?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{7}{8}$<br>
+  (c) $\tfrac{3}{4}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El valor de Kraft es $2^{-1}+2^{-2}+2^{-3}+2^{-3}=\tfrac{1}{2}+\tfrac{1}{4}+\tfrac{1}{8}+\tfrac{1}{8}=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.14.</span> Una fuente tiene entropía $H(X)=2.5$ bits. ¿Qué se puede afirmar sobre la longitud media $L_{\rm av}$ de cualquier código binario libre de prefijos para esta fuente?</p>
+  <p>(a) $L_{\rm av}\geq 2.5$<br>
+  (b) $L_{\rm av}\leq 2.5$<br>
+  (c) $L_{\rm av}= 2.5$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por el teorema de codificación de fuente, la longitud media de cualquier código unívocamente decodificable (y por tanto libre de prefijos) cumple $L_{\rm av}\geq H(X)=2.5$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.15.</span> ¿Es el código $\{0,01,011\}$ unívocamente decodificable?</p>
+  <p>(a) No<br>
+  (b) Sí, es libre de prefijos<br>
+  (c) Sí, pero no libre de prefijos</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La palabra código $0$ es un prefijo de $01$, y $01$ es un prefijo de $011$. La secuencia $011$ se puede decodificar como el tercer símbolo o bien como el primero seguido del segundo, de modo que no es unívocamente decodificable.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.16.</span> ¿Existe un código binario libre de prefijos con longitudes de palabra código $\{1,2,2,3\}$?</p>
+  <p>(a) Sí, porque la desigualdad de Kraft se cumple<br>
+  (b) No, la desigualdad de Kraft no se cumple<br>
+  (c) Solo si la fuente tiene $4$ símbolos</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>El valor de Kraft es $2^{-1}+2^{-2}+2^{-2}+2^{-3}=\tfrac{4+2+2+1}{8}=\tfrac{9}{8}&gt;1$, de modo que la desigualdad de Kraft no se cumple y no existe ningún código de este tipo.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.17.</span> Se utiliza un código binario de fuente $\{00,01,10,11\}$ para una fuente con $4$ símbolos equiprobables. ¿Cuál es la longitud media?</p>
+  <p>(a) $2$ bits<br>
+  (b) $1$ bit<br>
+  (c) $4$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Cada palabra código tiene longitud $2$ y todos los símbolos son equiprobables, de modo que $L_{\rm av}=2$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.18.</span></p>
+  <p>Para una fuente con $r$ símbolos equiprobables, la entropía es $\log_2(r)$ bits. ¿Cuál es la longitud media mínima posible de un código binario libre de prefijos de <em>longitud fija</em>?</p>
+  <p>(a) $\lceil\log_2(r)\rceil$ bits<br>
+  (b) exactamente $\log_2(r)$ bits<br>
+  (c) $r$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Un código binario de longitud fija debe asignar el mismo número de bits a cada uno de los $r$ símbolos, y $\lceil\log_2(r)\rceil$ bits bastan para indexarlos todos, de modo que la longitud fija mínima es $\lceil\log_2(r)\rceil$ bits. Cuando $r$ es una potencia de $2$ esto es igual a $\log_2(r)$; en caso contrario $\lceil\log_2(r)\rceil&gt;\log_2(r)$. Usar exactamente $\log_2(r)$ es en general imposible con una longitud entera fija, y $r$ bits es mucho más de lo necesario.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.19.</span> Un código para una fuente $\{a,b,c\}$ tiene palabras código $\{0,10,11\}$. ¿Cuál es el valor de Kraft?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{3}{4}$<br>
+  (c) $\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El valor de Kraft es $2^{-1}+2^{-2}+2^{-2}=\tfrac{1}{2}+\tfrac{1}{4}+\tfrac{1}{4}=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.20.</span> ¿Cuál de los siguientes códigos es unívocamente decodificable pero NO libre de prefijos?</p>
+  <p>(a) $\{0,01,11\}$<br>
+  (b) $\{0,10,11\}$<br>
+  (c) $\{0,01,10\}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El código $\{0,01,11\}$ no es libre de prefijos porque $0$ es un prefijo de $01$. No obstante, se puede demostrar que es unívocamente decodificable. El código $\{0,10,11\}$ es libre de prefijos.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.21.</span></p>
+  <p>Una fuente toma valores en $\{a,b\}$ con $P(a)=p$ y $P(b)=1-p$. ¿Para qué valor de $p$ el código binario libre de prefijos óptimo alcanza $L_{\rm av}=H(X)$?</p>
+  <p>(a) $p=\tfrac{1}{2}$<br>
+  (b) Cualquier $p$<br>
+  (c) $p=\tfrac{1}{4}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Para una fuente binaria, cualquier código libre de prefijos asigna longitud $1$ a ambos símbolos, de modo que $L_{\rm av}=1$ siempre. La entropía $H(X)=h_2(p)=1$ solo cuando $p=\tfrac{1}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.22.</span></p>
+  <p>Un código binario con longitudes de palabra código $\{\ell_1,\ell_2\}$ codifica una fuente de dos símbolos con la distribución <em>uniforme</em> $\{\tfrac12,\tfrac12\}$, alcanzando una longitud media de $\tfrac52$. La primera palabra código tiene longitud $\ell_1=1$.</p><p>¿Cuál es la longitud $\ell_2$ de la segunda palabra código?</p>
+  <p>(a) $\ell_2=4$<br>
+  (b) $\ell_2=5$<br>
+  (c) $\ell_2=2$<br>
+  (d) $\ell_2=3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La longitud media es $L_{\rm av}=\tfrac12\ell_1+\tfrac12\ell_2$. Con $\ell_1=1$ y $L_{\rm av}=\tfrac52$, obtenemos $\tfrac12(1)+\tfrac12\ell_2=\tfrac52$, es decir $\tfrac12\ell_2=2$ y $\ell_2=4$. (El valor $5$ resulta de olvidar restar $\ell_1$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.23.</span></p>
+  <p>Un código binario tiene longitudes de palabra código $\{1,4\}$ (una palabra código de longitud $1$, una de longitud $4$). Se utiliza sobre una fuente de dos símbolos con distribución $\{\tfrac13,\tfrac23\}$, asignando la palabra código más corta al símbolo más probable para minimizar la longitud media.</p><p>¿Cuál es la longitud media resultante?</p>
+  <p>(a) $2$ bits<br>
+  (b) $3$ bits<br>
+  (c) $\tfrac52$ bits<br>
+  (d) $\tfrac53$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Asignamos la palabra código de longitud $1$ al símbolo de probabilidad $\tfrac23$ y la de longitud $4$ al símbolo de probabilidad $\tfrac13$: $L_{\rm av}=\tfrac23\cdot1+\tfrac13\cdot4=\tfrac23+\tfrac43=\tfrac63=2$. La asignación invertida (subóptima) $\tfrac13\cdot1+\tfrac23\cdot4=3$ es mayor, es decir, $2$ bits es el valor mínimo.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.24.</span></p>
+  <p>Considere tres afirmaciones sobre códigos de fuente binarios. Exactamente una es falsa. ¿Cuál afirmación es la falsa?</p><ol><li>El código $\{0,\,01,\,001\}$ no es libre de prefijos pero es unívocamente decodificable.</li><li>El código $\{1,\,01,\,001\}$ es libre de prefijos y unívocamente decodificable.</li><li>El código $\{0,\,1,\,01\}$ no es unívocamente decodificable.</li></ol>
+  <p>(a) Afirmación 1: $\{0,\,01,\,001\}$ no es libre de prefijos pero unívocamente decodificable<br>
+  (b) Afirmación 2: $\{1,\,01,\,001\}$ es libre de prefijos y unívocamente decodificable<br>
+  (c) Afirmación 3: $\{0,\,1,\,01\}$ no es unívocamente decodificable<br>
+  (d) Ninguna es falsa; las tres son verdaderas</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>En $\{0,\,01,\,001\}$, la palabra $0$ es prefijo de las demás, de modo que correctamente <em>no</em> es libre de prefijos. Pero al concatenar $0$ y $01$ se obtiene $0\cdot 01 = 001$, que coincide con la tercera palabra código, de modo que $001$ tiene dos decodificaciones (símbolos 1,2 o símbolo 3). Por tanto <strong>no</strong> es unívocamente decodificable, así que la afirmación 1 es <strong>falsa</strong>. (La afirmación 3 es verdadera por la misma colisión $0\cdot 1 = 01$; la afirmación 2 es verdadera porque cada palabra es $0$s iniciales terminados por un único $1$, es decir, libre de prefijos $\Rightarrow$ unívocamente decodificable.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.25.</span></p>
+  <p>Un código binario libre de prefijos se representa mediante un árbol binario de profundidad $5$. El árbol tiene exactamente una hoja vacía (una posición de hoja no asignada a ninguna palabra de código), situada a profundidad $5$. Calcula el <em>valor de Kraft</em> $\displaystyle\sum_{i=1}^{r} 2^{-\ell_i}$, donde $\ell_i$ son las profundidades de las hojas ocupadas.</p>
+  <p>(a) $\dfrac{31}{32} = 1 - 2^{-5}$<br>
+  (b) $1$<br>
+  (c) $\dfrac{15}{16} = 1 - 2^{-4}$<br>
+  (d) $\dfrac{1}{32} = 2^{-5}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Un árbol binario <strong>lleno</strong>, donde cada hoja lleva el peso $2^{-(\text{profundidad})}$, suma exactamente $1$ (el peso de cada padre es igual al de sus dos hijos). Aquí una hoja a profundidad $5$ está vacía, es decir, aporta $2^{-5}$ al total $1$ del árbol lleno pero <em>no</em> cuenta como palabra de código. Por tanto $\sum_i 2^{-\ell_i} = 1 - 2^{-5} = 1 - \tfrac{1}{32} = \tfrac{31}{32}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.26.</span></p>
+  <p>Un código binario libre de prefijos con $3$ palabras código satisface la desigualdad de Kraft con valor $\frac{7}{8}$, es decir $\sum_{i=1}^{3} 2^{-\ell_i}=\frac{7}{8}$. El código codifica una fuente cuyos $3$ símbolos son <em>equiprobables</em>. Calcule la longitud media de palabra código $L_{\mathrm{av}}$.</p>
+  <p>(a) $L_{\mathrm{av}}=2$ bits por símbolo<br>
+  (b) $L_{\mathrm{av}}=\log_2 3\approx 1.585$ bits por símbolo<br>
+  (c) $L_{\mathrm{av}}=\frac{7}{8}$ bits por símbolo<br>
+  (d) $L_{\mathrm{av}}=3$ bits por símbolo</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Las longitudes quedan fijadas por $2^{-\ell_1}+2^{-\ell_2}+2^{-\ell_3}=\frac{7}{8}$: exactamente una palabra código tiene longitud $1$ (dos ya darían $1&gt;\frac78$, ninguna daría como máximo $\frac34&lt;\frac78$), y el resto $\frac78-\frac12=\frac38=\frac14+\frac18$ fuerza longitudes $2$ y $3$. Por tanto el multiconjunto es $\{1,2,3\}$. Con una fuente uniforme $\mathbb{P}(x_i)=\frac13$, así $L_{\mathrm{av}}=\frac13(1+2+3)=\frac63=2$ bits por símbolo.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.27.</span></p>
+  <p>Se utiliza un código binario libre de prefijos sobre una fuente con distribución <em>uniforme</em> y se alcanza una longitud media de palabra código de $L_{\rm av}=\frac{39}{11}$ bits. ¿Cuál es el tamaño máximo posible $M$ del alfabeto de la fuente?</p>
+  <p>(a) $M=11$<br>
+  (b) $M=12$<br>
+  (c) $M=10$<br>
+  (d) $M=8$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Para una fuente uniforme $H(U)=\log_2 M$, y todo código libre de prefijos cumple $L_{\rm av}\ge H(U)$. Así $\frac{39}{11}\ge\log_2 M$, de donde $M\le 2^{39/11}=2^{3.545\ldots}\approx 11.68$, es decir, $M\le 11$. El valor $M=11$ es alcanzable: 5 palabras código de longitud $3$ y 6 de longitud $4$ dan $\sum_i 2^{-\ell_i}=\tfrac58+\tfrac{6}{16}=1$ (se cumple Kraft) y $L_{\rm av}=\frac{5\cdot3+6\cdot4}{11}=\frac{39}{11}$. Como $\log_2 12=3.585&gt;3.545$, $M=12$ es imposible. Por tanto $M_{\max}=11$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.28.</span></p>
+  <p>Una fuente $U$ es uniforme sobre $\{1,2,3\}$ y se codifica como $1\mapsto\texttt{1}$, $2\mapsto\texttt{10}$, $3\mapsto\texttt{11}$. Sea $\ell(U)$ la longitud de la palabra código en bits y sea $H(U)$ la entropía en bits. Calcula $\mathbb{P}\big[\ell(U)\ge H(U)\big]$.</p>
+  <p>(a) $\tfrac23$<br>
+  (b) $\tfrac13$<br>
+  (c) $1$<br>
+  (d) $\log_2 3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Las longitudes son $\ell(1)=1$ y $\ell(2)=\ell(3)=2$, de modo que $\ell(U)=1$ con probabilidad $\tfrac13$ y $\ell(U)=2$ con probabilidad $\tfrac23$. La entropía es $H(U)=\log_2 3\approx 1.585$ bits. Como $1&lt;1.585$ pero $2\ge 1.585$, el suceso $\{\ell(U)\ge H(U)\}$ es $\{\ell(U)=2\}=\{U\in\{2,3\}\}$. Por tanto la probabilidad es $\tfrac23$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.29.</span></p>
+  <p>Considera un código binario con distribución de longitudes $\{1,2,3,3,5,5\}$. La afirmación <em>«existe un código binario libre de prefijos con estas longitudes»</em> ¿es cierta o falsa, y por qué?</p>
+  <p>(a) Falsa: $K=\frac{17}{16}&gt;1$, por tanto Kraft no se cumple y no existe tal código<br>
+  (b) Cierta: $K=1$ exactamente, por tanto existe un código libre de prefijos<br>
+  (c) Cierta: $K=\frac{15}{16}&lt;1$, por tanto existe un código libre de prefijos<br>
+  (d) Falsa: $K=\frac{17}{16}&gt;1$, y no existe ningún código de ningún tipo con estas longitudes</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Calcula la suma de Kraft: $K=2^{-1}+2^{-2}+2^{-3}+2^{-3}+2^{-5}+2^{-5}=\frac{16+8+4+4+1+1}{32}=\frac{34}{32}=\frac{17}{16}=1.0625$. Como $K&gt;1$, las regiones disjuntas de las hojas superarían todo el árbol, de modo que <strong>no</strong> existe ningún código libre de prefijos con estas longitudes. La afirmación es <strong>falsa</strong>. (La opción 3 es incorrecta porque siempre existen códigos no libres de prefijos con longitudes arbitrarias.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.30.</span></p>
+  <p>Un código binario dado tiene distribución de longitudes $\{1,2,2\}$. La afirmación <em>«este código es seguro que es libre de prefijos»</em> ¿es cierta o falsa?</p>
+  <p>(a) Falsa: $K=1$ solo garantiza que existe algún código libre de prefijos; p. ej. $\{0,00,01\}$ tiene estas longitudes pero no es libre de prefijos<br>
+  (b) Cierta: como $K=1\le 1$, cualquier código con estas longitudes es libre de prefijos<br>
+  (c) Falsa: $K=\frac{3}{2}&gt;1$, por tanto ningún código con estas longitudes puede ser libre de prefijos<br>
+  (d) Cierta: $\{0,10,11\}$ es libre de prefijos, por tanto todo código con estas longitudes también lo es</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Kraft da $K=2^{-1}+2^{-2}+2^{-2}=\frac{1}{2}+\frac{1}{4}+\frac{1}{4}=1\le 1$, de modo que existe <em>algún</em> código libre de prefijos con estas longitudes (p. ej. $\{0,10,11\}$). Pero Kraft es una condición sobre el multiconjunto de longitudes, no sobre un código concreto. El contraejemplo $\{0,00,01\}$ tiene longitudes $\{1,2,2\}$ pero $0$ es prefijo de $00$ y $01$, de modo que <strong>no</strong> es libre de prefijos. La afirmación es <strong>falsa</strong>.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.31.</span></p>
+  <p>Considera la distribución de longitudes $\{1,2,3,3,3\}$. La afirmación <em>«no podemos encontrar ningún código binario libre de prefijos con estas longitudes»</em> ¿es cierta o falsa?</p>
+  <p>(a) Cierta: $K=\frac{9}{8}&gt;1$, por tanto Kraft no se cumple y no existe ningún código libre de prefijos<br>
+  (b) Falsa: $K=1$, por tanto sí existe un código libre de prefijos<br>
+  (c) Falsa: $K=\frac{7}{8}&lt;1$, por tanto sí existe un código libre de prefijos<br>
+  (d) Cierta: $K=\frac{9}{8}&gt;1$, pero solo porque las tres palabras de longitud 3 chocan</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Suma de Kraft: $K=2^{-1}+2^{-2}+2^{-3}+2^{-3}+2^{-3}=\frac{4+2+1+1+1}{8}=\frac{9}{8}=1.125$. Como $K&gt;1$, las regiones disjuntas de las hojas cubrirían más que todo el árbol, lo cual es imposible, de modo que <strong>no</strong> existe ningún código libre de prefijos con estas longitudes. Por tanto, la afirmación de que no se puede encontrar ninguno es <strong>cierta</strong>.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.32.</span></p>
+  <p>Un código binario libre de prefijos tiene $4$ palabras código con longitudes enteras positivas $\ell_1,\ell_2,\ell_3,\ell_4$ que satisfacen la igualdad de Kraft $\sum_{i=1}^{4} 2^{-\ell_i} = \frac{15}{16}$. ¿Cuál es el conjunto (único) de cuatro longitudes?</p>
+  <p>(a) $\{1,2,3,4\}$<br>
+  (b) $\{2,2,3,4\}$<br>
+  (c) $\{1,2,2,4\}$<br>
+  (d) $\{2,3,4,4\}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Multiplica por $16=2^4$: la condición pasa a ser $\sum_i 2^{4-\ell_i}=15$. Cualquier $\ell_i\ge 5$ añadiría una fracción no entera, así que todos $\ell_i\le 4$, y los términos $a_i=2^{4-\ell_i}$ son monedas de $\{8,4,2,1\}$ que deben sumar $15$. El único multiconjunto de longitud $4$ de esas monedas que suma $15$ es una de cada, $\{8,4,2,1\}$, es decir longitudes $\{1,2,3,4\}$. Comprobación: $2^{-1}+2^{-2}+2^{-3}+2^{-4}=\frac{15}{16}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.33.</span></p>
+  <p>Para el código con $\sum_{i=1}^{4} 2^{-\ell_i} = \frac{15}{16}$ (longitudes enteras positivas), ¿cuántas palabras código tienen longitud exactamente $4$?</p>
+  <p>(a) Exactamente una<br>
+  (b) Ninguna<br>
+  (c) Exactamente dos<br>
+  (d) No se puede determinar</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Escribiendo $a_i=2^{4-\ell_i}\in\{8,4,2,1\}$ con $\sum a_i=15$, una palabra código de longitud $4$ corresponde a una moneda de valor $1$ (la única impar). Si ninguna moneda fuese $1$, las monedas pares restantes $\{2,4,8\}$ sumarían un número par, nunca el total impar $15$; y el multiconjunto queda fijado de forma única como $\{8,4,2,1\}$, descartando dos o más. Por tanto, es decir, exactamente una palabra código tiene longitud $4$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 3.34.</span></p>
+  <p>Un código de fuente binario <em>libre de prefijos</em> tiene las nueve longitudes de palabra código $\{1,3,3,4,4,5,5,5,5\}$. Se sabe que la longitud media del código es igual a la <em>entropía</em> de la fuente. Calcula esta longitud media (en bits por símbolo).</p>
+  <p>(a) $\dfrac{19}{8}=2.375$ bits/símbolo<br>
+  (b) $\dfrac{34}{9}\approx 3.778$ bits/símbolo<br>
+  (c) $\dfrac{27}{8}=3.375$ bits/símbolo<br>
+  (d) $3.5$ bits/símbolo</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La igualdad $L_{\rm av}=H(U)$ se cumple si y solo si la fuente es diádica con $p_i=2^{-\ell_i}$ (la entropía relativa $\sum_i p_i\log_2\frac{p_i}{2^{-\ell_i}}$ se anula), es decir, las probabilidades quedan fijadas por las longitudes. La suma de Kraft $\tfrac12+2\cdot\tfrac18+2\cdot\tfrac1{16}+4\cdot\tfrac1{32}=1$ confirma su validez. Entonces $L_{\rm av}=\sum_i 2^{-\ell_i}\ell_i=\tfrac12\cdot1+2\cdot\tfrac18\cdot3+2\cdot\tfrac1{16}\cdot4+4\cdot\tfrac1{32}\cdot5=\tfrac{19}{8}=2.375$ bits/símbolo. (El valor $\tfrac{34}{9}$ es un distractor arbitrario.)</p>
+  </details>
+</div>
+
   </main>
 </div>
 

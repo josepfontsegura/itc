@@ -40,44 +40,130 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html" class="active">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Examen final 2025</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+    <button id="expand-all" data-expand="Mostrar todas las soluciones" data-collapse="Ocultar todas las soluciones" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostrar todas las soluciones</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Problema 1.</span> Un generador de palabras aleatorias emite palabras de $r$ letras, donde cada letra pertenece a un alfabeto de tamaño $n$. ¿Cuál es la entropía binaria máxima del generador de palabras aleatorias?</p>
+  <p>(a) $\log_2(r)$<br>
+  (b) $\log_2(n)$<br>
+  (c) $r\log_2(n)$<br>
+  (d) $n\log_2(r)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>El generador de palabras aleatorias se puede describir como una fuente discreta $X=(U_1,\ldots,U_r)$ donde cada $U_i$ toma valores en un alfabeto de cardinalidad $n$. La entropía de $X$ satisface $H(X)\leq\log_2|\mathcal{X}|$, donde $|\mathcal{X}|=n^r$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 2.</span> Un código fuente binario generado aleatoriamente con palabras código $\{\boldsymbol{x}_1,\boldsymbol{x}_2\}$, tal que cada palabra código se selecciona independientemente del conjunto $\{0,01,10\}$ con distribución de probabilidad $\bigl\{\tfrac12,\tfrac13,\tfrac16\bigr\}$, se utiliza para representar una fuente discreta sin memoria que toma valores en $\{a,b\}$ con distribución de probabilidad $\bigl\{\tfrac13,\tfrac23\bigr\}$. ¿Cuál es la probabilidad de generar un código unívocamente decodificable con longitud media $\tfrac53$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac14$<br>
+  (c) $\tfrac19$<br>
+  (d) $\tfrac{1}{12}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>De todos los posibles códigos generados aleatoriamente, solo $\{0,01\}$ y $\{0,10\}$ satisfacen ambas condiciones de decodificabilidad unívoca y longitud media. La probabilidad de dichos códigos es $\tfrac 16$ y $\tfrac{1}{12}$, respectivamente, cuya suma lleva a la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 3.</span> Considere una fuente $W_n$ que emite secuencias de $n$ bits i.i.d. tal que la probabilidad de $1$ es el doble de la probabilidad de $0$. La longitud media del código binario óptimo libre de prefijos para representar $W_n$ se denota como $L_{\rm av}(W_n)$. ¿Cuál es el valor del siguiente cociente?$$\frac{L_{\rm av}(W_1)}{L_{\rm av}(W_2)}$$</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{9}{23}$<br>
+  (c) $\tfrac{9}{17}$<br>
+  (d) $\tfrac12$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Claramente $L_{\rm av}(W_1)=1$. Usando que cada bit toma valores $\{0,1\}$ con distribución de probabilidad $\bigl\{\tfrac13,\tfrac23\bigr\}$, obtenemos que $W_2\in\{00,01,10,11\}$ con probabilidades $\bigl\{\tfrac19,\tfrac29,\tfrac29,\tfrac49\bigr\}$. El código de Huffman para $W_2$ tiene distribución de longitudes $\{3,3,2,1\}$ dando $L_{\rm av}(W_2)=\tfrac{17}{9}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 4.</span> Una fuente discreta sin memoria $W_n=(X_1,\ldots,X_n)$, donde cada $X_i$ toma valores en $\{a,b,c\}$ con distribución de probabilidad $\bigl\{\tfrac12,\tfrac13,\tfrac16\}$, se representa usando dos esquemas de codificación. En el esquema (a), diseñamos el código binario óptimo libre de prefijos para $X_1$ y representamos cada símbolo $X_i$ con el mismo código. En el esquema (b), diseñamos el código binario óptimo libre de prefijos para $W_n$. La longitud media para representar $W_n$ usando los esquemas (a) y (b) se denota respectivamente como $L_{\rm av}^\text{(a)}(W_n)$ y $L_{\rm av}^\text{(b)}(W_n)$. ¿Cuál es el valor del siguiente límite?$$\lim_{n\to\infty} \frac{L_{\rm av}^\text{(b)}(W_n)}{L_{\rm av}^\text{(a)}(W_n)}$$</p>
+  <p>(a) $\tfrac{4+3\log_2(3)}{10}$<br>
+  (b) $\tfrac{4+3\log_2(3)}{9}$<br>
+  (c) $\tfrac{4+3\log_2(3)}{6}$<br>
+  (d) $\tfrac{4+3\log_2(3)}{11}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>El código de Huffman para $X_1$ tiene distribución de longitudes $\{1,2,2\}$ y longitud media $L_{\rm av}(X_1)=\tfrac32$. En el esquema (a), $L_{\rm av}(W_n) = \tfrac{3n}{2}$ al concatenar el mismo código. Por otro lado, cuando $n\to\infty$, $\frac1n L_{\rm av}(W_n) = H(X_1)$. Combinando ambos hechos y usando $H(X_1)= \tfrac 23 + \tfrac{\log_2(3)}{2}$, obtenemos la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 5.</span> Las palabras código de un código lineal binario con matriz generadora$$\begin{pmatrix}0 & 1\\1 & 0\end{pmatrix}$$se transmiten con igual probabilidad por un canal binario con probabilidades condicionales $P_{Y|X}(0|0)=0$ y $P_{Y|X}(0|1)=\tfrac13$. El receptor usa una regla de distancia de Hamming máxima para decodificar la salida del canal. ¿Cuál es la probabilidad de error del código?</p>
+  <p>(a) $\tfrac{11}{36}$<br>
+  (b) $\tfrac{5}{9}$<br>
+  (c) $\tfrac{8}{9}$<br>
+  (d) $\tfrac{35}{36}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Dado que el código generado es $\{00,10,01,11\}$ y el receptor usa una regla de distancia de Hamming máxima, el decodificador $\hat m(\boldsymbol{y})$ es tal que $\hat m(00)=4$, $\hat m(01)=2$, $\hat m(10)=3$ y $\hat m(11)=1$. Por lo tanto, $P_{\rm e}(1)=0$, $P_{\rm e}(2)=\tfrac 23$, $P_{\rm e}(3)=\tfrac 23$ y $P_{\rm e}(4)=\tfrac89$. Usando que las cuatro palabras código son equiprobables, obtenemos el resultado.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 6.</span> Un canal binario tiene entrada $X$ que toma valores en $\{0,1\}$ con igual probabilidad, salida $Y$ que toma valores en $\{0,\star,1\}$, y probabilidades condicionales $P_{Y|X}(y|x)=\tfrac13$ para todo $x$ e $y$. ¿Cuál es el valor de la entropía condicional $H(X|Y)$?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{3\log_2(3)-1}{3}$<br>
+  (c) $\tfrac{3\log_2(3)-2}{3}$<br>
+  (d) $0$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $H(Y|X)=H(Y)=\log_2(3)$, la información mutua del canal satisface $I(X;Y)=0$, lo que también implica que $H(X|Y)=H(X)=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 7.</span> Tres variables aleatorias $X_1$, $X_2$ y $X_3$, forman una cadena de Markov $X_1\rightarrow X_2\rightarrow X_3$, donde además $X_2$ es una función determinista de $X_1$. ¿Cuál es la entropía conjunta de las tres variables aleatorias?</p>
+  <p>(a) $H(X_1)+H(X_2)+H(X_3)$<br>
+  (b) $H(X_1)+H(X_3)$<br>
+  (c) $H(X_2)+H(X_3|X_2)$<br>
+  (d) $H(X_1)+H(X_3|X_2)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(d)</strong> &#9733;</p>
+    <p>La entropía conjunta se puede expandir como $H(X_1)+H(X_2|X_1)+H(X_3|X_1,X_2)$. Como $X_2$ es una función determinista de $X_1$, tenemos $H(X_2|X_1)=0$. Además, condicionado a $X_2$, $X_1$ y $X_3$ se vuelven independientes, así que $H(X_3|X_1,X_2)=H(X_3|X_2)$. Combinando ambas observaciones, obtenemos la respuesta correcta.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -38,48 +38,252 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html" class="active">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
-      <h1>Coming soon</h1>
+      <h1>Lecture 5. Fundamental limits in data compression <a class="pdf-link" href="../pdf/ITC-2026-Lecture5-en.pdf">pdf</a></h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">This content will be available as the course progresses.</p>
+
+
+<h2>Introduction</h2>
+
+<p>
+So far, we have seen that Huffman codes are the optimal codes for any discrete source and that the average length $L_{\rm av}$ of such code is “close” to the entropy of the source. In other words, the optimal code for a source $U$ taking values in $\{1,\ldots, r\}$ with probability distribution $\{p_1,\ldots,p_r\}$ satisfies
+$$
+	H(U) \leq L_{\rm av} &lt; H(U) + 1, \tag{5.1}$$
+where $L_{\rm av}=\sum_{j=1}^r \ell_j p_j$ is the average length of the code, and $H(U)=-\sum_{j=1}^r p_j \log_2 p_j$ is the entropy of the source. In the previous lecture, we found that the performance of the optimal code increased by compressing multiple symbols at once. That is, we can design our Huffman code for blocks of $n$ symbols $X=(U_1,\ldots,U_n)$ and get a code whose average length satisfies
+$$
+	H(X) \leq L_{\rm av} &lt; H(X) + 1.
+	\tag{5.2}
+$$
+Calculating the entropy $H(X)$ can be cumbersome, since the cardinality of the alphabet of $X$ grows exponentially with $n$. That is, the number of possible source sequences of length $n$, given by $n$ times the Cartesian product of the alphabet, is $r^n$. However, if the source is memoryless, $H(X)$ simplifies a lot.
+</p>
+
+<h2>Entropy of a discrete memoryless source</h2>
+
+<p>
+Consider a discrete source described by the sequence of random variables $X=(U_1,\ldots,U_n)$ taking values in 
+$$
+{\cal X} = {\cal U}^n
+ = 	\underbrace{{\cal U}\times \cdots \times {\cal U}}_{n\text{ times}} \tag{5.3}$$
+with joint distribution $P_X(x)=P_{U_1\cdots U_n}(u_1,\ldots,u_n)$ . The entropy of $X$ is given by the expected value of the negative logarithm of the joint distribution, that is
+$$\begin{align}
+	H(X) = \mathbb{E}\left[ \log_2 \frac{1}{P_X(X)} \right] = -\sum_{x\in {\cal X}} P_X(x) \log_2 P_X(x).
+	\tag{5.4}
+\end{align}$$
+Since the source is memoryless, $X=(U_1,\ldots,U_n)$ is a sequence of independent variables and therefore the distribution of $X$ satisfies
+$$
+	P_X(x) = \prod_{i=1}^n P_{U_i}(u_i).
+	\tag{5.5}
+$$
+Using $(5.5)$ in $(5.4)$ we obtain that
+$$
+	H(X) = -\mathbb{E}\left[ \log_2 \prod_{i=1}^n P_{U_i}(U_i) \right] = -\mathbb{E}\left[ \sum_{i=1}^n \log_2 P_{U_i}(U_i) \right] =  \sum_{i=1}^n \mathbb{E}\left[ \log_2 \frac{1}{P_{U_i}(U_i)} \right] = \sum_{i=1}^n H(U_i);
+	\tag{5.6}
+$$
+the entropy of a sequence of independent random variables becomes the sum of each individual entropy. Finally, since in a discrete memoryless source the symbols are identically distributed, all the entropies are the same and
+$$
+	H(X) = n H(U);
+	\tag{5.7}
+$$
+the entropy of a sequence of i.i.d. random variables is $n$ times the entropy of a single symbol.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 5.1.</span> 
+	
+	A discrete source $X=(U_1,\ldots,U_n)$ outputs independent symbols $U_i$, all taking values over the alphabet $\{0,1\}$. The entropy of $X$ is given by the following plot as a function of $n$.
+</p>
+<figure><img src="../img/tikz/lecture5-fig1.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure>
+<p>
+Which of the following statements is true?
+</p>
+
+<ol>
+</p>
+<p>
+<li><strong>(a)</strong> The source is memoryless ($U_i$ are independent and identically distributed for $i=1,\ldots,n$)
+</p>
+<p>
+<li><strong>(b)</strong> $U_1$ and $U_3$ have equiprobable symbols
+</p>
+<p>
+<li><strong>(c)</strong> $H(U_2)=1$
+</p>
+<p>
+<li><strong>(d)</strong> The average length of any binary prefix-free code for $X$ with $n=3$ satisfies $L_{\rm av}\geq 3$
+</p>
+<p>
+</ol>
+
+
+<details class="solution"><summary>Show solution</summary>
+<p>
+	Using $(5.6)$ and from the plot, we infer that $H(U_1)=1$, $H(U_1)+H(U_2)=1$ and $H(U_1)+H(U_2)+H(U_3)=2$, implying $H(U_2)=0$ and $H(U_3)=1$. Since $H(U_2)=0$, the source cannot be memoryless (actually only if $H(U_1)=H(U_2)=H(U_3)$) invalidating (a) and (c). The entropy of $X$ for $n=3$ is $H(X)=2$, therefore the average length of any binary prefix-free code for this source is lower bounded by $2$, not $3$. Finally, (b) is true because both $U_1$ and $U_3$ take values in $\{0,1\}$ and, for equiprobable bits, both $H(U_1)$ and $H(U_3)$ are indeed equal to $1$.
+</p>
+
+</details>
+
+
+</div>
+
+
+<h2>Compressing an information source</h2>
+
+<p>
+We are now equipped to show the limiting performance of compressing an information source $X$ with the optimal (Huffman) binary prefix-free code as the size of the encoded source blocks $n$ tends to infinity. To do so, we define the average length per symbol as
+$$
+	L_n = \frac{L_{\rm av}}{n},
+	\tag{5.8}
+$$
+where $L_{\rm av}$ is the average length of the optimal (Huffman) code for a discrete memoryless source $X=(U_1,\ldots,U_n)$. Similarly, we define the efficiency of a prefix-free code used to represent a source $X$ of length $n$ as
+$$
+	e_n = \frac{H(X)}{L_{\rm av}}. \tag{5.9}$$
+If the source is memoryless, then $H(X)=nH(U)$ and the efficiency can be written using the average length per symbol $L_n$ in $(5.8)$ as
+$$
+	e_n = \frac{nH(U)}{L_{\rm av}} = \frac{n H(U)}{n L_n} = \frac{H(U)}{L_n}.
+	\tag{5.10}
+$$
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Example 5.2.</span> 
+<a id="ex:5.2"></a>
+	Consider the discrete memoryless source $X=(U_1,\ldots,U_n)$ where each $U_i$ takes values in $\{a,b\}$ with probability $\bigl\{\frac 23,\frac 13\bigr\}$. For $n=1$, we have $H(X)=H(U)=\log_2(3)-\frac 23$ bits, while the optimal prefix-free code has length distribution $\{1,1\}$ leading to $L_{\rm av}=1$ bit. Using equations $(5.8)$, and $(5.10)$ we obtain $L_1=1$ and an efficiency of
+	$$
+		e_1 = \frac{H(X)}{L_{\rm av}} = \frac{H(U)}{L_1} = H(U) = \log_2(3)-\frac 23 \approx 0.918296.
+		\tag{5.11}
+	$$
+	For $n=2$, we have that $X$ takes values in $\{aa,ab,ba,bb\}$ with probability $\bigl\{ \frac 49, \frac 29, \frac 29, \frac 19 \bigr\}$, hence an entropy of $H(X)=2H(U)=2\log_2(3) - \frac 43$. The optimal prefix-free code for $X$ is, for example, the Huffman code $\{0,10,110,111\}$ of length distribution $\{1,2,3,3\}$, giving an average length of $L_{\rm av} = \frac{17}{9}$. Since we are encoding blocks of $n=2$ symbols, the average length per symbol in this case is $L_2=\frac{L_{\rm av}}{2} = \frac{17}{18}$ bits per symbol. With these numbers, we obtain an efficiency of
+	$$
+		e_2 = \frac{H(X)}{L_{\rm av}} = \frac{2\log_2(3)-\frac 43}{17/9} \approx 0.972313,
+		\tag{5.12}
+	$$
+	slightly higher than the one in $(5.11)$.
+</p>
+
+</div>
+
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 5.3.</span> 
+	Calculate the efficiency of the optimal prefix-free code for $X$ in Example 5.2 for $n=3$.
+	
+</p>
+<details class="solution"><summary>Show solution</summary>
+<p>
+	To determine the efficiency $e_3$ we need the entropy of $X$ from the one hand, and the average length of the Huffman code for $X$ from the other. Since the source is memoryless, we do not need to calculate the whole alphabet and distribution of $X$ to calculate the entropy and simply use that $H(X)=3H(U)= 3\log_2(3)-2$. To contract the Huffman code, we need to determine the alphabet and distribution of $X$. After doing so, building the Huffman tree and finding the length distribution (left as exercise!), we obtain an average length of $L_{\rm av}=\frac{76}{27}$. Hence,
+	$$
+		e_3 = \frac{H(X)}{L_{\rm av}} \approx 0.97871,
+		\tag{5.13}
+	$$
+	another increase of efficiency with respect to $(5.12)$.
+	
+</p>
+</details>
+
+
+</div>
+
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 5.4.</span> 
+	We design a sub-optimal prefix-free code for the discrete memoryless source $X$ in Example 5.2. For any $n$, the lengths of such code satisfy $\ell(x)=\lceil - \log_2 P_X(x) \rceil $. Calculate the efficiency of this code for $n=3$ and compare it with that of the optimal code.
+	
+</p>
+<details class="solution"><summary>Show solution</summary>
+<p>
+		For $n=3$, $X$ takes values in $\{aaa,aab,aba,abb,baa,bab,bba,bbb\}$ with probability distribution $\bigl\{  \frac{8}{27} , \frac{4}{27},\frac{4}{27},\frac{2}{27},\frac{4}{27},\frac{2}{27},\frac{2}{27},\frac{1}{27} \bigr\}$. The efficiency of the optimal code was already calculated in $(5.13)$. The sub-optimal code will encode $x=aaa$ with $\ell(x)=\ell(aaa)=\lceil - \log_2 P_X(aaa) \rceil = \lceil - \log_2 \frac{8}{27} \rceil \approx  \lceil 1.75489 \rceil = 2$ bits. With the same procedure we obtain a length distribution $\{2,3,3,4,3,4,4,5\}$, giving an average length of $L_{\rm av} = 3$ and an efficiency of $e_3 \approx  0.918296$, smaller than the optimal one. 
+ 	
+</p>
+</details>
+
+
+</div>
+
+<p>
+We have seen from the previous exercises that increasing $n$ may increase the efficiency, meaning that $L_{\rm av}$ approaches $H(X)$ or that $L_n$ approaches $H(U)$. To see this, we combine the results obtained in this section with those in the introduction. Using $(5.8)$ and $(5.7)$ back in $(5.2)$, we have that the average length per symbol of the optimal prefix-free code for a discrete memoryless source $X$ satisfies (after dividing by $n$ all the terms):
+$$
+	H(U) \leq L_n &lt; H(U) + \frac 1n. \tag{5.14}
+$$
+Since $L_n$ is lower and upper bounded as in $(5.14)$, we conclude that
+$$
+	\lim_{n\to\infty} L_n = H(U); \tag{5.15}$$
+the compression of blocks is very efficient as the corresponding average length per symbol $L_n$ converges to the entropy of the source. The same result can be expressed in terms of the efficiency. Since the average length of any prefix-free code for $X$ is lower bounded as $L_{\rm av} \geq H(X)$, from the definition of the efficiency in $(5.10)$ we find that the efficiency is upper bounded as $e_n \leq \frac{H(X)}{H(X)}=1$. Similarly, using that the average length of the optimal code satisfies $L_{\rm av}&lt;H(X)+1$, we have that $e_n&gt;\smash{\frac{H(X)}{H(X)+1}}$. Combining everything, we have
+$$
+	\frac{H(X)}{H(X)+1} &lt; e_n \leq 1. \tag{5.16}
+$$
+If the source is memoryless, then $(5.16)$ can be written as
+$$
+	\frac{H(U)}{H(U)+\frac 1n} &lt; e_n \leq 1, \tag{5.17}$$
+implying that
+$$
+	\lim_{n\to\infty} e_n = 1. \tag{5.18}$$
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Example 5.5.</span> 
+Consider a discrete memoryless source $X=\{U_1,\cdots,U_n\}$ where each $U_i$ takes values in $\{a,b,c\}$ with probability $\bigl\{\frac 12, \frac 14, \frac 14\bigr\}$. The entropy of $U$ is $H(U) = \frac 32$. For example, for $n=10$, this implies that the average length of the optimal code for $X$ satisfies $15 \leq L_{\rm av} &lt; 16$, or that the average length per symbol satisfies $ \frac 32 \leq L_{10} &lt; \frac 85$, or that the efficiency satisfies $\frac{15}{16} &lt; e_{10} \leq 1$.
+</p>
+
+</div>
+
+<p>
+We end the last lecture about source coding with a problem relating probability and the limiting performance of compressing an information source.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 5.6.</span> 
+A discrete memoryless source $X=(U_1,\ldots,U_n)$ has probability distribution $P_X(x)$. We define the random variable $Y=f(X)$, where $f(x)=-\log_2 P_X(x)$. Calculate $
+	\lim_{n\to\infty} \mathbb{P}[Y &lt; n^2 H(U)]$.
+</p>
+
+<details class="solution"><summary>Show solution</summary>
+<p>
+	Using Markov's inequality, since $Y$ is a non-negative random variable, we have that 
+	$$
+		\mathbb{P}[Y &lt; n^2 H(U)] = 1 - \mathbb{P}[Y \geq n^2 H(U)] \geq 1 -  \frac{\mathbb{E}[Y]}{n^2 H(U)}. \tag{5.19}$$
+	The expected value of $Y$ can be calculated in terms of $X$, giving $\mathbb{E}[Y]=\mathbb{E}[f(X)]=\mathbb{E}[-\log_2 P_X(X)]$, which is the definition of the entropy of $X$  according to $(5.4)$. Hence, $\mathbb{E}[Y]=H(X)$. Since the source is memoryless, from $(5.7)$, we also have that $H(X)=nH(U)$. Combining all the results, we obtain
+	$$
+		1 \geq \mathbb{P}[Y &lt; n^2 H(U)] \geq 1 - \frac{1}{n}, \tag{5.20}$$
+	where the first bound is a trivial bound. Taking the limit as $n\to\infty$ to all terms above, we conclude that $\lim_{n\to\infty}	\mathbb{P}[Y &lt; n^2 H(U)] = 1$. 
+</p>
+
+</details>
+
+
+</div>
+
   </main>
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Information theory and coding 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

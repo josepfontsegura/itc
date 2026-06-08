@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -40,44 +40,561 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html" class="active">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Ejercicios: 4. Códigos de Huffman</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+    <button id="expand-all" data-expand="Mostrar todas las soluciones" data-collapse="Ocultar todas las soluciones" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostrar todas las soluciones</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.1.</span></p>
+  <p>La longitud media del código de Huffman para una fuente que toma valores en $\{a,b,c,d,e,f\}$ con probabilidades $\{\frac{3}{5},\frac{1}{6},\frac{1}{15},\frac{1}{15},\frac{1}{20},\frac{1}{20}\}$ es</p>
+  <p>(a) $\frac{28}{15}$<br>
+  (b) $\frac{19}{10}$<br>
+  (c) Ninguna de las otras.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Siguiendo los pasos para construir un código de Huffman para la fuente dada encontramos, por ejemplo, una distribución de longitudes $\{1,2,4,4,4,4\}$, de modo que la media calculada como $\sum_{j=1}^r p_j \ell_j$ conduce a la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.2.</span></p>
+  <p>El código de Huffman para una fuente que toma valores en $\{a,b,c,d\}$ con probabilidades $\{\frac{1}{4},\frac{1}{4},\frac{1}{4},\frac{1}{4}\}$ cumple</p>
+  <p>(a) $\{00,01,10,11\}$ es un código posible.<br>
+  (b) Tanto la longitud media como la entropía de la fuente son iguales a $2$ bits.<br>
+  (c) Tanto (a) como (b) son correctas.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Siguiendo los pasos para construir un código de Huffman para la fuente dada encontramos cuatro códigos posibles: $\{00,01,10,11\}$, $\{11,00,01,10\}$, $\{10,11,00,01\}$ y $\{01,10,11,00\}$. La longitud media es de $2$ bits y la entropía de la fuente es $H=\tfrac{4}{4}\log_2(4)=2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.3.</span></p>
+  <p>El código de Huffman para una fuente que toma valores en $\{a,b,c,d\}$ tiene distribución de longitudes $\{1,2,3,3\}$. ¿Cuál es el mayor intervalo posible para la probabilidad del símbolo $a$?</p>
+  <p>(a) $\bigl[0,\tfrac{2}{3}\bigr)$<br>
+  (b) $\bigl[0,\tfrac{1}{3}\bigr)$<br>
+  (c) Ninguna de las otras.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>A partir de las longitudes de palabra código dadas sabemos que en el primer paso de la construcción del código de Huffman se fusionan dos nodos correspondientes a los símbolos $c$ y $d$, de modo que $p_a\geq p_c$, $p_a\geq p_d$, $p_b\geq p_c$, $p_b\geq p_d$. En el segundo paso, el nodo $b$ se fusiona con el nodo $cd$ resultante del paso anterior, de modo que $p_a\geq p_b$ y $p_a\geq p_c+p_d$. Combinando las dos últimas desigualdades obtenemos $2p_a\geq p_b+p_c+p_d$ y sumando $p_a$ a ambos lados obtenemos $3p_a\geq p_a+p_b+p_c+p_d=1$, de donde $p_a\geq \tfrac{1}{3}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.4.</span></p>
+  <p>Considere una fuente $Z=(X,Y)$ dada por dos símbolos independientes $X$ e $Y$, donde $X$ toma valores en $\{a,b\}$ con probabilidades $\{\tfrac{2}{3},\tfrac{1}{3}\}$ e $Y$ toma valores en $\{a,b,c\}$ con probabilidades $\{\tfrac{1}{2},\tfrac{1}{3},\tfrac{1}{6}\}$. ¿Cuál es la longitud media del código de Huffman para $Z$?</p>
+  <p>(a) $\frac{22}{9}$<br>
+  (b) $\frac{35}{18}$<br>
+  (c) Ninguna de las otras.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La fuente $Z$ tiene alfabeto $\{aa,ab,ac,ba,bb,bc\}$ con probabilidades $\bigl\{\frac{1}{3},\frac{2}{9},\frac{1}{9},\frac{1}{6},\frac{1}{9},\frac{1}{18}\bigr\}$. Construimos entonces un código de Huffman obteniendo, por ejemplo, las longitudes de palabra código $\{2,2,3,3,3,3\}$, que conducen a una longitud media de $\frac{22}{9}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.5.</span></p>
+  <p>Ahora construimos un código de Huffman para $X$ e $Y$ por separado, y codificamos $Z=(X,Y)$ concatenando el código de $X$ y el código de $Y$. ¿Cuál es la longitud media de este código para $Z$?</p>
+  <p>(a) $\frac{5}{2}$<br>
+  (b) $\frac{5}{3}$<br>
+  (c) $\frac{5}{4}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El código de Huffman para $X$ tiene distribución de longitudes $\{1,1\}$, mientras que el código de Huffman para $Y$ tiene distribución de longitudes $\{1,2,2\}$. Cuando $Z$ se codifica concatenando el código de $X$ y el código de $Y$, el código resultante tiene distribución de longitudes $\{2,3,3,2,3,3\}$, que conduce a una longitud media de $\frac{5}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.6.</span></p>
+  <p>Suponemos que $X$ e $Y$ en $Z=(X,Y)$ de las dos preguntas anteriores NO son independientes, sino que se distribuyen como $P_{X|Y}(a|a)=\tfrac{1}{2}$, $P_{X|Y}(a|b)=\tfrac{1}{2}$, $P_{X|Y}(a|c)=0$, mientras que $Y$ tiene la misma distribución que antes. La longitud media (en bits) del código de Huffman óptimo es</p>
+  <p>(a) acotada inferiormente por $\frac{3}{2}+\frac{1}{2}\log_2 3$.<br>
+  (b) acotada superiormente por $\frac{3}{2}+\frac{1}{2}\log_2 3$.<br>
+  (c) acotada inferiormente por $\frac{5}{2}+\frac{1}{2}\log_2 3$.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Dada la distribución de probabilidad condicional de $X$ dado $Y$ encontramos el alfabeto y la distribución de $Z$ respectivamente como $\{aa,ba,ab,bb,bc\}$ y $\{\frac{1}{4},\frac{1}{4},\frac{1}{6},\frac{1}{6},\frac{1}{6}\}$. Sabiendo que la longitud media del código óptimo para $Z$ está acotada inferiormente por la entropía de la fuente, obtenemos (tras algunas manipulaciones matemáticas) el valor $\frac{3}{2}+\frac{1}{2}\log_2(3)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.7.</span></p>
+  <p>Para una fuente discreta $X$ con símbolos equiprobables, el código binario libre de prefijos óptimo es $\{0,10,11\}$. Se construye una nueva fuente como $Y=(X_1,X_2)$, donde $X_1$ y $X_2$ son independientes y ambas tienen la misma distribución que $X$. ¿Cuál es la eficiencia del código binario libre de prefijos óptimo para $Y$?</p>
+  <p>(a) $\frac{3\log_2(3)}{5}$<br>
+  (b) $\frac{3\log_2(3)}{10}$<br>
+  (c) $\frac{18\log_2(3)}{29}$<br>
+  (d) $1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>La fuente $X$ tiene tres símbolos y probabilidades $\{1/3,1/3,1/3\}$. Entonces, $Y$ tiene $9$ símbolos equiprobables, y un código óptimo (de Huffman) con $L_{\rm av}=\frac{29}{9}$ y $H(Y)=\log_2(9)$. La eficiencia es $\frac{H(Y)}{L_{\rm av}}=\frac{\log_2(9)}{29/9}=\frac{18\log_2(3)}{29}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.8.</span></p>
+  <p>Una fuente tiene los símbolos $\{a,b,c,d\}$ con probabilidades $\{\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{8},\tfrac{1}{8}\}$. ¿Cuál es la longitud media del código de Huffman?</p>
+  <p>(a) $\tfrac{7}{4}$<br>
+  (b) $2$<br>
+  (c) $\tfrac{3}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El código de Huffman tiene longitudes $\{1,2,3,3\}$, lo que da $L_{\rm av}=\tfrac{1}{2}\cdot 1+\tfrac{1}{4}\cdot 2+\tfrac{1}{8}\cdot 3+\tfrac{1}{8}\cdot 3=\tfrac{7}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.9.</span></p>
+  <p>El código de Huffman para una fuente con probabilidades $\{\tfrac{1}{3},\tfrac{1}{3},\tfrac{1}{3}\}$ tiene la distribución de longitudes:</p>
+  <p>(a) $\{1,2,2\}$<br>
+  (b) $\{1,1,1\}$<br>
+  (c) $\{2,2,2\}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Con tres símbolos equiprobables, el algoritmo de Huffman fusiona los dos menos probables (cada uno $\tfrac{1}{3}$) en un nodo de probabilidad $\tfrac{2}{3}$, y luego lo empareja con el símbolo restante, dando longitudes $\{1,2,2\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.10.</span></p>
+  <p>¿Es único el código de Huffman para una fuente con probabilidades $\{\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{8},\tfrac{1}{8}\}$?</p>
+  <p>(a) La distribución de longitudes es única, pero las palabras código no lo son<br>
+  (b) Sí, tanto las longitudes como las palabras código son únicas<br>
+  (c) No, ni siquiera la distribución de longitudes es única</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El algoritmo de Huffman siempre produce las longitudes $\{1,2,3,3\}$ para esta distribución, pero las palabras código binarias concretas pueden variar (por ejemplo, intercambiando las dos palabras código de longitud $3$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.11.</span></p>
+  <p>Se construye un código de Huffman ternario (con alfabeto $\{0,1,2\}$) para una fuente con $5$ símbolos equiprobables. ¿Cuál es la longitud media en símbolos ternarios?</p>
+  <p>(a) $2$<br>
+  (b) $\tfrac{5}{3}$<br>
+  (c) $\tfrac{8}{5}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Para un código ternario necesitamos que el número de hojas cumpla $N\equiv 1\pmod{D-1}$ con $D=3$. Dado que $5\equiv 1\pmod 2$, no hace falta ningún símbolo ficticio. El algoritmo de Huffman fusiona primero los $3$ símbolos más pequeños en un nodo, quedando tres nodos que se fusionan en la raíz. Esto da longitudes de palabra código $\{1,1,2,2,2\}$, de modo que $L_{\rm av}=\frac{2\cdot 1+3\cdot 2}{5}=\frac{8}{5}$ símbolos ternarios.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.12.</span></p>
+  <p>Una fuente tiene los símbolos $\{a,b,c\}$ con probabilidades $\{\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{4}\}$. El código de Huffman tiene $L_{\rm av}=\tfrac{3}{2}$. ¿Cuál es la eficiencia de este código?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{3}{4}$<br>
+  (c) $\tfrac{H(X)}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La entropía es $H(X)=\tfrac{1}{2}\log_2 2+\tfrac{1}{4}\log_2 4+\tfrac{1}{4}\log_2 4=\tfrac{3}{2}$. Como $L_{\rm av}=H(X)=\tfrac{3}{2}$, la eficiencia es $H(X)/L_{\rm av}=1$ (es decir, el $100\%$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.13.</span></p>
+  <p>Para una fuente con $\{a,b,c,d,e\}$ y probabilidades $\{\tfrac{1}{4},\tfrac{1}{4},\tfrac{1}{4},\tfrac{1}{8},\tfrac{1}{8}\}$, la distribución de longitudes del código de Huffman es:</p>
+  <p>(a) $\{2,2,2,3,3\}$<br>
+  (b) $\{1,2,3,3,3\}$<br>
+  (c) $\{2,2,3,3,3\}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Fusionando los dos menos probables ($\tfrac{1}{8}$ cada uno) se obtiene $\tfrac{1}{4}$. Entonces los cuatro nodos tienen probabilidad $\tfrac{1}{4}$, y el algoritmo de Huffman produce longitudes $\{2,2,2,3,3\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.14.</span></p>
+  <p>Considere una fuente $Z=(X,Y)$ donde $X\in\{0,1\}$ con igual probabilidad y $Y\in\{a,b\}$ con igual probabilidad, y $X,Y$ son independientes. ¿Cuál es la longitud media del código de Huffman para $Z$?</p>
+  <p>(a) $2$<br>
+  (b) $\tfrac{3}{2}$<br>
+  (c) $3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La fuente $Z$ tiene $4$ símbolos equiprobables, de modo que el código de Huffman asigna longitud $2$ a cada uno, dando $L_{\rm av}=2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.15.</span></p>
+  <p>Una fuente con probabilidades $\{p,1-p\}$ se codifica con el código de Huffman $\{0,1\}$. ¿Para qué valores de $p$ la eficiencia es igual a $1$?</p>
+  <p>(a) Solo $p=\tfrac{1}{2}$<br>
+  (b) Todos los $p\in(0,1)$<br>
+  (c) $p=\tfrac{1}{4}$ y $p=\tfrac{3}{4}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El código de Huffman asigna longitud $1$ a ambos símbolos, de modo que $L_{\rm av}=1$. La eficiencia es $H(X)/L_{\rm av}=h_2(p)$, que vale $1$ solo cuando $p=\tfrac{1}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.16.</span> Se construye un código de Huffman para una fuente con $8$ símbolos equiprobables. ¿Cuál es la longitud media de las palabras código?</p>
+  <p>(a) $3$<br>
+  (b) $\log_2 8$<br>
+  (c) Tanto (a) como (b) son equivalentes y correctas</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Para $8$ símbolos equiprobables, el código de Huffman asigna longitud $3$ a cada uno, y $\log_2 8 = 3$, de modo que ambas respuestas son la misma.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.17.</span> Al construir un código de Huffman, cuando dos nodos tienen la misma probabilidad, ¿afecta a la longitud media de las palabras código la elección de qué pareja se fusiona?</p>
+  <p>(a) No, la longitud media siempre es óptima<br>
+  (b) Sí, elecciones diferentes dan longitudes medias diferentes<br>
+  (c) Solo para fuentes con más de $4$ símbolos</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El algoritmo de Huffman siempre produce un código óptimo independientemente de cómo se resuelvan los empates. Elecciones diferentes pueden producir distribuciones de longitudes diferentes, pero todas alcanzan la misma longitud media mínima.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.18.</span></p>
+  <p>Una estación meteorológica IoT emite cuatro estados $\{\text{Sunny},\text{Cloudy},\text{Rainy},\text{Storm}\}$ con probabilidades $\{0.50,\,0.25,\,0.15,\,0.10\}$. Construye el código de Huffman binario óptimo y calcula su longitud media $L_{\rm av}=\sum_i p_i\,\ell_i$ (en bits/mensaje).</p>
+  <p>(a) $L_{\rm av}=1.75$ bits/mensaje<br>
+  (b) $L_{\rm av}=2.00$ bits/mensaje<br>
+  (c) $L_{\rm av}=1.7427$ bits/mensaje<br>
+  (d) $L_{\rm av}=1.25$ bits/mensaje</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Fusionando repetidamente los dos nodos menos probables: Rainy$(0.15)$+Storm$(0.10)\to0.25$, luego Cloudy$(0.25)$+ese$\to0.50$, y con Sunny$(0.50)\to$raíz. Las palabras código son Sunny$\to0$, Cloudy$\to10$, Rainy$\to110$, Storm$\to111$, con longitudes $\{1,2,3,3\}$. Así $L_{\rm av}=0.50\cdot1+0.25\cdot2+0.15\cdot3+0.10\cdot3=1.75$ bits/mensaje. ($2.00$ es el código de longitud fija; $1.7427$ es la entropía $H$, una cota inferior; $1.25$ es imposible porque está por debajo de $H$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.19.</span></p>
+  <p>El código de Huffman de la estación meteorológica tiene longitud media $L_{\rm av}=1.75$ bits/mensaje, sustituyendo un código de longitud fija de $2$ bits/mensaje. La estación envía $N=1440$ mensajes al día. ¿Cuántos bits por día se ahorran?</p>
+  <p>(a) $360$ bits/día<br>
+  (b) $2520$ bits/día<br>
+  (c) $252$ bits/día<br>
+  (d) $720$ bits/día</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El ahorro por mensaje es $\Delta=2-1.75=0.25$ bits. A lo largo de $N=1440$ mensajes: $1440\times0.25=360$ bits/día. ($2520$ sería la carga total de Huffman $1440\times1.75$, no el ahorro; $252$ confunde un factor; $720$ duplica el resultado.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.20.</span></p>
+  <p>El código de Huffman usa $L_{\rm av}=1.75$ bits/mensaje frente a la referencia de longitud fija de $2$ bits. Expresado como una reducción porcentual respecto al código de $2$ bits, el ahorro es:</p>
+  <p>(a) $12.5\%$<br>
+  (b) $25\%$<br>
+  (c) $14.3\%$<br>
+  (d) $0.25\%$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La reducción es $\Delta/2=(2-1.75)/2=0.25/2=0.125=12.5\%$. ($25\%$ olvida dividir por la referencia; $14.3\%$ divide por $1.75$ en lugar de $2$; $0.25\%$ coloca mal el decimal del ahorro de $0.25$ bits.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.21.</span></p>
+  <p>Se construye un código de Huffman binario para una fuente sobre $\mathcal{X}=\{a,b,c\}$ con distribución de diseño $\{0.02,\,0.07,\,0.91\}$. Este código fijo se aplica después a una fuente <em>diferente</em> sobre el mismo alfabeto (mismo orden $a,b,c$) con distribución $\{0.6,\,0.26,\,0.14\}$. Calcula la longitud media de palabra de código cuando el código se aplica a la segunda fuente.</p>
+  <p>(a) $1.86$ bits<br>
+  (b) $1.40$ bits<br>
+  (c) $1.09$ bits<br>
+  (d) $1.74$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Huffman sobre la distribución de diseño $\{0.02,0.07,0.91\}$ fusiona primero $a$ y $b$, luego con $c$, dando longitudes $(\ell_a,\ell_b,\ell_c)=(2,2,1)$ (p. ej. $a\to00,b\to01,c\to1$). Estas longitudes se mantienen fijas y se aplican a las nuevas probabilidades: $L_{\mathrm{av}}=0.6\cdot2+0.26\cdot2+0.14\cdot1=1.2+0.52+0.14=1.86$ bits. Observa que $1.40$ sería la longitud óptima de un código rediseñado para $\{0.6,0.26,0.14\}$, es decir el caso óptimo, y $1.09$ es la longitud media sobre la fuente original.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.22.</span></p>
+  <p>Codificamos todas las secuencias de 3 bits ($8$ ternas equiprobables) con un código libre de prefijos sobre el alfabeto ternario $\{a,b,c\}$. Construya un código ternario de <em>longitud fija</em> con la longitud de palabra código más pequeña posible y calcule su longitud media en letras por bit.</p>
+  <p>(a) $\ell=2$ letras, $\bar{L}=\tfrac{2}{3}\approx 0.6667$ letras/bit<br>
+  (b) $\ell=3$ letras, $\bar{L}=1$ letra/bit<br>
+  (c) $\ell=2$ letras, $\bar{L}=2$ letras/bit<br>
+  (d) $\ell=1$ letra, $\bar{L}=\tfrac{1}{3}\approx 0.3333$ letras/bit</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Un código ternario de longitud fija $\ell$ ofrece $3^\ell$ palabras código; se necesita $3^\ell\ge 8$. Como $3^1=3&lt;8$ y $3^2=9\ge 8$, la longitud más pequeña es $\ell=2$ letras por terna. Como cada terna lleva $3$ bits, el coste por bit es $\tfrac{2}{3}\approx 0.6667$ letras/bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.23.</span></p>
+  <p>Las $8$ ternas de 3 bits independientes y equiprobables tienen cada una probabilidad $\tfrac18$. Construya el código de Huffman ternario sobre $\{a,b,c\}$ (añadiendo una hoja ficticia de probabilidad $0$, ya que $8\equiv 0\pmod{D-1}$ con $D=3$) y calcule su longitud media en letras por bit.</p>
+  <p>(a) $\bar{L}=\tfrac{2}{3}\approx 0.6667$ letras/bit (todas las palabras código tienen longitud $2$)<br>
+  (b) $\bar{L}\approx 0.6309$ letras/bit (Huffman alcanza la entropía)<br>
+  (c) $\bar{L}=1$ letra/bit<br>
+  (d) $\bar{L}=\tfrac{5}{9}\approx 0.5556$ letras/bit (mezcla de longitudes $1$ y $2$)</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Añadimos una hoja ficticia ($0$) a las ocho hojas de $\tfrac18$ (nueve nodos). La Fusión 1 combina la ficticia con dos hojas de $\tfrac18$ en $\tfrac28$; las seis hojas de $\tfrac18$ restantes se fusionan de tres en tres en dos nodos de $\tfrac38$; la raíz fusiona $\tfrac28,\tfrac38,\tfrac38$. Cada hoja real queda a profundidad $2$, de modo que las $8$ palabras código tienen longitud $2$ y $\bar{L}=\tfrac18\cdot 8\cdot\tfrac{2}{3}=\tfrac{2}{3}\approx 0.6667$ letras/bit, igual que en (a).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.24.</span></p>
+  <p>Para la fuente uniforme de $8$ ternas ($3$ bits, entropía $H=1$ bit/bit), los códigos ternarios de (a) y (b) alcanzan ambos $\tfrac23\approx 0.6667$ letras/bit. Calcule la entropía en letras por bit (con $1\text{ letra}=\log_2 3$ bits) y compare.</p>
+  <p>(a) $H=\tfrac{1}{\log_2 3}=\tfrac13\log_3 8\approx 0.6309$ letras/bit; ambos códigos la superan en $\approx 5.7\%$<br>
+  (b) $H=\log_2 3\approx 1.585$ letras/bit; ambos códigos están por debajo de la entropía<br>
+  (c) $H=1$ letra/bit; ambos códigos baten la entropía<br>
+  (d) $H=\tfrac23\approx 0.6667$ letras/bit; ambos códigos son óptimos (iguales a $H$)</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La fuente uniforme tiene $H=1$ bit por bit; convirtiendo con $1\text{ letra}=\log_2 3$ bits da $H=\tfrac{1}{\log_2 3}=\tfrac13\log_3 8\approx 0.6309$ letras/bit, la cota inferior de codificación de fuente. Ambos códigos dan $\tfrac23\approx 0.6667$, un sobrecoste relativo $\tfrac{2\log_2 3}{3}-1\approx 0.057$, es decir un $5.7\%$ por encima de la cota. La diferencia surge porque la longitud ideal $\log_3 8\approx 1.893$ letras por terna no es entera y Huffman redondea hacia arriba hasta $2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.25.</span></p>
+  <p>Se generan tres bits de manera independiente con $\mathbb{P}(1)=\tfrac23$, $\mathbb{P}(0)=\tfrac13$ por bit, de modo que los ocho símbolos de 3 bits $000,\dots,111$ tienen probabilidades $\tfrac1{27},\tfrac2{27},\tfrac2{27},\tfrac4{27},\tfrac2{27},\tfrac4{27},\tfrac4{27},\tfrac8{27}$. Se construye un código de Huffman ternario sobre $\{a,b,c\}$ (con una hoja ficticia de probabilidad $0$). ¿Cuál es su longitud media expresada en letras ternarias <em>por bit de la fuente</em>?</p>
+  <p>(a) $\dfrac{49}{81}\approx 0.605$<br>
+  (b) $\dfrac{49}{27}\approx 1.815$<br>
+  (c) $\dfrac{2}{3}\approx 0.667$<br>
+  (d) $\dfrac{65}{81}\approx 0.802$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Se rellena hasta $9$ hojas (impar, es decir, $D=3$ exige hojas $\equiv 1 \bmod 2$) y se fusionan repetidamente las tres más pequeñas. Esto da longitudes $\ell(000)=\ell(001)=3$, cinco símbolos de longitud $2$ y $\ell(111)=1$. La media por símbolo de 3 bits es $\bar L_{\text{sym}}=\tfrac1{27}(3+6+4+8+4+8+8+8)=\tfrac{49}{27}$. Dividiendo entre $3$ bits por símbolo se obtiene $\bar L=\tfrac{49}{81}\approx 0.605$ letras ternarias/bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.26.</span></p>
+  <p>Para un bit de Bernoulli con $\mathbb{P}(1)=\tfrac23$, $\mathbb{P}(0)=\tfrac13$, se necesita la entropía por bit <em>medida en unidades ternarias</em> (usando $\log_3$, la unidad natural para un alfabeto de código de tamaño $3$) para compararla con el código de Huffman ternario. ¿Cuánto vale $H_3$ por bit?</p>
+  <p>(a) $\tfrac13+\tfrac23\log_3\tfrac32\approx 0.579$<br>
+  (b) $\tfrac13+\tfrac23\log_2\tfrac32\approx 0.918$<br>
+  (c) $\tfrac{49}{81}\approx 0.605$<br>
+  (d) $\tfrac23\approx 0.667$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>$H_3=-\tfrac13\log_3\tfrac13-\tfrac23\log_3\tfrac23=\tfrac13\log_3 3+\tfrac23\log_3\tfrac32=\tfrac13+\tfrac23\log_3\tfrac32\approx 0.5794$ letras ternarias/bit. La segunda opción usa $\log_2$ (bits binarios, el valor $\approx 0.918$), no unidades ternarias. Por el teorema de codificación de la fuente $\bar L=\tfrac{49}{81}\approx 0.605\ge H_3$, un exceso de aproximadamente $4.4\%$, mientras que el código de longitud fija en $\tfrac23$ tiene un exceso de aproximadamente $15\%$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.27.</span></p>
+  <p>El código de Huffman ternario del apartado (a) tiene longitudes de palabra código fijas $\ell(000)=\ell(001)=3$, $\ell(010)=\ell(011)=\ell(100)=\ell(101)=\ell(110)=2$, $\ell(111)=1$. Ahora las probabilidades de los bits se <em>invierten</em>: $\mathbb{P}(0)=\tfrac23$, $\mathbb{P}(1)=\tfrac13$, de modo que cada símbolo toma la probabilidad de su complemento de bits ($000\to\tfrac8{27}$, $111\to\tfrac1{27}$, etc.). Manteniendo el mismo código, ¿cuál es la nueva longitud media por bit de la fuente?</p>
+  <p>(a) $\dfrac{65}{81}\approx 0.802$<br>
+  (b) $\dfrac{49}{81}\approx 0.605$<br>
+  (c) $\dfrac{65}{27}\approx 2.407$<br>
+  (d) $\dfrac{16}{27}\approx 0.593$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Las longitudes se mantienen fijas pero ahora se emparejan con las probabilidades invertidas: $\bar L'_{\text{sym}}=\tfrac1{27}\big(8\cdot3+4\cdot3+4\cdot2+2\cdot2+4\cdot2+2\cdot2+2\cdot2+1\cdot1\big)=\tfrac1{27}(24+12+8+4+8+4+4+1)=\tfrac{65}{27}$. Por bit, $\bar L'=\tfrac{65}{81}\approx 0.802$. Esto supera tanto a $H_3$ como al valor ajustado $\tfrac{49}{81}$: un código de Huffman es óptimo solo para la distribución para la que se diseñó, y la penalización por desajuste es la entropía relativa $D(p'\|p)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.28.</span></p>
+  <p>Una fuente discreta sin memoria tiene alfabeto $\mathcal{X}=\{a,b,c\}$ con probabilidades $\{p,\,p,\,1-2p\}$, $0&lt;p&lt;\tfrac12$. Se construye un código de Huffman binario. ¿Cuál es el multiconjunto de longitudes de palabra código?</p>
+  <p>(a) $\{1,2,2\}$<br>
+  (b) $\{1,1,2\}$<br>
+  (c) $\{2,2,2\}$<br>
+  (d) $\{1,2,3\}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Con tres símbolos el algoritmo de Huffman tiene una única forma estructural: los dos símbolos menos probables se fusionan primero en un nodo interno a profundidad $1$, dejando sus hojas a profundidad $2$; el símbolo restante (el mayor) se une en la raíz, a profundidad $1$. Así un símbolo obtiene longitud $1$ y dos obtienen longitud $2$, dando $\{1,2,2\}$. Esto satisface la igualdad de Kraft $2^{-1}+2^{-2}+2^{-2}=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.29.</span></p>
+  <p>Para la fuente $\{p,\,p,\,1-2p\}$ sobre $\{a,b,c\}$ con $0&lt;p&lt;\tfrac12$, el código de Huffman binario asigna longitud $1$ al símbolo más probable y longitud $2$ a los otros dos. ¿Cuál es la longitud media de palabra código $L_{\mathrm{av}}(p)$?</p>
+  <p>(a) $\min\{1+2p,\ 2-p\}$<br>
+  (b) $1+2p$ para todo $0&lt;p&lt;\tfrac12$<br>
+  (c) $2-p$ para todo $0&lt;p&lt;\tfrac12$<br>
+  (d) $\max\{1+2p,\ 2-p\}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La palabra código de longitud $1$ va a la mayor probabilidad. Si $0&lt;p&lt;\tfrac13$ entonces $1-2p$ es la mayor, dando $L_{\mathrm{av}}=1\cdot(1-2p)+2p+2p=1+2p$. Si $\tfrac13&lt;p&lt;\tfrac12$ entonces un símbolo $p$ es el mayor, dando $L_{\mathrm{av}}=1\cdot p+2p+2(1-2p)=2-p$. Las dos ramas se encuentran en $p=\tfrac13$ (ambas valen $\tfrac53$), por tanto $L_{\mathrm{av}}(p)=\min\{1+2p,\,2-p\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.30.</span></p>
+  <p>Para la fuente $\{p,\,p,\,1-2p\}$ la longitud media de Huffman es $L_{\mathrm{av}}(p)=1+2p$ en $(0,\tfrac13]$ y $2-p$ en $[\tfrac13,\tfrac12)$. Si $p\sim\mathrm{Uniform}(0,\tfrac12)$, calcula la longitud media esperada $\mathbb{E}[L_{\mathrm{av}}]$.</p>
+  <p>(a) $\tfrac{17}{12}$<br>
+  (b) $\tfrac{5}{3}$<br>
+  (c) $\tfrac{17}{24}$<br>
+  (d) $\tfrac{3}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La densidad es $f(p)=2$ en $(0,\tfrac12)$. Separando en $p=\tfrac13$: $\int_0^{1/3}(1+2p)\,dp=\tfrac13+\tfrac19=\tfrac49$ y $\int_{1/3}^{1/2}(2-p)\,dp=\tfrac78-\tfrac{11}{18}=\tfrac{19}{72}$. Entonces $\mathbb{E}[L_{\mathrm{av}}]=2\left(\tfrac49+\tfrac{19}{72}\right)=2\cdot\tfrac{51}{72}=\tfrac{17}{12}\approx1.417$ bits. (Olvidar el factor $f=2$ da el erróneo $\tfrac{17}{24}$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.31.</span></p>
+  <p>Una fuente discreta sin memoria emite símbolos sobre $\mathcal{X}=\{a,b,c\}$ con distribución i.i.d. $\{0.4,0.3,0.3\}$. Calcule la entropía por símbolo $H(U)$ en bits.</p>
+  <p>(a) $\approx 1.5710$ bits<br>
+  (b) $\approx 1.0911$ bits<br>
+  (c) $\approx 1.5850$ bits<br>
+  (d) $\approx 0.4729$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Con logaritmos en base 2, $H(U)=-0.4\log_2 0.4-2(0.3)\log_2 0.3$. Con $\log_2 0.4\approx-1.32193$ y $\log_2 0.3\approx-1.73697$, se obtiene $0.4(1.32193)+0.6(1.73697)\approx 0.52877+1.04218\approx 1.5710$ bits. (El valor $1.0911$ correspondería a logaritmos naturales; $1.5850$ es el uniforme $\log_2 3$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.32.</span></p>
+  <p>Para el bloque $X=(U_1,\ldots,U_n)$ de una fuente sin memoria con entropía por símbolo $H(U)\approx 1.5710$ bits, calcule la entropía conjunta $H(X)$ para $n=5$.</p>
+  <p>(a) $\approx 7.8548$ bits<br>
+  (b) $\approx 1.5710$ bits<br>
+  (c) $\approx 6.2838$ bits<br>
+  (d) $\approx 9.4258$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La falta de memoria implica que los $U_i$ son i.i.d., de modo que la entropía conjunta es aditiva: $H(X)=\sum_{i=1}^{n}H(U_i)=nH(U)$. Para $n=5$, $H(X)=5\times 1.5710\approx 7.8548$ bits. (El valor $6.2838$ usa $n=4$, y $9.4258$ usa $n=6$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.33.</span></p>
+  <p>Un código de Huffman para $X$ tiene longitud media $L_{\rm av}$ que satisface $H(X)\le L_{\rm av}&lt;H(X)+1$. Defina $\eta=H(X)/L_{\rm av}$. ¿Qué cota inferior de $\eta$ se sigue de la cota superior de Shannon sobre $L_{\rm av}$?</p>
+  <p>(a) $\eta&gt;\dfrac{H(X)}{H(X)+1}$<br>
+  (b) $\eta&gt;\dfrac{H(X)+1}{H(X)}$<br>
+  (c) $\eta&gt;\dfrac{H(X)}{H(X)-1}$<br>
+  (d) $\eta&gt;H(X)+1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $\eta=H(X)/L_{\rm av}$ decrece cuando $L_{\rm av}$ crece, sustituir $L_{\rm av}$ por su cota superior $H(X)+1$ da una cota inferior de $\eta$: $\eta&gt;\dfrac{H(X)}{H(X)+1}$. (Usar $H(X)-1$ correspondería a una cota inferior de $L_{\rm av}$, no a la cota superior válida de Shannon.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.34.</span></p>
+  <p>Con $H(X)\approx 7.8548$ bits para $n=5$, evalúe la cota inferior $\eta&gt;H(X)/(H(X)+1)$.</p>
+  <p>(a) $\eta&gt;0.8871$<br>
+  (b) $\eta&gt;0.1129$<br>
+  (c) $\eta&gt;0.6112$<br>
+  (d) $\eta&gt;0.9802$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Sustituya $H(X)\approx 7.8548$: $\eta&gt;\dfrac{7.8548}{7.8548+1}=\dfrac{7.8548}{8.8548}\approx 0.8871$. La cota se aproxima a $1$ a medida que $n$ crece porque el sobrecoste $+1$ se amortiza sobre el bloque. (El valor $0.1129$ es el complementario $1/(H(X)+1)$, la razón equivocada.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.35.</span></p>
+  <p>Una fuente discreta sin memoria emite símbolos $U$ sobre $\{a,b,c,d\}$ con probabilidades $\{0.45,\,0.2,\,0.175,\,0.175\}$. Calcula la entropía por símbolo $H(U)$ en bits.</p>
+  <p>(a) $H(U) \approx 1.8629$ bits<br>
+  (b) $H(U) \approx 2.0000$ bits<br>
+  (c) $H(U) \approx 0.5608$ bits<br>
+  (d) $H(U) \approx 1.5610$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Usando logaritmos en base $2$: $-0.45\log_2 0.45 = 0.5184$, $-0.2\log_2 0.2 = 0.4644$, y cada $-0.175\log_2 0.175 = 0.4400$ (dos términos así dan $0.8801$). Sumando, $H(U) \approx 0.5184 + 0.4644 + 0.8801 = 1.8629$ bits. El valor $2$ es el máximo para $4$ símbolos; $0.5608$ resulta de usar logaritmos naturales, es decir, en base $e$, y $1.5610$ de omitir uno de los dos términos iguales.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.36.</span></p>
+  <p>Una fuente discreta sin memoria emite un bloque $X=(U_1,\ldots,U_n)$ de símbolos i.i.d., cada uno con entropía por símbolo $H(U)\approx 1.8629$ bits. Un código de Huffman para $X$ tiene longitud media $L_{\rm av}$, y el cociente $\eta=H(X)/L_{\rm av}$ está acotado inferiormente por $0.91788$. Usando $L_{\rm av}&lt;H(X)+1$ (es decir, $\eta&gt;\tfrac{H(X)}{H(X)+1}$), determina la longitud del bloque $n$.</p>
+  <p>(a) $n = 6$<br>
+  (b) $n = 5$<br>
+  (c) $n = 7$<br>
+  (d) $n = 12$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como la fuente es sin memoria, $H(X)=nH(U)$. Imponiendo $\tfrac{nH(U)}{nH(U)+1}=0.91788$ y escribiendo $y=nH(U)$ se obtiene $y=\tfrac{0.91788}{1-0.91788}=\tfrac{0.91788}{0.08212}\approx 11.177$ bits. Entonces $n=11.177/1.8629\approx 6.00$. Comprobación: $n=5$ da $0.9030$ y $n=7$ da $0.9288$, es decir, solo $n=6$ reproduce $0.91788$. ($n=12$ vendría de confundir $nH(U)$ con $n$.) Por tanto $n=6$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.37.</span></p>
+  <p>Una fuente $U$ sobre $\{a,b,c,d\}$ tiene distribución $\{0.4,\,0.25,\,0.2,\,0.15\}$. Considere un <em>algoritmo de Huffman relajado</em>: en cada paso, en lugar de fusionar siempre los dos nodos menos probables, fusiona dos nodos elegidos uniformemente al azar entre los tres nodos con probabilidades más pequeñas (cuando solo quedan tres nodos, los tres cuentan como más pequeños). ¿Cuál es la probabilidad de que el código binario libre de prefijos resultante tenga la misma longitud media que el código óptimo (Huffman ordinario)?</p>
+  <p>(a) $\tfrac19$<br>
+  (b) $\tfrac13$<br>
+  (c) $0$<br>
+  (d) $\tfrac29$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La longitud media es la suma de los pesos de los nodos fusionados (internos). El Huffman genuino fusiona $(0.15,0.2)\to0.35$, luego $(0.25,0.35)\to0.60$, luego $\to1$, dando $L^*=0.35+0.60+1=1.95$ bits. El algoritmo relajado tiene $\binom{3}{2}=3$ opciones en el paso 1, $\binom{3}{2}=3$ en el paso 2 y $1$ en el paso 3, es decir, $3\times3\times1=9$ caminos equiprobables. Comprobando todos los caminos, el valor $1.95$ aparece <strong>exactamente una vez</strong> (el camino de Huffman verdadero); cualquier otro camino viola la regla de fusionar los dos más pequeños y es estrictamente peor ($\ge2.00$). Por tanto la probabilidad es $\tfrac19$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.38.</span></p>
+  <p>Una fuente $U$ sobre $\{a,b,c,d\}$ tiene distribución $\left\{p,\ \tfrac{1-p}{3},\ \tfrac{1-p}{3},\ \tfrac{1-p}{3}\right\}$ con $p\in(0,1)$. Sea $q=\tfrac{1-p}{3}$. La estructura del código binario de Huffman óptimo cambia en un valor crítico de $p$. ¿En qué valor de $p$ ocurre el umbral estructural?</p>
+  <p>(a) $p=\tfrac{2}{5}$<br>
+  (b) $p=\tfrac{1}{4}$<br>
+  (c) $p=\tfrac{1}{3}$<br>
+  (d) $p=\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La primera fusión de Huffman siempre une dos $q$, dejando $\{p,q,2q\}$. El orden de fusión depende de comparar $p$ con $2q$. Resolviendo $p=2q=2\cdot\tfrac{1-p}{3}$ se obtiene $3p=2-2p$, $5p=2$, es decir $p=\tfrac{2}{5}$. El valor $p=\tfrac14$ (donde $p=q$) es engañoso: no cambia la estructura del código.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.39.</span></p>
+  <p>Para la fuente $\left\{p,\ \tfrac{1-p}{3},\ \tfrac{1-p}{3},\ \tfrac{1-p}{3}\right\}$, considera el régimen $0&lt;p\le\tfrac{2}{5}$. ¿Cuál es la longitud media de palabra código $L_{\rm av}(p)$ del código óptimo en este intervalo?</p>
+  <p>(a) $L_{\rm av}(p)=2$ bits (constante)<br>
+  (b) $L_{\rm av}(p)=\tfrac{8-5p}{3}$ bits<br>
+  (c) $L_{\rm av}(p)=1+p$ bits<br>
+  (d) $L_{\rm av}(p)=1.75$ bits (constante)</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Cuando $p\le 2q$, a partir de $\{p,q,2q\}$ los dos más pequeños son $p$ y $q$, así que se fusionan y luego se unen con $2q$. El árbol resultante es equilibrado: las cuatro hojas a profundidad $2$, distribución de longitudes $\{2,2,2,2\}$. Por tanto $L_{\rm av}=2(p+3q)=2\cdot 1=2$ bits, constante en $\left(0,\tfrac25\right]$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.40.</span></p>
+  <p>Para la fuente $\left\{p,\ \tfrac{1-p}{3},\ \tfrac{1-p}{3},\ \tfrac{1-p}{3}\right\}$ con $q=\tfrac{1-p}{3}$, considera el régimen $\tfrac{2}{5}&lt;p&lt;1$. Aquí el código óptimo es desequilibrado con distribución de longitudes $\{1,2,3,3\}$. ¿Cuál es $L_{\rm av}(p)$ en este intervalo?</p>
+  <p>(a) $L_{\rm av}(p)=\tfrac{8-5p}{3}$ bits<br>
+  (b) $L_{\rm av}(p)=\tfrac{8+5p}{3}$ bits<br>
+  (c) $L_{\rm av}(p)=p+8q=\tfrac{8-7p}{3}$ bits<br>
+  (d) $L_{\rm av}(p)=2$ bits (constante)</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Para $p&gt;2q$, las fusiones producen profundidades $1,2,3,3$, así que $L_{\rm av}=1\cdot p+2q+3q+3q=p+8q$. Sustituyendo $q=\tfrac{1-p}{3}$: $p+\tfrac{8(1-p)}{3}=\tfrac{3p+8-8p}{3}=\tfrac{8-5p}{3}$ bits, una recta de pendiente $-\tfrac53$. (Comprobación: en $p=\tfrac12$, $\tfrac{11}{6}\approx1.83$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 4.41.</span></p>
+  <p>La función es $L_{\rm av}(p)=2$ en $\left(0,\tfrac25\right]$ y $L_{\rm av}(p)=\tfrac{8-5p}{3}$ en $\left(\tfrac25,1\right)$. ¿Es $L_{\rm av}(p)$ continua en $(0,1)$?</p>
+  <p>(a) Sí, continua: ambas piezas valen $2$ en $p=\tfrac25$ (un codo pero ningún salto)<br>
+  (b) No, hay un salto de $\tfrac13$ en $p=\tfrac25$<br>
+  (c) No, es discontinua porque la pendiente cambia de $0$ a $-\tfrac53$<br>
+  (d) Sí, y además es diferenciable en todo $(0,1)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>En $p=\tfrac25$ la pieza constante da $2$ y la lineal da $\tfrac{8-5\cdot\frac25}{3}=\tfrac{6}{3}=2$. Los valores coinciden, así que $L_{\rm av}$ es continua. Hay un codo (la pendiente salta de $0$ a $-\tfrac53$), de modo que es continua pero no diferenciable en $p=\tfrac25$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

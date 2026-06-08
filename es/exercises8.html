@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -40,44 +40,539 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html" class="active">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Ejercicios: 8. Capacidad de canal</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+    <button id="expand-all" data-expand="Mostrar todas las soluciones" data-collapse="Ocultar todas las soluciones" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostrar todas las soluciones</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.1.</span></p>
+  <p>Un canal binario tiene entrada $X$ que toma valores en $\{0,1\}$ con igual probabilidad, salida $Y$ que toma valores en $\{0,\star,1\}$, y probabilidades condicionales $P_{Y|X}(y|x)=\tfrac13$ para todo $x$ e $y$. ¿Cuál es el valor de la entropía condicional $H(X|Y)$?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{3\log_2(3)-1}{3}$<br>
+  (c) $\tfrac{3\log_2(3)-2}{3}$<br>
+  (d) $0$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $H(Y|X)=H(Y)=\log_2(3)$, la información mutua del canal cumple $I(X;Y)=0$, lo que también implica que $H(X|Y)=H(X)=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.2.</span></p>
+  <p>Un código lineal binario genera $M$ palabras código utilizando la matriz</p>$$\boldsymbol{G} = \begin{pmatrix}1 & 0 & 1 & 0 & 1 & 0 & 1 \\ 0 & 1 & 0 & 1 & 0 & 1 & 0 \\ 1 & 1 & 0 & 0 & 1 & 1 & 0\end{pmatrix}.$$<p>Sea $V$ la variable aleatoria que selecciona un mensaje de manera uniforme del conjunto $\{1,\ldots,M\}$, y sea $\boldsymbol{X}$ la variable aleatoria que denota la palabra código seleccionada. ¿Cuál es la información mutua entre $\boldsymbol{X}$ y $V$?</p>
+  <p>(a) $0$<br>
+  (b) $\log_2(3)$<br>
+  (c) $7\log_2(3)$<br>
+  (d) $3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(d)</strong> &#9733;</p>
+    <p>Tras generar todas las palabras código posibles, observamos que existe una correspondencia biyectiva entre $V$ y $\boldsymbol{X}$. Por tanto, $H(V|\boldsymbol{X})=0$ y $H(V)=\log_2(M)$, lo que conduce a la respuesta correcta usando que $I(V;\boldsymbol{X}) = H(V)-H(V|\boldsymbol{X})$ y que $M=2^k=8$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.3.</span></p>
+  <p>Un canal discreto tiene entrada $X\in \{1,2,3,\ldots,n\}$ y salida dada por $Y=\lfloor \frac{X-1}{n}\rfloor$, donde la función suelo $\lfloor u \rfloor$ devuelve el mayor entero menor o igual que $u$. ¿Cuál es la capacidad de este canal?</p>
+  <p>(a) $0$<br>
+  (b) $\frac{1}{n}$<br>
+  (c) $n$<br>
+  (d) $1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La salida de este canal es siempre $0$ independientemente de la entrada, de modo que $H(Y)=0$, $H(Y|X)=0$ e $I(X;Y)=0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.4.</span></p>
+  <p>Queremos transmitir $A$ bits por uso del canal a través de un canal utilizando una entrada equiprobable que toma valores en un alfabeto de cardinalidad $B$. ¿Cuál es la condición sobre la entropía condicional $H(X|Y)$ que garantiza una comunicación fiable?</p>
+  <p>(a) $H(X|Y)&gt;A-\log_2(B)$<br>
+  (b) $H(X|Y)&lt; A-\log_2(B)$<br>
+  (c) $H(X|Y)&gt;\log_2(B)-A$<br>
+  (d) $H(X|Y)&lt; \log_2(B)-A$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(d)</strong> &#9733;</p>
+    <p>La comunicación fiable a una tasa $A$ es posible si $A&lt;I(X;Y)=H(X)-H(X|Y)$. Como $H(X)=\log_2(B)$, obtenemos el resultado.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.5.</span></p>
+  <p>Un canal binario simétrico con probabilidad de cruce $p$ tiene capacidad</p>
+  <p>(a) $1-h_2(p)$ bits por uso del canal<br>
+  (b) $h_2(p)$ bits por uso del canal<br>
+  (c) $1$ bit por uso del canal</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La capacidad del BSC es $C=\max_{P_X} I(X;Y)=1-h_2(p)$, alcanzada por la distribución de entrada uniforme.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.6.</span></p>
+  <p>Un canal binario sin ruido ($p=0$) tiene capacidad</p>
+  <p>(a) $1$ bit por uso del canal<br>
+  (b) $0$ bits por uso del canal<br>
+  (c) $\infty$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Con $p=0$, la capacidad del BSC es $1-h_2(0)=1-0=1$ bit por uso del canal.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.7.</span></p>
+  <p>Un canal binario completamente ruidoso ($p=\tfrac{1}{2}$) tiene capacidad</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac{1}{2}$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Con $p=\tfrac{1}{2}$, la salida es independiente de la entrada, de modo que $I(X;Y)=0$ para todas las distribuciones de entrada, y $C=0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.8.</span></p>
+  <p>La capacidad de un canal binario de borrado con probabilidad de borrado $\epsilon$ es</p>
+  <p>(a) $1-\epsilon$<br>
+  (b) $1-h_2(\epsilon)$<br>
+  (c) $\epsilon$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La capacidad del BEC es $C=1-\epsilon$, alcanzada por la entrada uniforme.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.9.</span> La comunicación fiable a velocidad $R$ es posible si y solo si</p>
+  <p>(a) $R&lt;C$<br>
+  (b) $R&gt;C$<br>
+  (c) $R=C$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El teorema de codificación de canal de Shannon establece que la comunicación fiable es posible si $R&lt;C$ y no es posible si $R&gt;C$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.10.</span> La información mutua $I(X;Y)$ de un canal se maximiza sobre</p>
+  <p>(a) La distribución de entrada $P_X$<br>
+  (b) La distribución condicional $P_{Y|X}$<br>
+  (c) La distribución de salida $P_Y$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La capacidad del canal es $C=\max_{P_X} I(X;Y)$. El canal $P_{Y|X}$ es fijo; optimizamos sobre la entrada $P_X$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.11.</span> Un canal tiene entrada $X\in\{0,1\}$ y salida $Y=X$. ¿Cuál es la capacidad?</p>
+  <p>(a) $1$ bit<br>
+  (b) $0$ bits<br>
+  (c) $2$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $Y=X$, $H(Y|X)=0$ e $I(X;Y)=H(Y)$, que se maximiza en $H(Y)=1$ cuando $X$ es uniforme. Por tanto $C=1$ bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.12.</span> Para un canal con capacidad $C=0.5$ bits por uso, ¿cuál es la velocidad máxima para una comunicación fiable?</p>
+  <p>(a) Cualquier velocidad $R&lt;0.5$<br>
+  (b) $R=0.5$ exactamente<br>
+  (c) $R=1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El teorema de Shannon garantiza una comunicación fiable para cualquier $R&lt;C=0.5$ bits por uso.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.13.</span> Si $X$ e $Y$ son independientes, la información mutua $I(X;Y)$ es igual a</p>
+  <p>(a) $0$<br>
+  (b) $H(X)$<br>
+  (c) $H(Y)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La independencia implica $P_{XY}=P_X P_Y$, de modo que $I(X;Y)=H(X)-H(X|Y)=H(X)-H(X)=0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.14.</span></p>
+  <p>Un <em>canal binario simétrico</em> (BSC) invierte cada bit transmitido de forma independiente con probabilidad de error $p=\frac{1}{20}=0.05$. Utilizando $C=1-h_2(p)$ con $h_2(p)=-p\log_2 p-(1-p)\log_2(1-p)$, calcula la capacidad del canal $C$ en bits por uso del canal.</p>
+  <p>(a) $C\approx 0.7136$ bits<br>
+  (b) $C\approx 0.2864$ bits<br>
+  (c) $C\approx 0.9500$ bits<br>
+  (d) $C\approx 0.0500$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Evalúa la entropía binaria: $h_2(0.05)=-0.05\log_2(0.05)-0.95\log_2(0.95)\approx 0.2161+0.0703=0.2864$ bits. La capacidad es entonces $C=1-h_2(0.05)\approx 1-0.2864=0.7136$ bits por uso del canal. Olvidar el $1-(\cdot)$ da el distractor $0.2864$; es decir, usar $1-p$ da $0.95$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.15.</span></p>
+  <p>Un BSC con probabilidad de error $p=0.05$ tiene capacidad $C\approx 0.7136$ bits por uso del canal. ¿Es posible la comunicación fiable de mensajes binarios arbitrariamente largos a una tasa $R=\frac12$ bits por uso del canal?</p>
+  <p>(a) Sí, porque $R=0.5&lt;C\approx0.7136$, de modo que por el teorema de codificación de Shannon la probabilidad de error puede hacerse arbitrariamente pequeña<br>
+  (b) No, porque $R=0.5&gt;C$ y por tanto la probabilidad de error permanece alejada de $0$<br>
+  (c) No, porque $R=0.5&lt;C$ significa que el canal es demasiado ruidoso para usarse<br>
+  (d) Sí, pero solo porque $p&lt;0.5$, independientemente del valor de $C$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Compara tasa y capacidad: $R=0.5&lt;0.7136\approx C$, es decir, $R&lt;C$. El teorema de codificación de canal de Shannon (alcanzabilidad) garantiza una familia de códigos de bloque de tasa $\tfrac12$ cuya probabilidad media de error tiende a $0$ al crecer la longitud de bloque. Por tanto, la comunicación fiable es posible.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.16.</span></p>
+  <p>Considera un <em>canal binario simétrico</em> (BSC) con probabilidad de cruce $p$, alimentado por una entrada $X\in\{0,1\}$ con $\mathbb{P}[X=1]=q$. El canal cumple $\mathbb{P}[Y=1\mid X=0]=\mathbb{P}[Y=0\mid X=1]=p$. ¿Cuál es la probabilidad de salida $\mathbb{P}[Y=1]$?</p>
+  <p>(a) $p+q-2pq$<br>
+  (b) $pq$<br>
+  (c) $p+q$<br>
+  (d) $q(1-p)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por la ley de la probabilidad total, $\mathbb{P}[Y=1]=\mathbb{P}[X=0]\,p+\mathbb{P}[X=1]\,(1-p)=(1-q)p+q(1-p)$. Desarrollando: $p-pq+q-pq=p+q-2pq$. Es decir, $\mathbb{P}[Y=1]=p+q-2pq$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.17.</span></p>
+  <p>Para un BSC con probabilidad de cruce $p$ y entrada $X\in\{0,1\}$ con $\mathbb{P}[X=1]=q$, ¿cuál es la entropía condicional $H(Y\mid X)$ (en bits), donde $h_2(x)=-x\log_2 x-(1-x)\log_2(1-x)$?</p>
+  <p>(a) $h_2(p)$<br>
+  (b) $h_2(p+q-2pq)$<br>
+  (c) $q\,h_2(p)$<br>
+  (d) $h_2(p)+h_2(q)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Dado $X=0$, $Y$ es Bernoulli$(p)$; dado $X=1$, $Y$ es Bernoulli$(1-p)$. Como $h_2(p)=h_2(1-p)$, ambas entropías condicionales valen $h_2(p)$. Promediando, $H(Y\mid X)=(1-q)h_2(p)+q\,h_2(p)=h_2(p)$, es decir, independiente de $q$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.18.</span></p>
+  <p>Para un BSC con probabilidad de cruce $p$ y entrada $\mathbb{P}[X=1]=q$, la salida es Bernoulli$(p+q-2pq)$ y $H(Y\mid X)=h_2(p)$. Usando $I(X;Y)=H(Y)-H(Y\mid X)$, ¿cuál es la información mutua $I(X;Y)$ (en bits)?</p>
+  <p>(a) $h_2(p+q-2pq)-h_2(p)$<br>
+  (b) $h_2(p)-h_2(p+q-2pq)$<br>
+  (c) $h_2(p+q-2pq)-h_2(q)$<br>
+  (d) $1-h_2(p)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $Y$ es Bernoulli$(p+q-2pq)$, $H(Y)=h_2(p+q-2pq)$. Restando la entropía de ruido, $I(X;Y)=H(Y)-H(Y\mid X)=h_2(p+q-2pq)-h_2(p)$. La última opción $1-h_2(p)$ es la capacidad, alcanzada solo en $q=\tfrac12$, es decir, no la $I(X;Y)$ general.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.19.</span></p>
+  <p>Para un BSC con probabilidad de cruce $p\neq\tfrac12$, la información mutua es $I(X;Y)=h_2(p+q-2pq)-h_2(p)$. ¿Qué distribución de entrada $q=\mathbb{P}[X=1]$ maximiza $I(X;Y)$, y qué capacidad resulta?</p>
+  <p>(a) $q=\tfrac12$, dando $C=1-h_2(p)$<br>
+  (b) $q=p$, dando $C=1-h_2(p)$<br>
+  (c) $q=\tfrac12$, dando $C=h_2(p)$<br>
+  (d) $q=0$, dando $C=1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Solo el primer término depende de $q$ a través de $r=p+q-2pq$. Como $h_2$ se maximiza (valor $1$ bit) en el argumento $\tfrac12$, ponemos $p+q-2pq=\tfrac12$; esto da $q=\tfrac12$ para cualquier $p$. Entonces $H(Y)=h_2(\tfrac12)=1$, es decir, $C=1-h_2(p)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.20.</span></p>
+  <p>Sea $X \in \{-1, 1\}$ con $\mathbb{P}[X = 1] = p$, y definamos $Y = X^a$ para un entero positivo fijo $a$. Supongamos que $a$ es impar. ¿Cuál es la información mutua $I(X;Y)$?</p>
+  <p>(a) $I(X;Y) = h_2(p) = -p\log_2 p - (1-p)\log_2(1-p)$ bits<br>
+  (b) $I(X;Y) = 0$ bits<br>
+  (c) $I(X;Y) = a\, h_2(p)$ bits<br>
+  (d) $I(X;Y) = 1$ bit</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $Y = X^a$ es una función determinista de $X$, $H(Y\mid X) = 0$, así que $I(X;Y) = H(Y)$. Para $a$ impar, $(-1)^a = -1$ y $1^a = 1$, de modo que $Y = X$ y $Y$ tiene la misma distribución que $X$. Por tanto $I(X;Y) = H(Y) = h_2(p) = -p\log_2 p - (1-p)\log_2(1-p)$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.21.</span></p>
+  <p>Sea $X \in \{-1, 1\}$ con $\mathbb{P}[X = 1] = p$, y definamos $Y = X^a$ para un entero positivo fijo $a$. Supongamos que $a$ es par. ¿Cuál es la información mutua $I(X;Y)$?</p>
+  <p>(a) $I(X;Y) = 0$ bits<br>
+  (b) $I(X;Y) = h_2(p) = -p\log_2 p - (1-p)\log_2(1-p)$ bits<br>
+  (c) $I(X;Y) = 1$ bit<br>
+  (d) $I(X;Y) = h_2(p^2)$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $Y = X^a$ es determinista dado $X$, $I(X;Y) = H(Y)$. Para $a$ par, tanto $(-1)^a = +1$ como $1^a = 1$, de modo que $Y = 1$ con probabilidad $1$ independientemente de $X$. Una variable aleatoria constante tiene entropía cero, así que $H(Y) = 0$ y $I(X;Y) = 0$ bits: la elevación al cuadrado colapsa ambas entradas a la misma salida y no revela nada sobre $X$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.22.</span></p>
+  <p>Un <em>canal Z</em> tiene entrada binaria $X\in\{0,1\}$ con distribución a priori $P_X(0)=\tfrac{2}{3}$, $P_X(1)=\tfrac{1}{3}$, y salida binaria $Y\in\{0,1\}$. Las probabilidades de transición son $P_{Y|X}(0\mid 0)=1$, $P_{Y|X}(1\mid 0)=0$, $P_{Y|X}(0\mid 1)=p$, $P_{Y|X}(1\mid 1)=1-p$, con $p\in(0,1)$. Usando $h_2(q)=-q\log_2 q-(1-q)\log_2(1-q)$, calcula la información mutua $I(X;Y)$ (en bits).</p>
+  <p>(a) $I(X;Y)=h_2\!\left(\frac{2+p}{3}\right)-\frac{1}{3}\,h_2(p)$<br>
+  (b) $I(X;Y)=h_2\!\left(\frac{2+p}{3}\right)-h_2(p)$<br>
+  (c) $I(X;Y)=h_2\!\left(\frac{1-p}{3}\right)-\frac{1}{3}\,h_2(p)$<br>
+  (d) $I(X;Y)=h_2\!\left(\frac{2+p}{3}\right)+\frac{1}{3}\,h_2(p)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Usa $I(X;Y)=H(Y)-H(Y\mid X)$. La marginal de salida es $P_Y(0)=\tfrac{2}{3}+\tfrac{1}{3}p=\tfrac{2+p}{3}$, es decir, $H(Y)=h_2\!\big(\tfrac{2+p}{3}\big)$. Para la entropía condicional, $X=0$ da una salida determinista ($H(Y\mid X=0)=0$) y $X=1$ da $h_2(p)$, por lo que $H(Y\mid X)=\tfrac{2}{3}\cdot 0+\tfrac{1}{3}h_2(p)=\tfrac{1}{3}h_2(p)$. Restando, $I(X;Y)=h_2\!\big(\tfrac{2+p}{3}\big)-\tfrac{1}{3}h_2(p)$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.23.</span></p>
+  <p>Dos canales binarios simétricos (BSC), cada uno con la misma probabilidad de cruce $p \in (0,\tfrac12)$, se conectan <em>en serie</em>: la salida del primero es la entrada del segundo, y los dos canales invierten de manera independiente. ¿Cuál es la capacidad (en bits por uso del canal) de la cascada resultante?</p>
+  <p>(a) $C = 1 - h_2\bigl(2p(1-p)\bigr)$<br>
+  (b) $C = 1 - h_2(p)$<br>
+  (c) $C = 1 - h_2(p^2)$<br>
+  (d) $C = 1 - 2h_2(p)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El bit de extremo a extremo es incorrecto si y solo si exactamente un canal invierte, es decir, la probabilidad de cruce efectiva es $q = p(1-p)+(1-p)p = 2p(1-p)$; la cascada es de nuevo un BSC. Aplicando la fórmula de capacidad del BSC $C = 1 - h_2(\varepsilon)$ con $\varepsilon = q$ se obtiene $C = 1 - h_2\bigl(2p(1-p)\bigr)$. Obsérvese que $q &gt; p$, por lo que la cascada es más ruidosa que un solo BSC, de acuerdo con la desigualdad de procesamiento de datos.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.24.</span></p>
+  <p>Un <em>canal binario asimétrico</em> (BAC) tiene entrada $X\in\{0,1\}$ con $P_X(0)=q$, $P_X(1)=1-q$, y probabilidades de transición $P_{Y|X}(0\mid 0)=1-p$, $P_{Y|X}(1\mid 0)=p$, $P_{Y|X}(1\mid 1)=1-2p$, $P_{Y|X}(0\mid 1)=2p$, con $0\le p\le\tfrac12$. Usando logaritmos en base 2 y la entropía binaria $h_2(x)=-x\log_2 x-(1-x)\log_2(1-x)$, ¿cuál es la entropía de salida $H(Y)$ como función de $p$ y $q$?</p>
+  <p>(a) $H(Y)=h_2\bigl(q(1-p)+(1-q)\,2p\bigr)$<br>
+  (b) $H(Y)=h_2\bigl(qp+(1-q)(1-2p)\bigr)$<br>
+  (c) $H(Y)=q\,h_2(1-p)+(1-q)\,h_2(2p)$<br>
+  (d) $H(Y)=h_2(q)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Marginaliza $Y$ por probabilidad total: $P_Y(0)=P_X(0)P_{Y|X}(0\mid 0)+P_X(1)P_{Y|X}(0\mid 1)=q(1-p)+(1-q)2p\equiv\alpha$, y $P_Y(1)=1-\alpha$. Como $Y$ es binaria, $H(Y)=h_2(\alpha)=h_2\bigl(q(1-p)+(1-q)2p\bigr)$. La opción 2 confunde los términos del canal; la opción 3 promedia entropías binarias (es decir, eso da $H(Y\mid X)$, no $H(Y)$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.25.</span></p>
+  <p>Para el BAC con $P_X(0)=q$, $P_X(1)=1-q$ y transiciones $P_{Y|X}(1\mid 0)=p$, $P_{Y|X}(0\mid 1)=2p$ (con $0\le p\le\tfrac12$), calcule la entropía condicional $H(Y\mid X)$ en bits, donde $h_2(\cdot)$ es la función de entropía binaria.</p>
+  <p>(a) $H(Y\mid X)=q\,h_2(p)+(1-q)\,h_2(2p)$<br>
+  (b) $H(Y\mid X)=h_2(p)+h_2(2p)$<br>
+  (c) $H(Y\mid X)=q\,h_2(2p)+(1-q)\,h_2(p)$<br>
+  (d) $H(Y\mid X)=h_2\bigl(qp+(1-q)2p\bigr)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por definición $H(Y\mid X)=\sum_x P_X(x)H(Y\mid X=x)$. Dado $X=0$ la salida se invierte con probabilidad $p$, así $H(Y\mid X=0)=h_2(p)$; dado $X=1$ se invierte con probabilidad $2p$, así $H(Y\mid X=1)=h_2(2p)$. Promediando con pesos $q$ y $1-q$ se obtiene $H(Y\mid X)=q\,h_2(p)+(1-q)\,h_2(2p)$. La opción 2 olvida los pesos; la opción 3 los intercambia.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.26.</span></p>
+  <p>Para el mismo BAC ($P_X(0)=q$, $P_X(1)=1-q$; probabilidad de inversión $p$ para la entrada $0$ y $2p$ para la entrada $1$, $0\le p\le\tfrac12$), habiendo hallado $H(Y)=h_2\bigl(q(1-p)+(1-q)2p\bigr)$ y $H(Y\mid X)=q\,h_2(p)+(1-q)\,h_2(2p)$, ¿cuál es la información mutua $I(X;Y)$ en bits?</p>
+  <p>(a) $I(X;Y)=h_2\bigl(q(1-p)+(1-q)2p\bigr)-q\,h_2(p)-(1-q)\,h_2(2p)$<br>
+  (b) $I(X;Y)=h_2\bigl(q(1-p)+(1-q)2p\bigr)+q\,h_2(p)+(1-q)\,h_2(2p)$<br>
+  (c) $I(X;Y)=q\,h_2(p)+(1-q)\,h_2(2p)-h_2\bigl(q(1-p)+(1-q)2p\bigr)$<br>
+  (d) $I(X;Y)=h_2(q)-q\,h_2(p)-(1-q)\,h_2(2p)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Use $I(X;Y)=H(Y)-H(Y\mid X)$ y sustituya los apartados (a) y (b): $I(X;Y)=h_2\bigl(q(1-p)+(1-q)2p\bigr)-q\,h_2(p)-(1-q)\,h_2(2p)$. La opción 2 suma en vez de restar $H(Y\mid X)$; la opción 3 tiene el signo invertido; la opción 4 usa erróneamente $H(X)=h_2(q)$ en lugar de $H(Y)$ (es decir, solo coinciden en el caso sin ruido $p=0$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.27.</span></p>
+  <p>Un <em>canal de borrado binario</em> (BEC) tiene entrada equiprobable $X\in\{0,1\}$, es decir $\mathbb{P}(X=0)=\mathbb{P}(X=1)=\tfrac12$. Calcula la entropía de la fuente $H(X)$ en bits.</p>
+  <p>(a) $1$ bit<br>
+  (b) $\tfrac12$ bit<br>
+  (c) $2$ bits<br>
+  (d) $0$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La entrada es uniforme sobre $\{0,1\}$, de modo que $H(X)=-\tfrac12\log_2\tfrac12-\tfrac12\log_2\tfrac12=h_2(\tfrac12)=1$ bit. Una fuente binaria uniforme alcanza la entropía máxima de un bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.28.</span></p>
+  <p>Un BEC tiene entrada equiprobable $X\in\{0,1\}$ y salida $Y\in\{0,\star,1\}$ con $P_{Y|X}(0\mid 0)=P_{Y|X}(1\mid 1)=1-p$ y $P_{Y|X}(\star\mid 0)=P_{Y|X}(\star\mid 1)=p$, donde $h_2(\cdot)$ es la función de entropía binaria. Calcula la entropía de salida $H(Y)$ en bits.</p>
+  <p>(a) $h_2(p)+(1-p)$<br>
+  (b) $h_2(p)$<br>
+  (c) $1+h_2(p)$<br>
+  (d) $h_2(p)+p$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Marginalizando: $P_Y(0)=P_Y(1)=\tfrac{1-p}{2}$ y $P_Y(\star)=p$. Entonces $H(Y)=-(1-p)\log_2\tfrac{1-p}{2}-p\log_2 p$. Usando $\log_2\tfrac{1-p}{2}=\log_2(1-p)-1$ se obtiene $H(Y)=h_2(p)+(1-p)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.29.</span></p>
+  <p>Un BEC tiene entrada equiprobable $X\in\{0,1\}$ y salida $Y\in\{0,\star,1\}$ con $P_{Y|X}(\star\mid 0)=P_{Y|X}(\star\mid 1)=p$ (borrado) y la entrada transmitida correctamente en otro caso. Con $h_2(\cdot)$ la función de entropía binaria, calcula la entropía condicional $H(Y\mid X)$ en bits.</p>
+  <p>(a) $h_2(p)$<br>
+  (b) $h_2(p)+(1-p)$<br>
+  (c) $p$<br>
+  (d) $1-p$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Dado $X=0$, $Y$ es $0$ con probabilidad $1-p$ y $\star$ con probabilidad $p$, de modo que $H(Y\mid X=0)=h_2(p)$; por simetría $H(Y\mid X=1)=h_2(p)$. Promediando sobre las entradas equiprobables, $H(Y\mid X)=\tfrac12 h_2(p)+\tfrac12 h_2(p)=h_2(p)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.30.</span></p>
+  <p>Un BEC tiene entrada equiprobable $X\in\{0,1\}$ y probabilidad de borrado $p$, de modo que $H(X)=1$ bit y (como se ha derivado) $I(X;Y)=1-p$ bits. Calcula la incertidumbre residual $H(X\mid Y)$ en bits.</p>
+  <p>(a) $p$<br>
+  (b) $1-p$<br>
+  (c) $h_2(p)$<br>
+  (d) $h_2(p)+p$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por la simetría de la información mutua, $H(X\mid Y)=H(X)-I(X;Y)=1-(1-p)=p$. Intuitivamente, cuando $Y\in\{0,1\}$ (probabilidad $1-p$) la entrada se conoce exactamente (incertidumbre 0), y cuando $Y=\star$ (probabilidad $p$) la entrada sigue siendo uniforme (1 bit), dando $H(X\mid Y)=p\cdot 1=p$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.31.</span></p>
+  <p>Un BEC tiene entrada equiprobable $X\in\{0,1\}$, probabilidad de borrado $p$, con $H(Y)=h_2(p)+(1-p)$ y $H(Y\mid X)=h_2(p)$. Calcula la información mutua $I(X;Y)$ en bits.</p>
+  <p>(a) $1-p$<br>
+  (b) $p$<br>
+  (c) $1-h_2(p)$<br>
+  (d) $h_2(p)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por definición $I(X;Y)=H(Y)-H(Y\mid X)=[h_2(p)+(1-p)]-h_2(p)=1-p$ bits. Este es el valor que alcanza la capacidad del BEC: con entrada uniforme el canal transmite $1-p$ bits por uso, la fracción de símbolos no borrados.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.32.</span></p>
+  <p>Un BEC tiene capacidad $C=1-p$, donde $p$ es la probabilidad de borrado. ¿Para qué rango de $p$ es posible la comunicación fiable a tasa $R=\tfrac34$?</p>
+  <p>(a) $p\in\left[0,\tfrac14\right)$<br>
+  (b) $p\in\left[0,\tfrac34\right)$<br>
+  (c) $p\in\left(\tfrac14,1\right]$<br>
+  (d) $p\in\left[0,\tfrac12\right)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por el teorema de codificación de canal de Shannon, la comunicación fiable es alcanzable si y solo si $R&lt;C$. Con $C=1-p$, se necesita $\tfrac34&lt;1-p$, es decir $p&lt;1-\tfrac34=\tfrac14$. Como $p\ge 0$, el rango admisible es $p\in\left[0,\tfrac14\right)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.33.</span></p>
+  <p>Considere un canal discreto arbitrario con entrada $X\in\mathcal{X}$ y salida $Y\in\mathcal{Y}$ (entropías en bits). ¿Cuál única de las siguientes desigualdades se cumple para <em>todo</em> canal de este tipo y <em>toda</em> distribución de entrada?</p>
+  <p>(a) $I(X;Y)\leq\log_2|\mathcal{X}|$<br>
+  (b) $H(X,Y)&lt;H(X)$<br>
+  (c) $H(Y\mid X)&gt;H(X)$<br>
+  (d) $I(X;Y)\geq\log_2|\mathcal{X}|$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>De $I(X;Y)=H(X)-H(X\mid Y)$ y $H(X\mid Y)\geq 0$ obtenemos $I(X;Y)\leq H(X)$, y como la distribución uniforme maximiza la entropía, $H(X)\leq\log_2|\mathcal{X}|$; encadenando, $I(X;Y)\leq\log_2|\mathcal{X}|$, siempre verdadero. La regla de la cadena $H(X,Y)=H(X)+H(Y\mid X)\geq H(X)$ muestra que $H(X,Y)&lt;H(X)$ es imposible (dirección equivocada). Y $H(Y\mid X)&gt;H(X)$ falla con un canal sin ruido $Y=X$, donde $H(Y\mid X)=0&lt;H(X)$. La cota invertida $I(X;Y)\geq\log_2|\mathcal{X}|$ también falla (es decir, un canal inútil da $I=0$). <strong>Correcta: $I(X;Y)\leq\log_2|\mathcal{X}|$.</strong></p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.34.</span></p>
+  <p>Considere el canal binario <em>asimétrico</em> con inversión de bits, con $\mathbb{P}(Y=1\mid X=0)=2p$ y $\mathbb{P}(Y=0\mid X=1)=p$, y fije $p=\tfrac{1}{10}$. Sea $q=\mathbb{P}(X=1)$. Usando $I(q)=h_2(0.2+0.7q)-q\,h_2(0.1)-(1-q)\,h_2(0.2)$ con $h_2(0.1)=0.468996$ y $h_2(0.2)=0.721928$, ¿cuál es la capacidad del canal $C=\max_q I(q)$ (en bits por uso del canal)?</p>
+  <p>(a) $C\approx 0.397754$ bits/uso<br>
+  (b) $C\approx 0.531004$ bits/uso<br>
+  (c) $C\approx 0.278072$ bits/uso<br>
+  (d) $C\approx 0.595268$ bits/uso</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Escriba $I(X;Y)=H(Y)-H(Y\mid X)$. La masa de salida es $\mathbb{P}(Y=1)=q(1-p)+(1-q)2p=0.2+0.7q$, de modo que $H(Y)=h_2(0.2+0.7q)$, mientras que $H(Y\mid X)=q\,h_2(0.1)+(1-q)\,h_2(0.2)$. Maximizando la $I(q)$ cóncava numéricamente se obtiene la masa de salida óptima $a^\star=0.562289$, $q^\star=0.517555$, y $C=I(q^\star)\approx 0.397754$ bits/uso.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.35.</span></p>
+  <p>Para el mismo canal asimétrico ($p=\tfrac{1}{10}$, $\mathbb{P}(Y=1\mid X=0)=2p$, $\mathbb{P}(Y=0\mid X=1)=p$), ¿cuál es la distribución de entrada que alcanza la capacidad $q^\star=\mathbb{P}(X=1)$?</p>
+  <p>(a) $q^\star\approx 0.5176$ (favoreciendo ligeramente $X=1$)<br>
+  (b) $q^\star=0.5$ exactamente (entrada uniforme)<br>
+  (c) $q^\star\approx 0.4824$ (favoreciendo ligeramente $X=0$)<br>
+  (d) $q^\star\approx 0.5623$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Imponiendo $dI/dq=0$ se obtiene $\tfrac{1-a}{a}=2^{(h_2(p)-h_2(2p))/0.7}$ con $a=0.2+0.7q$, dando la masa de salida óptima $a^\star=0.562289$ y por tanto $q^\star=(a^\star-0.2)/0.7\approx 0.517555$. El óptimo es solo ligeramente asimétrico, favoreciendo ligeramente el símbolo más limpio $X=1$ (probabilidad de inversión $p$ en lugar de $2p$). Note que $0.5623$ es la masa de salida $a^\star$, no $q^\star$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.36.</span></p>
+  <p>El canal asimétrico anterior tiene capacidad $C\approx 0.3978$ bits/uso. Compárela con un BSC de cruce $p=\tfrac{1}{10}$ (capacidad $1-h_2(0.1)$) y un BSC de cruce $2p=\tfrac{2}{10}$ (capacidad $1-h_2(0.2)$), donde $h_2(0.1)=0.468996$ y $h_2(0.2)=0.721928$. ¿Qué ordenación es correcta?</p>
+  <p>(a) $C_{\mathrm{BSC}}(0.2)\approx 0.278 &lt; C\approx 0.398 &lt; C_{\mathrm{BSC}}(0.1)\approx 0.531$<br>
+  (b) $C\approx 0.398 &lt; C_{\mathrm{BSC}}(0.2)\approx 0.278 &lt; C_{\mathrm{BSC}}(0.1)\approx 0.531$<br>
+  (c) $C_{\mathrm{BSC}}(0.1)\approx 0.531 &lt; C\approx 0.398 &lt; C_{\mathrm{BSC}}(0.2)\approx 0.278$<br>
+  (d) $C\approx 0.398 &gt; C_{\mathrm{BSC}}(0.1)\approx 0.531$ (el asimétrico supera ambos BSC)</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Un BSC de cruce $\varepsilon$ tiene capacidad $1-h_2(\varepsilon)$: $C_{\mathrm{BSC}}(0.1)=1-0.468996=0.531004$ y $C_{\mathrm{BSC}}(0.2)=1-0.721928=0.278072$. El canal asimétrico es más ruidoso que el BSC$(0.1)$ en la rama $X=0$ (inversión $2p$) pero más limpio que el BSC$(0.2)$ en la rama $X=1$ (inversión $p$), de modo que se sitúa entre ambos: $0.278072 &lt; 0.397754 &lt; 0.531004$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.37.</span></p>
+  <p>Un canal binario tiene distribución conjunta $P_{XY}(0,0)=\frac13$, $P_{XY}(1,0)=\frac16$, $P_{XY}(1,1)=\frac12$, $P_{XY}(0,1)=0$. Calcula la información mutua $I(X;Y)$ para esta distribución de entrada.</p>
+  <p>(a) $\approx 0.459$ bits<br>
+  (b) $\approx 0.811$ bits<br>
+  (c) $\approx 0.541$ bits<br>
+  (d) $1$ bit</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Las marginales son $P_X(0)=\frac13$, $P_Y(0)=P_Y(1)=\frac12$, así que $H(Y)=h_2(\frac12)=1$ bit. El canal es un canal Z: dado $X=0$, $Y=0$ de forma determinista ($H=0$); dado $X=1$, $Y$ es Bernoulli$(\frac14)$ y $H(Y\mid X=1)=h_2(\frac14)\approx0.811$. Por tanto $H(Y\mid X)=\frac23 h_2(\frac14)\approx0.541$, y $I(X;Y)=1-0.541\approx \mathbf{0.459}$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.38.</span></p>
+  <p>Para el mismo canal, la ley de transición es fija: $P_{Y|X}(0|0)=1$ y $P_{Y|X}(0|1)=\frac14$ (un canal Z). Con entrada $P_X(0)=q$, la información mutua es $I(q)=h_2(\frac14+\frac34 q)-(1-q)\,h_2(\frac14)$. ¿Qué valor de $q$ maximiza $I(q)$?</p>
+  <p>(a) $q^\star\approx 0.572$<br>
+  (b) $q^\star=\frac13\approx 0.333$<br>
+  (c) $q^\star=\frac12$<br>
+  (d) $q^\star\approx 0.679$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Derivando con $\frac{d}{dp}h_2(p)=\log_2\frac{1-p}{p}$ con $p=\frac14+\frac34 q$ y factor $\frac34$ de la regla de la cadena: $I'(q)=\frac34\log_2\frac{1-p}{p}+h_2(\frac14)=0$, dando el sesgo óptimo de salida $p^\star\approx0.679$. Sustituyendo hacia atrás $q=\frac{p-1/4}{3/4}$ resulta $q^\star\approx \mathbf{0.572}$. Nótese que $0.679$ es el sesgo de salida $p^\star$, no $q$; $\frac13$ es la entrada (subóptima) del apartado (a).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 8.39.</span></p>
+  <p>Para este canal Z con probabilidad de cruce $\frac14$ (es decir, $P_{Y|X}(0|0)=1$, $P_{Y|X}(0|1)=\frac14$), la información mutua se maximiza en $P_X(0)=q^\star\approx0.572$. ¿Cuál es la capacidad del canal (en bits por uso del canal)?</p>
+  <p>(a) $C\approx 0.558$ bits<br>
+  (b) $C\approx 0.459$ bits<br>
+  (c) $C\approx 0.679$ bits<br>
+  (d) $C=1$ bit</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La capacidad es $I$ evaluada en la entrada óptima: $C=h_2(0.679)-(1-0.572)\,h_2(\frac14)\approx \mathbf{0.558}$ bits por uso del canal. La forma cerrada del canal Z $C=\log_2(1+(1-p)\,p^{p/(1-p)})$ con $p=\frac14$ lo confirma. Nótese que $C\approx0.558&gt;0.459$, el valor en la entrada subóptima del apartado (a), ya que la capacidad maximiza $I$ sobre todas las entradas.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

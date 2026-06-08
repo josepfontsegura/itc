@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -38,48 +38,253 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html" class="active">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Tema 5. Límites fundamentales en compresión de fuente <a class="pdf-link" href="../pdf/ITC-2026-Lecture5-es.pdf">pdf</a></h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+
+<h2>Introducción</h2>
+
+<p>
+Hasta ahora, hemos visto que los códigos Huffman son los códigos óptimos para cualquier fuente discreta y que la longitud media $L_{\rm av}$ de este código está “cerca” de la entropía de la fuente. En otras palabras, el código óptimo para una fuente $U$ que toma valores en $\{1,\ldots, r\}$ con distribución de probabilidad $\{p_1,\ldots,p_r\}$ satisface
+$$
+	H(U) \leq L_{\rm av} &lt; H(U) + 1, \tag{5.1}$$
+donde $L_{\rm av}=\smash{\sum_{j=1}^r \ell_j p_j}$ es la longitud media del código y $H(U)=\smash{-\sum_{j=1}^r p_j \log_2 p_j}$ es la entropía de la fuente. En el tema anterior, encontramos que el rendimiento del código óptimo aumentaba comprimiendo varios símbolos a la vez. Es decir, podemos diseñar nuestro código Huffman para bloques de $n$ símbolos $X=(U_1,\ldots,U_n)$ y obtener un código cuya longitud media satisfaga
+$$
+	H(X) \leq L_{\rm av} &lt; H(X) + 1.
+	\tag{5.2}
+$$
+Calcular la entropía $H(X)$ puede ser complicado, ya que la cardinalidad del alfabeto de $X$ crece exponencialmente con $n$. Es decir, el número de posibles secuencias fuente de longitud $n$, dado por $n$ veces el producto cartesiano del alfabeto, es $r^n$. Sin embargo, si la fuente no tiene memoria, el cálculo de $H(X)$ se simplifica bastante.
+</p>
+
+<h2>Entropía de una fuente discreta sin memoria</h2>
+
+<p>
+Consideremos una fuente descrita por la secuencia de variables aleatorias $X=(U_1,\ldots,U_n)$ tomando valores en
+$$
+{\cal X} = {\cal U}^n
+ = 	\underbrace{{\cal U}\times \cdots \times {\cal U}}_{n\text{ veces}} \tag{5.3}$$
+con distribución conjunta $P_X(x)=P_{U_1\cdots U_n}(u_1,\ldots,u_n)$. La entropía de $X$ viene dada por el valor esperado del logaritmo negativo de la distribución conjunta, es decir
+$$\begin{align}
+	H(X) = \mathbb{E}\left[ \log_2 \frac{1}{P_X(X)} \right] = -\sum_{x\in {\cal X}} P_X(x) \log_2 P_X(x).
+	\tag{5.4}
+\end{align}$$
+Como la fuente no tiene memoria, $X=(U_1,\ldots,U_n)$ es una secuencia de variables independientes y, por tanto, la distribución de $X$ cumple
+$$
+	P_X(x) = \prod_{i=1}^n P_{U_i}(u_i).
+	\tag{5.5}
+$$
+Utilizando $(5.5)$ en $(5.4)$ obtenemos que
+$$
+	H(X) = -\mathbb{E}\left[ \log_2 \prod_{i=1}^n P_{U_i}(U_i) \right] = -\mathbb{E}\left[ \sum_{i=1}^n \log_2 P_{U_i}(U_i) \right] =  \sum_{i=1}^n \mathbb{E}\left[ \log_2 \frac{1}{P_{U_i}(U_i)} \right] = \sum_{i=1}^n H(U_i);
+	\tag{5.6}
+$$
+la entropía de una secuencia de variables aleatorias independientes resulta ser la suma de cada entropía individual. Finalmente, como en una fuente discreta sin memoria los símbolos están distribuidos de manera idéntica, todas las entropías son iguales y
+$$
+	H(X) = n H(U);
+	\tag{5.7}
+$$
+la entropía de una secuencia de variables i.i.d. aleatorias es $n$ veces la entropía de un solo símbolo!
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 5.1.</span> 
+</p>
+<p>
+ 	Una fuente discreta $X=(U_1,\ldots,U_n)$ produce símbolos independientes $U_i$, todos tomando valores sobre el alfabeto $\{0,1\}$. La entropía de $X$ viene dada por la siguiente gráfica en función de $n$.
+</p>
+<figure><img src="../img/tikz/lecture5-fig1.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
+<p>
+¿Cuál de las afirmaciones siguientes es cierta?
+</p>
+
+<ol>
+</p>
+<p>
+<li><strong>(a)</strong> La fuente no tiene memoria ($U_i$ son independientes y se distribuyen de manera idéntica para $i=1,\ldots,n$)
+</p>
+<p>
+<li><strong>(b)</strong> $U_1$ y $U_3$ tienen símbolos equiprobables
+</p>
+<p>
+<li><strong>(c)</strong> $H(U_2)=1$
+</p>
+<p>
+<li><strong>(d)</strong> La longitud media de cualquier código binario sin prefijo para $X$ con $n=3$ cumple $L_{\rm av}\geq 3$
+</p>
+<p>
+</ol>
+
+
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+	Utilizando $(5.6)$ y a partir de la gráfica, inferimos que $H(U_1)=1$, $H(U_1)+H(U_2)=1$ y $H(U_1)+H(U_2)+H(U_3)=2$, implicando $H(U_2)=0$ y $H(U_3)=1$. Como $H(U_2)=0$, la fuente no puede tener memoria (en realidad solo si $H(U_1)=H(U_2)=H(U_3)$) invalidando (a) y (c). La entropía de $X$ para $n=3$ es $H(X)=2$, por tanto, la longitud media de cualquier código binario sin prefijo para esta fuente está limitada por $2$, no por $3$. Finalmente, (b) es cierta porque tanto $U_1$ como $U_3$ toman valores en $\{0,1\}$ y, para bits equiprobables, $H(U_1)$ y $H(U_3)$ son efectivamente iguales a $1$.
+</p>
+
+</details>
+
+
+</div>
+
+
+<h2>Comprimiendo una fuente de información</h2>
+
+<p>
+Ahora estamos equipados para demostrar el rendimiento asintótico de comprimir una fuente de información $X$ con códigos binarios sin prefijo óptimos (Huffman) cuando la longitud de los bloques fuente codificados $n$ tiende a infinito. Para ello, definimos la longitud media por símbolo como
+$$
+	L_n = \frac{L_{\rm av}}{n},
+	\tag{5.8}
+$$
+donde $L_{\rm av}$ es la longitud media del código óptimo (Huffman) para una fuente discreta sin memoria $X=(U_1,\ldots,U_n)$. De la misma manera, definimos la eficiencia de un código utilizado para representar una fuente $X$ de longitud $n$ como
+$$
+	e_n = \frac{H(X)}{L_{\rm av}}. \tag{5.9}$$
+Si la fuente no tiene memoria, entonces $H(X)=nH(U)$ y la eficiencia se puede escribir utilizando la longitud media por símbolo $L_n$ en $(5.8)$ como
+$$
+	e_n = \frac{nH(U)}{L_{\rm av}} = \frac{n H(U)}{n L_n} = \frac{H(U)}{L_n}.
+	\tag{5.10}
+$$
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 5.2.</span> 
+<a id="ex:5.2"></a>
+	Consideremos la fuente discreta sin memoria $X=(U_1,\ldots,U_n)$ donde cada $U_i$ toma valores $\{a,b\}$ con probabilidad $\bigl\{\frac 23,\frac 13\bigr\}$. Para $n=1$, tenemos $H(X)=H(U)=\log_2(3)-\frac 23$ bits, mientras que el código óptimo sin prefijo tiene una distribución de longitud $\{1,1\}$ que conduce a $L_{\rm av}=1$ bit. Utilizando las ecuaciones $(5.8)$ y $(5.10)$ obtenemos $L_1=1$ y una eficiencia de
+ 	$$
+		e_1 = \frac{H(X)}{L_{\rm av}} = \frac{H(U)}{L_1} = H(U) = \log_2(3)-\frac 23 \approx 0.918296.
+		\tag{5.11}
+	$$
+ 	Para $n=2$, tenemos que $X$ toma valores en $\{aa,ab,ba,bb\}$ con probabilidad $\bigl\{ \frac 49, \frac 29, \frac 29, \frac 19 \bigr\}$, por tanto una entropía de $H(X)=2H(U)=2\log_2(3) - \frac 43$. El código óptimo sin prefijo para $X$ es, por ejemplo, el código Huffman $\{0,10,110,111\}$ de la distribución de longitud $\{1,2,3,3\}$, dando una longitud media de $L_{\rm av} = \frac{17}{9}$. Como estamos codificando bloques de $n=2$ símbolos, la longitud media por símbolo en este caso es de $L_2=\frac{L_{\rm av}}{2} = \frac{17}{18}$ bits por símbolo. Con estos números, obtenemos una eficiencia de
+ 	$$
+		e_2 = \frac{H(X)}{L_{\rm av}} = \frac{2\log_2(3)-\frac 43}{17/9} \approx 0.972313,
+		\tag{5.12}
+	$$
+ 	ligeramente superior a la de $(5.11)$.
+</p>
+
+</div>
+
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 5.3.</span> 
+ 	Calculad la eficiencia del código óptimo sin prefijo para $X$ en el ejemplo 5.2 para $n=3$.
+ 	
+</p>
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+ 	Para determinar la eficiencia $e_3$ necesitamos la entropía de $X$ por un lado, y la longitud media del código de Huffman para $X$ por el otro. Como la fuente no tiene memoria, no necesitamos calcular todo el alfabeto y la distribución de $X$ para calcular la entropía y simplemente utilizar $H(X)=3H(U)= 3\log_2(3)-2$. Para construir el código Huffman, debemos determinar el alfabeto y la distribución de $X$. Después de hacerlo, construir el árbol de Huffman y encontrar la distribución de longitud (queda como ejercicio!), obtenemos una longitud media de $L_{\rm av}=\frac{76}{27}$. Por tanto,
+ 	$$
+		e_3 = \frac{H(X)}{L_{\rm av}} \approx 0.97871,
+		\tag{5.13}
+	$$
+	otro aumento de la eficiencia respecto a $(5.12)$.
+ 	
+</p>
+</details>
+
+
+</div>
+
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 5.4.</span> 
+ 	Diseñamos un código sin prefijo subóptimo para la fuente discreta sin memoria $X$ en el ejemplo 5.2. Para cualquier $n$, las longitudes de este código cumplen $\ell(x)=\lceil - \log_2 P_X(x) \rceil $. Calculad la eficiencia de este código para $n=3$ y comparadla con la del código óptimo.
+ 	
+</p>
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+		Para $n=3$, $X$ toma valores en $\{aaa,aab,aba,abb,baa,bab,bba,bbb\}$ con distribución de probabilidad $\bigl\{  \frac{8}{27} , \frac{4}{27},\frac{4}{27},\frac{2}{27},\frac{4}{27},\frac{2}{27},\frac{2}{27},\frac{1}{27} \bigr\}$. La eficiencia del código óptimo ya se calculó en $(5.13)$. El código subóptimo codificará $x=aaa$ con $\ell(x)=\ell(aaa)=\lceil - \log_2 P_X(aaa) \rceil = \lceil - \log_2 \frac{8}{27} \rceil \approx  \lceil 1.75489 \rceil = 2$ bits. Con el mismo procedimiento obtenemos una distribución de longitudes $\{2,3,3,4,3,4,4,5\}$, dando una longitud media de $L_{\rm av} = 3$ y una eficiencia de $e_3 \approx  0.918296$, menor que la óptima.
+ 	
+</p>
+</details>
+
+
+</div>
+
+<p>
+Hemos visto de los ejercicios anteriores que aumentar $n$ puede aumentar la eficiencia, es decir, que $L_{\rm av}$ se acerca a $H(X)$ o que $L_n$ se acerca a $H(U)$. Para verlo, combinamos los resultados obtenidos en este apartado con los de la introducción. Utilizando $(5.8)$ y $(5.7)$ en $(5.2)$, tenemos que la longitud media por símbolo del código óptimo sin prefijo para una fuente discreta sin memoria $X$ satisface (después de dividir por $n$ todos los términos):
+$$
+	H(U) \leq L_n &lt; H(U) + \frac 1n. \tag{5.14}
+$$
+Como $L_n$ tiene límite inferior y superior como en $(5.14)$, concluimos que
+$$
+	\lim_{n\to\infty} L_n = H(U); \tag{5.15}$$
+la compresión de bloques es muy eficiente ya que la longitud media correspondiente por símbolo $L_n$ converge a la entropía de la fuente. El mismo resultado se puede expresar en términos de eficiencia. Dado que la longitud media de cualquier código libre de prefijo para $X$ tiene un límite inferior como $L_{\rm av} \geq H(X)$, a partir de la definición de la eficiencia en $(5.10)$ encontramos que la eficiencia tiene un límite superior como $e_n \leq \frac{H(X)}{H(X)}=1$. De la misma manera, utilizando que la longitud media del código óptimo satisface $L_{\rm av}&lt;H(X)+1$, tenemos que $e_n&gt;\smash{\frac{H(X)}{H(X)+1}}$. Combinándolo todo, tenemos
+$$
+	\frac{H(X)}{H(X)+1} &lt; e_n \leq 1. \tag{5.16}
+$$
+Si la fuente no tiene memoria, entonces $(5.16)$ se puede escribir como
+$$
+	\frac{H(U)}{H(U)+\frac 1n} &lt; e_n \leq 1, \tag{5.17}$$
+implicando el resultado siguiente:
+$$
+	\lim_{n\to\infty} e_n = 1. \tag{5.18}$$
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 5.5.</span> 
+Consideremos una fuente discreta sin memoria $X=\{U_1,\cdots,U_n\}$ donde cada $U_i$ toma valores en $\{a,b,c\}$ con probabilidad $\bigl\{\frac 12, \frac 14, \frac 14\bigr\}$. La entropía de $U$ es $H(U) = \frac 32$. Por ejemplo, para $n=10$, esto implica que la longitud media del código óptimo para $X$ satisface $15 \leq L_{\rm av} &lt; 16$, o que la longitud media por símbolo satisface $ \frac 32 \leq L_{10} &lt; \frac 85$, o que la eficiencia satisface $\frac{15}{16} &lt; e_{10} \leq 1$.
+</p>
+
+</div>
+
+<p>
+Finalizamos el último tema sobre la codificación de fuente con un problema relacionado con la probabilidad y el rendimiento asintótico de comprimir una fuente de información.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 5.6.</span> 
+Una fuente discreta sin memoria $X=(U_1,\ldots,U_n)$ tiene una distribución de probabilidad $P_X(x)$. Definimos la variable aleatoria $Y=f(X)$, donde $f(x)=-\log_2 P_X(x)$. Calcula $
+	\lim_{n\to\infty} \mathbb{P}[Y &lt; n^2 H(U)]$.
+</p>
+
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+	Utilizando la desigualdad de Markov, ya que $Y$ es una variable aleatoria no negativa, tenemos que
+ 	$$
+		\mathbb{P}[Y &lt; n^2 H(U)] = 1 - \mathbb{P}[Y \geq n^2 H(U)] \geq 1 -  \frac{\mathbb{E}[Y]}{n^2 H(U)}. \tag{5.19}$$
+ 	El valor esperado de $Y$ se puede calcular en términos de $X$, dado que  $\mathbb{E}[Y]=\mathbb{E}[f(X)]=\mathbb{E}[-\log_2 P_X(X)]$, que resulta ser la definición de la entropía de $X$ según $(5.4)$. Por tanto, $\mathbb{E}[Y]=H(X)$. Como la fuente no tiene memoria, a partir de $(5.7)$, también tenemos que $H(X)=nH(U)$. Combinando todos los resultados, obtenemos
+ 	$$
+		1 \geq \mathbb{P}[Y &lt; n^2 H(U)] \geq 1 - \frac{1}{n}, \tag{5.20}$$
+ 	donde la primera cota es una cota trivial. Tomando el límite cuando $n\to\infty$ en todos los términos anteriores, concluimos que $\lim_{n\to\infty}	\mathbb{P}[Y &lt; n^2 H(U)] = 1$.
+</p>
+
+</details>
+
+
+</div>
+
   </main>
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Teoría de la información y codificación 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

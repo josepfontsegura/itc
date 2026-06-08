@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -40,44 +40,539 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html" class="active">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Coming soon</h1>
+      <h1>Exercises: 8. Channel capacity</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">This content will be available as the course progresses.</p>
+
+    <button id="expand-all" data-expand="Show all solutions" data-collapse="Hide all solutions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Show all solutions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.1.</span></p>
+  <p>A binary channel has input $X$ taking values in $\{0,1\}$ with equal probability, output $Y$ taking values in $\{0,\star,1\}$, and conditional probabilities $P_{Y|X}(y|x)=\tfrac13$ for all $x$ and $y$. What is the value of the conditional entropy $H(X|Y)$?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{3\log_2(3)-1}{3}$<br>
+  (c) $\tfrac{3\log_2(3)-2}{3}$<br>
+  (d) $0$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $H(Y|X)=H(Y)=\log_2(3)$, the mutual information of the channel satisfies $I(X;Y)=0$, which also implies that $H(X|Y)=H(X)=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.2.</span></p>
+  <p>A binary linear code generates $M$ codewords using the matrix</p>$$\boldsymbol{G} = \begin{pmatrix}1 & 0 & 1 & 0 & 1 & 0 & 1 \\ 0 & 1 & 0 & 1 & 0 & 1 & 0 \\ 1 & 1 & 0 & 0 & 1 & 1 & 0\end{pmatrix}.$$<p>Let $V$ be the random variable that selects a message uniformly at random from the set $\{1,\ldots,M\}$, and let $\boldsymbol{X}$ be the random variable denoting the selected codeword. What is the mutual information between $\boldsymbol{X}$ and $V$?</p>
+  <p>(a) $0$<br>
+  (b) $\log_2(3)$<br>
+  (c) $7\log_2(3)$<br>
+  (d) $3$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(d)</strong> &#9733;</p>
+    <p>After generating all possible codewords, we observe that there is a one-to-one mapping between $V$ and $\boldsymbol{X}$. Therefore, $H(V|\boldsymbol{X})=0$ and $H(V)=\log_2(M)$, leading to the correct answer after using that $I(V;\boldsymbol{X}) = H(V)-H(V|\boldsymbol{X})$ and that $M=2^k=8$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.3.</span></p>
+  <p>A discrete channel has input $X\in \{1,2,3,\ldots,n\}$ and output given by $Y=\lfloor \frac{X-1}{n}\rfloor$, where the floor function $\lfloor u \rfloor$ returns the greatest integer smaller than or equal to $u$. What is the capacity of this channel?</p>
+  <p>(a) $0$<br>
+  (b) $\frac{1}{n}$<br>
+  (c) $n$<br>
+  (d) $1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The output of this channel is always $0$ regardless of the input, so $H(Y)=0$, $H(Y|X)=0$ and $I(X;Y)=0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.4.</span></p>
+  <p>We want to transmit $A$ bits per channel use over a channel using an equiprobable input taking values in an alphabet of cardinality $B$. What is the condition on the conditional entropy $H(X|Y)$ that guarantees reliable communication?</p>
+  <p>(a) $H(X|Y)&gt;A-\log_2(B)$<br>
+  (b) $H(X|Y)&lt; A-\log_2(B)$<br>
+  (c) $H(X|Y)&gt;\log_2(B)-A$<br>
+  (d) $H(X|Y)&lt; \log_2(B)-A$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(d)</strong> &#9733;</p>
+    <p>Reliable communication at a rate $A$ is possible if $A&lt;I(X;Y)=H(X)-H(X|Y)$. Since $H(X)=\log_2(B)$, we obtain the result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.5.</span></p>
+  <p>A binary symmetric channel with crossover probability $p$ has capacity</p>
+  <p>(a) $1-h_2(p)$ bits per channel use<br>
+  (b) $h_2(p)$ bits per channel use<br>
+  (c) $1$ bit per channel use</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The capacity of the BSC is $C=\max_{P_X} I(X;Y)=1-h_2(p)$, achieved by the uniform input distribution.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.6.</span></p>
+  <p>A noiseless binary channel ($p=0$) has capacity</p>
+  <p>(a) $1$ bit per channel use<br>
+  (b) $0$ bits per channel use<br>
+  (c) $\infty$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>With $p=0$, the BSC capacity is $1-h_2(0)=1-0=1$ bit per channel use.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.7.</span></p>
+  <p>A completely noisy binary channel ($p=\tfrac{1}{2}$) has capacity</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac{1}{2}$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>With $p=\tfrac{1}{2}$, the output is independent of the input, so $I(X;Y)=0$ for all input distributions, and $C=0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.8.</span></p>
+  <p>The capacity of a binary erasure channel with erasure probability $\epsilon$ is</p>
+  <p>(a) $1-\epsilon$<br>
+  (b) $1-h_2(\epsilon)$<br>
+  (c) $\epsilon$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The BEC capacity is $C=1-\epsilon$, achieved by the uniform input.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.9.</span> Reliable communication at rate $R$ is possible if and only if</p>
+  <p>(a) $R&lt;C$<br>
+  (b) $R&gt;C$<br>
+  (c) $R=C$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Shannon's channel coding theorem states that reliable communication is possible if $R&lt;C$ and not possible if $R&gt;C$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.10.</span> The mutual information $I(X;Y)$ of a channel is maximized over</p>
+  <p>(a) The input distribution $P_X$<br>
+  (b) The conditional distribution $P_{Y|X}$<br>
+  (c) The output distribution $P_Y$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Channel capacity is $C=\max_{P_X} I(X;Y)$. The channel $P_{Y|X}$ is fixed; we optimize over the input $P_X$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.11.</span> A channel has input $X\in\{0,1\}$ and output $Y=X$. What is the capacity?</p>
+  <p>(a) $1$ bit<br>
+  (b) $0$ bits<br>
+  (c) $2$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $Y=X$, $H(Y|X)=0$ and $I(X;Y)=H(Y)$, maximized at $H(Y)=1$ when $X$ is uniform. Thus $C=1$ bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.12.</span> For a channel with capacity $C=0.5$ bits per use, what is the maximum rate for reliable communication?</p>
+  <p>(a) Any rate $R&lt;0.5$<br>
+  (b) $R=0.5$ exactly<br>
+  (c) $R=1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Shannon's theorem guarantees reliable communication for any $R&lt;C=0.5$ bits per use.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.13.</span> If $X$ and $Y$ are independent, the mutual information $I(X;Y)$ equals</p>
+  <p>(a) $0$<br>
+  (b) $H(X)$<br>
+  (c) $H(Y)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Independence means $P_{XY}=P_X P_Y$, so $I(X;Y)=H(X)-H(X|Y)=H(X)-H(X)=0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.14.</span></p>
+  <p>A <em>binary symmetric channel</em> (BSC) flips each transmitted bit independently with crossover probability $p=\frac{1}{20}=0.05$. Using $C=1-h_2(p)$ with $h_2(p)=-p\log_2 p-(1-p)\log_2(1-p)$, calculate the channel capacity $C$ in bits per channel use.</p>
+  <p>(a) $C\approx 0.7136$ bits<br>
+  (b) $C\approx 0.2864$ bits<br>
+  (c) $C\approx 0.9500$ bits<br>
+  (d) $C\approx 0.0500$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Evaluate the binary entropy: $h_2(0.05)=-0.05\log_2(0.05)-0.95\log_2(0.95)\approx 0.2161+0.0703=0.2864$ bits. The capacity is then $C=1-h_2(0.05)\approx 1-0.2864=0.7136$ bits per channel use. Forgetting the $1-(\cdot)$ gives the distractor $0.2864$; using $1-p$ gives $0.95$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.15.</span></p>
+  <p>A BSC with crossover probability $p=0.05$ has capacity $C\approx 0.7136$ bits per channel use. Is reliable communication of arbitrarily long binary messages at rate $R=\frac12$ bits per channel use possible?</p>
+  <p>(a) Yes, because $R=0.5&lt;C\approx0.7136$, so by Shannon's coding theorem the error probability can be made arbitrarily small<br>
+  (b) No, because $R=0.5&gt;C$ so the error probability is bounded away from $0$<br>
+  (c) No, because $R=0.5&lt;C$ means the channel is too noisy to use<br>
+  (d) Yes, but only because $p&lt;0.5$, regardless of the value of $C$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Compare rate and capacity: $R=0.5&lt;0.7136\approx C$, so $R&lt;C$. Shannon's channel coding theorem (achievability) guarantees a family of rate-$\tfrac12$ block codes whose average error probability tends to $0$ as the block length grows. Hence reliable communication is possible.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.16.</span></p>
+  <p>Consider a <em>binary symmetric channel</em> (BSC) with crossover probability $p$, fed by an input $X\in\{0,1\}$ with $\mathbb{P}[X=1]=q$. The channel satisfies $\mathbb{P}[Y=1\mid X=0]=\mathbb{P}[Y=0\mid X=1]=p$. What is the output probability $\mathbb{P}[Y=1]$?</p>
+  <p>(a) $p+q-2pq$<br>
+  (b) $pq$<br>
+  (c) $p+q$<br>
+  (d) $q(1-p)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By the law of total probability, $\mathbb{P}[Y=1]=\mathbb{P}[X=0]\,p+\mathbb{P}[X=1]\,(1-p)=(1-q)p+q(1-p)$. Expanding gives $p-pq+q-pq=p+q-2pq$. So $\mathbb{P}[Y=1]=p+q-2pq$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.17.</span></p>
+  <p>For a BSC with crossover probability $p$ and input $X\in\{0,1\}$ with $\mathbb{P}[X=1]=q$, what is the conditional entropy $H(Y\mid X)$ (in bits), where $h_2(x)=-x\log_2 x-(1-x)\log_2(1-x)$?</p>
+  <p>(a) $h_2(p)$<br>
+  (b) $h_2(p+q-2pq)$<br>
+  (c) $q\,h_2(p)$<br>
+  (d) $h_2(p)+h_2(q)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Given $X=0$, $Y$ is Bernoulli$(p)$; given $X=1$, $Y$ is Bernoulli$(1-p)$. Since $h_2(p)=h_2(1-p)$, both conditional entropies equal $h_2(p)$. Averaging, $H(Y\mid X)=(1-q)h_2(p)+q\,h_2(p)=h_2(p)$, independent of $q$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.18.</span></p>
+  <p>For a BSC with crossover probability $p$ and input $\mathbb{P}[X=1]=q$, the output is Bernoulli$(p+q-2pq)$ and $H(Y\mid X)=h_2(p)$. Using $I(X;Y)=H(Y)-H(Y\mid X)$, what is the mutual information $I(X;Y)$ (in bits)?</p>
+  <p>(a) $h_2(p+q-2pq)-h_2(p)$<br>
+  (b) $h_2(p)-h_2(p+q-2pq)$<br>
+  (c) $h_2(p+q-2pq)-h_2(q)$<br>
+  (d) $1-h_2(p)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $Y$ is Bernoulli$(p+q-2pq)$, $H(Y)=h_2(p+q-2pq)$. Subtracting the noise entropy gives $I(X;Y)=H(Y)-H(Y\mid X)=h_2(p+q-2pq)-h_2(p)$. The last option $1-h_2(p)$ is the capacity, attained only at $q=\tfrac12$, not the general $I(X;Y)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.19.</span></p>
+  <p>For a BSC with crossover probability $p\neq\tfrac12$, the mutual information is $I(X;Y)=h_2(p+q-2pq)-h_2(p)$. Which input distribution $q=\mathbb{P}[X=1]$ maximizes $I(X;Y)$, and what capacity does it yield?</p>
+  <p>(a) $q=\tfrac12$, giving $C=1-h_2(p)$<br>
+  (b) $q=p$, giving $C=1-h_2(p)$<br>
+  (c) $q=\tfrac12$, giving $C=h_2(p)$<br>
+  (d) $q=0$, giving $C=1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Only the first term depends on $q$ through $r=p+q-2pq$. Since $h_2$ is maximized (value $1$ bit) at argument $\tfrac12$, set $p+q-2pq=\tfrac12$; this gives $q=\tfrac12$ for any $p$. Then $H(Y)=h_2(\tfrac12)=1$, so $C=1-h_2(p)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.20.</span></p>
+  <p>Let $X \in \{-1, 1\}$ with $\mathbb{P}[X = 1] = p$, and define $Y = X^a$ for a fixed positive integer $a$. Suppose $a$ is odd. What is the mutual information $I(X;Y)$?</p>
+  <p>(a) $I(X;Y) = h_2(p) = -p\log_2 p - (1-p)\log_2(1-p)$ bits<br>
+  (b) $I(X;Y) = 0$ bits<br>
+  (c) $I(X;Y) = a\, h_2(p)$ bits<br>
+  (d) $I(X;Y) = 1$ bit</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $Y = X^a$ is a deterministic function of $X$, $H(Y\mid X) = 0$, so $I(X;Y) = H(Y)$. For odd $a$, $(-1)^a = -1$ and $1^a = 1$, so $Y = X$ and $Y$ has the same distribution as $X$. Hence $I(X;Y) = H(Y) = h_2(p) = -p\log_2 p - (1-p)\log_2(1-p)$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.21.</span></p>
+  <p>Let $X \in \{-1, 1\}$ with $\mathbb{P}[X = 1] = p$, and define $Y = X^a$ for a fixed positive integer $a$. Suppose $a$ is even. What is the mutual information $I(X;Y)$?</p>
+  <p>(a) $I(X;Y) = 0$ bits<br>
+  (b) $I(X;Y) = h_2(p) = -p\log_2 p - (1-p)\log_2(1-p)$ bits<br>
+  (c) $I(X;Y) = 1$ bit<br>
+  (d) $I(X;Y) = h_2(p^2)$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $Y = X^a$ is deterministic given $X$, $I(X;Y) = H(Y)$. For even $a$, both $(-1)^a = +1$ and $1^a = 1$, so $Y = 1$ with probability $1$ regardless of $X$. A constant random variable has zero entropy, so $H(Y) = 0$ and $I(X;Y) = 0$ bits: squaring collapses both inputs to the same output, revealing nothing about $X$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.22.</span></p>
+  <p>A <em>Z-channel</em> has binary input $X\in\{0,1\}$ with prior $P_X(0)=\tfrac{2}{3}$, $P_X(1)=\tfrac{1}{3}$, and binary output $Y\in\{0,1\}$. The transition probabilities are $P_{Y|X}(0\mid 0)=1$, $P_{Y|X}(1\mid 0)=0$, $P_{Y|X}(0\mid 1)=p$, $P_{Y|X}(1\mid 1)=1-p$, with $p\in(0,1)$. Using $h_2(q)=-q\log_2 q-(1-q)\log_2(1-q)$, calculate the mutual information $I(X;Y)$ (in bits).</p>
+  <p>(a) $I(X;Y)=h_2\!\left(\frac{2+p}{3}\right)-\frac{1}{3}\,h_2(p)$<br>
+  (b) $I(X;Y)=h_2\!\left(\frac{2+p}{3}\right)-h_2(p)$<br>
+  (c) $I(X;Y)=h_2\!\left(\frac{1-p}{3}\right)-\frac{1}{3}\,h_2(p)$<br>
+  (d) $I(X;Y)=h_2\!\left(\frac{2+p}{3}\right)+\frac{1}{3}\,h_2(p)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Use $I(X;Y)=H(Y)-H(Y\mid X)$. The output marginal is $P_Y(0)=\tfrac{2}{3}+\tfrac{1}{3}p=\tfrac{2+p}{3}$, so $H(Y)=h_2\!\big(\tfrac{2+p}{3}\big)$. For the conditional entropy, $X=0$ gives a deterministic output ($H(Y\mid X=0)=0$) and $X=1$ gives $h_2(p)$, so $H(Y\mid X)=\tfrac{2}{3}\cdot 0+\tfrac{1}{3}h_2(p)=\tfrac{1}{3}h_2(p)$. Subtracting, $I(X;Y)=h_2\!\big(\tfrac{2+p}{3}\big)-\tfrac{1}{3}h_2(p)$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.23.</span></p>
+  <p>Two binary symmetric channels (BSCs), each with the same crossover probability $p \in (0,\tfrac12)$, are connected <em>in series</em>: the output of the first is the input of the second, and the two channels flip independently. What is the capacity (in bits per channel use) of the resulting cascade?</p>
+  <p>(a) $C = 1 - h_2\bigl(2p(1-p)\bigr)$<br>
+  (b) $C = 1 - h_2(p)$<br>
+  (c) $C = 1 - h_2(p^2)$<br>
+  (d) $C = 1 - 2h_2(p)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The end-to-end bit is wrong iff exactly one channel flips, so the effective crossover is $q = p(1-p)+(1-p)p = 2p(1-p)$; the cascade is again a BSC. Applying the BSC capacity formula $C = 1 - h_2(\varepsilon)$ with $\varepsilon = q$ gives $C = 1 - h_2\bigl(2p(1-p)\bigr)$. Note $q &gt; p$, so the cascade is noisier than a single BSC, consistent with the data-processing inequality.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.24.</span></p>
+  <p>A <em>binary asymmetric channel</em> (BAC) has input $X\in\{0,1\}$ with $P_X(0)=q$, $P_X(1)=1-q$, and transition probabilities $P_{Y|X}(0\mid 0)=1-p$, $P_{Y|X}(1\mid 0)=p$, $P_{Y|X}(1\mid 1)=1-2p$, $P_{Y|X}(0\mid 1)=2p$, with $0\le p\le\tfrac12$. Using base-2 logarithms and the binary entropy $h_2(x)=-x\log_2 x-(1-x)\log_2(1-x)$, what is the output entropy $H(Y)$ as a function of $p$ and $q$?</p>
+  <p>(a) $H(Y)=h_2\bigl(q(1-p)+(1-q)\,2p\bigr)$<br>
+  (b) $H(Y)=h_2\bigl(qp+(1-q)(1-2p)\bigr)$<br>
+  (c) $H(Y)=q\,h_2(1-p)+(1-q)\,h_2(2p)$<br>
+  (d) $H(Y)=h_2(q)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Marginalize $Y$ by total probability: $P_Y(0)=P_X(0)P_{Y|X}(0\mid 0)+P_X(1)P_{Y|X}(0\mid 1)=q(1-p)+(1-q)2p\equiv\alpha$, and $P_Y(1)=1-\alpha$. Since $Y$ is binary, $H(Y)=h_2(\alpha)=h_2\bigl(q(1-p)+(1-q)2p\bigr)$. Option 2 mistakenly uses $P_Y(1)$ as the argument of the wrong channel terms; option 3 wrongly averages binary entropies (that gives $H(Y\mid X)$, not $H(Y)$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.25.</span></p>
+  <p>For the BAC with $P_X(0)=q$, $P_X(1)=1-q$ and transitions $P_{Y|X}(1\mid 0)=p$, $P_{Y|X}(0\mid 1)=2p$ (so $0\le p\le\tfrac12$), compute the conditional entropy $H(Y\mid X)$ in bits, with $h_2(\cdot)$ the binary entropy function.</p>
+  <p>(a) $H(Y\mid X)=q\,h_2(p)+(1-q)\,h_2(2p)$<br>
+  (b) $H(Y\mid X)=h_2(p)+h_2(2p)$<br>
+  (c) $H(Y\mid X)=q\,h_2(2p)+(1-q)\,h_2(p)$<br>
+  (d) $H(Y\mid X)=h_2\bigl(qp+(1-q)2p\bigr)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By definition $H(Y\mid X)=\sum_x P_X(x)H(Y\mid X=x)$. Given $X=0$ the output flips with probability $p$, so $H(Y\mid X=0)=h_2(p)$; given $X=1$ it flips with probability $2p$, so $H(Y\mid X=1)=h_2(2p)$. Averaging with weights $q$ and $1-q$ gives $H(Y\mid X)=q\,h_2(p)+(1-q)\,h_2(2p)$. Option 2 forgets the probability weights; option 3 swaps the weights.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.26.</span></p>
+  <p>For the same BAC ($P_X(0)=q$, $P_X(1)=1-q$; flip probability $p$ for input $0$ and $2p$ for input $1$, $0\le p\le\tfrac12$), having found $H(Y)=h_2\bigl(q(1-p)+(1-q)2p\bigr)$ and $H(Y\mid X)=q\,h_2(p)+(1-q)\,h_2(2p)$, what is the mutual information $I(X;Y)$ in bits?</p>
+  <p>(a) $I(X;Y)=h_2\bigl(q(1-p)+(1-q)2p\bigr)-q\,h_2(p)-(1-q)\,h_2(2p)$<br>
+  (b) $I(X;Y)=h_2\bigl(q(1-p)+(1-q)2p\bigr)+q\,h_2(p)+(1-q)\,h_2(2p)$<br>
+  (c) $I(X;Y)=q\,h_2(p)+(1-q)\,h_2(2p)-h_2\bigl(q(1-p)+(1-q)2p\bigr)$<br>
+  (d) $I(X;Y)=h_2(q)-q\,h_2(p)-(1-q)\,h_2(2p)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Use $I(X;Y)=H(Y)-H(Y\mid X)$ and substitute parts (a) and (b): $I(X;Y)=h_2\bigl(q(1-p)+(1-q)2p\bigr)-q\,h_2(p)-(1-q)\,h_2(2p)$. Option 2 adds instead of subtracts $H(Y\mid X)$; option 3 has the sign reversed; option 4 wrongly uses $H(X)=h_2(q)$ in place of $H(Y)$ (these coincide only in the noiseless case $p=0$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.27.</span></p>
+  <p>A <em>binary erasure channel</em> (BEC) has equiprobable input $X\in\{0,1\}$, that is $\mathbb{P}(X=0)=\mathbb{P}(X=1)=\tfrac12$. Compute the source entropy $H(X)$ in bits.</p>
+  <p>(a) $1$ bit<br>
+  (b) $\tfrac12$ bit<br>
+  (c) $2$ bits<br>
+  (d) $0$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The input is uniform on $\{0,1\}$, so $H(X)=-\tfrac12\log_2\tfrac12-\tfrac12\log_2\tfrac12=h_2(\tfrac12)=1$ bit. A uniform binary source attains the maximum entropy of one bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.28.</span></p>
+  <p>A BEC has equiprobable input $X\in\{0,1\}$ and output $Y\in\{0,\star,1\}$ with $P_{Y|X}(0\mid 0)=P_{Y|X}(1\mid 1)=1-p$ and $P_{Y|X}(\star\mid 0)=P_{Y|X}(\star\mid 1)=p$, where $h_2(\cdot)$ is the binary entropy function. Compute the output entropy $H(Y)$ in bits.</p>
+  <p>(a) $h_2(p)+(1-p)$<br>
+  (b) $h_2(p)$<br>
+  (c) $1+h_2(p)$<br>
+  (d) $h_2(p)+p$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Marginalize: $P_Y(0)=P_Y(1)=\tfrac{1-p}{2}$ and $P_Y(\star)=p$. Then $H(Y)=-(1-p)\log_2\tfrac{1-p}{2}-p\log_2 p$. Using $\log_2\tfrac{1-p}{2}=\log_2(1-p)-1$ gives $H(Y)=h_2(p)+(1-p)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.29.</span></p>
+  <p>A BEC has equiprobable input $X\in\{0,1\}$ and output $Y\in\{0,\star,1\}$ with $P_{Y|X}(\star\mid 0)=P_{Y|X}(\star\mid 1)=p$ (erasure) and the input transmitted correctly otherwise. With $h_2(\cdot)$ the binary entropy function, compute the conditional entropy $H(Y\mid X)$ in bits.</p>
+  <p>(a) $h_2(p)$<br>
+  (b) $h_2(p)+(1-p)$<br>
+  (c) $p$<br>
+  (d) $1-p$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Given $X=0$, $Y$ is $0$ with probability $1-p$ and $\star$ with probability $p$, so $H(Y\mid X=0)=h_2(p)$; by symmetry $H(Y\mid X=1)=h_2(p)$. Averaging over the equiprobable inputs, $H(Y\mid X)=\tfrac12 h_2(p)+\tfrac12 h_2(p)=h_2(p)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.30.</span></p>
+  <p>A BEC has equiprobable input $X\in\{0,1\}$ and erasure probability $p$, so that $H(X)=1$ bit and (as derived) $I(X;Y)=1-p$ bits. Compute the residual uncertainty $H(X\mid Y)$ in bits.</p>
+  <p>(a) $p$<br>
+  (b) $1-p$<br>
+  (c) $h_2(p)$<br>
+  (d) $h_2(p)+p$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By symmetry of mutual information, $H(X\mid Y)=H(X)-I(X;Y)=1-(1-p)=p$. Intuitively, when $Y\in\{0,1\}$ (probability $1-p$) the input is known exactly (0 uncertainty), and when $Y=\star$ (probability $p$) the input is still uniform (1 bit), giving $H(X\mid Y)=p\cdot 1=p$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.31.</span></p>
+  <p>A BEC has equiprobable input $X\in\{0,1\}$, erasure probability $p$, with $H(Y)=h_2(p)+(1-p)$ and $H(Y\mid X)=h_2(p)$. Compute the mutual information $I(X;Y)$ in bits.</p>
+  <p>(a) $1-p$<br>
+  (b) $p$<br>
+  (c) $1-h_2(p)$<br>
+  (d) $h_2(p)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By definition $I(X;Y)=H(Y)-H(Y\mid X)=[h_2(p)+(1-p)]-h_2(p)=1-p$ bits. This is the capacity-achieving value of the BEC: with uniform input the channel transmits $1-p$ bits per use, the fraction of non-erased symbols.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.32.</span></p>
+  <p>A BEC has capacity $C=1-p$, where $p$ is the erasure probability. For which range of $p$ is reliable communication possible at rate $R=\tfrac34$?</p>
+  <p>(a) $p\in\left[0,\tfrac14\right)$<br>
+  (b) $p\in\left[0,\tfrac34\right)$<br>
+  (c) $p\in\left(\tfrac14,1\right]$<br>
+  (d) $p\in\left[0,\tfrac12\right)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By Shannon's channel coding theorem, reliable communication is achievable iff $R&lt;C$. With $C=1-p$, we need $\tfrac34&lt;1-p$, that is $p&lt;1-\tfrac34=\tfrac14$. Since $p\ge 0$, the admissible range is $p\in\left[0,\tfrac14\right)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.33.</span></p>
+  <p>Consider an arbitrary discrete channel with input $X\in\mathcal{X}$ and output $Y\in\mathcal{Y}$ (entropies in bits). Which one of the following inequalities holds for <em>every</em> such channel and <em>every</em> input distribution?</p>
+  <p>(a) $I(X;Y)\leq\log_2|\mathcal{X}|$<br>
+  (b) $H(X,Y)&lt;H(X)$<br>
+  (c) $H(Y\mid X)&gt;H(X)$<br>
+  (d) $I(X;Y)\geq\log_2|\mathcal{X}|$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>From $I(X;Y)=H(X)-H(X\mid Y)$ and $H(X\mid Y)\geq 0$ we get $I(X;Y)\leq H(X)$, and since the uniform distribution maximizes entropy, $H(X)\leq\log_2|\mathcal{X}|$; chaining gives $I(X;Y)\leq\log_2|\mathcal{X}|$, always true. The chain rule $H(X,Y)=H(X)+H(Y\mid X)\geq H(X)$ shows $H(X,Y)&lt;H(X)$ is impossible (wrong direction). And $H(Y\mid X)&gt;H(X)$ fails for a noiseless channel $Y=X$, where $H(Y\mid X)=0&lt;H(X)$. The reversed bound $I(X;Y)\geq\log_2|\mathcal{X}|$ also fails (e.g. a useless channel gives $I=0$). <strong>Correct: $I(X;Y)\leq\log_2|\mathcal{X}|$.</strong></p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.34.</span></p>
+  <p>Consider the binary bit-flipping <em>asymmetric</em> channel with $\mathbb{P}(Y=1\mid X=0)=2p$ and $\mathbb{P}(Y=0\mid X=1)=p$, and fix $p=\tfrac{1}{10}$. Let $q=\mathbb{P}(X=1)$. Using $I(q)=h_2(0.2+0.7q)-q\,h_2(0.1)-(1-q)\,h_2(0.2)$ with $h_2(0.1)=0.468996$ and $h_2(0.2)=0.721928$, what is the channel capacity $C=\max_q I(q)$ (in bits per channel use)?</p>
+  <p>(a) $C\approx 0.397754$ bits/use<br>
+  (b) $C\approx 0.531004$ bits/use<br>
+  (c) $C\approx 0.278072$ bits/use<br>
+  (d) $C\approx 0.595268$ bits/use</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Write $I(X;Y)=H(Y)-H(Y\mid X)$. The output mass is $\mathbb{P}(Y=1)=q(1-p)+(1-q)2p=0.2+0.7q$, so $H(Y)=h_2(0.2+0.7q)$, while $H(Y\mid X)=q\,h_2(0.1)+(1-q)\,h_2(0.2)$. Maximizing the concave $I(q)$ numerically gives optimal output mass $a^\star=0.562289$, $q^\star=0.517555$, and $C=I(q^\star)\approx 0.397754$ bits/use.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.35.</span></p>
+  <p>For the same asymmetric channel ($p=\tfrac{1}{10}$, $\mathbb{P}(Y=1\mid X=0)=2p$, $\mathbb{P}(Y=0\mid X=1)=p$), what is the capacity-achieving input distribution $q^\star=\mathbb{P}(X=1)$?</p>
+  <p>(a) $q^\star\approx 0.5176$ (slightly favoring $X=1$)<br>
+  (b) $q^\star=0.5$ exactly (uniform input)<br>
+  (c) $q^\star\approx 0.4824$ (slightly favoring $X=0$)<br>
+  (d) $q^\star\approx 0.5623$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Setting $dI/dq=0$ gives $\tfrac{1-a}{a}=2^{(h_2(p)-h_2(2p))/0.7}$ with $a=0.2+0.7q$, yielding optimal output mass $a^\star=0.562289$ and hence $q^\star=(a^\star-0.2)/0.7\approx 0.517555$. The optimum is only mildly asymmetric, slightly favoring the cleaner symbol $X=1$ (flip probability $p$ rather than $2p$). Note $0.5623$ is the output mass $a^\star$, not $q^\star$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.36.</span></p>
+  <p>The asymmetric channel above has capacity $C\approx 0.3978$ bits/use. Compare it with a BSC of crossover $p=\tfrac{1}{10}$ (capacity $1-h_2(0.1)$) and a BSC of crossover $2p=\tfrac{2}{10}$ (capacity $1-h_2(0.2)$), where $h_2(0.1)=0.468996$ and $h_2(0.2)=0.721928$. Which ordering holds?</p>
+  <p>(a) $C_{\mathrm{BSC}}(0.2)\approx 0.278 &lt; C\approx 0.398 &lt; C_{\mathrm{BSC}}(0.1)\approx 0.531$<br>
+  (b) $C\approx 0.398 &lt; C_{\mathrm{BSC}}(0.2)\approx 0.278 &lt; C_{\mathrm{BSC}}(0.1)\approx 0.531$<br>
+  (c) $C_{\mathrm{BSC}}(0.1)\approx 0.531 &lt; C\approx 0.398 &lt; C_{\mathrm{BSC}}(0.2)\approx 0.278$<br>
+  (d) $C\approx 0.398 &gt; C_{\mathrm{BSC}}(0.1)\approx 0.531$ (asymmetric beats both BSCs)</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>A BSC of crossover $\varepsilon$ has capacity $1-h_2(\varepsilon)$: $C_{\mathrm{BSC}}(0.1)=1-0.468996=0.531004$ and $C_{\mathrm{BSC}}(0.2)=1-0.721928=0.278072$. The asymmetric channel is noisier than BSC$(0.1)$ on its $X=0$ branch (flip $2p$) but cleaner than BSC$(0.2)$ on its $X=1$ branch (flip $p$), so it sits between them: $0.278072 &lt; 0.397754 &lt; 0.531004$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.37.</span></p>
+  <p>A binary channel has joint distribution $P_{XY}(0,0)=\frac13$, $P_{XY}(1,0)=\frac16$, $P_{XY}(1,1)=\frac12$, $P_{XY}(0,1)=0$. Compute the mutual information $I(X;Y)$ for this input distribution.</p>
+  <p>(a) $\approx 0.459$ bits<br>
+  (b) $\approx 0.811$ bits<br>
+  (c) $\approx 0.541$ bits<br>
+  (d) $1$ bit</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The marginals are $P_X(0)=\frac13$, $P_Y(0)=P_Y(1)=\frac12$, so $H(Y)=h_2(\frac12)=1$ bit. The channel is a Z-channel: given $X=0$, $Y=0$ deterministically ($H=0$); given $X=1$, $Y$ is Bernoulli$(\frac14)$ so $H(Y\mid X=1)=h_2(\frac14)\approx0.811$. Thus $H(Y\mid X)=\frac23 h_2(\frac14)\approx0.541$, and $I(X;Y)=1-0.541\approx \mathbf{0.459}$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.38.</span></p>
+  <p>For the same channel, the transition law is fixed: $P_{Y|X}(0|0)=1$ and $P_{Y|X}(0|1)=\frac14$ (a Z-channel). With input $P_X(0)=q$, the mutual information is $I(q)=h_2(\frac14+\frac34 q)-(1-q)\,h_2(\frac14)$. Which value of $q$ maximizes $I(q)$?</p>
+  <p>(a) $q^\star\approx 0.572$<br>
+  (b) $q^\star=\frac13\approx 0.333$<br>
+  (c) $q^\star=\frac12$<br>
+  (d) $q^\star\approx 0.679$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Differentiate using $\frac{d}{dp}h_2(p)=\log_2\frac{1-p}{p}$ with $p=\frac14+\frac34 q$ and chain-rule factor $\frac34$: $I'(q)=\frac34\log_2\frac{1-p}{p}+h_2(\frac14)=0$, giving the optimal output bias $p^\star\approx0.679$. Back-substituting $q=\frac{p-1/4}{3/4}$ yields $q^\star\approx \mathbf{0.572}$. Note $0.679$ is the output bias $p^\star$, not $q$; $\frac13$ is the (suboptimal) input of part (a).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 8.39.</span></p>
+  <p>For this Z-channel with crossover probability $\frac14$ (so $P_{Y|X}(0|0)=1$, $P_{Y|X}(0|1)=\frac14$), the mutual information is maximized at $P_X(0)=q^\star\approx0.572$. What is the channel capacity (in bits per channel use)?</p>
+  <p>(a) $C\approx 0.558$ bits<br>
+  (b) $C\approx 0.459$ bits<br>
+  (c) $C\approx 0.679$ bits<br>
+  (d) $C=1$ bit</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Capacity is $I$ evaluated at the optimal input: $C=h_2(0.679)-(1-0.572)\,h_2(\frac14)\approx \mathbf{0.558}$ bits per channel use. The Z-channel closed form $C=\log_2(1+(1-p)\,p^{p/(1-p)})$ with $p=\frac14$ confirms it. Note $C\approx0.558&gt;0.459$, the value at the suboptimal input of part (a), since capacity maximizes $I$ over all inputs.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

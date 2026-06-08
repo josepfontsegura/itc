@@ -242,7 +242,7 @@
 </nav>
 
 <div class="page">
-                  <aside class="sidebar">
+                                          <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -254,44 +254,72 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html" class="active">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Properament</h1>
+      <h1>Qüestionari: Temes 3–5: Codificació de font</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Aquest contingut estarà disponible a mesura que avanci el curs.</p>
+
+    <div class="quiz-container" id="quiz-root">
+      <!-- Progress -->
+      <div class="quiz-progress">
+        <div class="quiz-progress-text" id="quiz-progress-text">Pregunta 1 de 20</div>
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="quiz-progress-fill" style="width:5%"></div>
+        </div>
+      </div>
+
+      <!-- Card -->
+      <div class="quiz-card" id="quiz-card">
+        <div class="quiz-topic" id="quiz-topic"></div>
+        <div class="quiz-question" id="quiz-question"></div>
+        <div class="quiz-options" id="quiz-options"></div>
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+        <button class="quiz-next" id="quiz-next">Següent</button>
+      </div>
+
+      <!-- Score (hidden until end) -->
+      <div class="quiz-card quiz-score" id="quiz-score" style="display:none">
+        <h2>Qüestionari completat!</h2>
+        <div class="score-number" id="score-number"></div>
+        <div class="score-label" id="score-label"></div>
+        <div class="score-bar"><div class="score-bar-fill" id="score-bar-fill"></div></div>
+        <br>
+        <button class="quiz-restart" id="quiz-restart">Torna-ho a provar</button>
+      </div>
+    </div>
   </main>
 </div>
 
@@ -339,34 +367,94 @@
 
   // ---- Quiz data ----
   var questions = [
-// KAHOOT 2: Temes 3-5
+// KAHOOT 2
     {
-      topic: "Temes 3\u20135: Codificació de font",
-      q: "Existeix un codi binari de longitud fixa unívocament descodificable, per a una font que pren valors a $\\{1,2,\\ldots,r\\}$, amb longitud mitjana $\\lfloor \\log_2(r) \\rfloor$.",
+      topic: "Tema 3: Codis sense prefix",
+      q: "Una font $U$ t\u00e9 distribuci\u00f3 $\\{0.4,\\,0.4,\\,0.2\\}$ i es codifica amb el codi de Shannon--Fano de longituds $\\ell_j=\\lceil -\\log_2 p_j\\rceil$. Aleshores la longitud mitjana resultant supera l'entropia $H(U)$ en m\u00e9s de $0.5$ bits.",
       options: ["Cert", "Fals"],
       correct: 0
     },
     {
-      topic: "Temes 3\u20135: Codificació de font",
-      q: "El codi font $\\{0,01,001\\}$ és unívocament descodificable.",
+      topic: "Tema 3: Codis sense prefix",
+      q: "Si un codi binari sense prefix assoleix longitud mitjana $L_{\\text{av}}=H(U)$, aleshores cada probabilitat $p_j$ de la font ha de ser una pot\u00e8ncia de $\\tfrac12$.",
       options: ["Cert", "Fals"],
       correct: 0
     },
     {
-      topic: "Temes 3\u20135: Codificació de font",
-      q: "Existeix un codi binari lliure de prefixos amb longituds $\\{2,2,3,3,3\\}$.",
-      options: ["Cert", "Fals"],
-      correct: 0
-    },
-    {
-      topic: "Temes 3\u20135: Codificació de font",
-      q: "La longitud mitjana del codi binari lliure de prefixos òptim per a una font $U$ que pren valors a $\\{a,b,c\\}$ amb probabilitat igual satisfà $L_{\\text{av}}=H(U)$.",
+      topic: "Tema 3: Codis sense prefix",
+      q: "Existeix un codi binari sense prefix amb distribuci\u00f3 de longituds de paraula codi $\\{1,2,2,3,3\\}$.",
       options: ["Cert", "Fals"],
       correct: 1
     },
     {
-      topic: "Temes 3\u20135: Codificació de font",
-      q: "La longitud mitjana del codi binari lliure de prefixos òptim per a una font $U$ que pren valors a $\\{a,b,c,d\\}$ amb probabilitat igual satisfà $L_{\\text{av}}=H(U)$.",
+      topic: "Tema 3: Codis sense prefix",
+      q: "Un codi binari sense prefix la representaci\u00f3 en arbre del qual t\u00e9 com a m\u00ednim una fulla buida (una fulla sense paraula codi) ha de satisfer $\\sum_j 2^{-\\ell_j}&lt;1$.",
+      options: ["Cert", "Fals"],
+      correct: 0
+    },
+    {
+      topic: "Tema 3: Codis sense prefix",
+      q: "Tot codi binari de descodificaci\u00f3 \u00fanica \u00e9s sense prefix.",
+      options: ["Cert", "Fals"],
+      correct: 1
+    },
+    {
+      topic: "Tema 4: Codis de Huffman",
+      q: "Una font amb distribuci\u00f3 $\\{0.4,\\,0.3,\\,0.2,\\,0.1\\}$ es codifica amb un codi de Huffman. La longitud mitjana resultant satisf\u00e0 $L_{\\text{av}}&lt;2$ bits per s\u00edmbol.",
+      options: ["Cert", "Fals"],
+      correct: 0
+    },
+    {
+      topic: "Tema 4: Codis de Huffman",
+      q: "En qualsevol codi de Huffman, els dos s\u00edmbols menys probables de la font s\u00f3n fulles germanes i, per tant, sempre tenen la mateixa longitud de paraula codi (i m\u00e0xima).",
+      options: ["Cert", "Fals"],
+      correct: 0
+    },
+    {
+      topic: "Tema 4: Codis de Huffman",
+      q: "Tot codi de Huffman cont\u00e9 com a m\u00ednim una paraula codi de longitud $1$.",
+      options: ["Cert", "Fals"],
+      correct: 1
+    },
+    {
+      topic: "Tema 4: Codis de Huffman",
+      q: "Una font $U$ t\u00e9 distribuci\u00f3 $\\bigl\\{\\tfrac13,\\tfrac13,\\tfrac16,\\tfrac16\\bigr\\}$. Qualsevol codi de Huffman per a $U$ t\u00e9 $L_{\\text{av}}=2$ bits per s\u00edmbol, per\u00f2 $L_{\\text{av}}&gt;H(U)$.",
+      options: ["Cert", "Fals"],
+      correct: 0
+    },
+    {
+      topic: "Tema 4: Codis de Huffman",
+      q: "Si un codi de Huffman per a una font $U$ satisf\u00e0 $L_{\\text{av}}=H(U)$, aleshores aquest codi \u00e9s estrictament millor (longitud mitjana m\u00e9s curta) que qualsevol altre codi sense prefix per a $U$.",
+      options: ["Cert", "Fals"],
+      correct: 1
+    },
+    {
+      topic: "Tema 5: L\u00edmits de la compressi\u00f3 de dades",
+      q: "Sigui $X=(U_1,\\ldots,U_n)$ amb s\u00edmbols independents $U_i$ que NO s\u00f3n tots id\u00e8nticament distribu\u00efts. Aleshores en general $H(X)\\neq n\\,H(U_1)$.",
+      options: ["Cert", "Fals"],
+      correct: 0
+    },
+    {
+      topic: "Tema 5: L\u00edmits de la compressi\u00f3 de dades",
+      q: "Una font discreta sense mem\u00f2ria t\u00e9 $H(U)=\\tfrac32$ bits. Per a longitud de bloc $n=4$, la longitud mitjana del codi de Huffman \u00f2ptim satisf\u00e0 $6\\leq L_{\\text{av}}&lt;7$.",
+      options: ["Cert", "Fals"],
+      correct: 0
+    },
+    {
+      topic: "Tema 5: L\u00edmits de la compressi\u00f3 de dades",
+      q: "Una font discreta sense mem\u00f2ria t\u00e9 $H(U)=1.2$ bits, i el seu codi de Huffman \u00f2ptim per blocs amb $n=3$ assoleix $L_3=1.5$. Aleshores l'efici\u00e8ncia \u00e9s $e_3=1.25$.",
+      options: ["Cert", "Fals"],
+      correct: 1
+    },
+    {
+      topic: "Tema 5: L\u00edmits de la compressi\u00f3 de dades",
+      q: "Per a tota font discreta sense mem\u00f2ria $U$, l'efici\u00e8ncia $e_n$ del codi de Huffman \u00f2ptim per blocs \u00e9s estrictament menor que $1$ per a tot $n$ finit.",
+      options: ["Cert", "Fals"],
+      correct: 1
+    },
+    {
+      topic: "Tema 5: L\u00edmits de la compressi\u00f3 de dades",
+      q: "Per a una font discreta sense mem\u00f2ria $U$, la longitud mitjana per s\u00edmbol del codi de Huffman \u00f2ptim per blocs satisf\u00e0 $H(U)\\leq L_n&lt;H(U)+\\tfrac1n$, per tant $\\lim_{n\\to\\infty}L_n=H(U)$.",
       options: ["Cert", "Fals"],
       correct: 0
     }

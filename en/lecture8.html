@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -38,48 +38,187 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html" class="active">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
-      <h1>Coming soon</h1>
+      <h1>Lecture 8. Channel capacity <a class="pdf-link" href="../pdf/ITC-2026-Lecture8-en.pdf">pdf</a></h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">This content will be available as the course progresses.</p>
+
+
+<h2>Introduction</h2>
+
+<p>
+So far we have seen examples of channel codes, such as the repetition code or the (7,4) Hamming code, which aim at transmitting information reliably over a communication channel using the data transmission block diagram depicted in Figure 8.1 below. With such system, we transmit $k=\log_2 M$ information bits using $n$ channel uses, where $n$ is the length of the sequences $\x_m$ and $\y$. 
+</p>
+<figure><img src="../img/tikz/lecture8-fig1.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure>
+<figcaption>Encoding and decoding functions in channel coding.</figcaption>
+<a id="fig:enc2"></a>
+</p>
+<p>
+We wish to design codes able to transmit information at a rate $R=\frac kn$ as high as possible with an error probability $P_{\rm e}$ the smallest as possible. We say that reliable communication is possible at a rate $R$ if $\lim_{n\to\infty} P_{\rm e}=0$ at a fixed rate $R$. The largest rate $R$ at which reliable communication is possible is called the <strong>channel capacity</strong>.
+</p>
+
+<h2>Channel capacity</h2>
+
+<p>
+The capacity of a discrete memoryless channel with input $X\in{\cal X}$, output $Y\in{\cal Y}$ and transition probability $P_{Y|X}(y|x)$, denoted by $C$ and derived by Shannon in 1948, is given by
+$$
+C = \max_{\px(x)} I(X;Y),
+\tag{8.1}
+$$
+where the maximization is over all possible input distributions, and $I(X;Y)$ is the <strong>mutual information</strong> between the input $X$ and the output $Y$, given by
+$$
+	I(X;Y) = \sum_{x\in{\cal X}}\sum_{y\in{\cal Y}} P_X(x) P_{Y|X}(y|x) \log_2 \frac{P_{Y|X}(y|x)}{P_{Y}(y)}.
+	\tag{8.2}
+$$
+In other words, to find the capacity of a discrete memoryless channel, one needs to calculate the mutual information in $(8.2)$ for all possible input distributions $P_X(x)$ and find the input distribution that maximizes the mutual information. The resulting maximum value of the mutual information is the capacity of the channel $C$, and the input distribution  that leads to the channel capacity is called the capacity-achieving input distribution, denoted as $P_X^\star(x)$. The mutual information $(8.2)$ can be interpreted as the amount of information that a random variable $Y$ has about another random variable $X$, or it can also be understood as the reduction in uncertainty about $X$ once we observe $Y$ as we will see in the next section.
+</p>
+<p>
+There are two important implications with respect to the mutual information and reliable communication:
+</p>
+
+<ul>
+</p>
+<p>
+	<li><strong>(a)</strong> For a fixed input distribution $P_X(x)$, reliable communication is possible as long as $R&lt;I(X;Y)$ because there exist codes such that $P_{\rm e}\to 0$ as $n\to\infty$.
+	<li><strong>(b)</strong> Conversely, for $R&gt;I(X;Y)$, reliable communication is not possible as there is no code such that $P_{\rm e}\to 0$ as $n\to\infty$.
+</p>
+<p>
+</ul>
+
+<p>
+Before seeing detailed example on the calculation of the channel capacity of a binary symmetric channel, we establish a number of relations between the mutual information and  entropies.
+</p>
+
+<h2>Mutual information and entropies</h2>
+
+<p>
+The mutual information in $(8.2)$ can be interpreted as the expected value of the random variable $Z=f(X,Y)$, the function of two variables $f(x,y)=\log_2\frac{P_{Y|X}(y|x)}{P_Y(y)}$. That is, $I(X;Y)=\mathbb{E}[f(X,Y)]$. Using that the joint distribution of $X$ and $Y$ can be written as
+$$
+	P_{XY}(x,y) = P_{Y|X}(y|x)P_X(x) = P_{X|Y}(x|y)P_Y(y),
+	\tag{8.3}
+$$
+and expanding the logarithm, we obtain that the mutual information can be written in various ways, including
+$$\begin{align}
+I(X;Y) &= \EE\bigg[\log_2\frac{\pyx(y|x)}{\py(y)}\bigg] = \mathbb{E}\bigl[\log_2\pyx(y|x)\bigr] - \mathbb{E}\bigl[\log_2\py(y)\bigr] \tag{8.4}\\
+&= \EE\bigg[\log_2\frac{\pxy(x,y)}{\px(x)\py(y)}\bigg] = \EE\bigl[\log_2\pxy(x,y)\bigr] - \EE\bigl[\log_2\px(x)\bigr]-\EE\bigl[\log_2\py(y)\bigr]\tag{8.5}\\
+&= \EE\bigg[\log_2\frac{\pxcy(x|y)}{\px(x)}\bigg] = \mathbb{E}\bigl[\log_2\pxcy(x|y)\bigr] - \mathbb{E}\bigl[\log_2\px(x)\bigr]\tag{8.6}\\
+&=I(Y;X),\tag{8.7}
+\end{align}$$
+implying that the mutual information is a symmetric quantity since $I(X;Y)=I(Y;X)$. It is easy to observe that many of the terms in the expressions above are expectations of the logarithm of probability distribution, which are indeed <strong>entropies</strong>! Let us define the following quantities
+$$\begin{gather}
+H(X) = -\sum_{x\in{\cal X}}\px(x)\log_2 \px(x) \tag{8.8}\\
+H(X,Y) = -\sum_{x\in{\cal X}}\sum_{y\in{\cal Y}}\pxy(x,y)\log_2 \pxy(x,y) \tag{8.9}\\
+H(Y|X) = -\sum_{x\in{\cal X}}\sum_{y\in{\cal Y}}\pxy(x,y)\log_2 \pyx(y|x) \tag{8.10}\end{gather}$$
+where $H(X)$ is the entropy of $X$, $H(X,Y)$ is the joint entropy of $X,Y$ and $H(Y|X)$ is the conditional entropy of $Y$ given $X$, which can be rewritten as
+$$\begin{align}
+H(Y|X) &= -\sum_{x\in{\cal X}}\sum_{y\in{\cal Y}}\px(x)\pyx(y|x)\log_2 \pyx(y|x) \tag{8.11}\\
+&= \sum_{x\in{\cal X}}\px(x)\bigg(-\sum_{y\in{\cal Y}} \pyx(y|x)\log_2 \pyx(y|x)\bigg) \tag{8.12}\\
+&= \sum_{x\in{\cal X}}\px(x) H(Y|X=x) \tag{8.13}\end{align}$$
+where
+$$
+H(Y|X=x) = -\sum_{y\in{\cal Y}} \pyx(y|x)\log_2 \pyx(y|x) \tag{8.14}$$
+is the conditional entropy of $Y$ for a specific $x$. Entropy, beyond being the fundamental limit of data compression, has an interpretation of the  uncertainty present in a given random variable. Using the definitions above (watch out the signs!), we can write equations $(8.4)$, $(8.5)$, $(8.6)$ and $(8.7)$ as
+$$\begin{align}
+	I(X;Y) &= H(Y) - H(Y|X) \tag{8.15}\\& = H(X) + H(Y) - H(X,Y) \tag{8.16}\\& = H(X) - H(X|Y) \tag{8.17}\\& = I(Y;X). \tag{8.18}\end{align}$$
+</p>
+<p>
+We end this section by stating three important properties of the entropy and the mutual information:
+</p>
+
+<ol>
+</p>
+<p>
+	<li>The mutual information is a non-negative quantity, that is $I(X;Y)\geq 0$ with equality if and only if $X$ and $Y$ are independent.
+	<li>The entropy is also a non-negative quantity that is upper-bounded as $H(X)\leq \log_2|{\cal X}|$, with equality if and only if $X$ has equiprobable symbols.
+	<li>Conditioning reduces entropy, that is $H(Y|X)\leq H(Y)$, suggesting that knowing another random variable $X$ can only reduce the uncertainty present in $Y$.
+</p>
+<p>
+</ol>
+
+
+
+<h2>Binary symmetric channel</h2>
+
+<p>
+We will now calculate the capacity of the binary symmetric channel. Since the input is binary, we let $X\in\{0,1\}$ with probability distribution $\{q,1-q\}$, that is, $
+\px(0) = q$ and $\px(1)=1-q$. Since $P_X(x)$ only depends on one parameter $q$, that satisfies $0\leq q \leq 1$, we can rewrite the capacity expression in $(8.1)$ as
+$$
+C = \max_{0\leq q \leq 1} I(X;Y).
+\tag{8.19}
+$$
+In order to compute $(8.19)$, we start from the convenient expression of the mutual information in $(8.15)$, that is $I(X;Y)=H(Y)-H(Y|X)$. For the binary symmetric channel with bit flipping probability $p$ we have $P_{Y|X}(0|1)=P_{Y|X}(1|0)=p$. Therefore, the conditional entropy $H(Y|X)$ can be calculated as
+$$\begin{align}
+H(Y|X) & = -\sum_{x\in\{0,1\}}\sum_{y\in\{0,1\}} \px(x)\pyx(y|x) \log_2\pyx(y|x) \tag{8.20}\\
+& = \underbrace{q\Big[(1-p) \log_2\frac{1}{1-p} + p\log_2\frac1p \Big]}_{x=0} + \underbrace{(1-q)\Big[(1-p) \log_2\frac{1}{1-p} + p\log_2\frac1p \Big]}_{x=1} \tag{8.21}\\
+& = \underbrace{(1-p) \log_2\frac{1}{1-p} + p\log_2\frac1p}_{h_2(p)}. \tag{8.22}
+\end{align}$$
+The last expression is the binary entropy function, that we denoted as $h_2(p)$.
+</p>
+<p>
+In addition, we know that the entropy of the output $H(Y)$ satisfies $
+H(Y) \leq \log_2(2) = 1$ and that $H(Y)=1$ is achieved with equality when $Y$ has equal probability. By the total probability law, the distribution of the output is $P_Y(0)=q(1-p)+(1-q)p$. If the input distribution is $P_X(0)=q=\frac 12$, then $P_Y(0)=\frac 12$ and therefore $H(Y)=1$ achieves the maximum value as possible independently on $p$. Since $H(Y|X)$ in (8.22) does not depend on $q$, we conclude that $P_X^\star(0)=\frac 12$ is the capacity-achieving input distribution and that the channel capacity is
+$$
+C(p) = 1-h_2(p) ~\text{bits/channel use}.
+\tag{8.23}
+$$
+We illustrate $(8.23)$ in Figure 8.2.
+</p>
+<figure><img src="../img/tikz/lecture8-fig2.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure>
+<figcaption>Channel capacity of the binary symmetric channel.</figcaption>
+<a id="fig:cbsc"></a>
+</p>
+<p>
+There are four final interesting points to notice:
+</p>
+
+<ul>
+</p>
+<p>
+<li>If $p=0$, there are no bit flips, the channel is noiseless and the capacity $C=1$ bit/channel use reliably. In this case, there is no need to code.
+<li>If $p = \frac12$, the channel flips bits with equal probability and the best one can do at the decoder is to guess.
+<li>Observe the symmetry for $p&gt;\frac12$. For example, for $p=1$ where all bits are flipped, it suffices to revert the output of the channel deterministically and we can still reliably transmit 1 bit/channel use.
+<li>If $p=0.11$ we have that $C=0.5$, i.e., if we wish to reliably transmit with a code of rate $R=\frac12$ we will only be able to do so if $p&lt;0.11$.
+</p>
+<p>
+</ul>
+
   </main>
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Information theory and coding 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

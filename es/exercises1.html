@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -40,36 +40,36 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html" class="active">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
 
@@ -81,299 +81,589 @@
     <button id="expand-all" data-expand="Mostrar todas las soluciones" data-collapse="Ocultar todas las soluciones" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostrar todas las soluciones</button>
 
     <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.1.</span> Knowing that la probabilidad that the fuente outputs the sequence $210$ is $\frac{1}{36}$, cuál es la probabilidad that the fuente outputs the sequence $02$?</p>
+  <p><span class="env-label">Ejercicio 1.1.</span></p>
+  <p>Una fuente sin memoria sobre el alfabeto $\{0,1,2\}$ tiene $P_U(2)=\frac{1}{2}$. Sabiendo que la probabilidad de que la fuente produzca la secuencia $210$ es $\frac{1}{36}$, ¿cuál es la probabilidad de que la fuente produzca la secuencia $02$?</p>
   <p>(a) $\frac{1}{12}$<br>
   (b) $\frac{1}{6}$<br>
-  (c) Ambas (a) and (b) are compatible answers.</p>
+  (c) Tanto (a) como (b) son respuestas compatibles.</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
-    <p>The statement implies that $P_U(2)=\frac 12$ and por lo tanto that $P_{U_1U_2U_3}(210)=\frac 12P_U(1)P_U(0)=\frac{1}{36}$. Together with $P_U(0)+P_U(1)=\frac 12$, encontramos that the distribution is either $\bigl\{ \frac 16,\frac 13,\frac 12 \bigr\}$ or $\bigl\{ \frac 13,\frac 16,\frac 12 \bigr\}$. The question asks for $P_U(0)P_U(2)$, which can be wither $\frac{1}{12}$ or $\frac{1}{6}$.</p>
+    <p>El enunciado da $P_U(2)=\frac{1}{2}$ y, por tanto, $P_{U_1U_2U_3}(210)=\frac{1}{2}P_U(1)P_U(0)=\frac{1}{36}$. Junto con $P_U(0)+P_U(1)=\frac{1}{2}$, encontramos que la distribución es $\bigl\{\frac{1}{6},\frac{1}{3},\frac{1}{2}\bigr\}$ o bien $\bigl\{\frac{1}{3},\frac{1}{6},\frac{1}{2}\bigr\}$. La pregunta pide $P_U(0)P_U(2)$, que puede ser $\frac{1}{12}$ o $\frac{1}{6}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.2.</span> Which is la probabilidad that the fuente does not output the all-$2$ sequence?</p>
+  <p><span class="env-label">Ejercicio 1.2.</span></p>
+  <p>¿Cuál es la probabilidad de que la fuente no produzca la secuencia formada toda por $2$?</p>
   <p>(a) $\frac{1}{2^n}$<br>
   (b) $\frac{1}{4^n}$<br>
   (c) $1-2^{-n}$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
-    <p>Dado que la probabilidad that the fuente outputs the all-$2$ sequence is $P_{U_1\cdots U_n}(2\cdots 2)=P_U(2)^n=2^{-n}$, the complementary event happens with probability $1-2^{-n}$.</p>
+    <p>Como la probabilidad de que la fuente produzca la secuencia formada toda por $2$ es $P_{U_1\cdots U_n}(2\cdots 2)=P_U(2)^n=2^{-n}$, el evento complementario tiene probabilidad $1-2^{-n}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.3.</span> Cuál de las siguientes pairs of sequences do not have the same probability?</p>
-  <p>(a) $0012$ and $0201$<br>
-  (b) $1111$ and $2222$<br>
-  (c) $1212$ and $2121$</p>
+  <p><span class="env-label">Ejercicio 1.3.</span></p>
+  <p>¿Cuál de los siguientes pares de secuencias no tienen la misma probabilidad?</p>
+  <p>(a) $0012$ y $0201$<br>
+  (b) $1111$ y $2222$<br>
+  (c) $1212$ y $2121$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
-    <p>As a discrete memoryless fuente, la probabilidad of a sequence only depends on the number of occurrences of each symbol.</p>
+    <p>Al tratarse de una fuente discreta sin memoria, la probabilidad de una secuencia solo depende del número de ocurrencias de cada símbolo.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.4.</span> Which is la probabilidad that the output sequence is $abb$ conditioned on the input sequence being $cba$?</p>
+  <p><span class="env-label">Ejercicio 1.4.</span></p>
+  <p>¿Cuál es la probabilidad de que la secuencia de salida sea $abb$ condicionada a que la secuencia de entrada sea $cba$?</p>
   <p>(a) $0$<br>
-  (b) $\frac 13$<br>
+  (b) $\frac{1}{3}$<br>
   (c) Ninguna de las otras.</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
-    <p>La probabilidad is given by 
+    <p>La probabilidad viene dada por
 $$
-P_{Y|X}(a|c)P_{Y|X}(b|b)P_{Y|X}(b|a) = \frac 12 \cdot 1 \cdot \frac 23 = \frac 13.
+P_{Y|X}(a|c)P_{Y|X}(b|b)P_{Y|X}(b|a) = \frac{1}{2} \cdot 1 \cdot \frac{2}{3} = \frac{1}{3}.
 $$</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.5.</span> Which is la probabilidad that, knowing that $(X_1,X_2,X_3)=bbb$, $(Y_1,Y_2,Y_3)$ is $aaa$?</p>
+  <p><span class="env-label">Ejercicio 1.5.</span></p>
+  <p>Sabiendo que $(X_1,X_2,X_3)=bbb$, ¿cuál es la probabilidad de que $(Y_1,Y_2,Y_3)$ sea $aaa$?</p>
   <p>(a) $1$<br>
   (b) $0$<br>
-  (c) $\frac 18$</p>
+  (c) $\frac{1}{8}$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
-    <p>Conditioned on $(X_1,X_2,X_3)=bbb$, la probabilidad that the output sequence is $aaa$ is $\mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=bbb] = P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa|bbb)$. Dado que the canal is memoryless, the conditional distribution is given by $P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa|bbb)=P_{Y|X}(a|b)^3=0^3=0$.</p>
+    <p>Condicionado a $(X_1,X_2,X_3)=bbb$, la probabilidad de que la secuencia de salida sea $aaa$ es $\mathbb{P}[(Y_1,Y_2,Y_3)=aaa\mid(X_1,X_2,X_3)=bbb] = P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa|bbb)$. Como el canal es sin memoria, la distribución condicional viene dada por $P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa|bbb)=P_{Y|X}(a|b)^3=0^3=0$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.6.</span> Which is la probabilidad that $(Y_1,Y_2,Y_3)=bbb$?</p>
+  <p><span class="env-label">Ejercicio 1.6.</span></p>
+  <p>¿Cuál es la probabilidad de que $(Y_1,Y_2,Y_3)=bbb$?</p>
   <p>(a) $\frac{59}{648}$<br>
   (b) $\frac{307}{648}$<br>
   (c) $\frac{35}{648}$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
-    <p>By the total probability law, we can calculate la probabilidad that $(Y_1,Y_2,Y_3)$ is $bbb$ as $\sum_{(x_1,x_2,x_3)\in\{a,b,c\}^3} \mathbb{P}[(Y_1,Y_2,Y_3)=bbb|(X_1,X_2,X_3)=(x_1,x_2,x_3)]P_{X_1X_2X_3}(x_1,x_2,x_3)$. We know $(X_1,X_2,X_3)$ only takes three possible values with non-zero probability, so we only have to calculate the following probabilities
- 	$$
-		\mathbb{P}[(Y_1,Y_2,Y_3)=bbb|(X_1,X_2,X_3)=aaa] = \tfrac{8}{27}\\
-		\mathbb{P}[(Y_1,Y_2,Y_3)=bbb|(X_1,X_2,X_3)=bbb] = 1\\
-		\mathbb{P}[(Y_1,Y_2,Y_3)=bbb|(X_1,X_2,X_3)=ccc] = \tfrac 18.
-	$$
-	For example, to find the first one we used that $
-	P_{Y_1Y_2Y_3|X_1X_2X_3}(bbb|aaa)=P_{Y|X}(b|a)^3$. Plugging the numbers in the summation and noting that $P_{X_1X_2X_3}(bbb)=P_{X_1X_2X_3}(ccc)=P_{X_1X_2X_3}(aaa)=\frac 13$, obtenemos the result.</p>
+    <p>Por la ley de la probabilidad total, podemos calcular la probabilidad de que $(Y_1,Y_2,Y_3)$ sea $bbb$ como $\sum_{(x_1,x_2,x_3)\in\{a,b,c\}^3} \mathbb{P}[(Y_1,Y_2,Y_3)=bbb\mid(X_1,X_2,X_3)=(x_1,x_2,x_3)]P_{X_1X_2X_3}(x_1,x_2,x_3)$. Sabemos que $(X_1,X_2,X_3)$ solo toma tres valores posibles con probabilidad no nula, de modo que solo tenemos que calcular las siguientes probabilidades:
+$$
+\mathbb{P}[(Y_1,Y_2,Y_3)=bbb\mid(X_1,X_2,X_3)=aaa] = \tfrac{8}{27},\\
+\mathbb{P}[(Y_1,Y_2,Y_3)=bbb\mid(X_1,X_2,X_3)=bbb] = 1,\\
+\mathbb{P}[(Y_1,Y_2,Y_3)=bbb\mid(X_1,X_2,X_3)=ccc] = \tfrac{1}{8}.
+$$
+Por ejemplo, para hallar la primera hemos usado que $P_{Y_1Y_2Y_3|X_1X_2X_3}(bbb|aaa)=P_{Y|X}(b|a)^3$. Sustituyendo los números en la suma y teniendo en cuenta que $P_{X_1X_2X_3}(bbb)=P_{X_1X_2X_3}(ccc)=P_{X_1X_2X_3}(aaa)=\frac{1}{3}$, obtenemos el resultado.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.7.</span> The distribution of $(U_1,U_2)$, in lexicographic order, is given by</p>
+  <p><span class="env-label">Ejercicio 1.7.</span></p>
+  <p>La distribución de $(U_1,U_2)$, en orden lexicográfico, viene dada por</p>
   <p>(a) $\bigl\{ \frac{1}{4},\frac{1}{12},\frac{1}{6},\frac{1}{12},\frac{1}{36},\frac{1}{18},\frac{1}{6},\frac{1}{18},\frac{1}{9} \bigr\}$<br>
-  (b) $\bigl\{ \frac 19, \frac{1}{18}, \frac{1}{6}, \frac{1}{18},\frac{1}{36} , \frac{1}{12}, \frac{1}{6}, \frac{1}{12}, \frac{1}{4}\bigr\}$<br>
+  (b) $\bigl\{ \frac{1}{9}, \frac{1}{18}, \frac{1}{6}, \frac{1}{18},\frac{1}{36} , \frac{1}{12}, \frac{1}{6}, \frac{1}{12}, \frac{1}{4}\bigr\}$<br>
   (c) Ninguna de las otras.</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>Together with $P_U(0)+P_U(1)+P_U(2)=1$, encontramos that $P_U(0)=\frac 12$, $P_U(1)=\frac 16$ and $P_U(2)=\frac 13$. Dado que symbols are i.i.d., the distribution of $(U_1,U_2)$ satisfies $P_{U_1U_2}(u_1,u_2)=P_U(u_1)P_U(u_2)$, for each $(u_1,u_2)\in\{0,1,2\}^2=\{00,01,02,10,11,12,20,21,22\}$, lo que lleva a the result.</p>
+    <p>Junto con $P_U(0)+P_U(1)+P_U(2)=1$, encontramos que $P_U(0)=\frac{1}{2}$, $P_U(1)=\frac{1}{6}$ y $P_U(2)=\frac{1}{3}$. Como los símbolos son i.i.d., la distribución de $(U_1,U_2)$ cumple $P_{U_1U_2}(u_1,u_2)=P_U(u_1)P_U(u_2)$, para cada $(u_1,u_2)\in\{0,1,2\}^2=\{00,01,02,10,11,12,20,21,22\}$, lo que conduce al resultado.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.8.</span> Which is la probabilidad that the fuente outputs a sequence containing at least one symbol $0$?</p>
-  <p>(a) $\frac 34$<br>
-  (b) $\frac 12$<br>
-  (c) $\frac 49$</p>
+  <p><span class="env-label">Ejercicio 1.8.</span></p>
+  <p>Una fuente sin memoria sobre el alfabeto $\{0,1,2\}$ tiene distribución $\{P_U(0),P_U(1),P_U(2)\}=\bigl\{\frac{1}{2},\frac{1}{3},\frac{1}{6}\bigr\}$ y emite dos símbolos $(U_1,U_2)$. ¿Cuál es la probabilidad de que la fuente produzca una secuencia que contenga al menos un símbolo $0$?</p>
+  <p>(a) $\frac{3}{4}$<br>
+  (b) $\frac{1}{2}$<br>
+  (c) $\frac{4}{9}$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>The event ``$(U_1,U_2)$ has exactly one symbol $0$'' is described by the set of outut sequences containing exactly one symbol $0$, that is ${\cal A}=\{00,01,02,10,20\}$. Por lo tanto, $\mathbb{P}[\text{$(U_1,U_2)$ has exactly one symbol $0$}]=\mathbb{P}[(U_1,U_2)\in{\cal A}]=\sum_{(u_1,u_2)\in{\cal A}}P_{U_1U_2}(u_1,u_2)$. Using the distribution in question 1, obtenemos the result.</p>
+    <p>Usamos el evento complementario: $\mathbb{P}[\text{al menos un }0]=1-\mathbb{P}[\text{ningún }0]=1-(1-P_U(0))^2=1-\bigl(1-\tfrac{1}{2}\bigr)^2=1-\tfrac14=\tfrac34$. Es decir, el evento es el conjunto ${\cal A}=\{00,01,02,10,20\}$ y la suma $\sum_{(u_1,u_2)\in{\cal A}}P_{U_1U_2}(u_1,u_2)=\tfrac34$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.9.</span> Which is la probabilidad that the fuente outputs the all $0$ sequence?</p>
+  <p><span class="env-label">Ejercicio 1.9.</span></p>
+  <p>¿Cuál es la probabilidad de que la fuente genere la secuencia de todo $0$?</p>
   <p>(a) $\frac{1}{3^n}$<br>
   (b) $\frac{1}{2^n}$<br>
   (c) $\frac{1}{6^n}$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
-    <p>As a sequence of i.i.d. variables aleatorias, we have that $\mathbb{P}[(U_1,\ldots,U_n)=0\cdots 0]=P_{U_1\cdots U_n}(0\cdots 0) = \prod_{i=1}^n P_U(0) = \frac{1}{2^n}.$</p>
+    <p>Como se trata de una secuencia de variables aleatorias i.i.d., tenemos que $\mathbb{P}[(U_1,\ldots,U_n)=0\cdots 0]=P_{U_1\cdots U_n}(0\cdots 0) = \prod_{i=1}^n P_U(0) = \frac{1}{2^n}.$</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.10.</span> Cuál de las siguientes corresponds to la probabilidad distribution of $Y$?</p>
+  <p><span class="env-label">Ejercicio 1.10.</span></p>
+  <p>Sea $X$ la entrada del canal con distribución $P_X$ sobre $\{a,b,c\}$, y sea $Y$ sobre $\{a,b\}$ la salida del canal $P_{Y|X}$ dado por $P_{Y|X}(a|a)=\frac{1}{3}$, $P_{Y|X}(b|a)=\frac{2}{3}$, $P_{Y|X}(a|b)=0$, $P_{Y|X}(b|b)=1$, $P_{Y|X}(a|c)=\frac{1}{2}$, $P_{Y|X}(b|c)=\frac{1}{2}$. ¿Cuál de las siguientes opciones corresponde a la distribución de probabilidad de $Y$?</p>
   <p>(a) $\bigl\{ \frac 13P_X(a)+P_X(b)+\frac 12 P_X(c) , \frac 23 P_X(a) + \frac 12 P_X(c) \bigr\}$<br>
   (b) $\bigl\{ \frac 13P_X(a)+\frac 12 P_X(c) , \frac 23 P_X(a) + P_X(b) + \frac 12 P_X(c) \bigr\}$<br>
   (c) Ninguna de las otras</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
-    <p>La probabilidad distribution of $Y$ is given by $\{P_Y(a),P_Y(b)\}$. By the total probability law, $P_Y(y) = \sum_{x\in\{a,b,c\}}P_{Y|X}(y|x)P_X(x)$. For example, $P_Y(a) = P_{Y|X}(a|a)P_X(a) + P_{Y|X}(a|b)P_X(b) + P_{Y|X}(a|c)P_X(c)$. Substituting the numbers obtenemos the result.</p>
+    <p>La distribución de probabilidad de $Y$ viene dada por $\{P_Y(a),P_Y(b)\}$. Por la ley de la probabilidad total, $P_Y(y) = \sum_{x\in\{a,b,c\}}P_{Y|X}(y|x)P_X(x)$. Por ejemplo, $P_Y(a) = P_{Y|X}(a|a)P_X(a) + P_{Y|X}(a|b)P_X(b) + P_{Y|X}(a|c)P_X(c)=\frac13P_X(a)+\frac12P_X(c)$. Sustituyendo los números obtenemos el resultado.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.11.</span> Which is la probabilidad that $(Y_1,Y_2,Y_3)=aaa$?</p>
+  <p><span class="env-label">Ejercicio 1.11.</span></p>
+  <p>Considere el canal sin memoria $P_{Y|X}$ sobre $\{a,b,c\}\to\{a,b\}$ con $P_{Y|X}(a|a)=\frac{1}{3}$, $P_{Y|X}(a|b)=0$ y $P_{Y|X}(a|c)=\frac{1}{2}$, usado $3$ veces. La entrada $(X_1,X_2,X_3)$ es uniforme sobre $\{aaa,bbb,ccc\}$, es decir, cada una de estas tres secuencias tiene probabilidad $\frac{1}{3}$. ¿Cuál es la probabilidad de que $(Y_1,Y_2,Y_3)=aaa$?</p>
   <p>(a) $\frac{59}{648}$<br>
   (b) $\frac{59}{324}$<br>
   (c) $\frac{35}{648}$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
-    <p>By the total probability law, we can calculate la probabilidad that $(Y_1,Y_2,Y_3)$ is $aaa$ as $\sum_{(x_1,x_2,x_3)\in\{a,b,c\}^3} \mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=(x_1,x_2,x_3)]P_{X_1X_2X_3}(x_1,x_2,x_3)$. We know $(X_1,X_2,X_3)$ only takes three possible values with non-zero probability, so we only have to calculate the following probabilities
- 	$$
-		\mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=aaa] = \tfrac{1}{27}\\
-		\mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=bbb] = 0\\
-		\mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=ccc] = \tfrac 18.
-	$$
-	For example, to find the first one we used that $
-	P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa|aaa)=P_{Y|X}(a|a)^3$. Plugging the numbers in the summation and noting that $P_{X_1X_2X_3}(bbb)=P_{X_1X_2X_3}(ccc)=P_{X_1X_2X_3}(aaa)=\frac 13$, obtenemos the result.</p>
+    <p>Por la ley de la probabilidad total, podemos calcular la probabilidad de que $(Y_1,Y_2,Y_3)$ sea $aaa$ como $\sum_{(x_1,x_2,x_3)\in\{a,b,c\}^3} \mathbb{P}[(Y_1,Y_2,Y_3)=aaa\mid(X_1,X_2,X_3)=(x_1,x_2,x_3)]\,P_{X_1X_2X_3}(x_1,x_2,x_3)$. Sabemos que $(X_1,X_2,X_3)$ solo toma tres valores posibles con probabilidad no nula, de modo que solo hay que calcular las siguientes probabilidades: $$\mathbb{P}[(Y_1,Y_2,Y_3)=aaa\mid(X_1,X_2,X_3)=aaa] = \tfrac{1}{27},\quad \mathbb{P}[(Y_1,Y_2,Y_3)=aaa\mid(X_1,X_2,X_3)=bbb] = 0,\quad \mathbb{P}[(Y_1,Y_2,Y_3)=aaa\mid(X_1,X_2,X_3)=ccc] = \tfrac 18.$$ Por ejemplo, para hallar la primera hemos utilizado que $P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa\mid aaa)=P_{Y|X}(a\mid a)^3$. Sustituyendo los números en el sumatorio y teniendo en cuenta que $P_{X_1X_2X_3}(bbb)=P_{X_1X_2X_3}(ccc)=P_{X_1X_2X_3}(aaa)=\frac 13$, obtenemos $\frac{1}{3}\bigl(\frac{1}{27}+0+\frac18\bigr)=\frac{35}{648}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.12.</span> A discrete memoryless fuente produces i.i.d. symbols from the alphabet $\{a,b\}$ with $P(a)=\tfrac{1}{3}$. Cuál es la probabilidad of the sequence $abba$?</p>
-  <p>(a) $\tfrac{4}{81}$<br>
-  (b) $\tfrac{2}{27}$<br>
-  (c) $\tfrac{4}{27}$</p>
-  <details class="solution"><summary>Mostrar solución</summary>
-    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>Dado que the fuente is memoryless, $P(abba) = P(a)P(b)P(b)P(a) = \tfrac{1}{3}\cdot\tfrac{2}{3}\cdot\tfrac{2}{3}\cdot\tfrac{1}{3} = \tfrac{4}{81}$.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.13.</span> Let $X$ and $Y$ be two independientes variables aleatorias with $X\in\{0,1\}$ equiprobable and $Y\in\{0,1,2\}$ equiprobable. Cuál es $\mathbb{E}[XY]$?</p>
+  <p><span class="env-label">Ejercicio 1.12.</span></p>
+  <p>Sean $X$ e $Y$ dos variables aleatorias independientes con $X\in\{0,1\}$ equiprobable e $Y\in\{0,1,2\}$ equiprobable. ¿Cuánto vale $\mathbb{E}[XY]$?</p>
   <p>(a) $\tfrac{1}{2}$<br>
   (b) $1$<br>
   (c) $\tfrac{1}{3}$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>By independence, $\mathbb{E}[XY]=\mathbb{E}[X]\mathbb{E}[Y]=\tfrac{1}{2}\cdot 1 = \tfrac{1}{2}$.</p>
+    <p>Por la independencia, $\mathbb{E}[XY]=\mathbb{E}[X]\,\mathbb{E}[Y]=\tfrac{1}{2}\cdot 1 = \tfrac{1}{2}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.14.</span> A ternary fuente emits symbols from $\{0,1,2\}$ with probabilities $\{\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{4}\}$. For a sequence of length $n=2$, how many distinct sequences have probability $\tfrac{1}{8}$?</p>
+  <p><span class="env-label">Ejercicio 1.13.</span></p>
+  <p>Una fuente ternaria emite símbolos de $\{0,1,2\}$ con probabilidades $\{\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{4}\}$. Para una secuencia de longitud $n=2$, ¿cuántas secuencias distintas tienen probabilidad $\tfrac{1}{8}$?</p>
   <p>(a) $2$<br>
   (b) $4$<br>
   (c) $1$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
-    <p>A sequence has probability $\tfrac{1}{8}$ when it consists of one symbol with probability $\tfrac{1}{2}$ and one with probability $\tfrac{1}{4}$. The possible sequences are $01$, $02$, $10$, $20$, giving $4$ sequences.</p>
+    <p>Una secuencia tiene probabilidad $\tfrac{1}{8}$ cuando está formada por un símbolo con probabilidad $\tfrac{1}{2}$ y otro con probabilidad $\tfrac{1}{4}$. Las secuencias posibles son $01$, $02$, $10$, $20$, es decir, $4$ secuencias.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.15.</span> A discrete memoryless fuente emits i.i.d. symbols from $\{a,b,c\}$ with $P(a)=\tfrac{1}{2}$, $P(b)=\tfrac{1}{3}$, $P(c)=\tfrac{1}{6}$. Cuál es la probabilidad that a sequence of length $2$ contains no $a$?</p>
+  <p><span class="env-label">Ejercicio 1.14.</span></p>
+  <p>Una fuente discreta sin memoria emite símbolos i.i.d. de $\{a,b,c\}$ con $P(a)=\tfrac{1}{2}$, $P(b)=\tfrac{1}{3}$, $P(c)=\tfrac{1}{6}$. ¿Cuál es la probabilidad de que una secuencia de longitud $2$ no contenga ninguna $a$?</p>
   <p>(a) $\tfrac{1}{4}$<br>
   (b) $\tfrac{1}{2}$<br>
   (c) $\tfrac{2}{9}$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>La probabilidad of no $a$ in a single symbol is $1-\tfrac{1}{2}=\tfrac{1}{2}$. For two independientes symbols, la probabilidad is $\bigl(\tfrac{1}{2}\bigr)^2=\tfrac{1}{4}$.</p>
+    <p>La probabilidad de que un único símbolo no sea $a$ es $1-\tfrac{1}{2}=\tfrac{1}{2}$. Para dos símbolos independientes, la probabilidad es $\bigl(\tfrac{1}{2}\bigr)^2=\tfrac{1}{4}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.16.</span> Consideremos a binario symmetric canal with probabilidad de cruce $p=\tfrac{1}{4}$. If the input is $X=0$, cuál es la probabilidad that the output sequence $(Y_1,Y_2)$ equals $(0,1)$ when two independientes uses of the canal are made?</p>
+  <p><span class="env-label">Ejercicio 1.15.</span></p>
+  <p>Considere un canal binario simétrico con probabilidad de cruce $p=\tfrac{1}{4}$. Si la entrada es $X=0$, ¿cuál es la probabilidad de que la secuencia de salida $(Y_1,Y_2)$ sea igual a $(0,1)$ cuando se hacen dos usos independientes del canal?</p>
   <p>(a) $\tfrac{3}{16}$<br>
   (b) $\tfrac{1}{4}$<br>
   (c) $\tfrac{1}{16}$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>Dado que the canal is memoryless, $P(Y_1=0,Y_2=1|X_1=0,X_2=0)=P(Y=0|X=0)P(Y=1|X=0)=(1-p)p=\tfrac{3}{4}\cdot\tfrac{1}{4}=\tfrac{3}{16}$.</p>
+    <p>Como el canal es sin memoria, $P(Y_1=0,Y_2=1\mid X_1=0,X_2=0)=P(Y=0\mid X=0)\,P(Y=1\mid X=0)=(1-p)\,p=\tfrac{3}{4}\cdot\tfrac{1}{4}=\tfrac{3}{16}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.17.</span> A fair coin is flipped $n$ times independientesly. Let $S_n$ be the number of heads. Cuál es $\mathbb{E}[S_n/n]$?</p>
+  <p><span class="env-label">Ejercicio 1.16.</span></p>
+  <p>Se lanza una moneda equilibrada $n$ veces de manera independiente. Sea $S_n$ el número de caras. ¿Cuánto vale $\mathbb{E}[S_n/n]$?</p>
   <p>(a) $\tfrac{1}{2}$<br>
   (b) $\tfrac{1}{n}$<br>
   (c) $1$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>Dado que $\mathbb{E}[S_n]=\tfrac{n}{2}$ for a fair coin, we have $\mathbb{E}[S_n/n]=\tfrac{1}{2}$.</p>
+    <p>Como $\mathbb{E}[S_n]=\tfrac{n}{2}$ para una moneda equilibrada, tenemos $\mathbb{E}[S_n/n]=\tfrac{1}{2}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.18.</span> Let $(X_1,X_2,X_3)$ be i.i.d. with $P(X_i=0)=\tfrac{1}{3}$ and $P(X_i=1)=\tfrac{2}{3}$. Cuál es the most probable sequence?</p>
+  <p><span class="env-label">Ejercicio 1.17.</span></p>
+  <p>Sea $(X_1,X_2,X_3)$ i.i.d. con $P(X_i=0)=\tfrac{1}{3}$ y $P(X_i=1)=\tfrac{2}{3}$. ¿Cuál es la secuencia más probable?</p>
   <p>(a) $111$<br>
   (b) $000$<br>
   (c) $110$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>Dado que $P(1)>P(0)$, the most probable sequence is the all-ones sequence, with probability $\bigl(\tfrac{2}{3}\bigr)^3=\tfrac{8}{27}$.</p>
+    <p>Como $P(1)&gt;P(0)$, la secuencia más probable es la de todo unos, con probabilidad $\bigl(\tfrac{2}{3}\bigr)^3=\tfrac{8}{27}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.19.</span> A discrete memoryless canal has input $X\in\{0,1\}$ and output $Y=X$. If $P_X(0)=\tfrac{3}{4}$, cuál es $P_Y(1)$?</p>
+  <p><span class="env-label">Ejercicio 1.18.</span></p>
+  <p>Un canal discreto sin memoria tiene entrada $X\in\{0,1\}$ y salida $Y=X$. Si $P_X(0)=\tfrac{3}{4}$, ¿cuánto vale $P_Y(1)$?</p>
   <p>(a) $\tfrac{1}{4}$<br>
   (b) $\tfrac{3}{4}$<br>
   (c) $\tfrac{1}{2}$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>Dado que $Y=X$ deterministically, $P_Y(1)=P_X(1)=1-\tfrac{3}{4}=\tfrac{1}{4}$.</p>
+    <p>Como $Y=X$ de manera determinista, $P_Y(1)=P_X(1)=1-\tfrac{3}{4}=\tfrac{1}{4}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.20.</span> Two variables aleatorias $X\in\{0,1\}$ and $Y\in\{0,1\}$ satisfy $P_{XY}(0,0)=P_{XY}(1,1)=\tfrac{1}{2}$. Are $X$ and $Y$ independientes?</p>
+  <p><span class="env-label">Ejercicio 1.19.</span></p>
+  <p>Dos variables aleatorias $X\in\{0,1\}$ y $Y\in\{0,1\}$ cumplen $P_{XY}(0,0)=P_{XY}(1,1)=\tfrac{1}{2}$. ¿Son $X$ e $Y$ independientes?</p>
   <p>(a) No, porque $P_{XY}(0,0)\neq P_X(0)P_Y(0)$<br>
-  (b) Yes, porque $P_X(0)=P_Y(0)=\tfrac{1}{2}$<br>
-  (c) It depends on the marginals</p>
+  (b) Sí, porque $P_X(0)=P_Y(0)=\tfrac{1}{2}$<br>
+  (c) Depende de las marginales</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>We have $P_X(0)=P_Y(0)=\tfrac{1}{2}$, so $P_X(0)P_Y(0)=\tfrac{1}{4}\neq\tfrac{1}{2}=P_{XY}(0,0)$. Por lo tanto $X$ and $Y$ are not independientes.</p>
+    <p>Tenemos $P_X(0)=P_Y(0)=\tfrac{1}{2}$, así que $P_X(0)P_Y(0)=\tfrac{1}{4}\neq\tfrac{1}{2}=P_{XY}(0,0)$. Por tanto, $X$ e $Y$ no son independientes.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.21.</span> Let $X$ be a variable aleatoria taking values in $\{1,2,3,4\}$ con igual probabilidad. Cuál es $\text{var}(X)$?</p>
+  <p><span class="env-label">Ejercicio 1.20.</span></p>
+  <p>Sea $X$ una variable aleatoria que toma valores en $\{1,2,3,4\}$ con igual probabilidad. ¿Cuánto vale $\operatorname{var}(X)$?</p>
   <p>(a) $\tfrac{5}{4}$<br>
   (b) $\tfrac{5}{3}$<br>
   (c) $\tfrac{3}{2}$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>We have $\mathbb{E}[X]=\tfrac{10}{4}=\tfrac{5}{2}$ and $\mathbb{E}[X^2]=\tfrac{1+4+9+16}{4}=\tfrac{30}{4}=\tfrac{15}{2}$. Por lo tanto $\text{var}(X)=\tfrac{15}{2}-\tfrac{25}{4}=\tfrac{5}{4}$.</p>
+    <p>Tenemos $\mathbb{E}[X]=\tfrac{10}{4}=\tfrac{5}{2}$ y $\mathbb{E}[X^2]=\tfrac{1+4+9+16}{4}=\tfrac{30}{4}=\tfrac{15}{2}$. Por tanto, $\operatorname{var}(X)=\tfrac{15}{2}-\tfrac{25}{4}=\tfrac{5}{4}$.</p>
   </details>
 </div>
 
-
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.22.</span>
-  Dada una fuente binaria i.i.d. con $P(0)=\tfrac{1}{4}$, encuentre la probabilidad de la secuencia $0110$.</p>
-  <p>(a) $\tfrac{9}{256}$<br>
-  (b) $\tfrac{3}{64}$<br>
-  (c) $\tfrac{1}{16}$</p>
+  <p><span class="env-label">Ejercicio 1.21.</span></p>
+  <p>Una fuente discreta sin memoria emite símbolos i.i.d. sobre $\mathcal{X}=\{a,b,c,d\}$, con $P_X(a)=3\,P_X(b)$ y $P_X(b)=P_X(c)=P_X(d)$.</p><p>¿Cuál es la distribución completa $P_X$?</p>
+  <p>(a) $P_X(a)=\tfrac12,\ P_X(b)=P_X(c)=P_X(d)=\tfrac16$<br>
+  (b) $P_X(a)=\tfrac13,\ P_X(b)=P_X(c)=P_X(d)=\tfrac29$<br>
+  (c) $P_X(a)=\tfrac34,\ P_X(b)=P_X(c)=P_X(d)=\tfrac{1}{12}$<br>
+  (d) $P_X(a)=\tfrac14,\ P_X(b)=P_X(c)=P_X(d)=\tfrac14$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>Como la fuente es i.i.d., $P(0110) = P(0)P(1)P(1)P(0) = \tfrac{1}{4}\cdot\tfrac{3}{4}\cdot\tfrac{3}{4}\cdot\tfrac{1}{4} = \tfrac{9}{256}$.</p>
+    <p>Sea $p=P_X(b)=P_X(c)=P_X(d)$, de modo que $P_X(a)=3p$. La normalización exige $3p+p+p+p=6p=1$, es decir, $p=\tfrac16$ y $P_X(a)=3p=\tfrac12$. Comprobación: $\tfrac12+3\cdot\tfrac16=1$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.23.</span>
-  Para un canal sin memoria con probabilidades de transición $P(Y{=}0|X{=}0)=0.9$, $P(Y{=}0|X{=}1)=0.2$, ¿cuánto vale $P(Y{=}0|X{=}1)$?</p>
-  <p>(a) $0.2$<br>
-  (b) $0.8$<br>
-  (c) $0.9$</p>
+  <p><span class="env-label">Ejercicio 1.22.</span></p>
+  <p>Una DMS sobre $\mathcal{X}=\{a,b,c,d\}$ tiene $P_X(a)=\tfrac12$ y $P_X(b)=P_X(c)=P_X(d)=\tfrac16$.</p><p>Calcula la probabilidad de una secuencia <em>fijada</em> de longitud $n=5$ que contiene $a$ dos veces y cada uno de $b,c,d$ una vez.</p>
+  <p>(a) $\dfrac{1}{864}\approx 1.16\times10^{-3}$<br>
+  (b) $\dfrac{5}{72}\approx 6.94\times10^{-2}$<br>
+  (c) $\dfrac{1}{216}\approx 4.63\times10^{-3}$<br>
+  (d) $\dfrac{1}{432}\approx 2.31\times10^{-3}$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>La probabilidad de transición $P(Y{=}0|X{=}1)=0.2$ viene dada directamente en el enunciado del problema.</p>
+    <p>Para una secuencia fijada se aplica la regla del producto i.i.d. sin factor multinomial: $\mathbb{P}[\boldsymbol{x}]=P_X(a)^2P_X(b)P_X(c)P_X(d)=(\tfrac12)^2(\tfrac16)^3=\tfrac14\cdot\tfrac{1}{216}=\tfrac{1}{864}$. Multiplicar por el recuento $\binom{5}{2,1,1,1}=60$ daría $\tfrac{5}{72}$, pero eso es la probabilidad de todo el tipo, no de una sola secuencia fijada.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.24.</span>
-  Una fuente emite símbolos de $\{a,b,c,d\}$ uniformemente al azar. ¿Cuántas secuencias de longitud $2$ tienen probabilidad $\tfrac{1}{16}$?</p>
-  <p>(a) $4$<br>
-  (b) $8$<br>
-  (c) $16$</p>
+  <p><span class="env-label">Ejercicio 1.23.</span></p>
+  <p>Una DMS sobre $\mathcal{X}=\{a,b,c,d\}$ tiene $P_X(a)=\tfrac12$ y $P_X(b)=P_X(c)=P_X(d)=\tfrac16$.</p><p>Para una longitud fijada $n$, ¿cuál es la secuencia más probable, y cuál es su probabilidad?</p>
+  <p>(a) La cadena toda de $a$ $(a,\dots,a)$, con probabilidad $(1/2)^n$<br>
+  (b) Una secuencia con $a,b,c,d$ en proporción a sus probabilidades, con probabilidad $(1/2)^{n/2}(1/6)^{n/2}$<br>
+  (c) Cualquier secuencia es igual de probable, con probabilidad $(1/4)^n$<br>
+  (d) La cadena toda de $b$ $(b,\dots,b)$, con probabilidad $(1/6)^n$</p>
   <details class="solution"><summary>Mostrar solución</summary>
-    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
-    <p>Cada símbolo tiene probabilidad $\tfrac{1}{4}$, así que toda secuencia de longitud $2$ tiene probabilidad $\tfrac{1}{4}\cdot\tfrac{1}{4}=\tfrac{1}{16}$. Hay $4^2=16$ secuencias.</p>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La probabilidad se factoriza como $\prod_{i=1}^{n}P_X(x_i)$, de modo que se maximiza término a término eligiendo, en cada posición, el símbolo más probable $a$ ($P_X(a)=\tfrac12$). Sustituir cualquier $x_i\neq a$ por $a$ eleva ese factor de $\tfrac16$ a $\tfrac12$, incrementando estrictamente el producto. El maximizador único es la palabra toda de $a$ con probabilidad $(1/2)^n$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 1.25.</span>
-  Para una fuente ternaria i.i.d. con $P(0)=\tfrac{1}{2}$, $P(1)=P(2)=\tfrac{1}{4}$, ¿qué secuencia de longitud $3$ es menos probable: $000$, $012$ o $222$?</p>
-  <p>(a) $000$<br>
-  (b) $012$<br>
-  (c) $222$</p>
+  <p><span class="env-label">Ejercicio 1.24.</span></p>
+  <p>Una fuente discreta sin memoria emite símbolos i.i.d. sobre $\mathcal{X}=\{a,b\}$ con $\mathbb{P}(a)=\frac{1}{3}$ y $\mathbb{P}(b)=\frac{2}{3}$.</p><p>¿Cuál es la probabilidad de la secuencia $abba$?</p>
+  <p>(a) $\frac{4}{81}$<br>
+  (b) $\frac{2}{81}$<br>
+  (c) $\frac{8}{81}$<br>
+  (d) $\frac{1}{16}$</p>
   <details class="solution"><summary>Mostrar solución</summary>
-    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
-    <p>$P(000)=\tfrac{1}{8}$, $P(012)=\tfrac{1}{2}\cdot\tfrac{1}{4}\cdot\tfrac{1}{4}=\tfrac{1}{32}$, $P(222)=\tfrac{1}{64}$. La menos probable es $222$.</p>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Para una fuente sin memoria la probabilidad de la secuencia se factoriza, es decir, $\mathbb{P}(abba)=\mathbb{P}(a)\mathbb{P}(b)\mathbb{P}(b)\mathbb{P}(a)=\frac13\cdot\frac23\cdot\frac23\cdot\frac13$. Esto es $\left(\frac13\right)^2\left(\frac23\right)^2=\frac{1\cdot 4}{81}=\frac{4}{81}\approx0{,}0494$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.25.</span></p>
+  <p>Una fuente discreta sin memoria emite símbolos i.i.d. sobre $\mathcal{X}=\{a,b\}$ con $\mathbb{P}(a)=\frac{1}{3}$ y $\mathbb{P}(b)=\frac{2}{3}$.</p><p>¿Cuál es la probabilidad de que una secuencia de longitud $4$ contenga exactamente dos $a$?</p>
+  <p>(a) $\frac{8}{27}$<br>
+  (b) $\frac{4}{81}$<br>
+  (c) $\frac{16}{81}$<br>
+  (d) $\frac{4}{27}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Cada secuencia concreta con dos $a$ y dos $b$ tiene probabilidad $\mathbb{P}(a)^2\mathbb{P}(b)^2=\frac{4}{81}$. El número de ordenaciones es $\binom{4}{2}=6$, es decir, hay seis casos. Sumando las secuencias equiprobables y mutuamente excluyentes resulta $6\cdot\frac{4}{81}=\frac{24}{81}=\frac{8}{27}\approx0{,}296$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.26.</span></p>
+  <p>Una fuente discreta sin memoria emite símbolos i.i.d. sobre $\mathcal{X}=\{a,b\}$ con $\mathbb{P}(a)=\frac{1}{3}$ y $\mathbb{P}(b)=\frac{2}{3}$.</p><p>¿Cuál es la secuencia de longitud $4$ más probable, y cuál es su probabilidad?</p>
+  <p>(a) $bbbb$, con probabilidad $\frac{16}{81}$<br>
+  (b) $aaaa$, con probabilidad $\frac{1}{81}$<br>
+  (c) $abba$, con probabilidad $\frac{4}{81}$<br>
+  (d) $bbbb$, con probabilidad $\frac{8}{27}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La probabilidad de una secuencia depende solo del recuento de símbolos. Como $\mathbb{P}(b)=\frac23&gt;\frac13=\mathbb{P}(a)$, sustituir una $a$ por una $b$ multiplica la probabilidad por $2&gt;1$, es decir, la secuencia individual más probable solo tiene $b$: $bbbb$, con $\left(\frac23\right)^4=\frac{16}{81}\approx0{,}198$. (Nota: $\frac{8}{27}$ es la probabilidad del <em>suceso</em> de dos $a$, que agrupa 6 secuencias, no una sola.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.27.</span></p>
+  <p>Sean $X$ e $Y$ que toman valores en $\{0,1\}$ con distribución conjunta $P_{XY}(0,0)=P_{XY}(1,1)=\tfrac{1}{3}$ y $P_{XY}(0,1)=P_{XY}(1,0)=\tfrac{1}{6}$.</p><p>¿Cuáles son las distribuciones marginales $P_X$ y $P_Y$?</p>
+  <p>(a) $P_X=P_Y=\big(\tfrac{1}{2},\tfrac{1}{2}\big)$<br>
+  (b) $P_X=P_Y=\big(\tfrac{1}{3},\tfrac{2}{3}\big)$<br>
+  (c) $P_X=P_Y=\big(\tfrac{2}{3},\tfrac{1}{3}\big)$<br>
+  (d) $P_X=\big(\tfrac{1}{3},\tfrac{1}{6}\big),\ P_Y=\big(\tfrac{1}{6},\tfrac{1}{3}\big)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Marginaliza sumando cada fila (para $P_X$) y columna (para $P_Y$): $P_X(0)=\tfrac{1}{3}+\tfrac{1}{6}=\tfrac{1}{2}$ y $P_X(1)=\tfrac{1}{6}+\tfrac{1}{3}=\tfrac{1}{2}$. Por la simetría de la tabla las columnas dan lo mismo, es decir, $P_X=P_Y=\big(\tfrac{1}{2},\tfrac{1}{2}\big)$ (ambas uniformes en $\{0,1\}$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.28.</span></p>
+  <p>Sean $X,Y\in\{0,1\}$ con distribución conjunta $P_{XY}(0,0)=P_{XY}(1,1)=\tfrac{1}{3}$, $P_{XY}(0,1)=P_{XY}(1,0)=\tfrac{1}{6}$, con marginales $P_X=P_Y=\big(\tfrac{1}{2},\tfrac{1}{2}\big)$.</p><p>¿Son $X$ e $Y$ independientes?</p>
+  <p>(a) No, porque $P_{XY}(0,0)=\tfrac{1}{3}\neq\tfrac{1}{4}=P_X(0)P_Y(0)$<br>
+  (b) Sí, porque las marginales son ambas uniformes<br>
+  (c) Sí, porque la tabla es simétrica<br>
+  (d) No, porque $P_X(0)\neq P_Y(0)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La independencia requiere $P_{XY}(x,y)=P_X(x)P_Y(y)$ para cada par. Probando $(0,0)$: $P_X(0)P_Y(0)=\tfrac{1}{2}\cdot\tfrac{1}{2}=\tfrac{1}{4}$, pero $P_{XY}(0,0)=\tfrac{1}{3}$. Como $\tfrac{1}{4}\neq\tfrac{1}{3}$ la factorización falla, es decir, $X$ e $Y$ no son independientes. (Marginales uniformes o una tabla simétrica no implican por sí solas la independencia.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.29.</span></p>
+  <p>Sean $X,Y\in\{0,1\}$ con distribución conjunta $P_{XY}(0,0)=P_{XY}(1,1)=\tfrac{1}{3}$, $P_{XY}(0,1)=P_{XY}(1,0)=\tfrac{1}{6}$, con $P_X(0)=\tfrac{1}{2}$.</p><p>Calcula $\mathbb{P}(Y=1\mid X=0)$.</p>
+  <p>(a) $\tfrac{1}{3}$<br>
+  (b) $\tfrac{1}{6}$<br>
+  (c) $\tfrac{2}{3}$<br>
+  (d) $\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por la definición de probabilidad condicional, $\mathbb{P}(Y=1\mid X=0)=\dfrac{P_{XY}(0,1)}{P_X(0)}=\dfrac{1/6}{1/2}=\tfrac{2}{6}=\tfrac{1}{3}$. (El valor conjunto $\tfrac{1}{6}$ es el peso sin normalizar; dividiendo por $P_X(0)=\tfrac{1}{2}$ se obtiene $\tfrac{1}{3}$. Es decir, este valor difiere de $P_Y(1)=\tfrac{1}{2}$, confirmando la no-independencia.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.30.</span></p>
+  <p>Un <em>canal binario asimétrico</em> tiene probabilidades de cruce $\delta_0 = 0.8$ (probabilidad de que la entrada $0$ se transforme en $1$) y $\delta_1 = 0.06$ (probabilidad de que la entrada $1$ se transforme en $0$), con entrada uniforme $P_X(0)=P_X(1)=\tfrac12$.</p><p>Mediante la regla de Bayes, ¿cuál es la probabilidad a posteriori $P_{X\mid Y}(0\mid 1)$ de que se haya enviado un $0$, dado que se ha recibido un $1$?</p>
+  <p>(a) $\dfrac{40}{87}\approx 0.460$<br>
+  (b) $\dfrac{47}{87}\approx 0.540$<br>
+  (c) $0.8$<br>
+  (d) $0.4$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por la regla de Bayes, $P_{X\mid Y}(0\mid 1)=\dfrac{P_{Y\mid X}(1\mid 0)\,P_X(0)}{P_Y(1)}$. La marginal por la ley de la probabilidad total es $P_Y(1)=0.8\cdot\tfrac12+0.94\cdot\tfrac12=0.87$. Así $P_{X\mid Y}(0\mid 1)=\dfrac{0.8\cdot 0.5}{0.87}=\dfrac{0.4}{0.87}=\dfrac{40}{87}\approx 0.460$. (El valor $\tfrac{47}{87}$ es la probabilidad a posteriori complementaria $P_{X\mid Y}(1\mid 1)$; $0.4$ olvida dividir por $P_Y(1)$, es decir, omite el paso de normalización.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.31.</span></p>
+  <p>Un <em>canal binario asimétrico</em> tiene probabilidades de cruce $\delta_0 = 0.8$ (probabilidad de que la entrada $0$ se transforme en $1$) y $\delta_1 = 0.06$ (probabilidad de que la entrada $1$ se transforme en $0$), con entrada uniforme $P_X(0)=P_X(1)=\tfrac12$.</p><p>¿Cuál es la probabilidad conjunta $P_{XY}(1,0)$ de que se haya enviado un $1$ y se haya recibido un $0$?</p>
+  <p>(a) $0.03$<br>
+  (b) $0.06$<br>
+  (c) $0.40$<br>
+  (d) $0.47$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por la regla de la cadena, la conjunta se factoriza como a priori por la transición del canal: $P_{XY}(1,0)=P_{Y\mid X}(0\mid 1)\,P_X(1)$. Aquí $P_{Y\mid X}(0\mid 1)=\delta_1=0.06$ (el cruce $1\to 0$) y $P_X(1)=\tfrac12$, de modo que $P_{XY}(1,0)=0.06\cdot 0.5=0.03$. (El valor $0.06$ es solo la condicional, sin multiplicar por la probabilidad a priori.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.32.</span></p>
+  <p>Una secuencia $(X_1,\ldots,X_n)$ (con $n\ge 2$) toma solo los valores $00\cdots0$ y $11\cdots1$, cada uno con probabilidad $\frac12$. ¿Es $(X_1,\ldots,X_n)$ una secuencia de variables aleatorias i.i.d.?</p>
+  <p>(a) Falsa: los bits son idénticamente $\mathrm{Bernoulli}(\tfrac12)$ pero no independientes<br>
+  (b) Verdadera: cada $X_i$ es $\mathrm{Bernoulli}(\tfrac12)$, por tanto la secuencia es i.i.d.<br>
+  (c) Verdadera: la probabilidad conjunta factoriza como $\frac{1}{2^n}$<br>
+  (d) Falsa: los bits ni siquiera están idénticamente distribuidos</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Cada marginal es $P_{X_i}(0)=P_{X_i}(1)=\frac12$, así que los bits están idénticamente distribuidos. Para ser i.i.d. se necesita además independencia, es decir $P_{X_1\cdots X_n}(x_1\cdots x_n)=\prod_i P_{X_i}(x_i)$. Sobre la cadena de todo ceros el producto da $\frac{1}{2^n}$ pero la conjunta real es $\frac12$, y para $n\ge2$ difieren. Por tanto los bits <strong>no</strong> son independientes y la afirmación es <strong>FALSA</strong>.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.33.</span></p>
+  <p>Una secuencia $(X_1,\ldots,X_n)$ (con $n\ge 2$) toma solo los valores $00\cdots0$ y $11\cdots1$, cada uno con probabilidad $\frac12$. ¿Cuánto vale $P_{X_1\cdots X_n}(00\cdots0)$?</p>
+  <p>(a) $\frac12$<br>
+  (b) $\frac{1}{2^n}$<br>
+  (c) $\frac{1}{n}$<br>
+  (d) $\frac{1}{2n}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La cadena de todo ceros es uno de los dos átomos de la distribución, con probabilidad exactamente $\frac12$ por definición de la fuente. El valor $\frac{1}{2^n}$ solo se daría para una fuente equiprobable i.i.d. genuina, lo cual no es el caso. Por tanto $P_{X_1\cdots X_n}(00\cdots0)=\frac12$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.34.</span></p>
+  <p>Una secuencia $(X_1,\ldots,X_n)$ toma solo los valores $00\cdots0$ y $11\cdots1$, cada uno con probabilidad $\frac12$. ¿Cuál es la probabilidad de que una secuencia tenga al menos un $0$ <em>y</em> al menos un $1$?</p>
+  <p>(a) $0$<br>
+  (b) $\frac12$<br>
+  (c) $1-\frac{1}{2^{n-1}}$<br>
+  (d) $1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Una cadena tiene un $0$ y un $1$ si y solo si no es ni $00\cdots0$ ni $11\cdots1$, es decir, queda fuera del soporte, por lo que cada una de esas cadenas tiene probabilidad $0$. Así $\mathbb{P}=1-P(00\cdots0)-P(11\cdots1)=1-\frac12-\frac12=0$. La afirmación es VERDADERA.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.35.</span></p>
+  <p>Una secuencia $(X_1,\ldots,X_n)$ (con $n\ge 2$) toma solo los valores $00\cdots0$ y $11\cdots1$, cada uno con probabilidad $\frac12$. ¿Es $X_1$ independiente del bloque $(X_2,\ldots,X_n)$?</p>
+  <p>(a) Falsa: $X_1$ determina completamente el bloque, por tanto son dependientes<br>
+  (b) Verdadera: $X_1$ es un solo bit y el bloque es aparte, por tanto son independientes<br>
+  (c) Verdadera: ambos tienen marginales $\mathrm{Bernoulli}(\tfrac12)$<br>
+  (d) No se puede decidir sin conocer $n$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La independencia exige $P(x_1,x_2\cdots x_n)=P_{X_1}(x_1)P_{X_2\cdots X_n}(x_2\cdots x_n)$. Tome $x_1=0$ y bloque $(1,\ldots,1)$: la conjunta es $0$ (ningún resultado mezcla $0$ y $1$), pero el producto de marginales es $\frac12\cdot\frac12=\frac14\neq 0$. Como $X_1$ determina completamente el bloque, son máximamente dependientes, así que la afirmación es FALSA.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.36.</span></p>
+  <p>Una persona está en una de tres habitaciones igualmente probables $A,B,C$, codificadas como $A\to 100$, $B\to 010$, $C\to 001$. Cada bit pasa independientemente por un canal binario asimétrico con $\mathbb{P}(Y=1\mid X=0)=0.1$ y $\mathbb{P}(Y=0\mid X=1)=0.2$. Una lectura se <em>acepta</em> solo si la palabra recibida es una de $\{100,010,001\}$. Calcula la probabilidad de leer correctamente la habitación.</p>
+  <p>(a) $0.648$<br>
+  (b) $0.512$<br>
+  (c) $0.729$<br>
+  (d) $0.9$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por simetría, condicionamos a la habitación $A$ (palabra enviada $100$). La tabla de transición da $\mathbb{P}(1\mid1)=0.8$, $\mathbb{P}(0\mid0)=0.9$. Una lectura correcta requiere cada bit inalterado: $\mathbb{P}(100\mid100)=0.8\cdot0.9\cdot0.9=0.648$. Como todas las habitaciones son simétricas, el valor no condicionado es el mismo: $\mathbf{0.648}$. (Es decir, $0.512=0.8^3$ ignora la asimetría; $0.729=0.9^3$ usa valores por bit incorrectos.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.37.</span></p>
+  <p>Mismo planteamiento: habitaciones $A\to100$, $B\to010$, $C\to001$, cada bit independiente por un canal con $\mathbb{P}(Y=1\mid X=0)=0.1$, $\mathbb{P}(Y=0\mid X=1)=0.2$; una lectura se acepta solo si la palabra recibida es una de $\{100,010,001\}$. Calcula la probabilidad de que se acepte una habitación incorrecta.</p>
+  <p>(a) $0.036$<br>
+  (b) $0.018$<br>
+  (c) $0.108$<br>
+  (d) $0.054$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Condicionamos a $A$ (enviado $100$). Se acepta una habitación incorrecta solo si se recibe $010$ o $001$. $\mathbb{P}(010\mid100)=\mathbb{P}(0\mid1)\,\mathbb{P}(1\mid0)\,\mathbb{P}(0\mid0)=0.2\cdot0.1\cdot0.9=0.018$, e igualmente $\mathbb{P}(001\mid100)=0.018$. Son mutuamente excluyentes, así que se suman: $0.018+0.018=\mathbf{0.036}$. (Es decir, olvidar una de las dos palabras válidas incorrectas da $0.018$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.38.</span></p>
+  <p>Mismo planteamiento: habitaciones $A\to100$, $B\to010$, $C\to001$, cada bit independiente por un canal con $\mathbb{P}(Y=1\mid X=0)=0.1$, $\mathbb{P}(Y=0\mid X=1)=0.2$. Dado que $\mathbb{P}(\text{correcta})=0.648$ y $\mathbb{P}(\text{habitación incorrecta aceptada})=0.036$, calcula la probabilidad de que la lectura se descarte (palabra recibida no válida).</p>
+  <p>(a) $0.316$<br>
+  (b) $0.352$<br>
+  (c) $0.284$<br>
+  (d) $0.364$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Los resultados lectura correcta, habitación incorrecta aceptada y descartada son mutuamente excluyentes y exhaustivos. Por tanto $\mathbb{P}(\text{descarta})=1-0.648-0.036=\mathbf{0.316}$. Comprobación: $0.648+2(0.018)+0.316=1.000$. (Es decir, olvidar el término de aceptación incorrecta da $1-0.648=0.352$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.39.</span></p>
+  <p>Una moneda sesgada sale cara con probabilidad $p=\tfrac{1}{10}$ y se lanza $n=200$ veces de manera independiente. Sea $X$ el número de caras. Identifique la distribución de $X$ y calcule $\mathbb{E}[X]$ y $\operatorname{var}(X)$.</p>
+  <p>(a) $X\sim\text{Binomial}(200,\tfrac{1}{10})$, $\mathbb{E}[X]=20$, $\operatorname{var}(X)=18$<br>
+  (b) $X\sim\text{Binomial}(200,\tfrac{1}{10})$, $\mathbb{E}[X]=20$, $\operatorname{var}(X)=20$<br>
+  (c) $X\sim\text{Poisson}(20)$, $\mathbb{E}[X]=20$, $\operatorname{var}(X)=20$<br>
+  (d) $X\sim\text{Binomial}(200,\tfrac{1}{10})$, $\mathbb{E}[X]=20$, $\operatorname{var}(X)=180$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>$X$ es una suma de $n=200$ indicadores Bernoulli$(p)$ i.i.d., es decir, $X\sim\text{Binomial}(n,p)$. Por linealidad, $\mathbb{E}[X]=np=200\cdot\tfrac{1}{10}=20$. Como los lanzamientos son independientes, las varianzas se suman: $\operatorname{var}(X)=np(1-p)=200\cdot\tfrac{1}{10}\cdot\tfrac{9}{10}=18$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.40.</span></p>
+  <p>Una moneda sesgada sale cara con probabilidad $p=\tfrac{1}{10}$, lanzada $n=200$ veces de manera independiente; $X$ cuenta las caras, con $\mathbb{E}[X]=20$. Mediante la desigualdad de Markov, acote $\mathbb{P}[X\geq 120]$.</p>
+  <p>(a) $\mathbb{P}[X\geq 120]\leq\tfrac{1}{6}\approx 0.167$<br>
+  (b) $\mathbb{P}[X\geq 120]\leq\tfrac{120}{20}=6$<br>
+  (c) $\mathbb{P}[X\geq 120]\leq\tfrac{18}{120}=0.15$<br>
+  (d) $\mathbb{P}[X\geq 120]\leq\tfrac{20}{200}=0.1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>$X\geq 0$ es no negativa, es decir, se aplica la desigualdad de Markov: $\mathbb{P}[X\geq a]\leq\mathbb{E}[X]/a$. Con $a=120$ y $\mathbb{E}[X]=20$, $\mathbb{P}[X\geq 120]\leq\tfrac{20}{120}=\tfrac{1}{6}\approx 0.167$. Una cota de probabilidad válida debe estar en $[0,1]$, lo que descarta el valor $6$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.41.</span></p>
+  <p>Una moneda sesgada sale cara con probabilidad $p=\tfrac{1}{10}$, lanzada $n=200$ veces de manera independiente; $X$ cuenta las caras, con $\mathbb{E}[X]=20$ y $\operatorname{var}(X)=18$. Mediante la desigualdad de Chebyshev, acote $\mathbb{P}\big[\,|X-\mathbb{E}[X]|\geq 10\,\big]$.</p>
+  <p>(a) $\mathbb{P}\big[\,|X-20|\geq 10\,\big]\leq 0.18$<br>
+  (b) $\mathbb{P}\big[\,|X-20|\geq 10\,\big]\leq 1.8$<br>
+  (c) $\mathbb{P}\big[\,|X-20|\geq 10\,\big]\leq 0.018$<br>
+  (d) $\mathbb{P}\big[\,|X-20|\geq 10\,\big]\leq 0.5$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La desigualdad de Chebyshev dice $\mathbb{P}\big[\,|X-\mathbb{E}[X]|\geq\varepsilon\,\big]\leq\operatorname{var}(X)/\varepsilon^{2}$. Con $\operatorname{var}(X)=18$ y $\varepsilon=10$, $\mathbb{P}\big[\,|X-20|\geq 10\,\big]\leq\tfrac{18}{10^{2}}=\tfrac{18}{100}=0.18$. Observe que el denominador es $\varepsilon^2=100$, es decir, no $\varepsilon=10$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.42.</span></p>
+  <p>Se lanza una moneda equilibrada ($p=\tfrac{1}{2}$) $n$ veces de manera independiente. Sea $X_n$ el número de caras y $S_n=X_n/n$ la media muestral. Calcula $\mathbb{E}[S_n]$ y $\operatorname{var}(S_n)$.</p>
+  <p>(a) $\mathbb{E}[S_n]=\tfrac{1}{2}$, $\operatorname{var}(S_n)=\dfrac{1}{4n}$<br>
+  (b) $\mathbb{E}[S_n]=\tfrac{1}{2}$, $\operatorname{var}(S_n)=\dfrac{1}{4}$<br>
+  (c) $\mathbb{E}[S_n]=\tfrac{n}{2}$, $\operatorname{var}(S_n)=\dfrac{n}{4}$<br>
+  (d) $\mathbb{E}[S_n]=\tfrac{1}{2}$, $\operatorname{var}(S_n)=\dfrac{1}{2n}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Escribimos $X_n=\sum_{i=1}^n B_i$ con $B_i$ i.i.d. Bernoulli$(p)$, $p=\tfrac12$, así $\mathbb{E}[B_i]=p$ y $\operatorname{var}(B_i)=p(1-p)=\tfrac14$. Por linealidad $\mathbb{E}[S_n]=\tfrac1n\,np=p=\tfrac12$. Por independencia las varianzas se suman, y $\operatorname{var}(aY)=a^2\operatorname{var}(Y)$ con $a=\tfrac1n$ da $\operatorname{var}(S_n)=\tfrac{p(1-p)}{n}=\dfrac{1}{4n}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.43.</span></p>
+  <p>Para la media muestral de la moneda equilibrada $S_n=X_n/n$ con $\mathbb{E}[S_n]=\tfrac12$ y $\operatorname{var}(S_n)=\tfrac{1}{4n}$, usa la desigualdad de Chebyshev para dar una cota superior de $\mathbb{P}\!\left[\,|S_n-\tfrac12|\geq\epsilon\,\right]$ (para cualquier $\epsilon&gt;0$).</p>
+  <p>(a) $\mathbb{P}\!\left[\,|S_n-\tfrac12|\geq\epsilon\,\right]\leq\dfrac{1}{4n\,\epsilon^{2}}$<br>
+  (b) $\mathbb{P}\!\left[\,|S_n-\tfrac12|\geq\epsilon\,\right]\leq\dfrac{1}{4n\,\epsilon}$<br>
+  (c) $\mathbb{P}\!\left[\,|S_n-\tfrac12|\geq\epsilon\,\right]\leq\dfrac{1}{2n\,\epsilon^{2}}$<br>
+  (d) $\mathbb{P}\!\left[\,|S_n-\tfrac12|\geq\epsilon\,\right]\leq\dfrac{1}{4\,\epsilon^{2}}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La desigualdad de Chebyshev dice $\mathbb{P}[\,|Y-\mathbb{E}[Y]|\geq\epsilon\,]\leq\operatorname{var}(Y)/\epsilon^2$. Con $Y=S_n$ y $\operatorname{var}(S_n)=\tfrac{1}{4n}$ se obtiene $\mathbb{P}[\,|S_n-\tfrac12|\geq\epsilon\,]\leq\dfrac{1}{4n\,\epsilon^{2}}$. Observa que la cota usa $\epsilon^2$ (no $\epsilon$) en el denominador y la varianza completa $\tfrac{1}{4n}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.44.</span></p>
+  <p>Para la media muestral de la moneda equilibrada $S_n=X_n/n$, Chebyshev da $\mathbb{P}\!\left[\,|S_n-\tfrac12|&lt;\epsilon\,\right]\geq 1-\tfrac{1}{4n\epsilon^2}$ para todo $\epsilon&gt;0$ fijo. Evalúa $\displaystyle\lim_{n\to\infty}\mathbb{P}\!\left[\,|S_n-\tfrac12|&lt;\epsilon\,\right]$ e identifica la ley que ilustra.</p>
+  <p>(a) El límite es $1$; ilustra la ley débil de los grandes números ($S_n\xrightarrow{\mathbb{P}}\tfrac12$)<br>
+  (b) El límite es $0$; ilustra la ley débil de los grandes números<br>
+  (c) El límite es $\tfrac12$; ilustra el teorema central del límite<br>
+  (d) El límite es $1$; ilustra el teorema central del límite</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Para $\epsilon&gt;0$ fijo tenemos el encaje $1-\tfrac{1}{4n\epsilon^2}\leq\mathbb{P}[\,|S_n-\tfrac12|&lt;\epsilon\,]\leq 1$. Cuando $n\to\infty$ la cota inferior $\to 1$, así el límite es $1$. Equivalentemente $\mathbb{P}[\,|S_n-\tfrac12|\geq\epsilon\,]\to 0$, es decir, $S_n$ converge en probabilidad a $\tfrac12$: es la ley débil de los grandes números (no el TCL, que trata la distribución gaussiana de las fluctuaciones).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.45.</span></p>
+  <p>Un <em>canal binario asimétrico</em> tiene probabilidades de cruce $P_{Y|X}(1\mid 0)=\delta_0$ y $P_{Y|X}(0\mid 1)=\delta_1$, con entrada uniforme $P_X(0)=P_X(1)=\tfrac12$. El canal se utiliza sin memoria tres veces con símbolos de entrada i.i.d. uniformes. Calcula la probabilidad $P_{Y^3}(000)$ de recibir la salida toda ceros.</p>
+  <p>(a) $\bigl(\tfrac12(1-\delta_0)+\tfrac12\,\delta_1\bigr)^3$<br>
+  (b) $(1-\delta_0)^3$<br>
+  (c) $\tfrac12(1-\delta_0)+\tfrac12\,\delta_1$<br>
+  (d) $\bigl(\tfrac12(1-\delta_0)(1-\delta_1)\bigr)^3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por la ley de la probabilidad total y la ausencia de memoria, los tres símbolos de salida son marginalmente i.i.d., es decir, $P_{Y^3}(000)=\bigl(P_Y(0)\bigr)^3$. La marginal de un solo símbolo es $P_Y(0)=\tfrac12 P_{Y|X}(0\mid 0)+\tfrac12 P_{Y|X}(0\mid 1)=\tfrac12(1-\delta_0)+\tfrac12\,\delta_1$. Elevando al cubo se obtiene $\bigl(\tfrac12(1-\delta_0)+\tfrac12\,\delta_1\bigr)^3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 1.46.</span></p>
+  <p>Un <em>canal binario asimétrico</em> tiene $P_{Y|X}(1\mid 0)=\delta_0$ y $P_{Y|X}(0\mid 1)=\delta_1$, con entrada uniforme $P_X(0)=P_X(1)=\tfrac12$, utilizado sin memoria tres veces (entradas i.i.d. uniformes). Dado que se ha recibido $Y^3=000$, calcula la probabilidad a posteriori $P_{X^3\mid Y^3}(000\mid 000)$ de que se haya transmitido la palabra toda ceros.</p>
+  <p>(a) $\Bigl(\dfrac{1-\delta_0}{(1-\delta_0)+\delta_1}\Bigr)^3$<br>
+  (b) $(1-\delta_0)^3$<br>
+  (c) $\dfrac{1-\delta_0}{(1-\delta_0)+\delta_1}$<br>
+  (d) $\Bigl(\dfrac{1-\delta_0}{1+\delta_1}\Bigr)^3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por Bayes, $P_{X^3\mid Y^3}(000\mid 000)=\dfrac{P_{Y^3\mid X^3}(000\mid 000)P_{X^3}(000)}{P_{Y^3}(000)}=\dfrac{(1-\delta_0)^3\cdot\tfrac18}{\bigl(P_Y(0)\bigr)^3}$. Escribiendo $P_Y(0)=\tfrac12[(1-\delta_0)+\delta_1]$ se cancela el $\tfrac18$, es decir, se obtiene $\Bigl(\dfrac{1-\delta_0}{(1-\delta_0)+\delta_1}\Bigr)^3$, el cubo de la probabilidad a posteriori de un solo símbolo $P_{X\mid Y}(0\mid 0)$.</p>
   </details>
 </div>
 

@@ -376,6 +376,11 @@ a:hover { text-decoration: underline; }
   border-left: 4px solid var(--upf-red);
 }
 
+.env-worked {
+  background: #eef5ff;
+  border-left: 4px solid #2b6cb0;
+}
+
 /* Solution toggle */
 details.solution {
   margin: 0.75em 0 0.5em 1em;
@@ -604,6 +609,11 @@ th {
 
 [data-theme="dark"] .env-definition {
   background: rgba(92, 184, 92, 0.08);
+}
+
+[data-theme="dark"] .env-worked {
+  background: rgba(43, 108, 176, 0.10);
+  border-left-color: #5b8fd1;
 }
 
 [data-theme="dark"] details.solution {

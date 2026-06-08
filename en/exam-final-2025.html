@@ -40,44 +40,130 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html" class="active">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Coming soon</h1>
+      <h1>Final exam 2025</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">This content will be available as the course progresses.</p>
+
+    <button id="expand-all" data-expand="Show all solutions" data-collapse="Hide all solutions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Show all solutions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Problem 1.</span> A random word generator emits words of $r$ letters, where each letter belongs to an alphabet of size $n$. What is the maximum binary entropy of the random word generator?</p>
+  <p>(a) $\log_2(r)$<br>
+  (b) $\log_2(n)$<br>
+  (c) $r\log_2(n)$<br>
+  (d) $n\log_2(r)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>The random word generator can be described as a discrete source $X=(U_1,\ldots,U_r)$ where each $U_i$ takes values in an alphabet of cardinality $n$. The entropy of $X$ satisfies $H(X)\leq\log_2|\mathcal{X}|$, where $|\mathcal{X}|=n^r$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problem 2.</span> A randomly generated binary source code with codewords $\{\boldsymbol{x}_1,\boldsymbol{x}_2\}$, such that each codeword is independently selected from the set $\{0,01,10\}$ with probability distribution $\bigl\{\tfrac12,\tfrac13,\tfrac16\bigr\}$, is used to represent a discrete memoryless source taking values in $\{a,b\}$ with probability distribution $\bigl\{\tfrac13,\tfrac23\bigr\}$. What is the probability of generating a uniquely decodable code with average length $\tfrac53$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac14$<br>
+  (c) $\tfrac19$<br>
+  (d) $\tfrac{1}{12}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>From all possible randomly generated codes, only $\{0,01\}$ and $\{0,10\}$ satisfy both conditions on uniquely decodability and average length. The probability of such codes is $\tfrac 16$ and $\tfrac{1}{12}$, respectively, whose sum leads to the correct answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problem 3.</span> Consider a source $W_n$ that emits sequences of $n$ i.i.d. bits such that the probability of $1$ is twice the probability of $0$. The average length of the optimal binary prefix-free code to represent $W_n$ is denoted as $L_{\rm av}(W_n)$. What is the value of the following ratio?$$\frac{L_{\rm av}(W_1)}{L_{\rm av}(W_2)}$$</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{9}{23}$<br>
+  (c) $\tfrac{9}{17}$<br>
+  (d) $\tfrac12$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>Clearly $L_{\rm av}(W_1)=1$. Using that each bit takes values $\{0,1\}$ with probability distribution $\bigl\{\tfrac13,\tfrac23\bigr\}$, we obtain that $W_2\in\{00,01,10,11\}$ with probabilities $\bigl\{\tfrac19,\tfrac29,\tfrac29,\tfrac49\bigr\}$. The Huffman code for $W_2$ has length distribution $\{3,3,2,1\}$ leading to $L_{\rm av}(W_2)=\tfrac{17}{9}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problem 4.</span> A discrete memoryless source $W_n=(X_1,\ldots,X_n)$, where each $X_i$ takes values in $\{a,b,c\}$ with probability distribution $\bigl\{\tfrac12,\tfrac13,\tfrac16\}$, is represented using two coding schemes. In coding scheme (a), we design the optimal binary prefix-free code for $X_1$ and then represent each symbol $X_i$ with the same code. In coding scheme (b), we design the optimal binary prefix-free code for $W_n$. The average length to represent $W_n$ using the coding schemes (a) and (b) is respectively denoted as $L_{\rm av}^\text{(a)}(W_n)$ and $L_{\rm av}^\text{(b)}(W_n)$. What is the value of the following limit?$$\lim_{n\to\infty} \frac{L_{\rm av}^\text{(b)}(W_n)}{L_{\rm av}^\text{(a)}(W_n)}$$</p>
+  <p>(a) $\tfrac{4+3\log_2(3)}{10}$<br>
+  (b) $\tfrac{4+3\log_2(3)}{9}$<br>
+  (c) $\tfrac{4+3\log_2(3)}{6}$<br>
+  (d) $\tfrac{4+3\log_2(3)}{11}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>The Huffman code for $X_1$ has length distribution $\{1,2,2\}$ and average length $L_{\rm av}(X_1)=\tfrac32$. In coding scheme (a), we have $L_{\rm av}(W_n) = \sum_{i=1}^n L_{\rm av}(X_i) = \tfrac{3n}{2}$ due to concatenating the same code. On the other hand, as $n\to\infty$ the average length of the Huffman code for $W_n$ satisfies $\frac1n L_{\rm av}(W_n) = H(X_1)$. Combining both facts and using that $H(X_1)= \tfrac 23 + \tfrac{\log_2(3)}{2}$, we obtain the correct answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problem 5.</span> The codewords of a binary linear code with generating matrix$$\begin{pmatrix}0 & 1\\1 & 0\end{pmatrix}$$are transmitted with equal probability over a binary channel with conditional probabilities $P_{Y|X}(0|0)=0$ and $P_{Y|X}(0|1)=\tfrac13$. The receiver uses a maximum Hamming distance rule to decode the channel output. What is the error probability of the code?</p>
+  <p>(a) $\tfrac{11}{36}$<br>
+  (b) $\tfrac{5}{9}$<br>
+  (c) $\tfrac{8}{9}$<br>
+  (d) $\tfrac{35}{36}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>Since the generated code is $\{00,10,01,11\}$ and the receiver uses a maximum Hamming distance rule, the decoder $\hat m(\boldsymbol{y})$ is such that $\hat m(00)=4$, $\hat m(01)=2$, $\hat m(10)=3$ and $\hat m(11)=1$. Hence, $P_{\rm e}(1)=0$, $P_{\rm e}(2)=\tfrac 23$, $P_{\rm e}(3)=\tfrac 23$ and $P_{\rm e}(4)=\tfrac89$. Using that the four codewords are equiprobable, we obtain the result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problem 6.</span> A binary channel has input $X$ taking values in $\{0,1\}$ with equal probability, output $Y$ taking values in $\{0,\star,1\}$, and conditional probabilities $P_{Y|X}(y|x)=\tfrac13$ for all $x$ and $y$. What is the value of the conditional entropy $H(X|Y)$?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{3\log_2(3)-1}{3}$<br>
+  (c) $\tfrac{3\log_2(3)-2}{3}$<br>
+  (d) $0$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $H(Y|X)=H(Y)=\log_2(3)$, the mutual information of the channel satisfies $I(X;Y)=0$, which also implies that $H(X|Y)=H(X)=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problem 7.</span> Three random variables $X_1$, $X_2$ and $X_3$, form a Markov chain $X_1\rightarrow X_2\rightarrow X_3$, where in addition $X_2$ is a deterministic function of $X_1$. What is the joint entropy of the three random variables?</p>
+  <p>(a) $H(X_1)+H(X_2)+H(X_3)$<br>
+  (b) $H(X_1)+H(X_3)$<br>
+  (c) $H(X_2)+H(X_3|X_2)$<br>
+  (d) $H(X_1)+H(X_3|X_2)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(d)</strong> &#9733;</p>
+    <p>The joint entropy can be expanded as $H(X_1)+H(X_2|X_1)+H(X_3|X_1,X_2)$. Since $X_2$ is a deterministic function of $X_1$, we have that $H(X_2|X_1)=0$. Also, conditioned on $X_2$, $X_1$ and $X_3$ become independent so that $H(X_3|X_1,X_2)=H(X_3|X_2)$. Combining both observations, we obtain the correct answer.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

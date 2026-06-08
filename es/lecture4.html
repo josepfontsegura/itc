@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -38,48 +38,219 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html" class="active">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Tema 4. Códigos de Huffman <a class="pdf-link" href="../pdf/ITC-2026-Lecture4-es.pdf">pdf</a></h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+
+<h2>Introducción</h2>
+
+<p>
+En la lección anterior, vimos que los códigos binarios sin prefijos permiten representar una fuente sin errores. Pero, ¿cuál es el código óptimo en términos de eficiencia, es decir, el que minimiza la longitud media?
+</p>
+<p>
+Consideremos una fuente $U$ que toma valores en $\{1,\ldots,r\}$ con distribución de probabilidad $\{p_1,\ldots,p_r\}$. Para encontrar el código fuente sin prefijo binario que minimice la longitud promedio
+$$
+\Lav = \sum_{j=1}^r \pii\li, \tag{4.1}$$
+si las probabilidades se ordenan como
+$$
+p_1\geq p_2\geq \cdots\geq p_r, \tag{4.2}$$
+entonces el código óptimo debe elegir una distribución de longitudes $\{\ell_1,\ell_2,\dotsc,\ell_r\}$ tal que
+$$
+\ell_1\leq\ell_2\leq\cdots\leq \ell_r. \tag{4.3}$$
+¡Cualquier otra opción da como resultado un código subóptimo en términos de longitud promedio! Los códigos que cumplen tal condición son los <strong>códigos de Huffman</strong>.
+</p>
+<p>
+Hasta ahora, nuestra representación en árbol de los códigos de fuente solo ha tenido en cuenta el alfabeto de la fuente y la longitud de las palabras código. Ahora incorporamos las probabilidades de la fuente para derivar los códigos óptimos. Un árbol de probabilidades con raíz es un árbol con un número finito de nodos,  con probabilidades asignadas a cada nodo y hoja, de modo que la probabilidad de un nodo es la suma de las probabilidades de sus nodos hijos, y la raíz tiene probabilidad igual a $1$. La Figura 4.1 ilustra un posible árbol de probabilidades
+</p>
+<figure><img src="../img/tikz/lecture4-fig1.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
+<p>
+<figcaption>Ejemplo de árbol de probabilidades con raíz.</figcaption>
+<a id="fig:tree_prob"></a>
+</p>
+
+
+<h2>Códigos de Huffman</h2>
+<p>
+Los códigos de Huffman, inventados por David Huffman cuando era estudiante de doctorado en el MIT en la década de 1950, son los códigos óptimos, que se pueden describir mediante 3 pasos elementales. Consideremos una fuente discreta con valores $\{1,\ldots,r\}$ y probabilidades $\{p_1,\ldots,p_r\}$. Para determinar un código de Huffman:
+</p>
+
+<ul>
+</p>
+<p>
+<li><strong>1.</strong> Crear $r$ hojas correspondientes a los $r$ símbolos y ordenarlas en probabilidad decreciente.
+<li><strong>2.</strong> Fusionar los $2$ nodos menos probables en un nuevo nodo, etiquetado con la suma de probabilidad.
+<li><strong>3.</strong> Volver al paso 1 hasta llegar a la raíz.
+</p>
+<p>
+</ul>
+<p>
+Veamos un ejemplo.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 4.1.</span> 
+<a id="ex:1"></a>
+Diseñemos el código fuente óptimo para una fuente tomando valores en $\{a,b,c,d,e\}$ con distribución de probabilidad $\{0.4,0.2,0.2,0.1,0.1\}$. Empezamos escribiendo las $r=5$  hojas correspondientes a los símbolos en probabilidad decreciente, como en la Figura 4.2(a). Luego fusionamos los 2 nodos menos probables en un nuevo nodo, etiquetado con probabilidad $0.1+0.1=0.2$ como en la Figura 4.2(b). Ahora, repetimos el procedimiento pero con los nodos que aún no tienen padre. Los 2 nodos menos probables son los que tienen probabilidad $0.2$, por lo tanto, se fusionan en un nuevo nodo como en la Figura 4.2(c). En este punto, podemos elegir fusionar el nodo de probabilidad sin padres $0.2$ con la hoja de probabilidad $0.4$ o el nodo con la misma probabilidad creado en el paso anterior. Elegimos la segunda opción como en la Figura 4.2(d), creando un nuevo nodo de probabilidad $0.6$. El último paso de la Figura 4.2(e) da como resultado el árbol binario con raíz. Solo resta etiquetar el árbol binario como hicimos en la lección anterior y obtener el código libre de prefijos $\{0,10,110,1110,1111\}$ para la fuente $\{a,b,c,d,e\}$, como en la Figura 4.2(f). El código de Huffman que obtuvimos no tiene prefijos, por lo que es decodificable de forma única, con distribución de longitudes $\{1,2,3,4,4\}$. Cuando se usa para representar la fuente $U$, su longitud promedio es
+$$
+\Lav=1 \cdot 0,4 + 2\cdot 0,2 + 3\cdot 0,2 + 4\cdot 0,1 + 4\cdot 0,1 = 2,2 \tag{4.4}$$
+bits por símbolo. Hay puntos en el algoritmo donde es posible agrupar nodos de manera distinta. En este caso, el código será diferente, ¡pero seguirá teniendo la misma longitud promedio!
+</p>
+
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;align-items:center"><figure><img src="../img/tikz/fig-01.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/fig-02.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/fig-03.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/fig-04.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure></div>
+<br>
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;align-items:center"><figure><img src="../img/tikz/lecture4-fig2.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/lecture4-fig3.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure></div>
+<p>
+<figcaption>Construcción de un código de Huffman para el Ejemplo 4.1.</figcaption>
+<a id="fig:1"></a>
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 4.2.</span> 
+<a id="prob:1"></a>
+Encuentre un código de Huffman para la fuente en el Ejemplo 4.1 con una distribución de longitud distinta a $\{1,2,3,4,4\}$.
+</p>
+
+</div>
+
+
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+Seguimos los mismos pasos que en la Figura 4.2(a)--(c), pero en el siguiente paso, combinamos las dos hojas de probabilidades $0.4$ y $0.2$ en un nuevo nodo de probabilidad $0.6$, y seguimos el algoritmo para obtener el árbol binario de la Figura 4.3. El código sin prefijo obtenido es $\{00,01,10,110,111\}$, con distribución de longitudes $\{2,2,2,3,3\}$ y, aunque el código tiene una distribución de longitudes distinta a la obtenida en el ejemplo 4.1, la longitud media sigue siendo, en bits por símbolo:
+$$
+	L_{\rm av} = 2\cdot 0.4 + 2\cdot 0.2 + 2\cdot 0.2 + 3\cdot 0.1 + 3\cdot 0.1 = 2.2. \tag{4.5}$$
+</p>
+
+</details>
+
+<figure><img src="../img/tikz/lecture4-fig4.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
+<figcaption>Árbol binario del Problema 4.2.</figcaption>
+<a id="fig:2"></a>
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 4.3.</span> 
+ 	¿Cuál es la longitud promedio del código de Huffman para una fuente que toma valores en $\{a,b,c\}$ con distribución de probabilidad $\{p,p,1-2p\}$ donde $0&lt;p&lt;\frac 12$?
+</p>
+
+</div>
+
+
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+ 	Si $0&lt;p&lt; \frac 13$, entonces $a$ y $b$ son los símbolos menos probables y el algoritmo de Huffman conduce a una distribución de longitud $\{2,2,1\}$, por ejemplo, el código $\{10,11,0\}$. En este caso $L_{\rm av}=1+2p$. Si $p=\frac 13$, los tres símbolos tienen la misma probabilidad, entonces $\{1,2,2\}$, $\{2,1,2\}$ y $\{2,2,1\}$ son posibles distribuciones de longitud, y $L_{\rm av}=\frac 53$. Si $\frac 13 &lt; p &lt; \frac 12$, entonces $c$ es el nodo menos probable y la distribución de longitudes después de la codificación de Huffman es $\{1,2,2\}$ o $\{2,1,2\}$ y $L_{\rm av}=2-p$.
+</p>
+
+</details>
+
+<p>
+El análisis de la longitud media de los códigos de Huffman, aunque óptimos, es difícil y, en particular, expresarlo en función de la entropía de la fuente. Supongamos que pudiéramos construir un código para una fuente $U$, tomando valores en el alfabeto $\{1,\ldots,r\}$ con probabilidades $\{p_1,\dotsc,p_r\}$ tales que las longitudes de las palabras código satisfagan exactamente $\li = \log_2\frac{1}{\pii}$. En general, esto es difícil, ya que las longitudes resultantes no son números enteros. Sin embargo, si fuéramos capaces de hacer esto, entonces $
+\Lav = \sum_{j=1}^r\pii\li =  \sum_{j=1}^r\pii\log_2\frac{1}{\pii} = -\sum_{j=1}^r p_j \log_2 p_j = H(U)$; ¡la longitud esperada es igual a la entropía! Obviamente, este sería el mejor código. Dado que, en general, $\li$ no son necesariamente números enteros, consideremos ahora lo siguiente
+$$
+\li = \Big\lceil \log_2\frac{1}{\pii}\Big\rceil \tag{4.6}$$
+donde $\lceil x\rceil$ es el entero más pequeño mayor o igual a $x$, que satisface
+$$
+	\log_2 \frac{1}{p_j} \leq \ell_j &lt; \log_2 \frac{1}{p_j}  + 1.
+	\tag{4.7}
+$$
+Usando la desigualdad del lado izquierdo en $(4.7)$, tenemos que se cumple la desigualdad de Kraft:
+$$
+\sum_{j=1}^r2^{-\li} \leq \sum_{j=1}^r 2^{-\log_2 \frac{1}{p_j}} = \sum_{j=1}^r \pii = 1, \tag{4.8}$$
+lo que implica que existe un código sin prefijo binario con estas longitudes. Dado que el código de Huffman conduce a la longitud promedio más pequeña posible, se deduce que
+$$\begin{align}
+\Lav & \leq  \sum_{j=1}^r\pii\li \tag{4.9}\\
+&= \sum_{j=1}^r\pii \Big\lceil \log_2\frac{1}{\pii}\Big\rceil \tag{4.10}\\
+&&lt;\sum_{j=1}^r\pii \Big( \log_2\frac{1}{\pii}+1\Big)\tag{4.11}\\
+&=H(U) + 1, \tag{4.12}\end{align}$$
+donde en $(4.11)$ usamos la desigualdad del lado derecho en $(4.7)$. Por tanto, podemos concluir que la longitud media $L_{\rm av}$ del código óptimo para una fuente $U$, dada por la codificación de Huffman, satisface
+$$
+H(U) \leq \Lav&lt;H(U)+1,
+\tag{4.13}
+$$
+donde $H(U)$ es la entropía de la fuente.
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 4.4.</span> 
+<a id="prob:3"></a>
+ 	Considere una fuente discreta sin memoria $U$ que toma valores sobre $\{a,b\}$ con distribución $\bigl\{ \frac 13, \frac 23 \bigr\}$. Encuentre el código óptimo para $U$, calcule la longitud promedio y compruebe que se cumple la desigualdad $(4.13)$.
+</p>
+
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+ 	En este caso, el código de Huffman resultante es $\{0,1\}$ o $\{1,0\}$, de distribución de longitudes $\{1,1\}$ y longitud media $L_{\rm av}=1$ bits por símbolo. La entropía en este caso es  $H(U)=-\sum_{j=1}^r p_j \log_2 p_j = -\frac 13 \log_2 \frac 13 - \frac 23 \log_2\frac 23 \approx 0.918296$, y por lo tanto $0.918296 \leq L_{\rm av} &lt; 1.918296$.
+</p>
+
+</details>
+
+
+</div>
+
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 4.5.</span> 
+<a id="prob:4"></a>
+Considere dos símbolos consecutivos $(U_1,U_2)$ de una fuente discreta sin memoria donde cada $U_i$ se describe como en el Problema 4.4. Encuentre el código óptimo para $(U_1,U_2)$, calcule la longitud promedio por símbolo y verifique que se cumpla la desigualdad $(4.13)$. Compare sus resultados con los del Problema 4.4.
+</p>
+
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+ 	Primero construimos el alfabeto y la distribución de probabilidad para $(U_1,U_2)$. El alfabeto es el producto cartesiano $\{a,b\}\times\{a,b\}=\{aa,ab,ba,bb\}$ y, dado que los símbolos son iid, la distribución de probabilidad es $\{ \frac 19 , \frac 29, \frac 29, \frac 49\}$. Después de ordenar las probabilidades y siguiendo el algoritmo de Huffman, obtenemos el árbol binario de la Figura 4.4. Un posible código de Huffman es entonces $\{111,110,10,0\}$, de longitudes $\{3,3,2,1\}$ y longitud media
+ 	$$
+		L_{\rm av} = 3\cdot \frac 19 + 3 \cdot \frac 29 + 2\cdot \frac  29 + 1\cdot \frac  49 = \frac{17}{9} \approx 1.88889 \tag{4.14}$$
+ 	bits para dos símbolos fuente. En este caso, la entropía de $(U_1,U_2)$ viene dada por
+	$$
+	H(U_1,U_2)=-\sum_{j=1}^r p_j \log_2 p_j = -\frac 19\log_2\frac 19 - \frac 29\log_2 \frac 29 - \frac 29\log_2\frac 29 - \frac 49\log_2\frac 49 \approx 1.83659.
+	$$
+ 	Por tanto, $(4.13)$ se cumple como se esperaba porque $1.83659 \leq L_{\rm av} &lt; 2.83659$. Comparado con el código de Huffman del problema 4.4, observamos que el código de Huffman $\{111,110,10,0\}$ tiene una longitud promedio de $1.88889$ bits para codificar dos símbolos fuente, lo que corresponde a una longitud promedio de $\frac{1.88889}{2}= 0.944444$ bits por símbolo, ligeramente menor que $1$.
+</p>
+
+</details>
+
+
+</div>
+
+<figure><img src="../img/tikz/lecture4-fig5.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
+<figcaption>Árbol binario de probabilidades del Problema 4.5.</figcaption>
+<a id="fig:3"></a>
+</p>
+<p>
+En el Problema 4.5 hemos visto que podemos hacerlo mejor si codificamos bloques de símbolos de una fuente discreta sin memoria en lugar de codificar un solo símbolo. El beneficio aumenta si encontramos códigos para secuencias fuente largas $(U_1,\ldots,U_n)$ como $n\to\infty$. Este es el tema de nuestra próxima lección.</p>
   </main>
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Teoría de la información y codificación 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

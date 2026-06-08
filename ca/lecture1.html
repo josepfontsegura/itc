@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -38,36 +38,36 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html" class="active">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
   <main class="content">
@@ -84,9 +84,9 @@ La teoria de la informació és una disciplina científica que es va originar a 
 <p>
 Tal com va escriure Shannon en el seu article, “el problema fonamental de la comunicació és reproduir en un punt exactament o aproximadament un missatge seleccionat en un altre punt”. La forma estàndard de fer-ho és mitjançant un codificador i un descodificador, com es mostra a la Figura 1.1. La <strong>font</strong> és el dispositiu que produeix el missatge (informació) que s'ha de transmetre, que pot ser analògic, com la veu o la temperatura; o digital, com ara un correu electrònic. El <strong>codificador</strong>, a partir de la informació de la font, construeix una forma d'ona electromagnètica que s'ha de transmetre a través del canal. El codificador està format per un codificador de font que elimina la redundància de la font, un codificador de canal que introdueix redundància adaptada als errors del canal, i un modulador que converteix les dades codificades en una forma d'ona. El <strong>canal</strong> modela totes les pertorbacions introduïdes per la física del mitjà de transmissió i del receptor, incloent-hi el soroll i l'esvaïment en fibres òptiques, cables Ethernet, xarxes sense fil; però també imperfeccions en els sistemes d'emmagatzematge de dades, com ara el DVD, els discos flash o l'ADN. Finalment, el <strong>descodificador</strong> inverteix tots els passos introduïts al codificador i intenta esbrinar quin era el missatge de font original.
 </p>
-<figure><img src="../img/tikz/lecture1-fig1.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
+<figure><img src="../img/tikz/lecture1-fig1.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
 <p>
-<figcaption>Figura 1.1. Diagrama bàsic d'un sistema de comunicacions.</figcaption>
+<figcaption>Diagrama bàsic d'un sistema de comunicacions.</figcaption>
 <a id="fig:block"></a>
 </p>
 <p>
@@ -128,7 +128,7 @@ $$
 	\mathbb{P}[X\in{\cal A}] = 1 - \mathbb{P}[X\in{\cal A}^c] = 1 - \sum_{x\in{\cal A}^c} P_X(x). \tag{1.4}$$
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problema 1.1.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.3.</span> 
 Sigui $X$ una variable aleatòria que pren els valors en $\{0,1,2,3\}$ amb la mateixa probabilitat. Quina és la probabilitat que $X$ sigui senar? I la probabilitat que $X$ sigui parell?
 </p>
 
@@ -168,7 +168,7 @@ $$
 Tingueu en compte que la distribució condicionada $P_{Y|X}(y|x)$ és una distribució de probabilitat vàlida de la variable aleatòria $Y$ amb coneixements previs a $X=x$, ja que $\sum_{y \in {\cal Y}} P_{Y|X}(y|x) = \sum_{y\in{\cal Y}}\frac{P_{XY}(x,y)}{P_X(x)} = \frac{\sum_{y\in{\cal Y}} P_{XY}(x,y)}{P_X(x)} = \frac{P_X(x)}{P_X(x)} = 1$. Un resultat similar és vàlid per a $P_{X|Y}(x|y)$.
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problema 1.2.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.4.</span> 
  	Considereu les variables aleatòries $X$ i $Y$, totes dues prenent valors sobre l'alfabet $\{a,b\}$ amb distribució de probabilitat conjunta $P_{XY}(a,a)=\frac 16$, $P_{XY}(a,b)=\frac 13$ i $P_{XY}(b,a)=0$. Quina és la distribució de probabilitat de $Y$ condicionada a $X=b$?
 </p>
 
@@ -188,14 +188,14 @@ $$
 	\mathbb{P}[Y\in{\cal A}|X=x] = \sum_{y\in{\cal A}} P_{Y|X}(y|x),
 	\tag{1.11}
 $$
-o de manera similar per a la probabilitat d'algun esdeveniment a $X$ condicionat a $Y=y$. Més important encara, $P_{Y|X}(y|x)$ <u>no és</u> una distribució de probabilitat a $X$, <u>nor</u> és $P_{X|Y}(x|y)$ una distribució de probabilitat a $Y$. Un últim resultat útil s'obté després de combinar la definició de les distribucions condicionals, les distribucions marginals la probabilitat condicional $(1.11)$, normalment anomenada llei de la probabilitat total:
+o de manera similar per a la probabilitat d'algun esdeveniment a $X$ condicionat a $Y=y$. Més important encara, $P_{Y|X}(y|x)$ <u>no és</u> una distribució de probabilitat a $X$, <u>ni</u> és $P_{X|Y}(x|y)$ una distribució de probabilitat a $Y$. Un últim resultat útil s'obté després de combinar la definició de les distribucions condicionals, les distribucions marginals la probabilitat condicional $(1.11)$, normalment anomenada llei de la probabilitat total:
 $$\begin{gather}
 	\mathbb{P}[Y\in{\cal A}] =  \sum_{x\in{\cal X}} \mathbb{P}[Y\in{\cal A}|X=x] P_X(x).
 	\tag{1.12}
 \end{gather}$$
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problema 1.3.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.5.</span> 
 Una variable aleatòria $X$ pren valors sobre l'alfabet $\{1,2\}$ amb distribució de probabilitat $\{1,0\}$. Condicionada a $X=x$, una altra variable aleatòria $Y$ pren valors per sobre de $\{1,2,3\}$ amb distribució de probabilitat $\bigl\{ \frac{2-x}{3},\frac{x}{3},\frac 13 \bigr\}$. Quina és la probabilitat que $Y$ sigui senar?
 </p>
 
@@ -213,7 +213,7 @@ Una variable aleatòria $X$ pren valors sobre l'alfabet $\{1,2\}$ amb distribuci
 La distribució conjunta de dues variables aleatòries \(X\) i \(Y\) satisfà la <strong>regla de la cadena</strong>:
 $$
 P_{XY}(x,y)=P_{Y|X}(y|x)P_{X}(x)=P_{X|Y}(x|y)P_{Y}(y). \tag{1.13}$$
-Si \(X\) i \(Y\) són <strong>independents</strong>, aleshores \(P_{Y|X}(y|x)=P_{Y}(y)\), \(P_{X|Y}(x|y)=P_{X}(x)\) i per tant
+Si \(X\) i \(Y\) són <strong>independents</strong>, aleshores \(P_{Y|X}(y|x)=P_Y(y)\), \(P_{X|Y}(x|y)=P_X(x)\) i per tant
 $$
 P_{XY}(x,y)=P_X(x)P_Y(y). \tag{1.14}$$
 </p>
@@ -227,7 +227,7 @@ $$
 on ${\cal X}^n={\cal X}\times \ldots \times {\cal X}$ és el producte cartesià dels alfabets. Un exemple ho aclarirà.
 </p>
 
-<div class="env-block env-example"><p><span class="env-label">Exemple 1.3.</span> 
+<div class="env-block env-example"><p><span class="env-label">Exemple 1.6.</span> 
 	Considereu la seqüència de variables aleatòries $(X_1,X_2,X_3)$, cadascuna $X_i$ pren valor sobre l'alfabet ${\cal X}=\{a,b\}$. L'alfabet de $(X_1,X_2,X_3)$ és el producte cartesià ${\cal X}^3 = \{a,b\}\times \{a,b\} \times \{a,b\}$, és a dir, totes les combinacions possibles ${\cal X}^3=\{aaa,aab,aba,abb,baa,bab,bba,bbb\}$. La cardinalitat d'aquest nou alfabet és $|{\cal X}^3|=|{\cal X}|^3=2^3=8$. Una possible distribució de probabilitat per a $(X_1,X_2,X_3)$ és $P_{X_1X_2X_3}(x_1,x_2,x_3)=\frac 18$, però una altra podria ser $P_{X_1X_2X_3}(aaa)=P_{X_1X_2X_3}(bbb)=\frac 12$ i $P_{X_1X_2X_3}(x_1,x_2,x_3)=0$ en cas contrari.
 </p>
 
@@ -246,7 +246,7 @@ $$
 és a dir, totes les variables aleatòries $X_i$ són independents i tenen la mateixa distribució de probabilitat $P_X(x)$.
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problema 1.4.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.7.</span> 
  	Una font discreta sense memòria es descriu per la seqüència de variables aleatòries i.i.d. $(U_1,U_2,U_3)$ on cadascuna $U_i$ pren valors en $\{0,1\}$ amb distribució de probabilitat $\{p,1-p\}$. Quina és la probabilitat que la font produeixi una seqüència que tingui un zero a l'última posició?
  	
 </p>
@@ -283,12 +283,11 @@ $$
 $$
 </p>
 
-<div class="env-block env-example"><p><span class="env-label">Exemple 1.4.</span> 
+<div class="env-block env-example"><p><span class="env-label">Exemple 1.8.</span> 
 <a id="ex:1.8"></a>
-Un canal discret sense memòria es descriu per la seqüència d'entrada $(X_1,X_2,X_3)$, on cada $X_i$ pren valors en $\{a,b\}$, i una seqüència de sortida $(Y_1,Y_2,Y_3) $ on cada $Y_i$ també pren valors en $\{a,b\}$. El canal es pot caracteritzar per $(1.30)$ on, per exemple, $P_{Y|X}(y|x)$ correspon a la fletxa que connecta el node $X=x$ amb el node $Y=t $ al gràfic següent:
+Un canal discret sense memòria es descriu per la seqüència d'entrada $(X_1,X_2,X_3)$, on cada $X_i$ pren valors en $\{a,b\}$, i una seqüència de sortida $(Y_1,Y_2,Y_3) $ on cada $Y_i$ també pren valors en $\{a,b\}$. El canal es pot caracteritzar per $(1.30)$ on, per exemple, $P_{Y|X}(y|x)$ correspon a la fletxa que connecta el node $X=x$ amb el node $Y=y $ al gràfic següent:
 </p>
-<p>
-<figure><img src="../img/tikz/lecture1-fig2.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
+<figure><img src="../img/tikz/lecture1-fig2.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
 
 </div>
 <p>
@@ -300,7 +299,7 @@ $$
 A partir del gràfic sabem que $P_{Y|X}(a|a)=\frac 13$ i que $P_{Y|X}(b|b)=\frac 12$. Com a distribucions condicionals (vegeu la discussió posterior a l'equació $(1.10)$ anterior), també sabem que $P_{Y|X}(a|a)+P_{Y|X}(b|a)=1$ i que $P_{Y|X}(a|b)+P_{Y|X}(b|b)=1$, de les quals deduïm que $P_{Y|X}(b|a)=\frac 23$ i que $P_{Y|X}(a|b)=\frac 12$. Utilitzant aquests valors a $(1.31)$ podem calcular $P_{Y_1Y_2Y_3|X_1X_2X_3}(aba|aab)=\frac 13\cdot \frac 23 \cdot \frac 12 = \frac 19$.
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problema 1.5.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.9.</span> 
  	Considereu el canal discret sense memòria descrit a l'Exemple 1.8. Suposant que la seqüència d'entrada $(X_1,X_2,X_3)$ té distribució de probabilitat
  	$$
 		P_{X_1X_2X_3}(x_1,x_2,x_3) = \begin{cases}
@@ -323,7 +322,7 @@ A partir del gràfic sabem que $P_{Y|X}(a|a)=\frac 13$ i que $P_{Y|X}(b|b)=\frac
 	 	Cal tenir en compte que com que la distribució $P_{X_1X_2X_3}(x_1,x_2,x_3)$ no es pot escriure com el producte de distribucions independents i idèntiques, la distribució $P_{Y_1Y_2Y_3}(y_1,y_2,y_3)$ tampoc es pot expressar com el producte de distribucions independents i idèntiques.
 	 	Com que la seqüència d'entrada $(X_1,X_2,X_3)$ només té una probabilitat diferent de zero per a $aaa$ i $bbb$, la suma $(1.34)$ només té dos termes, és a dir
 	 	$$\begin{align}
-			P_{Y_1Y_2Y_3}(y_1,y_2,y_3) & = P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)P_{X_1X_2X_3}(aaa) \tag{1.35}\\ &  ~ \hspace{4em} + P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b)P_{X_1X_2X_3}(bbb) \tag{1.36}\\
+			P_{Y_1Y_2Y_3}(y_1,y_2,y_3) & = P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)P_{X_1X_2X_3}(aaa) \nonumber \tag{1.35}\\ &  ~ \hspace{4em} + P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b)P_{X_1X_2X_3}(bbb) \tag{1.36}\\
 			&= \frac 12 P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)  + \frac 12 P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b). \tag{1.37}\end{align}$$
 		Només queda determinar els números de la distribució de probabilitat, és a dir
 	 	$$\begin{gather}
@@ -341,7 +340,7 @@ A partir del gràfic sabem que $P_{Y|X}(a|a)=\frac 13$ i que $P_{Y|X}(b|b)=\frac
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Teoria de la informació i la codificació 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

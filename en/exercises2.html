@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -40,36 +40,36 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html" class="active">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
 
@@ -81,57 +81,44 @@
     <button id="expand-all" data-expand="Show all solutions" data-collapse="Hide all solutions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Show all solutions</button>
 
     <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.1.</span> Which of the following is correct for $\mathbb{E}[X]$ and $\mathbb{E}[Y]$?</p>
+  <p><span class="env-label">Exercise 2.1.</span></p>
+  <p>Let $(X,Y)$ have joint distribution $P_{XY}(1,0)=\tfrac{3}{10}$, $P_{XY}(0,1)=\tfrac{1}{5}$, $P_{XY}(0,0)=\tfrac{1}{10}$ (so $P_{XY}(1,1)=\tfrac{2}{5}$ by normalization). Which of the following is correct for $\mathbb{E}[X]$ and $\mathbb{E}[Y]$?</p>
   <p>(a) $\mathbb{E}[X] = \tfrac{7}{10}$ and $\mathbb{E}[Y] = \tfrac{2}{5}$<br>
   (b) $\mathbb{E}[X] = \tfrac{2}{5}$ and $\mathbb{E}[Y] = \tfrac{7}{10}$<br>
   (c) $\mathbb{E}[X] = \tfrac{7}{10}$ and $\mathbb{E}[Y] = \tfrac{3}{5}$</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(c)</strong> &#9733;</p>
-    <p>By normalization, we deduce that $P_{XY}(1,1) = \tfrac{2}{5}$.
-Since $X$ and $Y$ are binary, $\mathbb{E}[X] = P_X(1)$ and $\mathbb{E}[Y] = P_Y(1)$. Using
-$
-P_X(1) = P_{XY}(1,0) + P_{XY}(1,1) = \tfrac{3}{10} + \tfrac{2}{5} = \tfrac{7}{10}
-$
-and
-$
-P_Y(1) = P_{XY}(0,1) + P_{XY}(1,1) = \tfrac{1}{5} + \tfrac{2}{5} = \tfrac{3}{5},
-$
-we find that the correct answer.</p>
+    <p>By normalization, we deduce that $P_{XY}(1,1) = \tfrac{2}{5}$. Since $X$ and $Y$ are binary, $\mathbb{E}[X] = P_X(1)$ and $\mathbb{E}[Y] = P_Y(1)$. Using $P_X(1) = P_{XY}(1,0) + P_{XY}(1,1) = \tfrac{3}{10} + \tfrac{2}{5} = \tfrac{7}{10}$ and $P_Y(1) = P_{XY}(0,1) + P_{XY}(1,1) = \tfrac{1}{5} + \tfrac{2}{5} = \tfrac{3}{5}$, we find the correct answer.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.2.</span> What is the alphabet and probability distribution of $Z$, respectively?</p>
+  <p><span class="env-label">Exercise 2.2.</span></p>
+  <p>Let $(X,Y)$ have $P_{XY}(0,0)=\tfrac{1}{10}$, $P_{XY}(0,1)=\tfrac{1}{5}$, $P_{XY}(1,0)=\tfrac{3}{10}$, $P_{XY}(1,1)=\tfrac{2}{5}$, and let $Z=\mathbb{1}\{X\neq Y\}$. What are the alphabet and probability distribution of $Z$, respectively?</p>
   <p>(a) $\{0,1\}$ and $\bigl\{\tfrac12, \tfrac12\bigr\}$<br>
   (b) $\{0,1,2\}$ and $\bigl\{\tfrac{1}{10}, \tfrac{1}{2}, \tfrac{2}{5}\bigr\}$<br>
   (c) $\{0,1\}$ and $\bigl\{\tfrac{2}{5}, \tfrac{3}{5}\bigr\}$</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(a)</strong> &#9733;</p>
-    <p>Since $Z = 0$ when $X=Y$, that is $(0,0)$ or $(1,1)$, we get
- $
-    P_Z(0) = P_{XY}(0,0) + P_{XY}(1,1) = \tfrac{1}{10} + \tfrac{2}{5} = \tfrac{1}{10} + \tfrac{4}{10} = \tfrac{5}{10} = \tfrac12.
-  $
- Also, $Z=1$ when $X\neq Y$, that is $(0,1)$ or $(1,0)$, hence
- $
-    P_Z(1) = \tfrac{1}{5} + \tfrac{3}{10} = \tfrac{2}{10} + \tfrac{3}{10} = \tfrac{5}{10} = \tfrac12.
-  $
- Therefore, $Z\in\{0,1\}$ with equal probability.</p>
+    <p>Since $Z = 0$ when $X=Y$, that is $(0,0)$ or $(1,1)$, we get $P_Z(0) = P_{XY}(0,0) + P_{XY}(1,1) = \tfrac{1}{10} + \tfrac{2}{5} = \tfrac{1}{10} + \tfrac{4}{10} = \tfrac{5}{10} = \tfrac12$. Also, $Z=1$ when $X\neq Y$, that is $(0,1)$ or $(1,0)$, hence $P_Z(1) = \tfrac{1}{5} + \tfrac{3}{10} = \tfrac{2}{10} + \tfrac{3}{10} = \tfrac{5}{10} = \tfrac12$. Therefore, $Z\in\{0,1\}$ with equal probability.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.3.</span> What is the value of $\mathbb{E}[\log_2(1+Z)]$?</p>
+  <p><span class="env-label">Exercise 2.3.</span></p>
+  <p>Let $Z\in\{0,1\}$ with $P_Z(0)=P_Z(1)=\tfrac12$. What is the value of $\mathbb{E}[\log_2(1+Z)]$?</p>
   <p>(a) $\tfrac{1}{2}$<br>
   (b) $\tfrac{13}{10}$<br>
   (c) $1+\log_2(3)$</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(a)</strong> &#9733;</p>
-    <p>Since $Z$ is 0 or 1 equiprobably, $\mathbb{E}[\log_2(1+Z)] = \log_2(1)\cdot\tfrac12 + \log_2(2)\cdot\tfrac12 = \tfrac12.$</p>
+    <p>Since $Z$ is $0$ or $1$ equiprobably, $\mathbb{E}[\log_2(1+Z)] = \log_2(1)\cdot\tfrac12 + \log_2(2)\cdot\tfrac12 = \tfrac12$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.4.</span> What is the value of $\text{var}(Z\oplus Z)$?</p>
+  <p><span class="env-label">Exercise 2.4.</span></p>
+  <p>What is the value of $\operatorname{var}(Z\oplus Z)$?</p>
   <p>(a) $\tfrac{41}{100}$<br>
   (b) $\tfrac{1}{4}$<br>
   (c) $0$</p>
@@ -142,170 +129,46 @@ we find that the correct answer.</p>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.5.</span> For $n=4$, which of the following corresponds to the exact probability $\mathbb{P}\bigl[Y\geq \tfrac34 \bigr]$ and to the value of the bound given by Markov's inequality, respectively?</p>
-  <p>(a) $\tfrac{5}{16}$ and $\tfrac{2}{3}$<br>
-  (b) $\tfrac{1}{4}$ and $\tfrac{1}{2}$<br>
-  (c) $\tfrac{1}{16}$ and $\tfrac{3}{4}$</p>
-  <details class="solution"><summary>Show solution</summary>
-    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
-    <p>For $n=4$, we have
- $$
-  \mathbb{P}\bigl[Y\geq \tfrac34 \bigr] = P_Y\bigl(\tfrac 34\bigr) + P_Y\bigl(1) = \tfrac{4}{16}+\tfrac{1}{16} = \tfrac{5}{16}. 
-  $$
-On the other hand, Markov's inequality states 
- $$
-    \mathbb{P}[Y \ge a] \le \dfrac{\mathbb{E}[Y]}{a}.
-  $$
- Here, $\mathbb{E}[Y]=\tfrac12$ and $a=\tfrac34$, leading to the correct answer.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.6.</span> For $n=4$, which of the following corresponds to the exact probability $\mathbb{P}\bigl[|Y-\mathbb{E}[Y]|\ge \tfrac12 \bigr]$ and to the value of the bound given by Chebyshev's inequality, respectively?</p>
-  <p>(a) $\tfrac{1}{8}$ and $\tfrac{1}{4}$<br>
-  (b) $\tfrac{3}{8}$ and $\tfrac{1}{2}$<br>
-  (c) $\tfrac{1}{4}$ and $\tfrac{3}{8}$</p>
-  <details class="solution"><summary>Show solution</summary>
-    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
-    <p>Since $\mathbb{E}[Y]=\tfrac 12$, let us define $Z = |Y - \mathbb{E}[Y]| = |\,Y - \tfrac12|$. We observe that $Y - \tfrac12$ takes values in $\{-\tfrac12, -\tfrac14, 0,\tfrac14, \tfrac12\}$ with probabilities $\{\tfrac{1}{16},\tfrac{4}{16},\tfrac{6}{16},\tfrac{4}{16},\tfrac{1}{16}\}$. As a consequence, $Z$ takes value sin $\{0,\tfrac14,\tfrac12\}$ with probabilities $\{\tfrac{1}{16},\tfrac{8}{16},\tfrac{2}{16}\}$. Hence,
-$$
-\mathbb{P}[|Y - \mathbb{E}[Y]| \ge \tfrac12]
-= \mathbb{P}[Z \ge \tfrac12]
-= P_Z(\tfrac12)
-= \tfrac18.
-$$
-On the other hand, Chebyshev's inequality for this probability reads
-$$
-\mathbb{P}[|Y - \mathbb{E}[Y]| \ge \tfrac12]
-\le \frac{\text{var}(Y)}{\left(\tfrac12\right)^2}.
-$$
-Since
-$$
-\text{var}(Y) = \mathbb{E}[Y^2] - (\mathbb{E}[Y])^2 = \tfrac{5}{16} - \Bigl(\tfrac12\Bigr)^2 = \tfrac{1}{16},
-$$
-we obtain
-$$
-\mathbb{P}[|Y - \tfrac12| \ge \tfrac12]
-\le \frac{\tfrac{1}{16}}{\tfrac14}
-= \tfrac14.
-$$</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.7.</span> Which of the following statements is true? You can reason by elimination.</p>
+  <p><span class="env-label">Exercise 2.5.</span></p>
+  <p>Let $U$ be uniform on $\mathcal{U}$ with $|\mathcal{U}|=n$ (so $P_U(u)=1/n$ for all $u$), and let $g(x)=-\tfrac12\log_2(x)$ (so $g(2^n)=-n/2$). Which of the following statements is true? You can reason by elimination.</p>
   <p>(a) $|\mathcal{U}| = 2^n$<br>
   (b) $\displaystyle\lim_{n\to\infty} \frac{g(2^n)}{P_U(2^n)} = -\infty$<br>
   (c) $\displaystyle\lim_{n\to\infty} n P_U(u) = 0$</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(b)</strong> &#9733;</p>
-    <p>$|\mathcal{U}| = n$ and $P_U(u) = 1/n$ for all $u$, so that $\lim_{n\to\infty} n P_U(u) = 1$. Also, $g(2^n)/P_U(2^n) = (-n/2)/(1/n) = -n^2/2$ so that $\lim_{n\to\infty} \frac{g(2^n)}{P_U(2^n)} = -\infty$.</p>
+    <p>$|\mathcal{U}| = n$ and $P_U(u) = 1/n$ for all $u$, so that $\lim_{n\to\infty} n P_U(u) = 1$. Also, $g(2^n)/P_U(2^n) = (-n/2)/(1/n) = -n^2/2$, so that $\lim_{n\to\infty} \frac{g(2^n)}{P_U(2^n)} = -\infty$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.8.</span> Find the formula for the sum of natural numbers between $1$ and $n$ and use the result to find the mean of $g(U)$, $\mathrm{E}[g(U)]$. If you use ChatGPT at any step, make sure the answer is correct.</p>
-  <p>(a) $-\frac{1}{4}n(n+1)$<br>
-  (b) $-\frac{1}{4}(n+1)$<br>
-  (c) $-\frac{1}{2}(n+1)$</p>
-  <details class="solution"><summary>Show solution</summary>
-    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
-    <p>The sum of natural numbers between $1$ and $n$ is $\frac{n(n+1)}{2}$; since $g(u)$ has a minus sign, the mean of $g(u)$ is $-\frac{n+1}{4}$.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.9.</span> Find the formula giving the sum of the squares of natural numbers between $1$ and $n$ and use the result to find the mean of $g^2(U)$, $\mathrm{E}[g^2(U)]$.</p>
-  <p>(a) $\frac{1}{4}(n+1)^2$<br>
-  (b) $\frac{1}{12}(n+1)(n+\frac{1}{2})$<br>
-  (c) $\frac{1}{6}(n+1)(2n+1)$</p>
-  <details class="solution"><summary>Show solution</summary>
-    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
-    <p>The sum of the squares of natural numbers between $1$ and $n$ is $\frac{n(n+1)(2n+1)}{6}$; since $g(2^a)=-a/2$, the mean of $g^2(u)$ is $1/4$ times the sum of squares divided by $n$.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.10.</span> For which value of $n$ is the variance of $g(U)$ equal to $1$?</p>
-  <p>(a) $1$<br>
-  (b) $2$<br>
-  (c) $7$</p>
-  <details class="solution"><summary>Show solution</summary>
-    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
-    <p>The variance can be calculated as $\frac{1}{48}(n^2-1)$, which is $1$ for $n=7$.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.11.</span> What is the upper bound on the probability $\mathrm{Pr}\bigl[g(\mathbf{V})  \leq -n/2 \bigr]$ in Markov's inequality?</p>
-  <p>(a) It cannot be calculated<br>
-  (b) $-\frac{1}{2}$<br>
-  (c) $2$</p>
-  <details class="solution"><summary>Show solution</summary>
-    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
-    <p>$g(\mathbf{V})$ is negative and Markov's inequality upper bounds $\mathrm{Pr}\bigl[-g(\mathbf{V})  \geq n/2 \bigr]$ by $\frac{-\mathrm{E}[g(\mathbf{V})]}{n/2} = 2$.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.12.</span> What is $\mathrm{Pr}\bigl[g(\mathbf{V})  \leq -n/2\bigr]$?</p>
-  <p>(a) $1$<br>
-  (b) $0$<br>
-  (c) $-\frac{1}{2}$</p>
-  <details class="solution"><summary>Show solution</summary>
-    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
-    <p>In fact, $g(\mathbf{V})$ is a constant random variable, with a value of $-n$, so the probability of it being less than $-n/2$ is one.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.13.</span> What is the probability $\mathrm{Pr}\bigl[\big|g(\mathbf{V}) - \mathrm{E}[g(\mathbf{V})]\big| \geq 0 \bigr]?$</p>
-  <p>(a) $0$<br>
-  (b) $1$<br>
-  (c) None of the above</p>
-  <details class="solution"><summary>Show solution</summary>
-    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
-    <p>The probability is $1$ because $\big|g(\mathbf{V}) - \mathrm{E}[g(\mathbf{V})]\big|$ is always greater than or equal to zero.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.14.</span> What is the upper bound on the probability $\mathrm{Pr}\bigl[\big|g(\mathbf{V}) - \mathrm{E}[g(\mathbf{V})]\big| \geq \epsilon \bigr]$ in Chebyshev's inequality, for $\epsilon > 0$?</p>
-  <p>(a) $0$<br>
-  (b) $1$<br>
-  (c) None of the above</p>
-  <details class="solution"><summary>Show solution</summary>
-    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
-    <p>Since $g(\mathbf{V})$ is constant, its variance is zero, and the upper bound in the inequality is also zero.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.15.</span> A source $X$ taking values in $\{-1,0,1\}$ with equal probability is compressed using the optimal binary prefix-free code. The function $\ell(x)$ returns the length of the encoded version of the symbol $x\in\{-1,0,1\}$. What is the value of the Chebyshev's upper bound to the probability $\mathbb{P}[|\ell(X)-L_{\rm av}|\geq L_{\rm av}]$, where $L_{\rm av}$ is the average length of the code?</p>
+  <p><span class="env-label">Exercise 2.6.</span></p>
+  <p>A source $X$ taking values in $\{-1,0,1\}$ with equal probability is compressed using the optimal binary prefix-free code. The function $\ell(x)$ returns the length of the encoded version of the symbol $x\in\{-1,0,1\}$. What is the value of Chebyshev's upper bound on the probability $\mathbb{P}[|\ell(X)-L_{\rm av}|\geq L_{\rm av}]$, where $L_{\rm av}$ is the average length of the code?</p>
   <p>(a) $0$<br>
   (b) $\frac{2}{15}$<br>
   (c) $\frac{2}{25}$<br>
   (d) $\frac{27}{25}$</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(c)</strong> &#9733;</p>
-    <p>The probability $\mathbb{P}[|\ell(X)-L_{\rm av}|\geq L_{\rm av}]$ is of the form of Chebyshev's inequality since $\mathbb{E}[\ell(X)]=L_{\rm av}$, and is given by $\frac{{\rm Var}(\ell(X))}{L_{\rm av}^2}$. After constructing the optimal (Huffman) code for $X$, we find that $\ell(X)\in\{1,2,2\}$ with equal probability, leading to ${\rm Var}(\ell(X)) = \frac 29$ and $\mathbb{E}[\ell(X)]=\frac 53$.</p>
+    <p>The probability $\mathbb{P}[|\ell(X)-L_{\rm av}|\geq L_{\rm av}]$ has the form of Chebyshev's inequality since $\mathbb{E}[\ell(X)]=L_{\rm av}$, and is bounded by $\frac{{\rm Var}(\ell(X))}{L_{\rm av}^2}$. After constructing the optimal (Huffman) code for $X$, we find that $\ell(X)\in\{1,2,2\}$ with equal probability, leading to ${\rm Var}(\ell(X)) = \frac{2}{9}$ and $\mathbb{E}[\ell(X)]=\frac{5}{3}$. Hence the bound equals $\frac{2/9}{25/9}=\frac{2}{25}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.16.</span> A source $X$ taking values in $\{-2,-1,1,2\}$ with equal probability is compressed using the optimal binary prefix-free code. For each symbol $x\in\{-2,-1,1,2\}$, the function $\ell(x)$ returns the length of its encoded version. What is the value of the probability $\mathbb{P}\bigr[|\ell(X)-L_{\rm av}|\geq \mathbb{E}[X]\bigr]$, where $L_{\rm av}$ is the average length of the code?</p>
+  <p><span class="env-label">Exercise 2.7.</span></p>
+  <p>A source $X$ taking values in $\{-2,-1,1,2\}$ with equal probability is compressed using the optimal binary prefix-free code. For each symbol $x\in\{-2,-1,1,2\}$, the function $\ell(x)$ returns the length of its encoded version. What is the value of the probability $\mathbb{P}\bigl[|\ell(X)-L_{\rm av}|\geq \mathbb{E}[X]\bigr]$, where $L_{\rm av}$ is the average length of the code?</p>
   <p>(a) $0$<br>
   (b) $\frac{2}{25}$<br>
   (c) $1$<br>
   (d) Indeterminate</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(c)</strong> &#9733;</p>
-    <p>The optimal (Huffman) code is given by $\{00,01,10,11\}$, hence $\ell(x)=L_{\rm av}=2$. Since $\mathbb{E}[X]=0$, the probability is $1$.</p>
+    <p>The optimal (Huffman) code is given by $\{00,01,10,11\}$, hence $\ell(x)=L_{\rm av}=2$. Since $\mathbb{E}[X]=0$, the event $|\ell(X)-L_{\rm av}|\geq 0$ always holds, so the probability is $1$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.17.</span> Let $X$ be a non-negative random variable with $\mathbb{E}[X]=4$. What does Markov's inequality say about $\mathbb{P}[X\geq 8]$?</p>
+  <p><span class="env-label">Exercise 2.8.</span></p>
+  <p>Let $X$ be a non-negative random variable with $\mathbb{E}[X]=4$. What does Markov's inequality say about $\mathbb{P}[X\geq 8]$?</p>
   <p>(a) $\mathbb{P}[X\geq 8]\leq \tfrac{1}{2}$<br>
   (b) $\mathbb{P}[X\geq 8]\leq 2$<br>
   (c) $\mathbb{P}[X\geq 8]\leq \tfrac{1}{4}$</p>
@@ -316,7 +179,8 @@ $$</p>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.18.</span> Let $X$ have mean $\mu=3$ and variance $\sigma^2=1$. What is the Chebyshev bound on $\mathbb{P}[|X-3|\geq 2]$?</p>
+  <p><span class="env-label">Exercise 2.9.</span></p>
+  <p>Let $X$ have mean $\mu=3$ and variance $\sigma^2=1$. What is the Chebyshev bound on $\mathbb{P}[|X-3|\geq 2]$?</p>
   <p>(a) $\tfrac{1}{4}$<br>
   (b) $\tfrac{1}{2}$<br>
   (c) $\tfrac{3}{4}$</p>
@@ -327,18 +191,20 @@ $$</p>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.19.</span> Let $X_1,\ldots,X_n$ be i.i.d. with $\mathbb{E}[X_i]=\mu$ and $\text{var}(X_i)=\sigma^2$. What is $\text{var}\bigl(\tfrac{1}{n}\sum_{i=1}^n X_i\bigr)$?</p>
+  <p><span class="env-label">Exercise 2.10.</span></p>
+  <p>Let $X_1,\ldots,X_n$ be i.i.d. with $\mathbb{E}[X_i]=\mu$ and $\operatorname{var}(X_i)=\sigma^2$. What is $\operatorname{var}\bigl(\tfrac{1}{n}\sum_{i=1}^n X_i\bigr)$?</p>
   <p>(a) $\tfrac{\sigma^2}{n}$<br>
   (b) $\sigma^2$<br>
   (c) $n\sigma^2$</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(a)</strong> &#9733;</p>
-    <p>By independence, $\text{var}\bigl(\tfrac{1}{n}\sum X_i\bigr)=\tfrac{1}{n^2}\sum \text{var}(X_i)=\tfrac{n\sigma^2}{n^2}=\tfrac{\sigma^2}{n}$.</p>
+    <p>By independence, $\operatorname{var}\bigl(\tfrac{1}{n}\sum X_i\bigr)=\tfrac{1}{n^2}\sum \operatorname{var}(X_i)=\tfrac{n\sigma^2}{n^2}=\tfrac{\sigma^2}{n}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.20.</span> A fair die is rolled $n$ times and $Y=\tfrac{1}{n}\sum_{i=1}^n X_i$ is the sample mean. By the law of large numbers, what does $Y$ converge to as $n\to\infty$?</p>
+  <p><span class="env-label">Exercise 2.11.</span></p>
+  <p>A fair die is rolled $n$ times and $Y=\tfrac{1}{n}\sum_{i=1}^n X_i$ is the sample mean. By the law of large numbers, what does $Y$ converge to as $n\to\infty$?</p>
   <p>(a) $\tfrac{7}{2}$<br>
   (b) $3$<br>
   (c) $\tfrac{1}{6}$</p>
@@ -349,21 +215,22 @@ $$</p>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.21.</span> Let $Z$ be a random variable with $\mathbb{E}[Z]=0$ and $\mathbb{E}[Z^2]=9$. Using Chebyshev's inequality, what is an upper bound on $\mathbb{P}[|Z|\geq 6]$?</p>
+  <p><span class="env-label">Exercise 2.12.</span></p>
+  <p>Let $Z$ be a random variable with $\mathbb{E}[Z]=0$ and $\mathbb{E}[Z^2]=9$. Using Chebyshev's inequality, what is an upper bound on $\mathbb{P}[|Z|\geq 6]$?</p>
   <p>(a) $\tfrac{1}{4}$<br>
   (b) $\tfrac{1}{2}$<br>
   (c) $\tfrac{3}{4}$</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(a)</strong> &#9733;</p>
-    <p>We have $\text{var}(Z)=\mathbb{E}[Z^2]-(\mathbb{E}[Z])^2=9$. Chebyshev gives $\mathbb{P}[|Z|\geq 6]\leq \tfrac{9}{36}=\tfrac{1}{4}$.</p>
+    <p>We have $\operatorname{var}(Z)=\mathbb{E}[Z^2]-(\mathbb{E}[Z])^2=9$. Chebyshev gives $\mathbb{P}[|Z|\geq 6]\leq \tfrac{9}{36}=\tfrac{1}{4}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.22.</span> Let $X$ be a non-negative random variable. Which of the following is a consequence of Markov's inequality?</p>
-  <p>(a) $\mathbb{P}[X\geq a]\leq \tfrac{\mathbb{E}[X]}{a}$ for all $a>0$<br>
-  (b) $\mathbb{P}[X\geq a]\geq \tfrac{\mathbb{E}[X]}{a}$ for all $a>0$<br>
-  (c) $\mathbb{P}[X\geq a]= \tfrac{\mathbb{E}[X]}{a}$ for all $a>0$</p>
+  <p><span class="env-label">Exercise 2.13.</span> Let $X$ be a non-negative random variable. Which of the following is a consequence of Markov's inequality?</p>
+  <p>(a) $\mathbb{P}[X\geq a]\leq \tfrac{\mathbb{E}[X]}{a}$ for all $a&gt;0$<br>
+  (b) $\mathbb{P}[X\geq a]\geq \tfrac{\mathbb{E}[X]}{a}$ for all $a&gt;0$<br>
+  (c) $\mathbb{P}[X\geq a]= \tfrac{\mathbb{E}[X]}{a}$ for all $a&gt;0$</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(a)</strong> &#9733;</p>
     <p>Markov's inequality provides an upper bound on the tail probability of a non-negative random variable.</p>
@@ -371,7 +238,7 @@ $$</p>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.23.</span> Let $X_1,\ldots,X_{100}$ be i.i.d. Bernoulli$(\tfrac{1}{2})$. Using Chebyshev's inequality, what is an upper bound on $\mathbb{P}\bigl[|\bar{X}-\tfrac{1}{2}|\geq \tfrac{1}{10}\bigr]$, where $\bar{X}=\tfrac{1}{100}\sum X_i$?</p>
+  <p><span class="env-label">Exercise 2.14.</span> Let $X_1,\ldots,X_{100}$ be i.i.d. Bernoulli$(\tfrac{1}{2})$. Using Chebyshev's inequality, what is an upper bound on $\mathbb{P}\bigl[|\bar{X}-\tfrac{1}{2}|\geq \tfrac{1}{10}\bigr]$, where $\bar{X}=\tfrac{1}{100}\sum X_i$?</p>
   <p>(a) $\tfrac{1}{4}$<br>
   (b) $\tfrac{1}{2}$<br>
   (c) $\tfrac{1}{100}$</p>
@@ -382,7 +249,7 @@ $$</p>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.24.</span> For a random variable $X$ with mean $\mu$, Chebyshev's inequality can be stated as $\mathbb{P}[|X-\mu|\geq k\sigma]\leq$</p>
+  <p><span class="env-label">Exercise 2.15.</span> For a random variable $X$ with mean $\mu$, Chebyshev's inequality can be stated as $\mathbb{P}[|X-\mu|\geq k\sigma]\leq$</p>
   <p>(a) $\tfrac{1}{k^2}$<br>
   (b) $\tfrac{\sigma}{k}$<br>
   (c) $k^2\sigma^2$</p>
@@ -393,13 +260,325 @@ $$</p>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 2.25.</span> Let $g(x)=x^2$ and $X$ uniform on $\{-1,0,1\}$. What is $\mathbb{E}[g(X)]$?</p>
+  <p><span class="env-label">Exercise 2.16.</span> Let $g(x)=x^2$ and $X$ uniform on $\{-1,0,1\}$. What is $\mathbb{E}[g(X)]$?</p>
   <p>(a) $\tfrac{2}{3}$<br>
   (b) $1$<br>
   (c) $\tfrac{1}{3}$</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(a)</strong> &#9733;</p>
     <p>$\mathbb{E}[X^2]=\tfrac{1}{3}(1+0+1)=\tfrac{2}{3}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.17.</span></p>
+  <p>A random variable $X$ takes values in $\{-1,0,1\}$ with $P_X(-1)=\frac14$, $P_X(0)=\frac12$, $P_X(1)=\frac14$. Calculate the variance of $X$.</p>
+  <p>(a) $\mathrm{var}(X)=\tfrac12$<br>
+  (b) $\mathrm{var}(X)=0$<br>
+  (c) $\mathrm{var}(X)=\tfrac14$<br>
+  (d) $\mathrm{var}(X)=1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By symmetry $\mathbb{E}[X]=(-1)\tfrac14+0\cdot\tfrac12+1\cdot\tfrac14=0$. The second moment is $\mathbb{E}[X^2]=1\cdot\tfrac14+0+1\cdot\tfrac14=\tfrac12$. Hence $\mathrm{var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2=\tfrac12-0=\tfrac12$. (Answer $0$ wrongly uses $\mathbb{E}[X]$; $\tfrac14$ forgets one tail.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.18.</span></p>
+  <p>For $X\in\{-1,0,1\}$ with $P_X(-1)=\frac14$, $P_X(0)=\frac12$, $P_X(1)=\frac14$, let $Y=X^2$. Calculate $\mathrm{var}(Y)$.</p>
+  <p>(a) $\mathrm{var}(Y)=\tfrac14$<br>
+  (b) $\mathrm{var}(Y)=\tfrac12$<br>
+  (c) $\mathrm{var}(Y)=\tfrac18$<br>
+  (d) $\mathrm{var}(Y)=0$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>$Y=X^2$ has $P_Y(0)=P_X(0)=\tfrac12$ and $P_Y(1)=P_X(-1)+P_X(1)=\tfrac12$. Then $\mathbb{E}[Y]=\tfrac12$ and $\mathbb{E}[Y^2]=\tfrac12$ (since $Y^2=Y$ on $\{0,1\}$), so $\mathrm{var}(Y)=\tfrac12-(\tfrac12)^2=\tfrac14$. (The value $\tfrac12$ would be $\mathrm{var}(X)$; squaring is nonlinear so the variance must be recomputed.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.19.</span></p>
+  <p>For $X\in\{-1,0,1\}$ with $P_X(-1)=\frac14$, $P_X(0)=\frac12$, $P_X(1)=\frac14$, is $\mathbb{E}[X^2]$ equal to $(\mathbb{E}[X])^2$? Choose the correct statement and reason.</p>
+  <p>(a) No: $\mathbb{E}[X^2]=\tfrac12&gt;0=(\mathbb{E}[X])^2$, since $\mathbb{E}[X^2]-(\mathbb{E}[X])^2=\mathrm{var}(X)&gt;0$ here<br>
+  (b) Yes: they are always equal because expectation is linear<br>
+  (c) No: $\mathbb{E}[X^2]&lt;(\mathbb{E}[X])^2$ because variance is negative here<br>
+  (d) Yes: they coincide because $\mathbb{E}[X]=0$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>They are not equal. Rearranging the variance formula gives $\mathbb{E}[X^2]-(\mathbb{E}[X])^2=\mathrm{var}(X)\ge 0$, which is always nonnegative because variance is the expectation of a square. Equality holds only if $\mathrm{var}(X)=0$ (constant $X$). Here $\mathrm{var}(X)=\tfrac12&gt;0$, so $\mathbb{E}[X^2]=\tfrac12&gt;0=(\mathbb{E}[X])^2$, strictly.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.20.</span></p>
+  <p>Let $X$ and $Y$ be independent random variables with $\mathbb{E}[X]=\mathbb{E}[Y]=0$ and variances $\sigma_X^2$ and $\sigma_Y^2$. Define $Z=aX^2+bY^2$ with $a,b&gt;0$. For $t&gt;0$, which is a valid upper bound on $\mathbb{P}[Z\geq t]$?</p>
+  <p>(a) $\dfrac{a\sigma_X^2+b\sigma_Y^2}{t}$<br>
+  (b) $\dfrac{a\sigma_X^2+b\sigma_Y^2}{t^2}$<br>
+  (c) $\dfrac{a^2\sigma_X^2+b^2\sigma_Y^2}{t}$<br>
+  (d) $\dfrac{\sigma_X^2+\sigma_Y^2}{t}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $a,b&gt;0$ and $X^2,Y^2\geq 0$, $Z\geq 0$, so Markov's inequality applies: $\mathbb{P}[Z\geq t]\leq \mathbb{E}[Z]/t$. By linearity, $\mathbb{E}[Z]=a\mathbb{E}[X^2]+b\mathbb{E}[Y^2]$, and since the means are zero, $\mathbb{E}[X^2]=\sigma_X^2$ and $\mathbb{E}[Y^2]=\sigma_Y^2$. Hence $\mathbb{E}[Z]=a\sigma_X^2+b\sigma_Y^2$ and the bound is $\dfrac{a\sigma_X^2+b\sigma_Y^2}{t}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.21.</span></p>
+  <p>A discrete random variable $X$ takes the values $\{-\sqrt{2},\,+\sqrt{2}\}$, each with probability $\tfrac{1}{2}$. For $\epsilon&gt;0$, what is Chebyshev's upper bound on $\mathbb{P}\big[\,|X^2-2|\geq\epsilon\,\big]$?</p>
+  <p>(a) $0$<br>
+  (b) $\dfrac{2}{\epsilon^2}$<br>
+  (c) $\dfrac{1}{\epsilon^2}$<br>
+  (d) $\dfrac{1}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Let $Y=X^2$. Since $X=\pm\sqrt{2}$, we get $Y=(\pm\sqrt{2})^2=2$ with probability one, so $X^2$ is the constant $2$. Then $\mathbb{E}[X^2]=2$ and $\mathrm{var}(X^2)=0$. The event is exactly the deviation of $X^2$ from its mean, so Chebyshev gives $\mathbb{P}[\,|X^2-2|\geq\epsilon\,]\leq \mathrm{var}(X^2)/\epsilon^2 = 0/\epsilon^2 = \boxed{0}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.22.</span></p>
+  <p>Let $X_1$ take values in $\{0,1,2\}$ with $P_X(0)=\tfrac14$, $P_X(1)=\tfrac12$, $P_X(2)=\tfrac14$, so $\mathbb{E}[X_1]=1$. Using <em>Markov's inequality</em>, calculate the upper bound on $\mathbb{P}[X_1\geq 2]$.</p>
+  <p>(a) $\tfrac12$<br>
+  (b) $\tfrac14$<br>
+  (c) $1$<br>
+  (d) $\tfrac18$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Markov's inequality for a non-negative variable gives $\mathbb{P}[X_1\geq a]\leq \mathbb{E}[X_1]/a$. With $a=2$ and $\mathbb{E}[X_1]=1$, the bound is $1/2$. (The exact value $P_X(2)=\tfrac14$ is smaller, so the bound is valid but loose.) The answer is $\tfrac12$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.23.</span></p>
+  <p>Let $X_1,\ldots,X_n$ be i.i.d. with $\mathrm{var}(X_i)=\tfrac12$, and let $\bar X_n=\tfrac1n\sum_{i=1}^n X_i$ be the sample mean. Calculate $\mathrm{var}(\bar X_n)$.</p>
+  <p>(a) $\dfrac{1}{2n}$<br>
+  (b) $\dfrac{1}{2n^2}$<br>
+  (c) $\dfrac{1}{2}$<br>
+  (d) $\dfrac{n}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By independence, $\mathrm{var}(\bar X_n)=\tfrac{1}{n^2}\sum_{i=1}^n\mathrm{var}(X_i)=\tfrac{1}{n^2}\cdot n\cdot\tfrac12=\tfrac{1}{2n}$. The $1/n^2$ factor combines with the $n$ terms to leave a single $1/n$. The answer is $\tfrac{1}{2n}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.24.</span></p>
+  <p>With $\bar X_n$ the sample mean of i.i.d. variables, $\mathbb{E}[\bar X_n]=1$ and $\mathrm{var}(\bar X_n)=\tfrac{1}{2n}$. Using <em>Chebyshev's inequality</em>, calculate the minimum number of samples $n$ such that $\mathbb{P}\bigl[\,|\bar X_n-1|&lt;\tfrac12\,\bigr]\geq 0.9$.</p>
+  <p>(a) $n=20$<br>
+  (b) $n=10$<br>
+  (c) $n=5$<br>
+  (d) $n=40$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The condition $\mathbb{P}[|\bar X_n-1|&lt;\tfrac12]\geq 0.9$ is equivalent to $\mathbb{P}[|\bar X_n-1|\geq\tfrac12]\leq 0.1$. Chebyshev gives $\mathbb{P}[|\bar X_n-1|\geq\tfrac12]\leq \dfrac{\mathrm{var}(\bar X_n)}{(1/2)^2}=\dfrac{1/(2n)}{1/4}=\dfrac{2}{n}$. Setting $\tfrac{2}{n}\leq 0.1$ gives $n\geq 20$. (Dividing by $k=\tfrac12$ instead of $k^2=\tfrac14$ wrongly yields $10$.) The answer is $n=20$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.25.</span></p>
+  <p>Let $X$ be uniform on $\{1,2,\ldots,M\}$, so $P_X(x)=\tfrac{1}{M}$. Define $Y=f(X)$ with $f(x)=P_X(x)$. Compute $\mathrm{var}(Y)$.</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac{1}{M}$<br>
+  (c) $\tfrac{1}{M^2}$<br>
+  (d) $\tfrac{M^2-1}{12}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $f(x)=P_X(x)=\tfrac1M$ does not depend on $x$, $Y\equiv\tfrac1M$ is a constant (degenerate) random variable. Then $\mathbb{E}[Y]=\tfrac1M$ and $\mathbb{E}[Y^2]=\tfrac1{M^2}$, so $\mathrm{var}(Y)=\tfrac1{M^2}-(\tfrac1M)^2=0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.26.</span></p>
+  <p>Let $X$ be uniform on $\{1,2,\ldots,M\}$. Define $Y=f(X)$ with $f(x)=x^2$. Using $\sum_{n=1}^{M} n^2=\tfrac{M(M+1)(2M+1)}{6}$, compute $\mathbb{E}[Y]$.</p>
+  <p>(a) $\dfrac{(M+1)(2M+1)}{6}$<br>
+  (b) $\dfrac{M(M+1)(2M+1)}{6}$<br>
+  (c) $\dfrac{(M+1)^2}{4}$<br>
+  (d) $\dfrac{M+1}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By the law of the unconscious statistician, $\mathbb{E}[Y]=\mathbb{E}[X^2]=\tfrac1M\sum_{n=1}^{M} n^2=\tfrac1M\cdot\tfrac{M(M+1)(2M+1)}{6}=\tfrac{(M+1)(2M+1)}{6}$. The second option forgets the $\tfrac1M$ averaging factor; the last is $\mathbb{E}[X]$, not $\mathbb{E}[X^2]$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.27.</span></p>
+  <p>Let $X$ be uniform on $\{1,2,3,4\}$ (so $P_X(x)=\tfrac14$) and let $Y=f(X)$ with $f(x)=|x-2|$. Define $Z=\log_2 P_Y(Y)$. Compute $\mathbb{E}[Z]$ (in bits).</p>
+  <p>(a) $-\tfrac32$<br>
+  (b) $\tfrac32$<br>
+  (c) $-2$<br>
+  (d) $-1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Mapping $|x-2|$ gives $Y\in\{0,1,2\}$ with $P_Y(0)=\tfrac14$, $P_Y(1)=\tfrac14+\tfrac14=\tfrac12$, $P_Y(2)=\tfrac14$. Then $\mathbb{E}[Z]=\sum_y P_Y(y)\log_2 P_Y(y)=\tfrac14(-2)+\tfrac12(-1)+\tfrac14(-2)=-\tfrac32$ bits. Note $-\mathbb{E}[Z]=\tfrac32=H(Y)$; option $+\tfrac32$ drops the sign.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.28.</span></p>
+  <p>Let $X_1,X_2,X_3,X_4$ be i.i.d. Bernoulli$(\tfrac12)$ random variables in $\{0,1\}$, and let $Y=\tfrac14(X_1+X_2+X_3+X_4)$. Which of the following is the correct probability mass function of $Y$?</p>
+  <p>(a) $\mathbb{P}[Y=0]=\tfrac{1}{16},\ \mathbb{P}[Y=\tfrac14]=\tfrac{4}{16},\ \mathbb{P}[Y=\tfrac12]=\tfrac{6}{16},\ \mathbb{P}[Y=\tfrac34]=\tfrac{4}{16},\ \mathbb{P}[Y=1]=\tfrac{1}{16}$<br>
+  (b) $\mathbb{P}[Y=0]=\tfrac{1}{5},\ \mathbb{P}[Y=\tfrac14]=\tfrac{1}{5},\ \mathbb{P}[Y=\tfrac12]=\tfrac{1}{5},\ \mathbb{P}[Y=\tfrac34]=\tfrac{1}{5},\ \mathbb{P}[Y=1]=\tfrac{1}{5}$<br>
+  (c) $\mathbb{P}[Y=0]=\tfrac{4}{16},\ \mathbb{P}[Y=\tfrac14]=\tfrac{1}{16},\ \mathbb{P}[Y=\tfrac12]=\tfrac{6}{16},\ \mathbb{P}[Y=\tfrac34]=\tfrac{1}{16},\ \mathbb{P}[Y=1]=\tfrac{4}{16}$<br>
+  (d) $\mathbb{P}[Y=0]=\tfrac{1}{16},\ \mathbb{P}[Y=\tfrac14]=\tfrac{2}{16},\ \mathbb{P}[Y=\tfrac12]=\tfrac{10}{16},\ \mathbb{P}[Y=\tfrac34]=\tfrac{2}{16},\ \mathbb{P}[Y=1]=\tfrac{1}{16}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Write $S=X_1+\cdots+X_4=4Y$. The $2^4=16$ binary strings are equally likely, each with probability $\tfrac{1}{16}$, and $S$ counts the ones. The number of strings with $k$ ones is $\binom{4}{k}=1,4,6,4,1$ for $k=0,1,2,3,4$. Dividing by $16$ gives $\mathbb{P}[Y=\tfrac{k}{4}]=\tfrac{1}{16},\tfrac{4}{16},\tfrac{6}{16},\tfrac{4}{16},\tfrac{1}{16}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.29.</span></p>
+  <p>With $Y=\tfrac14(X_1+X_2+X_3+X_4)$ for i.i.d. Bernoulli$(\tfrac12)$ variables (so $\mathbb{P}[Y=\tfrac{k}{4}]=\binom{4}{k}/16$ and $\mathbb{E}[Y]=\tfrac12$), compute the exact probability $\mathbb{P}[Y\geq\tfrac34]$ and the Markov upper bound on it. Which pair is correct?</p>
+  <p>(a) exact $=\tfrac{5}{16}\approx0.3125$, Markov bound $=\tfrac{2}{3}\approx0.667$<br>
+  (b) exact $=\tfrac{1}{16}\approx0.0625$, Markov bound $=\tfrac{2}{3}\approx0.667$<br>
+  (c) exact $=\tfrac{5}{16}\approx0.3125$, Markov bound $=\tfrac{3}{8}=0.375$<br>
+  (d) exact $=\tfrac{4}{16}=0.25$, Markov bound $=\tfrac{3}{2}=1.5$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The values $Y\geq\tfrac34$ are $Y=\tfrac34$ and $Y=1$, so $\mathbb{P}[Y\geq\tfrac34]=\tfrac{4}{16}+\tfrac{1}{16}=\tfrac{5}{16}=0.3125$. Markov's inequality for the non-negative $Y$ gives $\mathbb{P}[Y\geq a]\leq\mathbb{E}[Y]/a$; with $\mathbb{E}[Y]=\tfrac12$ and $a=\tfrac34$ the bound is $\tfrac{1/2}{3/4}=\tfrac{2}{3}\approx0.667$. The exact value lies well below this loose bound.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.30.</span></p>
+  <p>With $Y=\tfrac14(X_1+X_2+X_3+X_4)$ for i.i.d. Bernoulli$(\tfrac12)$ variables, we have $\mathbb{E}[Y]=\tfrac12$ and $\mathrm{var}(Y)=\tfrac{1}{16}$. Compute the exact probability $\mathbb{P}[\,|Y-\tfrac12|\geq\tfrac12\,]$ and the Chebyshev upper bound on it. Which pair is correct?</p>
+  <p>(a) exact $=\tfrac{1}{8}=0.125$, Chebyshev bound $=\tfrac{1}{4}=0.25$<br>
+  (b) exact $=\tfrac{1}{4}=0.25$, Chebyshev bound $=\tfrac{1}{8}=0.125$<br>
+  (c) exact $=\tfrac{1}{8}=0.125$, Chebyshev bound $=\tfrac{1}{8}=0.125$<br>
+  (d) exact $=\tfrac{2}{16}=0.125$, Chebyshev bound $=\tfrac{1}{2}=0.5$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The event $|Y-\tfrac12|\geq\tfrac12$ is realized only by $Y=0$ and $Y=1$, so the exact probability is $\tfrac{1}{16}+\tfrac{1}{16}=\tfrac{2}{16}=\tfrac18=0.125$. Chebyshev's inequality gives $\mathbb{P}[|Y-\mathbb{E}[Y]|\geq\varepsilon]\leq\mathrm{var}(Y)/\varepsilon^2$; with $\mathrm{var}(Y)=\tfrac{1}{16}$ and $\varepsilon=\tfrac12$ the bound is $\tfrac{1/16}{1/4}=\tfrac14=0.25$. The exact value $0.125$ satisfies this bound.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.31.</span></p>
+  <p>Let $V$ be an i.i.d. equiprobable binary source and $\mathbf{V}=(V_1,\ldots,V_n)$ a length-$n$ sequence. Define $g(\mathbf{v})=\log_2 P_{\mathbf{V}}(\mathbf{v})$. Find the Markov upper bound on $\mathbb{P}\bigl[g(\mathbf{V})\leq -n/2\bigr]$.</p>
+  <p>(a) $2$<br>
+  (b) $1$<br>
+  (c) $1/2$<br>
+  (d) $1/n$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Each sequence has probability $2^{-n}$, so $g(\mathbf{V})=-n$ always, giving $\mathbb{E}[g]=-n$. Set $X=-g\geq 0$ with $\mathbb{E}[X]=n$; the event $g\leq -n/2$ is $X\geq n/2$. Markov gives $\mathbb{P}[X\geq n/2]\leq \mathbb{E}[X]/(n/2)=n/(n/2)=2$. The bound is $2$ (vacuous, since it exceeds $1$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.32.</span></p>
+  <p>For an i.i.d. equiprobable binary source, $\mathbf{V}=(V_1,\ldots,V_n)$ and $g(\mathbf{v})=\log_2 P_{\mathbf{V}}(\mathbf{v})$. Compute the exact value of $\mathbb{P}\bigl[g(\mathbf{V})\leq -n/2\bigr]$.</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $1/2$<br>
+  (d) $2^{-n/2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since every sequence has probability $2^{-n}$, $g(\mathbf{V})=-n$ deterministically. For all $n\geq 1$, $-n\leq -n/2$, so the event $\{g\leq -n/2\}$ is certain: $\mathbb{P}=1$. This is consistent with the Markov bound $2$ ($1\leq 2$) but much tighter, showing Markov is loose here.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.33.</span></p>
+  <p>For an i.i.d. equiprobable binary source, $g(\mathbf{v})=\log_2 P_{\mathbf{V}}(\mathbf{v})$ with $\mathbf{V}=(V_1,\ldots,V_n)$. Compute $\mathbb{P}\bigl[\,|g(\mathbf{V})-\mathbb{E}[g(\mathbf{V})]|\geq 0\,\bigr]$.</p>
+  <p>(a) $1$<br>
+  (b) $0$<br>
+  (c) $1/2$<br>
+  (d) $n$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>An absolute value is always $\geq 0$, so this is the sure event regardless of the distribution: $\mathbb{P}=1$. Concretely $g(\mathbf{V})=-n=\mathbb{E}[g]$, so the deviation is exactly $0$ and $|0|\geq 0$ holds with certainty.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.34.</span></p>
+  <p>For an i.i.d. equiprobable binary source, $g(\mathbf{v})=\log_2 P_{\mathbf{V}}(\mathbf{v})$ with $\mathbf{V}=(V_1,\ldots,V_n)$. Find the Chebyshev upper bound on $\mathbb{P}\bigl[\,|g(\mathbf{V})-\mathbb{E}[g(\mathbf{V})]|\geq\epsilon\,\bigr]$ for $\epsilon&gt;0$.</p>
+  <p>(a) $0$<br>
+  (b) $1$<br>
+  (c) $n/\epsilon^2$<br>
+  (d) $1/\epsilon^2$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Chebyshev: $\mathbb{P}[|g-\mathbb{E}[g]|\geq\epsilon]\leq \mathrm{var}(g)/\epsilon^2$. Since $g(\mathbf{V})=-n$ is deterministic, $\mathrm{var}(g)=0$, so the bound is $0/\epsilon^2=0$ for every $\epsilon&gt;0$. It is tight: a deterministic variable never deviates from its mean.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.35.</span></p>
+  <p>Let $U$ be uniform on $\mathcal{U}=\{2^1,2^2,\ldots,2^n\}$ and let $g(u)=-\log_2\!\big(\sqrt{u}\big)$. Using $\sum_{k=1}^{n}k=\frac{n(n+1)}{2}$, what is $\mathbb{E}[g(U)]$?</p>
+  <p>(a) $-\dfrac{n+1}{4}$<br>
+  (b) $-\dfrac{n+1}{2}$<br>
+  (c) $-\dfrac{n(n+1)}{2}$<br>
+  (d) $\dfrac{n+1}{4}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Index outcomes as $u=2^a$ with $a\in\{1,\ldots,n\}$, each with probability $\tfrac1n$. By the log power rule, $g(2^a)=-\tfrac12\log_2(2^a)=-\tfrac a2$. Then $\mathbb{E}[g(U)]=-\tfrac{1}{2n}\sum_{a=1}^n a=-\tfrac{1}{2n}\cdot\tfrac{n(n+1)}{2}=-\tfrac{n+1}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.36.</span></p>
+  <p>Let $U$ be uniform on $\mathcal{U}=\{2^1,2^2,\ldots,2^n\}$ and let $g(u)=-\log_2\!\big(\sqrt{u}\big)$. Using $\sum_{k=1}^{n}k^2=\frac{n(n+1)(2n+1)}{6}$, what is $\mathbb{E}[g^2(U)]$?</p>
+  <p>(a) $\dfrac{(n+1)(2n+1)}{24}$<br>
+  (b) $\dfrac{(n+1)(2n+1)}{6}$<br>
+  (c) $\dfrac{(n+1)(2n+1)}{12}$<br>
+  (d) $\dfrac{(n+1)^2}{16}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>With $g(2^a)=-\tfrac a2$, we have $g^2(2^a)=\tfrac{a^2}{4}$. By LOTUS, $\mathbb{E}[g^2(U)]=\tfrac{1}{4n}\sum_{a=1}^n a^2=\tfrac{1}{4n}\cdot\tfrac{n(n+1)(2n+1)}{6}=\tfrac{(n+1)(2n+1)}{24}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.37.</span></p>
+  <p>Let $U$ be uniform on $\mathcal{U}=\{2^1,2^2,\ldots,2^n\}$ and let $g(u)=-\log_2\!\big(\sqrt{u}\big)$. Given $\mathbb{E}[g(U)]=-\tfrac{n+1}{4}$ and $\mathbb{E}[g^2(U)]=\tfrac{(n+1)(2n+1)}{24}$, for which value of $n$ is $\mathrm{var}(g(U))=1$?</p>
+  <p>(a) $n=7$<br>
+  (b) $n=49$<br>
+  (c) $n=5$<br>
+  (d) $n=8$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Using $\mathrm{var}=\mathbb{E}[g^2]-(\mathbb{E}[g])^2=\tfrac{(n+1)(2n+1)}{24}-\tfrac{(n+1)^2}{16}$, factor $\tfrac{n+1}{48}$ to get $\mathrm{var}=\tfrac{(n+1)(n-1)}{48}=\tfrac{n^2-1}{48}$. Setting this to $1$: $n^2-1=48$, so $n^2=49$ and (positive integer root) $n=7$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.38.</span></p>
+  <p>Let $(X_1,\ldots,X_n)$ be i.i.d. uniform on $\{1,2,\ldots,M\}$ and let $\overline{X}=\frac{X_1+\cdots+X_n}{\sqrt{n}}$. Using Markov's inequality, which bound holds for $\mathbb{P}[\overline{X}\geq n]$?</p>
+  <p>(a) $\mathbb{P}[\overline{X}\geq n]\leq \dfrac{M+1}{2\sqrt{n}}$<br>
+  (b) $\mathbb{P}[\overline{X}\geq n]\leq \dfrac{M+1}{2n}$<br>
+  (c) $\mathbb{P}[\overline{X}\geq n]\leq \dfrac{M+1}{2\sqrt{n}}\cdot n=\dfrac{(M+1)\sqrt{n}}{2}$<br>
+  (d) $\mathbb{P}[\overline{X}\geq n]\leq \dfrac{M-1}{2\sqrt{n}}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since each $X_i\geq 1$, $\overline{X}$ is non-negative, so Markov gives $\mathbb{P}[\overline{X}\geq a]\leq \mathbb{E}[\overline{X}]/a$. By linearity $\mathbb{E}[\overline{X}]=\frac{n\,\mathbb{E}[X]}{\sqrt{n}}=\sqrt{n}\cdot\frac{M+1}{2}$ since $\mathbb{E}[X]=\frac{M+1}{2}$. With $a=n$: $\mathbb{P}[\overline{X}\geq n]\leq \frac{\sqrt{n}(M+1)/2}{n}=\frac{M+1}{2\sqrt{n}}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.39.</span></p>
+  <p>Let $(X_1,\ldots,X_n)$ be i.i.d. uniform on $\{1,2,\ldots,M\}$ (so $\mathrm{var}(X)=\frac{M^2-1}{12}$) and let $\overline{X}=\frac{X_1+\cdots+X_n}{\sqrt{n}}$. What is $\mathrm{var}(\overline{X})$?</p>
+  <p>(a) $\mathrm{var}(\overline{X})=\dfrac{M^2-1}{12}$<br>
+  (b) $\mathrm{var}(\overline{X})=\dfrac{M^2-1}{12n}$<br>
+  (c) $\mathrm{var}(\overline{X})=\dfrac{M^2-1}{12\sqrt{n}}$<br>
+  (d) $\mathrm{var}(\overline{X})=\dfrac{n(M^2-1)}{12}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Using the scaling rule $\mathrm{var}(cY)=c^2\mathrm{var}(Y)$ with $c=1/\sqrt{n}$ and independence: $\mathrm{var}(\overline{X})=\frac{1}{n}\sum_{i=1}^n\mathrm{var}(X_i)=\frac{1}{n}\cdot n\,\mathrm{var}(X)=\mathrm{var}(X)=\frac{M^2-1}{12}$. The $\sqrt{n}$ scaling exactly cancels the factor $n$, so the variance is independent of $n$ (the CLT normalization).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 2.40.</span></p>
+  <p>Let $(X_1,\ldots,X_n)$ be i.i.d. uniform on $\{1,2,\ldots,M\}$ with $\overline{X}=\frac{X_1+\cdots+X_n}{\sqrt{n}}$, so $\mathrm{var}(\overline{X})=\frac{M^2-1}{12}$ (constant in $n$). For $M\geq 2$ and $\epsilon&gt;0$, using Chebyshev's inequality, which deviation probability is <em>guaranteed</em> to converge to $0$ as $n\to\infty$?</p>
+  <p>(a) $\mathbb{P}\big[|\overline{X}-\mathbb{E}[\overline{X}]|\geq \sqrt{n\epsilon}\big]$<br>
+  (b) $\mathbb{P}\big[|\overline{X}-\mathbb{E}[\overline{X}]|\geq \tfrac{1}{\sqrt{n\epsilon}}\big]$<br>
+  (c) $\mathbb{P}\big[|\overline{X}-\mathbb{E}[\overline{X}]|\geq \epsilon\big]$<br>
+  (d) All three converge to $0$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Chebyshev gives $\mathbb{P}[|\overline{X}-\mathbb{E}[\overline{X}]|\geq t]\leq \frac{M^2-1}{12\,t^2}$. For $t=\sqrt{n\epsilon}$, $t^2=n\epsilon$ and the bound is $\frac{M^2-1}{12n\epsilon}\to 0$. For $t=\frac{1}{\sqrt{n\epsilon}}$ the bound grows like $n$, and for fixed $t=\epsilon$ the bound is a constant; neither shrinks. Since $\mathrm{var}(\overline{X})$ does not decrease with $n$, only the growing threshold $\sqrt{n\epsilon}$ guarantees convergence to $0$.</p>
   </details>
 </div>
 

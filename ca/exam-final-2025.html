@@ -40,44 +40,130 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html" class="active">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Properament</h1>
+      <h1>Examen final 2025</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Aquest contingut estarà disponible a mesura que avanci el curs.</p>
+
+    <button id="expand-all" data-expand="Mostra totes les solucions" data-collapse="Amaga totes les solucions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostra totes les solucions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Problema 1.</span> Un generador de paraules aleatòries emet paraules de $r$ lletres, on cada lletra pertany a un alfabet de mida $n$. Quina és l'entropia binària màxima del generador de paraules aleatòries?</p>
+  <p>(a) $\log_2(r)$<br>
+  (b) $\log_2(n)$<br>
+  (c) $r\log_2(n)$<br>
+  (d) $n\log_2(r)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>El generador de paraules aleatòries es pot descriure com una font discreta $X=(U_1,\ldots,U_r)$ on cada $U_i$ pren valors en un alfabet de cardinalitat $n$. L'entropia de $X$ satisfà $H(X)\leq\log_2|\mathcal{X}|$, on $|\mathcal{X}|=n^r$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 2.</span> Un codi font binari generat aleatòriament amb paraules de codi $\{\boldsymbol{x}_1,\boldsymbol{x}_2\}$, tal que cada paraula de codi es selecciona independentment del conjunt $\{0,01,10\}$ amb distribució de probabilitat $\bigl\{\tfrac12,\tfrac13,\tfrac16\bigr\}$, s'utilitza per representar una font discreta sense memòria que pren valors en $\{a,b\}$ amb distribució de probabilitat $\bigl\{\tfrac13,\tfrac23\bigr\}$. Quina és la probabilitat de generar un codi unívocament decodificable amb longitud mitjana $\tfrac53$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac14$<br>
+  (c) $\tfrac19$<br>
+  (d) $\tfrac{1}{12}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>De tots els possibles codis generats aleatòriament, només $\{0,01\}$ i $\{0,10\}$ satisfan ambdues condicions de decodificabilitat unívoca i longitud mitjana. La probabilitat d'aquests codis és $\tfrac 16$ i $\tfrac{1}{12}$, respectivament, la suma dels quals porta a la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 3.</span> Considereu una font $W_n$ que emet seqüències de $n$ bits i.i.d. tal que la probabilitat d'$1$ és el doble de la probabilitat de $0$. La longitud mitjana del codi binari òptim lliure de prefixos per representar $W_n$ es denota com $L_{\rm av}(W_n)$. Quin és el valor del següent quocient?$$\frac{L_{\rm av}(W_1)}{L_{\rm av}(W_2)}$$</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{9}{23}$<br>
+  (c) $\tfrac{9}{17}$<br>
+  (d) $\tfrac12$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Clarament $L_{\rm av}(W_1)=1$. Utilitzant que cada bit pren valors $\{0,1\}$ amb distribució de probabilitat $\bigl\{\tfrac13,\tfrac23\bigr\}$, obtenim que $W_2\in\{00,01,10,11\}$ amb probabilitats $\bigl\{\tfrac19,\tfrac29,\tfrac29,\tfrac49\bigr\}$. El codi de Huffman per $W_2$ té distribució de longituds $\{3,3,2,1\}$ portant a $L_{\rm av}(W_2)=\tfrac{17}{9}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 4.</span> Una font discreta sense memòria $W_n=(X_1,\ldots,X_n)$, on cada $X_i$ pren valors en $\{a,b,c\}$ amb distribució de probabilitat $\bigl\{\tfrac12,\tfrac13,\tfrac16\}$, es representa utilitzant dos esquemes de codificació. En l'esquema (a), dissenyem el codi binari òptim lliure de prefixos per a $X_1$ i representem cada símbol $X_i$ amb el mateix codi. En l'esquema (b), dissenyem el codi binari òptim lliure de prefixos per a $W_n$. La longitud mitjana per representar $W_n$ utilitzant els esquemes (a) i (b) es denota respectivament com $L_{\rm av}^\text{(a)}(W_n)$ i $L_{\rm av}^\text{(b)}(W_n)$. Quin és el valor del següent límit?$$\lim_{n\to\infty} \frac{L_{\rm av}^\text{(b)}(W_n)}{L_{\rm av}^\text{(a)}(W_n)}$$</p>
+  <p>(a) $\tfrac{4+3\log_2(3)}{10}$<br>
+  (b) $\tfrac{4+3\log_2(3)}{9}$<br>
+  (c) $\tfrac{4+3\log_2(3)}{6}$<br>
+  (d) $\tfrac{4+3\log_2(3)}{11}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>El codi de Huffman per a $X_1$ té distribució de longituds $\{1,2,2\}$ i longitud mitjana $L_{\rm av}(X_1)=\tfrac32$. En l'esquema (a), $L_{\rm av}(W_n) = \tfrac{3n}{2}$ al concatenar el mateix codi. Per altra banda, quan $n\to\infty$, $\frac1n L_{\rm av}(W_n) = H(X_1)$. Combinant ambdós fets i utilitzant $H(X_1)= \tfrac 23 + \tfrac{\log_2(3)}{2}$, obtenim la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 5.</span> Les paraules de codi d'un codi lineal binari amb matriu generatriu$$\begin{pmatrix}0 & 1\\1 & 0\end{pmatrix}$$es transmeten amb probabilitat igual sobre un canal binari amb probabilitats condicionades $P_{Y|X}(0|0)=0$ i $P_{Y|X}(0|1)=\tfrac13$. El receptor utilitza una regla de distància de Hamming màxima per decodificar la sortida del canal. Quina és la probabilitat d'error del codi?</p>
+  <p>(a) $\tfrac{11}{36}$<br>
+  (b) $\tfrac{5}{9}$<br>
+  (c) $\tfrac{8}{9}$<br>
+  (d) $\tfrac{35}{36}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Com que el codi generat és $\{00,10,01,11\}$ i el receptor utilitza una regla de distància de Hamming màxima, el descodificador $\hat m(\boldsymbol{y})$ és tal que $\hat m(00)=4$, $\hat m(01)=2$, $\hat m(10)=3$ i $\hat m(11)=1$. Per tant, $P_{\rm e}(1)=0$, $P_{\rm e}(2)=\tfrac 23$, $P_{\rm e}(3)=\tfrac 23$ i $P_{\rm e}(4)=\tfrac89$. Utilitzant que les quatre paraules de codi són equiprobables, obtenim el resultat.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 6.</span> Un canal binari té entrada $X$ que pren valors en $\{0,1\}$ amb probabilitat igual, sortida $Y$ que pren valors en $\{0,\star,1\}$, i probabilitats condicionades $P_{Y|X}(y|x)=\tfrac13$ per a tots els $x$ i $y$. Quin és el valor de l'entropia condicionada $H(X|Y)$?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{3\log_2(3)-1}{3}$<br>
+  (c) $\tfrac{3\log_2(3)-2}{3}$<br>
+  (d) $0$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que $H(Y|X)=H(Y)=\log_2(3)$, la informació mútua del canal satisfà $I(X;Y)=0$, la qual cosa també implica que $H(X|Y)=H(X)=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 7.</span> Tres variables aleatòries $X_1$, $X_2$ i $X_3$, formen una cadena de Markov $X_1\rightarrow X_2\rightarrow X_3$, on a més $X_2$ és una funció determinista d'$X_1$. Quina és l'entropia conjunta de les tres variables aleatòries?</p>
+  <p>(a) $H(X_1)+H(X_2)+H(X_3)$<br>
+  (b) $H(X_1)+H(X_3)$<br>
+  (c) $H(X_2)+H(X_3|X_2)$<br>
+  (d) $H(X_1)+H(X_3|X_2)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(d)</strong> &#9733;</p>
+    <p>L'entropia conjunta es pot expandir com $H(X_1)+H(X_2|X_1)+H(X_3|X_1,X_2)$. Com que $X_2$ és una funció determinista de $X_1$, tenim que $H(X_2|X_1)=0$. També, condicionat a $X_2$, $X_1$ i $X_3$ esdevenen independents de manera que $H(X_3|X_1,X_2)=H(X_3|X_2)$. Combinant ambdues observacions, obtenim la resposta correcta.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

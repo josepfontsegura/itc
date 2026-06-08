@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -38,48 +38,152 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html" class="active">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Tema 9. Medidas de información <a class="pdf-link" href="../pdf/ITC-2026-Lecture9-es.pdf">pdf</a></h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+
+<h2>Introducción</h2>
+
+<p>
+A partir de las expresiones de la información mutua $I(X;Y)$ del tema anterior, podemos establecer relaciones entre entropías. Ya que $I(X;Y) = H(Y) - H(Y|X)  = H(X) + H(Y) - H(X,Y) = H(X) - H(X|Y)$, despejando $H(X,Y)$ obtenemos
+$$\begin{align}
+H(X,Y) &= H(Y|X) + H(X) \tag{9.1}\\
+&=H(X|Y) + H(Y), \tag{9.2}
+\end{align}$$
+la llamada <strong>regla de la cadena de la entropía</strong>, consecuencia de la regla de la cadena de la probabilidad. Utilizando $P_{XY}(x,y)=P_{Y|X}(y|x)P_X(x)$ y $H(X,Y) = \mathbb{E}[-\log_2 P_{XY}(X,Y)]$, tenemos
+$$\begin{align}
+H(X,Y)& =\mathbb{E}\bigl[-\log_2 P_{XY}(X,Y)\bigr] \tag{9.3}\\
+& = \mathbb{E}\bigl[-\log_2 P_{Y|X}(Y|X) - \log_2 P_X(X) \bigr] \tag{9.4}\\
+ & = \underbrace{\mathbb{E}\bigl[-\log_2 P_{Y|X}(Y|X)\bigr]}_{H(Y|X)} + \underbrace{\mathbb{E}\bigl[-\log_2 P_{X}(X)\bigr]}_{H(X)}. \tag{9.5}\end{align}$$
+La ecuación $(9.2)$ se obtiene de manera similar con $P_{XY}(x,y)=P_{X|Y}(x|y)P_Y(y)$. La regla de la cadena nos dice que la incertidumbre de $(X,Y)$ se descompone como la incertidumbre de $X$ más la incertidumbre residual de $Y$ dado $X$. Análogamente, $I(X;Y)$ mide la reducción de incertidumbre de $Y$ al conocer $X$. En esta lección, veremos propiedades de las medidas de información; herramientas utilizadas más allá de las comunicaciones digitales.
+</p>
+
+<h2>Medidas de información</h2>
+
+<p>
+Como podemos expresar la distribución de probabilidad conjunta de $n$ variables aleatorias $(X_1,\ldots, X_n)$ como
+$$
+P_{X_1\cdots X_n}(x_1,\dotsc,x_n) = P_{X_1}(x_1)P_{X_2|X_1}(x_2|x_1)P_{X_3|X_1X_2}(x_3|x_1x_2)\cdots P_{X_n|X_1\cdots X_{n-1}}(x_n|x_1\dotsc x_{n-1}) \tag{9.6}$$
+podemos escribir la <strong>regla de la cadena de la entropía</strong> en general como
+$$
+H(X_1\dotsc X_n) = H(X_1) + H(X_2|X_1) + H(X_3|X_1X_2) + \cdots+H(X_n|X_1\dotsc X_{n-1}). \tag{9.7}$$
+Recordemos que la regla de la cadena se puede escribir en cualquier orden, p.ej., $H(X,Y,Z)=H(X)+H(Y|X)+H(Z|YX)$ o $H(X,Y,Z)=H(Y)+H(Z|Y)+H(X|YZ)$. Como el condicionamiento reduce la entropía, $H(X_i|X_1\cdots X_{i-1})\leq H(X_i)$, y la <strong>entropía conjunta</strong> está acotada por la suma de entropías marginales:
+$$
+H(X_1\cdots X_n)\leq\sum_{i=1}^n H(X_i).
+\tag{9.8}
+$$
+La cota de $(9.8)$ se alcanza con igualdad cuando $H(X_2|X_1)=H(X_2)$, $H(X_3|X_1X_2)=H(X_3)$, y así sucesivamente. Sabemos que $H(X_2|X_1)=H(X_2)$ se cumple cuando $P_{X_2|X_1}(x_2|x_1)=P_{X_2}(x_2)$, es decir, cuando $X_1$ y $X_2$ son independientes, de modo que conocer $X_1$ no reduce la incertidumbre sobre $X_2$. De forma análoga, $H(X_3|X_1X_2)=H(X_3)$ se cumple cuando $X_3$ es independiente de $X_1$ y $X_2$, y así sucesivamente. Concluimos que $(9.8)$ se satisface con igualdad cuando $(X_1,\ldots,X_n)$ es una secuencia de variables aleatorias independientes.
+</p>
+<figure><img src="../img/tikz/lecture9-fig1.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
+<figcaption>Salida $Y$ de una función determinista de $X$.</figcaption>
+<a id="fig:obsyxx"></a>
+</p>
+<p>
+El siguiente resultado muestra que aplicar una función determinista a una variable aleatoria no puede aumentar su entropía (véase la Figura 9.1). Sean $X$ e $Y$ dos variables aleatorias sobre los alfabetos ${\cal X}$ e ${\cal Y}$, respectivamente, y supongamos que $Y=g(X)$ donde $g(x)$ es una función determinista, es decir, que no introduce aleatoriedad, como por ejemplo $g(x)=x^2$ o $g(x)=\log_2 p(x)$. Expresando $H(X,Y)$ de dos maneras:
+$$\begin{align}
+H(X,Y) &= H(X) + \overbrace{H(Y|X)}^{=0} \tag{9.9}\\
+&=H(Y) + \underbrace{H(X|Y)}_{\geq 0}, \tag{9.10}\end{align}$$
+donde $H(Y|X)=0$ ya que $Y$ es función determinista de $X$. Como $H(X|Y)\geq 0$, la entropía de la salida de una <strong>función determinista</strong> cumple
+$$
+H(Y)\leq H(X). \tag{9.11}$$
+Es decir, manipular $X$ de manera determinista no puede aumentar su incertidumbre.
+</p>
+<p>
+Definimos ahora la <strong>información mutua condicional</strong> $I(X;Y|Z)$, la información de $X$ sobre $Y$ conociendo $Z$:
+$$
+	I(X;Y|Z)  = \mathbb{E}\left[ \log_2 \frac{P_{XY|Z}(X,Y|Z)}{P_{X|Z}(X|Z)P_{Y|Z}(Y|Z)} \right]\\
+	 =  \mathbb{E}\left[ \log_2 \frac{P_{X|YZ}(X|YZ)}{P_{X|Z}(X|Z)} \right]
+	 =  \mathbb{E}\left[ \log_2 \frac{P_{Y|XZ}(Y|XZ)}{P_{Y|Z}(Y|Z)} \right], \tag{9.12}$$
+y en términos de entropías como
+$$\begin{align}
+	I(X;Y|Z) &= H(Y|Z) - H(Y|XZ) \tag{9.13}\\& =  H(X|Z) + H(Y|Z) - H(X,Y|Z) \tag{9.14}\\& = H(X|Z) - H(X|YZ) \tag{9.15}\\& = I(Y;X|Z). \tag{9.16}\end{align}$$
+Estas son las mismas expresiones de la lección 8 con el condicionamiento de $Z$ añadido en todos los términos, y son válidas para cualquier trío de variables aleatorias con distribución conjunta $P_{XYZ}(x,y,z)$.
+</p>
+<figure><img src="../img/tikz/lecture9-fig2.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
+<figcaption>Ilustración de la independencia condicional y el teorema del procesamiento de datos.</figcaption>
+<a id="fig:dataprocessing"></a>
+</p>
+<p>
+En comunicaciones digitales y otras disciplinas, las variables aleatorias $X$, $Y$ y $Z$ suelen formar parte de una cadena de procesamiento de datos como la de la Figura 9.2, donde $Y$ es la salida de un sistema con entrada $X$, y $Z$ la salida de otro con entrada $Y$. Esto no implica que $Z$ sea independiente de $Y$, ya que una variación de $X$ puede inducir una variación de $Y$ que a su vez induce una variación de $Z$. Sin embargo, conocer la variable intermedia $Y$ produce una forma de independencia entre $X$ y $Z$. Esta es la noción de <strong>cadena de Markov</strong>: $X$, $Y$ y $Z$ forman una cadena $X\to Y \to Z$ si, dada $Y$, $X$ y $Z$ son independientes:
+$$
+P_{XZ|Y}(x,z|y) = P_{X|Y}(x|y)P_{Z|Y}(z|y). \tag{9.17}$$
+En consecuencia, si $X\to Y \to Z$ forman una cadena de Markov, tras conocer $Y$, $Z$ no tiene información sobre $X$ y viceversa, y la información mutua condicional $I(X;Z|Y)$ se anula porque
+$$
+I(X;Z|Y)= \mathbb{E}\left[ \log_2 \frac{P_{XZ|Y}(X,Z|Y)}{P_{X|Y}(X|Y) P_{Z|Y}(Z |Y)} \right] = \mathbb{E}\left[ \log_2 \frac{P_{X|Y}(X|Y) P_{Z|Y}(Z|Y)}{P_{X|Y}(X|Y) P_{Z|Y}(Z|Y)} \right] = \mathbb{E}[\log_2(1)] = 0. \tag{9.18}$$
+</p>
+<p>
+Consideremos $I(X;Y,Z)=I(Y,Z;X)=H(Y,Z)-H(Y,Z|X)$. Utilizando $H(Y,Z)=H(Y)+H(Z|Y)$ y $H(Y,Z|X)=H(Y|X)+H(Z|X,Y)$ obtenemos
+$$
+	I(Y,Z;X) = H(Y,Z)-H(Y,Z|X) = \underbrace{H(Y) - H(Y|X)}_{I(X;Y)} + \underbrace{H(Z|Y) - H(Z|X,Y)}_{I(X;Z|Y)}; \tag{9.19}
+$$
+esta es la <strong>regla de la cadena de la información mutua</strong>. ¡A diferencia de la entropía, el condicionamiento puede aumentar la información mutua! Análogamente, con $H(Y,Z)=H(Z)+H(Y|Z)$ y $H(Y,Z|X)=H(Z|X)+H(Y|X,Z)$:
+$$
+	I(Y,Z;X) = H(Y,Z)-H(Y,Z|X) = \underbrace{H(Z) - H(Z|X)}_{I(X;Z)} + \underbrace{H(Y|Z) - H(Y|X,Z)}_{I(X;Y|Z)}. \tag{9.20}
+$$
+Combinando $(9.19)$ y $(9.20)$:
+$$\begin{align}
+I(X;YZ) &= I(X;Y) + \overbrace{I(X;Z|Y)}^{=0}\tag{9.21}\\
+&= I(X;Z)+\underbrace{I(X;Y|Z)}_{\geq 0},\tag{9.22}
+\end{align}$$
+donde $
+I(X;Z|Y)=0$
+por la cadena de Markov e $
+I(X;Y|Z) \geq 0$.
+Así, obtenemos el <strong>teorema de procesamiento de datos</strong>: si $X\to Y \to Z$ forman una cadena de Markov,
+$$
+I(X;Z)\leq I(X;Y).
+\tag{9.23}
+$$
+Es decir, procesar datos no puede aumentar la información mutua: la información de $Z$ sobre $X$ no supera la de $Y$ sobre $X$.
+</p>
+<p>
+Finalmente, estudiamos $I(X_1\cdots X_n;Y_1\cdots Y_n)$ para un <strong>canal discreto sin memoria</strong> con entrada $(X_1,\ldots,X_n)$ y salida $(Y_1,\ldots,Y_n)$:
+$$\begin{align}
+I(X_1\cdots X_n;Y_1\cdots Y_n)  &= H(Y_1\cdots Y_n) - H(Y_1\cdots Y_n|X_1\cdots X_n) \tag{9.24}\\
+&= H(Y_1\cdots Y_n) - \sum_{i=1}^n H(Y_i|X_1\cdots X_n Y_1\cdots Y_{i-1})\tag{9.25}\\
+&=H(Y_1\cdots Y_n) - \sum_{i=1}^n H(Y_i|X_i)\tag{9.26}\\
+&\leq  \sum_{i=1}^n H(Y_i) - \sum_{i=1}^n H(Y_i|X_i)\tag{9.27}\\
+&= \sum_{i=1}^n I(X_i;Y_i) \tag{9.28}\end{align}$$
+donde $(9.25)$ es la regla de la cadena, $(9.26)$ usa que el canal no tiene memoria ($Y_i$ solo depende de $X_i$), y $(9.27)$ viene de $(9.8)$. La igualdad en $(9.27)$ se alcanza cuando $(Y_1,\ldots,Y_n)$ son independientes, lo que sugiere que esta es la mejor estrategia para canales sin memoria.</p>
   </main>
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Teoría de la información y codificación 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

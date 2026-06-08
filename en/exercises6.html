@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -40,44 +40,563 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html" class="active">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Coming soon</h1>
+      <h1>Exercises: 6. Error probability of channel codes</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">This content will be available as the course progresses.</p>
+
+    <button id="expand-all" data-expand="Show all solutions" data-collapse="Hide all solutions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Show all solutions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.1.</span> Two messages are transmitted with equal probability through a binary symmetric channel with bit-flipping probability $p$ using codewords $\{101,010\}$. The decoder applies the rule $\boldsymbol{y}\mapsto \hat m$ given by:
+$$
+\begin{aligned}
+000&\mapsto 1 & 001&\mapsto 1 & 010&\mapsto 2 & 011&\mapsto 2\\
+100&\mapsto 1 & 101&\mapsto 2 & 110&\mapsto 2 & 111&\mapsto 1
+\end{aligned}
+$$
+What is the probability of correctly decoding the first message?</p>
+  <p>(a) $3p-5p^2+2p^3$<br>
+  (b) $2p-2p^2$<br>
+  (c) $p+p^2-2p^3$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The first message is encoded as $\boldsymbol{x}_1=101$. The decoder makes a correct decision when, having transmitted $\boldsymbol{x}_1$, one of the sequences mapped to message $1$ is received, namely $\{000,001,100,111\}$. Calculating the four probabilities, for example $P_{Y|X}(000|101)=p^2(1-p)$, summing them up and simplifying yields the correct option.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.2.</span> Two messages are sent with equal probability through a <u>binary asymmetric</u> channel with transition probabilities $P_{Y|X}(1|0)=p$ and $P_{Y|X}(0|1)=2p$ using the codewords $\{000,111\}$. The decoder uses the rule
+$$
+\hat m = \operatorname*{arg\,max}_{m\in\{1,2\}} \, d(\boldsymbol{x}_m,\boldsymbol{y}),
+$$
+where $d(\boldsymbol{x},\boldsymbol{y})$ is the Hamming distance between the binary sequences $\boldsymbol{x}$ and $\boldsymbol{y}$.
+What is the value of $p$ that minimizes the error probability?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $\tfrac 59$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>Given an output $\boldsymbol{y}$, the decoder chooses the codeword at largest Hamming distance, deciding $\hat m=1$ when $\boldsymbol{y}\in\{011,101,110,111\}$ and $\hat m=2$ when $\boldsymbol{y}\in\{000,001,010,100\}$. With $\boldsymbol{x}_1=000$ the bit-flip probability is $p$, whereas with $\boldsymbol{x}_2=111$ it is $2p$. Thus the probability of error of the first message is $(1-p)^3+3(1-p)^2p$, and for the second message it is $(1-2p)^3+3(1-2p)^2 2p$. Averaging because the messages are equiprobable and simplifying algebraically gives $1-\tfrac{15 p^2}{2}+9 p^3$. On the valid interval $p\in[0,1/2]$, this expression is minimized at $p=\tfrac12$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.3.</span> Two messages are transmitted with equal probability through a <u>binary asymmetric</u> channel with transition probabilities $P_{Y|X}(1|0)=\alpha$ and $P_{Y|X}(0|1)=1-\alpha$ using the codewords $\{000,111\}$. The decoder applies the rule
+$$
+\hat m = \operatorname*{arg\,min}_{m\in{\cal M}} 3d_{0\to 1}(\boldsymbol{x}_{m},\boldsymbol{y})+d_{1\to 0}(\boldsymbol{x}_{m},\boldsymbol{y}),
+$$
+where $d_{0\to 1}(\boldsymbol{x},\boldsymbol{y})$ is the number of bits that flip from $0$ to $1$ and $d_{1\to 0}(\boldsymbol{x},\boldsymbol{y})$ is the number of bits that flip from $1$ to $0$. For example, $d_{0\to 1}(010,110)=1$ and $d_{1\to 0}(010,110)=0$. For what value of $\alpha$ do the error probabilities of both messages coincide?</p>
+  <p>(a) $\tfrac 12$<br>
+  (b) $1-\tfrac{1}{\sqrt{2}}$<br>
+  (c) $1-\tfrac{1}{\sqrt[3]{2}}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>The decoding rule is such that the decoder decides $\hat m=1$ only when $\boldsymbol{y}\in\{000\}$ and $\hat m = 2$ otherwise. As a result, we can determine that $P_{\rm e}(1)=1-P_{Y|X}(000|000) = 1-(1-\alpha)^3$ and that $P_{\rm e}(2)=P_{Y|X}(000|111) = (1-\alpha)^3$. Both coincide when $\alpha=1-1/\sqrt[3]{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.4.</span> The codewords $\{00,11\}$ are transmitted with equal probability through a binary symmetric channel with bit-error probability $p&lt;\tfrac12$. After receiving $\boldsymbol{y}$, the decoder randomly generates a value $s\in\{1,2\}$ with distribution $\{q,1-q\}$ and decodes as
+$$
+\hat m = \begin{cases}
+1 & P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_1) &gt; P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_2),\\
+2 & P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_1) &lt; P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_2),\\
+s & \text{otherwise}.
+\end{cases}
+$$
+What is the error probability of the code averaged over $s$?</p>
+  <p>(a) $pq$<br>
+  (b) $q$<br>
+  (c) $p$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>The decoder chooses $\hat m=1$ when $\boldsymbol{y}=00$, $\hat m=2$ when $\boldsymbol{y}=11$, and $\hat m=s$ when $\boldsymbol{y}\in\{01,10\}$. If $s=1$ the error events are $\boldsymbol{y}\in\{11,10\}$ after transmitting $\boldsymbol{x}_1$ or $\boldsymbol{y}\in\{01\}$ after $\boldsymbol{x}_2$, giving $P_{\mathrm e}({\cal C}\mid s=1)=p$. If $s=2$ the roles swap and again $P_{\mathrm e}({\cal C}\mid s=2)=p$. Averaging over $s$ yields $P_{\mathrm e}({\cal C})=q\,p+(1-q)\,p=p$, matching the third option.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.5.</span> Which of the following codes has rate $\tfrac 12$?</p>
+  <p>(a) $\{0000,1111\}$<br>
+  (b) $\{0000,0101,1010,1111\}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>The rate of a code is $R=\tfrac{1}{n}\log_2 |\mathcal{C}|$, where $n$ is the length and $|\mathcal{C}|$ the number of codewords. The first code has $n=4$ and $2$ codewords, so $R=\tfrac{1}{4}\log_2 2=\tfrac14$. The second code has $n=4$ and $4$ codewords, so $R=\tfrac{1}{4}\log_2 4=\tfrac12$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.6.</span> For each integer $r\geq 2$, we construct a code of length $2^r-1$ carrying $2^r-r-1$ information bits. Which of the following is not a possible rate with this construction?</p>
+  <p>(a) $\frac {1011}{1023}$<br>
+  (b) $\frac {2036}{2047}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The rate is $R=\frac{2^r-r-1}{2^r-1}$. For $r=10$ the length is $2^{10}-1=1023$ and the number of information bits is $2^{10}-10-1=1013$, giving rate $\frac{1013}{1023}$, not $\frac{1011}{1023}$. For $r=11$ the length is $2^{11}-1=2047$ and the information bits are $2^{11}-11-1=2036$, giving exactly $\frac{2036}{2047}$. Hence $\frac{1011}{1023}$ is not attainable.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.7.</span> A code is constructed by taking all possible $n$-bit sequences and removing one third of them. What is the code rate?</p>
+  <p>(a) $1-\frac{\log_2(3)-1}{n}$<br>
+  (b) $1-\frac{\log_2(3)}{n}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>There are $2^n$ sequences of length $n$, and removing one third leaves $|\mathcal{C}|=\tfrac23\cdot 2^n$ codewords. The rate is $R=\tfrac1n\log_2|\mathcal{C}|=\tfrac1n\bigl(n+\log_2\tfrac23\bigr)=1+\tfrac1n(1-\log_2 3)=1-\frac{\log_2(3)-1}{n}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.8.</span> Suppose a channel code with $r$ information bits is transmitted with equal probability over a channel with memory. Is it then true that $P_{\boldsymbol{X}}(\boldsymbol{x})=2^{-r}$?</p>
+  <p>(a) Yes<br>
+  (b) No</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>With $r$ information bits there are $2^r$ equiprobable messages, each mapped to one codeword $\boldsymbol{x}$. Since the messages are transmitted with equal probability, every codeword has probability $P_{\boldsymbol{X}}(\boldsymbol{x})=2^{-r}$. This depends only on the message distribution and the encoder, not on the channel, so the presence of memory in the channel is irrelevant.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.9.</span> Which of the following quantities is equal to $|{\cal X}|$, the cardinality of the alphabet of $X$?</p>
+  <p>(a) $\sum_{x} \sum_{y} P_{Y|X}(y|x)$<br>
+  (b) $\sum_{x} P_{Y|X}(y|x)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>For each fixed $x$, the conditional distribution satisfies $\sum_{y} P_{Y|X}(y|x)=1$. Summing this over all $x \in {\cal X}$ gives $\sum_{x} \sum_{y} P_{Y|X}(y|x)=\sum_{x} 1 = |{\cal X}|$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.10.</span> A channel code of rate $r$ and length $n$ is transmitted with equal probability. What is the entropy of the random variable that represents the transmitted message?</p>
+  <p>(a) $rn$<br>
+  (b) $\frac{r}{n}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>A code of rate $r$ and length $n$ has $M=2^{rn}$ codewords. When the message is uniformly distributed, its entropy is $\log_2 M = rn$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.11.</span> A code with codewords $\{010,101\}$ and probability distribution $\bigl\{ \frac{1}{3}, \frac{2}{3} \bigr\}$ is transmitted over a memoryless binary channel such that $P_{Y|X}(y|x)=1$ if $y \neq x$. What is the probability of receiving the sequence $101$ if the second message is sent?</p>
+  <p>(a) $0$<br>
+  (b) $1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The channel always flips every bit, since $P_{Y|X}(y|x)=1$ only when $y \neq x$. The second message is $\boldsymbol{x}_2=101$, which the channel turns deterministically into $010$. Hence the probability of receiving $101$ is $0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.12.</span> The channel code $\{0101010101,1010101010\}$ is decoded using the minimum Hamming distance rule. Which message will the decoder decide upon observing $0000000001$ at the output of the channel?</p>
+  <p>(a) $1$<br>
+  (b) $2$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The received word is $0000000001$. Its Hamming distance to $\boldsymbol{x}_1=0101010101$ is $4$ (the four $1$s in the odd positions differ), while its distance to $\boldsymbol{x}_2=1010101010$ is $6$. The minimum distance is achieved by the first message.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.13.</span> The code $\{000,111\}$ is transmitted over a binary symmetric channel with a bit-flip probability of $\frac{9}{10}$ and decoded using the rule $g(\boldsymbol{y})=\arg\max_{m} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$. What is $g(001)$?</p>
+  <p>(a) $1$<br>
+  (b) $2$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>With crossover probability $p=\frac{9}{10}$, the channel flips bits more often than not. For $\boldsymbol{y}=001$: given $\boldsymbol{x}_1=000$, exactly one bit is flipped, so $P=(1-p)^2 p=\frac{1}{10}\cdot\frac{1}{10}\cdot\frac{9}{10}=\frac{9}{1000}$; given $\boldsymbol{x}_2=111$, two bits are flipped, so $P=(1-p)\,p^2=\frac{1}{10}\cdot\frac{9}{10}\cdot\frac{9}{10}=\frac{81}{1000}$. The maximum is attained by the second message.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.14.</span> The code $\{0101,1010\}$ is transmitted over a memoryless binary channel with $P_{Y|X}(0|x)=x$ and decoded using the rule $g(\boldsymbol{y}) = \arg\max_{m} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$. What is $g(1010)$?</p>
+  <p>(a) $1$<br>
+  (b) $2$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The channel satisfies $P_{Y|X}(0|0)=0$ and $P_{Y|X}(0|1)=1$, so it deterministically maps each input bit $x$ to $1-x$ (it always flips the bit). Thus $\boldsymbol{x}_1=0101$ is received as $1010$ with probability $1$, while $\boldsymbol{x}_2=1010$ is received as $0101$. Hence $g(1010)=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.15.</span> The code $\{000,111\}$ is transmitted over a binary channel with conditional probabilities $P_{Y|X}(0|0)=1$ and $P_{Y|X}(0|1)=\tfrac{1}{2}$. The receiver uses a minimum-likelihood decoding rule, that is $\hat m = \arg\min_m P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$, to decode the channel output. What is the error region of the second message?</p>
+  <p>(a) $\{001,010,011,100,101,110,111\}$<br>
+  (b) $\{000\}$<br>
+  (c) $\{000,001,010,100\}$<br>
+  (d) $\{011,101,110,111\}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $P_{Y|X}(1|0)=0$, we have $P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|000)=0$ for any channel output that has at least one $1$. With the minimum-likelihood rule, $\hat m = 1$ for all channel outputs except $\boldsymbol{y}=000$, for which $\hat m = 2$. This is the only output for which the second message is decoded correctly, so its error region is every other output: $\{001,010,011,100,101,110,111\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.16.</span> A discrete channel has input $X\in \{0,1,2\}$ and output given by $Y=\lfloor \frac{X-1}{2}\rfloor$, where the floor function $\lfloor u \rfloor$ returns the greatest integer smaller than or equal to $u$. Which of the following channel codes allows error-free transmission at a rate of $1$ bit per channel use?</p>
+  <p>(a) $\{00,02,10,21\}$<br>
+  (b) $\{0000,1111\}$<br>
+  (c) $\{012,210\}$<br>
+  (d) $\{01,02,10,20\}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The output map gives $Y=-1$ for $X=0$ and $Y=0$ for both $X=1$ and $X=2$, so the channel is deterministic with $P_{Y|X}(-1|0)=P_{Y|X}(0|1)=P_{Y|X}(0|2)=1$. The decoder cannot distinguish the inputs $1$ and $2$, but it can distinguish $0$ from $\{1,2\}$. A rate of $1$ bit per channel use over length $2$ requires $M=2^{2}=4$ codewords whose images under the map are all distinct. The code $\{00,02,10,21\}$ maps to $\{(-1,-1),(-1,0),(0,-1),(0,0)\}$, which are four distinct outputs, so it allows error-free transmission. The other codes contain codewords that collide once $1$ and $2$ are merged.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.17.</span></p>
+  <p>Consider the binary asymmetric channel with $P_{Y|X}(1|0)=p$ and $P_{Y|X}(0|1)=2p$. Which of the following is the mutual information of this channel, assuming that $X$ has equal probability? Recall that $h_2(p)=-p\log_2(p)-(1-p)\log_2(1-p)$ is the binary-entropy function.</p>
+  <p>(a) $h_2\bigl(\frac{1+p}{2} \bigr) - h_2\bigl(\frac{3p}{2}\bigr)$<br>
+  (b) $h_2\bigl(\frac{1-p}{2} \bigr) - h_2(p)$<br>
+  (c) $h_2\bigl(\frac{1-p}{2} \bigr) - \frac 32 h_2(p)$<br>
+  (d) $h_2\bigl(\frac{1+p}{2} \bigr) - \frac 12 h_2(2p) - \frac 12 h_2(1-p)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(d)</strong> &#9733;</p>
+    <p>The mutual information can be computed as $I(X;Y)=H(Y)-H(Y|X)$. With $X$ uniform, $P(Y=1)=\tfrac12 P_{Y|X}(1|0)+\tfrac12 P_{Y|X}(1|1)=\tfrac12 p+\tfrac12(1-2p)=\tfrac{1-p}{2}$, so $P(Y=0)=\tfrac{1+p}{2}$ and $H(Y)=h_2\bigl(\tfrac{1+p}{2}\bigr)$. Moreover $H(Y|X=0)=h_2(p)$ and $H(Y|X=1)=h_2(2p)$, giving $H(Y|X)=\tfrac12 h_2(p)+\tfrac12 h_2(2p)=\tfrac12 h_2(1-p)+\tfrac12 h_2(2p)$. Hence $I(X;Y)=h_2\bigl(\tfrac{1+p}{2}\bigr)-\tfrac12 h_2(2p)-\tfrac12 h_2(1-p)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.18.</span></p>
+  <p>The repetition code $\{00\cdots 0,11\cdots 1\}$ with rate $p$ bits per channel use is transmitted equiprobably over the binary symmetric channel with bit-flipping probability $a$. After observing the channel output $\boldsymbol{y}$, the decoder estimates the transmitted message as</p>$$\hat m = \begin{cases} 1 & \boldsymbol{y} = \boldsymbol{x}_1\\ 2 & \text{otherwise}. \end{cases}$$<p>What is the probability that the decoder selects the second message when the first message was transmitted?</p>
+  <p>(a) $p^a$<br>
+  (b) $a^p$<br>
+  (c) $1-(1-a)^\frac{1}{p}$<br>
+  (d) $1-p^a$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>The probability that $\hat m = 2$ when $m=1$ was transmitted equals $1-\mathbb{P}[\hat m = 1 \mid m =1] = 1-\mathbb{P}[\boldsymbol{Y}=00\cdots 0\mid\boldsymbol{X}=00\cdots 0]$, which leads to the correct answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.19.</span> The optimal binary source code is $\{00,01,10,11\}$. This code is used as a channel code over a symmetric binary channel with crossover probability $0.11$. Which of the following corresponds to the rate of the code and the number of bit errors the code is able to correct, respectively?</p>
+  <p>(a) $\frac 12$ and $0.99$<br>
+  (b) $\frac 12$ and $0$<br>
+  (c) $1$ and $0$<br>
+  (d) $1$ and $0.99$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>The channel code $\{00,01,10,11\}$ has rate $1$ and minimum distance $0$, so it cannot correct any error.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.20.</span> The code $\{00,11\}$ is transmitted equiprobably over a BSC with crossover probability $p$. Using maximum likelihood decoding, what is the error probability?</p>
+  <p>(a) $p(2-p)$<br>
+  (b) $p$<br>
+  (c) $p^2$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>With ML decoding the decision splits the four outputs into two halves, e.g. $\{00,01\}\to\hat m=1$ and $\{10,11\}\to\hat m=2$ (ties broken arbitrarily). Given $00$ is sent, an error occurs when the received word lands in the other half, i.e. when the first bit flips: this happens with probability $p(1-p)+p^2=p$. By symmetry the same holds for $11$, so $P_e=p$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.21.</span> A code $\{0,1\}$ of length $1$ is used over a BSC with $p=0.1$. What is the error probability with ML decoding?</p>
+  <p>(a) $0.1$<br>
+  (b) $0.2$<br>
+  (c) $0.01$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>With ML decoding on a BSC, the error probability equals the crossover probability $p=0.1$ for a repetition code of length $1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.22.</span> The code $\{000,111\}$ is used over a BSC with crossover probability $p$ and minimum Hamming distance decoding. The code can correct up to how many errors?</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $3$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The minimum distance is $d_{\min}=3$, so the code can correct $t=\lfloor(3-1)/2\rfloor=1$ error.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.23.</span> A channel has $P_{Y|X}(0|0)=1$ and $P_{Y|X}(1|1)=1$ (noiseless channel). What is the error probability of any code?</p>
+  <p>(a) $0$<br>
+  (b) Depends on the code<br>
+  (c) $\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>On a noiseless channel, the output always equals the input, so any decoder can perfectly recover the transmitted codeword. The error probability is $0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.24.</span> For a BSC with $p&gt;\tfrac{1}{2}$, is the maximum likelihood decoder the same as the minimum Hamming distance decoder?</p>
+  <p>(a) No, ML chooses the farthest codeword<br>
+  (b) Yes, they are always the same<br>
+  (c) Only when $p=\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>When $p&gt;\tfrac{1}{2}$, a bit flip is more likely than no flip. The ML decoder maximizes $P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$, which for $p&gt;\tfrac{1}{2}$ corresponds to maximizing (not minimizing) the Hamming distance.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.25.</span> The repetition code $\{000,111\}$ is used over a BSC with $p=0.01$. Using minimum distance decoding, the error probability is approximately</p>
+  <p>(a) $3\times 10^{-4}$<br>
+  (b) $0.01$<br>
+  (c) $10^{-6}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The code corrects $1$ error, so $P_e=1-(1-p)^3-3p(1-p)^2=3p^2(1-p)+p^3\approx 3p^2=3\times 10^{-4}$ for small $p$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.26.</span></p>
+  <p>A <em>binary erasure channel</em> (BEC) has erasure probability $\epsilon\in(0,1)$: each input symbol is received correctly with probability $1-\epsilon$, erased to $\star$ with probability $\epsilon$, and <em>never</em> flipped. Two equiprobable messages are encoded by $\boldsymbol{c}_1=00$ and $\boldsymbol{c}_2=11$ and sent over two independent channel uses. The decoder outputs $\hat m=1$ for $\boldsymbol{y}\in\{00,0\star,\star 0,\star\star\}$ and $\hat m=2$ for $\boldsymbol{y}\in\{11,1\star,\star 1\}$. Compute the average error probability $P_{\rm e}$.</p>
+  <p>(a) $\dfrac{\epsilon^2}{2}$<br>
+  (b) $\epsilon^2$<br>
+  (c) $\dfrac{\epsilon}{2}$<br>
+  (d) $\epsilon^2(1-\epsilon)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since the channel never flips bits, the only ambiguous output is the double erasure $\star\star$. When $m=1$ is sent, all reachable outputs ($00,0\star,\star 0,\star\star$) decode to $1$, so $P_{\rm e}(1)=0$. When $m=2$ is sent, only $\star\star$ (probability $\epsilon^2$) is misdecoded to $1$, so $P_{\rm e}(2)=\epsilon^2$. Averaging with equal priors: $P_{\rm e}=\tfrac12\cdot 0+\tfrac12\cdot\epsilon^2=\dfrac{\epsilon^2}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.27.</span></p>
+  <p>Two equiprobable messages are sent over a <em>binary asymmetric channel</em> with $P_{Y|X}(1\mid 0)=p_0$ and $P_{Y|X}(0\mid 1)=p_1$, using codewords $\boldsymbol{x}_1=000$ and $\boldsymbol{x}_2=111$. The decoder uses the <em>minimum Hamming distance</em> rule. Compute the error probability of message $m=2$, denoted $P_{\rm e}(2)$.</p>
+  <p>(a) $P_{\rm e}(2)=3p_1^2(1-p_1)+p_1^3=p_1^2(3-2p_1)$<br>
+  (b) $P_{\rm e}(2)=3p_1(1-p_1)^2+p_1^3$<br>
+  (c) $P_{\rm e}(2)=3p_0^2(1-p_0)+p_0^3=p_0^2(3-2p_0)$<br>
+  (d) $P_{\rm e}(2)=p_1^3$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>With $\boldsymbol{x}_2=111$ sent, minimum-distance decoding errs when $\boldsymbol{y}$ has at most one $1$, i.e. at least two of the three transmitted $1$s flip to $0$. Each $1\to0$ flip has probability $p_1$, so the number of flips is Binomial$(3,p_1)$ and $P_{\rm e}(2)=\mathbb{P}[N\ge2]=\binom{3}{2}p_1^2(1-p_1)+\binom{3}{3}p_1^3$. This gives $P_{\rm e}(2)=3p_1^2(1-p_1)+p_1^3=p_1^2(3-2p_1)$; it depends only on $p_1$, not $p_0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.28.</span></p>
+  <p>Four equiprobable messages are sent over a <em>binary symmetric channel</em> (BSC) with bit-flip probability $p$ using a binary code of blocklength $3$. The third message is codeword $\boldsymbol{x}_3=010$, and its <em>error region</em> is $\mathcal{E}_3=\{101,\,111\}$ (received words decoded as a message other than the third). Compute the probability of correctly decoding the third message.</p>
+  <p>(a) $1-p^{2}$<br>
+  (b) $p^{2}$<br>
+  (c) $1-p^{3}-p^{2}(1-p)$<br>
+  (d) $(1-p)^{3}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Correct decoding means $\boldsymbol{Y}\notin\mathcal{E}_3$, so $P_{\rm c}(3)=1-P_{\rm e}(3)$. By the BSC law, $P(\boldsymbol{y}\mid\boldsymbol{x})=p^{d}(1-p)^{3-d}$ with $d$ the Hamming distance. From $010$: $d_H(010,101)=3$ gives $p^{3}$, and $d_H(010,111)=2$ gives $p^{2}(1-p)$. Summing, $P_{\rm e}(3)=p^{3}+p^{2}(1-p)=p^{2}$, hence $P_{\rm c}(3)=1-p^{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.29.</span></p>
+  <p>Three equiprobable messages are sent over a <em>binary symmetric channel</em> (BSC) with crossover probability $p&lt;\tfrac12$ using codewords $x_1=00$, $x_2=01$, $x_3=10$. The decoder uses $\hat m(00)=1$, $\hat m(01)=2$, $\hat m(10)=3$, $\hat m(11)=1$, so the decoding region for message 1 is $\mathcal D_1=\{00,11\}$.</p><p>Calculate the conditional error probability $P_{\mathrm e}(1)$ for message 1.</p>
+  <p>(a) $2p(1-p)$<br>
+  (b) $1-(1-p)^2=2p-p^2$<br>
+  (c) $2p^2$<br>
+  (d) $(1-p)^2+p^2$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>With $x_1=00$, the output $y$ has $\mathbb P(y\mid x_1)=(1-p)^{2-d}p^d$ for Hamming distance $d$. Correct decoding requires $Y\in\mathcal D_1=\{00,11\}$: $\mathbb P(00\mid 00)=(1-p)^2$ and $\mathbb P(11\mid 00)=p^2$, so $P_{\mathrm c}(1)=(1-p)^2+p^2$. Hence $P_{\mathrm e}(1)=1-(1-p)^2-p^2=2p-2p^2=2p(1-p)$, the probability that exactly one bit flips.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.30.</span></p>
+  <p>On a BSC with crossover probability $p&lt;\tfrac12$, message 2 uses codeword $x_2=01$, and its decoding region is $\mathcal D_2=\{01\}$ (only the no-error output decodes to 2). The bits flip independently, each with probability $p$.</p><p>Calculate the conditional error probability $P_{\mathrm e}(2)$ for message 2.</p>
+  <p>(a) $2p-p^2$<br>
+  (b) $2p(1-p)$<br>
+  (c) $(1-p)^2$<br>
+  (d) $2p^2-p$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $\mathcal D_2=\{01\}$, message 2 decodes correctly only if both bits are received without error: $P_{\mathrm c}(2)=(1-p)^2$. Therefore $P_{\mathrm e}(2)=1-(1-p)^2=2p-p^2$. Any flip (single or double) carries the output outside $\{01\}$ and causes an error.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.31.</span></p>
+  <p>Three equiprobable messages are sent over a BSC with crossover probability $p&lt;\tfrac12$ using $x_1=00$, $x_2=01$, $x_3=10$, with decoder $\hat m(00)=1$, $\hat m(01)=2$, $\hat m(10)=3$, $\hat m(11)=1$. The per-message error probabilities are $P_{\mathrm e}(1)=2p(1-p)$ and $P_{\mathrm e}(2)=P_{\mathrm e}(3)=2p-p^2$.</p><p>Calculate the average error probability $P_{\mathrm e}$.</p>
+  <p>(a) $2p-\tfrac{4p^2}{3}$<br>
+  (b) $2p-2p^2$<br>
+  (c) $6p-4p^2$<br>
+  (d) $2p-p^2$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Averaging over equiprobable messages ($\mathbb P(m)=\tfrac13$): $P_{\mathrm e}=\tfrac13\big(2p(1-p)+(2p-p^2)+(2p-p^2)\big)$. The bracket expands to $2p-2p^2+2p-p^2+2p-p^2=6p-4p^2$, so $P_{\mathrm e}=\tfrac13(6p-4p^2)=2p-\tfrac{4p^2}{3}$. The $-\tfrac{4p^2}{3}$ term reflects that the double flip $00\to11$ is still decoded correctly. (Option $6p-4p^2$ forgets the $\tfrac13$ factor.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.32.</span></p>
+  <p>Two equiprobable messages are sent over a memoryless <em>binary asymmetric channel</em> using codewords $\boldsymbol{x}_1=000$ and $\boldsymbol{x}_2=111$. A transmitted $0$ flips with probability $p$ and a transmitted $1$ flips with probability $2p$. The receiver uses <em>minimum Hamming-distance decoding</em>. What is the overall error probability $P_{\mathrm e}$?</p>
+  <p>(a) $P_{\mathrm e}=\dfrac{15p^2}{2}-9p^3$<br>
+  (b) $P_{\mathrm e}=15p^2-18p^3$<br>
+  (c) $P_{\mathrm e}=3p^2-2p^3$<br>
+  (d) $P_{\mathrm e}=\dfrac{15p^2}{2}-18p^3$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>With codewords $000$ and $111$, minimum-distance decoding errs when at least two of the three bits flip (Hamming distance $3$, ties impossible since $3$ is odd). If $000$ is sent, each bit flips with probability $p$: $P_{\mathrm e}(1)=\binom{3}{2}p^2(1-p)+p^3=3p^2-2p^3$. If $111$ is sent, each bit flips with probability $2p$: $P_{\mathrm e}(2)=3(2p)^2(1-2p)+(2p)^3=12p^2-16p^3$. Averaging over the two equiprobable messages, $P_{\mathrm e}=\tfrac12(3p^2-2p^3)+\tfrac12(12p^2-16p^3)=\tfrac12(15p^2-18p^3)=\dfrac{15p^2}{2}-9p^3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.33.</span></p>
+  <p>Three equiprobable messages $m\in\{1,2,3\}$ are sent over a binary symmetric channel with crossover probability $p=\tfrac13$, using codewords $\boldsymbol{x}_1=000$, $\boldsymbol{x}_2=010$, $\boldsymbol{x}_3=111$. The decoder looks only at the last two bits $y_2y_3$: it outputs $\hat m=1$ if $y_2y_3=00$, $\hat m=3$ if $y_2y_3=11$, and $\hat m=2$ otherwise. Calculate the average error probability $P_{\rm e}$.</p>
+  <p>(a) $P_{\rm e}=\tfrac{14}{27}\approx 0.519$<br>
+  (b) $P_{\rm e}=\tfrac{13}{27}\approx 0.481$<br>
+  (c) $P_{\rm e}=\tfrac{4}{9}\approx 0.444$<br>
+  (d) $P_{\rm e}=\tfrac{5}{9}\approx 0.556$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The decision sets are $\mathcal D_1=\{000,100\}$, $\mathcal D_2=\{001,010,101,110\}$, $\mathcal D_3=\{011,111\}$. With $\mathbb{P}(\boldsymbol{y}\mid\boldsymbol{x})=p^{d}(1-p)^{3-d}$ and $p=\tfrac13$: messages 1 and 3 each give $P_{\rm e}=1-(1-p)^3-p(1-p)^2=\tfrac{15}{27}=\tfrac59$, and message 2 gives $P_{\rm e}=2p(1-p)^2+2p^2(1-p)=\tfrac{12}{27}=\tfrac49$. Averaging with prior $\tfrac13$: $P_{\rm e}=\tfrac13(\tfrac{15}{27}+\tfrac{12}{27}+\tfrac{15}{27})=\tfrac{42}{81}=\tfrac{14}{27}\approx0.519$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.34.</span></p>
+  <p>On a binary symmetric channel with $p=\tfrac13$, codeword $\boldsymbol{x}_1=000$ is sent. The decoder reads only $y_2y_3$ and decodes correctly to $\hat m=1$ exactly when $y_2y_3=00$ (the first received bit is irrelevant). Calculate the conditional error probability $P_{\rm e}(1)$.</p>
+  <p>(a) $\tfrac{5}{9}$<br>
+  (b) $\tfrac{4}{9}$<br>
+  (c) $\tfrac{1}{3}$<br>
+  (d) $\tfrac{19}{27}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Correct decoding needs $y_2=y_3=0$, i.e. $\boldsymbol{y}\in\{000,100\}$. These have Hamming distance $d=0$ (prob $(1-p)^3$) and $d=1$ (prob $p(1-p)^2$) from $000$, so $P_{\rm c}(1)=(1-p)^3+p(1-p)^2$ and $P_{\rm e}(1)=1-(1-p)^3-p(1-p)^2$. At $p=\tfrac13$: $(1-p)^3=\tfrac{8}{27}$, $p(1-p)^2=\tfrac{4}{27}$, giving $P_{\rm e}(1)=1-\tfrac{12}{27}=\tfrac{15}{27}=\tfrac59$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.35.</span></p>
+  <p>On a binary symmetric channel with $p=\tfrac13$, codeword $\boldsymbol{x}_2=010$ is sent. The decoder reads only $y_2y_3$ and outputs $\hat m=2$ (correct) exactly when $y_2y_3\in\{01,10\}$, i.e. $\boldsymbol{y}\in\{001,010,101,110\}$. Calculate the conditional error probability $P_{\rm e}(2)$.</p>
+  <p>(a) $\tfrac{4}{9}$<br>
+  (b) $\tfrac{5}{9}$<br>
+  (c) $\tfrac{8}{27}$<br>
+  (d) $\tfrac{2}{3}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The correct set $\mathcal D_2=\{010,110,001,101\}$ has distances $d=0,1,2,3$ from $010$, so $P_{\rm c}(2)=(1-p)^3+p(1-p)^2+p^2(1-p)+p^3$. The complementary error is $P_{\rm e}(2)=2p(1-p)^2+2p^2(1-p)$. At $p=\tfrac13$: $p(1-p)^2=\tfrac{4}{27}$ and $p^2(1-p)=\tfrac{2}{27}$, so $P_{\rm e}(2)=2\cdot\tfrac{4}{27}+2\cdot\tfrac{2}{27}=\tfrac{12}{27}=\tfrac49$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.36.</span></p>
+  <p>A <em>repetition code</em> $\{\boldsymbol{x}_1,\boldsymbol{x}_2\}=\{00\cdots0,\,11\cdots1\}$ of length $n$ is used over a BSC with bit-flip probability $0&lt;p&lt;1$. Message $1$ ($\boldsymbol{x}_1=00\cdots0$) has prior $1-\alpha$ and message $2$ ($\boldsymbol{x}_2=11\cdots1$) has prior $\alpha$. The decoder outputs $\hat m=2$ only if $\boldsymbol{y}=11\cdots1$, and $\hat m=1$ otherwise. What is the limit of the error probability $P_{\rm e}$ as $n\to\infty$?</p>
+  <p>(a) $\alpha$<br>
+  (b) $1-\alpha$<br>
+  (c) $0$<br>
+  (d) $\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Given message $1$, an error needs all $n$ bits flipped, so $P_{\rm e}(1)=p^{\,n}$. Given message $2$, a correct decision needs no bit flipped, so $P_{\rm e}(2)=1-(1-p)^{\,n}$. Averaging over the prior, $P_{\rm e}=(1-\alpha)p^{\,n}+\alpha\bigl(1-(1-p)^{\,n}\bigr)$. Since $0&lt;p&lt;1$, both $p^{\,n}\to0$ and $(1-p)^{\,n}\to0$, so $P_{\rm e}\to(1-\alpha)\cdot0+\alpha\cdot1=\boldsymbol{\alpha}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.37.</span></p>
+  <p>Two equiprobable messages $m\in\{1,2\}$ are sent over a <em>binary asymmetric channel</em> with crossover probabilities $P_{Y\mid X}(1\mid 0)=p_0$ and $P_{Y\mid X}(0\mid 1)=p_1$. The codewords are $\boldsymbol{x}_1=101$ and $\boldsymbol{x}_2=010$, and the three channel uses are independent. The fixed decoder maps to message $2$ exactly the outputs $\{010,011,101,110\}$ (all others to $1$). Calculate the conditional error probability of message $m=1$, $P_{\rm e}(1)$.</p>
+  <p>(a) $P_{\rm e}(1)=p_0\,p_1^{2}+2\,p_0\,p_1(1-p_1)+(1-p_0)(1-p_1)^{2}$<br>
+  (b) $P_{\rm e}(1)=p_0\,p_1^{2}+2\,p_0\,p_1(1-p_1)$<br>
+  (c) $P_{\rm e}(1)=p_1\,p_0^{2}+2\,p_1\,p_0(1-p_0)+(1-p_1)(1-p_0)^{2}$<br>
+  (d) $P_{\rm e}(1)=p_0\,p_1^{2}+p_0\,p_1(1-p_1)+(1-p_0)(1-p_1)^{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>With $\boldsymbol{x}_1=101$ sent, $P_{\rm e}(1)=\sum_{\boldsymbol{y}\in\mathcal{E}_1}P_{\boldsymbol{Y}\mid\boldsymbol{X}}(\boldsymbol{y}\mid 101)$ over the error region $\mathcal{E}_1=\{010,011,101,110\}$. Per position relative to $101$: bit $1$ (sent $1$) flips with $p_1$, bit $2$ (sent $0$) flips with $p_0$, bit $3$ (sent $1$) flips with $p_1$. The four terms are $010\!:p_0p_1^2$, $011\!:p_0p_1(1-p_1)$, $110\!:p_0p_1(1-p_1)$, and $101\!:(1-p_0)(1-p_1)^2$ (the noiseless output, still decoded to $2$). Summing gives $P_{\rm e}(1)=p_0p_1^{2}+2p_0p_1(1-p_1)+(1-p_0)(1-p_1)^{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.38.</span></p>
+  <p>Three equiprobable messages are sent over a BSC with bit-flip probability $p&lt;\tfrac12$ using codewords $\boldsymbol{x}_1=00$, $\boldsymbol{x}_2=01$, $\boldsymbol{x}_3=11$, decoded by minimum Hamming distance. The received word $\boldsymbol{y}=10$ is a tie between $\boldsymbol{x}_1$ and $\boldsymbol{x}_3$; convention (i) breaks it as $\hat m(10)=1$. Compute the average error probability $P_{\rm e}^{(i)}$.</p>
+  <p>(a) $P_{\rm e}^{(i)}=\dfrac{5p-2p^2}{3}$<br>
+  (b) $P_{\rm e}^{(i)}=2p-p^2$<br>
+  (c) $P_{\rm e}^{(i)}=\dfrac{4p-2p^2}{3}$<br>
+  (d) $P_{\rm e}^{(i)}=p$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>With $\mathcal D_1=\{00,10\}$: message $1$ is correct iff the 2nd bit survives, so $P_{\rm e}(1)=p$. Messages $2$ and $3$ are correct only on exact reception, so $P_{\rm e}(2)=P_{\rm e}(3)=1-(1-p)^2=2p-p^2$. Averaging the three: $P_{\rm e}^{(i)}=\frac{p+2(2p-p^2)}{3}=\frac{5p-2p^2}{3}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.39.</span></p>
+  <p>Same BSC setup with codewords $\boldsymbol{x}_1=00$, $\boldsymbol{x}_2=01$, $\boldsymbol{x}_3=11$ and minimum-Hamming-distance decoding, $p&lt;\tfrac12$. The tie at $\boldsymbol{y}=10$ is now broken by convention (ii): $\hat m(10)=3$. Compute $P_{\rm e}^{(ii)}$ and compare it with $P_{\rm e}^{(i)}=\dfrac{5p-2p^2}{3}$.</p>
+  <p>(a) $P_{\rm e}^{(ii)}=\dfrac{5p-2p^2}{3}=P_{\rm e}^{(i)}$<br>
+  (b) $P_{\rm e}^{(ii)}=2p-p^2&gt;P_{\rm e}^{(i)}$<br>
+  (c) $P_{\rm e}^{(ii)}=\dfrac{5p-2p^2}{3}&gt;P_{\rm e}^{(i)}$<br>
+  (d) $P_{\rm e}^{(ii)}=p&lt;P_{\rm e}^{(i)}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Assigning $10$ to $\mathcal D_3$ swaps the roles of messages $1$ and $3$: now $P_{\rm e}(3)=p$ and $P_{\rm e}(1)=P_{\rm e}(2)=2p-p^2$. The multiset of per-message values $\{p,2p-p^2,2p-p^2\}$ is unchanged (code symmetry under the bit-complement $\boldsymbol{x}_1\leftrightarrow\boldsymbol{x}_3$), so $P_{\rm e}^{(ii)}=\frac{5p-2p^2}{3}=P_{\rm e}^{(i)}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.40.</span></p>
+  <p>Same BSC code ($\boldsymbol{x}_1=00$, $\boldsymbol{x}_2=01$, $\boldsymbol{x}_3=11$, $p&lt;\tfrac12$). Now the tie at $\boldsymbol{y}=10$ is handled by convention (iii): $\hat m(10)=e$, an error symbol counted as a decoding error whichever message was sent. Compute the average error probability $P_{\rm e}^{(iii)}$.</p>
+  <p>(a) $P_{\rm e}^{(iii)}=2p-p^2$<br>
+  (b) $P_{\rm e}^{(iii)}=\dfrac{5p-2p^2}{3}$<br>
+  (c) $P_{\rm e}^{(iii)}=2p-2p^2$<br>
+  (d) $P_{\rm e}^{(iii)}=3p-2p^2$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Now $10$ belongs to no decision region, so each message is correct only on exact reception: $P_{\rm e}(m)=1-(1-p)^2=2p-p^2$ for $m=1,2,3$. All three are equal, hence $P_{\rm e}^{(iii)}=2p-p^2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.41.</span></p>
+  <p>For the same code with $P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}=\dfrac{5p-2p^2}{3}$ (deterministic tie-breaks) and $P_{\rm e}^{(iii)}=2p-p^2$ (declare error on the tie), compare the three conventions for $0&lt;p&lt;\tfrac12$.</p>
+  <p>(a) $P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}&lt;P_{\rm e}^{(iii)}$, with gap $P_{\rm e}^{(iii)}-P_{\rm e}^{(i)}=\dfrac{p(1-p)}{3}$<br>
+  (b) $P_{\rm e}^{(iii)}&lt;P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}$, with gap $\dfrac{p(1-p)}{3}$<br>
+  (c) $P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}=P_{\rm e}^{(iii)}$ for all $p$<br>
+  (d) $P_{\rm e}^{(i)}&lt;P_{\rm e}^{(ii)}&lt;P_{\rm e}^{(iii)}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The two deterministic tie-breaks tie each other by symmetry. Subtracting, $P_{\rm e}^{(iii)}-P_{\rm e}^{(i)}=(2p-p^2)-\frac{5p-2p^2}{3}=\frac{p-p^2}{3}=\frac{p(1-p)}{3}&gt;0$ for $0&lt;p&lt;1$. So declaring an erasure strictly worsens performance: $P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}&lt;P_{\rm e}^{(iii)}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 6.42.</span></p>
+  <p>A single bit ($n=1$) is sent over a <em>Z-channel</em> with $P_{Y\mid X}(1\mid 0)=0$ and $P_{Y\mid X}(0\mid 1)=q$, $q\in(0,1)$. Two messages $m\in\{1,2\}$ are encoded $1\mapsto X=0$, $2\mapsto X=1$, with prior $P(m{=}1)=\tfrac14$, $P(m{=}2)=\tfrac34$. Three decoders are considered: (i) $\hat m(0)=1,\ \hat m(1)=2$; (ii) $\hat m(\boldsymbol y)=2$ always; (iii) $\hat m(0)=2,\ \hat m(1)=1$. For which range of $q$ does decoder (ii) achieve a strictly smaller average error probability than <em>both</em> (i) and (iii)?</p>
+  <p>(a) $q&gt;\tfrac13$<br>
+  (b) $q&lt;\tfrac13$<br>
+  (c) $q&gt;\tfrac34$<br>
+  (d) all $q\in(0,1)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Compute the average error probabilities $P_{\rm e}=\tfrac14 P_{\rm e}(1)+\tfrac34 P_{\rm e}(2)$. Decoder (i): $\tfrac14\cdot 0+\tfrac34 q=\tfrac{3q}{4}$. Decoder (ii): $\tfrac14\cdot 1+\tfrac34\cdot 0=\tfrac14$. Decoder (iii): $\tfrac14\cdot 1+\tfrac34(1-q)=1-\tfrac{3q}{4}$. Requiring $\tfrac14&lt;\tfrac{3q}{4}$ gives $q&gt;\tfrac13$; requiring $\tfrac14&lt;1-\tfrac{3q}{4}$ gives $q&lt;1$, true for all admissible $q$. The binding constraint is the comparison with (i), so the answer is $q&gt;\tfrac13$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -40,44 +40,525 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html" class="active">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Coming soon</h1>
+      <h1>Exercises: 7. Linear codes</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">This content will be available as the course progresses.</p>
+
+    <button id="expand-all" data-expand="Show all solutions" data-collapse="Hide all solutions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Show all solutions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.1.</span></p>
+  <p>A binary $(3,2)$ code with generator matrix</p>$$\boldsymbol{G} = \begin{pmatrix} 1 & 0 & 1\\ 0 & 1 & 0 \end{pmatrix}$$<p>is used over a binary asymmetric channel with probabilities $P_{Y|X}(1|0)=0$ and $P_{Y|X}(0|1)=p$. The decoder uses the rule</p>$$\hat m = \operatorname{argmax}_{m\in{\cal M}} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m).$$<p>The error probability of message $m=3$, $P_{\rm e}(3)$, is</p>
+  <p>(a) $1-(1-p)^3$<br>
+  (b) $1-2p(1-p)-(1-p)^2$<br>
+  (c) $1-(1-p)^2$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>As a linear code, codewords are given by $\boldsymbol{x}_m=\boldsymbol{s}_m\boldsymbol{G}$ for each $\boldsymbol{s}_m\in\{00,01,10,11\}$, so that the code is</p>$${\cal C} = \{000,010,101,111\}.$$<p>Computing the likelihoods $P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$ for each message and channel output, we find that the decoding region for message $m=3$ is</p>$${\cal D}_3 = \{001,100,101\}.$$<p>The error probability</p>$$P_{\rm e}(3) = 1 - \sum_{\boldsymbol{y}\in{\cal D}_3} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_3)$$<p>can then be obtained using the transition probabilities $P_{Y|X}(1|0)=0$ and $P_{Y|X}(0|1)=p$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.2.</span></p>
+  <p>The Hamming $(7,4)$ code with generator matrix</p>$$\boldsymbol{G}=\begin{pmatrix} 1 & 1 & 0 & 1 & 0 & 0 & 0\\ 0 & 1 & 1 & 0 & 1 & 0 & 0\\ 1 & 1 & 1 & 0 & 0 & 1 & 0\\ 1 & 0 & 1 & 0 & 0 & 0 & 1 \end{pmatrix}$$<p>is able to correct $t=1$ errors using a minimum Hamming distance decoder. The error probability of message $m=9$, $P_{\rm e}(9)$, when used over a binary asymmetric channel with probabilities $P_{Y|X}(1|0)=p$ and $P_{Y|X}(0|1)=0$ is</p>
+  <p>(a) $1-(1-p)^4-4p(1-p)^3$<br>
+  (b) $1-(1-p)^3 -3p(1-p)^2$<br>
+  (c) $1-(1-p)^7$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The codeword for message $\boldsymbol{s}_9=1000$ is given by</p>$$\boldsymbol{x}_9 = \boldsymbol{s}_9\boldsymbol{G}=1101000.$$<p>Since the code is able to correct up to one channel error, the decoding region for message $m=9$ is</p>$$\begin{aligned}{\cal D}_9 = \{&1101000,0101000,1001000,1111000,\\&1100000,1101100,1101010,1101001\}.\end{aligned}$$<p>The error probability of message $m=9$ is then</p>$$P_{\rm e}(9) = 1 - \sum_{\boldsymbol{y}\in{\cal D}_9} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_9).$$<p>Using the transition probabilities leads to the correct answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.3.</span></p>
+  <p>A binary $(6,3)$ code with generator matrix</p>$$\boldsymbol{G}=\begin{pmatrix}1 & 0 & 1 & 1 & 0 & 0\\ 1 & 1 & 0 & 0 & 1 & 0\\ 0 & 1 & 1 & 0 & 0 & 1\end{pmatrix}$$<p>is used over a binary channel with minimum Hamming distance decoding. How many errors can this code correct?</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $3$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Using the modulo-2 vector-matrix operation $\boldsymbol{s}_m\boldsymbol{G}$ for $m=1,\ldots,8$, we find the codebook</p>$$\begin{aligned}{\cal C} = \{&000000,011001,110010,101011,\\&101100,110111,011110,000111\}.\end{aligned}$$<p>As a linear code, the minimum distance of the code is given by</p>$$d_{\rm min} = \min_{\boldsymbol{x}\in{\cal C}\setminus\{\boldsymbol{0}\}} w(\boldsymbol{x}) = 3,$$<p>where $w(\boldsymbol{x})$ is the Hamming weight of codeword $\boldsymbol{x}$. From $d_{\rm min}$ and knowing that the error correcting capability of a linear code is $t=\lfloor \frac{d_{\rm min}-1}{2} \rfloor$, we obtain the correct answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.4.</span></p>
+  <p>The binary $(6,3)$ code of exercise 3 is used equiprobably over a binary symmetric channel with crossover probability $p$ and decoded using the minimum Hamming distance rule. The union bound to the average error probability $P_{\rm e}$ of this code is</p>
+  <p>(a) $4 \sum_{t=2}^3 {3 \choose t} p^t (1-p)^{3-t} + 3 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$<br>
+  (b) $4 \sum_{t=1}^3 {3 \choose t} p^t (1-p)^{3-t} + 3 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$<br>
+  (c) $3 \sum_{t=1}^3 {3 \choose t} p^t (1-p)^{3-t} + 4 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>From the codebook in the former exercise, we obtain that the weight distribution is $A_0=1$, $A_3=4$ and $A_4=3$. Applying equation (4.54) of the lecture notes leads to the correct answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.5.</span></p>
+  <p>The Hamming $(31,26)$ code is able to correct $t=2$ errors using a minimum Hamming distance decoder. The average error probability of the code with equiprobable messages when used over a binary symmetric channel with crossover probability $p=\frac{1}{100}$ is</p>
+  <p>(a) $0.00364601$<br>
+  (b) $0.00203104$<br>
+  (c) $0.0383895$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since the code is able to correct up to two errors, the error probability is given by $P_{\rm e}=1-P_{\rm c}$, where $P_{\rm c}$ is the probability of correctly decoding, that is, the probability that the channel introduces no errors, one error or two errors. Using that the channel is binary and symmetric with crossover probability $p$, we obtain</p>$$P_{\rm c} = (1-p)^{n} + {n \choose 1}p(1-p)^{n-1} + {n \choose 2}p^2(1-p)^{n-2}.$$<p>Using the values of the problem, we obtain the correct answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.6.</span></p>
+  <p>A binary linear code has the following parity check matrix:</p>$$\boldsymbol{H} = \begin{pmatrix} 1 & 0 & 0 & 0 & 1 & 0\\ 0 & 1 & 0 & 1 & 0 & 1 \end{pmatrix}$$<p>What is the length $n$ of the codewords and the rate $R$ of the code?</p>
+  <p>(a) $n=6$, $R=\frac{1}{6}$<br>
+  (b) $n=6$, $R=\frac{2}{3}$<br>
+  (c) $n=2$, $R=\frac{2}{3}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>The parity check matrix has size $(n-k)\times n$, and the rate is defined as $R=k/n$. Since $\boldsymbol{H}$ has dimensions $2\times 6$, we obtain that $k=4$ and thus the answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.7.</span></p>
+  <p>The code with the following generator matrix:</p>$$\boldsymbol{G} = \begin{pmatrix} 0 & 1 & 0 & 1 \\ 1 & 0 & 1 & 0 \\ 0 & 1 & 1 & 0 \end{pmatrix}$$<p>is used over a binary symmetric channel with bit flipping probability $p$. The union bound to the error probability of the code is:</p>
+  <p>(a) $12p-8p^2$<br>
+  (b) $12p-8p^3+3p^4$<br>
+  (c) $1-2p^2+3p^3$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>Listing all codewords one finds the weight distribution $\{A_0,A_1,A_2,A_3,A_4\}=\{1,0,6,0,1\}$ and hence that $d_{\rm min}=2$. The expression of the union bound to the error probability has two terms:</p>$$A_2 \sum_{t=1}^2 {2\choose t} p^t (1-p)^{2-t} = 12p-6p^2,$$$$A_4 \sum_{t=2}^4 {4\choose t} p^t (1-p)^{4-t} = 6p^2-8p^3+3p^4,$$<p>leading to the correct result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.8.</span> The codewords of a binary linear code with generator matrix
+$$
+\begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix}
+$$
+are transmitted with equal probability over a binary channel with conditional probabilities $P_{Y|X}(0|0)=0$ and $P_{Y|X}(0|1)=\tfrac13$. The receiver uses a maximum Hamming distance rule to decode the channel output. What is the error probability of the code?</p>
+  <p>(a) $\tfrac{11}{36}$<br>
+  (b) $\tfrac{5}{9}$<br>
+  (c) $\tfrac{8}{9}$<br>
+  (d) $\tfrac{35}{36}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>Since the generated code is $\{00,10,01,11\}$ and the receiver uses a maximum Hamming distance rule, the decoder $\hat m(\boldsymbol{y})$ is such that $\hat m(00)=4$, $\hat m(01)=2$, $\hat m(10)=3$ and $\hat m(11)=1$. Hence, $P_{\rm e}(1)=1-P_{\boldsymbol{Y}|\boldsymbol{X}}(11|00)=0$, $P_{\rm e}(2)=1-P_{\boldsymbol{Y}|\boldsymbol{X}}(01|10)=\tfrac 23$, $P_{\rm e}(3)=1-P_{\boldsymbol{Y}|\boldsymbol{X}}(10|01)=\tfrac 23$ and $P_{\rm e}(4)=1-P_{\boldsymbol{Y}|\boldsymbol{X}}(00|11)=\tfrac89$. Using that the four codewords are equiprobable, we obtain the result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.9.</span> The codewords of a given $(5,1)$ linear code with weight distribution satisfying $A_2=1$ are transmitted with equal probability over a binary symmetric channel with bit flip probability $p$. What is the probability of receiving the all-ones sequence?</p>
+  <p>(a) $\tfrac{p^5-2p^4 +2p^3}{2}$<br>
+  (b) $\tfrac{2p^5 -2p^4 +p^3}{2}$<br>
+  (c) $\tfrac{p^5-p^4+p^3}{2}$<br>
+  (d) $\tfrac{p^5+p^4+p^3}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>The code has two codewords, $00000$ and a second codeword with $2$ ones and $3$ zeros. Then, the probability of receiving $11111$ is $\tfrac 12 p^5 + \tfrac 12 p^3(1-p)^2$. Expanding the terms and simplifying, we obtain the result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.10.</span> A binary linear code has generator matrix $\boldsymbol{G}=\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}$. How many codewords does the code have?</p>
+  <p>(a) $4$<br>
+  (b) $8$<br>
+  (c) $2$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The generator matrix has $k=2$ rows, so there are $2^k=4$ codewords.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.11.</span> For a linear code, the minimum distance equals</p>
+  <p>(a) The minimum Hamming weight of nonzero codewords<br>
+  (b) The minimum Hamming weight of all codewords<br>
+  (c) The maximum Hamming weight of all codewords</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>For linear codes, the minimum distance is $d_{\min}=\min_{\boldsymbol{x}\in\mathcal{C}\setminus\{\boldsymbol{0}\}} w(\boldsymbol{x})$, where $w(\boldsymbol{x})$ is the Hamming weight.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.12.</span> A parity-check matrix $\boldsymbol{H}$ has dimensions $3\times 7$. What is the rate of the code?</p>
+  <p>(a) $\tfrac{4}{7}$<br>
+  (b) $\tfrac{3}{7}$<br>
+  (c) $\tfrac{7}{3}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The matrix $\boldsymbol{H}$ has size $(n-k)\times n = 3\times 7$, so $n=7$ and $k=4$, giving rate $R=k/n=4/7$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.13.</span> Is the all-zeros sequence always a codeword of a binary linear code?</p>
+  <p>(a) Yes<br>
+  (b) No<br>
+  (c) Only if the generator matrix has an all-zeros row</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>A linear code is a subspace of $\{0,1\}^n$ and must contain the zero vector. The message $\boldsymbol{s}=\boldsymbol{0}$ produces $\boldsymbol{x}=\boldsymbol{0}\boldsymbol{G}=\boldsymbol{0}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.14.</span> A binary $(6,3)$ code has weight distribution $\{A_0,A_3,A_4,A_6\}=\{1,4,2,1\}$. What is $d_{\min}$?</p>
+  <p>(a) $3$<br>
+  (b) $4$<br>
+  (c) $6$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The minimum distance is the smallest positive weight with $A_w&gt;0$, which is $d_{\min}=3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.15.</span> The union bound on the error probability of a linear code uses which property of the code?</p>
+  <p>(a) The weight distribution<br>
+  (b) The generator matrix directly<br>
+  (c) The number of codewords only</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The union bound $P_e\leq \sum_{w=d_{\min}}^n A_w P_w$ depends on the weight enumerator $\{A_w\}$ of the code.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.16.</span></p>
+  <p>A <em>Hamming</em> $(15,11)$ code with minimum distance $d_{\rm min}=3$ transmits equiprobable messages over a <em>binary symmetric channel</em> (BSC) with crossover probability $p=0.02$, decoded with a minimum Hamming distance decoder. Compute the probability that the number of channel bit flips exceeds the error-correcting capability of the code.</p>
+  <p>(a) $\approx 0.03534$<br>
+  (b) $\approx 0.26143$<br>
+  (c) $\approx 0.30000$<br>
+  (d) $\approx 0.02000$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The correction capability is $t=\lfloor(d_{\rm min}-1)/2\rfloor=\lfloor(3-1)/2\rfloor=1$. The number of flips $K\sim\mathrm{Bin}(15,0.02)$, so we need $\mathbb{P}(K\ge 2)=1-\mathbb{P}(K\le 1)$. Here $\mathbb{P}(K=0)=0.98^{15}\approx 0.73857$ and $\mathbb{P}(K=1)=15(0.02)0.98^{14}\approx 0.22609$, giving $P_{\rm c}\approx 0.96466$. Thus the answer is $1-0.96466\approx 0.03534$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.17.</span></p>
+  <p>A binary linear code has parity-check matrix $$\boldsymbol{H} = \begin{pmatrix}1 & 0 & 0 & 1 & 1 & 0\\ 0 & 1 & 1 & 0 & 1 & 0\end{pmatrix}.$$ A word $\boldsymbol{x}=(x_1,\dots,x_6)$ is a codeword if and only if its syndrome $\boldsymbol{H}\boldsymbol{x}^{T}=\boldsymbol{0}\pmod 2$. Among the sequences $001111$, $000110$ and $101010$, which one cannot be a codeword?</p>
+  <p>(a) $000110$<br>
+  (b) $001111$<br>
+  (c) $101010$<br>
+  (d) All three are valid codewords</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The rows of $\boldsymbol{H}$ give the parity checks $s_1=x_1+x_4+x_5$ and $s_2=x_2+x_3+x_5$ (the sixth column is zero, so $x_6$ is irrelevant), all $\bmod 2$. For $001111$: $s_1=0+1+1=0$, $s_2=0+1+1=0$, so syndrome $\boldsymbol{0}$ (valid). For $101010$: $s_1=1+0+1=0$, $s_2=0+1+1=0$, syndrome $\boldsymbol{0}$ (valid). For $000110$: $s_1=0+1+1=0$ but $s_2=0+0+1=1$, giving syndrome $(0,1)^{T}\neq\boldsymbol{0}$. Hence $000110$ fails the check $x_2+x_3+x_5=0$ and cannot be a codeword.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.18.</span></p>
+  <p>A binary linear code generates $M$ codewords from the $3\times 7$ generator matrix</p>$$\boldsymbol{G} = \begin{pmatrix}1 & 0 & 1 & 0 & 1 & 0 & 1\\ 0 & 1 & 0 & 1 & 0 & 1 & 0\\ 1 & 1 & 0 & 0 & 1 & 1 & 0\end{pmatrix},$$<p>whose three rows are linearly independent over $\mathrm{GF}(2)$. A message $V$ is chosen uniformly from $\{1,\ldots,M\}$ and encoded as $\boldsymbol{X}=\boldsymbol{s}_V\,\boldsymbol{G}$. Compute the mutual information $I(\boldsymbol{X};V)$ in bits.</p>
+  <p>(a) $3$ bits<br>
+  (b) $0$ bits<br>
+  (c) $7$ bits<br>
+  (d) $8$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>With $k=3$ independent rows there are $M=2^3=8$ messages, and the encoder $V\mapsto\boldsymbol{X}$ is a bijection onto $8$ distinct codewords. Hence $V$ is a deterministic invertible function of $\boldsymbol{X}$, so $H(V\mid\boldsymbol{X})=0$ and $I(\boldsymbol{X};V)=H(V)$. Since $V$ is uniform over $8$ values, $H(V)=\log_2 8=3$. Therefore $I(\boldsymbol{X};V)=3-0=3$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.19.</span></p>
+  <p>A binary $(3,2)$ linear code with generator matrix $\boldsymbol{G}=\begin{pmatrix}1&0&0\\0&1&1\end{pmatrix}$ is used over a <em>binary asymmetric (Z-)channel</em> with $P_{Y|X}(0\mid 0)=1$ and $P_{Y|X}(0\mid 1)=p$, $p\in\left(0,\tfrac12\right)$. Messages $m=1,2,3,4$ correspond to $\boldsymbol{m}=00,01,10,11$, and the receiver uses the maximum-likelihood (ML) rule. Determine the error probability of message $m=2$, $P_{\mathrm e}(2)$.</p>
+  <p>(a) $p^2$<br>
+  (b) $p$<br>
+  (c) $2p(1-p)$<br>
+  (d) $2p$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The codeword for $m=2$ is $\boldsymbol{x}_2=\boldsymbol{m}\boldsymbol{G}=011$. On the Z-channel a transmitted $0$ is always received as $0$, while each transmitted $1$ flips to $0$ with probability $p$, so $\boldsymbol{y}\in\{011,010,001,000\}$. For $\boldsymbol{y}=011,010,001$ the ML rule still decodes to $\boldsymbol{x}_2$; only when <em>both</em> ones flip giving $\boldsymbol{y}=000$ does ML decode to the codeword $\boldsymbol{x}_1=000$ (likelihood $1$), causing an error. That event needs both $1$-positions to flip, with probability $p\cdot p$. Hence $P_{\mathrm e}(2)=p^2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.20.</span></p>
+  <p>The Hamming $(7,4)$ code is sent over a <em>Z-channel</em> (binary asymmetric channel) with $P_{Y|X}(0\mid 1)=p$ and $P_{Y|X}(1\mid 0)=0$, $p\in(0,1)$, decoded by a minimum Hamming distance decoder. Message $m=14$ encodes to the codeword $\boldsymbol{x}_{14}=(0,0,0,1,1,0,1)$ (weight $3$). Determine its error probability $P_{\rm e}(14)$.</p>
+  <p>(a) $P_{\rm e}(14)=3p^2-2p^3$<br>
+  (b) $P_{\rm e}(14)=3p^2(1-p)$<br>
+  (c) $P_{\rm e}(14)=p^3$<br>
+  (d) $P_{\rm e}(14)=21p^2-35p^3+\cdots$ (all 7 positions at risk)</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>On the Z-channel only the $1$-positions can flip ($1\to 0$), so the three ones of $\boldsymbol{x}_{14}$ (weight $3$) each flip independently with probability $p$; the four $0$-positions are always correct. The code has $d_{\min}=3$, correcting $t=1$ error, so decoding is correct iff at most one of the three ones flips: $P_{\rm c}=(1-p)^3+3p(1-p)^2$. Hence $P_{\rm e}(14)=1-(1-p)^3-3p(1-p)^2$, which expands and simplifies to $\boxed{3p^2-2p^3}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.21.</span></p>
+  <p>A binary $(5,2)$ linear code has generator matrix $$\boldsymbol{G}=\begin{pmatrix}1 & 0 & 1 & 1 & 0\\ 0 & 1 & 0 & 1 & 1\end{pmatrix}.$$ Listing all $2^2$ codewords $\boldsymbol{u}\boldsymbol{G}$ over $\mathbb{F}_2$, what is its weight distribution (number $A_w$ of codewords of each weight $w$)?</p>
+  <p>(a) $A_0=1,\;A_3=2,\;A_4=1$<br>
+  (b) $A_0=1,\;A_2=2,\;A_3=1$<br>
+  (c) $A_0=1,\;A_3=1,\;A_4=2$<br>
+  (d) $A_0=1,\;A_2=1,\;A_3=2,\;A_5=1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The four codewords are $\boldsymbol{u}\boldsymbol{G}$ for $\boldsymbol{u}\in\{00,01,10,11\}$: $00000$, $01011$, $10110$, and $\boldsymbol{g}_1\oplus\boldsymbol{g}_2=11101$. Their Hamming weights are $0,3,3,4$. Hence $A_0=1,\;A_3=2,\;A_4=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.22.</span></p>
+  <p>The binary $(5,2)$ linear code generated by $\boldsymbol{g}_1=10110$ and $\boldsymbol{g}_2=01011$ has codewords $\{00000,01011,10110,11101\}$. What is its minimum Hamming distance $d_{\min}$?</p>
+  <p>(a) $d_{\min}=3$<br>
+  (b) $d_{\min}=2$<br>
+  (c) $d_{\min}=4$<br>
+  (d) $d_{\min}=5$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>For a linear code the minimum distance equals the minimum nonzero codeword weight. The nonzero weights are $3,3,4$, so $d_{\min}=\min_{w&gt;0}w=3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.23.</span></p>
+  <p>Two codewords at Hamming distance $w=3$ are sent over a BSC with crossover $p\in(0,\tfrac12)$ and decoded by minimum distance. The pairwise error probability is $P_2(w)=\sum_{i&gt;w/2}\binom{w}{i}p^{i}(1-p)^{w-i}$. Evaluate $P_2(3)$.</p>
+  <p>(a) $3p^{2}-2p^{3}$<br>
+  (b) $3p^{2}(1-p)$<br>
+  (c) $p^{3}$<br>
+  (d) $3p^{2}+2p^{3}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>An error needs more than $w/2=1.5$ of the $3$ differing bits flipped, so $i\in\{2,3\}$: $P_2(3)=\binom{3}{2}p^{2}(1-p)+\binom{3}{3}p^{3}=3p^{2}(1-p)+p^{3}=3p^{2}-2p^{3}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.24.</span></p>
+  <p>The binary $(5,2)$ code $\{00000,01011,10110,11101\}$ (weight distribution $A_3=2,\;A_4=1$) is used over a BSC with crossover $p\in(0,\tfrac12)$ with minimum-distance decoding. Using the union bound $P_{\rm e}\le\sum_w A_w P_2(w)$ with the symmetric half-tie convention, so that $P_2(3)=P_2(4)=3p^{2}-2p^{3}$, what is the resulting bound on $P_{\rm e}$?</p>
+  <p>(a) $P_{\rm e}\le 9p^{2}-6p^{3}=3p^{2}(3-2p)$<br>
+  (b) $P_{\rm e}\le 6p^{2}-4p^{3}$<br>
+  (c) $P_{\rm e}\le 3p^{2}-2p^{3}$<br>
+  (d) $P_{\rm e}\le 12p^{2}-8p^{3}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By linearity the bound is the same for every transmitted codeword, so $P_{\rm e}\le A_3 P_2(3)+A_4 P_2(4)=2(3p^{2}-2p^{3})+(3p^{2}-2p^{3})=9p^{2}-6p^{3}=3p^{2}(3-2p)$. The dominant small-$p$ term is $9p^{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.25.</span></p>
+  <p>A binary linear code has generator matrix $\boldsymbol{G} = \begin{pmatrix}1 & 1 & 0\\ 0 & 1 & 1\end{pmatrix}$. Calculate the code rate $R$.</p>
+  <p>(a) $R=\tfrac{2}{3}$<br>
+  (b) $R=\tfrac{3}{2}$<br>
+  (c) $R=\tfrac{1}{3}$<br>
+  (d) $R=\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The matrix $\boldsymbol{G}$ has $k=2$ rows (message bits) and $n=3$ columns (codeword bits), so this is a $(3,2)$ code. The rate is the ratio of information to transmitted bits, $R=k/n=2/3\approx 0.667$ bits/use.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.26.</span></p>
+  <p>A binary linear code has generator matrix $\boldsymbol{G} = \begin{pmatrix}1 & 1 & 0\\ 0 & 1 & 1\end{pmatrix}$. Listing all codewords $\boldsymbol{c}=\boldsymbol{u}\boldsymbol{G}$, what is the weight distribution $\{A_w\}$?</p>
+  <p>(a) $A_0=1,\ A_2=3$<br>
+  (b) $A_0=1,\ A_1=3$<br>
+  (c) $A_0=1,\ A_2=2,\ A_3=1$<br>
+  (d) $A_0=1,\ A_3=3$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The $2^k=4$ codewords are $\mathcal{C}=\{000,110,011,101\}$, obtained from $\boldsymbol{c}=\boldsymbol{u}\boldsymbol{G}$ over $\mathbb{F}_2$. Their Hamming weights are $0,2,2,2$, so $A_0=1$ and $A_2=3$. Check: $\sum_w A_w=1+3=4=2^k$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.27.</span></p>
+  <p>A binary linear code has codewords $\mathcal{C}=\{000,110,011,101\}$. Calculate its minimum distance $d_{\rm min}$.</p>
+  <p>(a) $d_{\rm min}=2$<br>
+  (b) $d_{\rm min}=3$<br>
+  (c) $d_{\rm min}=1$<br>
+  (d) $d_{\rm min}=0$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>For a linear code the minimum distance equals the minimum nonzero codeword weight, $d_{\rm min}=\min_{\boldsymbol{c}\neq\boldsymbol{0}}w(\boldsymbol{c})$. The nonzero codewords $110,011,101$ all have weight $2$, so $d_{\rm min}=2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.28.</span></p>
+  <p>A binary linear code with minimum Hamming distance decoding has $d_{\rm min}=2$. How many errors $t$ can it correct?</p>
+  <p>(a) $t=0$<br>
+  (b) $t=1$<br>
+  (c) $t=2$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Minimum-distance decoding corrects up to $t=\lfloor(d_{\rm min}-1)/2\rfloor$ errors. With $d_{\rm min}=2$, $t=\lfloor 1/2\rfloor=0$: the code can only <em>detect</em> a single error, not correct it.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.29.</span></p>
+  <p>A binary linear $(3,2)$ code has codewords $\mathcal{C}=\{000,110,011,101\}$. Which of the following is a valid parity-check matrix $\boldsymbol{H}$ (satisfying $\boldsymbol{c}\boldsymbol{H}^{\top}=\boldsymbol{0}$ for all $\boldsymbol{c}\in\mathcal{C}$)?</p>
+  <p>(a) $\boldsymbol{H}=(1\ \ 1\ \ 1)$<br>
+  (b) $\boldsymbol{H}=(1\ \ 0\ \ 1)$<br>
+  (c) $\boldsymbol{H}=(1\ \ 1\ \ 0)$<br>
+  (d) $\boldsymbol{H}=(0\ \ 1\ \ 1)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>For a $(3,2)$ code $\boldsymbol{H}$ has $n-k=1$ row and must satisfy $\boldsymbol{c}\boldsymbol{H}^{\top}=\boldsymbol{0}$. With $\boldsymbol{H}=(1\ 1\ 1)$, $\boldsymbol{c}\boldsymbol{H}^{\top}=c_1\oplus c_2\oplus c_3$ is the overall parity; every codeword has even weight, so this is $0$ for all of them (e.g. $1\oplus1\oplus0=0$). The other matrices fail on at least one codeword.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.30.</span></p>
+  <p>A binary linear code has generator matrix $$\boldsymbol{G} = \begin{pmatrix}0 & 1 & 0 & 1 & 0 & 0\\ 1 & 0 & 1 & 0 & 1 & 0\\ 0 & 0 & 1 & 0 & 0 & 1\end{pmatrix}.$$</p><p>Compute the weight enumerator $\{A_0,A_1,A_2,A_3,A_4,A_5\}$ of the code (where $A_i$ counts the codewords of Hamming weight $i$).</p>
+  <p>(a) $\{1,\,0,\,2,\,2,\,1,\,2\}$<br>
+  (b) $\{1,\,2,\,2,\,1,\,2,\,0\}$<br>
+  (c) $\{1,\,0,\,3,\,3,\,1,\,0\}$<br>
+  (d) $\{0,\,1,\,2,\,2,\,2,\,1\}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>This is a $(6,3)$ code with $2^3=8$ codewords $\boldsymbol{x}=\boldsymbol{s}\boldsymbol{G}$ (mod 2). Generating all eight gives weights: $000000$ (0); $001001$, $010100$ (2 each); $101010$, $100011$ (3 each); $011101$ (4); $111110$, $110111$ (5 each). Tallying: $A_0=1,A_1=0,A_2=2,A_3=2,A_4=1,A_5=2$, which sums to $1+2+2+1+2=8=2^k$. Hence $\{1,0,2,2,1,2\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.31.</span></p>
+  <p>A binary linear code has generator matrix $$\boldsymbol{G} = \begin{pmatrix}0 & 1 & 0 & 1 & 0 & 0\\ 1 & 0 & 1 & 0 & 1 & 0\\ 0 & 0 & 1 & 0 & 0 & 1\end{pmatrix}.$$</p><p>Its weight enumerator is $\{A_0,\dots,A_5\}=\{1,0,2,2,1,2\}$. What is the minimum distance $d_{\min}$ of the code?</p>
+  <p>(a) $d_{\min}=1$<br>
+  (b) $d_{\min}=2$<br>
+  (c) $d_{\min}=3$<br>
+  (d) $d_{\min}=0$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>For a linear code the minimum distance equals the smallest nonzero codeword weight, since the distance between two codewords equals the weight of their difference (also a codeword). From the enumerator $\{1,0,2,2,1,2\}$, the smallest weight with $A_i&gt;0$ for $i\ge 1$ is $i=2$ (e.g. codeword $001001$). Hence $d_{\min}=2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.32.</span></p>
+  <p>A binary linear code has parity-check matrix $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}.$$ The codewords $\boldsymbol{c}=(c_1,\dots,c_5)$ satisfy $\boldsymbol{H}\boldsymbol{c}^{\mathsf T}=\boldsymbol{0}$. Which of the following is a valid generator matrix of this code?</p>
+  <p>(a) $\boldsymbol{G}=\begin{pmatrix}0&0&1&1&1\\1&1&0&0&1\end{pmatrix}$<br>
+  (b) $\boldsymbol{G}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$<br>
+  (c) $\boldsymbol{G}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\end{pmatrix}$<br>
+  (d) $\boldsymbol{G}=\begin{pmatrix}1&0&1&1&1\\1&1&0&0&0\end{pmatrix}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $\boldsymbol{H}$ has rank $3$ and $n=5$, the dimension is $k=5-3=2$, so $\boldsymbol{G}$ must have $2$ rows. The parity equations $c_1+c_2=0$, $c_3+c_4=0$, $c_1+c_3+c_5=0$ give the nonzero codewords $00111$ and $11001$. These two independent codewords form $\boldsymbol{G}$, and indeed $\boldsymbol{G}\boldsymbol{H}^{\mathsf T}=\boldsymbol{0}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.33.</span></p>
+  <p>A binary linear code has the $3\times 5$ parity-check matrix $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$$ of rank $3$. What is its rate $R$?</p>
+  <p>(a) $R=\dfrac{2}{5}$<br>
+  (b) $R=\dfrac{3}{5}$<br>
+  (c) $R=\dfrac{3}{2}$<br>
+  (d) $R=\dfrac{1}{5}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The block length is $n=5$ and the rank of $\boldsymbol{H}$ equals the number of parity checks $n-k=3$, so $k=5-3=2$ information symbols. The rate is $R=k/n=2/5$. (Choosing $R=3/5$ confuses $k$ with $n-k$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.34.</span></p>
+  <p>The binary linear code with parity-check matrix $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$$ has the four codewords $\{00000,\,11001,\,00111,\,11110\}$. What is its weight distribution (the coefficients $A_i$ counting codewords of weight $i$)?</p>
+  <p>(a) $A_0=1,\;A_3=2,\;A_4=1$ (rest $0$)<br>
+  (b) $A_0=1,\;A_2=2,\;A_4=1$ (rest $0$)<br>
+  (c) $A_0=1,\;A_3=1,\;A_4=2$ (rest $0$)<br>
+  (d) $A_0=1,\;A_2=1,\;A_3=2$ (rest $0$)</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Count the number of $1$s in each codeword: $w(00000)=0$, $w(11001)=3$, $w(00111)=3$, $w(11110)=4$. Thus $A_0=1$, $A_3=2$, $A_4=1$, and all other $A_i=0$. Note there is no weight-$2$ codeword.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.35.</span></p>
+  <p>The binary linear code with parity-check matrix $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$$ has nonzero codeword weights $\{3,3,4\}$. What is its minimum distance $d_{\min}$?</p>
+  <p>(a) $d_{\min}=3$<br>
+  (b) $d_{\min}=2$<br>
+  (c) $d_{\min}=4$<br>
+  (d) $d_{\min}=5$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>For a linear code, $d_{\min}$ equals the smallest nonzero codeword weight, $\min\{3,3,4\}=3$. Equivalently it is the smallest number of linearly dependent columns of $\boldsymbol{H}$: no column is zero and no two are equal, but columns $1,2,5$ sum to $\boldsymbol{0}$ (since $(1,0,1)+(1,0,0)+(0,0,1)=(0,0,0)$), so $d_{\min}=3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.36.</span></p>
+  <p>A binary linear code with the parity-check matrix $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$$ has minimum distance $d_{\min}=3$ and is used with minimum-distance (maximum-likelihood) decoding. How many errors $t$ can it correct?</p>
+  <p>(a) $t=1$<br>
+  (b) $t=2$<br>
+  (c) $t=3$<br>
+  (d) $t=0$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>A code with minimum distance $d_{\min}$ corrects $t=\lfloor (d_{\min}-1)/2\rfloor$ errors. Here $t=\lfloor (3-1)/2\rfloor=\lfloor 1\rfloor=1$, so the code corrects one error. (Using $d_{\min}-1=2$ instead would be the number of errors it can detect, not correct.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.37.</span></p>
+  <p>Consider the systematic Hamming $(15,11)$ code with generator matrix $\boldsymbol{G}=(\boldsymbol{P}\ \boldsymbol{I})$, where the first row of the $11\times4$ parity matrix $\boldsymbol{P}$ is $(1\ 1\ 0\ 0)$. The codeword $\boldsymbol{x}_{1025}$ (with indexing $\boldsymbol{x}_1,\boldsymbol{x}_2,\dots$) is transmitted, and a systematic codeword is $\boldsymbol{x}=\boldsymbol{s}\boldsymbol{G}=(\boldsymbol{s}\boldsymbol{P}\ \ \boldsymbol{s})$ over $\mathrm{GF}(2)$. What is the Hamming weight $w_H(\boldsymbol{x}_{1025})$?</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $3$<br>
+  (d) $4$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>Index $1025$ maps to the message of integer value $1025-1=1024=2^{10}$, that is the $11$-bit message $\boldsymbol{s}=(1\,0\,\dots\,0)$ with a single $1$ in the first position. Then $\boldsymbol{s}\boldsymbol{P}$ selects the first row of $\boldsymbol{P}$, giving parity $(1\ 1\ 0\ 0)$ (two $1$'s), and the systematic part reproduces $\boldsymbol{s}$ (one $1$). The codeword is $(1\,1\,0\,0\,|\,1\,0\dots0)$, so $w_H=2+1=3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 7.38.</span></p>
+  <p>The codeword $\boldsymbol{x}_{1025}=(1\,1\,0\,0\,|\,1\,0\,0\,0\,0\,0\,0\,0\,0\,0\,0)$ of the Hamming $(15,11)$ code (Hamming weight $3$, with $12$ zeros and $3$ ones) is sent over a memoryless binary <em>asymmetric</em> channel with crossover probabilities $P_{Y|X}(1\mid0)=p_0$ and $P_{Y|X}(0\mid1)=p_1$, acting independently on each of the $15$ bits. What is the probability of receiving the all-zeros sequence $\boldsymbol{y}=\mathbf{0}$?</p>
+  <p>(a) $(1-p_0)^{12}\,p_1^{3}$<br>
+  (b) $(1-p_1)^{12}\,p_0^{3}$<br>
+  (c) $(1-p_0)^{3}\,p_1^{12}$<br>
+  (d) $(1-p_0)^{15}\,p_1^{3}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By memorylessness, $\mathbb{P}[\boldsymbol{Y}=\mathbf{0}\mid\boldsymbol{X}=\boldsymbol{x}]=\prod_{i=1}^{15}P_{Y|X}(0\mid x_i)$. Each of the $12$ transmitted $0$'s must stay $0$, with probability $P_{Y|X}(0\mid0)=1-p_0$, giving $(1-p_0)^{12}$. Each of the $3$ transmitted $1$'s must flip to $0$, with probability $P_{Y|X}(0\mid1)=p_1$, giving $p_1^{3}$. Hence the probability is $(1-p_0)^{12}p_1^{3}$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

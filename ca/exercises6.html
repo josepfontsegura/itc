@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -40,44 +40,563 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html" class="active">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Properament</h1>
+      <h1>Exercicis: 6. Probabilitat d'error de codis de canal</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Aquest contingut estarà disponible a mesura que avanci el curs.</p>
+
+    <button id="expand-all" data-expand="Mostra totes les solucions" data-collapse="Amaga totes les solucions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostra totes les solucions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.1.</span> Dos missatges es transmeten amb igual probabilitat per un canal binari simètric amb probabilitat d'inversió de bit $p$ utilitzant les paraules codi $\{101,010\}$. El descodificador aplica la regla $\boldsymbol{y}\mapsto \hat m$ donada per:
+$$
+\begin{aligned}
+000&\mapsto 1 & 001&\mapsto 1 & 010&\mapsto 2 & 011&\mapsto 2\\
+100&\mapsto 1 & 101&\mapsto 2 & 110&\mapsto 2 & 111&\mapsto 1
+\end{aligned}
+$$
+Quina és la probabilitat de descodificar correctament el primer missatge?</p>
+  <p>(a) $3p-5p^2+2p^3$<br>
+  (b) $2p-2p^2$<br>
+  (c) $p+p^2-2p^3$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>El primer missatge es codifica com $\boldsymbol{x}_1=101$. El descodificador pren una decisió correcta quan, havent transmès $\boldsymbol{x}_1$, es rep una de les seqüències assignades al missatge $1$, és a dir $\{000,001,100,111\}$. Calculant les quatre probabilitats, per exemple $P_{Y|X}(000|101)=p^2(1-p)$, sumant-les i simplificant s'obté l'opció correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.2.</span> Dos missatges s'envien amb igual probabilitat per un canal <u>binari asimètric</u> amb probabilitats de transició $P_{Y|X}(1|0)=p$ i $P_{Y|X}(0|1)=2p$ utilitzant les paraules codi $\{000,111\}$. El descodificador utilitza la regla
+$$
+\hat m = \operatorname*{arg\,max}_{m\in\{1,2\}} \, d(\boldsymbol{x}_m,\boldsymbol{y}),
+$$
+on $d(\boldsymbol{x},\boldsymbol{y})$ és la distància de Hamming entre les seqüències binàries $\boldsymbol{x}$ i $\boldsymbol{y}$.
+Quin és el valor de $p$ que minimitza la probabilitat d'error?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $\tfrac 59$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Donada una sortida $\boldsymbol{y}$, el descodificador tria la paraula codi a major distància de Hamming, decidint $\hat m=1$ quan $\boldsymbol{y}\in\{011,101,110,111\}$ i $\hat m=2$ quan $\boldsymbol{y}\in\{000,001,010,100\}$. Amb $\boldsymbol{x}_1=000$ la probabilitat d'inversió de bit és $p$, mentre que amb $\boldsymbol{x}_2=111$ és $2p$. Així, la probabilitat d'error del primer missatge és $(1-p)^3+3(1-p)^2p$, i la del segon missatge és $(1-2p)^3+3(1-2p)^2 2p$. Promitjant atès que els missatges són equiprobables i simplificant algebraicament s'obté $1-\tfrac{15 p^2}{2}+9 p^3$. A l'interval vàlid $p\in[0,1/2]$, aquesta expressió es minimitza a $p=\tfrac12$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.3.</span> Dos missatges es transmeten amb igual probabilitat per un canal <u>binari asimètric</u> amb probabilitats de transició $P_{Y|X}(1|0)=\alpha$ i $P_{Y|X}(0|1)=1-\alpha$ utilitzant les paraules codi $\{000,111\}$. El descodificador aplica la regla
+$$
+\hat m = \operatorname*{arg\,min}_{m\in{\cal M}} 3d_{0\to 1}(\boldsymbol{x}_{m},\boldsymbol{y})+d_{1\to 0}(\boldsymbol{x}_{m},\boldsymbol{y}),
+$$
+on $d_{0\to 1}(\boldsymbol{x},\boldsymbol{y})$ és el nombre de bits que canvien de $0$ a $1$ i $d_{1\to 0}(\boldsymbol{x},\boldsymbol{y})$ és el nombre de bits que canvien d'$1$ a $0$. Per exemple, $d_{0\to 1}(010,110)=1$ i $d_{1\to 0}(010,110)=0$. Per a quin valor d'$\alpha$ coincideixen les probabilitats d'error d'ambdós missatges?</p>
+  <p>(a) $\tfrac 12$<br>
+  (b) $1-\tfrac{1}{\sqrt{2}}$<br>
+  (c) $1-\tfrac{1}{\sqrt[3]{2}}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>La regla de descodificació és tal que el descodificador decideix $\hat m=1$ només quan $\boldsymbol{y}\in\{000\}$ i $\hat m = 2$ en cas contrari. Com a resultat, podem determinar que $P_{\rm e}(1)=1-P_{Y|X}(000|000) = 1-(1-\alpha)^3$ i que $P_{\rm e}(2)=P_{Y|X}(000|111) = (1-\alpha)^3$. Ambdues coincideixen quan $\alpha=1-1/\sqrt[3]{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.4.</span> Les paraules codi $\{00,11\}$ es transmeten amb igual probabilitat per un canal binari simètric amb probabilitat d'error de bit $p&lt;\tfrac12$. Després de rebre $\boldsymbol{y}$, el descodificador genera aleatòriament un valor $s\in\{1,2\}$ amb distribució $\{q,1-q\}$ i descodifica com
+$$
+\hat m = \begin{cases}
+1 & P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_1) &gt; P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_2),\\
+2 & P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_1) &lt; P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_2),\\
+s & \text{altrament}.
+\end{cases}
+$$
+Quina és la probabilitat d'error del codi promitjada sobre $s$?</p>
+  <p>(a) $pq$<br>
+  (b) $q$<br>
+  (c) $p$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>El descodificador tria $\hat m=1$ quan $\boldsymbol{y}=00$, $\hat m=2$ quan $\boldsymbol{y}=11$, i $\hat m=s$ quan $\boldsymbol{y}\in\{01,10\}$. Si $s=1$ els esdeveniments d'error són $\boldsymbol{y}\in\{11,10\}$ després de transmetre $\boldsymbol{x}_1$ o $\boldsymbol{y}\in\{01\}$ després de $\boldsymbol{x}_2$, donant $P_{\mathrm e}({\cal C}\mid s=1)=p$. Si $s=2$ els papers s'intercanvien i de nou $P_{\mathrm e}({\cal C}\mid s=2)=p$. Promitjant sobre $s$ s'obté $P_{\mathrm e}({\cal C})=q\,p+(1-q)\,p=p$, que correspon a la tercera opció.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.5.</span> Quin dels codis següents té taxa $\tfrac 12$?</p>
+  <p>(a) $\{0000,1111\}$<br>
+  (b) $\{0000,0101,1010,1111\}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>La taxa d'un codi és $R=\tfrac{1}{n}\log_2 |\mathcal{C}|$, on $n$ és la longitud i $|\mathcal{C}|$ el nombre de paraules codi. El primer codi té $n=4$ i $2$ paraules codi, per la qual cosa $R=\tfrac{1}{4}\log_2 2=\tfrac14$. El segon codi té $n=4$ i $4$ paraules codi, per la qual cosa $R=\tfrac{1}{4}\log_2 4=\tfrac12$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.6.</span> Per a cada enter $r\geq 2$, construïm un codi de longitud $2^r-1$ que transporta $2^r-r-1$ bits d'informació. Quina de les següents no és una taxa possible amb aquesta construcció?</p>
+  <p>(a) $\frac {1011}{1023}$<br>
+  (b) $\frac {2036}{2047}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La taxa és $R=\frac{2^r-r-1}{2^r-1}$. Per a $r=10$ la longitud és $2^{10}-1=1023$ i el nombre de bits d'informació és $2^{10}-10-1=1013$, donant una taxa $\frac{1013}{1023}$, no $\frac{1011}{1023}$. Per a $r=11$ la longitud és $2^{11}-1=2047$ i els bits d'informació són $2^{11}-11-1=2036$, donant exactament $\frac{2036}{2047}$. Per tant $\frac{1011}{1023}$ no és assolible.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.7.</span> Un codi es construeix prenent totes les seqüències possibles de $n$ bits i eliminant-ne una tercera part. Quina és la taxa del codi?</p>
+  <p>(a) $1-\frac{\log_2(3)-1}{n}$<br>
+  (b) $1-\frac{\log_2(3)}{n}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Hi ha $2^n$ seqüències de longitud $n$, i eliminant-ne una tercera part queden $|\mathcal{C}|=\tfrac23\cdot 2^n$ paraules codi. La taxa és $R=\tfrac1n\log_2|\mathcal{C}|=\tfrac1n\bigl(n+\log_2\tfrac23\bigr)=1+\tfrac1n(1-\log_2 3)=1-\frac{\log_2(3)-1}{n}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.8.</span> Suposem que un codi de canal amb $r$ bits d'informació es transmet amb igual probabilitat per un canal amb memòria. És cert llavors que $P_{\boldsymbol{X}}(\boldsymbol{x})=2^{-r}$?</p>
+  <p>(a) Sí<br>
+  (b) No</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Amb $r$ bits d'informació hi ha $2^r$ missatges equiprobables, cadascun assignat a una paraula codi $\boldsymbol{x}$. Com que els missatges es transmeten amb igual probabilitat, cada paraula codi té probabilitat $P_{\boldsymbol{X}}(\boldsymbol{x})=2^{-r}$. Això depèn només de la distribució dels missatges i del codificador, no del canal, de manera que la presència de memòria al canal és irrellevant.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.9.</span> Quina de les magnituds següents és igual a $|{\cal X}|$, el cardinal de l'alfabet de $X$?</p>
+  <p>(a) $\sum_{x} \sum_{y} P_{Y|X}(y|x)$<br>
+  (b) $\sum_{x} P_{Y|X}(y|x)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per a cada $x$ fix, la distribució condicional compleix $\sum_{y} P_{Y|X}(y|x)=1$. Sumant això sobre tots els $x \in {\cal X}$ s'obté $\sum_{x} \sum_{y} P_{Y|X}(y|x)=\sum_{x} 1 = |{\cal X}|$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.10.</span> Un codi de canal de taxa $r$ i longitud $n$ es transmet amb probabilitat uniforme. Quina és l'entropia de la variable aleatòria que representa el missatge transmès?</p>
+  <p>(a) $rn$<br>
+  (b) $\frac{r}{n}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Un codi de taxa $r$ i longitud $n$ té $M=2^{rn}$ paraules codi. Quan el missatge segueix una distribució uniforme, la seva entropia és $\log_2 M = rn$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.11.</span> Un codi amb paraules codi $\{010,101\}$ i distribució de probabilitat $\bigl\{ \frac{1}{3}, \frac{2}{3} \bigr\}$ es transmet per un canal binari sense memòria tal que $P_{Y|X}(y|x)=1$ si $y \neq x$. Quina és la probabilitat de rebre la seqüència $101$ si s'envia el segon missatge?</p>
+  <p>(a) $0$<br>
+  (b) $1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>El canal sempre inverteix cada bit, ja que $P_{Y|X}(y|x)=1$ només quan $y \neq x$. El segon missatge és $\boldsymbol{x}_2=101$, que el canal converteix de manera determinista en $010$. Per tant, la probabilitat de rebre $101$ és $0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.12.</span> El codi de canal $\{0101010101,1010101010\}$ es descodifica amb la regla de mínima distància de Hamming. Quin missatge decidirà el descodificador en observar $0000000001$ a la sortida del canal?</p>
+  <p>(a) $1$<br>
+  (b) $2$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La paraula rebuda és $0000000001$. La seva distància de Hamming a $\boldsymbol{x}_1=0101010101$ és $4$ (difereixen els quatre $1$ de les posicions senars), mentre que la distància a $\boldsymbol{x}_2=1010101010$ és $6$. La distància mínima l'assoleix el primer missatge.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.13.</span> El codi $\{000,111\}$ es transmet per un canal binari simètric amb probabilitat d'inversió de bit $\frac{9}{10}$ i es descodifica amb la regla $g(\boldsymbol{y})=\arg\max_{m} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$. Quant val $g(001)$?</p>
+  <p>(a) $1$<br>
+  (b) $2$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Amb probabilitat d'inversió $p=\frac{9}{10}$, el canal inverteix els bits més sovint que no. Per a $\boldsymbol{y}=001$: donat $\boldsymbol{x}_1=000$, s'inverteix exactament un bit, així $P=(1-p)^2 p=\frac{1}{10}\cdot\frac{1}{10}\cdot\frac{9}{10}=\frac{9}{1000}$; donat $\boldsymbol{x}_2=111$, s'inverteixen dos bits, així $P=(1-p)\,p^2=\frac{1}{10}\cdot\frac{9}{10}\cdot\frac{9}{10}=\frac{81}{1000}$. El màxim l'assoleix el segon missatge.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.14.</span> El codi $\{0101,1010\}$ es transmet per un canal binari sense memòria amb $P_{Y|X}(0|x)=x$ i es descodifica amb la regla $g(\boldsymbol{y}) = \arg\max_{m} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$. Quant val $g(1010)$?</p>
+  <p>(a) $1$<br>
+  (b) $2$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>El canal compleix $P_{Y|X}(0|0)=0$ i $P_{Y|X}(0|1)=1$, de manera que aplica de forma determinista cada bit d'entrada $x$ a $1-x$ (sempre inverteix el bit). Així, $\boldsymbol{x}_1=0101$ es rep com $1010$ amb probabilitat $1$, mentre que $\boldsymbol{x}_2=1010$ es rep com $0101$. Per tant $g(1010)=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.15.</span> El codi $\{000,111\}$ es transmet per un canal binari amb probabilitats condicionals $P_{Y|X}(0|0)=1$ i $P_{Y|X}(0|1)=\tfrac{1}{2}$. El receptor utilitza una regla de descodificació de mínima versemblança, és a dir $\hat m = \arg\min_m P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$, per descodificar la sortida del canal. Quina és la regió d'error del segon missatge?</p>
+  <p>(a) $\{001,010,011,100,101,110,111\}$<br>
+  (b) $\{000\}$<br>
+  (c) $\{000,001,010,100\}$<br>
+  (d) $\{011,101,110,111\}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que $P_{Y|X}(1|0)=0$, tenim $P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|000)=0$ per a qualsevol sortida del canal que tingui almenys un $1$. Amb la regla de mínima versemblança, $\hat m = 1$ per a totes les sortides excepte $\boldsymbol{y}=000$, per a la qual $\hat m = 2$. Aquesta és l'única sortida per a la qual el segon missatge es descodifica correctament, de manera que la seva regió d'error són totes les altres sortides: $\{001,010,011,100,101,110,111\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.16.</span> Un canal discret té entrada $X\in \{0,1,2\}$ i sortida donada per $Y=\lfloor \frac{X-1}{2}\rfloor$, on la funció terra $\lfloor u \rfloor$ retorna el major enter menor o igual que $u$. Quin dels codis de canal següents permet la transmissió sense errors a una taxa d'$1$ bit per ús del canal?</p>
+  <p>(a) $\{00,02,10,21\}$<br>
+  (b) $\{0000,1111\}$<br>
+  (c) $\{012,210\}$<br>
+  (d) $\{01,02,10,20\}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>L'aplicació de sortida dona $Y=-1$ per a $X=0$ i $Y=0$ tant per a $X=1$ com per a $X=2$, de manera que el canal és determinista amb $P_{Y|X}(-1|0)=P_{Y|X}(0|1)=P_{Y|X}(0|2)=1$. El descodificador no pot distingir les entrades $1$ i $2$, però sí pot distingir $0$ de $\{1,2\}$. Una taxa d'$1$ bit per ús del canal amb longitud $2$ requereix $M=2^{2}=4$ paraules codi les imatges de les quals sota l'aplicació siguin totes diferents. El codi $\{00,02,10,21\}$ s'aplica a $\{(-1,-1),(-1,0),(0,-1),(0,0)\}$, que són quatre sortides diferents, de manera que permet la transmissió sense errors. Els altres codis contenen paraules codi que col·lideixen un cop es fusionen $1$ i $2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.17.</span></p>
+  <p>Considereu el canal binari asimètric amb $P_{Y|X}(1|0)=p$ i $P_{Y|X}(0|1)=2p$. Quina de les següents és la informació mútua d'aquest canal, suposant que $X$ té probabilitat uniforme? Recordeu que $h_2(p)=-p\log_2(p)-(1-p)\log_2(1-p)$ és la funció d'entropia binària.</p>
+  <p>(a) $h_2\bigl(\frac{1+p}{2} \bigr) - h_2\bigl(\frac{3p}{2}\bigr)$<br>
+  (b) $h_2\bigl(\frac{1-p}{2} \bigr) - h_2(p)$<br>
+  (c) $h_2\bigl(\frac{1-p}{2} \bigr) - \frac 32 h_2(p)$<br>
+  (d) $h_2\bigl(\frac{1+p}{2} \bigr) - \frac 12 h_2(2p) - \frac 12 h_2(1-p)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(d)</strong> &#9733;</p>
+    <p>La informació mútua es pot calcular com $I(X;Y)=H(Y)-H(Y|X)$. Amb $X$ uniforme, $P(Y=1)=\tfrac12 P_{Y|X}(1|0)+\tfrac12 P_{Y|X}(1|1)=\tfrac12 p+\tfrac12(1-2p)=\tfrac{1-p}{2}$, de manera que $P(Y=0)=\tfrac{1+p}{2}$ i $H(Y)=h_2\bigl(\tfrac{1+p}{2}\bigr)$. A més, $H(Y|X=0)=h_2(p)$ i $H(Y|X=1)=h_2(2p)$, donant $H(Y|X)=\tfrac12 h_2(p)+\tfrac12 h_2(2p)=\tfrac12 h_2(1-p)+\tfrac12 h_2(2p)$. Per tant $I(X;Y)=h_2\bigl(\tfrac{1+p}{2}\bigr)-\tfrac12 h_2(2p)-\tfrac12 h_2(1-p)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.18.</span></p>
+  <p>El codi de repetició $\{00\cdots 0,11\cdots 1\}$ amb taxa $p$ bits per ús del canal es transmet equiprobablement pel canal binari simètric amb probabilitat d'inversió de bit $a$. Després d'observar la sortida del canal $\boldsymbol{y}$, el descodificador estima el missatge transmès com</p>$$\hat m = \begin{cases} 1 & \boldsymbol{y} = \boldsymbol{x}_1\\ 2 & \text{altrament}. \end{cases}$$<p>Quina és la probabilitat que el descodificador seleccioni el segon missatge quan s'ha transmès el primer?</p>
+  <p>(a) $p^a$<br>
+  (b) $a^p$<br>
+  (c) $1-(1-a)^\frac{1}{p}$<br>
+  (d) $1-p^a$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>La probabilitat que $\hat m = 2$ quan s'ha transmès $m=1$ és igual a $1-\mathbb{P}[\hat m = 1 \mid m =1] = 1-\mathbb{P}[\boldsymbol{Y}=00\cdots 0\mid\boldsymbol{X}=00\cdots 0]$, cosa que condueix a la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.19.</span> El codi de font binari òptim és $\{00,01,10,11\}$. Aquest codi s'utilitza com a codi de canal sobre un canal binari simètric amb probabilitat d'encreuament $0.11$. Quina de les següents correspon, respectivament, a la taxa del codi i al nombre d'errors de bit que el codi és capaç de corregir?</p>
+  <p>(a) $\frac 12$ i $0.99$<br>
+  (b) $\frac 12$ i $0$<br>
+  (c) $1$ i $0$<br>
+  (d) $1$ i $0.99$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>El codi de canal $\{00,01,10,11\}$ té taxa $1$ i distància mínima $0$, de manera que no pot corregir cap error.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.20.</span> El codi $\{00,11\}$ es transmet equiprobablement per un canal binari simètric (BSC) amb probabilitat d'encreuament $p$. Utilitzant la descodificació de màxima versemblança, quina és la probabilitat d'error?</p>
+  <p>(a) $p(2-p)$<br>
+  (b) $p$<br>
+  (c) $p^2$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Amb descodificació ML la decisió parteix les quatre sortides en dues meitats, p. ex. $\{00,01\}\to\hat m=1$ i $\{10,11\}\to\hat m=2$ (els empats es resolen arbitràriament). Donat que s'envia $00$, hi ha error quan la paraula rebuda cau a l'altra meitat, és a dir quan el primer bit es capgira: això passa amb probabilitat $p(1-p)+p^2=p$. Per simetria val el mateix per a $11$, així que $P_e=p$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.21.</span> Un codi $\{0,1\}$ de longitud $1$ s'utilitza sobre un BSC amb $p=0.1$. Quina és la probabilitat d'error amb descodificació ML?</p>
+  <p>(a) $0.1$<br>
+  (b) $0.2$<br>
+  (c) $0.01$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Amb descodificació ML sobre un BSC, la probabilitat d'error és igual a la probabilitat d'encreuament $p=0.1$ per a un codi de repetició de longitud $1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.22.</span> El codi $\{000,111\}$ s'utilitza sobre un BSC amb probabilitat d'encreuament $p$ i descodificació de distància de Hamming mínima. Fins a quants errors pot corregir el codi?</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $3$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La distància mínima és $d_{\min}=3$, de manera que el codi pot corregir $t=\lfloor(3-1)/2\rfloor=1$ error.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.23.</span> Un canal té $P_{Y|X}(0|0)=1$ i $P_{Y|X}(1|1)=1$ (canal sense soroll). Quina és la probabilitat d'error de qualsevol codi?</p>
+  <p>(a) $0$<br>
+  (b) Depèn del codi<br>
+  (c) $\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>En un canal sense soroll, la sortida sempre és igual a l'entrada, de manera que qualsevol descodificador pot recuperar perfectament la paraula codi transmesa. La probabilitat d'error és $0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.24.</span> Per a un BSC amb $p&gt;\tfrac{1}{2}$, el descodificador de màxima versemblança és el mateix que el descodificador de distància de Hamming mínima?</p>
+  <p>(a) No, l'ML tria la paraula codi més llunyana<br>
+  (b) Sí, sempre són el mateix<br>
+  (c) Només quan $p=\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Quan $p&gt;\tfrac{1}{2}$, una inversió de bit és més probable que cap inversió. El descodificador ML maximitza $P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$, cosa que per a $p&gt;\tfrac{1}{2}$ correspon a maximitzar (no minimitzar) la distància de Hamming.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.25.</span> El codi de repetició $\{000,111\}$ s'utilitza sobre un BSC amb $p=0.01$. Utilitzant descodificació per distància mínima, la probabilitat d'error és aproximadament</p>
+  <p>(a) $3\times 10^{-4}$<br>
+  (b) $0.01$<br>
+  (c) $10^{-6}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>El codi corregeix $1$ error, de manera que $P_e=1-(1-p)^3-3p(1-p)^2=3p^2(1-p)+p^3\approx 3p^2=3\times 10^{-4}$ per a $p$ petit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.26.</span></p>
+  <p>Un <em>canal de cancel·lació binari</em> (BEC) té probabilitat de cancel·lació $\epsilon\in(0,1)$: cada símbol d'entrada es rep correctament amb probabilitat $1-\epsilon$, es cancel·la a $\star$ amb probabilitat $\epsilon$ i <em>mai</em> es capgira. Dos missatges equiprobables es codifiquen amb $\boldsymbol{c}_1=00$ i $\boldsymbol{c}_2=11$ i s'envien en dos usos independents del canal. El descodificador retorna $\hat m=1$ per a $\boldsymbol{y}\in\{00,0\star,\star 0,\star\star\}$ i $\hat m=2$ per a $\boldsymbol{y}\in\{11,1\star,\star 1\}$. Calcula la probabilitat d'error mitjana $P_{\rm e}$.</p>
+  <p>(a) $\dfrac{\epsilon^2}{2}$<br>
+  (b) $\epsilon^2$<br>
+  (c) $\dfrac{\epsilon}{2}$<br>
+  (d) $\epsilon^2(1-\epsilon)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que el canal mai capgira bits, l'única sortida ambigua és la doble cancel·lació $\star\star$. Quan s'envia $m=1$, totes les sortides assolibles ($00,0\star,\star 0,\star\star$) es descodifiquen a $1$, així $P_{\rm e}(1)=0$. Quan s'envia $m=2$, només $\star\star$ (probabilitat $\epsilon^2$) es descodifica malament a $1$, així $P_{\rm e}(2)=\epsilon^2$. Fent la mitjana amb probabilitats iguals: $P_{\rm e}=\tfrac12\cdot 0+\tfrac12\cdot\epsilon^2=\dfrac{\epsilon^2}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.27.</span></p>
+  <p>Es transmeten dos missatges equiprobables a través d'un <em>canal binari asimètric</em> amb $P_{Y|X}(1\mid 0)=p_0$ i $P_{Y|X}(0\mid 1)=p_1$, fent servir les paraules codi $\boldsymbol{x}_1=000$ i $\boldsymbol{x}_2=111$. El descodificador aplica la regla de <em>distància de Hamming mínima</em>. Calcula la probabilitat d'error del missatge $m=2$, denotada $P_{\rm e}(2)$.</p>
+  <p>(a) $P_{\rm e}(2)=3p_1^2(1-p_1)+p_1^3=p_1^2(3-2p_1)$<br>
+  (b) $P_{\rm e}(2)=3p_1(1-p_1)^2+p_1^3$<br>
+  (c) $P_{\rm e}(2)=3p_0^2(1-p_0)+p_0^3=p_0^2(3-2p_0)$<br>
+  (d) $P_{\rm e}(2)=p_1^3$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Amb $\boldsymbol{x}_2=111$ enviada, la descodificació per distància mínima erra quan $\boldsymbol{y}$ té com a molt un $1$, és a dir, almenys dos dels tres $1$s transmesos canvien a $0$. Cada canvi $1\to0$ té probabilitat $p_1$, així que el nombre de canvis és Binomial$(3,p_1)$ i $P_{\rm e}(2)=\mathbb{P}[N\ge2]=\binom{3}{2}p_1^2(1-p_1)+\binom{3}{3}p_1^3$. Això dona $P_{\rm e}(2)=3p_1^2(1-p_1)+p_1^3=p_1^2(3-2p_1)$; depèn només de $p_1$, no de $p_0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.28.</span></p>
+  <p>Quatre missatges equiprobables s'envien per un <em>canal binari simètric</em> (BSC) amb probabilitat d'inversió de bit $p$ utilitzant un codi binari de longitud de bloc $3$. El tercer missatge és la paraula codi $\boldsymbol{x}_3=010$, i la seva <em>regió d'error</em> és $\mathcal{E}_3=\{101,\,111\}$ (paraules rebudes descodificades com un missatge diferent del tercer). Calcula la probabilitat de descodificar correctament el tercer missatge.</p>
+  <p>(a) $1-p^{2}$<br>
+  (b) $p^{2}$<br>
+  (c) $1-p^{3}-p^{2}(1-p)$<br>
+  (d) $(1-p)^{3}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La descodificació correcta significa $\boldsymbol{Y}\notin\mathcal{E}_3$, per tant $P_{\rm c}(3)=1-P_{\rm e}(3)$. Per la llei del BSC, $P(\boldsymbol{y}\mid\boldsymbol{x})=p^{d}(1-p)^{3-d}$ amb $d$ la distància de Hamming. Des de $010$: $d_H(010,101)=3$ dona $p^{3}$, i $d_H(010,111)=2$ dona $p^{2}(1-p)$. Sumant, $P_{\rm e}(3)=p^{3}+p^{2}(1-p)=p^{2}$, per tant $P_{\rm c}(3)=1-p^{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.29.</span></p>
+  <p>Tres missatges equiprobables s'envien a través d'un <em>canal binari simètric</em> (BSC) amb probabilitat d'encreuament $p&lt;\tfrac12$ fent servir les paraules codi $x_1=00$, $x_2=01$, $x_3=10$. El descodificador fa servir $\hat m(00)=1$, $\hat m(01)=2$, $\hat m(10)=3$, $\hat m(11)=1$, de manera que la regió de descodificació del missatge 1 és $\mathcal D_1=\{00,11\}$.</p><p>Calcula la probabilitat d'error condicional $P_{\mathrm e}(1)$ del missatge 1.</p>
+  <p>(a) $2p(1-p)$<br>
+  (b) $1-(1-p)^2=2p-p^2$<br>
+  (c) $2p^2$<br>
+  (d) $(1-p)^2+p^2$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Amb $x_1=00$, la sortida $y$ té $\mathbb P(y\mid x_1)=(1-p)^{2-d}p^d$ per a distància de Hamming $d$. La descodificació correcta requereix $Y\in\mathcal D_1=\{00,11\}$: $\mathbb P(00\mid 00)=(1-p)^2$ i $\mathbb P(11\mid 00)=p^2$, així $P_{\mathrm c}(1)=(1-p)^2+p^2$. Per tant $P_{\mathrm e}(1)=1-(1-p)^2-p^2=2p-2p^2=2p(1-p)$, la probabilitat que s'inverteixi exactament un bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.30.</span></p>
+  <p>En un BSC amb probabilitat d'encreuament $p&lt;\tfrac12$, el missatge 2 fa servir la paraula codi $x_2=01$, i la seva regió de descodificació és $\mathcal D_2=\{01\}$ (només la sortida sense error es descodifica com a 2). Els bits s'inverteixen de manera independent, cadascun amb probabilitat $p$.</p><p>Calcula la probabilitat d'error condicional $P_{\mathrm e}(2)$ del missatge 2.</p>
+  <p>(a) $2p-p^2$<br>
+  (b) $2p(1-p)$<br>
+  (c) $(1-p)^2$<br>
+  (d) $2p^2-p$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que $\mathcal D_2=\{01\}$, el missatge 2 es descodifica correctament només si els dos bits es reben sense error: $P_{\mathrm c}(2)=(1-p)^2$. Per tant $P_{\mathrm e}(2)=1-(1-p)^2=2p-p^2$. Qualsevol inversió (simple o doble) treu la sortida de $\{01\}$ i provoca un error.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.31.</span></p>
+  <p>Tres missatges equiprobables s'envien a través d'un BSC amb probabilitat d'encreuament $p&lt;\tfrac12$ fent servir $x_1=00$, $x_2=01$, $x_3=10$, amb descodificador $\hat m(00)=1$, $\hat m(01)=2$, $\hat m(10)=3$, $\hat m(11)=1$. Les probabilitats d'error per missatge són $P_{\mathrm e}(1)=2p(1-p)$ i $P_{\mathrm e}(2)=P_{\mathrm e}(3)=2p-p^2$.</p><p>Calcula la probabilitat d'error mitjana $P_{\mathrm e}$.</p>
+  <p>(a) $2p-\tfrac{4p^2}{3}$<br>
+  (b) $2p-2p^2$<br>
+  (c) $6p-4p^2$<br>
+  (d) $2p-p^2$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Mitjanant sobre missatges equiprobables ($\mathbb P(m)=\tfrac13$): $P_{\mathrm e}=\tfrac13\big(2p(1-p)+(2p-p^2)+(2p-p^2)\big)$. El parèntesi s'expandeix a $2p-2p^2+2p-p^2+2p-p^2=6p-4p^2$, així $P_{\mathrm e}=\tfrac13(6p-4p^2)=2p-\tfrac{4p^2}{3}$. El terme $-\tfrac{4p^2}{3}$ reflecteix que la doble inversió $00\to11$ encara es descodifica correctament. (L'opció $6p-4p^2$ oblida el factor $\tfrac13$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.32.</span></p>
+  <p>Es transmeten dos missatges equiprobables a través d'un <em>canal binari asimètric</em> sense memòria amb les paraules codi $\boldsymbol{x}_1=000$ i $\boldsymbol{x}_2=111$. Un $0$ transmès s'inverteix amb probabilitat $p$ i un $1$ transmès s'inverteix amb probabilitat $2p$. El receptor aplica <em>descodificació de mínima distància de Hamming</em>. Quina és la probabilitat d'error total $P_{\mathrm e}$?</p>
+  <p>(a) $P_{\mathrm e}=\dfrac{15p^2}{2}-9p^3$<br>
+  (b) $P_{\mathrm e}=15p^2-18p^3$<br>
+  (c) $P_{\mathrm e}=3p^2-2p^3$<br>
+  (d) $P_{\mathrm e}=\dfrac{15p^2}{2}-18p^3$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Amb les paraules codi $000$ i $111$, la descodificació de mínima distància erra quan s'inverteixen almenys dos dels tres bits (distància de Hamming $3$, sense empats perquè $3$ és senar). Si s'envia $000$, cada bit s'inverteix amb probabilitat $p$: $P_{\mathrm e}(1)=\binom{3}{2}p^2(1-p)+p^3=3p^2-2p^3$. Si s'envia $111$, cada bit s'inverteix amb probabilitat $2p$: $P_{\mathrm e}(2)=3(2p)^2(1-2p)+(2p)^3=12p^2-16p^3$. En fer la mitjana sobre els dos missatges equiprobables, $P_{\mathrm e}=\tfrac12(3p^2-2p^3)+\tfrac12(12p^2-16p^3)=\tfrac12(15p^2-18p^3)=\dfrac{15p^2}{2}-9p^3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.33.</span></p>
+  <p>S'envien tres missatges equiprobables $m\in\{1,2,3\}$ a través d'un canal binari simètric amb probabilitat de creuament $p=\tfrac13$, fent servir les paraules codi $\boldsymbol{x}_1=000$, $\boldsymbol{x}_2=010$, $\boldsymbol{x}_3=111$. El descodificador només mira els dos últims bits $y_2y_3$: retorna $\hat m=1$ si $y_2y_3=00$, $\hat m=3$ si $y_2y_3=11$, i $\hat m=2$ altrament. Calcula la probabilitat d'error mitjana $P_{\rm e}$.</p>
+  <p>(a) $P_{\rm e}=\tfrac{14}{27}\approx 0.519$<br>
+  (b) $P_{\rm e}=\tfrac{13}{27}\approx 0.481$<br>
+  (c) $P_{\rm e}=\tfrac{4}{9}\approx 0.444$<br>
+  (d) $P_{\rm e}=\tfrac{5}{9}\approx 0.556$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Els conjunts de decisió són $\mathcal D_1=\{000,100\}$, $\mathcal D_2=\{001,010,101,110\}$, $\mathcal D_3=\{011,111\}$. Amb $\mathbb{P}(\boldsymbol{y}\mid\boldsymbol{x})=p^{d}(1-p)^{3-d}$ i $p=\tfrac13$: els missatges 1 i 3 donen cadascun $P_{\rm e}=1-(1-p)^3-p(1-p)^2=\tfrac{15}{27}=\tfrac59$, i el missatge 2 dona $P_{\rm e}=2p(1-p)^2+2p^2(1-p)=\tfrac{12}{27}=\tfrac49$. Fent la mitjana amb probabilitat a priori $\tfrac13$: $P_{\rm e}=\tfrac13(\tfrac{15}{27}+\tfrac{12}{27}+\tfrac{15}{27})=\tfrac{14}{27}\approx0.519$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.34.</span></p>
+  <p>En un canal binari simètric amb $p=\tfrac13$, s'envia la paraula codi $\boldsymbol{x}_1=000$. El descodificador només llegeix $y_2y_3$ i descodifica correctament a $\hat m=1$ exactament quan $y_2y_3=00$ (el primer bit rebut és irrellevant). Calcula la probabilitat d'error condicional $P_{\rm e}(1)$.</p>
+  <p>(a) $\tfrac{5}{9}$<br>
+  (b) $\tfrac{4}{9}$<br>
+  (c) $\tfrac{1}{3}$<br>
+  (d) $\tfrac{19}{27}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La descodificació correcta necessita $y_2=y_3=0$, és a dir $\boldsymbol{y}\in\{000,100\}$. Aquestes tenen distància de Hamming $d=0$ (prob. $(1-p)^3$) i $d=1$ (prob. $p(1-p)^2$) respecte de $000$, així que $P_{\rm c}(1)=(1-p)^3+p(1-p)^2$ i $P_{\rm e}(1)=1-(1-p)^3-p(1-p)^2$. Per a $p=\tfrac13$: $(1-p)^3=\tfrac{8}{27}$, $p(1-p)^2=\tfrac{4}{27}$, d'on $P_{\rm e}(1)=1-\tfrac{12}{27}=\tfrac{15}{27}=\tfrac59$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.35.</span></p>
+  <p>En un canal binari simètric amb $p=\tfrac13$, s'envia la paraula codi $\boldsymbol{x}_2=010$. El descodificador només llegeix $y_2y_3$ i retorna $\hat m=2$ (correcte) exactament quan $y_2y_3\in\{01,10\}$, és a dir $\boldsymbol{y}\in\{001,010,101,110\}$. Calcula la probabilitat d'error condicional $P_{\rm e}(2)$.</p>
+  <p>(a) $\tfrac{4}{9}$<br>
+  (b) $\tfrac{5}{9}$<br>
+  (c) $\tfrac{8}{27}$<br>
+  (d) $\tfrac{2}{3}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>El conjunt correcte $\mathcal D_2=\{010,110,001,101\}$ té distàncies $d=0,1,2,3$ respecte de $010$, així que $P_{\rm c}(2)=(1-p)^3+p(1-p)^2+p^2(1-p)+p^3$. L'error complementari és $P_{\rm e}(2)=2p(1-p)^2+2p^2(1-p)$. Per a $p=\tfrac13$: $p(1-p)^2=\tfrac{4}{27}$ i $p^2(1-p)=\tfrac{2}{27}$, de manera que $P_{\rm e}(2)=2\cdot\tfrac{4}{27}+2\cdot\tfrac{2}{27}=\tfrac{12}{27}=\tfrac49$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.36.</span></p>
+  <p>Un <em>codi de repetició</em> $\{\boldsymbol{x}_1,\boldsymbol{x}_2\}=\{00\cdots0,\,11\cdots1\}$ de longitud $n$ s'utilitza sobre un BSC amb probabilitat d'inversió de bit $0&lt;p&lt;1$. El missatge $1$ ($\boldsymbol{x}_1=00\cdots0$) té probabilitat a priori $1-\alpha$ i el missatge $2$ ($\boldsymbol{x}_2=11\cdots1$) té probabilitat a priori $\alpha$. El descodificador retorna $\hat m=2$ només si $\boldsymbol{y}=11\cdots1$, i $\hat m=1$ altrament. Quin és el límit de la probabilitat d'error $P_{\rm e}$ quan $n\to\infty$?</p>
+  <p>(a) $\alpha$<br>
+  (b) $1-\alpha$<br>
+  (c) $0$<br>
+  (d) $\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Donat el missatge $1$, cal invertir els $n$ bits, així que $P_{\rm e}(1)=p^{\,n}$. Donat el missatge $2$, una decisió correcta requereix no invertir cap bit, així que $P_{\rm e}(2)=1-(1-p)^{\,n}$. Promitjant amb la a priori, $P_{\rm e}=(1-\alpha)p^{\,n}+\alpha\bigl(1-(1-p)^{\,n}\bigr)$. Com que $0&lt;p&lt;1$, tant $p^{\,n}\to0$ com $(1-p)^{\,n}\to0$, per tant $P_{\rm e}\to(1-\alpha)\cdot0+\alpha\cdot1=\boldsymbol{\alpha}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.37.</span></p>
+  <p>Dos missatges equiprobables $m\in\{1,2\}$ es transmeten per un <em>canal binari asimètric</em> amb probabilitats de creuament $P_{Y\mid X}(1\mid 0)=p_0$ i $P_{Y\mid X}(0\mid 1)=p_1$. Les paraules codi són $\boldsymbol{x}_1=101$ i $\boldsymbol{x}_2=010$, i els tres usos del canal són independents. El descodificador fix associa al missatge $2$ exactament les sortides $\{010,011,101,110\}$ (la resta al $1$). Calcula la probabilitat d'error condicional del missatge $m=1$, $P_{\rm e}(1)$.</p>
+  <p>(a) $P_{\rm e}(1)=p_0\,p_1^{2}+2\,p_0\,p_1(1-p_1)+(1-p_0)(1-p_1)^{2}$<br>
+  (b) $P_{\rm e}(1)=p_0\,p_1^{2}+2\,p_0\,p_1(1-p_1)$<br>
+  (c) $P_{\rm e}(1)=p_1\,p_0^{2}+2\,p_1\,p_0(1-p_0)+(1-p_1)(1-p_0)^{2}$<br>
+  (d) $P_{\rm e}(1)=p_0\,p_1^{2}+p_0\,p_1(1-p_1)+(1-p_0)(1-p_1)^{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Amb $\boldsymbol{x}_1=101$ transmès, $P_{\rm e}(1)=\sum_{\boldsymbol{y}\in\mathcal{E}_1}P_{\boldsymbol{Y}\mid\boldsymbol{X}}(\boldsymbol{y}\mid 101)$ sobre la regió d'error $\mathcal{E}_1=\{010,011,101,110\}$. Per posició respecte a $101$: el bit $1$ (enviat $1$) gira amb $p_1$, el bit $2$ (enviat $0$) amb $p_0$, el bit $3$ (enviat $1$) amb $p_1$. Els quatre termes són $010\!:p_0p_1^2$, $011\!:p_0p_1(1-p_1)$, $110\!:p_0p_1(1-p_1)$ i $101\!:(1-p_0)(1-p_1)^2$ (la sortida sense soroll, descodificada igualment al $2$). Sumant: $P_{\rm e}(1)=p_0p_1^{2}+2p_0p_1(1-p_1)+(1-p_0)(1-p_1)^{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.38.</span></p>
+  <p>Tres missatges equiprobables es transmeten per un BSC amb probabilitat d'inversió de bit $p&lt;\tfrac12$ fent servir les paraules codi $\boldsymbol{x}_1=00$, $\boldsymbol{x}_2=01$, $\boldsymbol{x}_3=11$, descodificades per distància de Hamming mínima. La paraula rebuda $\boldsymbol{y}=10$ produeix un empat entre $\boldsymbol{x}_1$ i $\boldsymbol{x}_3$; la convenció (i) el resol com $\hat m(10)=1$. Calcula la probabilitat d'error mitjana $P_{\rm e}^{(i)}$.</p>
+  <p>(a) $P_{\rm e}^{(i)}=\dfrac{5p-2p^2}{3}$<br>
+  (b) $P_{\rm e}^{(i)}=2p-p^2$<br>
+  (c) $P_{\rm e}^{(i)}=\dfrac{4p-2p^2}{3}$<br>
+  (d) $P_{\rm e}^{(i)}=p$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Amb $\mathcal D_1=\{00,10\}$: el missatge $1$ és correcte si i només si el 2n bit sobreviu, per tant $P_{\rm e}(1)=p$. Els missatges $2$ i $3$ només són correctes en recepció exacta, així $P_{\rm e}(2)=P_{\rm e}(3)=1-(1-p)^2=2p-p^2$. Fent la mitjana dels tres: $P_{\rm e}^{(i)}=\frac{p+2(2p-p^2)}{3}=\frac{5p-2p^2}{3}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.39.</span></p>
+  <p>El mateix BSC amb les paraules codi $\boldsymbol{x}_1=00$, $\boldsymbol{x}_2=01$, $\boldsymbol{x}_3=11$ i descodificació per distància de Hamming mínima, $p&lt;\tfrac12$. L'empat a $\boldsymbol{y}=10$ es resol ara per la convenció (ii): $\hat m(10)=3$. Calcula $P_{\rm e}^{(ii)}$ i compara'l amb $P_{\rm e}^{(i)}=\dfrac{5p-2p^2}{3}$.</p>
+  <p>(a) $P_{\rm e}^{(ii)}=\dfrac{5p-2p^2}{3}=P_{\rm e}^{(i)}$<br>
+  (b) $P_{\rm e}^{(ii)}=2p-p^2&gt;P_{\rm e}^{(i)}$<br>
+  (c) $P_{\rm e}^{(ii)}=\dfrac{5p-2p^2}{3}&gt;P_{\rm e}^{(i)}$<br>
+  (d) $P_{\rm e}^{(ii)}=p&lt;P_{\rm e}^{(i)}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Assignar $10$ a $\mathcal D_3$ intercanvia els papers dels missatges $1$ i $3$: ara $P_{\rm e}(3)=p$ i $P_{\rm e}(1)=P_{\rm e}(2)=2p-p^2$. El multiconjunt de valors per missatge $\{p,2p-p^2,2p-p^2\}$ no canvia (simetria del codi sota el complement de bits $\boldsymbol{x}_1\leftrightarrow\boldsymbol{x}_3$), de manera que $P_{\rm e}^{(ii)}=\frac{5p-2p^2}{3}=P_{\rm e}^{(i)}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.40.</span></p>
+  <p>El mateix codi BSC ($\boldsymbol{x}_1=00$, $\boldsymbol{x}_2=01$, $\boldsymbol{x}_3=11$, $p&lt;\tfrac12$). Ara l'empat a $\boldsymbol{y}=10$ es tracta per la convenció (iii): $\hat m(10)=e$, un símbol d'error comptat com a error de descodificació sigui quin sigui el missatge enviat. Calcula la probabilitat d'error mitjana $P_{\rm e}^{(iii)}$.</p>
+  <p>(a) $P_{\rm e}^{(iii)}=2p-p^2$<br>
+  (b) $P_{\rm e}^{(iii)}=\dfrac{5p-2p^2}{3}$<br>
+  (c) $P_{\rm e}^{(iii)}=2p-2p^2$<br>
+  (d) $P_{\rm e}^{(iii)}=3p-2p^2$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Ara $10$ no pertany a cap regió de decisió, així cada missatge només és correcte en recepció exacta: $P_{\rm e}(m)=1-(1-p)^2=2p-p^2$ per a $m=1,2,3$. Tots tres són iguals, per tant $P_{\rm e}^{(iii)}=2p-p^2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.41.</span></p>
+  <p>Per al mateix codi amb $P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}=\dfrac{5p-2p^2}{3}$ (resolucions deterministes de l'empat) i $P_{\rm e}^{(iii)}=2p-p^2$ (declarar error en l'empat), compara les tres convencions per a $0&lt;p&lt;\tfrac12$.</p>
+  <p>(a) $P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}&lt;P_{\rm e}^{(iii)}$, amb diferència $P_{\rm e}^{(iii)}-P_{\rm e}^{(i)}=\dfrac{p(1-p)}{3}$<br>
+  (b) $P_{\rm e}^{(iii)}&lt;P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}$, amb diferència $\dfrac{p(1-p)}{3}$<br>
+  (c) $P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}=P_{\rm e}^{(iii)}$ per a tot $p$<br>
+  (d) $P_{\rm e}^{(i)}&lt;P_{\rm e}^{(ii)}&lt;P_{\rm e}^{(iii)}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Les dues resolucions deterministes empaten entre elles per simetria. Restant, $P_{\rm e}^{(iii)}-P_{\rm e}^{(i)}=(2p-p^2)-\frac{5p-2p^2}{3}=\frac{p-p^2}{3}=\frac{p(1-p)}{3}&gt;0$ per a $0&lt;p&lt;1$. Així, declarar un esborrament empitjora estrictament el rendiment: $P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}&lt;P_{\rm e}^{(iii)}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 6.42.</span></p>
+  <p>S'envia un sol bit ($n=1$) per un <em>canal Z</em> amb $P_{Y\mid X}(1\mid 0)=0$ i $P_{Y\mid X}(0\mid 1)=q$, $q\in(0,1)$. Dos missatges $m\in\{1,2\}$ es codifiquen $1\mapsto X=0$, $2\mapsto X=1$, amb distribució a priori $P(m{=}1)=\tfrac14$, $P(m{=}2)=\tfrac34$. Es consideren tres descodificadors: (i) $\hat m(0)=1,\ \hat m(1)=2$; (ii) $\hat m(\boldsymbol y)=2$ sempre; (iii) $\hat m(0)=2,\ \hat m(1)=1$. Per a quin rang de $q$ assoleix el descodificador (ii) una probabilitat d'error mitjana estrictament menor que <em>tant</em> el (i) com el (iii)?</p>
+  <p>(a) $q&gt;\tfrac13$<br>
+  (b) $q&lt;\tfrac13$<br>
+  (c) $q&gt;\tfrac34$<br>
+  (d) tot $q\in(0,1)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Calcula les probabilitats d'error mitjanes $P_{\rm e}=\tfrac14 P_{\rm e}(1)+\tfrac34 P_{\rm e}(2)$. Descodificador (i): $\tfrac14\cdot 0+\tfrac34 q=\tfrac{3q}{4}$. Descodificador (ii): $\tfrac14\cdot 1+\tfrac34\cdot 0=\tfrac14$. Descodificador (iii): $\tfrac14\cdot 1+\tfrac34(1-q)=1-\tfrac{3q}{4}$. Exigir $\tfrac14&lt;\tfrac{3q}{4}$ dona $q&gt;\tfrac13$; exigir $\tfrac14&lt;1-\tfrac{3q}{4}$ dona $q&lt;1$, cert per a tot $q$ admissible. La restricció vinculant és la comparació amb (i), de manera que la resposta és $q&gt;\tfrac13$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

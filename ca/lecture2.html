@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -38,36 +38,36 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html" class="active">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
   <main class="content">
@@ -98,7 +98,7 @@ $$
 
 <details class="solution"><summary>Mostra la solució</summary>
 <p>
-	Primer observem que $0\leq p \leq 1$ perquè $X$ tingui una distribució de probabilitat vàlida. La mitjana de $X$ ve donada per $\mathbb{E}[X]=\sum_{x\in{\cal X}} x P_X(x) = 0\cdot P_X(0) + 1 \cdot P_X(1) = P_X(1) = 1-p$. El moment de segon ordre és $\mathbb{E}[X^2]=\sum_{x\in{\cal X}}x^2P_X(x) = 0^2 \cdot P_X(0) + 1^2\cdot P_X(1) = 1-p$. Per tant, $\text{var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2 = 1-p-(1-p)^2 = p - p^2=p(1-p)$. La derivada de la variància respecte a $p$ és $1-2p$, que és positiva per a $p\lt \frac 12$, igual a zero per a $p=\frac 12$ i negativa per a $p\gt \frac 12$, cosa que implica que hi ha un màxim a $p=\frac 12$. El valor d'aquesta variància és $\text{var}(X)=\frac 14$.
+	Primer observem que $0\leq p \leq 1$ perquè $X$ tingui una distribució de probabilitat vàlida. La mitjana de $X$ ve donada per $\mathbb{E}[X]=\sum_{x\in{\cal X}} x P_X(x) = 0\cdot P_X(0) + 1 \cdot P_X(1) = P_X(1) = 1-p$. El moment de segon ordre és $\mathbb{E}[X^2]=\sum_{x\in{\cal X}}x^2P_X(x) = 0^2 \cdot P_X(0) + 1^2\cdot P_X(1) = 1-p$. Per tant, $\text{var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2 = 1-p-(1-p)^2 = p - p^2=p(1-p)$. La derivada de la variància respecte a $p$ és $1-2p$, que és positiva per a $p&lt;\frac 12$, igual a zero per a $p=\frac 12$ i negativa per a $p&gt;\frac 12$, cosa que implica que hi ha un màxim a $p=\frac 12$. El valor d'aquesta variància és $\text{var}(X)=\frac 14$.
 </p>
 
 </details>
@@ -142,8 +142,8 @@ Donada una variable aleatòria $X$, la sortida d'una funció determinista $f(x)$
 També trobarem funcions que involucren tres variables aleatòries. Per exemple:
 </p>
 
-<div class="env-block env-example"><p><span class="env-label">Exemple 2.1.</span> 
- 	Siguin $X$ i $Y$ dues variables aleatòries independents, ambdues prenent valors a $\{0,1\}$ amb distribució de probabilitat $\bigl\{ \frac 12,\frac 12\}$, i definim una nova variable aleatòria com $Z=X+Y$. Totes les combinacions possibles de la suma $X+Y$ donen com a resultat l'alfabet de $Z$, és a dir, $\{0,1,2\}$. A continuació, podem escriure en general que
+<div class="env-block env-example"><p><span class="env-label">Exemple 2.3.</span> 
+ 	Siguin $X$ i $Y$ dues variables aleatòries independents, ambdues prenent valors a $\{0,1\}$ amb distribució de probabilitat $\bigl\{ \frac 12,\frac 12\bigr\}$, i definim una nova variable aleatòria com $Z=X+Y$. Totes les combinacions possibles de la suma $X+Y$ donen com a resultat l'alfabet de $Z$, és a dir, $\{0,1,2\}$. A continuació, podem escriure en general que
  	$$\begin{gather}
 	P_Z(z)=\sum_{(x,y)\in\{0,1\}^2} P_{XYZ}(x,y,z), \tag{2.8}\end{gather}$$
 	on $P_{XYZ}(x,y,z)$ és la distribució conjunta de les tres variables aleatòries. Tal distribució sempre es pot factoritzar com $P_{XYZ}(x,y,z)=P_{Z|XY}(z|x,y)P_{XY}(x,y)$ i, atès que $X$ i $Y$ són independents, també com $P_{XYZ}(x,y,z)=P_{Z|XY}(z|x,y)P_{X}(x)P_Y(y)$. Ara, per exemple, per determinar $P_Z(1)$ observem que atès que $X+Y$ (l'operació de suma) és una funció determinista, tenim que $P_{Z|XY}(1|0,0)=0$, $P_{Z|XY}(1|0,1)=1$, $P_{Z|XY}(1|1,0)=1$ i $P_{Z|XY}(1|1,1)=0$. Combinant-ho tot,
@@ -161,19 +161,19 @@ També trobarem funcions que involucren tres variables aleatòries. Per exemple:
 <h2>Desigualtats de Markov i Chebyshev</h2>
 
 <p>
-Per a una variable aleatòria positiva $X$ i un valor $a\gt 0$, la <strong>desigualtat de Markov</strong> estableix que
+Per a una variable aleatòria positiva $X$ i un valor $a&gt;0$, la <strong>desigualtat de Markov</strong> estableix que
 $$
 	\mathbb{P}[X \geq a] \leq \frac{\mathbb{E}[X]}{a}.
 	\tag{2.13}
 $$
 </p>
 
-<div class="env-block env-example"><p><span class="env-label">Exemple 2.2.</span> 
+<div class="env-block env-example"><p><span class="env-label">Exemple 2.4.</span> 
 <a id="ex:2.4"></a>
-Suposem que 	$X$ pren valors a $\{1,2,3\}$ amb igual probabilitat. Aleshores, podem calcular $\mathbb{P}[X>a]$ com una funció de $a$ usant que
+Suposem que 	$X$ pren valors a $\{1,2,3\}$ amb igual probabilitat. Aleshores, podem calcular $\mathbb{P}[X\ge a]$ com una funció de $a$ usant que
 $$
 	\mathbb{P}[X\geq a] = \sum_{x\in{\cal A}} P_X(x), \tag{2.14}$$
-on ${\cal A}$ és el conjunt de valors de $X$ que satisfan l'esdeveniment “$X\geq a$”. Per a $a\in(-\infty,1]$, els tres valors satisfan la condició, per tant $\mathbb{P}[X\geq a]=1$. Per a $a\in(1,2]$ només dos valors satisfan la condició, per tant $\mathbb{P}[X\geq a]=\frac 23$. En conclusió, obtenim la funció de distribució $F_X(x)$ de la variable aleatòria $X$ avaluada a $a$, és a dir
+on ${\cal A}$ és el conjunt de valors de $X$ que satisfan l'esdeveniment “$X\geq a$”. Per a $a\in(-\infty,1]$, els tres valors satisfan la condició, per tant $\mathbb{P}[X\geq a]=1$. Per a $a\in(1,2]$ només dos valors satisfan la condició, per tant $\mathbb{P}[X\geq a]=\frac 23$. En conclusió, obtenim la funció de cua (supervivència) $\mathbb{P}[X\ge a]$ de la variable aleatòria $X$ avaluada a $a$, és a dir
 $$
 	\mathbb{P}[X\geq a] = \begin{cases}
  	1 & a \in (-\infty,1]\\
@@ -183,41 +183,41 @@ $$
  \end{cases} \tag{2.15}$$
 mentre que el límit superior de Markov a $(2.13)$ ve donat per $\frac{\mathbb{E}[X]}{a} = \frac{2}{a}$. Representant gràficament ambdues quantitats juntes, obtenim la Figura 2.1, validant la desigualtat per a aquest exemple.
 </p>
-<figure><img src="../img/tikz/lecture2-fig1.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
-	<figcaption>Figura 2.1. Desigualtat de Markov a l'Exemple 2.4.</figcaption>
+<figure><img src="../img/tikz/lecture2-fig1.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
+	<figcaption>Desigualtat de Markov a l'Exemple 2.4.</figcaption>
 	<a id="fig:2.1"></a>
 </p>
 
 </div>
 
 <p>
-Per altra banda, la <strong>desigualtat de Chebyshev</strong> relaciona la probabilitat que una variable aleatòria $X$ es trobi a certa distància de la mitjana a través de la seva variància. Sigui $X$ una variable aleatòria amb una variància ${\rm var}(X)$ diferent de zero. Per a qualsevol $k\gt 0$, tenim que
+Per altra banda, la <strong>desigualtat de Chebyshev</strong> relaciona la probabilitat que una variable aleatòria $X$ es trobi a certa distància de la mitjana a través de la seva variància. Sigui $X$ una variable aleatòria amb una variància ${\rm var}(X)$ diferent de zero. Per a qualsevol $k&gt;0$, tenim que
 $$
 	\mathbb{P}\bigl[|X-\mathbb{E}[X]| \geq k\bigr] \leq \frac{{\rm var}(X)}{k^2}.
 	\tag{2.16}
 $$
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problema 2.3.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problema 2.5.</span> 
 <a id="prob:2.5"></a>
- 	Per a un enter $n\geq 1$, definim la variable aleatòria $Z$ com $Z=X_1+\ldots+X_n$, on $(X_1,\ldots,X_n)$ és una seqüència de variables aleatòries i.i.d., cadascuna distribuïda com $X_i\in\{0,1\}$ amb distribució de probabilitat $\{1-p,p\}$. Quan $n\to\infty$ i per a qualsevol $k\gt 0$, a què convergeix $ \mathbb{P}\bigl[|Z-np| \lt  nk\bigr]$?
+ 	Per a un enter $n\geq 1$, definim la variable aleatòria $Z$ com $Z=X_1+\ldots+X_n$, on $(X_1,\ldots,X_n)$ és una seqüència de variables aleatòries i.i.d., cadascuna distribuïda com $X_i\in\{0,1\}$ amb distribució de probabilitat $\{1-p,p\}$. Quan $n\to\infty$ i per a qualsevol $k&gt;0$, a què convergeix $ \mathbb{P}\bigl[|Z-np| &lt; nk\bigr]$?
  	
 </p>
 <details class="solution"><summary>Mostra la solució</summary>
 <p>
 		La probabilitat de l'enunciat s'assembla a la desigualtat de Chebyshev a $(2.16)$. Primer, notem que $\mathbb{E}[Z]=\mathbb{E}[X_1+\ldots+X_n]=\mathbb{E}[X_1]+\ldots+\mathbb{E}[X_n]=n \mathbb{E}[X]$, on $\mathbb{E}[X]=(1-p)\cdot 0 + p\cdot 1 = p$. Per això,
 	 	$$
-			\mathbb{P}\bigl[|Z-np| < nk\bigr] = \mathbb{P}\bigl[|Z-\mathbb{E}[Z]| < nk\bigr] = 1 - \mathbb{P}\bigl[|Z-\mathbb{E}[Z]| \geq nk\bigr] \geq 1 - \frac{{\rm var}(Z)}{n^2k^2}. \tag{2.17}$$
+			\mathbb{P}\bigl[|Z-np| &lt; nk\bigr] = \mathbb{P}\bigl[|Z-\mathbb{E}[Z]| &lt; nk\bigr] = 1 - \mathbb{P}\bigl[|Z-\mathbb{E}[Z]| \geq nk\bigr] \geq 1 - \frac{{\rm var}(Z)}{n^2k^2}. \tag{2.17}$$
 	 	Com que les $X_i$ són independents, la variància de la suma és la suma de les variàncies, és a dir
 	 	$$
 			{\rm var}(Z) = {\rm var}(X_1+\ldots+X_n) = {\rm var}(X_1)+\ldots+{\rm var}(X_n) = n {\rm var}(X), \tag{2.18}$$
 	 	on ${\rm var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2 = p-p^2=p(1-p)$. Combinant-ho tot, obtenim que
 	 	$$
-			\mathbb{P}\bigl[|Z-np| < nk\bigr] \geq 1 - \frac{p(1-p)}{nk^2}. \tag{2.19}$$
+			\mathbb{P}\bigl[|Z-np| &lt; nk\bigr] \geq 1 - \frac{p(1-p)}{nk^2}. \tag{2.19}$$
 	 	Com que $n\to\infty$, la desigualtat anterior dóna com a resultat
 	 	$$
-			\lim_{n\to\infty} \mathbb{P}\bigl[|Z-np| < nk\bigr] \geq 1. \tag{2.20}$$
-	 	Com que una probabilitat no pot excedir $1$, podem concloure que $ \lim_{n\to\infty} \mathbb{P}\bigl[|Z-np| \lt  nk\bigr] = 1$.
+			\lim_{n\to\infty} \mathbb{P}\bigl[|Z-np| &lt; nk\bigr] \geq 1. \tag{2.20}$$
+	 	Com que una probabilitat no pot excedir $1$, podem concloure que $ \lim_{n\to\infty} \mathbb{P}\bigl[|Z-np| &lt; nk\bigr] = 1$.
 	
 </p>
 </details>
@@ -237,11 +237,11 @@ $$
 	\overline{X} = \frac{X_1+\ldots+X_n}{n}, \tag{2.21}$$
 convergeix (en probabilitat) a la mitjana estadística $\mathbb{E}[X]$. Matemàticament parlant,
 $$
-	\lim_{n\to\infty} \mathbb{P}\left[|\overline{X}-\mathbb{E}[X]|< \epsilon \right] = 1, \tag{2.22}$$
+	\lim_{n\to\infty} \mathbb{P}\left[|\overline{X}-\mathbb{E}[X]|&lt; \epsilon \right] = 1, \tag{2.22}$$
 és a dir, la probabilitat que la mitjana mostral estigui lluny de la mitjana estadística s'anul·la com $n\to\infty$.
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problema 2.4.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problema 2.6.</span> 
 Considerem la seqüència de variables aleatòries iid $(X_1,\ldots,X_n)$ on cada $X_i$ pren valors a $\{1,e\}$ amb igual probabilitat i definim una nova variable aleatòria $Y$ com
 $$
 	Y = \frac{\ln(X_1)+\ldots+\ln(X_n)}{n}. \tag{2.23}$$
@@ -262,7 +262,7 @@ Aleshores, com $n\to\infty$, la variable aleatòria $Y$ convergeix a?
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Teoria de la informació i la codificació 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

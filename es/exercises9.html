@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -40,44 +40,499 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html" class="active">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Ejercicios: 9. Medidas de información</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+    <button id="expand-all" data-expand="Mostrar todas las soluciones" data-collapse="Ocultar todas las soluciones" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostrar todas las soluciones</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.1.</span> ¿Cuál es la entropía conjunta $H(X_1, Z)$?</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $\log_2(3)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Como $X_1$ y $Z$ son independientes y $H(X_1)=H(Z)=1$, tenemos $H(X_1,Z)=2$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.2.</span> ¿Cuál es la información mutua $I(X_1; Y_1)$?</p>
+  <p>(a) $\tfrac12$<br>
+  (b) $1$<br>
+  (c) $\tfrac32$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La información mutua se calcula como $I(X_1;Y_1) = H(Y_1) - H(Y_1|X_1)$. Sabiendo que $Y_1$ toma los valores $\{1,2,3\}$ con probabilidades $\{1/4, 1/2, 1/4\}$, obtenemos $H(Y_1)=3/2$ bits. Si $X_1=0$, entonces $Y_1=Z$ y por tanto $H(Y_1|X_1=0)=1$. De forma análoga, $H(Y_1|X_1=1)=1$. Así, $H(Y_1|X_1)= (1/2)\cdot 1 + (1/2)\cdot 1 = 1$, y finalmente $I(X_1;Y_1)=3/2-1=1/2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.3.</span> ¿Cuál es la entropía condicional $H(Y_1 | X_1, Z)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Dados $X_1$ y $Z$, $Y_1=X_1+Z$ queda determinado. Por tanto, $H(Y_1|X_1,Z)=0$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.4.</span> ¿Cuál es la entropía condicional $H(Z \mid Y_1)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Podemos escribir la entropía condicional como $H(Z \mid Y_1) = H(Z) - I(Z;Y_1)$, donde $I(Z;Y_1) = H(Y_1) - H(Y_1 \mid Z)$. Como $H(Z)=1$, $H(Y_1)=3/2$ y $H(Y_1 \mid Z)=1$, obtenemos que $I(Z;Y_1)=3/2-1=1/2$ y, por tanto, $H(Z \mid Y_1)=1-1/2=1/2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.5.</span> ¿Cuál es la entropía conjunta $H(Y_1, Y_2, Z)$?</p>
+  <p>(a) $2$<br>
+  (b) $\tfrac{11}{4}$<br>
+  (c) $3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>En este caso, $H(Y_1,Y_2,Z) = H(Z) + H(Y_1,Y_2 \mid Z)$, donde $H(Z)=1$. Dado $Z$, $Y_1$ y $Y_2$ son condicionalmente independientes y, por tanto, $H(Y_1,Y_2 \mid Z) = H(Y_1 \mid Z)+H(Y_2 \mid Z)$. En la pregunta 4 encontramos que $H(Y_1 \mid Z)=1$, mientras que $H(Y_2 \mid Z)=1$ por simetría. Así, $H(Y_1,Y_2 \mid Z)=2$ y $H(Y_1,Y_2,Z)=1+2=3$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.6.</span> ¿Cuál es la entropía $H(X_1)$?</p>
+  <p>(a) $0$<br>
+  (b) $1$<br>
+  (c) $2$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>$X_1$ toma valores en $\{0,1\}$ con igual probabilidad ($1/2$). Por tanto, $H(X_1)=\log_2(2)=1$ bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.7.</span> ¿Cuál es la información mutua $I(X_1; X_2)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $X_1$ y $X_2$ son independientes, $I(X_1;X_2)=0$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.8.</span> ¿Cuál es la entropía condicional $H(Y_1 \mid Y_2, Z)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Dado $Z$, $Y_1$ y $Y_2$ son condicionalmente independientes, por tanto $H(Y_1 \mid Y_2,Z)=H(Y_1 \mid Z)$. De nuevo, de la pregunta 4 sabemos que $H(Y_1 \mid Z)=1$, lo que conduce a la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.9.</span> ¿Cuál es la entropía conjunta $H(X_1, X_2)$?</p>
+  <p>(a) $1$<br>
+  (b) $\log_2(3)$<br>
+  (c) $2$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Como $X_1$ y $X_2$ son independientes, $H(X_1,X_2)=H(X_1)+H(X_2)$, donde tanto $H(X_1)$ como $H(X_2)$ valen $1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.10.</span> ¿Cuál es la información mutua condicional $I(X_1; Z \mid Y_1)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac14$<br>
+  (c) $\tfrac12$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Podemos escribir la información mutua condicional como $I(X_1;Z \mid Y_1) = H(X_1 \mid Y_1) - H(X_1 \mid Y_1,Z)$. El primer término se puede desarrollar como $H(X_1 \mid Y_1) = H(X_1) - I(X_1;Y_1) = 1 - 1/2 = 1/2$, donde hemos usado que $H(X_1)=1$ y el valor de $I(X_1;Y_1)$ de la pregunta 2. Dados tanto $Y_1$ como $Z$, $X_1$ queda perfectamente determinado, de modo que $H(X_1 \mid Y_1,Z)=0$. Por tanto, $I(X_1;Z \mid Y_1)=1/2-0=1/2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.11.</span></p>
+  <p>Considere las variables aleatorias independientes $X_1$, $X_2$ y $Z$ que toman valores en $\{0,1\}$, $\{0,1\}$ y $\{1,2\}$, respectivamente, todas con igual probabilidad. Definimos</p>$$Y_1=X_1+Z, \qquad Y_2=X_2+Z.$$<p>¿Cuál es la información mutua $I(Y_1;Y_2)$?</p>
+  <p>(a) $\frac{1}{4}$<br>
+  (b) $\frac{3}{2}$<br>
+  (c) $\frac{11}{4}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Observamos que $Y_1$ y $Y_2$ están idénticamente distribuidas, pero no son estadísticamente independientes porque ambas dependen del mismo $Z$. Tanto $Y_1$ como $Y_2$ toman valores en $\{1,2,3\}$ con distribuciones marginales $P_{Y_1}(y_1)$ y $P_{Y_2}(y_2)$ dadas ambas por $\bigl\{ \frac 14, \frac 12, \frac 14 \bigr\}$. Por tanto, $H(Y_1)=H(Y_2)=\frac 32$. Por otro lado, la distribución conjunta $P_{Y_1Y_2}(y_1,y_2)$ se puede hallar escribiendo en una tabla todas las combinaciones de la terna $(X_1,X_2,Z)$ como $P_{Y_1Y_2}(1,1)=\frac 18$, $P_{Y_1Y_2}(1,2)=\frac 18$, $P_{Y_1Y_2}(1,3)=0$, $P_{Y_1Y_2}(2,1)=\frac 18$, $P_{Y_1Y_2}(2,2)=\frac 14$, $P_{Y_1Y_2}(2,3)=\frac 18$, $P_{Y_1Y_2}(3,1)=0$, $P_{Y_1Y_2}(3,2)=\frac 18$ y $P_{Y_1Y_2}(3,3)=\frac 18$. Por tanto, $H(Y_1,Y_2)=\frac{11}{4}$. Finalmente, obtenemos la respuesta correcta usando que $I(Y_1;Y_2)=H(Y_1)+H(Y_2)-H(Y_1,Y_2)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.12.</span> ¿Cuál es el valor de la entropía $H(X_1\cdots X_n)$? Justifica por qué las demás son falsas.</p>
+  <p>(a) $n\log_2 |\mathcal{X}|$ (en bits)<br>
+  (b) $\log_2 |\mathcal{X}|$ (en bits/uso del canal)<br>
+  (c) $\log_2 |\mathcal{X}|$ (en bits)</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como los símbolos transmitidos son i.i.d., $H(X_1\cdots X_n)=nH(X_i)=n\log_2 |\mathcal{X}|$ en bits. Bits/uso del canal no es la unidad de la entropía.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.13.</span> ¿Cuál es el valor de la información mutua empírica $\tfrac{1}{n} \sum_{i=1}^n I(X_i;Y_i)$ cuando la incertidumbre residual es $H(X_1 \cdots X_n|Y_1 \cdots Y_n)=\tfrac{n}{3}\log_2 |\mathcal{X}|$?</p>
+  <p>(a) $\frac{2n}{3} \log_2 |\mathcal{X}|$<br>
+  (b) $\frac{n}{3} \log_2 |\mathcal{X}|$<br>
+  (c) $\frac{2}{3} \log_2 |\mathcal{X}|$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>La información mutua se puede desarrollar como $I(X_1\cdots X_n ; Y_1\cdots Y_n)=H(X_1 \cdots X_n)-H(X_1 \cdots X_n|Y_1 \cdots Y_n)$. Como los símbolos transmitidos son equiprobables e i.i.d., $H(X_1 \cdots X_n) = n\log_2|\mathcal{X}|$. Por tanto, $I(X_1 \cdots X_n ; Y_1 \cdots Y_n)= \tfrac{2n}{3} \log_2|\mathcal{X}|$. Por otro lado, como el canal es sin memoria y los símbolos transmitidos son i.i.d., tenemos que $$\begin{aligned} I(X_1\cdots X_n;Y_1\cdots Y_n) &= \sum_{i=1}^n I(X_i;Y_i) \\ &= \tfrac{2n}{3}\log_2 |\mathcal{X}|. \end{aligned}$$ Por tanto, $\tfrac{1}{n}\sum_{i=1}^n I(X_i;Y_i)=\tfrac{2}{3}\log_2|\mathcal{X}|$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.14.</span> Un experimento consiste en los dos pasos siguientes. Primero, se lanza una moneda justa y se anota cara o cruz. Si el resultado es cara, se lanza un dado justo de seis caras y se anota su cara; si el resultado es cruz, se lanza una segunda moneda justa y se anota su resultado. ¿Cuál es la entropía en bits del resultado del experimento de dos pasos?</p>
+  <p>(a) $\tfrac{1+\log_2(6)}{2}$<br>
+  (b) $\tfrac{3+\log_2(3)}{2}$<br>
+  (c) $\tfrac{4+\log_2(3)}{2}$<br>
+  (d) $\tfrac{2+\log_2(6)}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>El resultado del experimento se puede modelar con la variable aleatoria $X=(A,B)$, donde $A\in\{\text{cara},\text{cruz}\}$ y $B\in\{1,2,3,4,5,6,\text{cara},\text{cruz}\}$. Tras determinar todos los resultados posibles de $X$, obtenemos que $X$ tiene la distribución de probabilidad $\bigl\{\tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{4}, \tfrac{1}{4}\bigr\}$, a partir de la cual podemos calcular $H(X)$. Alternativamente, podemos usar la regla de la cadena de la entropía como $H(X)=H(A)+H(B|A)$, con $H(A)=1$ y $H(B|A)=\tfrac{1+\log_2(6)}{2}$, lo que lleva al mismo resultado.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.15.</span> Para dos variables aleatorias $X$ e $Y$, la regla de la cadena de la entropía establece</p>
+  <p>(a) $H(X,Y)=H(X)+H(Y|X)$<br>
+  (b) $H(X,Y)=H(X)+H(Y)$<br>
+  (c) $H(X,Y)=H(X)H(Y)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La regla de la cadena es $H(X,Y)=H(X)+H(Y|X)$, siempre válida. La igualdad $H(X,Y)=H(X)+H(Y)$ solo se cumple si $X,Y$ son independientes.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.16.</span> La desigualdad del procesamiento de datos establece que si $X\to Y\to Z$ es una cadena de Markov, entonces</p>
+  <p>(a) $I(X;Z)\leq I(X;Y)$<br>
+  (b) $I(X;Z)\geq I(X;Y)$<br>
+  (c) $I(X;Z)= I(X;Y)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Procesar datos a través de un canal solo puede perder información: $I(X;Z)\leq I(X;Y)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.17.</span> Si $X$ es una función determinista de $Y$, entonces $H(X|Y)=$</p>
+  <p>(a) $0$<br>
+  (b) $H(X)$<br>
+  (c) $H(Y)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Si $X=f(Y)$, conocer $Y$ determina $X$ completamente, de modo que no queda ninguna incertidumbre: $H(X|Y)=0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.18.</span> La información mutua $I(X;Y)$ se puede escribir como</p>
+  <p>(a) $H(X)+H(Y)-H(X,Y)$<br>
+  (b) $H(X)-H(Y)$<br>
+  (c) $H(X,Y)-H(X)-H(Y)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>$I(X;Y)=H(X)+H(Y)-H(X,Y)$ es una de las formas estándar, equivalente a $H(X)-H(X|Y)=H(Y)-H(Y|X)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.19.</span> ¿La información mutua es siempre no negativa?</p>
+  <p>(a) Sí, $I(X;Y)\geq 0$ siempre<br>
+  (b) No, puede ser negativa<br>
+  (c) Solo cuando $X$ e $Y$ son independientes</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La información mutua siempre es no negativa, $I(X;Y)\geq 0$, con igualdad si y solo si $X$ e $Y$ son independientes.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.20.</span> Para tres variables aleatorias $X$, $Y$, $Z$, la regla de la cadena para la información mutua es</p>
+  <p>(a) $I(X,Y;Z)=I(X;Z)+I(Y;Z|X)$<br>
+  (b) $I(X,Y;Z)=I(X;Z)+I(Y;Z)$<br>
+  (c) $I(X,Y;Z)=I(X;Z)I(Y;Z)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La regla de la cadena para la información mutua establece que $I(X,Y;Z)=I(X;Z)+I(Y;Z|X)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.21.</span> El condicionamiento reduce la entropía: $H(X|Y)\leq H(X)$. ¿Cuándo se cumple la igualdad?</p>
+  <p>(a) Cuando $X$ e $Y$ son independientes<br>
+  (b) Cuando $X$ es una función de $Y$<br>
+  (c) Siempre</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>$H(X|Y)=H(X)$ si y solo si $X$ e $Y$ son independientes, es decir, $Y$ no aporta ninguna información sobre $X$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.22.</span></p>
+  <p>Un código lineal binario genera $M$ palabras código mediante la matriz generadora $$\boldsymbol{G}=\begin{pmatrix}1&0&1&0&1&0&1\\0&1&0&1&0&1&0\\1&1&0&0&1&1&0\end{pmatrix},$$ cuyas tres filas son linealmente independientes sobre $\mathbb{F}_2$. Sea $V$ la selección de un mensaje de $\{1,\ldots,M\}$ de manera uniforme, y sea $\boldsymbol{X}=\boldsymbol{s}\boldsymbol{G}$ la palabra código correspondiente. Calcula la información mutua $I(V;\boldsymbol{X})$ (en bits).</p>
+  <p>(a) $0$<br>
+  (b) $\log_2(3)$<br>
+  (c) $7$<br>
+  (d) $3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(d)</strong> &#9733;</p>
+    <p>La matriz tiene $k=3$ filas y $n=7$ columnas, es decir, hay $M=2^k=8$ mensajes. Como las filas son independientes (rango $3$), el codificador $\boldsymbol{s}\mapsto\boldsymbol{s}\boldsymbol{G}$ es uno a uno, de modo que $V$ es una función determinista de $\boldsymbol{X}$ y $H(V\mid\boldsymbol{X})=0$. Con $V$ uniforme, $H(V)=\log_2 8=3$ bits, por tanto $I(V;\boldsymbol{X})=H(V)-H(V\mid\boldsymbol{X})=3-0=\boldsymbol{3}$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.23.</span></p>
+  <p>Sea $X$ una variable aleatoria que toma valores en $\mathcal{X}=\{1,2,3\}$ con distribución de probabilidad $\{p_1,p_2,p_3\}$. Definamos $Y=\lfloor X/2\rfloor$. Calcula la entropía $H(Y)$ (en bits).</p>
+  <p>(a) $p_1\log_2\frac{1}{p_1}+(p_2+p_3)\log_2\frac{1}{p_2+p_3}$<br>
+  (b) $p_1\log_2\frac{1}{p_1}+p_2\log_2\frac{1}{p_2}+p_3\log_2\frac{1}{p_3}$<br>
+  (c) $(p_1+p_2)\log_2\frac{1}{p_1+p_2}+p_3\log_2\frac{1}{p_3}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Aplicamos la aplicación determinista: $\lfloor 1/2\rfloor=0$, $\lfloor 2/2\rfloor=1$, $\lfloor 3/2\rfloor=1$, así $X=1$ da $Y=0$ mientras que $X=2,3$ dan ambos $Y=1$. Por tanto $Y$ es binaria con $\mathbb{P}[Y=0]=p_1$ y $\mathbb{P}[Y=1]=p_2+p_3$. Sustituyendo en $H(Y)=\sum_y \mathbb{P}[Y=y]\log_2\frac{1}{\mathbb{P}[Y=y]}$ obtenemos $H(Y)=p_1\log_2\frac{1}{p_1}+(p_2+p_3)\log_2\frac{1}{p_2+p_3}=h_2(p_1)$. La opción de tres términos es $H(X)\ge H(Y)$ (ignora la fusión de $2$ y $3$); es decir, la opción que fusiona $1,2$ corresponde a una aplicación distinta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.24.</span></p>
+  <p>Sean $X$ y $\hat X$ dos variables aleatorias, y definamos $$E=\begin{cases}2 & \hat X=X,\\[2pt] 0 & \hat X\neq X.\end{cases}$$ Sea $P_{\rm e}=\mathbb{P}[\hat X\neq X]$ la probabilidad de error. ¿Cuánto vale $H(E)$?</p>
+  <p>(a) $h_2(P_{\rm e})$<br>
+  (b) $2h_2(P_{\rm e})$<br>
+  (c) $1-2h_2(P_{\rm e})$<br>
+  (d) $2P_{\rm e}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>$E$ es binaria: $\mathbb{P}[E=0]=P_{\rm e}$ y $\mathbb{P}[E=2]=1-P_{\rm e}$. La entropía depende solo del vector de probabilidades, no de las etiquetas $0$ y $2$, es decir, $H(E)=-P_{\rm e}\log_2 P_{\rm e}-(1-P_{\rm e})\log_2(1-P_{\rm e})=h_2(P_{\rm e})$. El factor $2$ de la opción $2h_2(P_{\rm e})$ supone erróneamente que la etiqueta escala la entropía. Por tanto $H(E)=h_2(P_{\rm e})$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.25.</span></p>
+  <p>Para tres variables aleatorias $X$, $Y$, $Z$ con distribución conjunta $P_{XYZ}$ (entropías en bits), ¿cuál de las siguientes se cumple para cualquier distribución conjunta?</p>
+  <p>(a) $H(X,Y,Z)\leq H(X)+H(Y)+H(Z)$<br>
+  (b) $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid Y)$<br>
+  (c) $H(X,Y,Z)\leq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$<br>
+  (d) $H(X,Y,Z)\geq H(X)+H(Y)+H(Z)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por la regla de la cadena $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid X,Y)$. Como condicionar reduce la entropía, $H(Y\mid X)\leq H(Y)$ y $H(Z\mid X,Y)\leq H(Z)$, lo que da la cota de <em>subaditividad</em> $H(X,Y,Z)\leq H(X)+H(Y)+H(Z)$, con igualdad si y solo si $X,Y,Z$ son mutuamente independientes. Las otras opciones fallan: la igualdad requiere la cadena de Markov $X\to Y\to Z$, es decir, y la tercera desigualdad apunta en sentido contrario (la relación cierta es $\geq$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.26.</span></p>
+  <p>La regla de la cadena exacta dice $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid X,Y)$. ¿Bajo qué condición se cumple la afirmación $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid Y)$ (nótese que el último término usa $H(Z\mid Y)$ en lugar de $H(Z\mid X,Y)$)?</p>
+  <p>(a) Se cumple para cualquier distribución conjunta<br>
+  (b) Solo cuando $X\to Y\to Z$ forma una cadena de Markov (es decir, $Z$ es condicionalmente independiente de $X$ dado $Y$)<br>
+  (c) Solo cuando $X$, $Y$, $Z$ son mutuamente independientes<br>
+  (d) Solo cuando $X$ y $Y$ son independientes</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Reemplazar $H(Z\mid X,Y)$ por $H(Z\mid Y)$ exige $H(Z\mid Y)=H(Z\mid X,Y)$. Como condicionar reduce la entropía, en general solo tenemos $H(Z\mid X,Y)\leq H(Z\mid Y)$; la igualdad se cumple exactamente cuando $Z$ es condicionalmente independiente de $X$ dado $Y$, es decir, cuando $X\to Y\to Z$ es una cadena de Markov. Es una hipótesis estructural, no cierta para un $P_{XYZ}$ arbitrario (por ejemplo $X$ un bit justo, $Y=0$, $Z=X$ da $1\neq 2$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.27.</span></p>
+  <p>Considera la afirmación $H(X,Y,Z)\leq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$. Comparando con la regla de la cadena $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid X,Y)$, ¿cuál es la relación correcta entre los dos lados?</p>
+  <p>(a) $H(X,Y,Z)\geq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$, de modo que la afirmación es falsa (desigualdad invertida)<br>
+  (b) $H(X,Y,Z)\leq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$, de modo que la afirmación es cierta para todas las distribuciones<br>
+  (c) Los dos lados son siempre iguales<br>
+  (d) La afirmación se cumple siempre que $Z$ es independiente de $(X,Y)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Los dos últimos términos $H(Y\mid X)$ y $H(Z\mid X,Y)$ coinciden con la regla de la cadena, así que la comparación se reduce al primer término. Como condicionar reduce la entropía, $H(X\mid Y)\leq H(X)$, de modo que el lado derecho es a lo sumo $H(X,Y,Z)$, es decir, $H(X,Y,Z)\geq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$ — lo contrario de la afirmación. Igualdad solo cuando $X$ y $Y$ son independientes; contraejemplo: $X=Y$ un bit justo, $Z=0$ da $1\geq 0$ pero la afirmación dice $1\leq 0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.28.</span></p>
+  <p>Sean $X_1$, $X_2$ y $Z$ variables aleatorias <em>independientes</em>, donde $X_1,X_2\in\{0,1\}$ y $Z\in\{1,2\}$, cada una uniforme. Definimos $Y_1=X_1+Z$ y $Y_2=X_2+Z$ (de modo que $Y_1\to Z\to Y_2$ es una cadena de Markov). Calcula la entropía condicional $H(Y_1,Y_2\mid Z)$ (en bits).</p>
+  <p>(a) $2$ bits<br>
+  (b) $1$ bit<br>
+  (c) $0$ bits<br>
+  (d) $3$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Dado $Z$, $Y_1$ y $Y_2$ dependen únicamente de las entradas independientes $X_1,X_2$, por lo que son condicionalmente independientes: $H(Y_1,Y_2\mid Z)=H(Y_1\mid Z)+H(Y_2\mid Z)$. Para cada $z$ fijo, $Y_1=X_1+z$ es uniforme sobre dos valores, dando $H(Y_1\mid Z=z)=\log_2 2=1$ bit (igual para $Y_2$). Promediando sobre $Z$ cada término se mantiene en $1$ bit, así que el total es $1+1=2$ bits. (Directamente: condicionado a cualquier $z$, $(Y_1,Y_2)$ es uniforme sobre $4$ valores, es decir, $\log_2 4=2$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.29.</span></p>
+  <p>Un canal discreto sin memoria se utiliza $n$ veces, con entradas i.i.d. $X_1,\ldots,X_n$ uniformes sobre $\{0,1,2,3\}$. La información mutua media por uso satisface $\frac{1}{n}\sum_{i=1}^{n} I(X_i;Y_i)=\frac{3}{2}$ bits/uso del canal. Calcula la incertidumbre residual sobre el bloque transmitido dada toda la salida, $H(X_1,\ldots,X_n\mid Y_1,\ldots,Y_n)$.</p>
+  <p>(a) $\dfrac{n}{2}$<br>
+  (b) $\dfrac{3n}{2}$<br>
+  (c) $2n$<br>
+  (d) $\dfrac{n}{4}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Usamos $H(X^n\mid Y^n)=H(X^n)-I(X^n;Y^n)$. Como las entradas son i.i.d. uniformes sobre $4$ símbolos, $H(X^n)=n\log_2 4=2n$ bits. Para un DMC con entradas i.i.d. los pares $(X_i,Y_i)$ son independientes, es decir, $I(X^n;Y^n)=\sum_i I(X_i;Y_i)=\frac{3n}{2}$. Por tanto $H(X^n\mid Y^n)=2n-\frac{3n}{2}=\frac{n}{2}$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.30.</span></p>
+  <p>Tres variables aleatorias $X_1$, $X_2$ y $X_3$ forman una cadena de Markov $X_1 \to X_2 \to X_3$. Además, $X_2$ es una función <em>determinista</em> de $X_1$. ¿Cuál es la entropía conjunta $H(X_1, X_2, X_3)$?</p>
+  <p>(a) $H(X_1) + H(X_2) + H(X_3)$<br>
+  (b) $H(X_1) + H(X_3)$<br>
+  (c) $H(X_2) + H(X_3 \mid X_2)$<br>
+  (d) $H(X_1) + H(X_3 \mid X_2)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(d)</strong> &#9733;</p>
+    <p>Partimos de la regla de la cadena $H(X_1,X_2,X_3)=H(X_1)+H(X_2\mid X_1)+H(X_3\mid X_1,X_2)$. Como $X_2=f(X_1)$ es determinista, $H(X_2\mid X_1)=0$. La propiedad de Markov $X_1\to X_2\to X_3$ hace que $X_1$ y $X_3$ sean condicionalmente independientes dado $X_2$, es decir, $H(X_3\mid X_1,X_2)=H(X_3\mid X_2)$. Sustituyendo, $H(X_1,X_2,X_3)=H(X_1)+H(X_3\mid X_2)$. (La opción (c) es $H(X_2,X_3)$ y solo coincide si $f$ es invertible.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.31.</span></p>
+  <p>Sean $X$ e $Y$ con valores en $\mathcal{X}=\{a,b\}$ y $\mathcal{Y}=\{a,b,c,d\}$. Supongamos que $X$ es equiprobable y $H(Y|X)=\frac32$ bits. Exactamente una de las siguientes relaciones es falsa. ¿Cuál?</p>
+  <p>(a) $H(X,Y)=3$<br>
+  (b) $H(Y)+H(X|Y)=\frac52$<br>
+  (c) $I(X;Y)=1-H(X|Y)$<br>
+  (d) $H(Y)\geq\frac32$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $X$ es uniforme sobre dos símbolos, $H(X)=\log_2 2=1$ bit. La regla de la cadena da $H(X,Y)=H(X)+H(Y|X)=1+\frac32=\frac52$, así que la afirmación $H(X,Y)=3$ es <strong>falsa</strong>. Las demás se cumplen: (b) es la regla de la cadena $H(Y)+H(X|Y)=H(X,Y)=\frac52$; (c) es $I(X;Y)=H(X)-H(X|Y)=1-H(X|Y)$; (d) se sigue de $H(Y)\ge H(Y|X)=\frac32$ (condicionar reduce la entropía).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.32.</span></p>
+  <p>Considere tres variables aleatorias $X$, $Y$ y $Z$. Al desarrollar la información mutua $I(X;Y,Z)$ con la <em>regla de la cadena</em> en dos órdenes diferentes y usando la no-negatividad de la información mutua condicional, ¿qué desigualdad se puede deducir para cualquier terna de variables aleatorias?</p>
+  <p>(a) $I(X;Z)\leq I(X;Y)$<br>
+  (b) $I(X;Z)\leq I(X;Y)+I(X;Z\mid Y)$<br>
+  (c) $I(X;Z)\geq I(X;Y)+I(X;Z\mid Y)$<br>
+  (d) Ninguna de las otras.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>La regla de la cadena da dos desarrollos de $I(X;Y,Z)$: separando primero $Y$, $I(X;Y)+I(X;Z\mid Y)$; separando primero $Z$, $I(X;Z)+I(X;Y\mid Z)$. Igualándolos se obtiene $I(X;Z)=I(X;Y)+I(X;Z\mid Y)-I(X;Y\mid Z)$. Como $I(X;Y\mid Z)\geq 0$, al restarlo resulta $I(X;Z)\leq I(X;Y)+I(X;Z\mid Y)$, la opción correcta. Notese que $I(X;Z)\leq I(X;Y)$ es la desigualdad de procesamiento de datos y solo se cumple bajo la cadena de Markov $X\to Y\to Z$ (por ejemplo, con $Y$ independiente de $X$ y $Z=X$ falla).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.33.</span></p>
+  <p>En la demostración de la desigualdad de Fano, $X,Y$ son la entrada y la salida del canal, $\hat X=f(Y)$ es una estimación determinista, y $E$ es el indicador de error con $E=1$ si y solo si $\hat X\neq X$. Aplicando la <em>regla de la cadena para la entropía condicional</em> a $H(X,E\mid Y)$ expandiendo primero $X$ y luego primero $E$, ¿qué identidad se obtiene?</p>
+  <p>(a) $H(X\mid Y)+H(E\mid X,Y)=H(E\mid Y)+H(X\mid E,Y)$<br>
+  (b) $H(X\mid Y)+H(E\mid Y)=H(X,E\mid Y)$<br>
+  (c) $H(X\mid Y)\,H(E\mid X,Y)=H(E\mid Y)\,H(X\mid E,Y)$<br>
+  (d) $H(X\mid Y)+H(E\mid X)=H(E\mid Y)+H(X\mid E)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La regla de la cadena $H(A,B\mid C)=H(A\mid C)+H(B\mid A,C)$ aplicada a $H(X,E\mid Y)$ da $H(X\mid Y)+H(E\mid X,Y)$ (expandiendo primero $X$) y $H(E\mid Y)+H(X\mid E,Y)$ (expandiendo primero $E$). Ambos igualan la misma entropía conjunta, es decir, $H(X\mid Y)+H(E\mid X,Y)=H(E\mid Y)+H(X\mid E,Y)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.34.</span></p>
+  <p>El indicador de error $E$ cumple $E=1$ si y solo si $f(Y)\neq X$, donde $f$ es determinista. En la demostración de Fano, ¿cuál es el valor de $H(E\mid X,Y)$ y qué identidad se obtiene a partir de $H(X\mid Y)+H(E\mid X,Y)=H(E\mid Y)+H(X\mid E,Y)$?</p>
+  <p>(a) $H(E\mid X,Y)=0$, por tanto $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)$<br>
+  (b) $H(E\mid X,Y)=h(P_{\mathrm e})$, por tanto $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)-h(P_{\mathrm e})$<br>
+  (c) $H(E\mid X,Y)=H(E)$, por tanto $H(X\mid Y)=H(X\mid E,Y)$<br>
+  (d) $H(E\mid X,Y)=1$, por tanto $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)-1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>$E$ es una función determinista del par $(X,Y)$ (vale $1$ exactamente cuando $f(Y)\neq X$). La entropía condicional de una función determinista de las variables condicionantes es cero, es decir, $H(E\mid X,Y)=0$. Sustituyendo en la identidad del apartado (a) se obtiene $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.35.</span></p>
+  <p>Partiendo de $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)$, con $E$ de Bernoulli y $\mathbb{P}(E=1)=P_{\mathrm e}$, ¿qué cota sobre $H(X\mid Y)$ se sigue usando que condicionar reduce la entropía?</p>
+  <p>(a) $H(X\mid Y)\leq h(P_{\mathrm e})+H(X\mid E,Y)$<br>
+  (b) $H(X\mid Y)\geq h(P_{\mathrm e})+H(X\mid E,Y)$<br>
+  (c) $H(X\mid Y)\leq P_{\mathrm e}+H(X\mid E,Y)$<br>
+  (d) $H(X\mid Y)\leq h(P_{\mathrm e})\cdot H(X\mid E,Y)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Condicionar nunca incrementa la entropía, es decir, $H(E\mid Y)\leq H(E)$. Como $E$ es Bernoulli$(P_{\mathrm e})$, $H(E)=h(P_{\mathrm e})$. Sustituyendo $H(E\mid Y)$ por $h(P_{\mathrm e})$ en la igualdad se obtiene $H(X\mid Y)\leq h(P_{\mathrm e})+H(X\mid E,Y)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.36.</span></p>
+  <p>Expandiendo $H(X\mid E,Y)$ sobre los valores de $E$, recuerde que cuando $E=0$ la estimación $f(Y)=X$, por lo que $X$ queda determinado por $Y$. ¿A qué se simplifica $H(X\mid E,Y)$?</p>
+  <p>(a) $H(X\mid E=1,Y)\,\mathbb{P}(E=1)$<br>
+  (b) $H(X\mid E=0,Y)\,\mathbb{P}(E=0)$<br>
+  (c) $H(X\mid E=1,Y)+H(X\mid E=0,Y)$<br>
+  (d) $H(X\mid E=1,Y)\,\mathbb{P}(E=0)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Promediando sobre $E$, $H(X\mid E,Y)=\mathbb{P}(E=0)H(X\mid E=0,Y)+\mathbb{P}(E=1)H(X\mid E=1,Y)$. Cuando $E=0$, $X=f(Y)$ queda determinado por $Y$, es decir, $H(X\mid E=0,Y)=0$ y ese término se anula. Por tanto $H(X\mid E,Y)=H(X\mid E=1,Y)\,\mathbb{P}(E=1)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.37.</span></p>
+  <p>Dado $E=1$ y $Y$, la entrada $X$ recorre el alfabeto $\mathcal{X}$. ¿Qué cota superior sobre $H(X\mid E=1,Y)$ da la propiedad de máxima entropía (la que se usa en la demostración estándar de Fano)?</p>
+  <p>(a) $H(X\mid E=1,Y)\leq\log_2|\mathcal{X}|$<br>
+  (b) $H(X\mid E=1,Y)\leq\ln|\mathcal{X}|$<br>
+  (c) $H(X\mid E=1,Y)\leq|\mathcal{X}|$<br>
+  (d) $H(X\mid E=1,Y)\leq\log_2(|\mathcal{X}|+1)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Dado $E=1$ y $Y$, $X$ toma como mucho $|\mathcal{X}|$ valores. Una variable aleatoria sobre un alfabeto de tamaño $|\mathcal{X}|$ tiene entropía como mucho $\log_2|\mathcal{X}|$ bits (maximizada por la distribución uniforme). Por tanto $H(X\mid E=1,Y)\leq\log_2|\mathcal{X}|$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 9.38.</span></p>
+  <p>Combinando $H(X\mid Y)\leq h(P_{\mathrm e})+H(X\mid E,Y)$, la expansión $H(X\mid E,Y)=H(X\mid E=1,Y)\,P_{\mathrm e}$, y $H(X\mid E=1,Y)\leq\log_2|\mathcal{X}|$, ¿qué cota final (desigualdad de Fano) resulta?</p>
+  <p>(a) $H(X\mid Y)\leq h(P_{\mathrm e})+P_{\mathrm e}\,\log_2|\mathcal{X}|$<br>
+  (b) $H(X\mid Y)\leq h(P_{\mathrm e})+\log_2|\mathcal{X}|$<br>
+  (c) $H(X\mid Y)\leq h(P_{\mathrm e})\,P_{\mathrm e}+\log_2|\mathcal{X}|$<br>
+  (d) $H(X\mid Y)\leq P_{\mathrm e}+P_{\mathrm e}\,\log_2|\mathcal{X}|$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Inserte la expansión en la cota: $H(X\mid Y)\leq h(P_{\mathrm e})+P_{\mathrm e}\,H(X\mid E=1,Y)$, usando $\mathbb{P}(E=1)=P_{\mathrm e}$. Luego acote $H(X\mid E=1,Y)\leq\log_2|\mathcal{X}|$. Esto da la desigualdad de Fano $H(X\mid Y)\leq h(P_{\mathrm e})+P_{\mathrm e}\,\log_2|\mathcal{X}|$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

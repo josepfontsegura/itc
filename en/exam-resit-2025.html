@@ -40,44 +40,130 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html" class="active">Resit 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Coming soon</h1>
+      <h1>Resit exam 2025</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">This content will be available as the course progresses.</p>
+
+    <button id="expand-all" data-expand="Show all solutions" data-collapse="Hide all solutions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Show all solutions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Problem 1.</span> An experiment consists of the following two steps. First, flip a fair coin and record heads or tails. If the result is heads, roll a fair six-sided die and record its face; if the result is tails, flip a second fair coin and record its outcome. What is the entropy in bits of the outcome of the two-step experiment?</p>
+  <p>(a) $\tfrac{1+\log_2(6)}{2}$<br>
+  (b) $\tfrac{3+\log_2(3)}{2}$<br>
+  (c) $\tfrac{4+\log_2(3)}{2}$<br>
+  (d) $\tfrac{2+\log_2(6)}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>The result can be modelled by $X=(A,B)$. After determining all outcomes, $X$ has distribution $\bigl\{\tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{4}, \tfrac{1}{4}\bigr\}$. Using the chain rule $H(X)=H(A)+H(B|A)$, with $H(A)=1$ and $H(B|A)=\tfrac{1+\log_2(6)}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problem 2.</span> A discrete source takes values in the set $\{a,b,c\}$ with probabilities $\{p,2p,3p\}$ for some parameter $p\neq 0$. What is the average length of the optimal binary prefix-free code for this source?</p>
+  <p>(a) $\log_2(3)$<br>
+  (b) $\tfrac 32$<br>
+  (c) $2$<br>
+  (d) $\tfrac{4+3\log_2(3)}{6}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>Only $p=\tfrac 16$ leads to a valid probability distribution. The Huffman code for the source has lengths $\{2,2,1\}$, so $L_{\rm av}=9p=\tfrac 32$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problem 3.</span> A discrete memoryless source $W_n=(X_1,\ldots,X_n)$, where each $X_i\in\{a,b,c,d,e,f\}$ with equal probability, is encoded using the optimal binary prefix-free code. In which of the following intervals does the average length per symbol of the optimal binary prefix-free code for $W_{3}$ lie?</p>
+  <p>(a) $\bigl[\tfrac{3+3\log_2(3)}{2},\tfrac{3\log_2(3) + 4}{2} \bigr)$<br>
+  (b) $\bigl[\tfrac{1+\log_2(3)}{2},\tfrac{3\log_2(3) + 4}{6} \bigr)$<br>
+  (c) $\bigl[1+\log_2(3),\tfrac{3\log_2(3) + 4}{3} \bigr)$<br>
+  (d) $\bigl[3+3\log_2(3),3\log_2(3) + 4 \bigr)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>The average length per symbol lies in $\bigl[H(X_1),H(X_1)+\tfrac 13\bigr)$. Using $H(X_1)=\log_2(6)$, we obtain the result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problem 4.</span> Define the random variable $Z$ as $Z=\log_2 P_X(X)$, where $X$ is a discrete memoryless source $X=(U_1,\ldots,U_r)$, with each $U_i$ taking values in the set $\{1,2,3,\ldots,n\}$ with equal probability. What is the expected value of $Z$?</p>
+  <p>(a) $r\log_2(n)$<br>
+  (b) $-r\log_2(n)$<br>
+  (c) $n\log_2(r)$<br>
+  (d) $-n\log_2(r)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>Since $P_X(x)=\tfrac{1}{n^r}$ for all $x$, the random variable is deterministic with value $\log_2(n^{-r})$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problem 5.</span> The codewords of a given $(5,1)$ linear code with weight distribution satisfying $A_2=1$ are transmitted with equal probability over a binary symmetric channel with bit flip probability $p$. What is the probability of receiving the all-ones sequence?</p>
+  <p>(a) $\tfrac{p^5-2p^4 +2p^3}{2}$<br>
+  (b) $\tfrac{2p^5 -2p^4 +p^3}{2}$<br>
+  (c) $\tfrac{p^5-p^4+p^3}{2}$<br>
+  (d) $\tfrac{p^5+p^4+p^3}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>The code has two codewords, $00000$ and a second codeword with $2$ ones and $3$ zeros. Then, the probability of receiving $11111$ is $\tfrac 12 p^5 + \tfrac 12 p^3(1-p)^2$. Expanding and simplifying gives the result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problem 6.</span> The code $\{000,111\}$ is transmitted over a binary channel with conditional probabilities $P_{Y|X}(0|0)=1$ and $P_{Y|X}(0|1)=\tfrac 12$. The receiver uses a minimum likelihood decoding rule, that is $\hat m = \arg\min_m P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$, to decode the channel output. What is the error region of the second message?</p>
+  <p>(a) $\{001,010,011,100,101,110,111\}$<br>
+  (b) $\{000\}$<br>
+  (c) $\{000,001,010,100\}$<br>
+  (d) $\{011,101,110,111\}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $P_{Y|X}(1|0)=0$, we have $P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|000)=0$ for any output with at least one $1$. Hence, $\hat m = 1$ for all outputs except $\boldsymbol{y}=000$, for which $\hat m = 2$ — this is the only output for which the second message is decoded correctly.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problem 7.</span> Two random variables $X$ and $Y$ take values in $\{a,b\}$ and $\{a,b,c,d\}$, respectively, such that $X$ has equiprobable values and that $H(Y|X)=\tfrac 32$. Which of the following relations is false?</p>
+  <p>(a) $H(X,Y) = 3$<br>
+  (b) $H(Y) + H(X|Y) = \tfrac{5}{2}$<br>
+  (c) $I(X;Y) = 1 - H(X|Y)$<br>
+  (d) $H(Y) \geq \tfrac 32$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The statement $I(X;Y) = 1 - H(X|Y)$ is true because $H(X)=1$. $H(Y)\geq \tfrac 32$ is true because conditioning reduces entropy. $H(Y) + H(X|Y) = H(X,Y) = H(X)+H(Y|X) = \tfrac 52$. The joint entropy is not $3$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

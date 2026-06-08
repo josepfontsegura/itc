@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -40,44 +40,535 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html" class="active">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Coming soon</h1>
+      <h1>Exercises: 5. Fundamental limits in data compression</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">This content will be available as the course progresses.</p>
+
+    <button id="expand-all" data-expand="Show all solutions" data-collapse="Hide all solutions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Show all solutions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.1.</span> The average length of the optimal prefix-free code for a discrete memoryless source $X=(U_1,\ldots,U_{20})$ where each $U_i$ takes values in $\{a,b,c,d\}$ with probabilities $\{\frac 12, \frac 14, \frac 18, \frac 18\}$ will lie in the interval</p>
+  <p>(a) $[35,36)$<br>
+  (b) $\bigl[\frac 74,  \frac{11}{4})$<br>
+  (c) $\bigl[\frac 74,  \frac{9}{5})$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The average length of the optimal prefix-free code for $X$ satisfies $H(X)\leq L_{\rm av} &lt; H(X)+1$. Since the source is memoryless, the entropy of $X$ is $H(X)=nH(U)$, where $H(U)=\frac 74$, leading to the correct result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.2.</span> Which of the following statements about a binary information source $X=(U_1,\ldots,U_n)$ is true? In your answer, you also need to justify why the others are false.</p>
+  <p>(a) If the source is memoryless, then $H(X)=n$.<br>
+  (b) If $X\in\{00\cdots 0,11\cdots 1\}$ with equal probability, the average length of the optimal code is $1$ bit.<br>
+  (c) If bits are independent and equiprobable, then the Huffman code for $X$ has average length $L_{\rm av}&gt;n$.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>In (a), we have independent and identically distributed symbols so that $H(X)=nH(U)$. However, in general $H(U) \leq  1$ (with equality only for equiprobable bits), so $H(X)\leq n$. In (b), $X$ has only two symbols, so the optimal prefix-free code is for example $\{1,0\}$, with average length $L_{\rm av}=1$. Finally, if bits are equiprobable and independent, then $P_X(x)=2^{-n}$. After building the Huffman code, all leaves of the resulting tree are used and have depth $n$, hence $L_{\rm av}=n$ (with equality).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.3.</span> A discrete source $X=(U_1,U_2,U_3)$ outputs three independent, consecutive symbols, each taking values over the alphabet $\{a,b,c\}$ with <u>different</u> distributions: $U_1$ has distribution $\{\frac 13,\frac 13,\frac 13\}$, $U_2$ has distribution $\{\frac 12,\frac 14,\frac 14\}$ and $U_3$ has distribution $\{\frac 23, \frac 16, \frac 16\}$. Any binary prefix-free code for $X$ has an average length greater than or equal to</p>
+  <p>(a) $\frac 76 + 2\log_2(3)$<br>
+  (b) $\frac{13}{6} + \frac 32 \log_2(3)$<br>
+  (c) None of the others</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The average length of any prefix-free code satisfies $L_{\rm av}\geq H(X)$, where $H(X)$ is the entropy of the source. Since the symbols are independent, we have that $H(X)=H(U_1)+H(U_2)+H(U_3)$. Computing the three entropies and after some mathematical manipulations, we obtain the correct answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.4.</span> What value of $p$ maximizes the efficiency of the Huffman code for a source $\{a,b,c\}$ with probabilities $\{p,p,1-2p\}$ where $p\in\bigl(0,\frac 13\bigr)$? You can use a mathematical tool to numerically solve this question.</p>
+  <p>(a) $\frac 13$<br>
+  (b) $\frac 14$<br>
+  (c) $\frac 15$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>The efficiency of the Huffman code is given by $\frac{H(X)}{L_{\rm av}}$, where $H(X)=-2p\log_2(p)-(1-2p)\log_2(1-2p)$. If $p&lt;\frac 13$, then $a$ or $b$ are the least likely symbols and the resulting Huffman code will have lengths $\{2,2,1\}$, and therefore $L_{\rm av}= 1+2p$. With a mathematical tool we plot the efficiency as a function of $p$ in the interval $\bigl( 0,\frac 13\bigr)$ and observe that it has a maximum at $p=\frac 14$, giving a maximum efficiency of $1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.5.</span> Consider a discrete memoryless source $X=(U_1,\cdots,U_n)$ where each $U_i$ takes values in $\{a,b,c\}$ with equal probability. Without explicitly constructing any code, but instead using an upper bound on the average length of the optimal code for $X$, what is the smallest block size $n$ such that the coding efficiency is at least $95\%$?</p>
+  <p>(a) $11$<br>
+  (b) $12$<br>
+  (c) $13$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>Since $X$ is memoryless, the efficiency of the optimal prefix-free code is lower bounded as $e_n&gt;\frac{H(U)}{H(U)+\frac 1n}$. The entropy of $U$ is $H(U)=\log_2(3)$ because the symbols are equiprobable. In order to guarantee an efficiency of at least $95\%$, we need $\frac{\log_2(3)}{\log_2(3)+\frac 1n} \geq 0.95$. Isolating $n$, we find that $n\geq \frac{0.95}{(1-0.95)\log_2(3)}\approx 11.9877$, so we need at least $n=12$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.6.</span> Consider another discrete memoryless source $V$ also taking values over $\{a,b,c,d,e\}$ yet with probability distribution $\bigl\{ \frac 12, \frac 14, \frac 18 , \frac{1}{16}, \frac{1}{16} \bigr\}$. What is the efficiency of the optimal code for $V$?</p>
+  <p>(a) $0.882353$<br>
+  (b) $0.941176$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>The Huffman code has length distribution $\{1,2,3,4,4\}$ and average length $L_{\rm av}=\frac{15}{8}$, which coincides with the entropy $H(V)$, hence the efficiency is $1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.7.</span></p>
+  <p>Let $W$ be a source whose optimal binary prefix-free code has codeword lengths given by a permutation of $\{2,2,2,3,3\}$, with entropy $H(W)=2.123938$ bits. Let $X=(W_1,\dots,W_n)$ consist of $n$ i.i.d. copies of $W$. Assume that $X$ is encoded by individually encoding each $W_i$ with that code. In which interval lies the efficiency of this code as $n\to\infty$?</p>
+  <p>(a) $\left[0,\frac 12\right)$<br>
+  (b) $\left[\frac 12,\frac{24}{25}\right)$<br>
+  (c) $\left[\frac{24}{25},1\right]$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>Encoding $W$ with a code with length distribution given by a permutation of $\{2,2,2,3,3\}$ leads to an average length between $\frac{133}{60}$ and $\frac{79}{30}$, hence the average length of $X$ is between $\frac{133}{60}n$ and $\frac{79}{30}n$. Since $X$ is memoryless, $H(X)=nH(W)$ with $H(W)=2.123938$. Combining both results, the efficiency lies between $0.806559$ and $0.958168$, which falls in $\left[\frac 12,\frac{24}{25}\right)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.8.</span></p>
+  <p>Let $W$ be a source with entropy $H(W)=2.123938$ bits, encoded by an optimal binary prefix-free code with average codeword length $L_{\mathrm{av}}=\frac{131}{60}$ bits. What is the coding efficiency $\eta=H(W)/L_{\mathrm{av}}$?</p>
+  <p>(a) $0.958168$<br>
+  (b) $0.972796$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>The coding efficiency is $\eta=\dfrac{H(W)}{L_{\mathrm{av}}}=\dfrac{2.123938}{131/60}=\dfrac{2.123938}{2.183333}\approx 0.9728$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.9.</span></p>
+  <p>Let $X=(W_1,\dots,W_n)$ consist of $n$ i.i.d. copies of a source $W$ with entropy $H(W)=2.123938$ bits. Assume that $n=100$, so that $H(X)=nH(W)=212.3938$ bits. Which of the following is a feasible value of the average length of the optimal code for $X$?</p>
+  <p>(a) $213$<br>
+  (b) $228$<br>
+  (c) $233$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>We know that the average length of the optimal code for $X$ is bounded as $H(X)\leq L_{\rm av} &lt; H(X)+1$. Since $H(X)=nH(W)=212.3938$, we have $212.3938\leq L_{\rm av} &lt; 213.3938$, so only $213$ is feasible.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.10.</span></p>
+  <p>A random word generator emits words of $r$ letters, where each letter belongs to an alphabet of size $n$. What is the maximum binary entropy of the random word generator?</p>
+  <p>(a) $\log_2(r)$<br>
+  (b) $\log_2(n)$<br>
+  (c) $r\log_2(n)$<br>
+  (d) $n\log_2(r)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>The random word generator can be described as a discrete source $X=(U_1,\ldots,U_r)$ where each $U_i$ takes values in an alphabet of cardinality $n$. The entropy of $X$ satisfies $H(X)\leq\log_2|{\cal X}|$, where ${\cal X}$ is the alphabet of $X$. Using that $|{\cal X}|=n^r$, we obtain the correct answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.11.</span></p>
+  <p>Consider a source $W_n$ that emits sequences of $n$ i.i.d. bits such that the probability of $1$ is twice the probability of $0$. The average length of the optimal binary prefix-free code to represent $W_n$ is denoted as $L_{\rm av}(W_n)$. What is the value of the following ratio?</p>$$\frac{L_{\rm av}(W_1)}{L_{\rm av}(W_2)}$$
+  <p>(a) $1$<br>
+  (b) $\tfrac{9}{23}$<br>
+  (c) $\tfrac{9}{17}$<br>
+  (d) $\tfrac12$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>Clearly $L_{\rm av}(W_1)=1$. Using that each bit takes values $\{0,1\}$ with probability distribution $\bigl\{\tfrac13,\tfrac23\bigr\}$, we obtain that $W_2\in\{00,01,10,11\}$ with probabilities $\bigl\{\tfrac19,\tfrac29,\tfrac29,\tfrac49\bigr\}$. The Huffman code for $W_2$ has length distribution $\{3,3,2,1\}$ leading to $L_{\rm av}(W_2)=\tfrac{17}{9}$, leading to the correct answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.12.</span></p>
+  <p>A discrete memoryless source $W_n=(X_1,\ldots,X_n)$, where each $X_i$ takes values in $\{a,b,c\}$ with probability distribution $\bigl\{\tfrac12,\tfrac13,\tfrac16\bigr\}$, is represented using two coding schemes. In coding scheme (a), we design the optimal binary prefix-free code for $X_1$ and then represent each symbol $X_i$ with the same code. In coding scheme (b), we design the optimal binary prefix-free code for $W_n$. The average length to represent $W_n$ using the coding schemes (a) and (b) is respectively denoted as $L_{\rm av}^{\text{(a)}}(W_n)$ and $L_{\rm av}^{\text{(b)}}(W_n)$. What is the value of the following limit?</p>$$\lim_{n\to\infty} \frac{L_{\rm av}^{\text{(b)}}(W_n)}{L_{\rm av}^{\text{(a)}}(W_n)}$$
+  <p>(a) $\tfrac{4+3\log_2(3)}{10}$<br>
+  (b) $\tfrac{4+3\log_2(3)}{9}$<br>
+  (c) $\tfrac{4+3\log_2(3)}{6}$<br>
+  (d) $\tfrac{4+3\log_2(3)}{11}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>The Huffman code for $X_1$ has length distribution $\{1,2,2\}$ and average length $L_{\rm av}(X_1)=\tfrac32$. In coding scheme (a), we have $L_{\rm av}(W_n) = \sum_{i=1}^n L_{\rm av}(X_i) = \tfrac{3n}{2}$ due to concatenating the same code. On the other hand, as $n\to\infty$ the average length of the Huffman code for $W_n$ satisfies $\frac1n L_{\rm av}(W_n) = H(X_1)$. Combining both facts and using that $H(X_1)= \tfrac 23 + \tfrac{\log_2(3)}{2}$, we obtain the correct answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.13.</span></p>
+  <p>A discrete memoryless source $W_n=(X_1,\ldots,X_n)$, where each $X_i\in\{a,b,c,d,e,f\}$ with equal probability, is encoded using the optimal binary prefix-free code. In which of the following intervals does the average length per symbol of the optimal binary prefix-free code for $W_{3}$ lie?</p>
+  <p>(a) $\bigl[\tfrac{3+3\log_2(3)}{2},\tfrac{3\log_2(3) + 4}{2} \bigr)$<br>
+  (b) $\bigl[\tfrac{1+\log_2(3)}{2},\tfrac{3\log_2(3) + 4}{6} \bigr)$<br>
+  (c) $\bigl[1+\log_2(3),\tfrac{3\log_2(3) + 4}{3} \bigr)$<br>
+  (d) $\bigl[3+3\log_2(3),3\log_2(3) + 4 \bigr)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>The average length per symbol of the Huffman code for $W_3$ lies in $\bigl[H(X_1),H(X_1)+\tfrac 13\bigr)$. Using that $H(X_1)=\log_2(6)$, we obtain the result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.14.</span></p>
+  <p>Define the random variable $Z$ as $Z=\log_2 P_X(X)$, where $X$ is a discrete memoryless source $X=(U_1,\ldots,U_r)$, with each $U_i$ taking values in the set $\{1,2,3,\ldots,n\}$ with equal probability. What is the expected value of $Z$?</p>
+  <p>(a) $r\log_2(n)$<br>
+  (b) $-r\log_2(n)$<br>
+  (c) $n\log_2(r)$<br>
+  (d) $-n\log_2(r)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>Since $P_X(x)=\tfrac{1}{n^r}$ for all $x$, the random variable is deterministic with value $\log_2(n^{-r})$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.15.</span> A discrete memoryless source $X=(U_1,\ldots,U_n)$ with $U_i\in\{a,b\}$ equiprobable is compressed using the optimal binary prefix-free code. What is the average length per symbol as $n\to\infty$?</p>
+  <p>(a) $1$ bit<br>
+  (b) $2$ bits<br>
+  (c) $\log_2(n)$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By the source coding theorem, $\tfrac{1}{n}L_{\rm av}(X)\to H(U)=1$ bit as $n\to\infty$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.16.</span> For a memoryless source with symbol entropy $H(U)=1.5$ bits, the average length per symbol of the optimal code for blocks of $n$ symbols satisfies</p>
+  <p>(a) $L_{\rm av}/n \in [1.5, 1.5+1/n)$<br>
+  (b) $L_{\rm av}/n = 1.5$ exactly<br>
+  (c) $L_{\rm av}/n &lt; 1.5$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By the entropy bounds, $H(X)\leq L_{\rm av} &lt; H(X)+1$, and $H(X)=nH(U)$, so $H(U)\leq L_{\rm av}/n &lt; H(U)+1/n$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.17.</span> A binary memoryless source has $P(0)=\tfrac{3}{4}$. What is the minimum block size $n$ needed so the coding efficiency of the optimal code exceeds $99\%$?</p>
+  <p>(a) $n\geq 123$<br>
+  (b) $n\geq 12$<br>
+  (c) $n\geq 50$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Efficiency $\geq \tfrac{H(U)}{H(U)+1/n}$. We need $\tfrac{H(U)}{H(U)+1/n}\geq 0.99$, i.e. $n\geq \tfrac{0.99}{0.01 \cdot H(U)}$. With $H(U)=h_2(3/4)\approx 0.8113$, we get $n\geq 122.03$, which rounds up to $n\geq 123$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.18.</span> The source coding theorem states that for a DMS with entropy $H$, the average length per symbol of any uniquely decodable code satisfies</p>
+  <p>(a) $L_{\rm av}/n \geq H$<br>
+  (b) $L_{\rm av}/n \leq H$<br>
+  (c) $L_{\rm av}/n = H$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The source coding theorem establishes that $H$ is a lower bound on the achievable average length per symbol for any uniquely decodable code.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.19.</span> A source $X=(U_1,U_2)$ has $U_1,U_2$ independent, with $U_1\in\{a,b\}$ with probabilities $\{\tfrac{3}{4},\tfrac{1}{4}\}$ and $U_2\in\{c,d\}$ equiprobable. What is $H(X)$?</p>
+  <p>(a) $h_2(\tfrac{1}{4})+1$<br>
+  (b) $h_2(\tfrac{1}{4})$<br>
+  (c) $2h_2(\tfrac{1}{4})$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By independence, $H(X)=H(U_1)+H(U_2)=h_2(\tfrac{1}{4})+1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.20.</span> The efficiency of a prefix-free code is defined as</p>
+  <p>(a) $H(X)/L_{\rm av}$<br>
+  (b) $L_{\rm av}/H(X)$<br>
+  (c) $H(X)-L_{\rm av}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The coding efficiency is the ratio of the entropy to the average codeword length, $H(X)/L_{\rm av}\leq 1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.21.</span> A DMS with $H(U)=2$ bits is encoded with blocks of $n=10$ symbols. The average length of the optimal code for $X=(U_1,\ldots,U_{10})$ lies in</p>
+  <p>(a) $[20,21)$<br>
+  (b) $[18,19)$<br>
+  (c) $[21,22)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The entropy bounds give $H(X)\leq L_{\rm av}&lt;H(X)+1$. Since $H(X)=10\cdot 2=20$, we get $L_{\rm av}\in[20,21)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.22.</span> If a source $U$ has entropy $H(U)=\log_2(5)$ and the optimal code has $L_{\rm av}=\tfrac{12}{5}$, the coding efficiency is approximately</p>
+  <p>(a) $0.9675$<br>
+  (b) $1$<br>
+  (c) $0.8293$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The efficiency is $H(U)/L_{\rm av}=\log_2(5)/(12/5)\approx 2.3219/2.4=0.9675$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.23.</span></p>
+  <p>A discrete memoryless source emits symbols from $\mathcal{X}=\{a,b,c\}$ with probabilities proportional to $\{p,\,2p,\,3p\}$ ($p\neq 0$). What is the average codeword length of the <em>optimal</em> binary prefix-free code for this source?</p>
+  <p>(a) $\tfrac{3}{2}=1.5$ bits<br>
+  (b) $\approx 1.459$ bits<br>
+  (c) $\tfrac{5}{3}\approx 1.667$ bits<br>
+  (d) $2$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Normalizing $p+2p+3p=6p=1$ gives $\mathbb{P}(a)=\tfrac16$, $\mathbb{P}(b)=\tfrac13$, $\mathbb{P}(c)=\tfrac12$. The optimal prefix-free code is the Huffman code: merge the two smallest ($\tfrac16,\tfrac26$) into $\tfrac12$, then merge with $c$, giving $\ell(c)=1$, $\ell(a)=\ell(b)=2$. Thus $L_{\rm av}=2\cdot\tfrac16+2\cdot\tfrac26+1\cdot\tfrac36=\tfrac{9}{6}=\tfrac32$ bits. (Note $1.459$ is the entropy $H(X)$, a lower bound, not the achievable optimal length.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.24.</span></p>
+  <p>A discrete source $X$ is uniform on the alphabet $\mathcal{X}=\{a,b,c,d,e,f,g\}$ (seven symbols), each with probability $\frac{1}{7}$. Determine the average length per symbol (in bits) of the <em>optimal</em> prefix-free binary code for $X$.</p>
+  <p>(a) $\frac{20}{7}\approx 2.857$ bits<br>
+  (b) $\log_2 7\approx 2.807$ bits<br>
+  (c) $3$ bits<br>
+  (d) $\frac{19}{7}\approx 2.714$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The Huffman algorithm yields the optimal lengths. Since $7$ is not a power of $2$, the optimal codeword lengths are a mix of $2$ and $3$: building the tree gives one codeword of length $2$ and six of length $3$ (length set $\{2,3,3,3,3,3,3\}$). Kraft holds with equality: $2^{-2}+6\cdot 2^{-3}=\frac14+\frac34=1$. With equiprobable symbols, $L_{\rm av}=\frac{1}{7}(2+6\cdot 3)=\frac{20}{7}\approx 2.857$ bits, which exceeds the entropy $H(X)=\log_2 7\approx 2.807$, as required by $L_{\rm av}\ge H(X)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.25.</span></p>
+  <p>A discrete memoryless source emits a block $X=(U_1,\ldots,U_{10})$ of $n=10$ i.i.d. symbols, each $U_i$ uniform on $\mathcal{X}=\{1,2,3,4,5,6\}$ (probability $\tfrac{1}{6}$ each). An optimal prefix-free (Huffman) code is designed for the whole block. In which interval does the average length per symbol $L_n$ lie? Use $\log_2 3\approx 1.58496$.</p>
+  <p>(a) $[2.58496,\ 2.68496)$ bits/symbol<br>
+  (b) $[2.58496,\ 3.58496)$ bits/symbol<br>
+  (c) $[2.32193,\ 2.42193)$ bits/symbol<br>
+  (d) $[2.68496,\ 2.78496)$ bits/symbol</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>For an i.i.d. source, the optimal block code satisfies $H(U)\le L_n&lt; H(U)+\tfrac{1}{n}$. Here $H(U)=\log_2 6=1+\log_2 3\approx 2.58496$ bits ($\log_2 5$ is a decoy). With $n=10$ the overhead is $\tfrac{1}{10}=0.1$, giving $2.58496\le L_n&lt;2.68496$. So $L_n\in[2.58496,\ 2.68496)$ bits/symbol.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.26.</span></p>
+  <p>A discrete memoryless source $X$ takes values in $\{a,b\}$ with $P_X(a)=0.8$, $P_X(b)=0.2$. We build a binary Huffman code for blocks $W=(X_1,X_2,X_3)\in\mathcal{X}^3$. The optimal Huffman code assigns depth $1$ to $aaa$, depth $3$ to each one-$b$ block, and depth $5$ to each two-$b$ block and to $bbb$.</p><p>Calculate the average codeword length $L_{\rm av}$ (in bits per block).</p>
+  <p>(a) $L_{\rm av}=2.184$ bits/block<br>
+  (b) $L_{\rm av}=0.728$ bits/block<br>
+  (c) $L_{\rm av}=3$ bits/block<br>
+  (d) $L_{\rm av}=2.4$ bits/block</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Block probabilities: $aaa$ has $P=0.512$ (depth $1$); each one-$b$ block has $P=0.128$, three of them (depth $3$); each two-$b$ block has $P=0.032$, three of them, plus $bbb$ with $P=0.008$ (all depth $5$). Then $L_{\rm av}=1(0.512)+3(3\cdot0.128)+5(3\cdot0.032+0.008)=0.512+1.152+0.520=2.184$ bits/block. The value $0.728$ is the per-symbol $L_3$, not $L_{\rm av}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.27.</span></p>
+  <p>For the source above ($n=3$ Huffman code), the average codeword length is $L_{\rm av}=2.184$ bits per block.</p><p>Calculate the average length per source symbol $L_3=L_{\rm av}/3$.</p>
+  <p>(a) $L_3\approx 0.728$ bits/symbol<br>
+  (b) $L_3\approx 2.184$ bits/symbol<br>
+  (c) $L_3\approx 6.552$ bits/symbol<br>
+  (d) $L_3\approx 0.780$ bits/symbol</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Dividing the per-block length by the block size $n=3$: $L_3=2.184/3\approx0.728$ bits/symbol. The value $2.184$ forgets to divide; $6.552$ multiplies instead of dividing; $0.780$ is $L_2$ (the $n=2$ result).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.28.</span></p>
+  <p>For the binary source with $P_X(a)=0.8$, $P_X(b)=0.2$, recall $H(X)=h_2(0.2)\approx 0.722$ bits and the Huffman per-symbol lengths $L_1=1$, $L_2=0.78$, $L_3\approx 0.728$ bits.</p><p>Which ordering correctly relates these quantities?</p>
+  <p>(a) $H(X)\le L_3\le L_2\le L_1$<br>
+  (b) $L_1\le L_2\le L_3\le H(X)$<br>
+  (c) $L_3\le H(X)\le L_2\le L_1$<br>
+  (d) $H(X)\le L_2\le L_3\le L_1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Plugging the numbers: $0.722\le 0.728\le 0.78\le 1.0$, so $H(X)\le L_3\le L_2\le L_1$. Each $L_n$ satisfies $H(X)\le L_n&lt;H(X)+\tfrac1n$, and the per-symbol length decreases toward the entropy as the block length grows. $L_3$ must lie above $H(X)$ (never below it) and below $L_2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.29.</span></p>
+  <p>A discrete memoryless source $X$ over $\{a,b\}$ has $P_X(a)=0.8$, $P_X(b)=0.2$. We block it into words of length $n=3$ and apply the <em>Shannon code</em> with lengths $\ell(w)=\lceil -\log_2 P_W(w)\rceil$. The block probabilities are $0.512$ ($1$ block), $0.128$ ($3$ blocks), $0.032$ ($3$ blocks), $0.008$ ($1$ block), giving Shannon lengths $1,3,5,7$ respectively. Compute the per-symbol average length $L_3=L_{\rm av}/3$.</p>
+  <p>(a) $L_3 \approx 0.7333$ bits/symbol<br>
+  (b) $L_3 \approx 2.200$ bits/symbol<br>
+  (c) $L_3 \approx 0.7219$ bits/symbol<br>
+  (d) $L_3 \approx 1.333$ bits/symbol</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Weight each Shannon length by its group's total probability: $L_{\rm av}=1(0.512)+3(3\cdot 0.128)+5(3\cdot 0.032)+7(0.008)=0.512+1.152+0.480+0.056=2.200$ bits/block. Dividing by $n=3$ gives $L_3=2.200/3\approx 0.7333$ bits/symbol. (The value $2.200$ is the per-block length, not per-symbol; $0.7219$ is the entropy $H(X)$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.30.</span></p>
+  <p>For the Shannon code above, the codeword lengths over the $8$ blocks of length $3$ are: one length $1$, three of length $3$, three of length $5$, and one of length $7$. Evaluate the Kraft sum $\sum_w 2^{-\ell(w)}$ and decide whether a prefix-free code with these lengths exists.</p>
+  <p>(a) $\sum_w 2^{-\ell(w)} = \tfrac{125}{128} \approx 0.9766 \le 1$, so a prefix-free code exists<br>
+  (b) $\sum_w 2^{-\ell(w)} = 1$ exactly, so the code is optimal and prefix-free<br>
+  (c) $\sum_w 2^{-\ell(w)} = \tfrac{129}{128} \approx 1.008 &gt; 1$, so no prefix-free code exists<br>
+  (d) $\sum_w 2^{-\ell(w)} \approx 0.512 \le 1$, so a prefix-free code exists</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Sum $2^{-\ell}$ over groups: $1\cdot 2^{-1}+3\cdot 2^{-3}+3\cdot 2^{-5}+1\cdot 2^{-7}=\tfrac12+\tfrac38+\tfrac3{32}+\tfrac1{128}=\tfrac{64+48+12+1}{128}=\tfrac{125}{128}\approx 0.9766$. Since this is $\le 1$, the Kraft inequality holds and a prefix-free code with these lengths exists (with slack $0.0234$). The Shannon rule always satisfies Kraft because $2^{-\ell(w)}\le P_W(w)$ and probabilities sum to $1$; the sum is strictly below $1$, not equal, so the code is not optimal.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.31.</span></p>
+  <p>The same source has entropy $H(X)\approx 0.7219$ bits. The Shannon block code ($n=3$) achieves $L_3\approx 0.7333$ bits/symbol, while the optimal Huffman block code achieves $L_3^{\text{Huff}}\approx 0.728$ bits/symbol. Which statement correctly compares these values with the source-coding bound $L_3 &lt; H(X)+\tfrac{1}{3}$?</p>
+  <p>(a) Both satisfy $H(X)\le L_3 &lt; H(X)+\tfrac13=1.0553$; Shannon ($0.7333$) is slightly worse than Huffman ($0.728$)<br>
+  (b) Shannon ($0.7333$) beats Huffman ($0.728$) because the Shannon rule is optimal<br>
+  (c) Shannon violates the bound since $0.7333 &gt; H(X)+\tfrac13$<br>
+  (d) Both equal $H(X)=0.7219$ exactly, achieving the entropy limit</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The source-coding theorem gives $H(X)\le L_3 &lt; H(X)+\tfrac1n$, here $0.7219\le L_3 &lt; 1.0553$. Both codes lie in this range: Shannon $0.7333$ and Huffman $0.728$ both exceed $H(X)$ and stay below $1.0553$. Since Shannon lengths $\lceil-\log_2 P_W\rceil$ are sub-optimal, Shannon ($0.7333$) is slightly worse than the optimal Huffman ($0.728$); only Huffman attains the per-block minimum.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.32.</span></p>
+  <p>A source $X$ is uniform on $\mathcal{X}=\{-1,0,1\}$, so $\mathbb{P}[X=x]=\tfrac13$ for each symbol. It is compressed with the optimal binary prefix-free (Huffman) code, giving codeword lengths $\{1,2,2\}$ bits, with average length $L_{\rm av}=\tfrac53$ bits and $\mathrm{Var}(\ell(X))=\tfrac29$. Calculate the value of the Chebyshev upper bound on $\mathbb{P}\big[\,|\ell(X)-L_{\rm av}|\geq L_{\rm av}\,\big]$.</p>
+  <p>(a) $\dfrac{2}{25}=0.08$<br>
+  (b) $\dfrac{2}{5}=0.4$<br>
+  (c) $\dfrac{2}{9}\approx 0.22$<br>
+  (d) $\dfrac{6}{25}=0.24$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Chebyshev's inequality gives $\mathbb{P}[|Y-\mathbb{E}[Y]|\ge a]\le \mathrm{Var}(Y)/a^2$. Here $Y=\ell(X)$, its mean is $L_{\rm av}=\tfrac53$, and the deviation is $a=L_{\rm av}=\tfrac53$. Thus the bound is $\dfrac{\mathrm{Var}(\ell(X))}{L_{\rm av}^2}=\dfrac{2/9}{25/9}=\dfrac{2}{25}=0.08$. The distractor $0.4$ forgets to square $a$, and $2/9$ uses $a=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.33.</span></p>
+  <p>The output of a discrete source is the random sequence $\boldsymbol{X}=(X_1,\ldots,X_m)$, where each symbol $X_j$ takes values in the alphabet $\{1,2,\ldots,n\}$ (no independence or uniformity is assumed). All logarithms are base $2$. Which of the following statements is true in general?</p>
+  <p>(a) The average length of any binary prefix-free code for $\boldsymbol{X}$ is at least $m\log_2 n$.<br>
+  (b) The entropy of $\boldsymbol{X}$ is upper bounded by $n\,H(X_1)$.<br>
+  (c) The average length of the optimal binary prefix-free code for $\boldsymbol{X}$ is at most $m\log_2 n + 1$.<br>
+  (d) The probability of each possible sequence equals $\frac{1}{n^m}$.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>By subadditivity and the maximum-entropy property, $H(\boldsymbol{X})\le\sum_{j=1}^m H(X_j)\le m\log_2 n$. The source coding theorem gives, for the optimal code, $L_{\mathrm{av}}&lt;H(\boldsymbol{X})+1\le m\log_2 n+1$, so option (c) holds with no extra assumptions. Option (a) fails because the true lower bound is $L_{\mathrm{av}}\ge H(\boldsymbol{X})$, which is below $m\log_2 n$ unless the source is i.i.d. uniform. Option (b) confuses the block length $m$ with the alphabet size $n$ (subadditivity has $m$ terms), and option (d) requires an i.i.d. uniform source, not assumed here. The true statement is that the optimal average length is at most $m\log_2 n+1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.34.</span></p>
+  <p>For a discrete source $X$, the optimal binary prefix-free code is $\{0, 10, 11\}$ and it satisfies $L_{\rm av} = H(X)$ (average length equals entropy, in bits). A new source is $Y = (X_1, X_2)$ with $X_1, X_2$ <em>independent</em>, each distributed as $X$. What is the average length of the optimal binary prefix-free code for $Y$?</p>
+  <p>(a) $3$ bits<br>
+  (b) $1.5$ bits<br>
+  (c) $4$ bits<br>
+  (d) $2.25$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $L_{\rm av}=H(X)$, the distribution is dyadic with $p_i=2^{-\ell_i}$ from lengths $\{1,2,2\}$, giving $p=\{\tfrac12,\tfrac14,\tfrac14\}$ and $H(X)=\tfrac12+\tfrac12+\tfrac12=\tfrac32$ bits. For independent $X_1,X_2$, entropy adds: $H(Y)=2H(X)=3$ bits. The pair distribution is also dyadic (products of powers of two), so the optimal code achieves equality: $L_{\rm av}(Y)=H(Y)=3$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.35.</span></p>
+  <p>A memoryless binary source has $P_X(a)=0.8$, $P_X(b)=0.2$, so $H(X)=h_2(0.2)=0.721928$ bits. We apply a Huffman code to blocks of $n$ symbols and define the efficiency $e_n=H(X)/L_n$, where $L_n=L_{\rm av}/n$. For $n=1$ the optimal code assigns one bit to each of the two symbols, so $L_1=1$. Compute $e_1$.</p>
+  <p>(a) $e_1\approx 0.722$<br>
+  (b) $e_1\approx 0.926$<br>
+  (c) $e_1=1.000$<br>
+  (d) $e_1\approx 0.278$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>With $n=1$ a binary Huffman code must use one bit per symbol, so $L_1=L_{\rm av}=1$. The efficiency is $e_1=H(X)/L_1=0.721928/1=0.722$. The value $1.000$ would wrongly equate $L_1$ with $H(X)$, and $0.278$ is the complementary redundancy $1-H(X)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.36.</span></p>
+  <p>For the source $P_X(a)=0.8$, $P_X(b)=0.2$ ($H(X)=0.721928$ bits), Huffman-code blocks of $n=2$ symbols. The block probabilities are $P(aa)=0.64$, $P(ab)=P(ba)=0.16$, $P(bb)=0.04$, giving Huffman lengths $1,2,3,3$. Compute $e_2=H(X)/L_2$ with $L_2=L_{\rm av}/2$.</p>
+  <p>(a) $e_2\approx 0.926$<br>
+  (b) $e_2\approx 0.463$<br>
+  (c) $e_2\approx 0.722$<br>
+  (d) $e_2\approx 0.992$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The expected block length is $L_{\rm av}=0.64(1)+0.16(2)+0.16(3)+0.04(3)=1.560$ bits per block, so $L_2=1.560/2=0.7800$ bits per symbol. Then $e_2=0.721928/0.7800=0.926$. Forgetting to divide $L_{\rm av}$ by $n$ gives the wrong $0.463$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.37.</span></p>
+  <p>For the source $P_X(a)=0.8$, $P_X(b)=0.2$ ($H(X)=0.721928$ bits), Huffman block coding gives the per-symbol efficiencies $e_1\approx0.722$, $e_2\approx0.926$, $e_3\approx0.992$, $e_4\approx0.975$, $e_5\approx0.978$. What is the smallest block length $n$ for which $e_n\ge 0.99$?</p>
+  <p>(a) $n=3$<br>
+  (b) $n=2$<br>
+  (c) $n=4$<br>
+  (d) $n=5$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Scanning the efficiencies, $e_1,e_2&lt;0.99$ while $e_3\approx0.99166\ge0.99$. Since $n=3$ is the first index reaching the threshold (note $e_4,e_5$ actually dip below $0.99$ again), the answer is $n=3$. Choosing $n=4$ or $n=5$ wrongly assumes monotone increase past the threshold.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.38.</span></p>
+  <p>For the source $P_X(a)=0.8$, $P_X(b)=0.2$, the Huffman block-coding efficiencies are $e_1\approx0.722$, $e_2\approx0.926$, $e_3\approx0.992$, $e_4\approx0.975$, $e_5\approx0.978$. Is the sequence $e_n$ monotone increasing in $n$?</p>
+  <p>(a) No: it is not monotone, since $e_3\approx0.992&gt;e_4\approx0.975$<br>
+  (b) Yes: $e_n$ increases strictly with every $n$<br>
+  (c) Yes: $e_n$ is monotone because the source-coding theorem guarantees $e_n\to 1$<br>
+  (d) No: $e_n$ is strictly decreasing in $n$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Although $e_1&lt;e_2&lt;e_3$, the efficiency drops from $e_3\approx0.992$ to $e_4\approx0.975$ before rising again to $e_5\approx0.978$, so it is not monotone. Huffman optimizes each block length separately, and the redundancy $L_n-H(X)$ depends irregularly on how well the $2^n$ block probabilities align with dyadic values. The theory only guarantees $L_n\to H(X)$ (so $e_n\to1$) as $n\to\infty$, not a monotone approach.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.39.</span></p>
+  <p>For the source $P_X(a)=0.8$, $P_X(b)=0.2$ with $H(X)=0.721928$ bits, the source-coding bounds give the analytical lower bound on efficiency $e_n\ge \dfrac{H(X)}{H(X)+1/n}$. Evaluate this lower bound at $n=3$ (recall the true value is $e_3\approx0.992$).</p>
+  <p>(a) $\approx 0.684$, far below the true $e_3\approx0.992$ (the bound is loose)<br>
+  (b) $\approx 0.992$, essentially tight at $n=3$<br>
+  (c) $\approx 0.819$, slightly below the true value<br>
+  (d) $\approx 0.722$, equal to $H(X)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Substituting $n=3$: $\dfrac{0.721928}{0.721928+1/3}=\dfrac{0.721928}{1.055261}=0.684$. The true efficiency $e_3\approx0.992$ vastly exceeds this, so the bound is loose: it assumes the worst case $L_n$ near $H(X)+1/n$, whereas the actual Huffman redundancy for this non-dyadic source is much smaller.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 5.40.</span></p>
+  <p>Consider a discrete memoryless source $X=(U_1,U_2,U_3)$ where each $U_i$ takes values in $\{0,1,2\}$ with probabilities $\left\{\tfrac12,\tfrac14,\tfrac14\right\}$. Let $Y=\log_2 P_X(X)$. Using Chebyshev's inequality, find the lower bound on $\mathbb{P}\!\left[\,|Y-\mathbb{E}[Y]|&lt;2\,\right]$.</p>
+  <p>(a) $\tfrac{13}{16}$<br>
+  (b) $\tfrac{3}{16}$<br>
+  (c) $\tfrac{1}{4}$<br>
+  (d) $\tfrac{15}{16}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By memorylessness $Y=\sum_{i=1}^3 Z_i$ with $Z=\log_2 P_U(U)$ taking $-1$ (prob $\tfrac12$) and $-2$ (prob $\tfrac12$). Then $\mathbb{E}[Z]=-\tfrac32$, $\mathrm{Var}(Z)=\tfrac52-\tfrac94=\tfrac14$, so $\mathrm{Var}(Y)=3\cdot\tfrac14=\tfrac34$. Chebyshev with $\varepsilon=2$ gives $\mathbb{P}[|Y-\mathbb{E}[Y]|\ge2]\le\tfrac{3/4}{4}=\tfrac{3}{16}$, so the complement satisfies $\mathbb{P}[|Y-\mathbb{E}[Y]|&lt;2]\ge 1-\tfrac{3}{16}=\tfrac{13}{16}$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

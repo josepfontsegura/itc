@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -38,48 +38,153 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html" class="active">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
-      <h1>Properament</h1>
+      <h1>Tema 9. Mesures d'informació <a class="pdf-link" href="../pdf/ITC-2026-Lecture9-ca.pdf">pdf</a></h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Aquest contingut estarà disponible a mesura que avanci el curs.</p>
+
+
+<h2>Introducció</h2>
+
+<p>
+A partir de les diverses expressions de la informació mútua $I(X;Y)$ vistes al tema anterior, podem establir relacions interessants entre entropies conjuntes, entropies condicionals i entropies marginals. Per exemple, ja que $I(X;Y) = H(Y) - H(Y|X)  = H(X) + H(Y) - H(X,Y) = H(X) - H(X|Y)$, podem aïllar $H(X,Y)$ de les igualtats anteriors combinant el segon i el tercer termes, o el tercer i el quart termes, per obtenir
+$$\begin{align}
+H(X,Y) &= H(Y|X) + H(X) \tag{9.1}\\
+&=H(X|Y) + H(Y), \tag{9.2}
+\end{align}$$
+l'anomenada <strong>regla de la cadena de l'entropia</strong>. De fet, les equacions $(9.1)$ i $(9.2)$ són una conseqüència de la regla de la cadena de la probabilitat. És a dir, utilitzant que $P_{XY}(x,y)=P_{Y|X}(y|x)P_X(x)$ i que l'entropia conjunta $H(X,Y)$ es pot escriure com el valor esperat de $-\log_2 P_{XY}(X,Y)$, tenim que
+$$\begin{align}
+H(X,Y)& =\mathbb{E}\bigl[-\log_2 P_{XY}(X,Y)\bigr] \tag{9.3}\\
+& = \mathbb{E}\bigl[-\log_2 P_{Y|X}(Y|X) - \log_2 P_X(X) \bigr] \tag{9.4}\\
+ & = \underbrace{\mathbb{E}\bigl[-\log_2 P_{Y|X}(Y|X)\bigr]}_{H(Y|X)} + \underbrace{\mathbb{E}\bigl[-\log_2 P_{X}(X)\bigr]}_{H(X)}. \tag{9.5}\end{align}$$
+L'equació $(9.2)$ es pot obtenir de manera similar utilitzant $P_{XY}(x,y)=P_{X|Y}(x|y)P_Y(y)$. L'entropia es pot interpretar com una mesura de la incertesa d'una variable aleatòria. Per tant, la regla de la cadena de l'entropia ens diu que la incertesa d'un parell de variables aleatòries $H(X,Y)$ es pot descompondre com la incertesa present en una variable aleatòria, per exemple $H(X)$, més la incertesa de l'altra variable aleatòria coneixent la primera $H(Y|X)$. La informació mútua $I(X;Y)$ té un significat anàlog com la informació que una variable aleatòria té sobre l'altra i que aquesta informació es pot mesurar com la incertesa d'una variable aleatòria $H(Y)$ després d'eliminar la incertesa d'aquesta variable aleatòria coneixent l'altra $H(Y|X)$.  En aquesta darrera lliçó, veurem diverses relacions i propietats de les mesures d'informació (entropies i informacions mútues); unes  eines matemàtiques utilitzades en altres disciplines més enllà de les comunicacions digitals.
+</p>
+
+<h2>Mesures d'informació</h2>
+
+<p>
+Com que podem expressar la distribució de probabilitat conjunta de $n$ variables aleatòries $(X_1,\ldots, X_n)$ com
+$$
+P_{X_1\cdots X_n}(x_1,\dotsc,x_n) = P_{X_1}(x_1)P_{X_2|X_1}(x_2|x_1)P_{X_3|X_1X_2}(x_3|x_1x_2)\cdots P_{X_n|X_1\cdots X_{n-1}}(x_n|x_1\dotsc x_{n-1}) \tag{9.6}$$
+podem escriure la <strong>regla de la cadena de l'entropia</strong> en general com
+$$
+H(X_1\dotsc X_n) = H(X_1) + H(X_2|X_1) + H(X_3|X_1X_2) + \cdots+H(X_n|X_1\dotsc X_{n-1}). \tag{9.7}$$
+Recordeu que podem escriure la regla de la cadena en el nostre ordre preferit. Per exemple, $H(X,Y,Z)=H(X)+H(Y|X)+H(Z|YX)$ però també $H(X,Y,Z)=H(Y)+H(Z|Y)+H(X|YZ)$. Com que el condicionament redueix l'entropia, tenim que $H(X_2|X_1)\leq H(X_2)$, que $H(X_3|X_1X_2)\leq H(X_3)$ i així successivament, concloent que l'<strong>entropia conjunta d'una seqüència</strong> de variables aleatòries està limitada superiorment per la suma d'entropies marginals:
+$$
+H(X_1\cdots X_n)\leq\sum_{i=1}^n H(X_i).
+\tag{9.8}
+$$
+La cota de $(9.8)$ s'aconsegueix amb igualtat quan $H(X_2|X_1)=H(X_2)$, $H(X_3|X_1X_2)=H(X_3)$ i així successivament. Sabem que $H(X_2|X_1)=H(X_2)$ s'assoleix quan $P_{X_2|X_1}(x_2|x_1)=P_{X_2}(x_2)$, és a dir, quan $X_1$ i $X_2$ són independents, per tant conèixer $X_1$ no redueix la incertesa a $X_2$. De la mateixa manera, $H(X_3|X_1X_2)=H(X_3)$ s'assoleix quan $X_3$ és independent de $X_1$ i $X_2$, i així successivament. Per tant, arribem a la conclusió que $(9.8)$ es satisfà amb igualtat quan $(X_1,\ldots,X_n)$ és una seqüència de variables aleatòries independents.
+</p>
+<figure><img src="../img/tikz/lecture9-fig1.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
+<figcaption>Sortida $Y$ d'una funció determinista de $X$.</figcaption>
+<a id="fig:obsyxx"></a>
+</p>
+<p>
+El següent resultat mostra que aplicar una funció determinista a una variable aleatòria no pot augmentar la seva entropia (vegeu la Figura 9.1). Siguin $X$ i $Y$ dues variables aleatòries que prenen valors en alfabets ${\cal X}$  i ${\cal Y}$, respectivament, i suposem que $Y$ és la sortida d'una funció determinista de $X$, és a dir, $Y=g(X)$. Una funció $g(x)$ és  determinista si no introdueix aleatorietat, per exemple $g(x)=x^2$ o $g(x)=\log_2 p(x)$, ja que per a una $x$ donada, $g(x)$ dóna sempre el mateix resultat amb probabilitat $1$. Aleshores podem expressar  l'entropia conjunta entre $X$ i $Y$ de dues maneres possibles, tal com hem vist al principi:
+$$\begin{align}
+H(X,Y) &= H(X) + \overbrace{H(Y|X)}^{=0} \tag{9.9}\\
+&=H(Y) + \underbrace{H(X|Y)}_{\geq 0}, \tag{9.10}\end{align}$$
+on $H(Y|X)=0$ ja que $Y$ és una funció determinista de $X$ i no hi ha cap incertesa addicional a $Y$ sobre $X$. Com que $H(X|Y)\geq 0$, tenim que l'entropia de la sortida d'una <strong>funció determinista</strong> està limitada superiorment com
+$$
+H(Y)\leq H(X). \tag{9.11}$$
+En altres paraules, manipular $X$ d'una manera determinista no en pot augmentar la incertesa.
+</p>
+<p>
+Fins ara, hem estudiat múltiples propietats de les entropies. Passem ara a definir $I(X;Y|Z)$, és a dir, la informació que té una variable aleatòria $X$ sobre una altra $Y$ coneixent una tercera variable aleatòria $Z$. Utilitzant la definició d'informació mútua del tema anterior, aquesta quantitat anomenada <strong>informació mútua condicional</strong> es pot escriure de múltiples maneres com
+$$
+	I(X;Y|Z)  = \mathbb{E}\left[ \log_2 \frac{P_{XY|Z}(X,Y|Z)}{P_{X|Z}(X|Z)P_{Y|Z}(Y|Z)} \right]\\
+	 =  \mathbb{E}\left[ \log_2 \frac{P_{X|YZ}(X|YZ)}{P_{X|Z}(X|Z)} \right]
+	 =  \mathbb{E}\left[ \log_2 \frac{P_{Y|XZ}(Y|XZ)}{P_{Y|Z}(Y|Z)} \right], \tag{9.12}$$
+i mitjançant les propietats dels logaritmes en termes d'entropies com
+$$\begin{align}
+	I(X;Y|Z) &= H(Y|Z) - H(Y|XZ) \tag{9.13}\\& =  H(X|Z) + H(Y|Z) - H(X,Y|Z) \tag{9.14}\\& = H(X|Z) - H(X|YZ) \tag{9.15}\\& = I(Y;X|Z). \tag{9.16}\end{align}$$
+Aquestes són exactament les mateixes expressions  de la lliçó 8 després d'afegir el condicionament de $Z$ en tots els termes, i són vàlides per a qualsevol trio de variables aleatòries amb distribució conjunta $P_{XYZ}(x,y,z)$.
+</p>
+<figure><img src="../img/tikz/lecture9-fig2.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
+<figcaption>Il·lustració de la independència condicional i el teorema del processament de dades.</figcaption>
+<a id="fig:dataprocessing"></a>
+</p>
+<p>
+En comunicacions digitals i altres disciplines, les variables aleatòries $X$, $Y$ i $Z$ solen formar part d'una cadena de processament de dades com la de la  Figura 9.2, en el sentit que $Y$ és la sortida d'un sistema l'entrada del qual és $X$, i que $Z$ és la sortida d'un altre sistema l'entrada del qual és $Y$. Això no implica que $Z$ sigui independent de $Y$, ja que una variació de $X$ pot induir una variació de $Y$ que, al seu torn, pot induir una variació de $Z$! Tanmateix, conèixer la variable al mig de la cadena, és a dir $Y$, efectivament produeix una mena d'independència entre l'entrada $X$ i la sortida $Z$ de la cadena. Aquesta és la noció de <strong>cadena de Markov</strong>: tres variables aleatòries $X$, $Y$ i $Z$ formen una cadena de Markov $X\to Y \to Z$ si donada $Y$, les variables $X$ i $Z$ són independents, és a dir
+$$
+P_{XZ|Y}(x,z|y) = P_{X|Y}(x|y)P_{Z|Y}(z|y). \tag{9.17}$$
+En conseqüència, si $X\to Y \to Z$ formen una cadena de Markov, després de conèixer $Y$, $Z$ no té informació sobre $X$, i viceversa, i la informació mútua condicional $I(X;Z|Y)$ s'esvaeix perquè
+$$
+I(X;Z|Y)= \mathbb{E}\left[ \log_2 \frac{P_{XZ|Y}(X,Z|Y)}{P_{X|Y}(X|Y) P_{Z|Y}(Z |Y)} \right] = \mathbb{E}\left[ \log_2 \frac{P_{X|Y}(X|Y) P_{Z|Y}(Z|Y)}{P_{X|Y}(X|Y) P_{Z|Y}(Z|Y)} \right] = \mathbb{E}[\log_2(1)] = 0. \tag{9.18}$$
+</p>
+<p>
+Alternativament, ens podem preguntar quina és la informació entre l'entrada $X$ i les altres dues variables aleatòries $Y$ i $Z$, és a dir, la informació mútua $I(X;Y,Z)$ que també es pot escriure com $I(Y,Z;X)=H(Y,Z)-H(Y,Z|X)$ de dues maneres utilitzant la regla de la cadena de l'entropia. D'una banda, utilitzant $H(Y,Z)=H(Y)+H(Z|Y)$ i $H(Y,Z|X)=H(Y|X)+H(Z|X,Y)$ i ordenant els termes obtenim
+$$
+	I(Y,Z;X) = H(Y,Z)-H(Y,Z|X) = \underbrace{H(Y) - H(Y|X)}_{I(X;Y)} + \underbrace{H(Z|Y) - H(Z|X,Y)}_{I(X;Z|Y)}; \tag{9.19}
+$$
+aquesta és la <strong>regla de la cadena de la informació mútua</strong>. A diferència de l'entropia, el condicionament pot augmentar la informació mútua! D'altra banda, utilitzant la regla de la cadena de l'entropia de la segona manera com $H(Y,Z)=H(Z)+H(Y|Z)$ i $H(Y,Z|X)=H(Z|X)+H(Y|X,Z)$, també podem escriure
+$$
+	I(Y,Z;X) = H(Y,Z)-H(Y,Z|X) = \underbrace{H(Z) - H(Z|X)}_{I(X;Z)} + \underbrace{H(Y|Z) - H(Y|X,Z)}_{I(X;Y|Z)}. \tag{9.20}
+$$
+Combinant $(9.19)$ i $(9.20)$ en un sol sistema d'equacions obtenim que
+$$\begin{align}
+I(X;YZ) &= I(X;Y) + \overbrace{I(X;Z|Y)}^{=0}\tag{9.21}\\
+&= I(X;Z)+\underbrace{I(X;Y|Z)}_{\geq 0},\tag{9.22}
+\end{align}$$
+on $
+I(X;Z|Y)=0$
+a partir del supòsit de la cadena de Markov i $
+I(X;Y|Z) \geq 0$
+ja que és una informació mútua.
+Així, $(9.21)$ i $(9.22)$ condueixen al <strong>teorema de processament de dades</strong>: si les variables aleatòries $X\to Y \to Z$ formen una cadena de Markov, aleshores
+$$
+I(X;Z)\leq I(X;Y).
+\tag{9.23}
+$$
+El resultat de $(9.23)$ és una poderosa desigualtat que diu que qualsevol processament fet a una determinada variable no pot augmentar la informació mútua, o que la informació que la sortida de la cadena $Z$ té sobre $X$ no pot ser més gran que la informació que $Y$ té de $X$.
+</p>
+<p>
+Acabem la darrera lliçó combinant alguns dels resultats anteriors per estudiar la informació mútua entre $(X_1,\ldots,X_n)$, una seqüència de variables aleatòries que és l'entrada d'un <strong>canal discret sense memòria</strong>, i la seqüència de sortida del canal $(Y_1,\ldots,Y_n)$, és a dir $I(X_1\cdots X_n;Y_1\cdots Y_n)$. Per fer-ho, escrivim la informació mútua en funció de l'entropia
+$$\begin{align}
+I(X_1\cdots X_n;Y_1\cdots Y_n)  &= H(Y_1\cdots Y_n) - H(Y_1\cdots Y_n|X_1\cdots X_n) \tag{9.24}\\
+&= H(Y_1\cdots Y_n) - \sum_{i=1}^n H(Y_i|X_1\cdots X_n Y_1\cdots Y_{i-1})\tag{9.25}\\
+&=H(Y_1\cdots Y_n) - \sum_{i=1}^n H(Y_i|X_i)\tag{9.26}\\
+&\leq  \sum_{i=1}^n H(Y_i) - \sum_{i=1}^n H(Y_i|X_i)\tag{9.27}\\
+&= \sum_{i=1}^n I(X_i;Y_i) \tag{9.28}\end{align}$$
+on $(9.25)$ és la regla de la cadena d'entropia, $(9.26)$ es deu al fet que el canal no té memòria (i per tant, la sortida $Y_i$ només depèn de l'entrada $X_i$), $(9.27)$ ve de  $(9.8)$ i l'últim pas de la definició d'informació mútua. La informació mútua entre la seqüència d'entrada i la seqüència de sortida en un canal discret sense memòria es converteix en la suma d'informació mútua símbol-a-símbol amb igualtat al pas $(9.27)$ només quan $(Y_1,\ldots,Y_n)$ és una seqüència de variables aleatòries independents, cosa que suggereix que aquesta és la millor estratègia per a la transmissió de dades per canals sense memòria.</p>
   </main>
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Teoria de la informació i la codificació 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

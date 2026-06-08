@@ -242,7 +242,7 @@
 </nav>
 
 <div class="page">
-                  <aside class="sidebar">
+                                          <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -254,36 +254,36 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html" class="active">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
 
@@ -367,66 +367,66 @@
 
   // ---- Quiz data ----
   var questions = [
-// KAHOOT 1: Topics 1-2
+// KAHOOT 1
     {
-      topic: "Topics 1\u20132: Random Variables",
-      q: "What is the mean of a random variable that takes values $\\{0,1,3\\}$ with probabilities $\\bigl\\{\\tfrac12,\\tfrac13,\\tfrac16\\bigr\\}$?",
-      options: ["$1$", "$\\tfrac56$", "$\\tfrac34$", "$\\tfrac23$"],
+      topic: "Topic 1: Law of total probability",
+      q: "Two random variables $X$ and $Y$ take values in $\\{0,1\\}$ with $P(X=0)=\\tfrac12$, $P(Y=1\\,|\\,X=0)=\\tfrac13$ and $P(Y=1\\,|\\,X=1)=\\tfrac34$. Then $P(Y=1)=\\tfrac{13}{24}$.",
+      options: ["True", "False"],
+      correct: 0
+    },
+    {
+      topic: "Topic 1: Independence vs. equal marginals",
+      q: "Two random variables $X$ and $Y$ take values in $\\{0,1\\}$ with $P_{XY}(0,0)=P_{XY}(1,1)=\\tfrac{2}{5}$ and $P_{XY}(0,1)=P_{XY}(1,0)=\\tfrac{1}{10}$. Since both marginals are $\\bigl\\{\\tfrac12,\\tfrac12\\bigr\\}$, $X$ and $Y$ are independent.",
+      options: ["True", "False"],
       correct: 1
     },
     {
-      topic: "Topics 1\u20132: Random Variables",
-      q: "A random bit has mean $1-p$. What is the probability that the bit equals $1$?",
-      options: ["$1-p$", "$p$", "$\\tfrac12$", "$p^2$"],
+      topic: "Topic 1: i.i.d. source, 'at least one' event",
+      q: "A discrete memoryless source emits three i.i.d. symbols from $\\{a,b\\}$ with $P(a)=\\tfrac14$. The probability that the emitted length-$3$ sequence contains at least one $a$ is $\\tfrac{37}{64}$.",
+      options: ["True", "False"],
       correct: 0
     },
     {
-      topic: "Topics 1\u20132: Random Variables",
-      q: "Let $X$ and $Y$ be two bits with joint probabilities $P_{XY}(x,y)=\\tfrac14$ for every $(x,y)\\in\\{0,1\\}^2$. Are $X$ and $Y$ independent?",
-      options: ["No", "Yes"],
+      topic: "Topic 1: Memoryless channel output",
+      q: "For a discrete memoryless channel, the output sequence $(Y_1,\\ldots,Y_n)$ is always a sequence of i.i.d. random variables, regardless of the input distribution.",
+      options: ["True", "False"],
       correct: 1
     },
     {
-      topic: "Topics 1\u20132: Random Variables",
-      q: "For bits $X$ and $Y$ with $P_{Y|X}(0|0)=\\tfrac14$ and $P_{Y|X}(1|1)=\\tfrac23$, what is $P_{Y|X}(1|0)$?",
-      options: ["$\\tfrac34$", "$\\tfrac12$", "$\\tfrac13$", "$\\tfrac23$"],
+      topic: "Topic 1: Bayes' theorem (posterior)",
+      q: "Two random variables $X$ and $Y$ take values in $\\{0,1\\}$ with $P(X=0)=\\tfrac13$, $P(Y=1\\,|\\,X=0)=\\tfrac12$ and $P(Y=1\\,|\\,X=1)=\\tfrac14$. Then $P(X=0\\,|\\,Y=1)=\\tfrac12$.",
+      options: ["True", "False"],
       correct: 0
     },
     {
-      topic: "Topics 1\u20132: Random Variables",
-      q: "Given $P_{XY}(0,0)=\\tfrac18$, $P_{XY}(0,1)=\\tfrac38$, $P_{XY}(1,0)=\\tfrac14$, what is $P_Y(1)$?",
-      options: ["$\\tfrac38$", "$\\tfrac58$", "$\\tfrac12$", "$\\tfrac14$"],
+      topic: "Topic 2: Variance of a sum",
+      q: "Let $X$ take values in $\\{0,1\\}$ with equal probability $\\tfrac12$ and let $Y=1-X$. Then $\\mathrm{var}(X+Y)=\\mathrm{var}(X)+\\mathrm{var}(Y)=\\tfrac12$.",
+      options: ["True", "False"],
       correct: 1
     },
     {
-      topic: "Topics 1\u20132: Random Variables",
-      q: "Let $V$ be uniform on $\\{1,4\\}$ and set $Y=\\log_{2}(V)$. What is $\\mathbb{E}[Y]$?",
-      options: ["$1$", "$\\tfrac12$", "$0$", "$2$"],
+      topic: "Topic 2: Markov's inequality on a function",
+      q: "A random variable $X$ (not necessarily non-negative) satisfies $E[X^2]=4$. Applying Markov's inequality to $X^2$, $P(|X|\\geq 4)\\leq \\tfrac14$.",
+      options: ["True", "False"],
       correct: 0
     },
     {
-      topic: "Topics 1\u20132: Random Variables",
-      q: "A variable $W$ takes values $\\{0,3,6\\}$ with probabilities $\\{\\tfrac12,\\tfrac14,\\tfrac14\\}$. Markov\u2019s inequality gives an upper bound on $P[W\\ge5]$ equal to",
-      options: ["$0.25$", "$0.45$", "$0.50$", "$0.75$"],
+      topic: "Topic 2: Chebyshev can be uninformative",
+      q: "A random variable $X$ takes values in $\\{-1,1\\}$ with equal probability, so $E[X]=0$ and $\\mathrm{var}(X)=1$. Chebyshev's inequality guarantees that $P\\bigl(|X-0|\\geq 1\\bigr)\\leq \\tfrac12$.",
+      options: ["True", "False"],
       correct: 1
     },
     {
-      topic: "Topics 1\u20132: Random Variables",
-      q: "A variable $X$ has variance $\\tfrac19$. Chebyshev bounds $P\\!\\bigl[|X-\\mathbb{E}[X]|\lt 1\\bigr]$ by",
-      options: ["$\\tfrac89$", "$\\tfrac13$", "$\\tfrac1{18}$", "$\\tfrac19$"],
+      topic: "Topic 2: WLLN for a function of the samples",
+      q: "Let $(X_1,\\ldots,X_n)$ be i.i.d. with each $X_i\\in\\{0,2\\}$ equiprobable. As $n\\to\\infty$, the average $\\tfrac{X_1^2+\\cdots+X_n^2}{n}$ converges in probability to $2$.",
+      options: ["True", "False"],
       correct: 0
     },
     {
-      topic: "Topics 1\u20132: Random Variables",
-      q: "Let $X$ and $Y$ be independent letters, each uniform on $\\{a,b,d\\}$. What is the probability that both are $d$?",
-      options: ["$\\tfrac19$", "$\\tfrac13$", "$\\tfrac23$", "$\\tfrac16$"],
-      correct: 0
-    },
-    {
-      topic: "Topics 1\u20132: Random Variables",
-      q: "For i.i.d. fair bits $X_1,X_2,\\dots$ define $\\bar X_n=\\frac1n\\sum_{i=1}^n X_i$. What is the limit of $\\mathbb{P}\\bigl[|\\bar X_n-\\tfrac12|\gt 0.05\\bigr]$ as $n\\to\\infty$?",
-      options: ["$0$", "$1$", "$0.05$", "$0.95$"],
-      correct: 0
+      topic: "Topic 2: WLLN, geometric vs. arithmetic mean",
+      q: "Let $(X_1,\\ldots,X_n)$ be i.i.d. with each $X_i\\in\\{1,4\\}$ equiprobable. As $n\\to\\infty$, the geometric mean $(X_1\\cdots X_n)^{1/n}$ converges in probability to $\\tfrac52$.",
+      options: ["True", "False"],
+      correct: 1
     }
   ];
 

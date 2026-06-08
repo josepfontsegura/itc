@@ -242,7 +242,7 @@
 </nav>
 
 <div class="page">
-                  <aside class="sidebar">
+                                          <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -254,36 +254,36 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html" class="active">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
 
@@ -367,66 +367,66 @@
 
   // ---- Quiz data ----
   var questions = [
-// KAHOOT 1: Temes 1-2
+// KAHOOT 1
     {
-      topic: "Temes 1\u20132: Variables aleatòries",
-      q: "Quina és la mitjana d'una variable aleatòria que pren valors $\\{0,1,3\\}$ amb probabilitats $\\bigl\\{\\tfrac12,\\tfrac13,\\tfrac16\\bigr\\}$?",
-      options: ["$1$", "$\\tfrac56$", "$\\tfrac34$", "$\\tfrac23$"],
+      topic: "Tema 1: Llei de la probabilitat total",
+      q: "Dues variables aleat\u00f2ries $X$ i $Y$ prenen valors a $\\{0,1\\}$ amb $P(X=0)=\\tfrac12$, $P(Y=1\\,|\\,X=0)=\\tfrac13$ i $P(Y=1\\,|\\,X=1)=\\tfrac34$. Aleshores $P(Y=1)=\\tfrac{13}{24}$.",
+      options: ["Cert", "Fals"],
+      correct: 0
+    },
+    {
+      topic: "Tema 1: Independ\u00e8ncia vs. marginals iguals",
+      q: "Dues variables aleat\u00f2ries $X$ i $Y$ prenen valors a $\\{0,1\\}$ amb $P_{XY}(0,0)=P_{XY}(1,1)=\\tfrac{2}{5}$ i $P_{XY}(0,1)=P_{XY}(1,0)=\\tfrac{1}{10}$. Com que totes dues marginals s\u00f3n $\\bigl\\{\\tfrac12,\\tfrac12\\bigr\\}$, $X$ i $Y$ s\u00f3n independents.",
+      options: ["Cert", "Fals"],
       correct: 1
     },
     {
-      topic: "Temes 1\u20132: Variables aleatòries",
-      q: "Un bit aleatori té mitjana $1-p$. Quina és la probabilitat que el bit sigui igual a $1$?",
-      options: ["$1-p$", "$p$", "$\\tfrac12$", "$p^2$"],
+      topic: "Tema 1: Font i.i.d., esdeveniment \u00abalmenys un\u00bb",
+      q: "Una font discreta sense mem\u00f2ria emet tres s\u00edmbols i.i.d. de $\\{a,b\\}$ amb $P(a)=\\tfrac14$. La probabilitat que la seq\u00fc\u00e8ncia de longitud $3$ emesa contingui almenys una $a$ \u00e9s $\\tfrac{37}{64}$.",
+      options: ["Cert", "Fals"],
       correct: 0
     },
     {
-      topic: "Temes 1\u20132: Variables aleatòries",
-      q: "Siguin $X$ i $Y$ dos bits amb probabilitats conjuntes $P_{XY}(x,y)=\\tfrac14$ per a tot $(x,y)\\in\\{0,1\\}^2$. Són $X$ i $Y$ independents?",
-      options: ["No", "Sí"],
+      topic: "Tema 1: Sortida d'un canal sense mem\u00f2ria",
+      q: "Per a un canal discret sense mem\u00f2ria, la seq\u00fc\u00e8ncia de sortida $(Y_1,\\ldots,Y_n)$ sempre \u00e9s una seq\u00fc\u00e8ncia de variables aleat\u00f2ries i.i.d., independentment de la distribuci\u00f3 de l'entrada.",
+      options: ["Cert", "Fals"],
       correct: 1
     },
     {
-      topic: "Temes 1\u20132: Variables aleatòries",
-      q: "Per als bits $X$ i $Y$ amb $P_{Y|X}(0|0)=\\tfrac14$ i $P_{Y|X}(1|1)=\\tfrac23$, quin és $P_{Y|X}(1|0)$?",
-      options: ["$\\tfrac34$", "$\\tfrac12$", "$\\tfrac13$", "$\\tfrac23$"],
+      topic: "Tema 1: Teorema de Bayes (a posteriori)",
+      q: "Dues variables aleat\u00f2ries $X$ i $Y$ prenen valors a $\\{0,1\\}$ amb $P(X=0)=\\tfrac13$, $P(Y=1\\,|\\,X=0)=\\tfrac12$ i $P(Y=1\\,|\\,X=1)=\\tfrac14$. Aleshores $P(X=0\\,|\\,Y=1)=\\tfrac12$.",
+      options: ["Cert", "Fals"],
       correct: 0
     },
     {
-      topic: "Temes 1\u20132: Variables aleatòries",
-      q: "Donat $P_{XY}(0,0)=\\tfrac18$, $P_{XY}(0,1)=\\tfrac38$, $P_{XY}(1,0)=\\tfrac14$, quin és $P_Y(1)$?",
-      options: ["$\\tfrac38$", "$\\tfrac58$", "$\\tfrac12$", "$\\tfrac14$"],
+      topic: "Tema 2: Vari\u00e0ncia d'una suma",
+      q: "Sigui $X$ que pren valors a $\\{0,1\\}$ amb probabilitat igual $\\tfrac12$ i sigui $Y=1-X$. Aleshores $\\mathrm{var}(X+Y)=\\mathrm{var}(X)+\\mathrm{var}(Y)=\\tfrac12$.",
+      options: ["Cert", "Fals"],
       correct: 1
     },
     {
-      topic: "Temes 1\u20132: Variables aleatòries",
-      q: "Sigui $V$ uniforme sobre $\\{1,4\\}$ i definim $Y=\\log_{2}(V)$. Quin és $\\mathbb{E}[Y]$?",
-      options: ["$1$", "$\\tfrac12$", "$0$", "$2$"],
+      topic: "Tema 2: Desigualtat de Markov sobre una funci\u00f3",
+      q: "Una variable aleat\u00f2ria $X$ (no necess\u00e0riament no negativa) satisf\u00e0 $E[X^2]=4$. Aplicant la desigualtat de Markov a $X^2$, $P(|X|\\geq 4)\\leq \\tfrac14$.",
+      options: ["Cert", "Fals"],
       correct: 0
     },
     {
-      topic: "Temes 1\u20132: Variables aleatòries",
-      q: "Una variable $W$ pren valors $\\{0,3,6\\}$ amb probabilitats $\\{\\tfrac12,\\tfrac14,\\tfrac14\\}$. La desigualtat de Markov dóna una fita superior de $P[W\\ge5]$ igual a",
-      options: ["$0.25$", "$0.45$", "$0.50$", "$0.75$"],
+      topic: "Tema 2: Chebyshev pot no ser informatiu",
+      q: "Una variable aleat\u00f2ria $X$ pren valors a $\\{-1,1\\}$ amb probabilitat igual, de manera que $E[X]=0$ i $\\mathrm{var}(X)=1$. La desigualtat de Chebyshev garanteix que $P\\bigl(|X-0|\\geq 1\\bigr)\\leq \\tfrac12$.",
+      options: ["Cert", "Fals"],
       correct: 1
     },
     {
-      topic: "Temes 1\u20132: Variables aleatòries",
-      q: "Una variable $X$ té variància $\\tfrac19$. Chebyshev fita $P\\!\\bigl[|X-\\mathbb{E}[X]|\lt 1\\bigr]$ per",
-      options: ["$\\tfrac89$", "$\\tfrac13$", "$\\tfrac1{18}$", "$\\tfrac19$"],
+      topic: "Tema 2: LFGN per a una funci\u00f3 de les mostres",
+      q: "Sigui $(X_1,\\ldots,X_n)$ i.i.d. amb cada $X_i\\in\\{0,2\\}$ equiprobable. Quan $n\\to\\infty$, la mitjana $\\tfrac{X_1^2+\\cdots+X_n^2}{n}$ convergeix en probabilitat a $2$.",
+      options: ["Cert", "Fals"],
       correct: 0
     },
     {
-      topic: "Temes 1\u20132: Variables aleatòries",
-      q: "Siguin $X$ i $Y$ lletres independents, cadascuna uniforme sobre $\\{a,b,d\\}$. Quina és la probabilitat que ambdues siguin $d$?",
-      options: ["$\\tfrac19$", "$\\tfrac13$", "$\\tfrac23$", "$\\tfrac16$"],
-      correct: 0
-    },
-    {
-      topic: "Temes 1\u20132: Variables aleatòries",
-      q: "Per a bits i.i.d. equiprobables $X_1,X_2,\\dots$ definim $\\bar X_n=\\frac1n\\sum_{i=1}^n X_i$. Quin és el límit de $\\mathbb{P}\\bigl[|\\bar X_n-\\tfrac12|\gt 0.05\\bigr]$ quan $n\\to\\infty$?",
-      options: ["$0$", "$1$", "$0.05$", "$0.95$"],
-      correct: 0
+      topic: "Tema 2: LFGN, mitjana geom\u00e8trica vs. aritm\u00e8tica",
+      q: "Sigui $(X_1,\\ldots,X_n)$ i.i.d. amb cada $X_i\\in\\{1,4\\}$ equiprobable. Quan $n\\to\\infty$, la mitjana geom\u00e8trica $(X_1\\cdots X_n)^{1/n}$ convergeix en probabilitat a $\\tfrac52$.",
+      options: ["Cert", "Fals"],
+      correct: 1
     }
   ];
 

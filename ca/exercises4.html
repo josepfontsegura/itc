@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -40,44 +40,561 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html" class="active">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Properament</h1>
+      <h1>Exercicis: 4. Codis de Huffman</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Aquest contingut estarà disponible a mesura que avanci el curs.</p>
+
+    <button id="expand-all" data-expand="Mostra totes les solucions" data-collapse="Amaga totes les solucions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostra totes les solucions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.1.</span></p>
+  <p>La longitud mitjana del codi de Huffman per a una font que pren valors a $\{a,b,c,d,e,f\}$ amb probabilitats $\{\frac{3}{5},\frac{1}{6},\frac{1}{15},\frac{1}{15},\frac{1}{20},\frac{1}{20}\}$ és</p>
+  <p>(a) $\frac{28}{15}$<br>
+  (b) $\frac{19}{10}$<br>
+  (c) Cap de les altres.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Seguint els passos per construir un codi de Huffman per a la font donada trobem, per exemple, una distribució de longituds $\{1,2,4,4,4,4\}$, de manera que la mitjana que es calcula com $\sum_{j=1}^r p_j \ell_j$ condueix a la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.2.</span></p>
+  <p>El codi de Huffman per a una font que pren valors a $\{a,b,c,d\}$ amb probabilitats $\{\frac{1}{4},\frac{1}{4},\frac{1}{4},\frac{1}{4}\}$ compleix</p>
+  <p>(a) $\{00,01,10,11\}$ és un codi possible.<br>
+  (b) Tant la longitud mitjana com l'entropia de la font són iguals a $2$ bits.<br>
+  (c) Tant (a) com (b) són correctes.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Seguint els passos per construir un codi de Huffman per a la font donada trobem quatre codis possibles: $\{00,01,10,11\}$, $\{11,00,01,10\}$, $\{10,11,00,01\}$ i $\{01,10,11,00\}$. La longitud mitjana és de $2$ bits i l'entropia de la font és $H=\tfrac{4}{4}\log_2(4)=2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.3.</span></p>
+  <p>El codi de Huffman per a una font que pren valors a $\{a,b,c,d\}$ té distribució de longituds $\{1,2,3,3\}$. Quin és l'interval més gran possible per a la probabilitat del símbol $a$?</p>
+  <p>(a) $\bigl[0,\tfrac{2}{3}\bigr)$<br>
+  (b) $\bigl[0,\tfrac{1}{3}\bigr)$<br>
+  (c) Cap de les altres.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>A partir de les longituds de paraula codi donades sabem que en el primer pas de la construcció del codi de Huffman es fusionen dos nodes corresponents als símbols $c$ i $d$, de manera que $p_a\geq p_c$, $p_a\geq p_d$, $p_b\geq p_c$, $p_b\geq p_d$. En el segon pas, el node $b$ es fusiona amb el node $cd$ resultant del pas anterior, de manera que $p_a\geq p_b$ i $p_a\geq p_c+p_d$. Combinant les dues últimes desigualtats obtenim $2p_a\geq p_b+p_c+p_d$ i sumant $p_a$ a tots dos costats obtenim $3p_a\geq p_a+p_b+p_c+p_d=1$, d'on $p_a\geq \tfrac{1}{3}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.4.</span></p>
+  <p>Considereu una font $Z=(X,Y)$ donada per dos símbols independents $X$ i $Y$, on $X$ pren valors a $\{a,b\}$ amb probabilitats $\{\tfrac{2}{3},\tfrac{1}{3}\}$ i $Y$ pren valors a $\{a,b,c\}$ amb probabilitats $\{\tfrac{1}{2},\tfrac{1}{3},\tfrac{1}{6}\}$. Quina és la longitud mitjana del codi de Huffman per a $Z$?</p>
+  <p>(a) $\frac{22}{9}$<br>
+  (b) $\frac{35}{18}$<br>
+  (c) Cap de les altres.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La font $Z$ té alfabet $\{aa,ab,ac,ba,bb,bc\}$ amb probabilitats $\bigl\{\frac{1}{3},\frac{2}{9},\frac{1}{9},\frac{1}{6},\frac{1}{9},\frac{1}{18}\bigr\}$. Construïm aleshores un codi de Huffman obtenint, per exemple, les longituds de paraula codi $\{2,2,3,3,3,3\}$, que condueixen a una longitud mitjana de $\frac{22}{9}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.5.</span></p>
+  <p>Ara construïm un codi de Huffman per a $X$ i $Y$ per separat, i codifiquem $Z=(X,Y)$ concatenant el codi de $X$ i el codi de $Y$. Quina és la longitud mitjana d'aquest codi per a $Z$?</p>
+  <p>(a) $\frac{5}{2}$<br>
+  (b) $\frac{5}{3}$<br>
+  (c) $\frac{5}{4}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>El codi de Huffman per a $X$ té distribució de longituds $\{1,1\}$, mentre que el codi de Huffman per a $Y$ té distribució de longituds $\{1,2,2\}$. Quan $Z$ es codifica concatenant el codi de $X$ i el codi de $Y$, el codi resultant té distribució de longituds $\{2,3,3,2,3,3\}$, que condueix a una longitud mitjana de $\frac{5}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.6.</span></p>
+  <p>Suposem que $X$ i $Y$ a $Z=(X,Y)$ de les dues preguntes anteriors NO són independents, sinó que es distribueixen com $P_{X|Y}(a|a)=\tfrac{1}{2}$, $P_{X|Y}(a|b)=\tfrac{1}{2}$, $P_{X|Y}(a|c)=0$, mentre que $Y$ té la mateixa distribució que abans. La longitud mitjana (en bits) del codi de Huffman òptim és</p>
+  <p>(a) fitada inferiorment per $\frac{3}{2}+\frac{1}{2}\log_2 3$.<br>
+  (b) fitada superiorment per $\frac{3}{2}+\frac{1}{2}\log_2 3$.<br>
+  (c) fitada inferiorment per $\frac{5}{2}+\frac{1}{2}\log_2 3$.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Donada la distribució de probabilitat condicional de $X$ donat $Y$ trobem l'alfabet i la distribució de $Z$ respectivament com $\{aa,ba,ab,bb,bc\}$ i $\{\frac{1}{4},\frac{1}{4},\frac{1}{6},\frac{1}{6},\frac{1}{6}\}$. Sabent que la longitud mitjana del codi òptim per a $Z$ està fitada inferiorment per l'entropia de la font, obtenim (després d'algunes manipulacions matemàtiques) el valor $\frac{3}{2}+\frac{1}{2}\log_2(3)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.7.</span></p>
+  <p>Per a una font discreta $X$ amb símbols equiprobables, el codi binari lliure de prefixos òptim és $\{0,10,11\}$. Es construeix una nova font com $Y=(X_1,X_2)$, on $X_1$ i $X_2$ són independents i totes dues tenen la mateixa distribució que $X$. Quina és l'eficiència del codi binari lliure de prefixos òptim per a $Y$?</p>
+  <p>(a) $\frac{3\log_2(3)}{5}$<br>
+  (b) $\frac{3\log_2(3)}{10}$<br>
+  (c) $\frac{18\log_2(3)}{29}$<br>
+  (d) $1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>La font $X$ té tres símbols i probabilitats $\{1/3,1/3,1/3\}$. Aleshores, $Y$ té $9$ símbols equiprobables, i un codi òptim (de Huffman) amb $L_{\rm av}=\frac{29}{9}$ i $H(Y)=\log_2(9)$. L'eficiència és $\frac{H(Y)}{L_{\rm av}}=\frac{\log_2(9)}{29/9}=\frac{18\log_2(3)}{29}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.8.</span></p>
+  <p>Una font té els símbols $\{a,b,c,d\}$ amb probabilitats $\{\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{8},\tfrac{1}{8}\}$. Quina és la longitud mitjana del codi de Huffman?</p>
+  <p>(a) $\tfrac{7}{4}$<br>
+  (b) $2$<br>
+  (c) $\tfrac{3}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>El codi de Huffman té longituds $\{1,2,3,3\}$, que donen $L_{\rm av}=\tfrac{1}{2}\cdot 1+\tfrac{1}{4}\cdot 2+\tfrac{1}{8}\cdot 3+\tfrac{1}{8}\cdot 3=\tfrac{7}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.9.</span></p>
+  <p>El codi de Huffman per a una font amb probabilitats $\{\tfrac{1}{3},\tfrac{1}{3},\tfrac{1}{3}\}$ té la distribució de longituds:</p>
+  <p>(a) $\{1,2,2\}$<br>
+  (b) $\{1,1,1\}$<br>
+  (c) $\{2,2,2\}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Amb tres símbols equiprobables, l'algorisme de Huffman fusiona els dos menys probables (cadascun $\tfrac{1}{3}$) en un node de probabilitat $\tfrac{2}{3}$, i després l'aparella amb el símbol restant, donant longituds $\{1,2,2\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.10.</span></p>
+  <p>És únic el codi de Huffman per a una font amb probabilitats $\{\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{8},\tfrac{1}{8}\}$?</p>
+  <p>(a) La distribució de longituds és única, però les paraules codi no ho són<br>
+  (b) Sí, tant les longituds com les paraules codi són úniques<br>
+  (c) No, ni tan sols la distribució de longituds és única</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>L'algorisme de Huffman sempre produeix les longituds $\{1,2,3,3\}$ per a aquesta distribució, però les paraules codi binàries concretes poden variar (per exemple, intercanviant les dues paraules codi de longitud $3$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.11.</span></p>
+  <p>Es construeix un codi de Huffman ternari (amb alfabet $\{0,1,2\}$) per a una font amb $5$ símbols equiprobables. Quina és la longitud mitjana en símbols ternaris?</p>
+  <p>(a) $2$<br>
+  (b) $\tfrac{5}{3}$<br>
+  (c) $\tfrac{8}{5}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Per a un codi ternari necessitem que el nombre de fulles compleixi $N\equiv 1\pmod{D-1}$ amb $D=3$. Com que $5\equiv 1\pmod 2$, no cal cap símbol fictici. L'algorisme de Huffman fusiona primer els $3$ símbols més petits en un node, i queden tres nodes que es fusionen a l'arrel. Això dóna longituds de paraula codi $\{1,1,2,2,2\}$, de manera que $L_{\rm av}=\frac{2\cdot 1+3\cdot 2}{5}=\frac{8}{5}$ símbols ternaris.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.12.</span></p>
+  <p>Una font té els símbols $\{a,b,c\}$ amb probabilitats $\{\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{4}\}$. El codi de Huffman té $L_{\rm av}=\tfrac{3}{2}$. Quina és l'eficiència d'aquest codi?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{3}{4}$<br>
+  (c) $\tfrac{H(X)}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>L'entropia és $H(X)=\tfrac{1}{2}\log_2 2+\tfrac{1}{4}\log_2 4+\tfrac{1}{4}\log_2 4=\tfrac{3}{2}$. Com que $L_{\rm av}=H(X)=\tfrac{3}{2}$, l'eficiència és $H(X)/L_{\rm av}=1$ (és a dir, el $100\%$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.13.</span></p>
+  <p>Per a una font amb $\{a,b,c,d,e\}$ i probabilitats $\{\tfrac{1}{4},\tfrac{1}{4},\tfrac{1}{4},\tfrac{1}{8},\tfrac{1}{8}\}$, la distribució de longituds del codi de Huffman és:</p>
+  <p>(a) $\{2,2,2,3,3\}$<br>
+  (b) $\{1,2,3,3,3\}$<br>
+  (c) $\{2,2,3,3,3\}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Fusionant els dos menys probables ($\tfrac{1}{8}$ cadascun) s'obté $\tfrac{1}{4}$. Aleshores els quatre nodes tenen probabilitat $\tfrac{1}{4}$, i l'algorisme de Huffman produeix longituds $\{2,2,2,3,3\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.14.</span></p>
+  <p>Considereu una font $Z=(X,Y)$ on $X\in\{0,1\}$ amb igual probabilitat i $Y\in\{a,b\}$ amb igual probabilitat, i $X,Y$ són independents. Quina és la longitud mitjana del codi de Huffman per a $Z$?</p>
+  <p>(a) $2$<br>
+  (b) $\tfrac{3}{2}$<br>
+  (c) $3$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La font $Z$ té $4$ símbols equiprobables, de manera que el codi de Huffman assigna longitud $2$ a cadascun, donant $L_{\rm av}=2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.15.</span></p>
+  <p>Una font amb probabilitats $\{p,1-p\}$ es codifica amb el codi de Huffman $\{0,1\}$. Per a quins valors de $p$ l'eficiència és igual a $1$?</p>
+  <p>(a) Només $p=\tfrac{1}{2}$<br>
+  (b) Tots els $p\in(0,1)$<br>
+  (c) $p=\tfrac{1}{4}$ i $p=\tfrac{3}{4}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>El codi de Huffman assigna longitud $1$ a tots dos símbols, de manera que $L_{\rm av}=1$. L'eficiència és $H(X)/L_{\rm av}=h_2(p)$, que val $1$ només quan $p=\tfrac{1}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.16.</span> Es construeix un codi de Huffman per a una font amb $8$ símbols equiprobables. Quina és la longitud mitjana de les paraules codi?</p>
+  <p>(a) $3$<br>
+  (b) $\log_2 8$<br>
+  (c) Tant (a) com (b) són equivalents i correctes</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Per a $8$ símbols equiprobables, el codi de Huffman assigna longitud $3$ a cadascun, i $\log_2 8 = 3$, de manera que ambdues respostes són la mateixa.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.17.</span> En construir un codi de Huffman, quan dos nodes tenen la mateixa probabilitat, afecta la longitud mitjana de les paraules codi l'elecció de quina parella es fusiona?</p>
+  <p>(a) No, la longitud mitjana sempre és òptima<br>
+  (b) Sí, eleccions diferents donen longituds mitjanes diferents<br>
+  (c) Només per a fonts amb més de $4$ símbols</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>L'algorisme de Huffman sempre produeix un codi òptim independentment de com es resolguin els empats. Eleccions diferents poden produir distribucions de longituds diferents, però totes assoleixen la mateixa longitud mitjana mínima.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.18.</span></p>
+  <p>Una estació meteorològica IoT emet quatre estats $\{\text{Sunny},\text{Cloudy},\text{Rainy},\text{Storm}\}$ amb probabilitats $\{0.50,\,0.25,\,0.15,\,0.10\}$. Construeix el codi de Huffman binari òptim i calcula la seva longitud mitjana $L_{\rm av}=\sum_i p_i\,\ell_i$ (en bits/missatge).</p>
+  <p>(a) $L_{\rm av}=1.75$ bits/missatge<br>
+  (b) $L_{\rm av}=2.00$ bits/missatge<br>
+  (c) $L_{\rm av}=1.7427$ bits/missatge<br>
+  (d) $L_{\rm av}=1.25$ bits/missatge</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Fusionant repetidament els dos nodes menys probables: Rainy$(0.15)$+Storm$(0.10)\to0.25$, després Cloudy$(0.25)$+aquest$\to0.50$, i amb Sunny$(0.50)\to$arrel. Les paraules codi són Sunny$\to0$, Cloudy$\to10$, Rainy$\to110$, Storm$\to111$, amb longituds $\{1,2,3,3\}$. Així $L_{\rm av}=0.50\cdot1+0.25\cdot2+0.15\cdot3+0.10\cdot3=1.75$ bits/missatge. ($2.00$ és el codi de longitud fixa; $1.7427$ és l'entropia $H$, una cota inferior; $1.25$ és impossible perquè és per sota de $H$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.19.</span></p>
+  <p>El codi de Huffman de l'estació meteorològica té longitud mitjana $L_{\rm av}=1.75$ bits/missatge, substituint un codi de longitud fixa de $2$ bits/missatge. L'estació envia $N=1440$ missatges al dia. Quants bits per dia s'estalvien?</p>
+  <p>(a) $360$ bits/dia<br>
+  (b) $2520$ bits/dia<br>
+  (c) $252$ bits/dia<br>
+  (d) $720$ bits/dia</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>L'estalvi per missatge és $\Delta=2-1.75=0.25$ bits. Al llarg de $N=1440$ missatges: $1440\times0.25=360$ bits/dia. ($2520$ seria la càrrega total de Huffman $1440\times1.75$, no l'estalvi; $252$ confon un factor; $720$ duplica el resultat.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.20.</span></p>
+  <p>El codi de Huffman fa servir $L_{\rm av}=1.75$ bits/missatge enfront de la referència de longitud fixa de $2$ bits. Expressat com una reducció percentual respecte al codi de $2$ bits, l'estalvi és:</p>
+  <p>(a) $12.5\%$<br>
+  (b) $25\%$<br>
+  (c) $14.3\%$<br>
+  (d) $0.25\%$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La reducció és $\Delta/2=(2-1.75)/2=0.25/2=0.125=12.5\%$. ($25\%$ oblida dividir per la referència; $14.3\%$ divideix per $1.75$ en lloc de $2$; $0.25\%$ col·loca malament el decimal de l'estalvi de $0.25$ bits.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.21.</span></p>
+  <p>Es construeix un codi de Huffman binari per a una font sobre $\mathcal{X}=\{a,b,c\}$ amb distribució de disseny $\{0.02,\,0.07,\,0.91\}$. Aquest codi fix s'aplica després a una font <em>diferent</em> sobre el mateix alfabet (mateix ordre $a,b,c$) amb distribució $\{0.6,\,0.26,\,0.14\}$. Calcula la longitud mitjana de paraula codi quan el codi s'aplica a la segona font.</p>
+  <p>(a) $1.86$ bits<br>
+  (b) $1.40$ bits<br>
+  (c) $1.09$ bits<br>
+  (d) $1.74$ bits</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Huffman sobre la distribució de disseny $\{0.02,0.07,0.91\}$ fusiona primer $a$ i $b$, després amb $c$, donant longituds $(\ell_a,\ell_b,\ell_c)=(2,2,1)$ (p. ex. $a\to00,b\to01,c\to1$). Aquestes longituds es mantenen fixes i s'apliquen a les noves probabilitats: $L_{\mathrm{av}}=0.6\cdot2+0.26\cdot2+0.14\cdot1=1.2+0.52+0.14=1.86$ bits. Fixa't que $1.40$ seria la longitud òptima d'un codi redissenyat per a $\{0.6,0.26,0.14\}$, i $1.09$ és la longitud mitjana sobre la font original.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.22.</span></p>
+  <p>Codifiquem totes les seqüències de 3 bits ($8$ ternes equiprobables) amb un codi lliure de prefixos sobre l'alfabet ternari $\{a,b,c\}$. Construïu un codi ternari de <em>longitud fixa</em> amb la longitud de paraula codi més petita possible i calculeu la seva longitud mitjana en lletres per bit.</p>
+  <p>(a) $\ell=2$ lletres, $\bar{L}=\tfrac{2}{3}\approx 0.6667$ lletres/bit<br>
+  (b) $\ell=3$ lletres, $\bar{L}=1$ lletra/bit<br>
+  (c) $\ell=2$ lletres, $\bar{L}=2$ lletres/bit<br>
+  (d) $\ell=1$ lletra, $\bar{L}=\tfrac{1}{3}\approx 0.3333$ lletres/bit</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Un codi ternari de longitud fixa $\ell$ ofereix $3^\ell$ paraules codi; cal $3^\ell\ge 8$. Com que $3^1=3&lt;8$ i $3^2=9\ge 8$, la longitud més petita és $\ell=2$ lletres per terna. Com que cada terna porta $3$ bits, el cost per bit és $\tfrac{2}{3}\approx 0.6667$ lletres/bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.23.</span></p>
+  <p>Les $8$ ternes de 3 bits independents i equiprobables tenen cadascuna probabilitat $\tfrac18$. Construïu el codi de Huffman ternari sobre $\{a,b,c\}$ (afegint una fulla fictícia de probabilitat $0$, ja que $8\equiv 0\pmod{D-1}$ amb $D=3$) i calculeu la seva longitud mitjana en lletres per bit.</p>
+  <p>(a) $\bar{L}=\tfrac{2}{3}\approx 0.6667$ lletres/bit (totes les paraules codi tenen longitud $2$)<br>
+  (b) $\bar{L}\approx 0.6309$ lletres/bit (Huffman assoleix l'entropia)<br>
+  (c) $\bar{L}=1$ lletra/bit<br>
+  (d) $\bar{L}=\tfrac{5}{9}\approx 0.5556$ lletres/bit (barreja de longituds $1$ i $2$)</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Afegim una fulla fictícia ($0$) a les vuit fulles de $\tfrac18$ (nou nodes). La Fusió 1 combina la fictícia amb dues fulles de $\tfrac18$ en $\tfrac28$; les sis fulles de $\tfrac18$ restants es fusionen de tres en tres en dos nodes de $\tfrac38$; l'arrel fusiona $\tfrac28,\tfrac38,\tfrac38$. Cada fulla real queda a profunditat $2$, de manera que les $8$ paraules codi tenen longitud $2$ i $\bar{L}=\tfrac18\cdot 8\cdot\tfrac{2}{3}=\tfrac{2}{3}\approx 0.6667$ lletres/bit, igual que a (a).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.24.</span></p>
+  <p>Per a la font uniforme de $8$ ternes ($3$ bits, entropia $H=1$ bit/bit), els codis ternaris de (a) i (b) assoleixen tots dos $\tfrac23\approx 0.6667$ lletres/bit. Calculeu l'entropia en lletres per bit (amb $1\text{ lletra}=\log_2 3$ bits) i compareu.</p>
+  <p>(a) $H=\tfrac{1}{\log_2 3}=\tfrac13\log_3 8\approx 0.6309$ lletres/bit; tots dos codis la superen en $\approx 5.7\%$<br>
+  (b) $H=\log_2 3\approx 1.585$ lletres/bit; tots dos codis estan per sota de l'entropia<br>
+  (c) $H=1$ lletra/bit; tots dos codis baten l'entropia<br>
+  (d) $H=\tfrac23\approx 0.6667$ lletres/bit; tots dos codis són òptims (iguals a $H$)</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La font uniforme té $H=1$ bit per bit; convertint amb $1\text{ lletra}=\log_2 3$ bits dona $H=\tfrac{1}{\log_2 3}=\tfrac13\log_3 8\approx 0.6309$ lletres/bit, la fita inferior de codificació de font. Tots dos codis donen $\tfrac23\approx 0.6667$, un sobrecost relatiu $\tfrac{2\log_2 3}{3}-1\approx 0.057$, és a dir un $5.7\%$ per sobre de la fita. La diferència sorgeix perquè la longitud ideal $\log_3 8\approx 1.893$ lletres per terna no és entera i Huffman arrodoneix cap amunt fins a $2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.25.</span></p>
+  <p>Es generen tres bits de manera independent amb $\mathbb{P}(1)=\tfrac23$, $\mathbb{P}(0)=\tfrac13$ per bit, de manera que els vuit símbols de 3 bits $000,\dots,111$ tenen probabilitats $\tfrac1{27},\tfrac2{27},\tfrac2{27},\tfrac4{27},\tfrac2{27},\tfrac4{27},\tfrac4{27},\tfrac8{27}$. Es construeix un codi de Huffman ternari sobre $\{a,b,c\}$ (amb una fulla fictícia de probabilitat $0$). Quina és la seva longitud mitjana expressada en lletres ternaries <em>per bit de la font</em>?</p>
+  <p>(a) $\dfrac{49}{81}\approx 0.605$<br>
+  (b) $\dfrac{49}{27}\approx 1.815$<br>
+  (c) $\dfrac{2}{3}\approx 0.667$<br>
+  (d) $\dfrac{65}{81}\approx 0.802$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>S'omple fins a $9$ fulles (senar, ja que $D=3$ exigeix fulles $\equiv 1 \bmod 2$) i es fusionen repetidament les tres més petites. Això dona longituds $\ell(000)=\ell(001)=3$, cinc símbols de longitud $2$ i $\ell(111)=1$. La mitjana per símbol de 3 bits és $\bar L_{\text{sym}}=\tfrac1{27}(3+6+4+8+4+8+8+8)=\tfrac{49}{27}$. Dividint entre $3$ bits per símbol s'obté $\bar L=\tfrac{49}{81}\approx 0.605$ lletres ternaries/bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.26.</span></p>
+  <p>Per a un bit de Bernoulli amb $\mathbb{P}(1)=\tfrac23$, $\mathbb{P}(0)=\tfrac13$, cal l'entropia per bit <em>mesurada en unitats ternaries</em> (usant $\log_3$, la unitat natural per a un alfabet de codi de mida $3$) per comparar-la amb el codi de Huffman ternari. Quant val $H_3$ per bit?</p>
+  <p>(a) $\tfrac13+\tfrac23\log_3\tfrac32\approx 0.579$<br>
+  (b) $\tfrac13+\tfrac23\log_2\tfrac32\approx 0.918$<br>
+  (c) $\tfrac{49}{81}\approx 0.605$<br>
+  (d) $\tfrac23\approx 0.667$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>$H_3=-\tfrac13\log_3\tfrac13-\tfrac23\log_3\tfrac23=\tfrac13\log_3 3+\tfrac23\log_3\tfrac32=\tfrac13+\tfrac23\log_3\tfrac32\approx 0.5794$ lletres ternaries/bit. La segona opció usa $\log_2$ (bits binaris, el valor $\approx 0.918$), no unitats ternaries. Pel teorema de codificació de la font $\bar L=\tfrac{49}{81}\approx 0.605\ge H_3$, un excés d'un $4.4\%$ aproximadament, mentre que el codi de longitud fixa a $\tfrac23$ té un excés del $15\%$ aproximadament.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.27.</span></p>
+  <p>El codi de Huffman ternari de l'apartat (a) té longituds de paraula codi fixes $\ell(000)=\ell(001)=3$, $\ell(010)=\ell(011)=\ell(100)=\ell(101)=\ell(110)=2$, $\ell(111)=1$. Ara les probabilitats dels bits s'<em>inverteixen</em>: $\mathbb{P}(0)=\tfrac23$, $\mathbb{P}(1)=\tfrac13$, de manera que cada símbol pren la probabilitat del seu complement de bits ($000\to\tfrac8{27}$, $111\to\tfrac1{27}$, etc.). Mantenint el mateix codi, quina és la nova longitud mitjana per bit de la font?</p>
+  <p>(a) $\dfrac{65}{81}\approx 0.802$<br>
+  (b) $\dfrac{49}{81}\approx 0.605$<br>
+  (c) $\dfrac{65}{27}\approx 2.407$<br>
+  (d) $\dfrac{16}{27}\approx 0.593$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Les longituds es mantenen fixes però ara s'aparellen amb les probabilitats invertides: $\bar L'_{\text{sym}}=\tfrac1{27}\big(8\cdot3+4\cdot3+4\cdot2+2\cdot2+4\cdot2+2\cdot2+2\cdot2+1\cdot1\big)=\tfrac1{27}(24+12+8+4+8+4+4+1)=\tfrac{65}{27}$. Per bit, $\bar L'=\tfrac{65}{81}\approx 0.802$. Això supera tant $H_3$ com el valor ajustat $\tfrac{49}{81}$: un codi de Huffman és òptim només per a la distribució per a la qual es va dissenyar, i la penalització per desajust és l'entropia relativa $D(p'\|p)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.28.</span></p>
+  <p>Una font discreta sense memòria té alfabet $\mathcal{X}=\{a,b,c\}$ amb probabilitats $\{p,\,p,\,1-2p\}$, $0&lt;p&lt;\tfrac12$. Es construeix un codi de Huffman binari. Quin és el multiconjunt de longituds de paraula codi?</p>
+  <p>(a) $\{1,2,2\}$<br>
+  (b) $\{1,1,2\}$<br>
+  (c) $\{2,2,2\}$<br>
+  (d) $\{1,2,3\}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Amb tres símbols l'algorisme de Huffman té una única forma estructural: els dos símbols menys probables es fusionen primer en un node intern a profunditat $1$, deixant les seves fulles a profunditat $2$; el símbol restant (el més gran) s'uneix a l'arrel, a profunditat $1$. Així un símbol obté longitud $1$ i dos obtenen longitud $2$, donant $\{1,2,2\}$. Això satisfà la igualtat de Kraft $2^{-1}+2^{-2}+2^{-2}=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.29.</span></p>
+  <p>Per a la font $\{p,\,p,\,1-2p\}$ sobre $\{a,b,c\}$ amb $0&lt;p&lt;\tfrac12$, el codi de Huffman binari assigna longitud $1$ al símbol més probable i longitud $2$ als altres dos. Quina és la longitud mitjana de paraula codi $L_{\mathrm{av}}(p)$?</p>
+  <p>(a) $\min\{1+2p,\ 2-p\}$<br>
+  (b) $1+2p$ per a tot $0&lt;p&lt;\tfrac12$<br>
+  (c) $2-p$ per a tot $0&lt;p&lt;\tfrac12$<br>
+  (d) $\max\{1+2p,\ 2-p\}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La paraula codi de longitud $1$ va a la probabilitat més gran. Si $0&lt;p&lt;\tfrac13$ aleshores $1-2p$ és la més gran, donant $L_{\mathrm{av}}=1\cdot(1-2p)+2p+2p=1+2p$. Si $\tfrac13&lt;p&lt;\tfrac12$ aleshores un símbol $p$ és el més gran, donant $L_{\mathrm{av}}=1\cdot p+2p+2(1-2p)=2-p$. Les dues branques es troben a $p=\tfrac13$ (ambdues valen $\tfrac53$), per tant $L_{\mathrm{av}}(p)=\min\{1+2p,\,2-p\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.30.</span></p>
+  <p>Per a la font $\{p,\,p,\,1-2p\}$ la longitud mitjana de Huffman és $L_{\mathrm{av}}(p)=1+2p$ a $(0,\tfrac13]$ i $2-p$ a $[\tfrac13,\tfrac12)$. Si $p\sim\mathrm{Uniform}(0,\tfrac12)$, calcula la longitud mitjana esperada $\mathbb{E}[L_{\mathrm{av}}]$.</p>
+  <p>(a) $\tfrac{17}{12}$<br>
+  (b) $\tfrac{5}{3}$<br>
+  (c) $\tfrac{17}{24}$<br>
+  (d) $\tfrac{3}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La densitat és $f(p)=2$ a $(0,\tfrac12)$. Separant a $p=\tfrac13$: $\int_0^{1/3}(1+2p)\,dp=\tfrac13+\tfrac19=\tfrac49$ i $\int_{1/3}^{1/2}(2-p)\,dp=\tfrac78-\tfrac{11}{18}=\tfrac{19}{72}$. Aleshores $\mathbb{E}[L_{\mathrm{av}}]=2\left(\tfrac49+\tfrac{19}{72}\right)=2\cdot\tfrac{51}{72}=\tfrac{17}{12}\approx1.417$ bits. (Oblidar el factor $f=2$ dona l'erroni $\tfrac{17}{24}$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.31.</span></p>
+  <p>Una font discreta sense memòria emet símbols sobre $\mathcal{X}=\{a,b,c\}$ amb distribució i.i.d. $\{0.4,0.3,0.3\}$. Calcula l'entropia per símbol $H(U)$ en bits.</p>
+  <p>(a) $\approx 1.5710$ bits<br>
+  (b) $\approx 1.0911$ bits<br>
+  (c) $\approx 1.5850$ bits<br>
+  (d) $\approx 0.4729$ bits</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Amb logaritmes en base 2, $H(U)=-0.4\log_2 0.4-2(0.3)\log_2 0.3$. Amb $\log_2 0.4\approx-1.32193$ i $\log_2 0.3\approx-1.73697$, s'obté $0.4(1.32193)+0.6(1.73697)\approx 0.52877+1.04218\approx 1.5710$ bits. (El valor $1.0911$ correspondria a logaritmes naturals; $1.5850$ és l'uniforme $\log_2 3$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.32.</span></p>
+  <p>Per al bloc $X=(U_1,\ldots,U_n)$ d'una font sense memòria amb entropia per símbol $H(U)\approx 1.5710$ bits, calcula l'entropia conjunta $H(X)$ per a $n=5$.</p>
+  <p>(a) $\approx 7.8548$ bits<br>
+  (b) $\approx 1.5710$ bits<br>
+  (c) $\approx 6.2838$ bits<br>
+  (d) $\approx 9.4258$ bits</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La manca de memòria implica que els $U_i$ són i.i.d., de manera que l'entropia conjunta és additiva: $H(X)=\sum_{i=1}^{n}H(U_i)=nH(U)$. Per a $n=5$, $H(X)=5\times 1.5710\approx 7.8548$ bits. (El valor $6.2838$ usa $n=4$, i $9.4258$ usa $n=6$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.33.</span></p>
+  <p>Un codi de Huffman per a $X$ té longitud mitjana $L_{\rm av}$ que satisfà $H(X)\le L_{\rm av}&lt;H(X)+1$. Definiu $\eta=H(X)/L_{\rm av}$. Quina fita inferior de $\eta$ se segueix de la fita superior de Shannon sobre $L_{\rm av}$?</p>
+  <p>(a) $\eta&gt;\dfrac{H(X)}{H(X)+1}$<br>
+  (b) $\eta&gt;\dfrac{H(X)+1}{H(X)}$<br>
+  (c) $\eta&gt;\dfrac{H(X)}{H(X)-1}$<br>
+  (d) $\eta&gt;H(X)+1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que $\eta=H(X)/L_{\rm av}$ decreix quan $L_{\rm av}$ creix, substituir $L_{\rm av}$ per la seva fita superior $H(X)+1$ dona una fita inferior de $\eta$: $\eta&gt;\dfrac{H(X)}{H(X)+1}$. (Usar $H(X)-1$ correspondria a una fita inferior de $L_{\rm av}$, no a la fita superior vàlida de Shannon.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.34.</span></p>
+  <p>Amb $H(X)\approx 7.8548$ bits per a $n=5$, avalua la fita inferior $\eta&gt;H(X)/(H(X)+1)$.</p>
+  <p>(a) $\eta&gt;0.8871$<br>
+  (b) $\eta&gt;0.1129$<br>
+  (c) $\eta&gt;0.6112$<br>
+  (d) $\eta&gt;0.9802$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Substituïu $H(X)\approx 7.8548$: $\eta&gt;\dfrac{7.8548}{7.8548+1}=\dfrac{7.8548}{8.8548}\approx 0.8871$. La fita s'apropa a $1$ a mesura que $n$ creix perquè el sobrecost $+1$ s'amortitza sobre el bloc. (El valor $0.1129$ és el complementari $1/(H(X)+1)$, la raó equivocada.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.35.</span></p>
+  <p>Una font discreta sense memòria emet símbols $U$ sobre $\{a,b,c,d\}$ amb probabilitats $\{0.45,\,0.2,\,0.175,\,0.175\}$. Calcula l'entropia per símbol $H(U)$ en bits.</p>
+  <p>(a) $H(U) \approx 1.8629$ bits<br>
+  (b) $H(U) \approx 2.0000$ bits<br>
+  (c) $H(U) \approx 0.5608$ bits<br>
+  (d) $H(U) \approx 1.5610$ bits</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Fent servir logaritmes en base $2$: $-0.45\log_2 0.45 = 0.5184$, $-0.2\log_2 0.2 = 0.4644$, i cada $-0.175\log_2 0.175 = 0.4400$ (dos termes així donen $0.8801$). Sumant, $H(U) \approx 0.5184 + 0.4644 + 0.8801 = 1.8629$ bits. El valor $2$ és el màxim per a $4$ símbols; $0.5608$ surt d'usar logaritmes naturals, i $1.5610$ d'oblidar un dels dos termes iguals.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.36.</span></p>
+  <p>Una font discreta sense memòria emet un bloc $X=(U_1,\ldots,U_n)$ de símbols i.i.d., cadascun amb entropia per símbol $H(U)\approx 1.8629$ bits. Un codi de Huffman per a $X$ té longitud mitjana $L_{\rm av}$, i la raó $\eta=H(X)/L_{\rm av}$ està acotada inferiorment per $0.91788$. Fent servir $L_{\rm av}&lt;H(X)+1$ (per tant $\eta&gt;\tfrac{H(X)}{H(X)+1}$), determina la longitud del bloc $n$.</p>
+  <p>(a) $n = 6$<br>
+  (b) $n = 5$<br>
+  (c) $n = 7$<br>
+  (d) $n = 12$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que la font és sense memòria, $H(X)=nH(U)$. Imposant $\tfrac{nH(U)}{nH(U)+1}=0.91788$ i escrivint $y=nH(U)$ s'obté $y=\tfrac{0.91788}{1-0.91788}=\tfrac{0.91788}{0.08212}\approx 11.177$ bits. Aleshores $n=11.177/1.8629\approx 6.00$. Comprovació: $n=5$ dóna $0.9030$ i $n=7$ dóna $0.9288$, de manera que només $n=6$ reprodueix $0.91788$. ($n=12$ vindria de confondre $nH(U)$ amb $n$.) Per tant $n=6$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.37.</span></p>
+  <p>Una font $U$ sobre $\{a,b,c,d\}$ té distribució $\{0.4,\,0.25,\,0.2,\,0.15\}$. Considereu un <em>algorisme de Huffman relaxat</em>: a cada pas, en lloc de fusionar sempre els dos nodes menys probables, fusiona dos nodes triats uniformement a l'atzar entre els tres nodes amb probabilitats més petites (quan només queden tres nodes, tots tres compten com a més petits). Quina és la probabilitat que el codi binari lliure de prefixos resultant tingui la mateixa longitud mitjana que el codi òptim (Huffman ordinari)?</p>
+  <p>(a) $\tfrac19$<br>
+  (b) $\tfrac13$<br>
+  (c) $0$<br>
+  (d) $\tfrac29$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La longitud mitjana és la suma dels pesos dels nodes fusionats (interns). El Huffman genuí fusiona $(0.15,0.2)\to0.35$, després $(0.25,0.35)\to0.60$, després $\to1$, donant $L^*=0.35+0.60+1=1.95$ bits. L'algorisme relaxat té $\binom{3}{2}=3$ opcions al pas 1, $\binom{3}{2}=3$ al pas 2 i $1$ al pas 3, és a dir $3\times3\times1=9$ camins equiprobables. Comprovant tots els camins, el valor $1.95$ apareix <strong>exactament una vegada</strong> (el camí de Huffman veritable); qualsevol altre camí viola la regla de fusionar els dos més petits i és estrictament pitjor ($\ge2.00$). Per tant la probabilitat és $\tfrac19$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.38.</span></p>
+  <p>Una font $U$ sobre $\{a,b,c,d\}$ té distribució $\left\{p,\ \tfrac{1-p}{3},\ \tfrac{1-p}{3},\ \tfrac{1-p}{3}\right\}$ amb $p\in(0,1)$. Sigui $q=\tfrac{1-p}{3}$. L'estructura del codi binari de Huffman òptim canvia en un valor crític de $p$. En quin valor de $p$ es produeix el llindar estructural?</p>
+  <p>(a) $p=\tfrac{2}{5}$<br>
+  (b) $p=\tfrac{1}{4}$<br>
+  (c) $p=\tfrac{1}{3}$<br>
+  (d) $p=\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La primera fusió de Huffman sempre uneix dos $q$, deixant $\{p,q,2q\}$. L'ordre de fusió depèn de comparar $p$ amb $2q$. Resolent $p=2q=2\cdot\tfrac{1-p}{3}$ s'obté $3p=2-2p$, $5p=2$, és a dir $p=\tfrac{2}{5}$. El valor $p=\tfrac14$ (on $p=q$) és enganyós: no canvia l'estructura del codi.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.39.</span></p>
+  <p>Per a la font $\left\{p,\ \tfrac{1-p}{3},\ \tfrac{1-p}{3},\ \tfrac{1-p}{3}\right\}$, considera el règim $0&lt;p\le\tfrac{2}{5}$. Quina és la longitud mitjana de paraula codi $L_{\rm av}(p)$ del codi òptim en aquest interval?</p>
+  <p>(a) $L_{\rm av}(p)=2$ bits (constant)<br>
+  (b) $L_{\rm av}(p)=\tfrac{8-5p}{3}$ bits<br>
+  (c) $L_{\rm av}(p)=1+p$ bits<br>
+  (d) $L_{\rm av}(p)=1.75$ bits (constant)</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Quan $p\le 2q$, a partir de $\{p,q,2q\}$ els dos més petits són $p$ i $q$, així que es fusionen i després s'uneixen amb $2q$. L'arbre resultant és equilibrat: les quatre fulles a profunditat $2$, distribució de longituds $\{2,2,2,2\}$. Per tant $L_{\rm av}=2(p+3q)=2\cdot 1=2$ bits, constant a $\left(0,\tfrac25\right]$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.40.</span></p>
+  <p>Per a la font $\left\{p,\ \tfrac{1-p}{3},\ \tfrac{1-p}{3},\ \tfrac{1-p}{3}\right\}$ amb $q=\tfrac{1-p}{3}$, considera el règim $\tfrac{2}{5}&lt;p&lt;1$. Aquí el codi òptim és desequilibrat amb distribució de longituds $\{1,2,3,3\}$. Quina és $L_{\rm av}(p)$ en aquest interval?</p>
+  <p>(a) $L_{\rm av}(p)=\tfrac{8-5p}{3}$ bits<br>
+  (b) $L_{\rm av}(p)=\tfrac{8+5p}{3}$ bits<br>
+  (c) $L_{\rm av}(p)=p+8q=\tfrac{8-7p}{3}$ bits<br>
+  (d) $L_{\rm av}(p)=2$ bits (constant)</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per a $p&gt;2q$, les fusions produeixen profunditats $1,2,3,3$, així que $L_{\rm av}=1\cdot p+2q+3q+3q=p+8q$. Substituint $q=\tfrac{1-p}{3}$: $p+\tfrac{8(1-p)}{3}=\tfrac{3p+8-8p}{3}=\tfrac{8-5p}{3}$ bits, una recta de pendent $-\tfrac53$. (Comprovació: a $p=\tfrac12$, $\tfrac{11}{6}\approx1.83$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 4.41.</span></p>
+  <p>La funció és $L_{\rm av}(p)=2$ a $\left(0,\tfrac25\right]$ i $L_{\rm av}(p)=\tfrac{8-5p}{3}$ a $\left(\tfrac25,1\right)$. És $L_{\rm av}(p)$ contínua a $(0,1)$?</p>
+  <p>(a) Sí, contínua: les dues peces valen $2$ a $p=\tfrac25$ (un colze però cap salt)<br>
+  (b) No, hi ha un salt de $\tfrac13$ a $p=\tfrac25$<br>
+  (c) No, és discontínua perquè el pendent canvia de $0$ a $-\tfrac53$<br>
+  (d) Sí, i a més és diferenciable a tot $(0,1)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>A $p=\tfrac25$ la peça constant dona $2$ i la lineal dona $\tfrac{8-5\cdot\frac25}{3}=\tfrac{6}{3}=2$. Els valors coincideixen, així que $L_{\rm av}$ és contínua. Hi ha un colze (el pendent salta de $0$ a $-\tfrac53$), de manera que és contínua però no diferenciable a $p=\tfrac25$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

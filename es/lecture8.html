@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -38,48 +38,187 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html" class="active">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Tema 8. Capacidad de canal <a class="pdf-link" href="../pdf/ITC-2026-Lecture8-es.pdf">pdf</a></h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+
+<h2>Introducción</h2>
+
+<p>
+Hasta ahora hemos visto ejemplos de códigos de canal, como el código de repetición o el código (7,4) de Hamming, cuyo objetivo es transmitir información de manera fiable a través de un canal de comunicación utilizando el diagrama de bloques de la Figura 8.1. Con dicho sistema, transmitimos $k=\log_2 M$ bits de información usando $n$ usos del canal, donde $n$ es la longitud de las secuencias $\x_m$ y $\y$.
+</p>
+<figure><img src="../img/tikz/lecture8-fig1.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
+<figcaption>Funciones de codificación y descodificación en transmisión de datos.</figcaption>
+<a id="fig:enc2"></a>
+</p>
+<p>
+Deseamos diseñar códigos capaces de transmitir información a una tasa $R=\frac kn$ lo más alta posible con una probabilidad de error $P_{\rm e}$ lo más pequeña posible. Decimos que la comunicación fiable es posible a una tasa $R$ si $\lim_{n\to\infty} P_{\rm e}=0$. La mayor tasa $R$ a la que la comunicación fiable es posible es la <strong>capacidad del canal</strong>.
+</p>
+
+<h2>Capacidad de canal</h2>
+
+<p>
+La capacidad de un canal discreto sin memoria con entrada $X\in{\cal X}$, salida $Y\in{\cal Y}$ y probabilidad de transición $P_{Y|X}(y|x)$, denotada por $C$ y derivada por Shannon en 1948, viene dada por
+$$
+C = \max_{\px(x)} I(X;Y),
+\tag{8.1}
+$$
+donde la maximización es sobre todas las posibles distribuciones de entrada, e $I(X;Y)$ es la <strong>información mutua</strong> entre la entrada $X$ y la salida $Y$, dada por
+$$
+	I(X;Y) = \sum_{x\in{\cal X}}\sum_{y\in{\cal Y}} P_X(x) P_{Y|X}(y|x) \log_2 \frac{P_{Y|X}(y|x)}{P_{Y}(y)}.
+	\tag{8.2}
+$$
+En otras palabras, para encontrar la capacidad de un canal discreto sin memoria, se necesita calcular la información mutua en $(8.2)$ para todas las distribuciones de entrada posibles $P_X(x)$ y encontrar la distribución de entrada que la maximiza. El valor máximo resultante de la información mutua es la capacidad del canal $C$, y la distribución de entrada que conduce a la capacidad del canal se denomina distribución de entrada que alcanza la capacidad, denotada como $P_X^\star(x)$. La información mutua $(8.2)$ puede interpretarse como la cantidad de información que una variable aleatoria $Y$ tiene sobre otra variable aleatoria $X$, o también puede entenderse como la reducción de incertidumbre sobre $X$ una vez que observamos $Y$ como veremos en la siguiente sección.
+</p>
+<p>
+Hay dos implicaciones importantes con respecto a la información mutua y la comunicación fiable:
+</p>
+
+<ul>
+</p>
+<p>
+	<li><strong>(a)</strong> Para una distribución de entrada $P_X(x)$, es posible transmitir de forma fiable a una tasa $R&lt;I(X;Y)$ porque existen códigos tales que $P_{\rm e}\to 0$ cuando $n\to\infty$.
+ 	<li><strong>(b)</strong> Por el contrario, para $R&gt;I(X;Y)$, la comunicación fiable no es posible ya que no hay ningún código cuya probabilidad de error $P_{\rm e}\to 0$ cuando $n\to\infty$.
+</p>
+<p>
+</ul>
+
+<p>
+Antes de ver un ejemplo detallado sobre el cálculo de la capacidad del canal de un canal simétrico binario, establecemos una serie de relaciones entre la información mutua y las entropías.
+</p>
+
+<h2>Información mutua y entropías</h2>
+
+<p>
+La información mutua en $(8.2)$ puede interpretarse como el valor esperado de la variable aleatoria $Z=f(X,Y)$, la función de dos variables $f(x,y)=\log_2\frac{P_{Y|X}(y|x)}{P_Y(y)}$. Es decir, $I(X;Y)=\mathbb{E}[f(X,Y)]$. Usando que la distribución conjunta de $X$ e $Y$ se puede escribir como
+$$
+	P_{XY}(x,y) = P_{Y|X}(y|x)P_X(x) = P_{X|Y}(x|y)P_Y(y),
+	\tag{8.3}
+$$
+y expandiendo el logaritmo, obtenemos que la información mutua se puede escribir de varias maneras, incluyendo
+$$\begin{align}
+I(X;Y) &= \EE\bigg[\log_2\frac{\pyx(y|x)}{\py(y)}\bigg] = \mathbb{E}\bigl[\log_2\pyx(y|x)\bigr] - \mathbb{E}\bigl[\log_2\py(y)\bigr] \tag{8.4}\\
+&= \EE\bigg[\log_2\frac{\pxy(x,y)}{\px(x)\py(y)}\bigg] = \EE\bigl[\log_2\pxy(x,y)\bigr] - \EE\bigl[\log_2\px(x)\bigr]-\EE\bigl[\log_2\py(y)\bigr]\tag{8.5}\\
+&= \EE\bigg[\log_2\frac{\pxcy(x|y)}{\px(x)}\bigg] = \mathbb{E}\bigl[\log_2\pxcy(x|y)\bigr] - \mathbb{E}\bigl[\log_2\px(x)\bigr]\tag{8.6}\\
+&=I(Y;X),\tag{8.7}
+\end{align}$$
+lo que implica que la información mutua es una cantidad simétrica ya que  $I(X;Y)=I(Y;X)$. Es fácil observar que muchos de los términos de las expresiones anteriores son esperanzas del logaritmo de distribuciones de probabilidad, ¡que de hecho son <strong>entropías</strong>! Definamos las siguientes cantidades
+$$\begin{gather}
+H(X) = -\sum_{x\in{\cal X}}\px(x)\log_2 \px(x) \tag{8.8}\\
+H(X,Y) = -\sum_{x\in{\cal X}}\sum_{y\in{\cal Y}}\pxy(x,y)\log_2 \pxy(x,y) \tag{8.9}\\
+H(Y|X) = -\sum_{x\in{\cal X}}\sum_{y\in{\cal Y}}\pxy(x,y)\log_2 \pyx(y|x) \tag{8.10}\end{gather}$$
+donde $H(X)$ es la entropía de $X$, $H(X,Y)$ es la entropía conjunta de $X,Y$ y $H(Y|X)$ es la entropía condicional de $Y$ dado $X$, que se puede reescribir como
+$$\begin{align}
+H(Y|X) &= -\sum_{x\in{\cal X}}\sum_{y\in{\cal Y}}\px(x)\pyx(y|x)\log_2 \pyx(y|x) \tag{8.11}\\
+&= \sum_{x\in{\cal X}}\px(x)\bigg(-\sum_{y\in{\cal Y}} \pyx(y|x)\log_2 \pyx(y|x)\bigg) \tag{8.12}\\
+&= \sum_{x\in{\cal X}}\px(x) H(Y|X=x) \tag{8.13}\end{align}$$
+donde
+$$
+H(Y|X=x) = -\sum_{y\in{\cal Y}} \pyx(y|x)\log_2 \pyx(y|x) \tag{8.14}$$
+es la entropía condicional de $Y$ para un determinado $x$. La entropía, más allá de ser el límite fundamental de la compresión de datos, tiene una interpretación de la incertidumbre de una variable aleatoria. Usando las definiciones anteriores (¡cuidado con los signos!), podemos escribir las ecuaciones $(8.4)$, $(8.5)$, $(8.6)$ y $(8.7)$ como
+$$\begin{align}
+	I(X;Y) &= H(Y) - H(Y|X) \tag{8.15}\\& = H(X) + H(Y) - H(X,Y) \tag{8.16}\\& = H(X) - H(X|Y) \tag{8.17}\\& = I(Y;X). \tag{8.18}\end{align}$$
+</p>
+<p>
+Terminamos esta sección enunciando tres propiedades importantes de la entropía y la información mutua:
+</p>
+
+<ol>
+</p>
+<p>
+ 	<li>La información mutua es una cantidad no negativa, es decir $I(X;Y)\geq 0$ con igualdad si y solo si $X$ e $Y$ son independientes.
+	<li>La entropía también es una cantidad no negativa cuyo límite superior es $H(X)\leq \log_2|{\cal X}|$, con igualdad si y solo si $X$ tiene símbolos equiprobables.
+ 	<li>El condicionamiento reduce la entropía, es decir, $H(Y|X)\leq H(Y)$, lo que sugiere que conocer otra variable aleatoria $X$ solo puede reducir la incertidumbre presente en $Y$.
+</p>
+<p>
+</ol>
+
+
+
+<h2>Canal binario simétrico</h2>
+
+<p>
+Ahora calcularemos la capacidad del canal binario simétrico. Como la entrada es binaria, tenemos que $X\in\{0,1\}$ con distribución de probabilidad $\{q,1-q\}$, es decir, $
+\px(0) = q$ y $\px(1)=1-q$. Dado que $P_X(x)$ solo depende de un parámetro $q$, que satisface $0\leq q \leq 1$, podemos reescribir la expresión de capacidad en $(8.1)$ como
+$$
+C = \max_{0\leq q \leq 1} I(X;Y).
+\tag{8.19}
+$$
+Para calcular $(8.19)$, partimos de la expresión conveniente de la información mutua en $(8.15)$, es decir, $I(X;Y)=H(Y)-H(Y|X)$. Para el canal simétrico binario con probabilidad de cambio de bit $p$ tenemos que $P_{Y|X}(0|1)=P_{Y|X}(1|0)=p$. Por lo tanto, la entropía condicional $H(Y|X)$ se puede calcular como
+$$\begin{align}
+H(Y|X) & = -\sum_{x\in\{0,1\}}\sum_{y\in\{0,1\}} \px(x)\pyx(y|x) \log_2\pyx(y|x) \tag{8.20}\\
+& = \underbrace{q\Big[(1-p) \log_2\frac{1}{1-p} + p\log_2\frac1p \Big]}_{x=0} + \underbrace{(1-q)\Big[(1-p) \log_2\frac{1}{1-p} + p\log_2\frac1p \Big]}_{x=1} \tag{8.21}\\
+& = \underbrace{(1-p) \log_2\frac{1}{1-p} + p\log_2\frac1p}_{h_2(p)}. \tag{8.22}
+\end{align}$$
+La última expresión es la función de entropía binaria, que denotamos como $h_2(p)$.
+</p>
+<p>
+Además, sabemos que la entropía de la salida $H(Y)$ satisface $
+H(Y) \leq \log_2(2) = 1$ y que $H(Y)=1$ se alcanza cuando $Y$ tiene símbolos equiprobables. Por la ley de probabilidad total, la distribución de la salida es $P_Y(0)=q(1-p)+(1-q)p$. Si la distribución de entrada es $P_X(0)=q=\frac 12$, entonces $P_Y(0)=\frac 12$ y, por lo tanto, $H(Y)=1$ alcanza el valor máximo posible independientemente de $p$. Dado que $H(Y|X)$ en (8.22) no depende de $q$, concluimos que $P_X^\star(0)=\frac 12$ es la distribución de entrada que alcanza la capacidad y que la capacidad del canal es
+$$
+C(p) = 1-h_2(p) ~\text{bits/uso de canal}.
+\tag{8.23}
+$$
+Ilustramos $(8.23)$ en la Figura 8.2.
+</p>
+<figure><img src="../img/tikz/lecture8-fig2.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
+<figcaption>Capacidad del canal binario simétrico.</figcaption>
+<a id="fig:cbsc"></a>
+</p>
+<p>
+Hay cuatro puntos finales interesantes a tener en cuenta:
+</p>
+
+<ul>
+</p>
+<p>
+<li>Si $p=0$, no hay cambios de bit, el canal no tiene ruido y la capacidad es $C=1$ bit/uso de canal. En este caso, no hay necesidad de codificar.
+<li>Si $p = \frac12$, el canal cambia bits con igual probabilidad y lo mejor que se puede hacer en el descodificador es adivinar.
+<li>Observad la simetría para $p&gt;\frac12$. Por ejemplo, para $p=1$ donde se invierten todos los bits, basta con revertir la salida del canal de manera determinista y aún podemos transmitir de manera fiable a $1$ bit por uso de canal.
+<li>Si $p=0.11$ tenemos que $C=0.5$, es decir, si queremos transmitir de forma fiable con un código de tasa $R=\frac12$ sólo podremos hacerlo si $p&lt;0.11$.
+</p>
+<p>
+</ul>
+
   </main>
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Teoría de la información y codificación 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

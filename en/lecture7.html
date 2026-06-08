@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -38,48 +38,298 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html" class="active">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
-      <h1>Coming soon</h1>
+      <h1>Lecture 7. Linear codes <a class="pdf-link" href="../pdf/ITC-2026-Lecture7-en.pdf">pdf</a></h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">This content will be available as the course progresses.</p>
+
+
+<h2>Introduction</h2>
+
+<p>
+The repetition code we studied in the previous lecture consisted of a single $k=1$ information bit $s\in\{0,1\}$ repeated $n$ times. For example, for $n=3$, we have the code $\{\x_1,\x_2\}=\{000,111\}$. Any of the two codewords $\x\in\{\x_1,\x_2\}$ is a sequence of three bits $\x=(x_1,x_2,x_3)$ that is <strong>generated</strong> from the information bit $s$ as $x_1=x_2=x_3=s$. Also, to <strong>check</strong> whether $\x$ is a codeword of the repetition code, we can use the equations $x_1+x_2=0$ and $x_2+x_3=0$ in modulo 2 arithmetic. Let us write the sequence of bits $\x$ as the $1\times 3$ row vector $\x=(x_1 ~ x_2 ~x_3)$. Then, we can express the two former procedures using matrices as
+$$
+(x_1 ~x_2 ~x_3) = s\underbrace{\begin{pmatrix}
+1 &1 &1
+\end{pmatrix}}_{\boldsymbol{G}} \tag{7.1}$$
+and
+$$
+\underbrace{\begin{pmatrix}
+1 &1 &0\\
+0 &1 &1
+\end{pmatrix}
+}_{\boldsymbol{H}} \begin{pmatrix}
+x_1\\
+x_2\\
+x_3
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+0
+\end{pmatrix}, \tag{7.2}$$
+or more compactly as $\x=s\boldsymbol{G}$ and $\boldsymbol{H}\boldsymbol{x}^T = \boldsymbol{0}$ where $\boldsymbol{G}$ and $\boldsymbol{H}$ are the generator and parity-check matrices. The family of codes that follow this structure are called linear codes.
+</p>
+
+<h2>Linear codes</h2>
+
+<p>
+A linear code ${\cal C}=\{\x_1,\ldots,\x_M\}$ is a binary code of $M=2^k$ codewords each generated as
+$$
+	\x_m = \boldsymbol{s}_m \boldsymbol{G},
+	\tag{7.3}
+$$
+where $\boldsymbol{s}_m$ is the $k$-binary representation of the integer number $m-1$ and $\boldsymbol{G}$ is a $k\times n$ generating matrix. For such code, there exists a $(n-k)\times n$ parity-check matrix $\boldsymbol{H}$ such that, for every $m\in\{1,\ldots,M\}$,
+$$
+\boldsymbol{Hx}_m^T=\boldsymbol{0}. \tag{7.4}$$
+The dimensions of the code are $(n,k)$, so for example the repetition code above is a $(3,1)$ linear code.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Example 7.1.</span> 
+<a id="ex:1"></a>
+	Consider the linear code generated by
+	$$
+	\boldsymbol{G} = \begin{pmatrix}
+		0 & 1 & 0\\
+		1 & 0 & 1
+	\end{pmatrix}.
+	$$
+Since $\boldsymbol{G}$ has dimensions $2\times 3$, that is $2$ rows and $3$ columns, we have a linear code with $k=2$ and $n=3$, or a $(3,2)$ linear code. The code will consist of $M=2^k=2^2=4$ codewords and the rate of the code is $R=\frac kn = \frac 23$. The four messages can be represented using the following binary streams of length $k=2$: $\boldsymbol{s}_1=00$, $\boldsymbol{s}_2=01$, $\boldsymbol{s}_3=10$ and $\boldsymbol{s}_4=11$. Using $(7.3)$ we obtain the codewords
+$$\begin{gather}
+	\x_1 = \boldsymbol{s}_1\boldsymbol{G} = \begin{pmatrix}
+		0 & 0
+	\end{pmatrix} \begin{pmatrix}
+		0 & 1 & 0\\
+		1 & 0 & 1
+	\end{pmatrix} = \begin{pmatrix}
+		 0 & 0 & 0
+	\end{pmatrix} \tag{7.5}\\
+		\x_2 = \boldsymbol{s}_2\boldsymbol{G} = \begin{pmatrix}
+		0 & 1
+	\end{pmatrix} \begin{pmatrix}
+		0 & 1 & 0\\
+		1 & 0 & 1
+	\end{pmatrix} = \begin{pmatrix}
+		 1 & 0 & 1
+	\end{pmatrix} \tag{7.6}\\
+		\x_3 = \boldsymbol{s}_3\boldsymbol{G} = \begin{pmatrix}
+		1 & 0
+	\end{pmatrix} \begin{pmatrix}
+		0 & 1 & 0\\
+		1 & 0 & 1
+	\end{pmatrix} = \begin{pmatrix}
+		 0 & 1 & 0
+	\end{pmatrix} \tag{7.7}\\
+		\x_4 = \boldsymbol{s}_4\boldsymbol{G} = \begin{pmatrix}
+		1 & 1
+	\end{pmatrix} \begin{pmatrix}
+		0 & 1 & 0\\
+		1 & 0 & 1
+	\end{pmatrix} = \begin{pmatrix}
+		 1 & 1 & 1
+	\end{pmatrix}. \tag{7.8}\end{gather}$$
+The generated code is $\{000,101,010,111\}$.
+</p>
+
+</div>
+
+<p>
+The code in Example 7.1 is an example of a <strong>systematic</strong> code because the binary representation of the messages is a part of the codeword, that is, every codeword can be written as $\x_m = (\boldsymbol{p}_m ~\boldsymbol{s}_m)$, where $\boldsymbol{p}_m\in\{0,1\}^{n-k}$ is called the parity vector. This  implies that $
+\boldsymbol{G} = (\boldsymbol{P}  \boldsymbol{I})$
+where $\boldsymbol{P}\in\{0,1\}^{k\times (n-k)}$ is the parity matrix.
+</p>
+<p>
+As we shall see later, the performance of a linear code, when used over a bit-flipping channel, is related to the minimum distance among all codewords in  the code. To define the minimum distance we need a couple of definitions. The <strong>Hamming weight</strong> of a binary sequence $\x$ is just the number of ones in the sequence, that is, 
+$$
+w(\x) = \sum_{i=1}^n x_i \tag{7.9}$$
+where the sum is the regular sum, not binary. For example $w(111)=3$ or $w(000010)=1$. The <strong>Hamming distance</strong> between any two binary sequences $\x$ and $\y$ is just the number of positions in which the sequences differ, that is
+$$
+d(\x,\y) = w(\x\oplus\y) \tag{7.10}$$
+where again the sum is the regular sum, not binary. For example  $d(101,010)=3$ or $d(00,01)=1$. Finally, the <strong>minimum Hamming distance</strong> of a code is defined as the minimum distance between any pair of distinct codewords in the code, mathematically speaking
+$$
+d_{\rm min} = \min_{\substack{\x,\x'\in{\cal C}\\\x'\neq\x}} d(\x,\x'). \tag{7.11}$$
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 7.2.</span> 
+<a id="prob:1"></a>
+	Find the minimum Hamming distance $d_{\rm min}$ of the linear code in Example 7.1.
+	
+</p>
+<details class="solution"><summary>Show solution</summary>
+<p>
+		Since our code $\{000,101,010,111\}$ has $M=4$ codewords, there are $6$ possible distances between distinct codewords (note that the Hamming distance is symmetric!), that is:
+		$$\begin{gather}
+			d_{12} = d(\x_1,\x_2) = d(000,101)=2 \tag{7.12}\\
+			d_{13} = d(\x_1,\x_3) = d(000,010)=1 \tag{7.13}\\
+			d_{14} = d(\x_1,\x_4) = d(000,111)=3 \tag{7.14}\\
+			d_{23} = d(\x_2,\x_3) = d(101,010)=3 \tag{7.15}\\
+			d_{24} = d(\x_2,\x_4) = d(101,111)=1 \tag{7.16}\\
+			d_{34} = d(\x_3,\x_4) = d(010,111)=2. \tag{7.17}\end{gather}$$
+		Hence, $d_{\rm min} = \min\{2,1,3,3,1,2\} = 1$. The minimum Hamming distance of this code is $d_{\rm min}=1$.
+	
+</p>
+</details>
+
+
+</div>
+
+<p>
+When the number of codewords $M$ increases, calculating all the possible Hamming distances becomes cumbersome. However, for linear codes, it turns out that the sum of any two codewords is a codeword, implying that the minimum Hamming distance of a linear code can be calculated as
+$$
+d_{\rm min} = \min_{\substack{\x\in{\cal C}\\\x\neq\boldsymbol{0}}} w(\x),
+\tag{7.18}
+$$
+that is, the minimum Hamming weight among all non-zero codewords.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Example 7.3.</span> 
+	In Problem 7.2, we have $3$ non-zero codewords, $\x_2$, $\x_3$ and $\x_4$ with respective Hamming weights $w(\x_2)=w(101)=2$, $w(\x_3)=w(010)=1$ and $w(\x_4)=w(111)=3$. Therefore, using $(7.18)$, we obtain that $d_{\rm min}=\min\{2,1,3\}=1$. Easier than calculating all possible distances.
+</p>
+
+</div>
+
+<p>
+The question is now how to design linear codes that have nice dimensions and good minimum distance. The repetition code $\{000,111\}$ has a minimum distance of $d_{\rm min}=3$, but a rate of $R=\frac 13$, that is, $66.67\%$ of the transmitted sequence $\x$ is redundancy and only a $33.33\%$ carries information. On the other hand, the code in Example 7.1 has a higher rate of $R=\frac 23$, but a lower minimum distance of $d_{\rm min}=1$. A code that offers a good tradeoff between rate and minimum distance is the $(7,4)$ Hamming code.
+</p>
+
+<h2>The (7,4) Hamming Code</h2>
+
+<p>
+The $(7,4)$ Hamming code is a code of length $n=7$ and dimension $k=4$, i.e., with $
+M=2^k=16$ codewords and therefore rate $R=\frac47$. The generator and parity-check matrices are given by
+$$
+\boldsymbol{G}=\begin{pmatrix}
+1 & 1 & 0 & 1 & 0 & 0 & 0\\
+0 & 1 & 1 & 0 & 1 & 0 & 0\\
+1 & 1 & 1 & 0 & 0 & 1 & 0\\
+\undermat{\boldsymbol{P}}{1 & 0 & 1} &\undermat{\boldsymbol{I}_{k\times k}}{ 0 & 0 & 0 & 1}
+\end{pmatrix} \tag{7.19}$$
+and
+$$
+\boldsymbol{H}=\begin{pmatrix}
+1 & 0 & 0 & 1 & 0 & 1 & 1\\
+0 & 1 & 0 & 1 & 1 & 1 & 0\\
+\undermat{\boldsymbol{I}_{(n-k)\times (n- k)}}{0 & 0 & 1} & \undermat{\boldsymbol{P}^T}{0 & 1 & 1 & 1}
+\end{pmatrix}, \tag{7.20}$$
+respectively. The 16 codewords of the Hamming code, each generated according to $(7.3)$, are listed in Table 7.1.
+</p>
+<p>
+  
+ <figcaption>Codewords for the $(7,4)$ Hamming code.</figcaption>
+  <a id="tab:hamming"></a>
+  <table class="data-table"><tr><th>$m$</th><th>$\boldsymbol{s}_m$</th><th>$\x_m$</th><th>$m$</th><th>$\boldsymbol{s}_m$</th><th>$\x_m$</th></tr><tr><td>1</td><td>0000</td><td>0000000</td><td>9</td><td>1000</td><td>1101000</td></tr><tr><td>2</td><td>0001</td><td>1010001</td><td>10</td><td>1001</td><td>0111001</td></tr><tr><td>3</td><td>0010</td><td>1110010</td><td>11</td><td>1010</td><td>0011010</td></tr><tr><td>4</td><td>0011</td><td>0100011</td><td>12</td><td>1011</td><td>1001011</td></tr><tr><td>5</td><td>0100</td><td>0110100</td><td>13</td><td>1100</td><td>1011100</td></tr><tr><td>6</td><td>0101</td><td>1100101</td><td>14</td><td>1101</td><td>0001101</td></tr><tr><td>7</td><td>0110</td><td>1000110</td><td>15</td><td>1110</td><td>0101110</td></tr><tr><td>8</td><td>0111</td><td>0010111</td><td>16</td><td>1111</td><td>1111111</td></tr></table>
+  
+</p>
+<p>
+Since the Hamming code is linear, we can use $(7.18)$ to find its minimum distance. By inspecting the table, we find that $
+d_{\rm min} = 3.$ In other words, the (7,4) Hamming code is a subset of all possible $2^n=128$  sequences of $n=7$ bits such that two bit flips in any codeword cannot be confused by another codeword. This statement  becomes clearer when studying the last performance metric of a code: the error probability.  
+</p>
+
+<h2>Bounds on Codes</h2>
+
+<p>
+The minimum distance of a $(n,k)$ linear code can be used to estimate the error probability $P_{\rm e}$ when transmitted equiprobably over a binary symmetric channel with bit flipping probability $p$; the so-called union bound
+$$
+	P_{\rm e} \leq \sum_{w=d_{\rm min}}^n A_w \sum_{t=\lceil\frac w2\rceil}^w \binom wt p^t (1-p)^{w-t},
+	\tag{7.21}
+$$
+where $A_w$ is the weight distribution of the code; the number of codewords with Hamming weight $w$.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Example 7.4.</span> 
+	From Table 7.1, we observe that $A_0=1$ since there is one codeword with Hamming weight $w=0$, $A_1=0$ because there are no codewords with Hamming weight $w=1$, similarly $A_2=0$, $A_3=A_4=7$ since there are $7$ codewords of weight $w=3$ and $7$ codewords of weight $w=4$, and finally $A_5=A_6=0$ and $A_7=1$. The weight distribution of the (7,4) Hamming code is then $\{A_0,A_3,A_4,A_7\}=\{1,7,7,1\}$. The sum $\sum_{w=0}^n A_w = A_0 + A_3 + A_4 + A_7$ is of course $M$.
+</p>
+
+</div>
+
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 7.5.</span> 
+	Calculate the union bound to the error probability of the linear code in Example 7.1 used over a binary symmetric channel with bit flipping probability $p$.
+	
+</p>
+<details class="solution"><summary>Show solution</summary>
+<p>
+		To calculate the union bound in $(7.21)$, we need to determine the minimum distance and the  weight distribution of the code. In Problem 7.2 we found that $d_{\rm min}=1$ and from the code itself $\{000,101,010,111\}$ we obtain that $\{A_0,A_1,A_2,A_3\}=\{1,1,1,1\}$. The outer sum in $(7.21)$ is for $w\in\{1,2,3\}$. When $w=1$, we have $A_w=1$ and $\lceil \frac w2 \rceil = 1 $, hence
+		$$
+			A_w \sum_{t=\lceil\frac w2\rceil}^w \binom wt p^t (1-p)^{w-t} = 1 \cdot \sum_{t=1}^1  \binom 1t p^t (1-p)^{1-t} =  p. \tag{7.22}$$
+		Similarly, for $w=2$ we have
+			$$
+			A_w \sum_{t=\lceil\frac w2\rceil}^w \binom wt p^t (1-p)^{w-t} = 1 \cdot \sum_{t=1}^2  \binom 2t p^t (1-p)^{2-t} = 2p(1-p) + p^2, \tag{7.23}$$
+		while for $w=3$
+		$$
+			A_w \sum_{t=\lceil\frac w2\rceil}^w \binom wt p^t (1-p)^{w-t} = 1 \cdot \sum_{t=2}^3  \binom 3t p^t (1-p)^{3-t} = 3p^2(1-p) + p^3. \tag{7.24}$$
+		Combining everything, we obtain
+		$$
+			P_{\rm e} \leq p + 2p(1-p)+p^2+3p^2(1-p)+p^3 = -2 p^3+2 p^2+3 p. \tag{7.25}$$	
+	
+</p>
+</details>
+
+
+</div>
+
+<p>
+We end this lecture by stating the error-correcting capability of any $(n,k)$ code, not necessarily linear, with minimum Hamming distance $d_{\rm min}$. To do so, we define the <strong>Hamming sphere</strong> centered at $\x\in\{0,1\}^n$ of radius $r$ as the set of binary sequences of length $n$ at Hamming distance smaller or equal to $r$, that is
+$$
+S(\x,r) = \big\{ \x'\in\{0,1\}^n~|~ d(\x,\x')\leq r \big\}. \tag{7.26}$$
+Given $d_{\rm min}$, we can draw Hamming spheres of radius $t$ centered at the codewords as in Figure 7.1. In order for a codeword not to be confused by another one after $t$ bit flips, the spheres need not to overlap. That is, we need $d_{\rm min}&gt; 2t$, or equivalently that $t&lt;\frac{d_{\rm min}}{2}$. Since $d_{\rm min}$ can be odd or even, the largest value of $t$ can be written as
+$$
+t = \Big\lfloor \frac{d_{\rm min}-1}{2}\Big\rfloor.
+\tag{7.27}
+$$
+The value in $(7.27)$ is the number of bit flips that an error-correcting code can correct. Observe that if $t=\frac{d_{\rm min}}{2}$ were an integer, spheres would overlap at (at least) one output sequence and the decoder would not know which codeword generated that output sequence.
+</p>
+<figure><img src="../img/tikz/lecture7-fig1.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure>
+<p>
+<figcaption>Code with $M=3$ codewords. Hamming spheres of radius $t$ are drawn centered on the codewords.</figcaption>
+<a id="fig:error"></a>
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Example 7.6.</span> 
+	The (7,4) Hamming code is able to correct up to $t=1$ bit flips for any transmitted codeword. Hence, there will be a decoding error if the channel introduces more than $t=1$ bit flips. As a result, for $m=1$, we have that ${\cal D}_1=\{0000000,1000000,0100000, 0010000,0001000,0000100,0000010,0000001 \}$ and after some maths, that $P_{\rm e}(1)=1 - P_{\rm d}(1) = 1 - (1-p)^7 - 7p(1-p)^6$. We will actually obtain the same result for all the codewords, concluding that the error probability of the (7,4) Hamming code is $P_{\rm e}=1 - (1-p)^7 - 7p(1-p)^6$.
+</p>
+
+</div>
+
+<p>
+We have seen that for a $t$-error correcting code ${\cal C}$, if we draw spheres of radius $t$, the spheres cannot overlap. What is the maximum number of codewords $M=2^k$ that ${\cal C}$ can have? This is the so-called sphere-packing problem, an important problem in information theory and coding that is beyond the scope of this course.</p>
   </main>
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Information theory and coding 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

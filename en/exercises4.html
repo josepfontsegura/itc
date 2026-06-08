@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -40,44 +40,561 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html" class="active">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Coming soon</h1>
+      <h1>Exercises: 4. Huffman codes</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">This content will be available as the course progresses.</p>
+
+    <button id="expand-all" data-expand="Show all solutions" data-collapse="Hide all solutions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Show all solutions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.1.</span></p>
+  <p>The average length of the Huffman code for a source taking values in $\{a,b,c,d,e,f\}$ with probabilities $\{\frac{3}{5},\frac{1}{6},\frac{1}{15},\frac{1}{15},\frac{1}{20},\frac{1}{20}\}$ is</p>
+  <p>(a) $\frac{28}{15}$<br>
+  (b) $\frac{19}{10}$<br>
+  (c) None of the others.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Following the steps to construct a Huffman code for the given source we find, for example, a length distribution $\{1,2,4,4,4,4\}$, therefore the average computed as $\sum_{j=1}^r p_j \ell_j$ leads to the correct answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.2.</span></p>
+  <p>The Huffman code for a source taking values in $\{a,b,c,d\}$ with probabilities $\{\frac{1}{4},\frac{1}{4},\frac{1}{4},\frac{1}{4}\}$ satisfies</p>
+  <p>(a) $\{00,01,10,11\}$ is a possible code.<br>
+  (b) Both the average length and the source entropy are equal to $2$ bits.<br>
+  (c) Both (a) and (b) are correct.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>Following the steps to construct a Huffman code for the given source we find four possible codes: $\{00,01,10,11\}$, $\{11,00,01,10\}$, $\{10,11,00,01\}$ and $\{01,10,11,00\}$. The average length is $2$ bits and the source entropy is $H=\tfrac{4}{4}\log_2(4)=2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.3.</span></p>
+  <p>The Huffman code for a source taking values in $\{a,b,c,d\}$ has length distribution $\{1,2,3,3\}$. Which is the largest possible interval for the probability of symbol $a$?</p>
+  <p>(a) $\bigl[0,\tfrac{2}{3}\bigr)$<br>
+  (b) $\bigl[0,\tfrac{1}{3}\bigr)$<br>
+  (c) None of the others.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>Based on the given codeword lengths we know that in the first step of constructing the Huffman code two nodes corresponding to symbols $c$ and $d$ are merged, therefore we know that $p_a\geq p_c$, $p_a\geq p_d$, $p_b\geq p_c$, $p_b\geq p_d$. In the second step, node $b$ is merged with node $cd$ resulting from the previous step, therefore we know that $p_a\geq p_b$ and $p_a\geq p_c+p_d$. Combining the last two inequalities we obtain $2p_a\geq p_b+p_c+p_d$ and adding $p_a$ to both sides we get $3p_a\geq p_a+p_b+p_c+p_d=1$, hence $p_a\geq \tfrac{1}{3}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.4.</span></p>
+  <p>Consider a source $Z=(X,Y)$ given by two independent symbols $X$ and $Y$, where $X$ takes values in $\{a,b\}$ with probabilities $\{\tfrac{2}{3},\tfrac{1}{3}\}$ and $Y$ takes values in $\{a,b,c\}$ with probabilities $\{\tfrac{1}{2},\tfrac{1}{3},\tfrac{1}{6}\}$. What is the average length of the Huffman code for $Z$?</p>
+  <p>(a) $\frac{22}{9}$<br>
+  (b) $\frac{35}{18}$<br>
+  (c) None of the others.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The source $Z$ has alphabet $\{aa,ab,ac,ba,bb,bc\}$ with probabilities $\bigl\{\frac{1}{3},\frac{2}{9},\frac{1}{9},\frac{1}{6},\frac{1}{9},\frac{1}{18}\bigr\}$. We then construct a Huffman code obtaining, for example, the codeword lengths $\{2,2,3,3,3,3\}$, leading to an average length of $\frac{22}{9}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.5.</span></p>
+  <p>Now, we construct a Huffman code for $X$ and $Y$ separately, and encode $Z=(X,Y)$ by concatenating the code for $X$ and the code for $Y$. What is the average length of this code for $Z$?</p>
+  <p>(a) $\frac{5}{2}$<br>
+  (b) $\frac{5}{3}$<br>
+  (c) $\frac{5}{4}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The Huffman code for $X$ has length distribution $\{1,1\}$, while the Huffman code for $Y$ has length distribution $\{1,2,2\}$. When $Z$ is encoded by concatenating the code for $X$ and the code for $Y$, the resulting code has length distribution $\{2,3,3,2,3,3\}$, leading to an average length of $\frac{5}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.6.</span></p>
+  <p>We assume that $X$ and $Y$ in $Z=(X,Y)$ from the previous two questions are NOT independent, but distributed as $P_{X|Y}(a|a)=\tfrac{1}{2}$, $P_{X|Y}(a|b)=\tfrac{1}{2}$, $P_{X|Y}(a|c)=0$, while $Y$ has the same distribution as before. The average length (in bits) of the optimal Huffman code is</p>
+  <p>(a) lower bounded by $\frac{3}{2}+\frac{1}{2}\log_2 3$.<br>
+  (b) upper bounded by $\frac{3}{2}+\frac{1}{2}\log_2 3$.<br>
+  (c) lower bounded by $\frac{5}{2}+\frac{1}{2}\log_2 3$.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Given the conditional probability distribution of $X$ given $Y$ we find the alphabet and distribution of $Z$ respectively as $\{aa,ba,ab,bb,bc\}$ and $\{\frac{1}{4},\frac{1}{4},\frac{1}{6},\frac{1}{6},\frac{1}{6}\}$. Knowing that the average length of the optimal code for $Z$ is lower bounded by the entropy of the source, we obtain (after some mathematical manipulations) the value $\frac{3}{2}+\frac{1}{2}\log_2(3)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.7.</span></p>
+  <p>For a given discrete source $X$ with equiprobable symbols, the optimal binary prefix-free code is given by $\{0,10,11\}$. A new source is constructed as $Y=(X_1,X_2)$, where $X_1$ and $X_2$ are independent and both have the same distribution as $X$. What is the efficiency of the optimal binary prefix-free code for $Y$?</p>
+  <p>(a) $\frac{3\log_2(3)}{5}$<br>
+  (b) $\frac{3\log_2(3)}{10}$<br>
+  (c) $\frac{18\log_2(3)}{29}$<br>
+  (d) $1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>The source $X$ has three symbols and probabilities $\{1/3,1/3,1/3\}$. Then, $Y$ has $9$ equiprobable symbols, and an optimal (Huffman) code with $L_{\rm av}=\frac{29}{9}$ and $H(Y)=\log_2(9)$. The efficiency is $\frac{H(Y)}{L_{\rm av}}=\frac{\log_2(9)}{29/9}=\frac{18\log_2(3)}{29}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.8.</span></p>
+  <p>A source has symbols $\{a,b,c,d\}$ with probabilities $\{\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{8},\tfrac{1}{8}\}$. What is the average length of the Huffman code?</p>
+  <p>(a) $\tfrac{7}{4}$<br>
+  (b) $2$<br>
+  (c) $\tfrac{3}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The Huffman code has lengths $\{1,2,3,3\}$, giving $L_{\rm av}=\tfrac{1}{2}\cdot 1+\tfrac{1}{4}\cdot 2+\tfrac{1}{8}\cdot 3+\tfrac{1}{8}\cdot 3=\tfrac{7}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.9.</span></p>
+  <p>The Huffman code for a source with probabilities $\{\tfrac{1}{3},\tfrac{1}{3},\tfrac{1}{3}\}$ has length distribution:</p>
+  <p>(a) $\{1,2,2\}$<br>
+  (b) $\{1,1,1\}$<br>
+  (c) $\{2,2,2\}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>With three equiprobable symbols, the Huffman algorithm merges the two least probable (each $\tfrac{1}{3}$) into a node of probability $\tfrac{2}{3}$, then pairs it with the remaining symbol, giving lengths $\{1,2,2\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.10.</span></p>
+  <p>Is the Huffman code unique for a source with probabilities $\{\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{8},\tfrac{1}{8}\}$?</p>
+  <p>(a) The length distribution is unique, but the codewords are not<br>
+  (b) Yes, both lengths and codewords are unique<br>
+  (c) No, even the length distribution is not unique</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The Huffman algorithm always produces lengths $\{1,2,3,3\}$ for this distribution, but the actual binary codewords can vary (e.g., swapping the two length-$3$ codewords).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.11.</span></p>
+  <p>A ternary Huffman code (using alphabet $\{0,1,2\}$) is constructed for a source with $5$ equiprobable symbols. What is the average length in ternary symbols?</p>
+  <p>(a) $2$<br>
+  (b) $\tfrac{5}{3}$<br>
+  (c) $\tfrac{8}{5}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>For a ternary code we need the number of leaves to satisfy $N\equiv 1\pmod{D-1}$ with $D=3$. Since $5\equiv 1\pmod 2$, no dummy symbol is needed. The Huffman algorithm first merges the $3$ smallest symbols into one node, leaving three nodes which are merged at the root. This gives codeword lengths $\{1,1,2,2,2\}$, so $L_{\rm av}=\frac{2\cdot 1+3\cdot 2}{5}=\frac{8}{5}$ ternary symbols.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.12.</span></p>
+  <p>A source has symbols $\{a,b,c\}$ with probabilities $\{\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{4}\}$. The Huffman code has $L_{\rm av}=\tfrac{3}{2}$. What is the efficiency of this code?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{3}{4}$<br>
+  (c) $\tfrac{H(X)}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The entropy is $H(X)=\tfrac{1}{2}\log_2 2+\tfrac{1}{4}\log_2 4+\tfrac{1}{4}\log_2 4=\tfrac{3}{2}$. Since $L_{\rm av}=H(X)=\tfrac{3}{2}$, the efficiency is $H(X)/L_{\rm av}=1$ (i.e., $100\%$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.13.</span></p>
+  <p>For a source with $\{a,b,c,d,e\}$ and probabilities $\{\tfrac{1}{4},\tfrac{1}{4},\tfrac{1}{4},\tfrac{1}{8},\tfrac{1}{8}\}$, the Huffman code length distribution is:</p>
+  <p>(a) $\{2,2,2,3,3\}$<br>
+  (b) $\{1,2,3,3,3\}$<br>
+  (c) $\{2,2,3,3,3\}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Merging the two least probable ($\tfrac{1}{8}$ each) gives $\tfrac{1}{4}$. Then all four nodes have probability $\tfrac{1}{4}$, and the Huffman algorithm produces lengths $\{2,2,2,3,3\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.14.</span></p>
+  <p>Consider a source $Z=(X,Y)$ where $X\in\{0,1\}$ with equal probability and $Y\in\{a,b\}$ with equal probability, and $X,Y$ are independent. What is the average length of the Huffman code for $Z$?</p>
+  <p>(a) $2$<br>
+  (b) $\tfrac{3}{2}$<br>
+  (c) $3$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The source $Z$ has $4$ equiprobable symbols, so the Huffman code assigns length $2$ to each, giving $L_{\rm av}=2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.15.</span></p>
+  <p>A source with probabilities $\{p,1-p\}$ is encoded with the Huffman code $\{0,1\}$. For which values of $p$ is the efficiency equal to $1$?</p>
+  <p>(a) Only $p=\tfrac{1}{2}$<br>
+  (b) All $p\in(0,1)$<br>
+  (c) $p=\tfrac{1}{4}$ and $p=\tfrac{3}{4}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The Huffman code assigns length $1$ to both symbols, so $L_{\rm av}=1$. The efficiency is $H(X)/L_{\rm av}=h_2(p)$, which equals $1$ only when $p=\tfrac{1}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.16.</span> A Huffman code is constructed for a source with $8$ equiprobable symbols. What is the average codeword length?</p>
+  <p>(a) $3$<br>
+  (b) $\log_2 8$<br>
+  (c) Both (a) and (b) are equivalent and correct</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>For $8$ equiprobable symbols, the Huffman code assigns length $3$ to each, and $\log_2 8 = 3$, so both answers are the same.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.17.</span> When constructing a Huffman code and two nodes have the same probability, does the choice of which pair to merge affect the average codeword length?</p>
+  <p>(a) No, the average length is always optimal<br>
+  (b) Yes, different choices give different average lengths<br>
+  (c) Only for sources with more than $4$ symbols</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The Huffman algorithm always produces an optimal code regardless of tie-breaking choices. Different choices may produce different length distributions, but all achieve the same minimum average length.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.18.</span></p>
+  <p>An IoT weather station emits four states $\{\text{Sunny},\text{Cloudy},\text{Rainy},\text{Storm}\}$ with probabilities $\{0.50,\,0.25,\,0.15,\,0.10\}$. Construct the optimal binary Huffman code and compute its average length $L_{\rm av}=\sum_i p_i\,\ell_i$ (in bits/message).</p>
+  <p>(a) $L_{\rm av}=1.75$ bits/message<br>
+  (b) $L_{\rm av}=2.00$ bits/message<br>
+  (c) $L_{\rm av}=1.7427$ bits/message<br>
+  (d) $L_{\rm av}=1.25$ bits/message</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Merging the two least-probable nodes repeatedly: Rainy$(0.15)$+Storm$(0.10)\to0.25$, then Cloudy$(0.25)$+that$\to0.50$, then with Sunny$(0.50)\to$root. The codewords are Sunny$\to0$, Cloudy$\to10$, Rainy$\to110$, Storm$\to111$, with lengths $\{1,2,3,3\}$. Thus $L_{\rm av}=0.50\cdot1+0.25\cdot2+0.15\cdot3+0.10\cdot3=1.75$ bits/message. ($2.00$ is the fixed-length code; $1.7427$ is the entropy $H$, a lower bound; $1.25$ is impossible since it is below $H$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.19.</span></p>
+  <p>The Huffman code for the weather station has average length $L_{\rm av}=1.75$ bits/message, replacing a fixed-length code of $2$ bits/message. The station sends $N=1440$ messages per day. How many bits per day are saved?</p>
+  <p>(a) $360$ bits/day<br>
+  (b) $2520$ bits/day<br>
+  (c) $252$ bits/day<br>
+  (d) $720$ bits/day</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The per-message saving is $\Delta=2-1.75=0.25$ bits. Over $N=1440$ messages: $1440\times0.25=360$ bits/day. ($2520$ would be the total Huffman load $1440\times1.75$, not the saving; $252$ confuses a factor; $720$ doubles the result.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.20.</span></p>
+  <p>The Huffman code uses $L_{\rm av}=1.75$ bits/message versus the $2$-bit fixed-length baseline. Expressed as a percentage reduction relative to the $2$-bit code, the saving is:</p>
+  <p>(a) $12.5\%$<br>
+  (b) $25\%$<br>
+  (c) $14.3\%$<br>
+  (d) $0.25\%$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The reduction is $\Delta/2=(2-1.75)/2=0.25/2=0.125=12.5\%$. ($25\%$ forgets to divide by the baseline; $14.3\%$ divides by $1.75$ instead of $2$; $0.25\%$ misplaces the decimal of the $0.25$-bit saving.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.21.</span></p>
+  <p>A binary Huffman code is built for a source over $\mathcal{X}=\{a,b,c\}$ with design distribution $\{0.02,\,0.07,\,0.91\}$. This fixed code is then applied to a <em>different</em> source over the same alphabet (same order $a,b,c$) with distribution $\{0.6,\,0.26,\,0.14\}$. Calculate the average codeword length when the code is applied to the second source.</p>
+  <p>(a) $1.86$ bits<br>
+  (b) $1.40$ bits<br>
+  (c) $1.09$ bits<br>
+  (d) $1.74$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Huffman on the design distribution $\{0.02,0.07,0.91\}$ merges $a$ and $b$ first, then with $c$, giving lengths $(\ell_a,\ell_b,\ell_c)=(2,2,1)$ (e.g. $a\to00,b\to01,c\to1$). These lengths are held fixed and applied to the new probabilities: $L_{\mathrm{av}}=0.6\cdot2+0.26\cdot2+0.14\cdot1=1.2+0.52+0.14=1.86$ bits. Note $1.40$ would be the optimal length of a code redesigned for $\{0.6,0.26,0.14\}$, and $1.09$ is the average length on the original source.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.22.</span></p>
+  <p>We encode all sequences of 3 bits ($8$ equiprobable triples) with a prefix-free code over the ternary alphabet $\{a,b,c\}$. Construct a <em>fixed-length</em> ternary code of the smallest possible codeword length and compute its average length in letters per bit.</p>
+  <p>(a) $\ell=2$ letters, $\bar{L}=\tfrac{2}{3}\approx 0.6667$ letters/bit<br>
+  (b) $\ell=3$ letters, $\bar{L}=1$ letter/bit<br>
+  (c) $\ell=2$ letters, $\bar{L}=2$ letters/bit<br>
+  (d) $\ell=1$ letter, $\bar{L}=\tfrac{1}{3}\approx 0.3333$ letters/bit</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>A fixed-length ternary code of length $\ell$ offers $3^\ell$ codewords; we need $3^\ell\ge 8$. Since $3^1=3&lt;8$ and $3^2=9\ge 8$, the smallest length is $\ell=2$ letters per triple. As each triple carries $3$ bits, the cost per bit is $\tfrac{2}{3}\approx 0.6667$ letters/bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.23.</span></p>
+  <p>The $8$ triples of 3 independent equiprobable bits each have probability $\tfrac18$. Build the ternary Huffman code over $\{a,b,c\}$ (adding one dummy leaf of probability $0$, since $8\equiv 0\pmod{D-1}$ with $D=3$) and compute its average length in letters per bit.</p>
+  <p>(a) $\bar{L}=\tfrac{2}{3}\approx 0.6667$ letters/bit (all codewords have length $2$)<br>
+  (b) $\bar{L}\approx 0.6309$ letters/bit (Huffman reaches the entropy)<br>
+  (c) $\bar{L}=1$ letter/bit<br>
+  (d) $\bar{L}=\tfrac{5}{9}\approx 0.5556$ letters/bit (mix of lengths $1$ and $2$)</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Add one dummy leaf ($0$) to the eight $\tfrac18$ leaves (nine nodes). Merge 1 combines the dummy with two $\tfrac18$ leaves into $\tfrac28$; the remaining six $\tfrac18$ leaves merge in twos into two $\tfrac38$ nodes; the root then merges $\tfrac28,\tfrac38,\tfrac38$. Every real leaf sits at depth $2$, so all $8$ codewords have length $2$ and $\bar{L}=\tfrac18\cdot 8\cdot\tfrac{2}{3}=\tfrac{2}{3}\approx 0.6667$ letters/bit, matching part (a).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.24.</span></p>
+  <p>For the uniform source of $8$ triples ($3$ bits, entropy $H=1$ bit/bit), the ternary codes of parts (a) and (b) both achieve $\tfrac23\approx 0.6667$ letters/bit. Compute the entropy in letters per bit (using $1\text{ letter}=\log_2 3$ bits) and compare.</p>
+  <p>(a) $H=\tfrac{1}{\log_2 3}=\tfrac13\log_3 8\approx 0.6309$ letters/bit; both codes exceed it by $\approx 5.7\%$<br>
+  (b) $H=\log_2 3\approx 1.585$ letters/bit; both codes are below the entropy<br>
+  (c) $H=1$ letter/bit; both codes beat the entropy<br>
+  (d) $H=\tfrac23\approx 0.6667$ letters/bit; both codes are optimal (equal to $H$)</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The uniform source has $H=1$ bit per bit; converting with $1\text{ letter}=\log_2 3$ bits gives $H=\tfrac{1}{\log_2 3}=\tfrac13\log_3 8\approx 0.6309$ letters/bit, the source-coding lower bound. Both codes give $\tfrac23\approx 0.6667$, a relative overhead $\tfrac{2\log_2 3}{3}-1\approx 0.057$, i.e. about $5.7\%$ above the bound. The gap arises because the ideal length $\log_3 8\approx 1.893$ letters per triple is not an integer and Huffman rounds up to $2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.25.</span></p>
+  <p>Three bits are generated independently with $\mathbb{P}(1)=\tfrac23$, $\mathbb{P}(0)=\tfrac13$ per bit, so the eight 3-bit symbols $000,\dots,111$ have probabilities $\tfrac1{27},\tfrac2{27},\tfrac2{27},\tfrac4{27},\tfrac2{27},\tfrac4{27},\tfrac4{27},\tfrac8{27}$. A ternary Huffman code over $\{a,b,c\}$ is built (padding with one dummy leaf of probability $0$). What is its average length expressed in ternary letters <em>per source bit</em>?</p>
+  <p>(a) $\dfrac{49}{81}\approx 0.605$<br>
+  (b) $\dfrac{49}{27}\approx 1.815$<br>
+  (c) $\dfrac{2}{3}\approx 0.667$<br>
+  (d) $\dfrac{65}{81}\approx 0.802$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Pad to $9$ leaves (odd, since $D=3$ needs leaves $\equiv 1 \bmod 2$) and merge the three smallest repeatedly. This gives lengths $\ell(000)=\ell(001)=3$, five symbols of length $2$, and $\ell(111)=1$. The average per 3-bit symbol is $\bar L_{\text{sym}}=\tfrac1{27}(3+6+4+8+4+8+8+8)=\tfrac{49}{27}$. Dividing by $3$ bits per symbol gives $\bar L=\tfrac{49}{81}\approx 0.605$ ternary letters/bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.26.</span></p>
+  <p>For one Bernoulli bit with $\mathbb{P}(1)=\tfrac23$, $\mathbb{P}(0)=\tfrac13$, the per-bit entropy <em>measured in ternary units</em> (using $\log_3$, the natural unit for a code alphabet of size $3$) is needed to compare with the ternary Huffman code. What is $H_3$ per bit?</p>
+  <p>(a) $\tfrac13+\tfrac23\log_3\tfrac32\approx 0.579$<br>
+  (b) $\tfrac13+\tfrac23\log_2\tfrac32\approx 0.918$<br>
+  (c) $\tfrac{49}{81}\approx 0.605$<br>
+  (d) $\tfrac23\approx 0.667$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>$H_3=-\tfrac13\log_3\tfrac13-\tfrac23\log_3\tfrac23=\tfrac13\log_3 3+\tfrac23\log_3\tfrac32=\tfrac13+\tfrac23\log_3\tfrac32\approx 0.5794$ ternary letters/bit. The second option uses $\log_2$ (binary bits, the value $\approx 0.918$), not ternary units. By the source coding theorem $\bar L=\tfrac{49}{81}\approx 0.605\ge H_3$, a roughly $4.4\%$ overhead, while the fixed-length code at $\tfrac23$ has about $15\%$ overhead.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.27.</span></p>
+  <p>The ternary Huffman code from part (a) has fixed codeword lengths $\ell(000)=\ell(001)=3$, $\ell(010)=\ell(011)=\ell(100)=\ell(101)=\ell(110)=2$, $\ell(111)=1$. Now the bit probabilities are <em>reversed</em>: $\mathbb{P}(0)=\tfrac23$, $\mathbb{P}(1)=\tfrac13$, so each symbol takes the probability of its bit-complement ($000\to\tfrac8{27}$, $111\to\tfrac1{27}$, etc.). Keeping the same code, what is the new average length per source bit?</p>
+  <p>(a) $\dfrac{65}{81}\approx 0.802$<br>
+  (b) $\dfrac{49}{81}\approx 0.605$<br>
+  (c) $\dfrac{65}{27}\approx 2.407$<br>
+  (d) $\dfrac{16}{27}\approx 0.593$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The lengths stay fixed but are now paired with the reversed probabilities: $\bar L'_{\text{sym}}=\tfrac1{27}\big(8\cdot3+4\cdot3+4\cdot2+2\cdot2+4\cdot2+2\cdot2+2\cdot2+1\cdot1\big)=\tfrac1{27}(24+12+8+4+8+4+4+1)=\tfrac{65}{27}$. Per bit, $\bar L'=\tfrac{65}{81}\approx 0.802$. This exceeds both $H_3$ and the matched value $\tfrac{49}{81}$: a Huffman code is optimal only for the distribution it was designed for, the mismatch penalty being the relative entropy $D(p'\|p)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.28.</span></p>
+  <p>A discrete memoryless source has alphabet $\mathcal{X}=\{a,b,c\}$ with probabilities $\{p,\,p,\,1-2p\}$, $0&lt;p&lt;\tfrac12$. A binary Huffman code is built. What is the multiset of codeword lengths?</p>
+  <p>(a) $\{1,2,2\}$<br>
+  (b) $\{1,1,2\}$<br>
+  (c) $\{2,2,2\}$<br>
+  (d) $\{1,2,3\}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>With three symbols the Huffman algorithm has a single structural shape: the two least-probable symbols are merged first into an internal node at depth $1$, placing their leaves at depth $2$; the remaining (largest) symbol is joined at the root, at depth $1$. So one symbol gets length $1$ and two get length $2$, giving $\{1,2,2\}$. This satisfies Kraft equality $2^{-1}+2^{-2}+2^{-2}=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.29.</span></p>
+  <p>For the source $\{p,\,p,\,1-2p\}$ over $\{a,b,c\}$ with $0&lt;p&lt;\tfrac12$, the binary Huffman code assigns length $1$ to the most probable symbol and length $2$ to the other two. What is the average codeword length $L_{\mathrm{av}}(p)$?</p>
+  <p>(a) $\min\{1+2p,\ 2-p\}$<br>
+  (b) $1+2p$ for all $0&lt;p&lt;\tfrac12$<br>
+  (c) $2-p$ for all $0&lt;p&lt;\tfrac12$<br>
+  (d) $\max\{1+2p,\ 2-p\}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The length-$1$ codeword goes to the largest probability. If $0&lt;p&lt;\tfrac13$ then $1-2p$ is largest, giving $L_{\mathrm{av}}=1\cdot(1-2p)+2p+2p=1+2p$. If $\tfrac13&lt;p&lt;\tfrac12$ then a $p$-symbol is largest, giving $L_{\mathrm{av}}=1\cdot p+2p+2(1-2p)=2-p$. The two branches meet at $p=\tfrac13$ (both equal $\tfrac53$), so $L_{\mathrm{av}}(p)=\min\{1+2p,\,2-p\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.30.</span></p>
+  <p>For the source $\{p,\,p,\,1-2p\}$ the Huffman average length is $L_{\mathrm{av}}(p)=1+2p$ on $(0,\tfrac13]$ and $2-p$ on $[\tfrac13,\tfrac12)$. If $p\sim\mathrm{Uniform}(0,\tfrac12)$, compute the expected average length $\mathbb{E}[L_{\mathrm{av}}]$.</p>
+  <p>(a) $\tfrac{17}{12}$<br>
+  (b) $\tfrac{5}{3}$<br>
+  (c) $\tfrac{17}{24}$<br>
+  (d) $\tfrac{3}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The density is $f(p)=2$ on $(0,\tfrac12)$. Splitting at $p=\tfrac13$: $\int_0^{1/3}(1+2p)\,dp=\tfrac13+\tfrac19=\tfrac49$ and $\int_{1/3}^{1/2}(2-p)\,dp=\tfrac78-\tfrac{11}{18}=\tfrac{19}{72}$. Then $\mathbb{E}[L_{\mathrm{av}}]=2\left(\tfrac49+\tfrac{19}{72}\right)=2\cdot\tfrac{51}{72}=\tfrac{17}{12}\approx1.417$ bits. (Forgetting the factor $f=2$ gives the wrong $\tfrac{17}{24}$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.31.</span></p>
+  <p>A discrete memoryless source emits symbols over $\mathcal{X}=\{a,b,c\}$ with i.i.d. distribution $\{0.4,0.3,0.3\}$. Calculate the per-symbol entropy $H(U)$ in bits.</p>
+  <p>(a) $\approx 1.5710$ bits<br>
+  (b) $\approx 1.0911$ bits<br>
+  (c) $\approx 1.5850$ bits<br>
+  (d) $\approx 0.4729$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Using base-2 logs, $H(U)=-0.4\log_2 0.4-2(0.3)\log_2 0.3$. With $\log_2 0.4\approx-1.32193$ and $\log_2 0.3\approx-1.73697$, this gives $0.4(1.32193)+0.6(1.73697)\approx 0.52877+1.04218\approx 1.5710$ bits. (The $1.0911$ value would come from natural logs; $1.5850$ is the uniform $\log_2 3$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.32.</span></p>
+  <p>For the block $X=(U_1,\ldots,U_n)$ of a memoryless source with per-symbol entropy $H(U)\approx 1.5710$ bits, calculate the joint entropy $H(X)$ for $n=5$.</p>
+  <p>(a) $\approx 7.8548$ bits<br>
+  (b) $\approx 1.5710$ bits<br>
+  (c) $\approx 6.2838$ bits<br>
+  (d) $\approx 9.4258$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Memorylessness means the $U_i$ are i.i.d., so the joint entropy is additive: $H(X)=\sum_{i=1}^{n}H(U_i)=nH(U)$. For $n=5$, $H(X)=5\times 1.5710\approx 7.8548$ bits. (The $6.2838$ value uses $n=4$, and $9.4258$ uses $n=6$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.33.</span></p>
+  <p>A Huffman code for $X$ has average length $L_{\rm av}$ satisfying $H(X)\le L_{\rm av}&lt;H(X)+1$. Define $\eta=H(X)/L_{\rm av}$. Which lower bound on $\eta$ follows from the Shannon upper bound on $L_{\rm av}$?</p>
+  <p>(a) $\eta&gt;\dfrac{H(X)}{H(X)+1}$<br>
+  (b) $\eta&gt;\dfrac{H(X)+1}{H(X)}$<br>
+  (c) $\eta&gt;\dfrac{H(X)}{H(X)-1}$<br>
+  (d) $\eta&gt;H(X)+1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $\eta=H(X)/L_{\rm av}$ decreases as $L_{\rm av}$ grows, replacing $L_{\rm av}$ by its upper bound $H(X)+1$ yields a lower bound on $\eta$: $\eta&gt;\dfrac{H(X)}{H(X)+1}$. (Using $H(X)-1$ would correspond to a lower bound on $L_{\rm av}$, not the valid Shannon upper bound.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.34.</span></p>
+  <p>With $H(X)\approx 7.8548$ bits for $n=5$, evaluate the lower bound $\eta&gt;H(X)/(H(X)+1)$.</p>
+  <p>(a) $\eta&gt;0.8871$<br>
+  (b) $\eta&gt;0.1129$<br>
+  (c) $\eta&gt;0.6112$<br>
+  (d) $\eta&gt;0.9802$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Substitute $H(X)\approx 7.8548$: $\eta&gt;\dfrac{7.8548}{7.8548+1}=\dfrac{7.8548}{8.8548}\approx 0.8871$. The bound approaches $1$ as $n$ grows since the $+1$ overhead is amortized over the block. (The $0.1129$ value is the complement $1/(H(X)+1)$, the wrong ratio.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.35.</span></p>
+  <p>A discrete memoryless source emits symbols $U$ over $\{a,b,c,d\}$ with probabilities $\{0.45,\,0.2,\,0.175,\,0.175\}$. Compute the per-symbol entropy $H(U)$ in bits.</p>
+  <p>(a) $H(U) \approx 1.8629$ bits<br>
+  (b) $H(U) \approx 2.0000$ bits<br>
+  (c) $H(U) \approx 0.5608$ bits<br>
+  (d) $H(U) \approx 1.5610$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Using base-$2$ logarithms: $-0.45\log_2 0.45 = 0.5184$, $-0.2\log_2 0.2 = 0.4644$, and each $-0.175\log_2 0.175 = 0.4400$ (two such terms give $0.8801$). Summing gives $H(U) \approx 0.5184 + 0.4644 + 0.8801 = 1.8629$ bits. The value $2$ is the max for $4$ symbols; $0.5608$ comes from using natural logs, and $1.5610$ from dropping one of the two equal terms.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.36.</span></p>
+  <p>A discrete memoryless source emits a block $X=(U_1,\ldots,U_n)$ of i.i.d. symbols, each with per-symbol entropy $H(U)\approx 1.8629$ bits. A Huffman code for $X$ has average length $L_{\rm av}$, and the ratio $\eta=H(X)/L_{\rm av}$ is lower bounded by $0.91788$. Using $L_{\rm av}&lt;H(X)+1$ (hence $\eta&gt;\tfrac{H(X)}{H(X)+1}$), determine the block length $n$.</p>
+  <p>(a) $n = 6$<br>
+  (b) $n = 5$<br>
+  (c) $n = 7$<br>
+  (d) $n = 12$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since the source is memoryless, $H(X)=nH(U)$. Setting $\tfrac{nH(U)}{nH(U)+1}=0.91788$ and writing $y=nH(U)$ gives $y=\tfrac{0.91788}{1-0.91788}=\tfrac{0.91788}{0.08212}\approx 11.177$ bits. Then $n=11.177/1.8629\approx 6.00$. Checking: $n=5$ gives $0.9030$ and $n=7$ gives $0.9288$, so only $n=6$ reproduces $0.91788$. ($n=12$ would come from confusing $nH(U)$ with $n$.) Thus $n=6$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.37.</span></p>
+  <p>A source $U$ over $\{a,b,c,d\}$ has distribution $\{0.4,\,0.25,\,0.2,\,0.15\}$. Consider a <em>relaxed Huffman algorithm</em>: at each step, instead of always merging the two least-probable nodes, it merges two nodes chosen uniformly at random among the three smallest-probability nodes (when only three nodes remain, all three count as smallest). What is the probability that the resulting binary prefix-free code has the same average length as the optimal (ordinary Huffman) code?</p>
+  <p>(a) $\tfrac19$<br>
+  (b) $\tfrac13$<br>
+  (c) $0$<br>
+  (d) $\tfrac29$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The average length equals the sum of the merged (internal) node weights. Genuine Huffman merges $(0.15,0.2)\to0.35$, then $(0.25,0.35)\to0.60$, then $\to1$, giving $L^*=0.35+0.60+1=1.95$ bits. The relaxed algorithm has $\binom{3}{2}=3$ choices at step 1, $\binom{3}{2}=3$ at step 2, and $1$ at step 3, so $3\times3\times1=9$ equiprobable paths. Checking all paths, the value $1.95$ appears <strong>exactly once</strong> (the true Huffman path); every other path violates the merge-two-smallest rule and is strictly worse ($\ge2.00$). Hence the probability is $\tfrac19$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.38.</span></p>
+  <p>A source $U$ over $\{a,b,c,d\}$ has distribution $\left\{p,\ \tfrac{1-p}{3},\ \tfrac{1-p}{3},\ \tfrac{1-p}{3}\right\}$ with $p\in(0,1)$. Let $q=\tfrac{1-p}{3}$. The structure of the optimal binary Huffman code changes at a critical value of $p$. At which value of $p$ does the structural threshold occur?</p>
+  <p>(a) $p=\tfrac{2}{5}$<br>
+  (b) $p=\tfrac{1}{4}$<br>
+  (c) $p=\tfrac{1}{3}$<br>
+  (d) $p=\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The first Huffman merge always joins two $q$'s, leaving $\{p,q,2q\}$. The merge order then depends on comparing $p$ with $2q$. Solving $p=2q=2\cdot\tfrac{1-p}{3}$ gives $3p=2-2p$, $5p=2$, so $p=\tfrac{2}{5}$. The value $p=\tfrac14$ (where $p=q$) is a red herring: it does not change the code structure.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.39.</span></p>
+  <p>For the source $\left\{p,\ \tfrac{1-p}{3},\ \tfrac{1-p}{3},\ \tfrac{1-p}{3}\right\}$, consider the regime $0&lt;p\le\tfrac{2}{5}$. What is the average codeword length $L_{\rm av}(p)$ of the optimal binary code on this interval?</p>
+  <p>(a) $L_{\rm av}(p)=2$ bits (constant)<br>
+  (b) $L_{\rm av}(p)=\tfrac{8-5p}{3}$ bits<br>
+  (c) $L_{\rm av}(p)=1+p$ bits<br>
+  (d) $L_{\rm av}(p)=1.75$ bits (constant)</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>When $p\le 2q$, from $\{p,q,2q\}$ the two smallest are $p$ and $q$, so they merge, then join $2q$. The resulting tree is balanced: all four leaves at depth $2$, length distribution $\{2,2,2,2\}$. Thus $L_{\rm av}=2(p+3q)=2\cdot 1=2$ bits, constant on $\left(0,\tfrac25\right]$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.40.</span></p>
+  <p>For the source $\left\{p,\ \tfrac{1-p}{3},\ \tfrac{1-p}{3},\ \tfrac{1-p}{3}\right\}$ with $q=\tfrac{1-p}{3}$, consider the regime $\tfrac{2}{5}&lt;p&lt;1$. Here the optimal code is unbalanced with length distribution $\{1,2,3,3\}$. What is $L_{\rm av}(p)$ on this interval?</p>
+  <p>(a) $L_{\rm av}(p)=\tfrac{8-5p}{3}$ bits<br>
+  (b) $L_{\rm av}(p)=\tfrac{8+5p}{3}$ bits<br>
+  (c) $L_{\rm av}(p)=p+8q=\tfrac{8-7p}{3}$ bits<br>
+  (d) $L_{\rm av}(p)=2$ bits (constant)</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>For $p&gt;2q$, the merges produce depths $1,2,3,3$, so $L_{\rm av}=1\cdot p+2q+3q+3q=p+8q$. Substituting $q=\tfrac{1-p}{3}$: $p+\tfrac{8(1-p)}{3}=\tfrac{3p+8-8p}{3}=\tfrac{8-5p}{3}$ bits, a line with slope $-\tfrac53$. (Check: at $p=\tfrac12$, $\tfrac{11}{6}\approx1.83$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 4.41.</span></p>
+  <p>The function is $L_{\rm av}(p)=2$ on $\left(0,\tfrac25\right]$ and $L_{\rm av}(p)=\tfrac{8-5p}{3}$ on $\left(\tfrac25,1\right)$. Is $L_{\rm av}(p)$ continuous on $(0,1)$?</p>
+  <p>(a) Yes, continuous: both pieces equal $2$ at $p=\tfrac25$ (a kink but no jump)<br>
+  (b) No, there is a jump of $\tfrac13$ at $p=\tfrac25$<br>
+  (c) No, it is discontinuous because the slope changes from $0$ to $-\tfrac53$<br>
+  (d) Yes, and it is also differentiable everywhere on $(0,1)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>At $p=\tfrac25$ the constant piece gives $2$ and the linear piece gives $\tfrac{8-5\cdot\frac25}{3}=\tfrac{6}{3}=2$. The values agree, so $L_{\rm av}$ is continuous. There is a kink (slope jumps from $0$ to $-\tfrac53$), so it is continuous but not differentiable at $p=\tfrac25$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

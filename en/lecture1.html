@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -38,36 +38,36 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html" class="active">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
   <main class="content">
@@ -83,11 +83,11 @@ Information theory is a scientific discipline that originated from the study of 
 </p>
 <p>
    
-As Shannon wrote in his paper “the fundamental problem of communication is that of reproducing at one point either exactly or approximately a message selected at another point". The standard way this is done is by means of an encoder and decoder, as shown in Figure 1.1. The <strong>source</strong> is the device that produces the message (information) to be transmitted, which can be analog including speech and temperature, or digital such as an email. The <strong>encoder</strong>, based on the source information, constructs an electromagnetic waveform to be transmitter over the channel. The encoder itself consists of a source encoder that removes the redundancy present in the source, a channel encoder that introduces redundancy tailored to the channel errors, and a modulator that converts the digital encoded data into a suitable waveform. The <strong>channel</strong> models all the disturbances introduced to the transmitted waveform by physics of the transmission medium and the receiver, including noise and fading in optical fibers, Ethernet, wireless; but also imperfections in data storage systems including DVD, flash drives or DNA. Finally, the <strong>decoder</strong> inverts all the steps introduced at the encoder and tries to estimate what the source message was. 
+As Shannon wrote in his paper “the fundamental problem of communication is that of reproducing at one point either exactly or approximately a message selected at another point". The standard way this is done is by means of an encoder and decoder, as shown in Figure 1.1. The <strong>source</strong> is the device that produces the message (information) to be transmitted, which can be analog including speech and temperature, or digital such as an email. The <strong>encoder</strong>, based on the source information, constructs an electromagnetic waveform to be transmitted over the channel. The encoder itself consists of a source encoder that removes the redundancy present in the source, a channel encoder that introduces redundancy tailored to the channel errors, and a modulator that converts the digital encoded data into a suitable waveform. The <strong>channel</strong> models all the disturbances introduced to the transmitted waveform by physics of the transmission medium and the receiver, including noise and fading in optical fibers, Ethernet, wireless; but also imperfections in data storage systems including DVD, flash drives or DNA. Finally, the <strong>decoder</strong> inverts all the steps introduced at the encoder and tries to estimate what the source message was. 
 </p>
-<figure><img src="../img/tikz/lecture1-fig1.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
+<figure><img src="../img/tikz/lecture1-fig1.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure>
 <p>
-<figcaption>Figure 1.1. Basic block diagram of a communications system.</figcaption>
+<figcaption>Basic block diagram of a communications system.</figcaption>
 <a id="fig:block"></a>
 </p>
 <p>
@@ -129,7 +129,7 @@ $$
 	\mathbb{P}[X\in{\cal A}] = 1 - \mathbb{P}[X\in{\cal A}^c] = 1 - \sum_{x\in{\cal A}^c} P_X(x). \tag{1.4}$$
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problem 1.1.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problem 1.3.</span> 
 Let $X$ be a random variable taking values in $\{0,1,2,3\}$ with equal probability. What is the probability that $X$ is odd? And the probability that $X$ is even?
 </p>
 
@@ -171,7 +171,7 @@ $$
 Note that the conditional distribution $P_{Y|X}(y|x)$ is a valid probability distribution of the random variable $Y$ with previous knowledge on $X=x$, since $\smash{\sum_{y \in {\cal Y}} P_{Y|X}(y|x) = \sum_{y\in{\cal Y}}\frac{P_{XY}(x,y)}{P_X(x)} = \frac{\sum_{y\in{\cal Y}} P_{XY}(x,y)}{P_X(x)} = \frac{P_X(x)}{P_X(x)} = 1}$. A similar result holds for $P_{X|Y}(x|y)$.
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problem 1.2.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problem 1.4.</span> 
 	Consider the random variables $X$ and $Y$, both taking values over the alphabet $\{a,b\}$ with joint probability distribution $P_{XY}(a,a)=\frac 16$, $P_{XY}(a,b)=\frac 13$ and $P_{XY}(b,a)=0$. What is the probability distribution of $Y$ conditioned on $X=b$?
 </p>
 
@@ -198,13 +198,13 @@ $$\begin{gather}
 \end{gather}$$
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problem 1.3.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problem 1.5.</span> 
 A random variable $X$ takes values over the alphabet $\{1,2\}$ with probability distribution $\{1,0\}$. Conditioned on $X=x$, another random variable $Y$ takes values over $\{1,2,3\}$ with probability distribution $\bigl\{ \frac{2-x}{3},\frac{x}{3},\frac 13 \bigr\}$. What is the probability that $Y$ is odd?
 </p>
 
 <details class="solution"><summary>Show solution</summary>
 <p>
-	Conditioned on $X=1$, we have that $P_{Y|X}(y|1)\in\bigl\{\frac 13,\frac 13,\frac 13\bigr\}$, while conditioned on $X=2$ we have that $P_{Y|X}(y|2)\in\bigl\{0,\frac 23,\frac 13\bigr\}$. Then, $\mathbb{P}[Y\text{ is odd}|X=1]=\sum_{y\in\{1,3\}}P_{Y|X}(y|1)=\frac 23$, while $\mathbb{P}[Y\text{ is odd}|X=2]=\sum_{y\in\{1,3\}}P_{Y|X}(y|2)=\frac 13$. Finally, $\mathbb{P}[Y\text{is odd}]=\sum_{x\in\{1,2\}} \mathbb{P}[Y\text{is odd}|X=x]P_X(x)=\frac 23 \cdot 1 + \frac 13\cdot 0 = \frac 23.$
+	Conditioned on $X=1$, we have that $P_{Y|X}(y|1)\in\bigl\{\frac 13,\frac 13,\frac 13\bigr\}$, while conditioned on $X=2$ we have that $P_{Y|X}(y|2)\in\bigl\{0,\frac 23,\frac 13\bigr\}$. Then, $\mathbb{P}[Y\text{ is odd}|X=1]=\sum_{y\in\{1,3\}}P_{Y|X}(y|1)=\frac 23$, while $\mathbb{P}[Y\text{ is odd}|X=2]=\sum_{y\in\{1,3\}}P_{Y|X}(y|2)=\frac 13$. Finally, $\mathbb{P}[Y\text{ is odd}]=\sum_{x\in\{1,2\}} \mathbb{P}[Y\text{ is odd}|X=x]P_X(x)=\frac 23 \cdot 1 + \frac 13\cdot 0 = \frac 23.$
 </p>
 
 </details>
@@ -230,7 +230,7 @@ $$
 where ${\cal X}^n={\cal X}\times \ldots \times {\cal X}$ is the Cartesian product of the alphabets. An example will clarify this.
 </p>
 
-<div class="env-block env-example"><p><span class="env-label">Example 1.3.</span> 
+<div class="env-block env-example"><p><span class="env-label">Example 1.6.</span> 
 	Consider the sequence of random variables $(X_1,X_2,X_3)$, each $X_i$ taking value over the alphabet ${\cal X}=\{a,b\}$. The alphabet of $(X_1,X_2,X_3)$ is the Cartesian product ${\cal X}^3 = \{a,b\}\times \{a,b\} \times \{a,b\}$, that is, all the possible combinations ${\cal X}^3=\{aaa,aab,aba,abb,baa,bab,bba,bbb\}$. The cardinality of this new alphabet is $|{\cal X}^3|=|{\cal X}|^3=2^3=8$. A possible probability distribution for $(X_1,X_2,X_3)$ is  $P_{X_1X_2X_3}(x_1,x_2,x_3)=\frac 18$, but another one could be $P_{X_1X_2X_3}(aaa)=P_{X_1X_2X_3}(bbb)=\frac 12$ and $P_{X_1X_2X_3}(x_1,x_2,x_3)=0$ otherwise.
 </p>
 
@@ -249,7 +249,7 @@ $$
 that is, all the random variables $X_i$ are independent and  have the same probability distribution $P_X(x)$. 
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problem 1.4.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problem 1.7.</span> 
 	A discrete memoryless source is described by the sequence of i.i.d. random variables $(U_1,U_2,U_3)$ where each $U_i$ takes values in $\{0,1\}$ with probability distribution $\{p,1-p\}$. What is the probability that the source outputs a sequence that has a zero at the last position?
 	
 </p>
@@ -286,12 +286,11 @@ $$
 $$
 </p>
 
-<div class="env-block env-example"><p><span class="env-label">Example 1.4.</span> 
+<div class="env-block env-example"><p><span class="env-label">Example 1.8.</span> 
 <a id="ex:1.8"></a>
-A discrete memoryless channel is described by the input sequence $(X_1,X_2,X_3)$, where each $X_i$ takes values in $\{a,b\}$, and a  output sequence $(Y_1,Y_2,Y_3)$ where each $Y_i$ also takes values in $\{a,b\}$. The channel can be characterized by $(1.30)$ where, for example, $P_{Y|X}(y|x)$ corresponds to the arrow connecting the node $X=x$ to node $Y=t$ in the following graph:
+A discrete memoryless channel is described by the input sequence $(X_1,X_2,X_3)$, where each $X_i$ takes values in $\{a,b\}$, and a  output sequence $(Y_1,Y_2,Y_3)$ where each $Y_i$ also takes values in $\{a,b\}$. The channel can be characterized by $(1.30)$ where, for example, $P_{Y|X}(y|x)$ corresponds to the arrow connecting the node $X=x$ to node $Y=y$ in the following graph:
 </p>
-<p>
-<figure><img src="../img/tikz/lecture1-fig2.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
+<figure><img src="../img/tikz/lecture1-fig2.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure>
 
 </div>
 <p>
@@ -303,7 +302,7 @@ $$
 From the graph we know that $P_{Y|X}(a|a)=\frac 13$ and that $P_{Y|X}(b|b)=\frac 12$. As conditional distributions (see the discussion after equation $(1.10)$ above), we also know that $P_{Y|X}(a|a)+P_{Y|X}(b|a)=1$ and that $P_{Y|X}(a|b)+P_{Y|X}(b|b)=1$, from which we deduce that $P_{Y|X}(b|a)=\frac 23$ and that $P_{Y|X}(a|b)=\frac 12$. Using these values in $(1.31)$ we can calculate $P_{Y_1Y_2Y_3|X_1X_2X_3}(aba|aab)=\frac 13\cdot \frac 23 \cdot \frac 12 = \frac 19$.
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problem 1.5.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problem 1.9.</span> 
 	Consider the discrete memoryless channel described in Example 1.8. Assuming that the input sequence $(X_1,X_2,X_3)$ has probability distribution
 	$$
 		P_{X_1X_2X_3}(x_1,x_2,x_3) = \begin{cases}
@@ -326,7 +325,7 @@ From the graph we know that $P_{Y|X}(a|a)=\frac 13$ and that $P_{Y|X}(b|b)=\frac
 		Note that since the distribution $P_{X_1X_2X_3}(x_1,x_2,x_3)$ cannot be written as the product of independent and identical distributions, the distribution $P_{Y_1Y_2Y_3}(y_1,y_2,y_3)$ cannot be expressed as the product of independent and identical distributions either.
 		Since the input sequence $(X_1,X_2,X_3)$ has non-zero probability only for $aaa$ and $bbb$, according to $(1.32)$, the summation in $(1.34)$ has only two terms, namely
 		$$\begin{align}
-			P_{Y_1Y_2Y_3}(y_1,y_2,y_3) & = P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)P_{X_1X_2X_3}(aaa) \tag{1.35}\\ &  ~ \hspace{4em} + P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b)P_{X_1X_2X_3}(bbb) \tag{1.36}\\
+			P_{Y_1Y_2Y_3}(y_1,y_2,y_3) & = P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)P_{X_1X_2X_3}(aaa) \nonumber \tag{1.35}\\ &  ~ \hspace{4em} + P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b)P_{X_1X_2X_3}(bbb) \tag{1.36}\\
 			&= \frac 12 P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)  + \frac 12 P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b). \tag{1.37}\end{align}$$
 		It only remains to determine the numbers of the probability distribution, that is
 		$$\begin{gather}
@@ -344,7 +343,7 @@ From the graph we know that $P_{Y|X}(a|a)=\frac 13$ and that $P_{Y|X}(b|b)=\frac
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Information theory and coding 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

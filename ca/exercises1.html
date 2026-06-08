@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -40,36 +40,36 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html" class="active">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
 
@@ -81,312 +81,589 @@
     <button id="expand-all" data-expand="Mostra totes les solucions" data-collapse="Amaga totes les solucions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostra totes les solucions</button>
 
     <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.1.</span> Sabent que la probabilitat que la font emeti la seqüència $211$ és $\tfrac{1}{72}$, quina és la probabilitat que la font emeti la seqüència $02$?</p>
-  <p>(a) $\tfrac{1}{12}$<br>
-  (b) $\tfrac{1}{6}$<br>
-  (c) Ambdues (a) i (b) són respostes compatibles.</p>
+  <p><span class="env-label">Exercici 1.1.</span></p>
+  <p>Una font sense memòria sobre l'alfabet $\{0,1,2\}$ té $P_U(2)=\frac{1}{2}$. Sabent que la probabilitat que la font produeixi la seqüència $210$ és $\frac{1}{36}$, quina és la probabilitat que la font produeixi la seqüència $02$?</p>
+  <p>(a) $\frac{1}{12}$<br>
+  (b) $\frac{1}{6}$<br>
+  (c) Tant (a) com (b) són respostes compatibles.</p>
   <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
-    <p>L'enunciat implica que $P_U(2)=\tfrac{1}{2}$. Com que, $P_{U_1U_2U_3}(211)=\tfrac{1}{2}\,P_U(1)^2=\tfrac{1}{72}$, deduïm que $P_U(1)=\frac 16$ i per tant $P_U(0)=\frac 13$. La pregunta demana $P_U(0)P_U(2)$, que és $\frac 16$.</p>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>L'enunciat dona $P_U(2)=\frac{1}{2}$ i, per tant, $P_{U_1U_2U_3}(210)=\frac{1}{2}P_U(1)P_U(0)=\frac{1}{36}$. Juntament amb $P_U(0)+P_U(1)=\frac{1}{2}$, trobem que la distribució és $\bigl\{\frac{1}{6},\frac{1}{3},\frac{1}{2}\bigr\}$ o bé $\bigl\{\frac{1}{3},\frac{1}{6},\frac{1}{2}\bigr\}$. La pregunta demana $P_U(0)P_U(2)$, que pot ser $\frac{1}{12}$ o $\frac{1}{6}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.2.</span> Quina és la probabilitat que la font emeti la seqüència que conté $n$ uns?</p>
-  <p>(a) $\tfrac{1}{6^n}$<br>
-  (b) $\tfrac{1}{2^n}$<br>
-  (c) $1-6^{-n}$</p>
+  <p><span class="env-label">Exercici 1.2.</span></p>
+  <p>Quina és la probabilitat que la font no produeixi la seqüència formada tota per $2$?</p>
+  <p>(a) $\frac{1}{2^n}$<br>
+  (b) $\frac{1}{4^n}$<br>
+  (c) $1-2^{-n}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>La probabilitat que la font emeti la seqüència formada per $n$ uns és $P_{U_1\cdots U_n}(1\cdots 1)=P_U(1)^n=6^{-n}$.</p>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Com que la probabilitat que la font produeixi la seqüència formada tota per $2$ és $P_{U_1\cdots U_n}(2\cdots 2)=P_U(2)^n=2^{-n}$, l'esdeveniment complementari té probabilitat $1-2^{-n}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.3.</span> Quina de les següents parelles de seqüències tenen la mateixa probabilitat?</p>
-  <p>(a) $0101$ i $0202$<br>
+  <p><span class="env-label">Exercici 1.3.</span></p>
+  <p>Quin dels parells de seqüències següents no tenen la mateixa probabilitat?</p>
+  <p>(a) $0012$ i $0201$<br>
   (b) $1111$ i $2222$<br>
   (c) $1212$ i $2121$</p>
   <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
-    <p>Com que és una font discreta sense memòria, la probabilitat d’una seqüència només depèn del nombre d’aparicions de cada símbol.</p>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>En tractar-se d'una font discreta sense memòria, la probabilitat d'una seqüència només depèn del nombre d'ocurrències de cada símbol.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.4.</span> Quina és la probabilitat que la seqüència de sortida sigui $abb$ condicionat a que la seqüència d’entrada sigui $cba$?</p>
+  <p><span class="env-label">Exercici 1.4.</span></p>
+  <p>Quina és la probabilitat que la seqüència de sortida sigui $abb$ condicionada al fet que la seqüència d'entrada sigui $cba$?</p>
   <p>(a) $0$<br>
-  (b) $\tfrac 13$<br>
+  (b) $\frac{1}{3}$<br>
   (c) Cap de les altres.</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
-    <p>La probabilitat és
- $$
-            P_{Y|X}(a|c)\,P_{Y|X}(b|b)\,P_{Y|X}(b|a) 
-          = \tfrac 23 \cdot 1 \cdot \tfrac 12 
-           = \tfrac 13.
-       $$</p>
+    <p>La probabilitat ve donada per
+$$
+P_{Y|X}(a|c)P_{Y|X}(b|b)P_{Y|X}(b|a) = \frac{1}{2} \cdot 1 \cdot \frac{2}{3} = \frac{1}{3}.
+$$</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.5.</span> Quina és la probabilitat que, sabent que $(X_1,X_2,X_3)=aaa$, $(Y_1,Y_2,Y_3)$ sigui $bbb$?</p>
+  <p><span class="env-label">Exercici 1.5.</span></p>
+  <p>Sabent que $(X_1,X_2,X_3)=bbb$, quina és la probabilitat que $(Y_1,Y_2,Y_3)$ sigui $aaa$?</p>
   <p>(a) $1$<br>
   (b) $0$<br>
-  (c) $\tfrac{1}{8}$</p>
-  <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
-    <p>Condicionant $(X_1,X_2,X_3)=bbb$, la probabilitat que la seqüència de sortida sigui $aaa$ és $
-		\mathbb{P}[(Y_1,Y_2,Y_3)=bbb \mid (X_1,X_2,X_3)=aaa] = P_{Y|X}(b|a)^3 = \frac{1}{2^3} = \frac 18$.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.6.</span> Quina és la probabilitat que $(Y_1,Y_2,Y_3)=bbb$?</p>
-  <p>(a) $\tfrac{251}{648}$<br>
-  (b) $\tfrac{307}{648}$<br>
-  (c) $\tfrac{35}{648}$</p>
-  <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Per la llei de la probabilitat total, podem calcular la probabilitat que $(Y_1,Y_2,Y_3)$ sigui $bbb$ com $
-		    \sum_{(x_1,x_2,x_3)\in\{a,b,c\}^3} 
-		    \mathbb{P}[(Y_1,Y_2,Y_3)=bbb \mid (X_1,X_2,X_3)=(x_1,x_2,x_3)]
-		    \, P_{X_1X_2X_3}(x_1,x_2,x_3)$. 
-		Sabem que $(X_1,X_2,X_3)$ només pren tres valors possibles amb probabilitat no nul·la, de manera que només hem de calcular:
-		$$
-			\mathbb{P}[(Y_1,Y_2,Y_3)=bbb \mid (X_1,X_2,X_3)=aaa] 
-			= \tfrac{1}{8},
-		$$
-		$$
-			\mathbb{P}[(Y_1,Y_2,Y_3)=bbb \mid (X_1,X_2,X_3)=bbb]
-			= 1,
-		$$
-		$$
-			\mathbb{P}[(Y_1,Y_2,Y_3)=bbb \mid (X_1,X_2,X_3)=ccc]
-			= \tfrac{1}{27}.
-		$$
-		Per exemple, per trobar la primera hem fet servir que $P_{Y_1Y_2Y_3|X_1X_2X_3}(bbb \mid aaa) 
-		= P_{Y|X}(b|a)^3$. Substituint aquests valors i notant que $P_{X_1X_2X_3}(bbb)=P_{X_1X_2X_3}(ccc)=P_{X_1X_2X_3}(aaa)=\tfrac{1}{3}$, obtenim el resultat.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.7.</span> La distribució de $(U_1,U_2)$, en ordre lexicogràfic, ve donada per</p>
-  <p>(a) $\bigl\{ \frac{1}{4},\frac{1}{12},\frac{1}{6},\frac{1}{12},\frac{1}{36},\frac{1}{18},\frac{1}{6},\frac{1}{18},\frac{1}{9} \bigr\}$<br>
-  (b) $\bigl\{ \frac 19, \frac{1}{18}, \frac{1}{6}, \frac{1}{18},\frac{1}{36} , \frac{1}{12}, \frac{1}{6}, \frac{1}{12}, \frac{1}{4}\bigr\}$<br>
-  (c) Cap de les anteriors</p>
+  (c) $\frac{1}{8}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
-    <p>Juntament amb $P_U(0)+P_U(1)+P_U(2)=1$, trobem que $P_U(0)=\frac 13$, $P_U(1)=\frac 16$ i $P_U(2)=\frac 12$. Com que els símbols són iid, la distribució de $(U_1,U_2)$ compleix $P_{U_1U_2}(u_1,u_2)=P_U(u_1)P_U(u_2)$, per a cada $(u_1,u_2)\in\{0,1,2\}^2=\{00,01,02,10,11,12,20,21,22\}$, donant lloc al resultat.</p>
+    <p>Condicionat a $(X_1,X_2,X_3)=bbb$, la probabilitat que la seqüència de sortida sigui $aaa$ és $\mathbb{P}[(Y_1,Y_2,Y_3)=aaa\mid(X_1,X_2,X_3)=bbb] = P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa|bbb)$. Com que el canal és sense memòria, la distribució condicional ve donada per $P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa|bbb)=P_{Y|X}(a|b)^3=0^3=0$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.8.</span> Quina és la probabilitat que la font produeixi una seqüència que conté almenys un símbol $0$?</p>
-  <p>(a) $\frac 59$<br>
-  (b) $\frac 12$<br>
-  (c) $\frac 49$</p>
+  <p><span class="env-label">Exercici 1.6.</span></p>
+  <p>Quina és la probabilitat que $(Y_1,Y_2,Y_3)=bbb$?</p>
+  <p>(a) $\frac{59}{648}$<br>
+  (b) $\frac{307}{648}$<br>
+  (c) $\frac{35}{648}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Per la llei de la probabilitat total, podem calcular la probabilitat que $(Y_1,Y_2,Y_3)$ sigui $bbb$ com $\sum_{(x_1,x_2,x_3)\in\{a,b,c\}^3} \mathbb{P}[(Y_1,Y_2,Y_3)=bbb\mid(X_1,X_2,X_3)=(x_1,x_2,x_3)]P_{X_1X_2X_3}(x_1,x_2,x_3)$. Sabem que $(X_1,X_2,X_3)$ només pren tres valors possibles amb probabilitat no nul·la, de manera que només hem de calcular les probabilitats següents:
+$$
+\mathbb{P}[(Y_1,Y_2,Y_3)=bbb\mid(X_1,X_2,X_3)=aaa] = \tfrac{8}{27},\\
+\mathbb{P}[(Y_1,Y_2,Y_3)=bbb\mid(X_1,X_2,X_3)=bbb] = 1,\\
+\mathbb{P}[(Y_1,Y_2,Y_3)=bbb\mid(X_1,X_2,X_3)=ccc] = \tfrac{1}{8}.
+$$
+Per exemple, per trobar la primera hem fet servir que $P_{Y_1Y_2Y_3|X_1X_2X_3}(bbb|aaa)=P_{Y|X}(b|a)^3$. Substituint els nombres a la suma i tenint en compte que $P_{X_1X_2X_3}(bbb)=P_{X_1X_2X_3}(ccc)=P_{X_1X_2X_3}(aaa)=\frac{1}{3}$, obtenim el resultat.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.7.</span></p>
+  <p>La distribució de $(U_1,U_2)$, en ordre lexicogràfic, ve donada per</p>
+  <p>(a) $\bigl\{ \frac{1}{4},\frac{1}{12},\frac{1}{6},\frac{1}{12},\frac{1}{36},\frac{1}{18},\frac{1}{6},\frac{1}{18},\frac{1}{9} \bigr\}$<br>
+  (b) $\bigl\{ \frac{1}{9}, \frac{1}{18}, \frac{1}{6}, \frac{1}{18},\frac{1}{36} , \frac{1}{12}, \frac{1}{6}, \frac{1}{12}, \frac{1}{4}\bigr\}$<br>
+  (c) Cap de les altres.</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>L'esdeveniment ``$(U_1,U_2)$ té almenys un símbol $0$'' es descriu pel conjunt de seqüències de sortida que contenen almenys un símbol $0$, és a dir ${\cal A}=\{00,01,02,10,20\}$. Per tant, $\mathbb{P}[\text{$(U_1,U_2)$ has exactly one symbol $0$}]=\mathbb{P}[(U_1,U_2)\in{\cal A}]=\sum_{(u_1,u_2)\in{\cal A}}P_{U_1U_2}(u_1,u_2)$. Utilitzant la distribució de la pregunta 1, obtenim el resultat.</p>
+    <p>Juntament amb $P_U(0)+P_U(1)+P_U(2)=1$, trobem que $P_U(0)=\frac{1}{2}$, $P_U(1)=\frac{1}{6}$ i $P_U(2)=\frac{1}{3}$. Com que els símbols són i.i.d., la distribució de $(U_1,U_2)$ compleix $P_{U_1U_2}(u_1,u_2)=P_U(u_1)P_U(u_2)$, per a cada $(u_1,u_2)\in\{0,1,2\}^2=\{00,01,02,10,11,12,20,21,22\}$, cosa que condueix al resultat.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.9.</span> Quina és la probabilitat que la font generi la seqüència tot $0$?</p>
+  <p><span class="env-label">Exercici 1.8.</span></p>
+  <p>Una font sense memòria sobre l'alfabet $\{0,1,2\}$ té distribució $\{P_U(0),P_U(1),P_U(2)\}=\bigl\{\frac{1}{2},\frac{1}{3},\frac{1}{6}\bigr\}$ i emet dos símbols $(U_1,U_2)$. Quina és la probabilitat que la font produeixi una seqüència que contingui almenys un símbol $0$?</p>
+  <p>(a) $\frac{3}{4}$<br>
+  (b) $\frac{1}{2}$<br>
+  (c) $\frac{4}{9}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Fem servir l'esdeveniment complementari: $\mathbb{P}[\text{almenys un }0]=1-\mathbb{P}[\text{cap }0]=1-(1-P_U(0))^2=1-\bigl(1-\tfrac{1}{2}\bigr)^2=1-\tfrac14=\tfrac34$. Equivalentment, l'esdeveniment és el conjunt ${\cal A}=\{00,01,02,10,20\}$ i la suma $\sum_{(u_1,u_2)\in{\cal A}}P_{U_1U_2}(u_1,u_2)=\tfrac34$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.9.</span></p>
+  <p>Quina és la probabilitat que la font generi la seqüència de tot $0$?</p>
   <p>(a) $\frac{1}{3^n}$<br>
   (b) $\frac{1}{2^n}$<br>
   (c) $\frac{1}{6^n}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Com a seqüència de variables iid aleatòries, tenim que $\mathbb{P}[(U_1,\ldots,U_n)=0\cdots 0]=P_{U_1\cdots U_n}(0\cdots 0) = \prod_{i=1}^n P_U(0) = \frac{1}{3^n}.$</p>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Com que es tracta d'una seqüència de variables aleatòries i.i.d., tenim que $\mathbb{P}[(U_1,\ldots,U_n)=0\cdots 0]=P_{U_1\cdots U_n}(0\cdots 0) = \prod_{i=1}^n P_U(0) = \frac{1}{2^n}.$</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.10.</span> Quina de les opcions següents correspon a la distribució de probabilitat de $Y$?</p>
+  <p><span class="env-label">Exercici 1.10.</span></p>
+  <p>Sigui $X$ l'entrada del canal amb distribució $P_X$ sobre $\{a,b,c\}$, i sigui $Y$ sobre $\{a,b\}$ la sortida del canal $P_{Y|X}$ donat per $P_{Y|X}(a|a)=\frac{1}{3}$, $P_{Y|X}(b|a)=\frac{2}{3}$, $P_{Y|X}(a|b)=0$, $P_{Y|X}(b|b)=1$, $P_{Y|X}(a|c)=\frac{1}{2}$, $P_{Y|X}(b|c)=\frac{1}{2}$. Quina de les opcions següents correspon a la distribució de probabilitat de $Y$?</p>
   <p>(a) $\bigl\{ \frac 13P_X(a)+P_X(b)+\frac 12 P_X(c) , \frac 23 P_X(a) + \frac 12 P_X(c) \bigr\}$<br>
   (b) $\bigl\{ \frac 13P_X(a)+\frac 12 P_X(c) , \frac 23 P_X(a) + P_X(b) + \frac 12 P_X(c) \bigr\}$<br>
-  (c) Cap de les anteriors.</p>
+  (c) Cap de les altres</p>
   <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>La distribució de probabilitat de $Y$ ve donada per $\{P_Y(a),P_Y(b)\}$. Per la llei de probabilitat total, $P_Y(y) = \sum_{x\in\{a,b,c\}}P_{Y|X}(y|x)P_X(x)$. Per exemple, $P_Y(a) = P_{Y|X}(a|a)P_X(a) + P_{Y|X}(a|b)P_X(b) + P_{Y|X}(a|c)P_X(c)$. Substituint els nombres obtenim el resultat.</p>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>La distribució de probabilitat de $Y$ ve donada per $\{P_Y(a),P_Y(b)\}$. Per la llei de la probabilitat total, $P_Y(y) = \sum_{x\in\{a,b,c\}}P_{Y|X}(y|x)P_X(x)$. Per exemple, $P_Y(a) = P_{Y|X}(a|a)P_X(a) + P_{Y|X}(a|b)P_X(b) + P_{Y|X}(a|c)P_X(c)=\frac13P_X(a)+\frac12P_X(c)$. Substituint els nombres obtenim el resultat.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.11.</span> Quina és la probabilitat que, sabent que $(X_1,X_2,X_3)=bbb$, $(Y_1,Y_2,Y_3)$ sigui $aaa$?</p>
-  <p>(a) $1$<br>
-  (b) $0$<br>
-  (c) $\frac 18$</p>
-  <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Condicionat a $(X_1,X_2,X_3)=bbb$, la probabilitat que la seqüència de sortida sigui $aaa$ és $\mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=bbb] = P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa|bbb)$. Com que el canal no té memòria, la distribució condicional ve donada per $P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa|bbb)=P_{Y|X}(a|b)^3=1^3=1$.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.12.</span> Quina és la probabilitat que $(Y_1,Y_2,Y_3)=aaa$?</p>
-  <p>(a) $\frac{251}{648}$<br>
+  <p><span class="env-label">Exercici 1.11.</span></p>
+  <p>Considereu el canal sense memòria $P_{Y|X}$ sobre $\{a,b,c\}\to\{a,b\}$ amb $P_{Y|X}(a|a)=\frac{1}{3}$, $P_{Y|X}(a|b)=0$ i $P_{Y|X}(a|c)=\frac{1}{2}$, utilitzat $3$ vegades. L'entrada $(X_1,X_2,X_3)$ és uniforme sobre $\{aaa,bbb,ccc\}$, és a dir, cadascuna d'aquestes tres seqüències té probabilitat $\frac{1}{3}$. Quina és la probabilitat que $(Y_1,Y_2,Y_3)=aaa$?</p>
+  <p>(a) $\frac{59}{648}$<br>
   (b) $\frac{59}{324}$<br>
-  (c) $\frac{59}{162}$</p>
+  (c) $\frac{35}{648}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Per la llei de probabilitat total, podem calcular la probabilitat que $(Y_1,Y_2,Y_3)$ sigui $aaa$ com $\sum_{(x_1,x_2,x_3)\in\{a,b,c\}^3} \mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=(x_1,x_2,x_3)]P_{X_1X_2X_3}(x_1,x_2,x_3)$. Sabem que $(X_1,X_2,X_3)$ només pren tres valors possibles amb probabilitat diferent de zero, de manera que només hem de calcular les probabilitats següents
- 	$$
-		\mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=aaa] = \tfrac{1}{27}\\
-		\mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=bbb] = 1\\
-		\mathbb{P}[(Y_1,Y_2,Y_3)=aaa|(X_1,X_2,X_3)=ccc] = \tfrac 18.
-	$$
- 	Per exemple, per trobar el primer hem utilitzat que $
-	P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa|aaa)=P_{Y|X}(a|a)^3$.</p>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Per la llei de la probabilitat total, podem calcular la probabilitat que $(Y_1,Y_2,Y_3)$ sigui $aaa$ com a $\sum_{(x_1,x_2,x_3)\in\{a,b,c\}^3} \mathbb{P}[(Y_1,Y_2,Y_3)=aaa\mid(X_1,X_2,X_3)=(x_1,x_2,x_3)]\,P_{X_1X_2X_3}(x_1,x_2,x_3)$. Sabem que $(X_1,X_2,X_3)$ només pren tres valors possibles amb probabilitat no nul·la, de manera que només cal calcular les probabilitats següents: $$\mathbb{P}[(Y_1,Y_2,Y_3)=aaa\mid(X_1,X_2,X_3)=aaa] = \tfrac{1}{27},\quad \mathbb{P}[(Y_1,Y_2,Y_3)=aaa\mid(X_1,X_2,X_3)=bbb] = 0,\quad \mathbb{P}[(Y_1,Y_2,Y_3)=aaa\mid(X_1,X_2,X_3)=ccc] = \tfrac 18.$$ Per exemple, per trobar la primera hem utilitzat que $P_{Y_1Y_2Y_3|X_1X_2X_3}(aaa\mid aaa)=P_{Y|X}(a\mid a)^3$. Substituint els nombres a la suma i tenint en compte que $P_{X_1X_2X_3}(bbb)=P_{X_1X_2X_3}(ccc)=P_{X_1X_2X_3}(aaa)=\frac 13$, obtenim $\frac{1}{3}\bigl(\frac{1}{27}+0+\frac18\bigr)=\frac{35}{648}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.13.</span> A discrete memoryless font produces i.i.d. symbols from the alphabet $\{a,b\}$ with $P(a)=\tfrac{1}{3}$. Quin és la probabilitat of the sequence $abba$?</p>
-  <p>(a) $\tfrac{4}{81}$<br>
-  (b) $\tfrac{2}{27}$<br>
-  (c) $\tfrac{4}{27}$</p>
-  <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Atès que the font is memoryless, $P(abba) = P(a)P(b)P(b)P(a) = \tfrac{1}{3}\cdot\tfrac{2}{3}\cdot\tfrac{2}{3}\cdot\tfrac{1}{3} = \tfrac{4}{81}$.</p>
-  </details>
-</div>
-
-<div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.14.</span> Let $X$ and $Y$ be two independents variables aleatòries with $X\in\{0,1\}$ equiprobable and $Y\in\{0,1,2\}$ equiprobable. Quin és $\mathbb{E}[XY]$?</p>
+  <p><span class="env-label">Exercici 1.12.</span></p>
+  <p>Siguin $X$ i $Y$ dues variables aleatòries independents amb $X\in\{0,1\}$ equiprobable i $Y\in\{0,1,2\}$ equiprobable. Quant val $\mathbb{E}[XY]$?</p>
   <p>(a) $\tfrac{1}{2}$<br>
   (b) $1$<br>
   (c) $\tfrac{1}{3}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>By independence, $\mathbb{E}[XY]=\mathbb{E}[X]\mathbb{E}[Y]=\tfrac{1}{2}\cdot 1 = \tfrac{1}{2}$.</p>
+    <p>Per la independència, $\mathbb{E}[XY]=\mathbb{E}[X]\,\mathbb{E}[Y]=\tfrac{1}{2}\cdot 1 = \tfrac{1}{2}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.15.</span> A ternary font emits symbols from $\{0,1,2\}$ with probabilities $\{\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{4}\}$. For a sequence of length $n=2$, how many distinct sequences have probability $\tfrac{1}{8}$?</p>
+  <p><span class="env-label">Exercici 1.13.</span></p>
+  <p>Una font ternària emet símbols de $\{0,1,2\}$ amb probabilitats $\{\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{4}\}$. Per a una seqüència de longitud $n=2$, quantes seqüències diferents tenen probabilitat $\tfrac{1}{8}$?</p>
   <p>(a) $2$<br>
   (b) $4$<br>
   (c) $1$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
-    <p>A sequence has probability $\tfrac{1}{8}$ when it consists of one symbol with probability $\tfrac{1}{2}$ and one with probability $\tfrac{1}{4}$. The possible sequences are $01$, $02$, $10$, $20$, giving $4$ sequences.</p>
+    <p>Una seqüència té probabilitat $\tfrac{1}{8}$ quan està formada per un símbol amb probabilitat $\tfrac{1}{2}$ i un altre amb probabilitat $\tfrac{1}{4}$. Les seqüències possibles són $01$, $02$, $10$, $20$, és a dir, $4$ seqüències.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.16.</span> A discrete memoryless font emits i.i.d. symbols from $\{a,b,c\}$ with $P(a)=\tfrac{1}{2}$, $P(b)=\tfrac{1}{3}$, $P(c)=\tfrac{1}{6}$. Quin és la probabilitat that a sequence of length $2$ contains no $a$?</p>
+  <p><span class="env-label">Exercici 1.14.</span></p>
+  <p>Una font discreta sense memòria emet símbols i.i.d. de $\{a,b,c\}$ amb $P(a)=\tfrac{1}{2}$, $P(b)=\tfrac{1}{3}$, $P(c)=\tfrac{1}{6}$. Quina és la probabilitat que una seqüència de longitud $2$ no contingui cap $a$?</p>
   <p>(a) $\tfrac{1}{4}$<br>
   (b) $\tfrac{1}{2}$<br>
   (c) $\tfrac{2}{9}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>La probabilitat of no $a$ in a single symbol is $1-\tfrac{1}{2}=\tfrac{1}{2}$. For two independents symbols, la probabilitat is $\bigl(\tfrac{1}{2}\bigr)^2=\tfrac{1}{4}$.</p>
+    <p>La probabilitat que un únic símbol no sigui $a$ és $1-\tfrac{1}{2}=\tfrac{1}{2}$. Per a dos símbols independents, la probabilitat és $\bigl(\tfrac{1}{2}\bigr)^2=\tfrac{1}{4}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.17.</span> Considerem a binari symmetric canal with probabilitat de cruament $p=\tfrac{1}{4}$. If the input is $X=0$, quin és la probabilitat that the output sequence $(Y_1,Y_2)$ equals $(0,1)$ when two independents uses of the canal are made?</p>
+  <p><span class="env-label">Exercici 1.15.</span></p>
+  <p>Considereu un canal binari simètric amb probabilitat de creuament $p=\tfrac{1}{4}$. Si l'entrada és $X=0$, quina és la probabilitat que la seqüència de sortida $(Y_1,Y_2)$ sigui igual a $(0,1)$ quan es fan dos usos independents del canal?</p>
   <p>(a) $\tfrac{3}{16}$<br>
   (b) $\tfrac{1}{4}$<br>
   (c) $\tfrac{1}{16}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Atès que the canal is memoryless, $P(Y_1=0,Y_2=1|X_1=0,X_2=0)=P(Y=0|X=0)P(Y=1|X=0)=(1-p)p=\tfrac{3}{4}\cdot\tfrac{1}{4}=\tfrac{3}{16}$.</p>
+    <p>Com que el canal és sense memòria, $P(Y_1=0,Y_2=1\mid X_1=0,X_2=0)=P(Y=0\mid X=0)\,P(Y=1\mid X=0)=(1-p)\,p=\tfrac{3}{4}\cdot\tfrac{1}{4}=\tfrac{3}{16}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.18.</span> A fair coin is flipped $n$ times independentsly. Let $S_n$ be the number of heads. Quin és $\mathbb{E}[S_n/n]$?</p>
+  <p><span class="env-label">Exercici 1.16.</span></p>
+  <p>Es llança una moneda equilibrada $n$ vegades de manera independent. Sigui $S_n$ el nombre de cares. Quant val $\mathbb{E}[S_n/n]$?</p>
   <p>(a) $\tfrac{1}{2}$<br>
   (b) $\tfrac{1}{n}$<br>
   (c) $1$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Atès que $\mathbb{E}[S_n]=\tfrac{n}{2}$ for a fair coin, we have $\mathbb{E}[S_n/n]=\tfrac{1}{2}$.</p>
+    <p>Com que $\mathbb{E}[S_n]=\tfrac{n}{2}$ per a una moneda equilibrada, tenim $\mathbb{E}[S_n/n]=\tfrac{1}{2}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.19.</span> Let $(X_1,X_2,X_3)$ be i.i.d. with $P(X_i=0)=\tfrac{1}{3}$ and $P(X_i=1)=\tfrac{2}{3}$. Quin és the most probable sequence?</p>
+  <p><span class="env-label">Exercici 1.17.</span></p>
+  <p>Sigui $(X_1,X_2,X_3)$ i.i.d. amb $P(X_i=0)=\tfrac{1}{3}$ i $P(X_i=1)=\tfrac{2}{3}$. Quina és la seqüència més probable?</p>
   <p>(a) $111$<br>
   (b) $000$<br>
   (c) $110$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Atès que $P(1)>P(0)$, the most probable sequence is the all-ones sequence, with probability $\bigl(\tfrac{2}{3}\bigr)^3=\tfrac{8}{27}$.</p>
+    <p>Com que $P(1)&gt;P(0)$, la seqüència més probable és la de tot uns, amb probabilitat $\bigl(\tfrac{2}{3}\bigr)^3=\tfrac{8}{27}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.20.</span> A discrete memoryless canal has input $X\in\{0,1\}$ and output $Y=X$. If $P_X(0)=\tfrac{3}{4}$, quin és $P_Y(1)$?</p>
+  <p><span class="env-label">Exercici 1.18.</span></p>
+  <p>Un canal discret sense memòria té entrada $X\in\{0,1\}$ i sortida $Y=X$. Si $P_X(0)=\tfrac{3}{4}$, quant val $P_Y(1)$?</p>
   <p>(a) $\tfrac{1}{4}$<br>
   (b) $\tfrac{3}{4}$<br>
   (c) $\tfrac{1}{2}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Atès que $Y=X$ deterministically, $P_Y(1)=P_X(1)=1-\tfrac{3}{4}=\tfrac{1}{4}$.</p>
+    <p>Com que $Y=X$ de manera determinista, $P_Y(1)=P_X(1)=1-\tfrac{3}{4}=\tfrac{1}{4}$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.21.</span> Two variables aleatòries $X\in\{0,1\}$ and $Y\in\{0,1\}$ satisfy $P_{XY}(0,0)=P_{XY}(1,1)=\tfrac{1}{2}$. Are $X$ and $Y$ independents?</p>
+  <p><span class="env-label">Exercici 1.19.</span></p>
+  <p>Dues variables aleatòries $X\in\{0,1\}$ i $Y\in\{0,1\}$ compleixen $P_{XY}(0,0)=P_{XY}(1,1)=\tfrac{1}{2}$. Són $X$ i $Y$ independents?</p>
   <p>(a) No, perquè $P_{XY}(0,0)\neq P_X(0)P_Y(0)$<br>
-  (b) Yes, perquè $P_X(0)=P_Y(0)=\tfrac{1}{2}$<br>
-  (c) It depends on the marginals</p>
+  (b) Sí, perquè $P_X(0)=P_Y(0)=\tfrac{1}{2}$<br>
+  (c) Depèn de les marginals</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>We have $P_X(0)=P_Y(0)=\tfrac{1}{2}$, so $P_X(0)P_Y(0)=\tfrac{1}{4}\neq\tfrac{1}{2}=P_{XY}(0,0)$. Per tant $X$ and $Y$ are not independents.</p>
+    <p>Tenim $P_X(0)=P_Y(0)=\tfrac{1}{2}$, així que $P_X(0)P_Y(0)=\tfrac{1}{4}\neq\tfrac{1}{2}=P_{XY}(0,0)$. Per tant, $X$ i $Y$ no són independents.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.22.</span> Let $X$ be a variable aleatòria taking values in $\{1,2,3,4\}$ amb igual probabilitat. Quin és $\text{var}(X)$?</p>
+  <p><span class="env-label">Exercici 1.20.</span></p>
+  <p>Sigui $X$ una variable aleatòria que pren valors a $\{1,2,3,4\}$ amb igual probabilitat. Quant val $\operatorname{var}(X)$?</p>
   <p>(a) $\tfrac{5}{4}$<br>
   (b) $\tfrac{5}{3}$<br>
   (c) $\tfrac{3}{2}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>We have $\mathbb{E}[X]=\tfrac{10}{4}=\tfrac{5}{2}$ and $\mathbb{E}[X^2]=\tfrac{1+4+9+16}{4}=\tfrac{30}{4}=\tfrac{15}{2}$. Per tant $\text{var}(X)=\tfrac{15}{2}-\tfrac{25}{4}=\tfrac{5}{4}$.</p>
+    <p>Tenim $\mathbb{E}[X]=\tfrac{10}{4}=\tfrac{5}{2}$ i $\mathbb{E}[X^2]=\tfrac{1+4+9+16}{4}=\tfrac{30}{4}=\tfrac{15}{2}$. Per tant, $\operatorname{var}(X)=\tfrac{15}{2}-\tfrac{25}{4}=\tfrac{5}{4}$.</p>
   </details>
 </div>
 
-
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.23.</span>
-  Donada una font binària i.i.d. amb $P(0)=\tfrac{1}{4}$, trobeu la probabilitat de la seqüència $0110$.</p>
-  <p>(a) $\tfrac{9}{256}$<br>
-  (b) $\tfrac{3}{64}$<br>
-  (c) $\tfrac{1}{16}$</p>
+  <p><span class="env-label">Exercici 1.21.</span></p>
+  <p>Una font discreta sense memòria emet símbols i.i.d. sobre $\mathcal{X}=\{a,b,c,d\}$, amb $P_X(a)=3\,P_X(b)$ i $P_X(b)=P_X(c)=P_X(d)$.</p><p>Quina és la distribució completa $P_X$?</p>
+  <p>(a) $P_X(a)=\tfrac12,\ P_X(b)=P_X(c)=P_X(d)=\tfrac16$<br>
+  (b) $P_X(a)=\tfrac13,\ P_X(b)=P_X(c)=P_X(d)=\tfrac29$<br>
+  (c) $P_X(a)=\tfrac34,\ P_X(b)=P_X(c)=P_X(d)=\tfrac{1}{12}$<br>
+  (d) $P_X(a)=\tfrac14,\ P_X(b)=P_X(c)=P_X(d)=\tfrac14$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Com que la font és i.i.d., $P(0110) = P(0)P(1)P(1)P(0) = \tfrac{1}{4}\cdot\tfrac{3}{4}\cdot\tfrac{3}{4}\cdot\tfrac{1}{4} = \tfrac{9}{256}$.</p>
+    <p>Sigui $p=P_X(b)=P_X(c)=P_X(d)$, de manera que $P_X(a)=3p$. La normalització exigeix $3p+p+p+p=6p=1$, així $p=\tfrac16$ i $P_X(a)=3p=\tfrac12$. Comprovació: $\tfrac12+3\cdot\tfrac16=1$.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.24.</span>
-  Per a un canal sense memòria amb probabilitats de transició $P(Y{=}0|X{=}0)=0.9$, $P(Y{=}0|X{=}1)=0.2$, quant val $P(Y{=}0|X{=}1)$?</p>
-  <p>(a) $0.2$<br>
-  (b) $0.8$<br>
-  (c) $0.9$</p>
+  <p><span class="env-label">Exercici 1.22.</span></p>
+  <p>Una DMS sobre $\mathcal{X}=\{a,b,c,d\}$ té $P_X(a)=\tfrac12$ i $P_X(b)=P_X(c)=P_X(d)=\tfrac16$.</p><p>Calcula la probabilitat d'una seqüència <em>fixada</em> de longitud $n=5$ que conté $a$ dues vegades i cadascun de $b,c,d$ una vegada.</p>
+  <p>(a) $\dfrac{1}{864}\approx 1.16\times10^{-3}$<br>
+  (b) $\dfrac{5}{72}\approx 6.94\times10^{-2}$<br>
+  (c) $\dfrac{1}{216}\approx 4.63\times10^{-3}$<br>
+  (d) $\dfrac{1}{432}\approx 2.31\times10^{-3}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>La probabilitat de transició $P(Y{=}0|X{=}1)=0.2$ ve donada directament en l'enunciat del problema.</p>
+    <p>Per a una seqüència fixada s'aplica la regla del producte i.i.d. sense factor multinomial: $\mathbb{P}[\boldsymbol{x}]=P_X(a)^2P_X(b)P_X(c)P_X(d)=(\tfrac12)^2(\tfrac16)^3=\tfrac14\cdot\tfrac{1}{216}=\tfrac{1}{864}$. Multiplicar pel recompte $\binom{5}{2,1,1,1}=60$ donaria $\tfrac{5}{72}$, però això és la probabilitat de tot el tipus, no d'una sola seqüència fixada.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 1.25.</span>
-  Una font emet símbols de $\{a,b,c,d\}$ uniformement a l'atzar. Quantes seqüències de longitud $2$ tenen probabilitat $\tfrac{1}{16}$?</p>
-  <p>(a) $4$<br>
-  (b) $8$<br>
-  (c) $16$</p>
+  <p><span class="env-label">Exercici 1.23.</span></p>
+  <p>Una DMS sobre $\mathcal{X}=\{a,b,c,d\}$ té $P_X(a)=\tfrac12$ i $P_X(b)=P_X(c)=P_X(d)=\tfrac16$.</p><p>Per a una longitud fixada $n$, quina és la seqüència més probable, i quina és la seva probabilitat?</p>
+  <p>(a) La cadena tota d'$a$ $(a,\dots,a)$, amb probabilitat $(1/2)^n$<br>
+  (b) Una seqüència amb $a,b,c,d$ en proporció a les seves probabilitats, amb probabilitat $(1/2)^{n/2}(1/6)^{n/2}$<br>
+  (c) Qualsevol seqüència és igual de probable, amb probabilitat $(1/4)^n$<br>
+  (d) La cadena tota de $b$ $(b,\dots,b)$, amb probabilitat $(1/6)^n$</p>
   <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
-    <p>Cada símbol té probabilitat $\tfrac{1}{4}$, així que tota seqüència de longitud $2$ té probabilitat $\tfrac{1}{4}\cdot\tfrac{1}{4}=\tfrac{1}{16}$. Hi ha $4^2=16$ seqüències.</p>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La probabilitat es factoritza com $\prod_{i=1}^{n}P_X(x_i)$, de manera que es maximitza terme a terme escollint, a cada posició, el símbol més probable $a$ ($P_X(a)=\tfrac12$). Substituir qualsevol $x_i\neq a$ per $a$ eleva aquest factor de $\tfrac16$ a $\tfrac12$, incrementant estrictament el producte. El maximitzador únic és la paraula codi tota d'$a$ amb probabilitat $(1/2)^n$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.24.</span></p>
+  <p>Una font discreta sense memòria emet símbols i.i.d. sobre $\mathcal{X}=\{a,b\}$ amb $\mathbb{P}(a)=\frac{1}{3}$ i $\mathbb{P}(b)=\frac{2}{3}$.</p><p>Quina és la probabilitat de la seqüència $abba$?</p>
+  <p>(a) $\frac{4}{81}$<br>
+  (b) $\frac{2}{81}$<br>
+  (c) $\frac{8}{81}$<br>
+  (d) $\frac{1}{16}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per a una font sense memòria la probabilitat de la seqüència es factoritza: $\mathbb{P}(abba)=\mathbb{P}(a)\mathbb{P}(b)\mathbb{P}(b)\mathbb{P}(a)=\frac13\cdot\frac23\cdot\frac23\cdot\frac13$. Això és $\left(\frac13\right)^2\left(\frac23\right)^2=\frac{1\cdot 4}{81}=\frac{4}{81}\approx0{,}0494$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.25.</span></p>
+  <p>Una font discreta sense memòria emet símbols i.i.d. sobre $\mathcal{X}=\{a,b\}$ amb $\mathbb{P}(a)=\frac{1}{3}$ i $\mathbb{P}(b)=\frac{2}{3}$.</p><p>Quina és la probabilitat que una seqüència de longitud $4$ contingui exactament dues $a$?</p>
+  <p>(a) $\frac{8}{27}$<br>
+  (b) $\frac{4}{81}$<br>
+  (c) $\frac{16}{81}$<br>
+  (d) $\frac{4}{27}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Cada seqüència concreta amb dues $a$ i dues $b$ té probabilitat $\mathbb{P}(a)^2\mathbb{P}(b)^2=\frac{4}{81}$. El nombre d'ordenacions és $\binom{4}{2}=6$. Sumant les seqüències equiprobables i mútuament excloents s'obté $6\cdot\frac{4}{81}=\frac{24}{81}=\frac{8}{27}\approx0{,}296$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.26.</span></p>
+  <p>Una font discreta sense memòria emet símbols i.i.d. sobre $\mathcal{X}=\{a,b\}$ amb $\mathbb{P}(a)=\frac{1}{3}$ i $\mathbb{P}(b)=\frac{2}{3}$.</p><p>Quina és la seqüència de longitud $4$ més probable, i quina és la seva probabilitat?</p>
+  <p>(a) $bbbb$, amb probabilitat $\frac{16}{81}$<br>
+  (b) $aaaa$, amb probabilitat $\frac{1}{81}$<br>
+  (c) $abba$, amb probabilitat $\frac{4}{81}$<br>
+  (d) $bbbb$, amb probabilitat $\frac{8}{27}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La probabilitat d'una seqüència depèn només del recompte de símbols. Com que $\mathbb{P}(b)=\frac23&gt;\frac13=\mathbb{P}(a)$, substituir una $a$ per una $b$ multiplica la probabilitat per $2&gt;1$, així que la seqüència individual més probable només té $b$: $bbbb$, amb $\left(\frac23\right)^4=\frac{16}{81}\approx0{,}198$. (Nota: $\frac{8}{27}$ és la probabilitat de l'<em>esdeveniment</em> de dues $a$, que agrupa 6 seqüències, no una de sola.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.27.</span></p>
+  <p>Siguin $X$ i $Y$ que prenen valors a $\{0,1\}$ amb distribució conjunta $P_{XY}(0,0)=P_{XY}(1,1)=\tfrac{1}{3}$ i $P_{XY}(0,1)=P_{XY}(1,0)=\tfrac{1}{6}$.</p><p>Quines són les distribucions marginals $P_X$ i $P_Y$?</p>
+  <p>(a) $P_X=P_Y=\big(\tfrac{1}{2},\tfrac{1}{2}\big)$<br>
+  (b) $P_X=P_Y=\big(\tfrac{1}{3},\tfrac{2}{3}\big)$<br>
+  (c) $P_X=P_Y=\big(\tfrac{2}{3},\tfrac{1}{3}\big)$<br>
+  (d) $P_X=\big(\tfrac{1}{3},\tfrac{1}{6}\big),\ P_Y=\big(\tfrac{1}{6},\tfrac{1}{3}\big)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Marginalitza sumant cada fila (per a $P_X$) i columna (per a $P_Y$): $P_X(0)=\tfrac{1}{3}+\tfrac{1}{6}=\tfrac{1}{2}$ i $P_X(1)=\tfrac{1}{6}+\tfrac{1}{3}=\tfrac{1}{2}$. Per la simetria de la taula les columnes donen el mateix, així que $P_X=P_Y=\big(\tfrac{1}{2},\tfrac{1}{2}\big)$ (ambdues uniformes a $\{0,1\}$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.28.</span></p>
+  <p>Siguin $X,Y\in\{0,1\}$ amb distribució conjunta $P_{XY}(0,0)=P_{XY}(1,1)=\tfrac{1}{3}$, $P_{XY}(0,1)=P_{XY}(1,0)=\tfrac{1}{6}$, amb marginals $P_X=P_Y=\big(\tfrac{1}{2},\tfrac{1}{2}\big)$.</p><p>Són $X$ i $Y$ independents?</p>
+  <p>(a) No, perquè $P_{XY}(0,0)=\tfrac{1}{3}\neq\tfrac{1}{4}=P_X(0)P_Y(0)$<br>
+  (b) Sí, perquè les marginals són ambdues uniformes<br>
+  (c) Sí, perquè la taula és simètrica<br>
+  (d) No, perquè $P_X(0)\neq P_Y(0)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La independència requereix $P_{XY}(x,y)=P_X(x)P_Y(y)$ per a cada parella. Provant $(0,0)$: $P_X(0)P_Y(0)=\tfrac{1}{2}\cdot\tfrac{1}{2}=\tfrac{1}{4}$, però $P_{XY}(0,0)=\tfrac{1}{3}$. Com que $\tfrac{1}{4}\neq\tfrac{1}{3}$ la factorització falla, així que $X$ i $Y$ no són independents. (Marginals uniformes o una taula simètrica no impliquen per si soles la independència.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.29.</span></p>
+  <p>Siguin $X,Y\in\{0,1\}$ amb distribució conjunta $P_{XY}(0,0)=P_{XY}(1,1)=\tfrac{1}{3}$, $P_{XY}(0,1)=P_{XY}(1,0)=\tfrac{1}{6}$, amb $P_X(0)=\tfrac{1}{2}$.</p><p>Calcula $\mathbb{P}(Y=1\mid X=0)$.</p>
+  <p>(a) $\tfrac{1}{3}$<br>
+  (b) $\tfrac{1}{6}$<br>
+  (c) $\tfrac{2}{3}$<br>
+  (d) $\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per la definició de probabilitat condicional, $\mathbb{P}(Y=1\mid X=0)=\dfrac{P_{XY}(0,1)}{P_X(0)}=\dfrac{1/6}{1/2}=\tfrac{2}{6}=\tfrac{1}{3}$. (El valor conjunt $\tfrac{1}{6}$ és el pes sense normalitzar; dividint per $P_X(0)=\tfrac{1}{2}$ s'obté $\tfrac{1}{3}$. Aquest valor difereix de $P_Y(1)=\tfrac{1}{2}$, confirmant la no-independència.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.30.</span></p>
+  <p>Un <em>canal binari asimètric</em> té probabilitats de creuament $\delta_0 = 0.8$ (probabilitat que l'entrada $0$ es transformi en $1$) i $\delta_1 = 0.06$ (probabilitat que l'entrada $1$ es transformi en $0$), amb entrada uniforme $P_X(0)=P_X(1)=\tfrac12$.</p><p>Mitjançant la regla de Bayes, quina és la probabilitat a posteriori $P_{X\mid Y}(0\mid 1)$ que s'hagi enviat un $0$, donat que s'ha rebut un $1$?</p>
+  <p>(a) $\dfrac{40}{87}\approx 0.460$<br>
+  (b) $\dfrac{47}{87}\approx 0.540$<br>
+  (c) $0.8$<br>
+  (d) $0.4$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per la regla de Bayes, $P_{X\mid Y}(0\mid 1)=\dfrac{P_{Y\mid X}(1\mid 0)\,P_X(0)}{P_Y(1)}$. La marginal per la llei de la probabilitat total és $P_Y(1)=0.8\cdot\tfrac12+0.94\cdot\tfrac12=0.87$. Així $P_{X\mid Y}(0\mid 1)=\dfrac{0.8\cdot 0.5}{0.87}=\dfrac{0.4}{0.87}=\dfrac{40}{87}\approx 0.460$. (El valor $\tfrac{47}{87}$ és la probabilitat a posteriori complementària $P_{X\mid Y}(1\mid 1)$; $0.4$ oblida dividir per $P_Y(1)$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.31.</span></p>
+  <p>Un <em>canal binari asimètric</em> té probabilitats de creuament $\delta_0 = 0.8$ (probabilitat que l'entrada $0$ es transformi en $1$) i $\delta_1 = 0.06$ (probabilitat que l'entrada $1$ es transformi en $0$), amb entrada uniforme $P_X(0)=P_X(1)=\tfrac12$.</p><p>Quina és la probabilitat conjunta $P_{XY}(1,0)$ que s'hagi enviat un $1$ i s'hagi rebut un $0$?</p>
+  <p>(a) $0.03$<br>
+  (b) $0.06$<br>
+  (c) $0.40$<br>
+  (d) $0.47$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per la regla de la cadena, la conjunta es factoritza com a priori per la transició del canal: $P_{XY}(1,0)=P_{Y\mid X}(0\mid 1)\,P_X(1)$. Aquí $P_{Y\mid X}(0\mid 1)=\delta_1=0.06$ (el creuament $1\to 0$) i $P_X(1)=\tfrac12$, de manera que $P_{XY}(1,0)=0.06\cdot 0.5=0.03$. (El valor $0.06$ és només la condicional, sense multiplicar per la probabilitat a priori.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.32.</span></p>
+  <p>Una seqüència $(X_1,\ldots,X_n)$ (amb $n\ge 2$) pren només els valors $00\cdots0$ i $11\cdots1$, cadascun amb probabilitat $\frac12$. És $(X_1,\ldots,X_n)$ una seqüència de variables aleatòries i.i.d.?</p>
+  <p>(a) Falsa: els bits són idènticament $\mathrm{Bernoulli}(\tfrac12)$ però no independents<br>
+  (b) Certa: cada $X_i$ és $\mathrm{Bernoulli}(\tfrac12)$, per tant la seqüència és i.i.d.<br>
+  (c) Certa: la probabilitat conjunta factoritza com $\frac{1}{2^n}$<br>
+  (d) Falsa: els bits ni tan sols estan idènticament distribuïts</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Cada marginal és $P_{X_i}(0)=P_{X_i}(1)=\frac12$, així que els bits estan idènticament distribuïts. Per ser i.i.d. cal a més independència, és a dir $P_{X_1\cdots X_n}(x_1\cdots x_n)=\prod_i P_{X_i}(x_i)$. Sobre la cadena de tot zeros el producte dóna $\frac{1}{2^n}$ però la conjunta real és $\frac12$, i per a $n\ge2$ difereixen. Per tant els bits <strong>no</strong> són independents i l'afirmació és <strong>FALSA</strong>.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.33.</span></p>
+  <p>Una seqüència $(X_1,\ldots,X_n)$ (amb $n\ge 2$) pren només els valors $00\cdots0$ i $11\cdots1$, cadascun amb probabilitat $\frac12$. Quant val $P_{X_1\cdots X_n}(00\cdots0)$?</p>
+  <p>(a) $\frac12$<br>
+  (b) $\frac{1}{2^n}$<br>
+  (c) $\frac{1}{n}$<br>
+  (d) $\frac{1}{2n}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La cadena de tot zeros és un dels dos àtoms de la distribució, amb probabilitat exactament $\frac12$ per definició de la font. El valor $\frac{1}{2^n}$ només es donaria per a una font equiprobable i.i.d. genuïna, cosa que aquesta no és. Per tant $P_{X_1\cdots X_n}(00\cdots0)=\frac12$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.34.</span></p>
+  <p>Una seqüència $(X_1,\ldots,X_n)$ pren només els valors $00\cdots0$ i $11\cdots1$, cadascun amb probabilitat $\frac12$. Quina és la probabilitat que una seqüència tingui com a mínim un $0$ <em>i</em> com a mínim un $1$?</p>
+  <p>(a) $0$<br>
+  (b) $\frac12$<br>
+  (c) $1-\frac{1}{2^{n-1}}$<br>
+  (d) $1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Una cadena té un $0$ i un $1$ si i només si no és ni $00\cdots0$ ni $11\cdots1$, és a dir, queda fora del suport, de manera que cada cadena d'aquestes té probabilitat $0$. Així $\mathbb{P}=1-P(00\cdots0)-P(11\cdots1)=1-\frac12-\frac12=0$. L'afirmació és CERTA.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.35.</span></p>
+  <p>Una seqüència $(X_1,\ldots,X_n)$ (amb $n\ge 2$) pren només els valors $00\cdots0$ i $11\cdots1$, cadascun amb probabilitat $\frac12$. És $X_1$ independent del bloc $(X_2,\ldots,X_n)$?</p>
+  <p>(a) Falsa: $X_1$ determina completament el bloc, per tant són dependents<br>
+  (b) Certa: $X_1$ és un sol bit i el bloc és a part, per tant són independents<br>
+  (c) Certa: tots dos tenen marginals $\mathrm{Bernoulli}(\tfrac12)$<br>
+  (d) No es pot decidir sense conèixer $n$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La independència exigeix $P(x_1,x_2\cdots x_n)=P_{X_1}(x_1)P_{X_2\cdots X_n}(x_2\cdots x_n)$. Preneu $x_1=0$ i bloc $(1,\ldots,1)$: la conjunta és $0$ (cap resultat barreja $0$ i $1$), però el producte de marginals és $\frac12\cdot\frac12=\frac14\neq 0$. Com que $X_1$ determina completament el bloc, són màximament dependents, així que l'afirmació és FALSA.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.36.</span></p>
+  <p>Una persona és en una de tres habitacions igualment probables $A,B,C$, codificades com $A\to 100$, $B\to 010$, $C\to 001$. Cada bit passa independentment per un canal binari asimètric amb $\mathbb{P}(Y=1\mid X=0)=0.1$ i $\mathbb{P}(Y=0\mid X=1)=0.2$. Una lectura s'<em>accepta</em> només si la paraula rebuda és una de $\{100,010,001\}$. Calcula la probabilitat de llegir correctament l'habitació.</p>
+  <p>(a) $0.648$<br>
+  (b) $0.512$<br>
+  (c) $0.729$<br>
+  (d) $0.9$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per simetria, condicionem a l'habitació $A$ (paraula enviada $100$). La taula de transició dóna $\mathbb{P}(1\mid1)=0.8$, $\mathbb{P}(0\mid0)=0.9$. Una lectura correcta requereix cada bit inalterat: $\mathbb{P}(100\mid100)=0.8\cdot0.9\cdot0.9=0.648$. Com que totes les habitacions són simètriques, el valor no condicionat és el mateix: $\mathbf{0.648}$. ($0.512=0.8^3$ ignora l'asimetria; $0.729=0.9^3$ usa valors per bit incorrectes.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.37.</span></p>
+  <p>Mateix plantejament: habitacions $A\to100$, $B\to010$, $C\to001$, cada bit independent per un canal amb $\mathbb{P}(Y=1\mid X=0)=0.1$, $\mathbb{P}(Y=0\mid X=1)=0.2$; una lectura s'accepta només si la paraula rebuda és una de $\{100,010,001\}$. Calcula la probabilitat que s'accepti una habitació incorrecta.</p>
+  <p>(a) $0.036$<br>
+  (b) $0.018$<br>
+  (c) $0.108$<br>
+  (d) $0.054$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Condicionem a $A$ (enviat $100$). S'accepta una habitació incorrecta només si es rep $010$ o $001$. $\mathbb{P}(010\mid100)=\mathbb{P}(0\mid1)\,\mathbb{P}(1\mid0)\,\mathbb{P}(0\mid0)=0.2\cdot0.1\cdot0.9=0.018$, i igualment $\mathbb{P}(001\mid100)=0.018$. Són mútuament excloents, així que se sumen: $0.018+0.018=\mathbf{0.036}$. (Oblidar una de les dues paraules vàlides incorrectes dóna $0.018$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.38.</span></p>
+  <p>Mateix plantejament: habitacions $A\to100$, $B\to010$, $C\to001$, cada bit independent per un canal amb $\mathbb{P}(Y=1\mid X=0)=0.1$, $\mathbb{P}(Y=0\mid X=1)=0.2$. Donat que $\mathbb{P}(\text{correcta})=0.648$ i $\mathbb{P}(\text{habitació incorrecta acceptada})=0.036$, calcula la probabilitat que la lectura es descarti (paraula rebuda no vàlida).</p>
+  <p>(a) $0.316$<br>
+  (b) $0.352$<br>
+  (c) $0.284$<br>
+  (d) $0.364$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Els resultats lectura correcta, habitació incorrecta acceptada i descartada són mútuament excloents i exhaustius. Per tant $\mathbb{P}(\text{descarta})=1-0.648-0.036=\mathbf{0.316}$. Comprovació: $0.648+2(0.018)+0.316=1.000$. (Oblidar el terme d'acceptació incorrecta dóna $1-0.648=0.352$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.39.</span></p>
+  <p>Una moneda esbiaixada surt cara amb probabilitat $p=\tfrac{1}{10}$ i es llança $n=200$ vegades de manera independent. Sigui $X$ el nombre de cares. Identifiqueu la distribució de $X$ i calculeu $\mathbb{E}[X]$ i $\operatorname{var}(X)$.</p>
+  <p>(a) $X\sim\text{Binomial}(200,\tfrac{1}{10})$, $\mathbb{E}[X]=20$, $\operatorname{var}(X)=18$<br>
+  (b) $X\sim\text{Binomial}(200,\tfrac{1}{10})$, $\mathbb{E}[X]=20$, $\operatorname{var}(X)=20$<br>
+  (c) $X\sim\text{Poisson}(20)$, $\mathbb{E}[X]=20$, $\operatorname{var}(X)=20$<br>
+  (d) $X\sim\text{Binomial}(200,\tfrac{1}{10})$, $\mathbb{E}[X]=20$, $\operatorname{var}(X)=180$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>$X$ és una suma de $n=200$ indicadors Bernoulli$(p)$ i.i.d., per tant $X\sim\text{Binomial}(n,p)$. Per linealitat, $\mathbb{E}[X]=np=200\cdot\tfrac{1}{10}=20$. Com que els llançaments són independents, les variàncies se sumen: $\operatorname{var}(X)=np(1-p)=200\cdot\tfrac{1}{10}\cdot\tfrac{9}{10}=18$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.40.</span></p>
+  <p>Una moneda esbiaixada surt cara amb probabilitat $p=\tfrac{1}{10}$, llançada $n=200$ vegades de manera independent; $X$ compta les cares, amb $\mathbb{E}[X]=20$. Mitjançant la desigualtat de Markov, acoteu $\mathbb{P}[X\geq 120]$.</p>
+  <p>(a) $\mathbb{P}[X\geq 120]\leq\tfrac{1}{6}\approx 0.167$<br>
+  (b) $\mathbb{P}[X\geq 120]\leq\tfrac{120}{20}=6$<br>
+  (c) $\mathbb{P}[X\geq 120]\leq\tfrac{18}{120}=0.15$<br>
+  (d) $\mathbb{P}[X\geq 120]\leq\tfrac{20}{200}=0.1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>$X\geq 0$ és no negativa, així que s'aplica la desigualtat de Markov: $\mathbb{P}[X\geq a]\leq\mathbb{E}[X]/a$. Amb $a=120$ i $\mathbb{E}[X]=20$, $\mathbb{P}[X\geq 120]\leq\tfrac{20}{120}=\tfrac{1}{6}\approx 0.167$. Una cota de probabilitat vàlida ha d'estar dins $[0,1]$, cosa que descarta el valor $6$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.41.</span></p>
+  <p>Una moneda esbiaixada surt cara amb probabilitat $p=\tfrac{1}{10}$, llançada $n=200$ vegades de manera independent; $X$ compta les cares, amb $\mathbb{E}[X]=20$ i $\operatorname{var}(X)=18$. Mitjançant la desigualtat de Txebixev, acoteu $\mathbb{P}\big[\,|X-\mathbb{E}[X]|\geq 10\,\big]$.</p>
+  <p>(a) $\mathbb{P}\big[\,|X-20|\geq 10\,\big]\leq 0.18$<br>
+  (b) $\mathbb{P}\big[\,|X-20|\geq 10\,\big]\leq 1.8$<br>
+  (c) $\mathbb{P}\big[\,|X-20|\geq 10\,\big]\leq 0.018$<br>
+  (d) $\mathbb{P}\big[\,|X-20|\geq 10\,\big]\leq 0.5$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La desigualtat de Txebixev diu $\mathbb{P}\big[\,|X-\mathbb{E}[X]|\geq\varepsilon\,\big]\leq\operatorname{var}(X)/\varepsilon^{2}$. Amb $\operatorname{var}(X)=18$ i $\varepsilon=10$, $\mathbb{P}\big[\,|X-20|\geq 10\,\big]\leq\tfrac{18}{10^{2}}=\tfrac{18}{100}=0.18$. Observeu que el denominador és $\varepsilon^2=100$, no $\varepsilon=10$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.42.</span></p>
+  <p>Es llança una moneda equilibrada ($p=\tfrac{1}{2}$) $n$ vegades de manera independent. Sigui $X_n$ el nombre de cares i $S_n=X_n/n$ la mitjana mostral. Calcula $\mathbb{E}[S_n]$ i $\operatorname{var}(S_n)$.</p>
+  <p>(a) $\mathbb{E}[S_n]=\tfrac{1}{2}$, $\operatorname{var}(S_n)=\dfrac{1}{4n}$<br>
+  (b) $\mathbb{E}[S_n]=\tfrac{1}{2}$, $\operatorname{var}(S_n)=\dfrac{1}{4}$<br>
+  (c) $\mathbb{E}[S_n]=\tfrac{n}{2}$, $\operatorname{var}(S_n)=\dfrac{n}{4}$<br>
+  (d) $\mathbb{E}[S_n]=\tfrac{1}{2}$, $\operatorname{var}(S_n)=\dfrac{1}{2n}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Escrivim $X_n=\sum_{i=1}^n B_i$ amb $B_i$ i.i.d. Bernoulli$(p)$, $p=\tfrac12$, així $\mathbb{E}[B_i]=p$ i $\operatorname{var}(B_i)=p(1-p)=\tfrac14$. Per linealitat $\mathbb{E}[S_n]=\tfrac1n\,np=p=\tfrac12$. Per independència les variàncies se sumen, i $\operatorname{var}(aY)=a^2\operatorname{var}(Y)$ amb $a=\tfrac1n$ dona $\operatorname{var}(S_n)=\tfrac{p(1-p)}{n}=\dfrac{1}{4n}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.43.</span></p>
+  <p>Per a la mitjana mostral de la moneda equilibrada $S_n=X_n/n$ amb $\mathbb{E}[S_n]=\tfrac12$ i $\operatorname{var}(S_n)=\tfrac{1}{4n}$, fes servir la desigualtat de Txebixev per donar una cota superior de $\mathbb{P}\!\left[\,|S_n-\tfrac12|\geq\epsilon\,\right]$ (per a qualsevol $\epsilon&gt;0$).</p>
+  <p>(a) $\mathbb{P}\!\left[\,|S_n-\tfrac12|\geq\epsilon\,\right]\leq\dfrac{1}{4n\,\epsilon^{2}}$<br>
+  (b) $\mathbb{P}\!\left[\,|S_n-\tfrac12|\geq\epsilon\,\right]\leq\dfrac{1}{4n\,\epsilon}$<br>
+  (c) $\mathbb{P}\!\left[\,|S_n-\tfrac12|\geq\epsilon\,\right]\leq\dfrac{1}{2n\,\epsilon^{2}}$<br>
+  (d) $\mathbb{P}\!\left[\,|S_n-\tfrac12|\geq\epsilon\,\right]\leq\dfrac{1}{4\,\epsilon^{2}}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La desigualtat de Txebixev diu $\mathbb{P}[\,|Y-\mathbb{E}[Y]|\geq\epsilon\,]\leq\operatorname{var}(Y)/\epsilon^2$. Amb $Y=S_n$ i $\operatorname{var}(S_n)=\tfrac{1}{4n}$ s'obté $\mathbb{P}[\,|S_n-\tfrac12|\geq\epsilon\,]\leq\dfrac{1}{4n\,\epsilon^{2}}$. Observa que la cota fa servir $\epsilon^2$ (no $\epsilon$) al denominador i la variància sencera $\tfrac{1}{4n}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.44.</span></p>
+  <p>Per a la mitjana mostral de la moneda equilibrada $S_n=X_n/n$, Txebixev dona $\mathbb{P}\!\left[\,|S_n-\tfrac12|&lt;\epsilon\,\right]\geq 1-\tfrac{1}{4n\epsilon^2}$ per a tot $\epsilon&gt;0$ fix. Avalua $\displaystyle\lim_{n\to\infty}\mathbb{P}\!\left[\,|S_n-\tfrac12|&lt;\epsilon\,\right]$ i identifica la llei que il·lustra.</p>
+  <p>(a) El límit és $1$; il·lustra la llei feble dels grans nombres ($S_n\xrightarrow{\mathbb{P}}\tfrac12$)<br>
+  (b) El límit és $0$; il·lustra la llei feble dels grans nombres<br>
+  (c) El límit és $\tfrac12$; il·lustra el teorema central del límit<br>
+  (d) El límit és $1$; il·lustra el teorema central del límit</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per a $\epsilon&gt;0$ fix tenim l'enquadrament $1-\tfrac{1}{4n\epsilon^2}\leq\mathbb{P}[\,|S_n-\tfrac12|&lt;\epsilon\,]\leq 1$. Quan $n\to\infty$ la cota inferior $\to 1$, així el límit és $1$. Equivalentment $\mathbb{P}[\,|S_n-\tfrac12|\geq\epsilon\,]\to 0$, és a dir, $S_n$ convergeix en probabilitat a $\tfrac12$: és la llei feble dels grans nombres (no el TCL, que tracta la distribució gaussiana de les fluctuacions).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.45.</span></p>
+  <p>Un <em>canal binari asimètric</em> té probabilitats de creuament $P_{Y|X}(1\mid 0)=\delta_0$ i $P_{Y|X}(0\mid 1)=\delta_1$, amb entrada uniforme $P_X(0)=P_X(1)=\tfrac12$. El canal s'utilitza sense memòria tres vegades amb símbols d'entrada i.i.d. uniformes. Calcula la probabilitat $P_{Y^3}(000)$ de rebre la sortida tota zeros.</p>
+  <p>(a) $\bigl(\tfrac12(1-\delta_0)+\tfrac12\,\delta_1\bigr)^3$<br>
+  (b) $(1-\delta_0)^3$<br>
+  (c) $\tfrac12(1-\delta_0)+\tfrac12\,\delta_1$<br>
+  (d) $\bigl(\tfrac12(1-\delta_0)(1-\delta_1)\bigr)^3$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per la llei de la probabilitat total i l'absència de memòria, els tres símbols de sortida són marginalment i.i.d., de manera que $P_{Y^3}(000)=\bigl(P_Y(0)\bigr)^3$. La marginal d'un sol símbol és $P_Y(0)=\tfrac12 P_{Y|X}(0\mid 0)+\tfrac12 P_{Y|X}(0\mid 1)=\tfrac12(1-\delta_0)+\tfrac12\,\delta_1$. Elevant al cub s'obté $\bigl(\tfrac12(1-\delta_0)+\tfrac12\,\delta_1\bigr)^3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 1.46.</span></p>
+  <p>Un <em>canal binari asimètric</em> té $P_{Y|X}(1\mid 0)=\delta_0$ i $P_{Y|X}(0\mid 1)=\delta_1$, amb entrada uniforme $P_X(0)=P_X(1)=\tfrac12$, utilitzat sense memòria tres vegades (entrades i.i.d. uniformes). Donat que s'ha rebut $Y^3=000$, calcula la probabilitat a posteriori $P_{X^3\mid Y^3}(000\mid 000)$ que s'hagi transmès la paraula tota zeros.</p>
+  <p>(a) $\Bigl(\dfrac{1-\delta_0}{(1-\delta_0)+\delta_1}\Bigr)^3$<br>
+  (b) $(1-\delta_0)^3$<br>
+  (c) $\dfrac{1-\delta_0}{(1-\delta_0)+\delta_1}$<br>
+  (d) $\Bigl(\dfrac{1-\delta_0}{1+\delta_1}\Bigr)^3$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per Bayes, $P_{X^3\mid Y^3}(000\mid 000)=\dfrac{P_{Y^3\mid X^3}(000\mid 000)P_{X^3}(000)}{P_{Y^3}(000)}=\dfrac{(1-\delta_0)^3\cdot\tfrac18}{\bigl(P_Y(0)\bigr)^3}$. Escrivint $P_Y(0)=\tfrac12[(1-\delta_0)+\delta_1]$ es cancel·la el $\tfrac18$, donant $\Bigl(\dfrac{1-\delta_0}{(1-\delta_0)+\delta_1}\Bigr)^3$, el cub de la probabilitat a posteriori d'un sol símbol $P_{X\mid Y}(0\mid 0)$.</p>
   </details>
 </div>
 

@@ -242,7 +242,7 @@
 </nav>
 
 <div class="page">
-                  <aside class="sidebar">
+                                          <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -254,44 +254,72 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html" class="active">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Properament</h1>
+      <h1>Qüestionari: Temes 6–9: Codificació de canal</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Aquest contingut estarà disponible a mesura que avanci el curs.</p>
+
+    <div class="quiz-container" id="quiz-root">
+      <!-- Progress -->
+      <div class="quiz-progress">
+        <div class="quiz-progress-text" id="quiz-progress-text">Pregunta 1 de 20</div>
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="quiz-progress-fill" style="width:5%"></div>
+        </div>
+      </div>
+
+      <!-- Card -->
+      <div class="quiz-card" id="quiz-card">
+        <div class="quiz-topic" id="quiz-topic"></div>
+        <div class="quiz-question" id="quiz-question"></div>
+        <div class="quiz-options" id="quiz-options"></div>
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+        <button class="quiz-next" id="quiz-next">Següent</button>
+      </div>
+
+      <!-- Score (hidden until end) -->
+      <div class="quiz-card quiz-score" id="quiz-score" style="display:none">
+        <h2>Qüestionari completat!</h2>
+        <div class="score-number" id="score-number"></div>
+        <div class="score-label" id="score-label"></div>
+        <div class="score-bar"><div class="score-bar-fill" id="score-bar-fill"></div></div>
+        <br>
+        <button class="quiz-restart" id="quiz-restart">Torna-ho a provar</button>
+      </div>
+    </div>
   </main>
 </div>
 
@@ -339,34 +367,94 @@
 
   // ---- Quiz data ----
   var questions = [
-// KAHOOT 3: Temes 6-9
+// KAHOOT 3
     {
-      topic: "Temes 6\u20139: Codificació de canal",
-      q: "El codi $\\{00,11\\}$ s'envia equiprobablement per un BSC amb probabilitat d'inversió de bit $1$. La probabilitat d'error del codi és $0$.",
-      options: ["Cert", "Fals"],
-      correct: 0
-    },
-    {
-      topic: "Temes 6\u20139: Codificació de canal",
-      q: "El codi $\\{000,111\\}$ s'envia per un BSC amb probabilitat d'inversió de bit $\\tfrac34$. El descodificador de màxima versemblança descodifica $011$ com el primer missatge.",
+      topic: "Tema 6: Taxa del codi",
+      q: "Un codi de canal t\u00e9 $M=6$ paraules codi, cadascuna de longitud $n=4$. Aleshores la seva taxa \u00e9s $R=\\tfrac{6}{4}=1.5$ bits per \u00fas de canal.",
       options: ["Cert", "Fals"],
       correct: 1
     },
     {
-      topic: "Temes 6\u20139: Codificació de canal",
-      q: "Un codi lineal generat per $\\begin{pmatrix} 1 & 0 & 1 \\\\ 0 & 1 & 1 \\end{pmatrix}$ i enviat per un BSC no és capaç de corregir cap inversió de bit.",
+      topic: "Tema 6: Probabilitat d'error del codi de repetici\u00f3",
+      q: "El codi de repetici\u00f3 $\\{00000,11111\\}$ s'usa sobre un canal binari sim\u00e8tric amb probabilitat de creuament $p$ i descodificaci\u00f3 per majoria. Aleshores la seva probabilitat d'error del codi \u00e9s $P_{\\mathrm{e}}=10p^3-15p^4+6p^5$.",
       options: ["Cert", "Fals"],
       correct: 0
     },
     {
-      topic: "Temes 6\u20139: Codificació de canal",
-      q: "El codi $\\{011,100\\}$ té distància mínima $3$.",
+      topic: "Tema 6: Error de descodificaci\u00f3 per dist\u00e0ncia m\u00ednima",
+      q: "El codi $\\{\\boldsymbol{x}_1,\\boldsymbol{x}_2,\\boldsymbol{x}_3\\}=\\{00,01,11\\}$ s'usa amb probabilitats a priori $P(1)=P(3)=\\tfrac14$, $P(2)=\\tfrac12$ sobre un canal sense soroll, i es descodifica per dist\u00e0ncia m\u00ednima resolent els empats a favor de l'\u00edndex m\u00e9s petit. Aleshores el missatge $\\boldsymbol{x}_2=01$ sempre es descodifica correctament.",
       options: ["Cert", "Fals"],
       correct: 0
     },
     {
-      topic: "Temes 6\u20139: Codificació de canal",
-      q: "En un canal binari simètric amb probabilitat d'inversió de bit $\\tfrac12$, $H(X)=H(X|Y)$.",
+      topic: "Tema 6: Probabilitat de seq\u00fc\u00e8ncia en canal sense mem\u00f2ria",
+      q: "Sobre un canal binari sim\u00e8tric amb probabilitat de creuament $p$, la probabilitat de rebre $\\boldsymbol{y}=101$ quan es transmet $\\boldsymbol{x}=000$ \u00e9s igual a la probabilitat de rebre $\\boldsymbol{y}=111$ quan es transmet $\\boldsymbol{x}=000$.",
+      options: ["Cert", "Fals"],
+      correct: 1
+    },
+    {
+      topic: "Tema 7: Codi lineal sistem\u00e0tic",
+      q: "Un codi lineal sistem\u00e0tic t\u00e9 matriu generadora $\\boldsymbol{G}=(\\boldsymbol{P}~\\boldsymbol{I})$ amb $\\boldsymbol{P}=\\bigl(\\begin{smallmatrix}1&1\\\\0&1\\end{smallmatrix}\\bigr)$. Aleshores el missatge $\\boldsymbol{s}=(1~0)$ genera la paraula codi $\\boldsymbol{x}=1110$.",
+      options: ["Cert", "Fals"],
+      correct: 0
+    },
+    {
+      topic: "Tema 7: Dist\u00e0ncia m\u00ednima d'un codi lineal",
+      q: "Un codi lineal es genera amb $\\boldsymbol{G}=(\\boldsymbol{P}~\\boldsymbol{I})$ amb $\\boldsymbol{P}=\\bigl(\\begin{smallmatrix}1&1\\\\0&1\\end{smallmatrix}\\bigr)$, donant el codi $\\{0000,0101,1110,1011\\}$. Aleshores la seva dist\u00e0ncia m\u00ednima de Hamming \u00e9s $d_{\\mathrm{min}}=2$.",
+      options: ["Cert", "Fals"],
+      correct: 0
+    },
+    {
+      topic: "Tema 7: Capacitat de correcci\u00f3 d'errors",
+      q: "Un codi lineal amb dist\u00e0ncia m\u00ednima de Hamming $d_{\\mathrm{min}}=4$ pot corregir qualsevol inversi\u00f3 d'un sol bit i, a m\u00e9s, detectar (sense corregir) qualsevol patr\u00f3 d'exactament $2$ inversions de bit.",
+      options: ["Cert", "Fals"],
+      correct: 0
+    },
+    {
+      topic: "Tema 7: Codi de Hamming (7,4)",
+      q: "El codi de Hamming $(7,4)$ t\u00e9 taxa $R=\\tfrac47$ i dist\u00e0ncia m\u00ednima $d_{\\mathrm{min}}=3$, de manera que pot corregir fins a $t=2$ inversions de bit per paraula codi.",
+      options: ["Cert", "Fals"],
+      correct: 1
+    },
+    {
+      topic: "Tema 8: Simetria de la capacitat del CBS",
+      q: "Un canal binari sim\u00e8tric amb probabilitat de creuament $p=0.9$ t\u00e9 la mateixa capacitat que un amb $p=0.1$.",
+      options: ["Cert", "Fals"],
+      correct: 0
+    },
+    {
+      topic: "Tema 8: Cota de la informaci\u00f3 m\u00fatua",
+      q: "Si $X$ pren $4$ valors i $Y$ pren $2$ valors, aleshores necess\u00e0riament $I(X;Y)\\leq 1$ bit, sigui quina sigui la distribuci\u00f3 conjunta.",
+      options: ["Cert", "Fals"],
+      correct: 0
+    },
+    {
+      topic: "Tema 8: Capacitat i taxa",
+      q: "Sobre un canal binari sim\u00e8tric amb probabilitat de creuament $p=0.11$ (de manera que $C=0.5$), la comunicaci\u00f3 fiable \u00e9s possible amb algun codi de taxa $R=0.6$ bits per \u00fas de canal.",
+      options: ["Cert", "Fals"],
+      correct: 1
+    },
+    {
+      topic: "Tema 8: Independ\u00e8ncia i informaci\u00f3 m\u00fatua",
+      q: "Dues variables aleat\u00f2ries bin\u00e0ries tenen distribuci\u00f3 conjunta $P_{XY}(0,0)=P_{XY}(1,1)=\\tfrac38$ i $P_{XY}(0,1)=P_{XY}(1,0)=\\tfrac18$. Aleshores $X$ i $Y$ s\u00f3n independents, de manera que $I(X;Y)=0$.",
+      options: ["Cert", "Fals"],
+      correct: 1
+    },
+    {
+      topic: "Tema 9: Entropia d'una funci\u00f3 determinista",
+      q: "Sigui $Y=g(X)$ amb $g$ injectiva sobre el suport de $X$ i $H(X)=1.8$ bits. Aleshores $H(Y)=1.8$ bits.",
+      options: ["Cert", "Fals"],
+      correct: 0
+    },
+    {
+      topic: "Tema 9: Condicionament i informaci\u00f3 m\u00fatua",
+      q: "Per a qualsevol terna de variables aleat\u00f2ries, condicionar nom\u00e9s pot reduir la informaci\u00f3 m\u00fatua, \u00e9s a dir, $I(X;Y|Z)\\leq I(X;Y)$ es compleix sempre.",
+      options: ["Cert", "Fals"],
+      correct: 1
+    },
+    {
+      topic: "Tema 9: Desigualtat de processament de dades",
+      q: "Si $X\\to Y\\to Z$ formen una cadena de Markov amb $I(X;Y)=0.9$ bits i $I(Y;Z)=0.4$ bits, aleshores $I(X;Z)\\leq 0.4$ bits.",
       options: ["Cert", "Fals"],
       correct: 0
     }

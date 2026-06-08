@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -38,48 +38,235 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html" class="active">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
-      <h1>Properament</h1>
+      <h1>Tema 3. Codis de font binaris sense prefixe <a class="pdf-link" href="../pdf/ITC-2026-Lecture3-ca.pdf">pdf</a></h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Aquest contingut estarà disponible a mesura que avanci el curs.</p>
+
+
+<h2>Introducció</h2>
+
+<p>
+L'objectiu principal de la compressió de dades és eliminar la redundància present a les dades per tal de minimitzar l'espai d'emmagatzematge o el temps de transmissió.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Exemple 3.1.</span> 
+<a id="ex:3.1"></a>
+Un llançament de daus just es pot modelar com una variable aleatòria amb l'alfabet $\{1,2,3,4,5,6\}$ i la distribució de probabilitat $\bigl\{\frac 16,\frac 16,\frac 16,\frac 16,\frac 16,\frac 16\bigr\}$. Podem utilitzar la representació binària directa i obtenir
+$$
+1\mapsto 001 ~~~~~ 2\mapsto010 ~~~~~ 3\mapsto011 ~~~~~ 4\mapsto 100 ~~~~~ 5\mapsto 101 ~~~~~ 6\mapsto 110.
+\tag{3.1}
+$$
+Hi ha alternatives a això, però. Per exemple,
+$$
+1\mapsto 00 ~~~~~ 2\mapsto01 ~~~~~ 3\mapsto100 ~~~~~ 4\mapsto 101 ~~~~~ 5\mapsto 110 ~~~~~ 6\mapsto 111
+\tag{3.2}
+$$
+o fins i tot
+$$
+1\mapsto 1100 ~~~~~ 2\mapsto1010 ~~~~~ 3\mapsto0110 ~~~~~ 4\mapsto 1001 ~~~~~ 5\mapsto 0101 ~~~~~ 6\mapsto 0011.
+\tag{3.3}	
+$$
+</p>
+
+</div>
+
+<p>
+Els anteriors són mapes un a un (bijectius); no tenen pèrdues, és a dir, que en observar la cadena binària, el missatge original sempre es pot recuperar. Per exemple, si el resultat de diversos llançaments de daus es codifica utilitzant el codi font a $(3.2)$ com a $1000100$, sabem que correspon a la seqüència font $(3,2,1)$. La mateixa seqüència codificada amb el codi font a $(3.3)$ seria $011010101100$, molt més llarga.
+</p>
+<p>
+En general, mesurarem l'eficiència d'un codi utilitzant la quantitat esperada de bits necessaris per representar una font. Per a una font que pren valors a $\{1,\ldots,r\}$ amb distribució de probabilitat $\{p_1,\ldots,p_r\}$, la <strong>longitud mitjana</strong> del codi ve donada per
+$$
+	L_{\rm av} = \sum_{j=1}^r p_j \ell_j
+	\tag{3.4}
+$$
+on $\ell_j$ és la longitud (mesurada en dígits binaris) de la cadena binària associada al símbol $j$.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Exemple 3.2.</span> 
+Segons el codi font $(3.1)$ de l'exemple 3.1, tots els símbols de la font es mapegen en cadenes binàries de longitud $3$. Per tant, $\ell_j=3$ per a tots els $j\in\{1,\ldots,6\}$ de l'alfabet i la longitud mitjana és simplement $
+	L_{\rm av}  =  3$ bits per símbol. De la mateixa manera, $L_{\rm av}=4$ bits per símbol per al codi de (3.3). El codi de (3.2) té longituds variables: $\ell_j=2$ per a $j\in\{1,2\}$ i $\ell_j=3$ per a $j\in\{3,4,5,6\}$. Per tant, $L_{\rm av}=\frac 83 \approx 2.667$ bits per símbol. El codi $(3.2)$ proporciona clarament una manera més eficient (més curta) de representar la font.
+</p>
+
+</div>
+
+
+<div class="env-block env-example"><p><span class="env-label">Exemple 3.3.</span> <a id="ex:phone"></a>
+T'agradaria configurar el teu propi sistema telefònic que et connecti amb els teus 3 millors amics mitjançant codis binaris. El número de telèfon serà una <strong>paraula codi</strong> i el conjunt de paraules codi és el <strong>codi</strong> o <strong>diccionari</strong>. Saps que trucaràs al Bernat un $50\%$ de les vegades, i que trucaràs a l'Alba i la Carola un $25\%$ de les vegades cadascuna. La font es pot modelar mitjançant l'alfabet $\{\text{Alba},\text{Bernat},\text{Carola}\}$ amb distribució de probabilitat $\bigl\{\frac 14, \frac 12, \frac 14 \bigr\}$. Ara examinem diversos mètodes per produir els números de telèfon indicats a la taula 3.1 següent.
+</p>
+<p>
+  
+ <figcaption>Números de telèfon de l'exemple 3.3.</figcaption>
+  <a id="tab:phone"></a>
+  <table class="data-table"><tr><th>Amic</th><th>Probabilitat</th><th>(a)</th><th>(b)</th><th>(c)</th><th>(d)</th><th>(e)</th><th>(f)</th></tr><tr><td>Alba</td><td>0.25</td><td>0011</td><td>001101</td><td>0</td><td>00</td><td>0</td><td>10</td></tr><tr><td>Bernat</td><td>0.5</td><td>0011</td><td>001110</td><td>1</td><td>11</td><td>11</td><td>0</td></tr><tr><td>Carola</td><td>0.25</td><td>1100</td><td>110000</td><td>10</td><td>10</td><td>10</td><td>11</td></tr></table>
+  
+</p>
+<p>
+Al codi (a), l'Alba i el Bernat tenen el mateix número, per tant, el sistema no es connectarà correctament. El codi (b) funcionarà, ja que cadascun té un número de telèfon diferent, però els números són molt llargs i el sistema esdevé ineficient. El codi (c) és un codi més curt, però observeu que el sistema no funcionarà: quan marquem $10$ no està clar si vol dir “Carola” o bé “Bernat, Alba”. El codi (c) no és <strong>únicament descodificable</strong>.
+El codi (d) és el primer codi eficient que funciona i es pot descodificar de manera única, però per què assignem $00$ a l'Alba si quan marquem $0$ està clar que volem trucar a  l'Alba? Una millora n'és el codi (e): és únicament descodificable, però no és el més eficient, ja que el codi està assignant una cadena de 2 bits al símbol més probable! Finalment, (f) és el <strong>codi òptim</strong> amb una longitud mitjana de $L_{\rm av}=1.5$ bits per símbol. És interessant assenyalar que un cop acabem de marcar, el sistema immediatament sap que hem acabat de marcar. Això és perquè cap paraula de codi és un prefix de cap altra, és a dir, el codi és <strong>sense prefix</strong>.
+</p>
+
+</div>
+
+
+<h2>Codis sense prefix</h2>
+
+<p>
+Els codis sense prefix són codis de longitud variable que garanteixen una descodificabilitat única i, dissenyats correctament, són eficients en termes de longitud mitjana, és a dir, minimitzen $(3.4)$.
+</p>
+<p>
+Considereu una font discreta sense memòria $U$ prenent valors sobre l'alfabet $\{1,\ldots,r\}$. Un codi font binari és el conjunt de paraules de codi ${\cal C}=\{{\cal C}(1),{\cal C}(2),\ldots,{\cal C}(r)\}$, on cada ${\cal C}(j)$ és la seqüència binària utilitzada per representar el símbol font $j\in\{1,\ldots,r\}$. Per exemple, el codi (f) de la taula 3.1 per a la font $\{\text{Alba},\text{Bernat},\text{Carola}\}$ és donat per ${\cal C}(\text{Alba})=10$, ${\cal C}(\text{Bernat})=0$ i ${\cal C}(\text{Carola})=11$, o simplement el conjunt $\{10,0,11\}$. Una seqüència font de longitud $n$ és la seqüència $(u_1,\ldots,u_n)$ on cada $u_i\in\{1,\ldots,r\}$. Una codificació símbol a símbol consisteix en ${\cal C}(u_1)\cdots {\cal C}(u_n)$, la concatenació de les paraules de codi. Per exemple, la seqüència font $(\text{Alba},\text{Alba},\text{Carola},\text{Bernat},\text{Carola})$ de longitud $n=5$ està codificada com a $101011011$, una seqüència binària de longitud de 9 bits.
+</p>
+<p>
+Un codi s'anomena <strong>únicament descodificable</strong> si no existeix cap parell de seqüències diferents $(u_1,\ldots,u_n)\neq (u'_1,\ldots,u'_m)$ de manera que ${\cal C}(u_1)\cdots {\cal C}(u_n)={\cal C}(u'_1)\cdots {\cal C}(u_m')$, és a dir, perquè un codi sigui descodificable de manera única, no es poden codificar dues seqüències font diferents en la mateixa paraula de codi. Recordeu el sistema telefònic (c) de l'exemple 3.3. Un codi s'anomena <strong>sense prefix</strong> si cap paraula de codi és un prefix de cap altra paraula de codi.
+</p>
+
+<div class="env-block env-theorem"><p><span class="env-label">Teorema 3.4.</span> 
+Els codis sense prefix es poden descodificar de manera única.
+<a id="th:ud"></a>
+</p>
+
+</div>
+
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 3.5.</span> 
+Considereu els codis ${\cal C}_1=\{0,10,110,111\}$ i ${\cal C}_2=\{0,01,011,111\}$ per a una font $\{a,b,c,d\}$. Els codis són únicament decodificables i/o lliures de prefix? Descodifiqueu la seqüència $0011011110$ utilitzant els dos codis.
+ 	
+</p>
+<details class="solution"><summary>Mostra la solució</summary>
+<p>
+		El codi ${\cal C}_1$ no té prefix perquè cap paraula de codi és un prefix de cap altra i, per tant, el codi es pot descodificar de manera única. El codi ${\cal C}_2$ no està lliure de prefix perquè ${\cal C}(a)$ és el prefix de ${\cal C}(b)$ i ${\cal C}(c)$, mentre que ${\cal C}(b)$ també és el prefix de ${\cal C}(c)$. Observeu, però, que el codi és únicament descodificable perquè el bit $0$ és com una coma quan es llegeix de dreta a esquerra. Utilitzant el primer codi, la seqüència a descodificar es pot agrupar de manera única com a $0,0,110,111,10$. Com que ${\cal C}^{-1}(0)=a, {\cal C}^{-1}(110)=c$, ${\cal C}^{-1}(111)=d$ i ${\cal C}^{-1}(10)=b$, descodifiquem la seqüència com a $(a,a,c,d,b)$. Per al segon codi, hem de llegir de dreta a esquerra com $0,011,01,111,0$ per obtenir $(a,c,b,d,a)$.
+ 	
+</p>
+</details>
+
+
+</div>
+
+<p>
+ Qualsevol codi binari es pot representar com un arbre binari (vegeu la Figura 3.1). Agafeu qualsevol paraula de codi i considereu cada bit com una decisió sobre si pujar (0) o baixar (1). Així, cada paraula de codi pot ser representada per un camí particular a l'arbre, com els dos exemples de la Figura 3.1. En els arbres, el node arrel es denota amb un quadrat, els nodes intermedis amb cercles petits i els nodes de fulla com a cercles grisos. Les vores es representen amb una línia sòlida. Les etiquetes de la dreta denoten seqüències binàries. De manera similar, a la Figura 3.2, il·lustrem les representacions en arbre binari dels codis (c), (d), (e) i (f) de l'exemple 3.3. El node del cercle blanc indica una fulla sense paraula de codi. Observeu que el codi (c) no està lliure de prefixos i té una paraula de codi al llarg del camí cap a una altra paraula de codi. Així, un codi no té prefixos si en la seva representació en arbre totes les paraules de codi apareixen com a fulles a l'arbre.
+</p>
+<p>
+ El següent és un resultat important relacionat amb l'existència de codis sense prefix i arbres binaris.
+</p>
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;align-items:center"><figure><img src="../img/tikz/lecture3-fig1.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/lecture3-fig2.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure></div>
+<p>
+<figcaption>Representació en arbre de dos codis font binaris.</figcaption>
+<a id="fig:generic_tree"></a>
+</p>
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;align-items:center"><figure><img src="../img/tikz/lecture3-fig3.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/lecture3-fig4.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/lecture3-fig5.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure></div>
+<p>
+<figcaption>Representació en arbre d'alguns codis font de l'exemple 3.3.</figcaption>
+<a id="fig:tree_phonec"></a>
+</p>
+
+<div class="env-block env-theorem"><p><span class="env-label">Teorema 3.6 (<strong>Desigualtat de Kraft</strong>).</span> 
+<a id="th:kraft"></a>
+Considereu un codi font binari ${\cal C}$ per a una font amb alfabet $\{1,\ldots,r\}$ i distribució de probabilitat $\{p_1,\ldots,p_r\}$. Aleshores, si el codi no té prefixos, satisfà
+$$
+\sum_{j=1}^r2^{-\ell_j} \leq 1.
+\tag{3.5}
+$$
+A més, existeix un codi sense prefix amb longituds $\ell_j$ per a $j\in\{1,\ldots,r\}$ que satisfà $(3.5)$.
+</p>
+
+</div>
+
+
+<div class="env-block env-example"><p><span class="env-label">Exemple 3.7.</span> <a id="ex:codelengths"></a>
+Un codi amb distribució de longituds $\{\ell_1,\ldots,\ell_r\}=\{3,4,4,4,4\}$ satisfà la desigualtat de Kraft ja que
+$$
+\sum_{j=1}^r 2^{-\ell_j} = 2^{-3}+4\cdot 2^{-4} = \frac1 8 +\frac {4}{16} = \frac 3 8\leq 1 . \tag{3.6}$$
+Per tant, existeix un codi sense prefix amb aquestes longituds, per exemple $\{000,0010,0011,1100,1101\}$. En canvi, per a una distribució de longituds $\{1,2,3,3,4\}$, no podem construir un codi sense prefixos perquè
+$$
+2^{-1}+2^{-2}+2\cdot2^{-3} + 2^{-4} = \frac{17}{16}\geq1 \tag{3.7}$$
+Un possible intent de construir aquest codi es mostra a la Figura 3.3, on hi ha una paraula de codi de longitud 4 que no es pot connectar enlloc. No és possible construir aquest codi.
+</p>
+
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;align-items:center"><figure><img src="../img/tikz/lecture3-fig6.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/lecture3-fig7.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure></div>
+<p>
+<figcaption>Exemple de representació en arbre dels codis font a l'exemple 3.7.</figcaption>
+<a id="fig:extree"></a>
+</p>
+
+<p>
+Acabem aquesta lliçó afirmant un resultat fonamental en la compressió de dades.
+</p>
+
+<div class="env-block env-theorem"><p><span class="env-label">Teorema 3.8.</span> <a id="th:laventropy"></a>
+La longitud mitjana de qualsevol codi de longituds sense prefix $\{\ell_1,\ldots,\ell_r\}$ utilitzat per representar una font $U$ prenent valors a $\{1,\ldots,r\}$ amb distribució de probabilitat $\{p_1,\ldots,p_r\}$ satisfà
+$$
+	L_{\rm av} \geq H(U),
+	\tag{3.8}
+$$
+on $H(U)$ és <strong>l'entropia de la font</strong>, mesurada en bits, que ve donada per
+$$
+	H(U) =  - \sum_{j=1}^r p_j \log_2 p_j. \tag{3.9}$$
+Tingueu en compte que per complir la desigualtat $(3.8)$ amb igualtat, les longituds haurien de ser tals que $
+2^{-\ell_j} = p_j$ exactament per a tot $j\in\{1,\ldots,r\}$.
+</p>
+
+</div>
+
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 3.9.</span> 
+ 	Considereu una font $U$ que pren els valors 
+ 	 $\{1,2,3\}$ amb la mateixa probabilitat. Trobeu un codi sense prefix amb distribució de longitud $\{1,2,2\}$ i comproveu que es compleixen els teoremes 3.6 i 3.8.
+	
+</p>
+<details class="solution"><summary>Mostra la solució</summary>
+<p>
+ 	Un possible codi sense prefix amb aquestes longituds ve donat per $\{0,10,11\}$. El codi és únicament decodificable pel Teorema 3.4, satisfà la desigualtat de Kraft en el Teorema 3.6 amb igualtat des de $\sum_{j=1}^r 2^{-\ell_j} = 1$. Això vol dir que l'arbre binari associat a $\{0,10,11\}$ no té fulles buides! Quan s'utilitza per representar la font $U$, té una longitud mitjana de $L_{\rm av}=\sum_{j=1}^r p_j\ell_j = \frac 53 \approx 1.667$ bits per símbol, i està limitat per l'entropia de la font des de sota ja que
+ 	$$
+		H(U)=- \sum_{j=1}^r p_j \log_2 p_j = \log_2 3 \approx 1.585. \tag{3.10}$$
+ 	
+</p>
+</details>
+
+
+</div>
+
+<p>
+El resultat de $(3.8)$ indica que l'entropia $H(U)$ és la longitud mitjana mínima necessària per representar una font $U$, no podem representar-la sense errors amb menys bits per símbol. De tots els possibles codis sense prefix, volem trobar el que minimitzi la longitud mitjana a $(3.4)$. Aquest serà el tema de la nostra propera lliçó.</p>
   </main>
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Teoria de la informació i la codificació 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

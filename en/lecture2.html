@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -38,44 +38,43 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html" class="active">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
       <h1>Lecture 2. Functions of random variables and concentration inequalities <a class="pdf-link" href="../pdf/ITC-2026-Lecture2-en.pdf">pdf</a></h1>
     </div>
-<p>\definecolor{Pantone186}{RGB}{200,16,46}
-</p>
+
 
 <h2>Introduction</h2>
 
@@ -99,7 +98,7 @@ $$
 
 <details class="solution"><summary>Show solution</summary>
 <p>
-	We first note that $0\leq p \leq 1$ for $X$ to have a valid probability distribution. The mean of $X$ is given by $\mathbb{E}[X]=\sum_{x\in{\cal X}} x P_X(x) = 0\cdot P_X(0) + 1 \cdot P_X(1) = P_X(1) = 1-p$. The second-order moment is given by $\mathbb{E}[X^2]=\sum_{x\in{\cal X}}x^2P_X(x) = 0^2 \cdot P_X(0) + 1^2\cdot P_X(1) = (1-p)$. Hence, $\text{var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2 = 1-p-(1-p)^2 = p - p^2=p(1-p)$. The derivative of the variance with respect to $p$ is $1-2p$, which is positive for $p\lt \frac 12$, equal to zero or $p=\frac 12$ and negative for $p\gt \frac 12$, implying that there is a maximum at $p=\frac 12$. The value of such variance is $\text{var}(X)=\frac 14$.
+	We first note that $0\leq p \leq 1$ for $X$ to have a valid probability distribution. The mean of $X$ is given by $\mathbb{E}[X]=\sum_{x\in{\cal X}} x P_X(x) = 0\cdot P_X(0) + 1 \cdot P_X(1) = P_X(1) = 1-p$. The second-order moment is given by $\mathbb{E}[X^2]=\sum_{x\in{\cal X}}x^2P_X(x) = 0^2 \cdot P_X(0) + 1^2\cdot P_X(1) = (1-p)$. Hence, $\text{var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2 = 1-p-(1-p)^2 = p - p^2=p(1-p)$. The derivative of the variance with respect to $p$ is $1-2p$, which is positive for $p&lt;\frac 12$, equal to zero or $p=\frac 12$ and negative for $p&gt;\frac 12$, implying that there is a maximum at $p=\frac 12$. The value of such variance is $\text{var}(X)=\frac 14$.
 </p>
 
 </details>
@@ -142,8 +141,8 @@ Given a random variable $X$, the output of a deterministic function $f(x)$ is an
 We will also encounter functions involving three random variables. For example:
 </p>
 
-<div class="env-block env-example"><p><span class="env-label">Example 2.1.</span> 
-	Let $X$ and $Y$ be two independent random variables both taking values in $\{0,1\}$ with probability distribution $\bigl\{ \frac 12,\frac 12\}$, and define a new random variable as $Z=X+Y$. All the possible combinations of the sum $X+Y$ leads to the alphabet of $Z$, that is, $\{0,1,2\}$. Next, we can write in general that
+<div class="env-block env-example"><p><span class="env-label">Example 2.3.</span> 
+	Let $X$ and $Y$ be two independent random variables both taking values in $\{0,1\}$ with probability distribution $\bigl\{ \frac 12,\frac 12\bigr\}$, and define a new random variable as $Z=X+Y$. All the possible combinations of the sum $X+Y$ leads to the alphabet of $Z$, that is, $\{0,1,2\}$. Next, we can write in general that
 	$$\begin{gather}
 	P_Z(z)=\sum_{(x,y)\in\{0,1\}^2} P_{XYZ}(x,y,z), \tag{2.8}\end{gather}$$
 	where $P_{XYZ}(x,y,z)$ is the joint distribution of the three random variables. Such distribution can be always factorized as $P_{XYZ}(x,y,z)=P_{Z|XY}(z|xy)P_{XY}(x,y)$ and, since $X$ and $Y$ are independent, further as $P_{XYZ}(x,y,z)=P_{Z|XY}(z|xy)P_{X}(x)P_Y(y)$. Now, for example, to determine $P_Z(1)$ we note that since $X+Y$ (the sum operation) is a deterministic function we have that $P_{Z|XY}(1|0,0)=0$, $P_{Z|XY}(1|0,1)=1$, $P_{Z|XY}(1|1,0)=1$ and $P_{Z|XY}(1|1,1)=0$. Combining everything,
@@ -161,19 +160,19 @@ We will also encounter functions involving three random variables. For example:
 <h2>Markov's and Chebyshev's inequalities</h2>
 
 <p>
-For a positive random variable $X$ and a value $a\gt 0$, <strong>Markov's inequality</strong> states that
+For a positive random variable $X$ and a value $a&gt;0$, <strong>Markov's inequality</strong> states that
 $$
 	\mathbb{P}[X \geq a] \leq \frac{\mathbb{E}[X]}{a}.
 	\tag{2.13}
 $$
 </p>
 
-<div class="env-block env-example"><p><span class="env-label">Example 2.2.</span> 
+<div class="env-block env-example"><p><span class="env-label">Example 2.4.</span> 
 <a id="ex:2.4"></a>
-Suppose	$X$ takes values in $\{1,2,3\}$ with equal probability. Then, we can calculate $\mathbb{P}[X>a]$ as a function of $a$ using that
+Suppose	$X$ takes values in $\{1,2,3\}$ with equal probability. Then, we can calculate $\mathbb{P}[X\ge a]$ as a function of $a$ using that
 $$
 	\mathbb{P}[X\geq a] = \sum_{x\in{\cal A}} P_X(x), \tag{2.14}$$
-where ${\cal A}$ is the set of values of $X$ satisfying the event “$X\geq a$”. For $a\in(-\infty,1]$, all three values satisfy the condition, therefore $\mathbb{P}[X\geq a]=1$. For $a\in(1,2]$ only two values satisfy the condition hence $\mathbb{P}[X\geq a]=\frac 23$. In conclusion, we obtain the cumulative distribution function (c.d.f.) of the random variable $X$ evaluated at $a$:
+where ${\cal A}$ is the set of values of $X$ satisfying the event “$X\geq a$”. For $a\in(-\infty,1]$, all three values satisfy the condition, therefore $\mathbb{P}[X\geq a]=1$. For $a\in(1,2]$ only two values satisfy the condition hence $\mathbb{P}[X\geq a]=\frac 23$. In conclusion, we obtain the tail (survival) function $\mathbb{P}[X\ge a]$ of the random variable $X$ evaluated at $a$:
 $$
 	\mathbb{P}[X\geq a] = \begin{cases}
  	1 & a \in (-\infty,1]\\
@@ -183,41 +182,41 @@ $$
  \end{cases} \tag{2.15}$$
 while Markov's upper bound in $(2.13)$ is given by $\frac{\mathbb{E}[X]}{a} = \frac{2}{a}$. Plotting both quantities together, we obtain Figure 2.1, validating the inequality for this example.
 </p>
-<figure><img src="../img/tikz/lecture2-fig1.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
-	<figcaption>Figure 2.1. Markov's inequality in Example 2.4.</figcaption>
+<figure><img src="../img/tikz/lecture2-fig1.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure>
+	<figcaption>Markov's inequality in Example 2.4.</figcaption>
 	<a id="fig:2.1"></a>
 </p>
 
 </div>
 
 <p>
-On the other hand, <strong>Chebyshev's inequality</strong> relates the probability that a random variable $X$ is at some distance from the mean with its variance. Let $X$ be a random variable with a non-zero variance ${\rm var}(X)$. For any $k\gt 0$,
+On the other hand, <strong>Chebyshev's inequality</strong> relates the probability that a random variable $X$ is at some distance from the mean with its variance. Let $X$ be a random variable with a non-zero variance ${\rm var}(X)$. For any $k&gt;0$,
 $$
 	\mathbb{P}\bigl[|X-\mathbb{E}[X]| \geq k\bigr] \leq \frac{{\rm var}(X)}{k^2}.
 	\tag{2.16}
 $$
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problem 2.3.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problem 2.5.</span> 
 <a id="prob:2.5"></a>
-	For an integer $n\geq 1$, we define the random variable $Z$ as $Z=X_1+\ldots+X_n$, where $(X_1,\ldots,X_n)$ is a sequence of i.i.d. random variables each distributed as $X_i\in\{0,1\}$ with probability distribution $\{1-p,p\}$. Then, as $n\to\infty$ and for any $k\gt 0$, the probability $\mathbb{P}\bigl[|Z-np| \lt  nk\bigr]$ converges to...?
+	For an integer $n\geq 1$, we define the random variable $Z$ as $Z=X_1+\ldots+X_n$, where $(X_1,\ldots,X_n)$ is a sequence of i.i.d. random variables each distributed as $X_i\in\{0,1\}$ with probability distribution $\{1-p,p\}$. Then, as $n\to\infty$ and for any $k&gt;0$, the probability $\mathbb{P}\bigl[|Z-np| &lt; nk\bigr]$ converges to...?
 	
 </p>
 <details class="solution"><summary>Show solution</summary>
 <p>
 		The probability in the statement resembles that of Chebyshev's inequality in $(2.16)$. First, we note that $\mathbb{E}[Z]=\mathbb{E}[X_1+\ldots+X_n]=\mathbb{E}[X_1]+\ldots+\mathbb{E}[X_n]=n \mathbb{E}[X]$, where $\mathbb{E}[X]=(1-p)\cdot 0 + p\cdot 1 = p$. Hence,
 		$$
-			\mathbb{P}\bigl[|Z-np| < nk\bigr] = \mathbb{P}\bigl[|Z-\mathbb{E}[Z]| < nk\bigr] = 1 - \mathbb{P}\bigl[|Z-\mathbb{E}[Z]| \geq nk\bigr] \geq 1 - \frac{{\rm var}(Z)}{n^2k^2}. \tag{2.17}$$
+			\mathbb{P}\bigl[|Z-np| &lt; nk\bigr] = \mathbb{P}\bigl[|Z-\mathbb{E}[Z]| &lt; nk\bigr] = 1 - \mathbb{P}\bigl[|Z-\mathbb{E}[Z]| \geq nk\bigr] \geq 1 - \frac{{\rm var}(Z)}{n^2k^2}. \tag{2.17}$$
 		Since $X_i$ are independent, the variance of the sum is the sum of variances, that is
 		$$
 			{\rm var}(Z) = {\rm var}(X_1+\ldots+X_n) = {\rm var}(X_1)+\ldots+{\rm var}(X_n) = n {\rm var}(X), \tag{2.18}$$
 		where ${\rm var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2 = p-p^2=p(1-p)$.  Combining everything, we obtain that
 		$$
-			\mathbb{P}\bigl[|Z-np| < nk\bigr] \geq 1 - \frac{p(1-p)}{nk^2}. \tag{2.19}$$
+			\mathbb{P}\bigl[|Z-np| &lt; nk\bigr] \geq 1 - \frac{p(1-p)}{nk^2}. \tag{2.19}$$
 		As $n\to\infty$, the inequality above results in
 		$$
-			\lim_{n\to\infty} \mathbb{P}\bigl[|Z-np| < nk\bigr] \geq 1. \tag{2.20}$$
-		Since a probability cannot exceed $1$, we can conclude that $ \lim_{n\to\infty} \mathbb{P}\bigl[|Z-np| \lt  nk\bigr] = 1$.
+			\lim_{n\to\infty} \mathbb{P}\bigl[|Z-np| &lt; nk\bigr] \geq 1. \tag{2.20}$$
+		Since a probability cannot exceed $1$, we can conclude that $ \lim_{n\to\infty} \mathbb{P}\bigl[|Z-np| &lt; nk\bigr] = 1$.
 	
 </p>
 </details>
@@ -237,11 +236,11 @@ $$
 	\overline{X} = \frac{X_1+\ldots+X_n}{n}, \tag{2.21}$$
 converges (in probability) to the statistical mean $\mathbb{E}[X]$. Mathematically speaking, 
 $$
-	\lim_{n\to\infty} \mathbb{P}\left[|\overline{X}-\mathbb{E}[X]|< \epsilon \right] = 1, \tag{2.22}$$
+	\lim_{n\to\infty} \mathbb{P}\left[|\overline{X}-\mathbb{E}[X]|&lt; \epsilon \right] = 1, \tag{2.22}$$
 that is, the probability that the sample mean is far away from the statistical mean vanishes as $n\to\infty$.
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problem 2.4.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problem 2.6.</span> 
 Consider the sequence of i.i.d. random variables $(X_1,\ldots,X_n)$ where each $X_i$ takes values in $\{1,e\}$ with equal probability and define a new random variable $Y$ as
 $$
 	Y = \frac{\ln(X_1)+\ldots+\ln(X_n)}{n}. \tag{2.23}$$ 	
@@ -262,7 +261,7 @@ Then, as $n\to\infty$, the random variable $Y$ converges to?
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Information theory and coding 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

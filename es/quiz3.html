@@ -242,7 +242,7 @@
 </nav>
 
 <div class="page">
-                  <aside class="sidebar">
+                                          <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -254,44 +254,72 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html" class="active">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Cuestionario: Temas 6–9: Codificación de canal</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+    <div class="quiz-container" id="quiz-root">
+      <!-- Progress -->
+      <div class="quiz-progress">
+        <div class="quiz-progress-text" id="quiz-progress-text">Pregunta 1 de 20</div>
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="quiz-progress-fill" style="width:5%"></div>
+        </div>
+      </div>
+
+      <!-- Card -->
+      <div class="quiz-card" id="quiz-card">
+        <div class="quiz-topic" id="quiz-topic"></div>
+        <div class="quiz-question" id="quiz-question"></div>
+        <div class="quiz-options" id="quiz-options"></div>
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+        <button class="quiz-next" id="quiz-next">Siguiente</button>
+      </div>
+
+      <!-- Score (hidden until end) -->
+      <div class="quiz-card quiz-score" id="quiz-score" style="display:none">
+        <h2>Cuestionario completado!</h2>
+        <div class="score-number" id="score-number"></div>
+        <div class="score-label" id="score-label"></div>
+        <div class="score-bar"><div class="score-bar-fill" id="score-bar-fill"></div></div>
+        <br>
+        <button class="quiz-restart" id="quiz-restart">Intentar de nuevo</button>
+      </div>
+    </div>
   </main>
 </div>
 
@@ -339,34 +367,94 @@
 
   // ---- Quiz data ----
   var questions = [
-// KAHOOT 3: Temas 6-9
+// KAHOOT 3
     {
-      topic: "Temas 6\u20139: Codificación de canal",
-      q: "El código $\\{00,11\\}$ se envía equiprobablemente por un BSC con probabilidad de inversión de bit $1$. La probabilidad de error del código es $0$.",
-      options: ["Verdadero", "Falso"],
-      correct: 0
-    },
-    {
-      topic: "Temas 6\u20139: Codificación de canal",
-      q: "El código $\\{000,111\\}$ se envía por un BSC con probabilidad de inversión de bit $\\tfrac34$. El decodificador de máxima verosimilitud decodifica $011$ como el primer mensaje.",
+      topic: "Tema 6: Tasa del c\u00f3digo",
+      q: "Un c\u00f3digo de canal tiene $M=6$ palabras c\u00f3digo, cada una de longitud $n=4$. Entonces su tasa es $R=\\tfrac{6}{4}=1.5$ bits por uso de canal.",
       options: ["Verdadero", "Falso"],
       correct: 1
     },
     {
-      topic: "Temas 6\u20139: Codificación de canal",
-      q: "Un código lineal generado por $\\begin{pmatrix} 1 & 0 & 1 \\\\ 0 & 1 & 1 \\end{pmatrix}$ y enviado por un BSC no es capaz de corregir ninguna inversión de bit.",
+      topic: "Tema 6: Probabilidad de error del c\u00f3digo de repetici\u00f3n",
+      q: "El c\u00f3digo de repetici\u00f3n $\\{00000,11111\\}$ se usa sobre un canal binario sim\u00e9trico con probabilidad de cruce $p$ y decodificaci\u00f3n por mayor\u00eda. Entonces su probabilidad de error del c\u00f3digo es $P_{\\mathrm{e}}=10p^3-15p^4+6p^5$.",
       options: ["Verdadero", "Falso"],
       correct: 0
     },
     {
-      topic: "Temas 6\u20139: Codificación de canal",
-      q: "El código $\\{011,100\\}$ tiene distancia mínima $3$.",
+      topic: "Tema 6: Error de decodificaci\u00f3n por distancia m\u00ednima",
+      q: "El c\u00f3digo $\\{\\boldsymbol{x}_1,\\boldsymbol{x}_2,\\boldsymbol{x}_3\\}=\\{00,01,11\\}$ se usa con probabilidades a priori $P(1)=P(3)=\\tfrac14$, $P(2)=\\tfrac12$ sobre un canal sin ruido, y se decodifica por distancia m\u00ednima resolviendo los empates a favor del \u00edndice menor. Entonces el mensaje $\\boldsymbol{x}_2=01$ siempre se decodifica correctamente.",
       options: ["Verdadero", "Falso"],
       correct: 0
     },
     {
-      topic: "Temas 6\u20139: Codificación de canal",
-      q: "En un canal binario simétrico con probabilidad de inversión de bit $\\tfrac12$, $H(X)=H(X|Y)$.",
+      topic: "Tema 6: Probabilidad de secuencia en canal sin memoria",
+      q: "Sobre un canal binario sim\u00e9trico con probabilidad de cruce $p$, la probabilidad de recibir $\\boldsymbol{y}=101$ cuando se transmite $\\boldsymbol{x}=000$ es igual a la probabilidad de recibir $\\boldsymbol{y}=111$ cuando se transmite $\\boldsymbol{x}=000$.",
+      options: ["Verdadero", "Falso"],
+      correct: 1
+    },
+    {
+      topic: "Tema 7: C\u00f3digo lineal sistem\u00e1tico",
+      q: "Un c\u00f3digo lineal sistem\u00e1tico tiene matriz generadora $\\boldsymbol{G}=(\\boldsymbol{P}~\\boldsymbol{I})$ con $\\boldsymbol{P}=\\bigl(\\begin{smallmatrix}1&1\\\\0&1\\end{smallmatrix}\\bigr)$. Entonces el mensaje $\\boldsymbol{s}=(1~0)$ genera la palabra c\u00f3digo $\\boldsymbol{x}=1110$.",
+      options: ["Verdadero", "Falso"],
+      correct: 0
+    },
+    {
+      topic: "Tema 7: Distancia m\u00ednima de un c\u00f3digo lineal",
+      q: "Un c\u00f3digo lineal se genera con $\\boldsymbol{G}=(\\boldsymbol{P}~\\boldsymbol{I})$ con $\\boldsymbol{P}=\\bigl(\\begin{smallmatrix}1&1\\\\0&1\\end{smallmatrix}\\bigr)$, dando el c\u00f3digo $\\{0000,0101,1110,1011\\}$. Entonces su distancia m\u00ednima de Hamming es $d_{\\mathrm{min}}=2$.",
+      options: ["Verdadero", "Falso"],
+      correct: 0
+    },
+    {
+      topic: "Tema 7: Capacidad de correcci\u00f3n de errores",
+      q: "Un c\u00f3digo lineal con distancia m\u00ednima de Hamming $d_{\\mathrm{min}}=4$ puede corregir cualquier inversi\u00f3n de un solo bit y, adem\u00e1s, detectar (sin corregir) cualquier patr\u00f3n de exactamente $2$ inversiones de bit.",
+      options: ["Verdadero", "Falso"],
+      correct: 0
+    },
+    {
+      topic: "Tema 7: C\u00f3digo de Hamming (7,4)",
+      q: "El c\u00f3digo de Hamming $(7,4)$ tiene tasa $R=\\tfrac47$ y distancia m\u00ednima $d_{\\mathrm{min}}=3$, de modo que puede corregir hasta $t=2$ inversiones de bit por palabra c\u00f3digo.",
+      options: ["Verdadero", "Falso"],
+      correct: 1
+    },
+    {
+      topic: "Tema 8: Simetr\u00eda de la capacidad del CBS",
+      q: "Un canal binario sim\u00e9trico con probabilidad de cruce $p=0.9$ tiene la misma capacidad que uno con $p=0.1$.",
+      options: ["Verdadero", "Falso"],
+      correct: 0
+    },
+    {
+      topic: "Tema 8: Cota de la informaci\u00f3n mutua",
+      q: "Si $X$ toma $4$ valores y $Y$ toma $2$ valores, entonces necesariamente $I(X;Y)\\leq 1$ bit, sea cual sea la distribuci\u00f3n conjunta.",
+      options: ["Verdadero", "Falso"],
+      correct: 0
+    },
+    {
+      topic: "Tema 8: Capacidad y tasa",
+      q: "Sobre un canal binario sim\u00e9trico con probabilidad de cruce $p=0.11$ (de modo que $C=0.5$), la comunicaci\u00f3n fiable es posible con alg\u00fan c\u00f3digo de tasa $R=0.6$ bits por uso de canal.",
+      options: ["Verdadero", "Falso"],
+      correct: 1
+    },
+    {
+      topic: "Tema 8: Independencia e informaci\u00f3n mutua",
+      q: "Dos variables aleatorias binarias tienen distribuci\u00f3n conjunta $P_{XY}(0,0)=P_{XY}(1,1)=\\tfrac38$ y $P_{XY}(0,1)=P_{XY}(1,0)=\\tfrac18$. Entonces $X$ e $Y$ son independientes, de modo que $I(X;Y)=0$.",
+      options: ["Verdadero", "Falso"],
+      correct: 1
+    },
+    {
+      topic: "Tema 9: Entrop\u00eda de una funci\u00f3n determinista",
+      q: "Sea $Y=g(X)$ con $g$ inyectiva sobre el soporte de $X$ y $H(X)=1.8$ bits. Entonces $H(Y)=1.8$ bits.",
+      options: ["Verdadero", "Falso"],
+      correct: 0
+    },
+    {
+      topic: "Tema 9: Condicionamiento e informaci\u00f3n mutua",
+      q: "Para cualquier terna de variables aleatorias, condicionar solo puede reducir la informaci\u00f3n mutua, es decir, $I(X;Y|Z)\\leq I(X;Y)$ se cumple siempre.",
+      options: ["Verdadero", "Falso"],
+      correct: 1
+    },
+    {
+      topic: "Tema 9: Desigualdad de procesamiento de datos",
+      q: "Si $X\\to Y\\to Z$ forman una cadena de Markov con $I(X;Y)=0.9$ bits e $I(Y;Z)=0.4$ bits, entonces $I(X;Z)\\leq 0.4$ bits.",
       options: ["Verdadero", "Falso"],
       correct: 0
     }

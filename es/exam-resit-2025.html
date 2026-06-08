@@ -40,44 +40,130 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html" class="active">Recuperación 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Examen de recuperación 2025</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+    <button id="expand-all" data-expand="Mostrar todas las soluciones" data-collapse="Ocultar todas las soluciones" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostrar todas las soluciones</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Problema 1.</span> Un experimento consta de dos pasos. Primero, se lanza una moneda justa y se registra el resultado (cara o cruz). Si el resultado es cara, se lanza un dado justo de seis caras y se registra su cara; si el resultado es cruz, se lanza una segunda moneda justa y se registra su resultado. ¿Cuál es la entropía en bits del resultado del experimento de dos pasos?</p>
+  <p>(a) $\tfrac{1+\log_2(6)}{2}$<br>
+  (b) $\tfrac{3+\log_2(3)}{2}$<br>
+  (c) $\tfrac{4+\log_2(3)}{2}$<br>
+  (d) $\tfrac{2+\log_2(6)}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>El resultado se puede modelar como $X=(A,B)$. Después de determinar todos los resultados, $X$ tiene distribución $\bigl\{\tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{4}, \tfrac{1}{4}\bigr\}$. Usando la regla de la cadena $H(X)=H(A)+H(B|A)$, con $H(A)=1$ y $H(B|A)=\tfrac{1+\log_2(6)}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 2.</span> Una fuente discreta toma valores en $\{a,b,c\}$ con probabilidades $\{p,2p,3p\}$ para algún parámetro $p\neq 0$. ¿Cuál es la longitud media del código binario óptimo libre de prefijos para esta fuente?</p>
+  <p>(a) $\log_2(3)$<br>
+  (b) $\tfrac 32$<br>
+  (c) $2$<br>
+  (d) $\tfrac{4+3\log_2(3)}{6}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Solo $p=\tfrac 16$ lleva a una distribución de probabilidad válida. El código de Huffman para la fuente tiene longitudes $\{2,2,1\}$, por lo que $L_{\rm av}=9p=\tfrac 32$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 3.</span> Una fuente discreta sin memoria $W_n=(X_1,\ldots,X_n)$, donde cada $X_i\in\{a,b,c,d,e,f\}$ con igual probabilidad, se codifica usando el código binario óptimo libre de prefijos. ¿En cuál de los siguientes intervalos se encuentra la longitud media por símbolo del código binario óptimo libre de prefijos para $W_{3}$?</p>
+  <p>(a) $\bigl[\tfrac{3+3\log_2(3)}{2},\tfrac{3\log_2(3) + 4}{2} \bigr)$<br>
+  (b) $\bigl[\tfrac{1+\log_2(3)}{2},\tfrac{3\log_2(3) + 4}{6} \bigr)$<br>
+  (c) $\bigl[1+\log_2(3),\tfrac{3\log_2(3) + 4}{3} \bigr)$<br>
+  (d) $\bigl[3+3\log_2(3),3\log_2(3) + 4 \bigr)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>La longitud media por símbolo se encuentra en $\bigl[H(X_1),H(X_1)+\tfrac 13\bigr)$. Usando $H(X_1)=\log_2(6)$, obtenemos el resultado.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 4.</span> Defina la variable aleatoria $Z$ como $Z=\log_2 P_X(X)$, donde $X$ es una fuente discreta sin memoria $X=(U_1,\ldots,U_r)$, con cada $U_i$ tomando valores en $\{1,2,3,\ldots,n\}$ con igual probabilidad. ¿Cuál es el valor esperado de $Z$?</p>
+  <p>(a) $r\log_2(n)$<br>
+  (b) $-r\log_2(n)$<br>
+  (c) $n\log_2(r)$<br>
+  (d) $-n\log_2(r)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Como $P_X(x)=\tfrac{1}{n^r}$ para todo $x$, la variable aleatoria es determinista con valor $\log_2(n^{-r})$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 5.</span> Las palabras código de un cierto código lineal $(5,1)$ con distribución de pesos que satisface $A_2=1$ se transmiten con igual probabilidad por un canal binario simétrico con probabilidad de cambio de bit $p$. ¿Cuál es la probabilidad de recibir la secuencia de todos unos?</p>
+  <p>(a) $\tfrac{p^5-2p^4 +2p^3}{2}$<br>
+  (b) $\tfrac{2p^5 -2p^4 +p^3}{2}$<br>
+  (c) $\tfrac{p^5-p^4+p^3}{2}$<br>
+  (d) $\tfrac{p^5+p^4+p^3}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>El código tiene dos palabras código, $00000$ y una segunda palabra código con $2$ unos y $3$ ceros. La probabilidad de recibir $11111$ es $\tfrac 12 p^5 + \tfrac 12 p^3(1-p)^2$. Expandiendo y simplificando, obtenemos el resultado.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 6.</span> El código $\{000,111\}$ se transmite por un canal binario con probabilidades condicionales $P_{Y|X}(0|0)=1$ y $P_{Y|X}(0|1)=\tfrac 12$. El receptor usa una regla de decodificación de mínima verosimilitud, es decir $\hat m = \arg\min_m P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$, para decodificar la salida del canal. ¿Cuál es la región de error del segundo mensaje?</p>
+  <p>(a) $\{001,010,011,100,101,110,111\}$<br>
+  (b) $\{000\}$<br>
+  (c) $\{000,001,010,100\}$<br>
+  (d) $\{011,101,110,111\}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $P_{Y|X}(1|0)=0$, tenemos $P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|000)=0$ para cualquier salida con al menos un $1$. Por lo tanto, $\hat m = 1$ para todas las salidas excepto $\boldsymbol{y}=000$, para la cual $\hat m = 2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 7.</span> Dos variables aleatorias $X$ e $Y$ toman valores en $\{a,b\}$ y $\{a,b,c,d\}$, respectivamente, de modo que $X$ tiene valores equiprobables y $H(Y|X)=\tfrac 32$. ¿Cuál de las siguientes relaciones es falsa?</p>
+  <p>(a) $H(X,Y) = 3$<br>
+  (b) $H(Y) + H(X|Y) = \tfrac{5}{2}$<br>
+  (c) $I(X;Y) = 1 - H(X|Y)$<br>
+  (d) $H(Y) \geq \tfrac 32$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La afirmación $I(X;Y) = 1 - H(X|Y)$ es verdadera porque $H(X)=1$. $H(Y)\geq \tfrac 32$ también es verdadera porque el condicionamiento reduce la entropía. $H(Y) + H(X|Y) = H(X,Y) = H(X)+H(Y|X) = \tfrac 52$. La entropía conjunta no es $3$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

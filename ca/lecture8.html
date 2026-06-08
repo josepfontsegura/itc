@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -38,48 +38,186 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html" class="active">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
-      <h1>Properament</h1>
+      <h1>Tema 8. Capacitat de canal <a class="pdf-link" href="../pdf/ITC-2026-Lecture8-ca.pdf">pdf</a></h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Aquest contingut estarà disponible a mesura que avanci el curs.</p>
+
+
+<h2>Introducció</h2>
+
+<p>
+Fins ara hem vist exemples de codis de canal, com el codi de repetició o el codi (7,4) de Hamming, l'objectiu dels quals és transmetre informació de manera fiable a través d'un canal de comunicació utilitzant el diagrama de blocs de la Figura 8.1. Amb aquest sistema, transmetem $k=\log_2 M$ bits d'informació usant $n$ usos del canal, on $n$ és la longitud de les seqüències $\x_m$ i $\y$.
+</p>
+<figure><img src="../img/tikz/lecture8-fig1.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
+<figcaption>Funcions de codificació i descodificació en transmissió de dades.</figcaption>
+<a id="fig:enc2"></a>
+</p>
+<p>
+Desitgem dissenyar codis capaços de transmetre informació a una taxa $R=\frac kn$ el més alta possible amb una probabilitat d'error $P_{\rm e}$ el més petita possible. Diem que la comunicació fiable és possible a una taxa $R$ si $\lim_{n\to\infty} P_{\rm e}=0$. La taxa més gran $R$ a la qual la comunicació fiable és possible és la <strong>capacitat del canal</strong>.
+</p>
+
+<h2>Capacitat de canal</h2>
+
+<p>
+La capacitat d'un canal discret sense memòria amb entrada $X\in{\cal X}$, sortida $Y\in{\cal Y}$ i probabilitat de transició $P_{Y|X}(y|x)$, denotada per $C$ i derivada per Shannon el 1948, ve donada per
+$$
+C = \max_{\px(x)} I(X;Y),
+\tag{8.1}
+$$
+on la maximització és sobre totes les possibles distribucions d'entrada, i $I(X;Y)$ és la <strong>informació mútua</strong> entre l'entrada $X$ i la sortida $Y$, donada per
+$$
+	I(X;Y) = \sum_{x\in{\cal X}}\sum_{y\in{\cal Y}} P_X(x) P_{Y|X}(y|x) \log_2 \frac{P_{Y|X}(y|x)}{P_{Y}(y)}.
+	\tag{8.2}
+$$
+En altres paraules, per trobar la capacitat d'un canal discret sense memòria, cal calcular la informació mútua a $(8.2)$ per a totes les distribucions d'entrada possibles $P_X(x)$ i trobar la distribució d'entrada que la maximitza. El valor màxim resultant de la informació mútua és la capacitat del canal $C$, i la distribució d'entrada que condueix a la capacitat del canal s'anomena distribució d'entrada que assoleix la capacitat, denotada com $P_X^\star(x)$. La informació mútua $(8.2)$ pot interpretar-se com la quantitat d'informació que una variable aleatòria $Y$ té sobre una altra variable aleatòria $X$, o també pot entendre's com la reducció d'incertesa sobre $X$ un cop observem $Y$ com veurem a la secció següent.
+</p>
+<p>
+Hi ha dues implicacions importants pel que fa a la informació mútua i la comunicació fiable:
+</p>
+
+<ul>
+</p>
+<p>
+	<li><strong>(a)</strong> Per a una distribució d'entrada $P_X(x)$, és possible transmetre de forma fiable a una taxa $R&lt;I(X;Y)$ perquè existeixen codis tals que $P_{\rm e}\to 0$ quan $n\to\infty$.
+ 	<li><strong>(b)</strong> Per contra, per a $R&gt;I(X;Y)$, la comunicació fiable no és possible ja que no hi ha cap codi la probabilitat d'error del qual $P_{\rm e}\to 0$ quan $n\to\infty$.
+</p>
+<p>
+</ul>
+
+<p>
+Abans de veure un exemple detallat sobre el càlcul de la capacitat del canal d'un canal simètric binari, establim una sèrie de relacions entre la informació mútua i les entropies.
+</p>
+
+<h2>Informació mútua i entropies</h2>
+
+<p>
+La informació mútua a $(8.2)$ pot interpretar-se com el valor esperat de la variable aleatòria $Z=f(X,Y)$, la funció de dues variables $f(x,y)=\log_2\frac{P_{Y|X}(y|x)}{P_Y(y)}$. És a dir, $I(X;Y)=\mathbb{E}[f(X,Y)]$. Usant que la distribució conjunta de $X$ i $Y$ es pot escriure com
+$$
+	P_{XY}(x,y) = P_{Y|X}(y|x)P_X(x) = P_{X|Y}(x|y)P_Y(y),
+	\tag{8.3}
+$$
+i expandint el logaritme, obtenim que la informació mútua es pot escriure de diverses maneres, incloent-hi
+$$\begin{align}
+I(X;Y) &= \EE\bigg[\log_2\frac{\pyx(y|x)}{\py(y)}\bigg] = \mathbb{E}\bigl[\log_2\pyx(y|x)\bigr] - \mathbb{E}\bigl[\log_2\py(y)\bigr] \tag{8.4}\\
+&= \EE\bigg[\log_2\frac{\pxy(x,y)}{\px(x)\py(y)}\bigg] = \EE\bigl[\log_2\pxy(x,y)\bigr] - \EE\bigl[\log_2\px(x)\bigr]-\EE\bigl[\log_2\py(y)\bigr]\tag{8.5}\\
+&= \EE\bigg[\log_2\frac{\pxcy(x|y)}{\px(x)}\bigg] = \mathbb{E}\bigl[\log_2\pxcy(x|y)\bigr] - \mathbb{E}\bigl[\log_2\px(x)\bigr]\tag{8.6}\\
+&=I(Y;X),\tag{8.7}
+\end{align}$$
+la qual cosa implica que la informació mútua és una quantitat simètrica ja que  $I(X;Y)=I(Y;X)$. És fàcil observar que molts dels termes de les expressions anteriors són esperances del logaritme de distribucions de probabilitat, que de fet són <strong>entropies</strong>! Definim les quantitats següents
+$$\begin{gather}
+H(X) = -\sum_{x\in{\cal X}}\px(x)\log_2 \px(x) \tag{8.8}\\
+H(X,Y) = -\sum_{x\in{\cal X}}\sum_{y\in{\cal Y}}\pxy(x,y)\log_2 \pxy(x,y) \tag{8.9}\\
+H(Y|X) = -\sum_{x\in{\cal X}}\sum_{y\in{\cal Y}}\pxy(x,y)\log_2 \pyx(y|x) \tag{8.10}\end{gather}$$
+on $H(X)$ és l'entropia de $X$, $H(X,Y)$ és l'entropia conjunta de $X,Y$ i $H(Y|X)$ és l'entropia condicional de $Y$ donat $X$, que es pot reescriure com
+$$\begin{align}
+H(Y|X) &= -\sum_{x\in{\cal X}}\sum_{y\in{\cal Y}}\px(x)\pyx(y|x)\log_2 \pyx(y|x) \tag{8.11}\\
+&= \sum_{x\in{\cal X}}\px(x)\bigg(-\sum_{y\in{\cal Y}} \pyx(y|x)\log_2 \pyx(y|x)\bigg) \tag{8.12}\\
+&= \sum_{x\in{\cal X}}\px(x) H(Y|X=x) \tag{8.13}\end{align}$$
+on
+$$
+H(Y|X=x) = -\sum_{y\in{\cal Y}} \pyx(y|x)\log_2 \pyx(y|x) \tag{8.14}$$
+és l'entropia condicional de $Y$ per a un determinat $x$. L'entropia, més enllà de ser el límit fonamental de la compressió de dades, té una interpretació de la incertesa d'una variable aleatòria. Usant les definicions anteriors (compte amb els signes!), podem escriure les equacions $(8.4)$, $(8.5)$, $(8.6)$ i $(8.7)$ com
+$$\begin{align}
+	I(X;Y) &= H(Y) - H(Y|X) \tag{8.15}\\& = H(X) + H(Y) - H(X,Y) \tag{8.16}\\& = H(X) - H(X|Y) \tag{8.17}\\& = I(Y;X). \tag{8.18}\end{align}$$
+</p>
+<p>
+Acabem aquesta secció enunciant tres propietats importants de l'entropia i la informació mútua:
+</p>
+
+<ol>
+</p>
+<p>
+ 	<li>La informació mútua és una quantitat no negativa, és a dir $I(X;Y)\geq 0$ amb igualtat si i només si $X$ i $Y$ són independents.
+	<li>L'entropia també és una quantitat no negativa el límit superior de la qual és $H(X)\leq \log_2|{\cal X}|$, amb igualtat si i només si $X$ té símbols equiprobables.
+ 	<li>El condicionament redueix l'entropia, és a dir, $H(Y|X)\leq H(Y)$, la qual cosa suggereix que conèixer una altra variable aleatòria $X$ només pot reduir la incertesa present a $Y$.
+</p>
+<p>
+</ol>
+
+
+<h2>Canal binari simètric</h2>
+
+<p>
+Ara calcularem la capacitat del canal binari simètric. Com que l'entrada és binària, tenim que $X\in\{0,1\}$ amb distribució de probabilitat $\{q,1-q\}$, és a dir, $
+\px(0) = q$ i $\px(1)=1-q$. Atès que $P_X(x)$ només depèn d'un paràmetre $q$, que satisfà $0\leq q \leq 1$, podem reescriure l'expressió de capacitat a $(8.1)$ com
+$$
+C = \max_{0\leq q \leq 1} I(X;Y).
+\tag{8.19}
+$$
+Per calcular $(8.19)$, partim de l'expressió convenient de la informació mútua a $(8.15)$, és a dir, $I(X;Y)=H(Y)-H(Y|X)$. Per al canal simètric binari amb probabilitat de canvi de bit $p$ tenim que $P_{Y|X}(0|1)=P_{Y|X}(1|0)=p$. Per tant, l'entropia condicional $H(Y|X)$ es pot calcular com
+$$\begin{align}
+H(Y|X) & = -\sum_{x\in\{0,1\}}\sum_{y\in\{0,1\}} \px(x)\pyx(y|x) \log_2\pyx(y|x) \tag{8.20}\\
+& = \underbrace{q\Big[(1-p) \log_2\frac{1}{1-p} + p\log_2\frac1p \Big]}_{x=0} + \underbrace{(1-q)\Big[(1-p) \log_2\frac{1}{1-p} + p\log_2\frac1p \Big]}_{x=1} \tag{8.21}\\
+& = \underbrace{(1-p) \log_2\frac{1}{1-p} + p\log_2\frac1p}_{h_2(p)}. \tag{8.22}
+\end{align}$$
+L'última expressió és la funció d'entropia binària, que denotem com $h_2(p)$.
+</p>
+<p>
+A més, sabem que l'entropia de la sortida $H(Y)$ satisfà $
+H(Y) \leq \log_2(2) = 1$ i que $H(Y)=1$ s'assoleix quan $Y$ té símbols equiprobables. Per la llei de probabilitat total, la distribució de la sortida és $P_Y(0)=q(1-p)+(1-q)p$. Si la distribució d'entrada és $P_X(0)=q=\frac 12$, llavors $P_Y(0)=\frac 12$ i, per tant, $H(Y)=1$ assoleix el valor màxim possible independentment de $p$. Atès que $H(Y|X)$ a (8.22) no depèn de $q$, concloem que $P_X^\star(0)=\frac 12$ és la distribució d'entrada que assoleix la capacitat i que la capacitat del canal és
+$$
+C(p) = 1-h_2(p) ~\text{bits/ús de canal}.
+\tag{8.23}
+$$
+Il·lustrem $(8.23)$ a la Figura 8.2.
+</p>
+<figure><img src="../img/tikz/lecture8-fig2.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
+<figcaption>Capacitat del canal binari simètric.</figcaption>
+<a id="fig:cbsc"></a>
+</p>
+<p>
+Hi ha quatre punts finals interessants a tenir en compte:
+</p>
+
+<ul>
+</p>
+<p>
+<li>Si $p=0$, no hi ha canvis de bit, el canal no té soroll i la capacitat és $C=1$ bit/ús de canal. En aquest cas, no cal codificar.
+<li>Si $p = \frac12$, el canal canvia bits amb igual probabilitat i el millor que es pot fer al descodificador és endevinar.
+<li>Observeu la simetria per a $p&gt;\frac12$. Per exemple, per a $p=1$ on s'inverteixen tots els bits, n'hi ha prou amb revertir la sortida del canal de manera determinista i encara podem transmetre de manera fiable a $1$ bit per ús de canal.
+<li>Si $p=0.11$ tenim que $C=0.5$, és a dir, si volem transmetre de forma fiable amb un codi de taxa $R=\frac12$ només ho podrem fer si $p&lt;0.11$.
+</p>
+<p>
+</ul>
+
   </main>
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Teoria de la informació i la codificació 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

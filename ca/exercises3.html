@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -40,44 +40,488 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html" class="active">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Properament</h1>
+      <h1>Exercicis: 3. Codis de font binaris sense prefixe</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Aquest contingut estarà disponible a mesura que avanci el curs.</p>
+
+    <button id="expand-all" data-expand="Mostra totes les solucions" data-collapse="Amaga totes les solucions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostra totes les solucions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.1.</span> Quina de les afirmacions següents és correcta? En la teva resposta a aquesta pregunta, també has d'explicar per què les altres són incorrectes.</p>
+  <p>(a) El codi $\{a,b,c,ac\}$ és unívocament descodificable.<br>
+  (b) El codi $\{aa,ab,ba,bb\}$ no és unívocament descodificable.<br>
+  (c) El codi $\{aaa,aab,aac,bbb\}$ és lliure de prefixos.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>El codi (a) no és unívocament descodificable, ja que la cadena $ac$ es pot llegir com la paraula codi única $ac$ o com $a$ seguida de $c$. El codi (b) és lliure de prefixos (paraules codi diferents de la mateixa longitud) i, per tant, unívocament descodificable, de manera que l'afirmació que no ho és és falsa. El codi (c) és lliure de prefixos, l'afirmació correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.2.</span> Quin dels següents és un codi lliure de prefixos vàlid per a la font?</p>
+  <p>(a) Totes les seqüències binàries de $3$ bits.<br>
+  (b) El codi resultant de la concatenació del codi per a $\{a,b,c\}$ donat per $\{0,1,10\}$.<br>
+  (c) Un codi format per seqüències diferents de $4$ bits.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>La font pren valors a l'alfabet
+$$
+\{aa,ab,ac,ba,bb,bc,ca,cb,cc\},
+$$
+de manera que un codi vàlid consta de $9$ seqüències binàries. A (a), només hi ha $8$ seqüències binàries diferents de $3$ bits, cosa que és insuficient. El codi resultant de la concatenació del codi (b) és
+$$
+\{00,01,010,10,11,110,100,101,1010\}
+$$
+que clarament no és lliure de prefixos. Qualsevol codi format per $9$ seqüències diferents de $4$ bits és un codi lliure de prefixos.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.3.</span> Quina de les afirmacions següents és incorrecta? En la teva resposta a aquesta pregunta, també has d'explicar per què les altres són correctes.</p>
+  <p>(a) El codi resultant és lliure de prefixos amb longitud mitjana $\tfrac{10}{3}$ bits.<br>
+  (b) L'entropia de la font és $2\log_2(3)$ bits.<br>
+  (c) La longitud mitjana del codi és un $1.05155\%$ superior a l'entropia.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>El codi resultant ve donat per
+$$
+\{00,010,011,100,1010,1011,110,1110,1111\},
+$$
+que és lliure de prefixos. Com que la font emet símbols equiprobables, cada paraula codi s'utilitza amb probabilitat $\tfrac 19$, cosa que porta a una longitud mitjana de $\tfrac{10}{3}$ bits. L'entropia de la font ve donada per
+$$
+\sum_{i=1}^9 p_i\log_2\tfrac{1}{p_i} = 9\cdot\tfrac 19\log_2(9)=\log_2(9)=2\log_2(3),
+$$
+i la raó entre la longitud mitjana i l'entropia és $1.05155$, cosa que implica que la longitud mitjana és un $5.155\%$ superior a l'entropia.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.4.</span> Quina és ara la longitud mitjana del codi de la pregunta 5?</p>
+  <p>(a) La mateixa que abans.<br>
+  (b) $\tfrac{59}{18}$ bits<br>
+  (c) $\tfrac{8}{3}$ bits</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Tenim dues maneres de calcular la longitud mitjana. Com que el codi es construeix com la concatenació $X=(X_1,X_2)$, la longitud mitjana ve donada per $L_{\rm av}(X)=L_{\rm av}(X_1)+L_{\rm av}(X_2)$. El primer símbol es codifica fent servir el codi $\{0,10,11\}$ amb igual probabilitat, per tant $L_{\rm av}(X_1)=\tfrac 53$. La longitud mitjana del segon símbol emès depèn del primer símbol: amb probabilitat $\tfrac 13$ (el primer símbol és $a$) la longitud mitjana del segon símbol codificat és $\tfrac 12\cdot 1 + \tfrac 14\cdot 2 + \tfrac 14\cdot 2 = \tfrac 32$; mentre que amb probabilitat $\tfrac 23$ (el primer símbol és $b$ o $c$), la longitud mitjana del segon símbol codificat és $\tfrac 53$. En conjunt, obtenim
+$$
+L_{\rm av}(X) = \frac 53 + \frac 13\cdot \frac 32 + \frac 23 \cdot \frac 53 = \frac{59}{18}.
+$$
+La segona manera consisteix a trobar la distribució conjunta de la font $U=(U_1,U_2)$ com $P_U(u)=P_{U_1}(u_1)P_{U_2|U_1}(u_2|u_1)$. Per exemple, $P_U(aa)=P_{U_1}(a)P_{U_2|U_1}(a|a) = \tfrac 13\cdot \tfrac 12 = \tfrac 16$, o $P_U(ca)=P_{U_1}(c)P_{U_2|U_1}(a|c) = \tfrac 13\cdot \tfrac 13 = \tfrac 19$. Procedint de la mateixa manera per a tots els símbols de la font, obtenim la distribució de probabilitat
+$$
+\biggl\{ \frac 16, \frac{1}{12},\frac{1}{12}, \frac 19, \frac 19,\frac 19,\frac 19,\frac 19,\frac 19
+\biggr\}
+$$
+Com que el codi té distribució de longituds
+$$
+\{2,3,3,3,4,4,3,4,4\},
+$$
+combinar tots dos resultats porta a la mateixa resposta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.5.</span></p>
+  <p>Una font $S$ té alfabet $\{a,b,c\}$ i distribució de probabilitat $\{0.4, 0.59999, 0.00001\}$. Considereu els codis donats per $\mathcal{C}_1=\{00, 11, 1010101010\}$ i $\mathcal{C}_2=\{000, 11, 101\}$. Indiqueu la resposta certa, justificant la vostra elecció i per què les altres són incorrectes.</p>
+  <p>(a) $\mathcal{C}_1$ és més eficient que $\mathcal{C}_2$.<br>
+  (b) Un dels dos codis no és lliure de prefixos.<br>
+  (c) Per a qualsevol seqüència de tres símbols de la font, la longitud de la seqüència codificada amb $\mathcal{C}_1$ serà més curta que la seqüència codificada amb $\mathcal{C}_2$.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La resposta (a) és certa perquè $L_{\rm av}(\mathcal{C}_1) = 2.00008$ i $L_{\rm av}(\mathcal{C}_2) = 2.40001$. La resposta (b) és falsa perquè tots dos codis són lliures de prefixos. La resposta (c) és falsa, ja que per a totes les seqüències que contenen el símbol $c$ el codi $\mathcal{C}_1$ donarà una seqüència més llarga que $\mathcal{C}_2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.6.</span></p>
+  <p>Per a $r\geq 2$, considereu una font que pren valors en $\{1,\ldots,r\}$ i un codi les longituds del qual són $\ell_j=\lceil \log_2(j+1)\rceil$, on $\lceil x \rceil$ és l'operador sostre. Indiqueu la resposta falsa, justificant la vostra elecció i per què les altres són correctes. Podeu utilitzar que $\lceil x \rceil &lt; x + 1$.</p>
+  <p>(a) Existeix un codi lliure de prefixos per a qualsevol $r$.<br>
+  (b) El valor de la desigualtat de Kraft compleix $\sum_{j=1}^r 2^{-\ell_j} &gt; \sum_{j=1}^r \frac{1}{2(j+1)}$.<br>
+  (c) Algunes paraules codi poden tenir la mateixa longitud.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La resposta (a) és falsa perquè la desigualtat de Kraft $\sum_{j=1}^r 2^{-\ell_j} \leq 1$ només es compleix per a $r=2$ i $r=3$. La resposta (b) és certa perquè, utilitzant que $\lceil \log_2(j+1)\rceil &lt; \log_2(j+1)+1$, tenim $$\sum_{j=1}^{r} 2^{-\lceil \log_2(j+1)\rceil} &gt; \sum_{j=1}^{r}2^{-\log_2(j+1)-1} = \sum_{j=1}^{r}\frac{1}{2 (j+1)}.$$ La resposta (c) és certa a causa de l'operador sostre.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.7.</span></p>
+  <p>Es dóna un codi binari lliure de prefixos per a una font $S$ que pot prendre els valors $\{a,b,c,d,e,f\}$. Se sap que $P_S(a)=P_S(b)=P_S(c)=\frac{1}{4}$ i que $P_S(d)=\frac{1}{8}$. Sabent que el codi té una representació en arbre binari sense fulles buides, indiqueu quina resposta és falsa, justificant la vostra elecció i per què les altres són correctes.</p>
+  <p>(a) Per a aquest codi, segur que $L_{\rm av} &gt; H(S)$.<br>
+  (b) Per a aquest codi, la desigualtat de Kraft es compleix amb igualtat.<br>
+  (c) La longitud màxima d'una paraula codi d'aquest codi és com a màxim 5.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La resposta (a) és falsa, ja que podem trobar un codi tal que $L_{\rm av}=H(S)$. La resposta (b) és certa perquè se'ns diu que no hi ha fulles buides. La resposta (c) és certa, perquè coneixent la mida de l'alfabet i el fet que no hi ha fulles buides, l'arbre més alt té profunditat cinc.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.8.</span></p>
+  <p>Una font $S$ que pren valors en $\{1,2,3,4\}$ amb distribució de probabilitat $\{\frac{1}{4}, \frac{1}{4}, \frac{3}{8}, \frac{1}{8}\}$ es comprimeix mitjançant un codi amb longituds $\{1,1,2,3\}$. Trobeu la resposta falsa, justificant la vostra elecció i per què les altres són correctes.</p>
+  <p>(a) El codi no pot ser únicament descodificable.<br>
+  (b) L'entropia de la font compleix $H(S)&lt;2$.<br>
+  (c) Es compleix que $L_{\rm av}=\mathbb{E}[S]$, on $\mathbb{E}[S]$ és el valor esperat de la font.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>La resposta (a) és correcta perquè amb dues paraules codi de longitud 1 el codi necessàriament no és únicament descodificable. La resposta (b) és correcta ja que l'entropia és $1.90564$. Finalment, la resposta (c) és falsa perquè $\mathbb{E}[S]=\frac{19}{8}$ mentre que $L_{\rm av}=\frac{13}{8}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.9.</span></p>
+  <p>Un codi binari de font generat aleatòriament amb paraules codi $\{\boldsymbol{x}_1,\boldsymbol{x}_2\}$, de manera que cada paraula codi se selecciona independentment del conjunt $\{0,01,10\}$ amb distribució de probabilitat $\bigl\{\tfrac12,\tfrac13,\tfrac16\bigr\}$, s'utilitza per representar una font discreta sense memòria que pren valors en $\{a,b\}$ amb distribució de probabilitat $\bigl\{\tfrac13,\tfrac23\bigr\}$. Quina és la probabilitat de generar un codi únicament descodificable amb longitud mitjana $\tfrac53$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac14$<br>
+  (c) $\tfrac19$<br>
+  (d) $\tfrac{1}{12}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>De tots els codis possibles generats aleatòriament, només $\{0,01\}$ i $\{0,10\}$ compleixen les dues condicions de descodificabilitat única i longitud mitjana. Les probabilitats d'aquests codis són $\tfrac 16$ i $\tfrac{1}{12}$, respectivament, la suma de les quals porta a la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.10.</span></p>
+  <p>Una font discreta pren valors en el conjunt $\{a,b,c\}$ amb probabilitats $\{p,2p,3p\}$ per a algun paràmetre $p\neq 0$. Quina és la longitud mitjana del codi binari lliure de prefixos òptim per a aquesta font?</p>
+  <p>(a) $\log_2(3)$<br>
+  (b) $\tfrac 32$<br>
+  (c) $2$<br>
+  (d) $\tfrac{4+3\log_2(3)}{6}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Només $p=\tfrac 16$ porta a una distribució de probabilitat vàlida. El codi de Huffman per a la font té longituds $\{2,2,1\}$, de manera que $L_{\rm av}=9p=\tfrac 32$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.11.</span></p>
+  <p>Per a una font discreta donada $X$, el codi binari lliure de prefixos òptim és $\{0,10,11\}$ i compleix $L_{\rm av}=H(X)$. Es construeix una nova font com $Y=(X_1,X_2)$, on $X_1$ i $X_2$ són independents i totes dues tenen la mateixa distribució que $X$. Quina és la longitud mitjana del codi binari lliure de prefixos òptim per a $Y$?</p>
+  <p>(a) $\log_2(9)$<br>
+  (b) $\frac{10}{3}$<br>
+  (c) $3$<br>
+  (d) $4$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Si $L_{\rm av}=H(X)$, llavors la distribució de $X$ ve donada per potències de $2$, és a dir, $\bigl\{ \frac 12, \frac 14, \frac 14 \bigr\}$. Com que la font és sense memòria, podem calcular les probabilitats de $Y$, trobar el codi òptim (de Huffman) de $Y$ i obtenir-ne la longitud mitjana.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.12.</span></p>
+  <p>Un codi binari $\{0,10,110,111\}$ s'utilitza per a una font amb $4$ símbols. És aquest codi lliure de prefixos?</p>
+  <p>(a) Sí<br>
+  (b) No, perquè $0$ és prefix de $10$<br>
+  (c) No, perquè $110$ és prefix de $111$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Cap paraula codi no és prefix d'una altra: $0$ no és prefix de $10$, ja que els primers bits són diferents. Comprovant tots els parells es confirma que el codi és lliure de prefixos.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.13.</span> Quin és el valor de Kraft del codi $\{0,10,110,111\}$?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{7}{8}$<br>
+  (c) $\tfrac{3}{4}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>El valor de Kraft és $2^{-1}+2^{-2}+2^{-3}+2^{-3}=\tfrac{1}{2}+\tfrac{1}{4}+\tfrac{1}{8}+\tfrac{1}{8}=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.14.</span> Una font té entropia $H(X)=2.5$ bits. Què es pot afirmar sobre la longitud mitjana $L_{\rm av}$ de qualsevol codi binari lliure de prefixos per a aquesta font?</p>
+  <p>(a) $L_{\rm av}\geq 2.5$<br>
+  (b) $L_{\rm av}\leq 2.5$<br>
+  (c) $L_{\rm av}= 2.5$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Pel teorema de codificació de font, la longitud mitjana de qualsevol codi unívocament descodificable (i per tant lliure de prefixos) compleix $L_{\rm av}\geq H(X)=2.5$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.15.</span> És el codi $\{0,01,011\}$ unívocament descodificable?</p>
+  <p>(a) No<br>
+  (b) Sí, és lliure de prefixos<br>
+  (c) Sí, però no lliure de prefixos</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La paraula codi $0$ és un prefix de $01$, i $01$ és un prefix de $011$. La seqüència $011$ es pot descodificar com el tercer símbol o bé com el primer seguit del segon, de manera que no és unívocament descodificable.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.16.</span> Existeix un codi binari lliure de prefixos amb longituds de paraula codi $\{1,2,2,3\}$?</p>
+  <p>(a) Sí, perquè la desigualtat de Kraft es compleix<br>
+  (b) No, la desigualtat de Kraft no es compleix<br>
+  (c) Només si la font té $4$ símbols</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>El valor de Kraft és $2^{-1}+2^{-2}+2^{-2}+2^{-3}=\tfrac{4+2+2+1}{8}=\tfrac{9}{8}&gt;1$, de manera que la desigualtat de Kraft no es compleix i no existeix cap codi d'aquest tipus.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.17.</span> S'utilitza un codi binari de font $\{00,01,10,11\}$ per a una font amb $4$ símbols equiprobables. Quina és la longitud mitjana?</p>
+  <p>(a) $2$ bits<br>
+  (b) $1$ bit<br>
+  (c) $4$ bits</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Cada paraula codi té longitud $2$ i tots els símbols són equiprobables, de manera que $L_{\rm av}=2$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.18.</span></p>
+  <p>Per a una font amb $r$ símbols equiprobables, l'entropia és $\log_2(r)$ bits. Quina és la longitud mitjana mínima possible d'un codi binari lliure de prefixos de <em>longitud fixa</em>?</p>
+  <p>(a) $\lceil\log_2(r)\rceil$ bits<br>
+  (b) exactament $\log_2(r)$ bits<br>
+  (c) $r$ bits</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Un codi binari de longitud fixa ha d'assignar el mateix nombre de bits a cadascun dels $r$ símbols, i $\lceil\log_2(r)\rceil$ bits són suficients per indexar-los tots, de manera que la longitud fixa mínima és $\lceil\log_2(r)\rceil$ bits. Quan $r$ és una potència de $2$ això és igual a $\log_2(r)$; altrament $\lceil\log_2(r)\rceil&gt;\log_2(r)$. Usar exactament $\log_2(r)$ és en general impossible amb una longitud entera fixa, i $r$ bits és molt més del necessari.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.19.</span> Un codi per a una font $\{a,b,c\}$ té paraules codi $\{0,10,11\}$. Quin és el valor de Kraft?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{3}{4}$<br>
+  (c) $\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>El valor de Kraft és $2^{-1}+2^{-2}+2^{-2}=\tfrac{1}{2}+\tfrac{1}{4}+\tfrac{1}{4}=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.20.</span> Quin dels següents codis és unívocament descodificable però NO lliure de prefixos?</p>
+  <p>(a) $\{0,01,11\}$<br>
+  (b) $\{0,10,11\}$<br>
+  (c) $\{0,01,10\}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>El codi $\{0,01,11\}$ no és lliure de prefixos perquè $0$ és un prefix de $01$. No obstant això, es pot demostrar que és unívocament descodificable. El codi $\{0,10,11\}$ és lliure de prefixos.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.21.</span></p>
+  <p>Una font pren valors a $\{a,b\}$ amb $P(a)=p$ i $P(b)=1-p$. Per a quin valor de $p$ el codi binari lliure de prefixos òptim assoleix $L_{\rm av}=H(X)$?</p>
+  <p>(a) $p=\tfrac{1}{2}$<br>
+  (b) Qualsevol $p$<br>
+  (c) $p=\tfrac{1}{4}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per a una font binària, qualsevol codi lliure de prefixos assigna longitud $1$ a tots dos símbols, de manera que $L_{\rm av}=1$ sempre. L'entropia $H(X)=h_2(p)=1$ només quan $p=\tfrac{1}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.22.</span></p>
+  <p>Un codi binari amb longituds de paraula codi $\{\ell_1,\ell_2\}$ codifica una font de dos símbols amb la distribució <em>uniforme</em> $\{\tfrac12,\tfrac12\}$, assolint una longitud mitjana de $\tfrac52$. La primera paraula codi té longitud $\ell_1=1$.</p><p>Quina és la longitud $\ell_2$ de la segona paraula codi?</p>
+  <p>(a) $\ell_2=4$<br>
+  (b) $\ell_2=5$<br>
+  (c) $\ell_2=2$<br>
+  (d) $\ell_2=3$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La longitud mitjana és $L_{\rm av}=\tfrac12\ell_1+\tfrac12\ell_2$. Amb $\ell_1=1$ i $L_{\rm av}=\tfrac52$, obtenim $\tfrac12(1)+\tfrac12\ell_2=\tfrac52$, així $\tfrac12\ell_2=2$ i $\ell_2=4$. (El valor $5$ surt d'oblidar restar $\ell_1$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.23.</span></p>
+  <p>Un codi binari té longituds de paraula codi $\{1,4\}$ (una paraula codi de longitud $1$, una de longitud $4$). S'utilitza sobre una font de dos símbols amb distribució $\{\tfrac13,\tfrac23\}$, assignant la paraula codi més curta al símbol més probable per minimitzar la longitud mitjana.</p><p>Quina és la longitud mitjana resultant?</p>
+  <p>(a) $2$ bits<br>
+  (b) $3$ bits<br>
+  (c) $\tfrac52$ bits<br>
+  (d) $\tfrac53$ bits</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Assignem la paraula codi de longitud $1$ al símbol de probabilitat $\tfrac23$ i la de longitud $4$ al símbol de probabilitat $\tfrac13$: $L_{\rm av}=\tfrac23\cdot1+\tfrac13\cdot4=\tfrac23+\tfrac43=\tfrac63=2$. L'assignació invertida (subòptima) $\tfrac13\cdot1+\tfrac23\cdot4=3$ és més gran, així que $2$ bits és el valor mínim.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.24.</span></p>
+  <p>Considereu tres afirmacions sobre codis de font binaris. Exactament una és falsa. Quina afirmació és la falsa?</p><ol><li>El codi $\{0,\,01,\,001\}$ no és lliure de prefixos però és unívocament descodificable.</li><li>El codi $\{1,\,01,\,001\}$ és lliure de prefixos i unívocament descodificable.</li><li>El codi $\{0,\,1,\,01\}$ no és unívocament descodificable.</li></ol>
+  <p>(a) Afirmació 1: $\{0,\,01,\,001\}$ no és lliure de prefixos però unívocament descodificable<br>
+  (b) Afirmació 2: $\{1,\,01,\,001\}$ és lliure de prefixos i unívocament descodificable<br>
+  (c) Afirmació 3: $\{0,\,1,\,01\}$ no és unívocament descodificable<br>
+  (d) Cap és falsa; les tres són certes</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>A $\{0,\,01,\,001\}$, la paraula $0$ és prefix de les altres, de manera que correctament <em>no</em> és lliure de prefixos. Però en concatenar $0$ i $01$ s'obté $0\cdot 01 = 001$, que coincideix amb la tercera paraula codi, de manera que $001$ té dues descodificacions (símbols 1,2 o símbol 3). Per tant <strong>no</strong> és unívocament descodificable, així que l'afirmació 1 és <strong>falsa</strong>. (L'afirmació 3 és certa per la mateixa col·lisió $0\cdot 1 = 01$; l'afirmació 2 és certa perquè cada paraula és $0$s inicials acabats per un únic $1$, així lliure de prefixos $\Rightarrow$ unívocament descodificable.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.25.</span></p>
+  <p>Un codi binari lliure de prefixos es representa mitjançant un arbre binari de profunditat $5$. L'arbre té exactament una fulla buida (una posició de fulla no assignada a cap paraula codi), situada a profunditat $5$. Calcula el <em>valor de Kraft</em> $\displaystyle\sum_{i=1}^{r} 2^{-\ell_i}$, on $\ell_i$ són les profunditats de les fulles ocupades.</p>
+  <p>(a) $\dfrac{31}{32} = 1 - 2^{-5}$<br>
+  (b) $1$<br>
+  (c) $\dfrac{15}{16} = 1 - 2^{-4}$<br>
+  (d) $\dfrac{1}{32} = 2^{-5}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Un arbre binari <strong>ple</strong>, on cada fulla porta el pes $2^{-(\text{profunditat})}$, suma exactament $1$ (el pes de cada pare és igual al dels seus dos fills). Aquí una fulla a profunditat $5$ és buida, de manera que aporta $2^{-5}$ al total $1$ de l'arbre ple però <em>no</em> es compta com a paraula codi. Per tant $\sum_i 2^{-\ell_i} = 1 - 2^{-5} = 1 - \tfrac{1}{32} = \tfrac{31}{32}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.26.</span></p>
+  <p>Un codi binari lliure de prefixos amb $3$ paraules codi satisfà la desigualtat de Kraft amb valor $\frac{7}{8}$, és a dir $\sum_{i=1}^{3} 2^{-\ell_i}=\frac{7}{8}$. El codi codifica una font els $3$ símbols de la qual són <em>equiprobables</em>. Calculeu la longitud mitjana de paraula codi $L_{\mathrm{av}}$.</p>
+  <p>(a) $L_{\mathrm{av}}=2$ bits per símbol<br>
+  (b) $L_{\mathrm{av}}=\log_2 3\approx 1.585$ bits per símbol<br>
+  (c) $L_{\mathrm{av}}=\frac{7}{8}$ bits per símbol<br>
+  (d) $L_{\mathrm{av}}=3$ bits per símbol</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Les longituds queden fixades per $2^{-\ell_1}+2^{-\ell_2}+2^{-\ell_3}=\frac{7}{8}$: exactament una paraula codi té longitud $1$ (dues ja donarien $1&gt;\frac78$, cap donaria com a màxim $\frac34&lt;\frac78$), i la resta $\frac78-\frac12=\frac38=\frac14+\frac18$ força longituds $2$ i $3$. Per tant el multiconjunt és $\{1,2,3\}$. Amb una font uniforme $\mathbb{P}(x_i)=\frac13$, així $L_{\mathrm{av}}=\frac13(1+2+3)=\frac63=2$ bits per símbol.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.27.</span></p>
+  <p>S'utilitza un codi binari lliure de prefixos sobre una font amb distribució <em>uniforme</em> i s'assoleix una longitud mitjana de paraula codi de $L_{\rm av}=\frac{39}{11}$ bits. Quina és la mida màxima possible $M$ de l'alfabet de la font?</p>
+  <p>(a) $M=11$<br>
+  (b) $M=12$<br>
+  (c) $M=10$<br>
+  (d) $M=8$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per a una font uniforme $H(U)=\log_2 M$, i qualsevol codi lliure de prefixos compleix $L_{\rm av}\ge H(U)$. Així $\frac{39}{11}\ge\log_2 M$, d'on $M\le 2^{39/11}=2^{3.545\ldots}\approx 11.68$, és a dir $M\le 11$. El valor $M=11$ és assolible: 5 paraules codi de longitud $3$ i 6 de longitud $4$ donen $\sum_i 2^{-\ell_i}=\tfrac58+\tfrac{6}{16}=1$ (Kraft es compleix) i $L_{\rm av}=\frac{5\cdot3+6\cdot4}{11}=\frac{39}{11}$. Com que $\log_2 12=3.585&gt;3.545$, $M=12$ és impossible. Per tant $M_{\max}=11$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.28.</span></p>
+  <p>Una font $U$ és uniforme sobre $\{1,2,3\}$ i es codifica com $1\mapsto\texttt{1}$, $2\mapsto\texttt{10}$, $3\mapsto\texttt{11}$. Sigui $\ell(U)$ la longitud de la paraula codi en bits i sigui $H(U)$ l'entropia en bits. Calcula $\mathbb{P}\big[\ell(U)\ge H(U)\big]$.</p>
+  <p>(a) $\tfrac23$<br>
+  (b) $\tfrac13$<br>
+  (c) $1$<br>
+  (d) $\log_2 3$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Les longituds són $\ell(1)=1$ i $\ell(2)=\ell(3)=2$, de manera que $\ell(U)=1$ amb probabilitat $\tfrac13$ i $\ell(U)=2$ amb probabilitat $\tfrac23$. L'entropia és $H(U)=\log_2 3\approx 1.585$ bits. Com que $1&lt;1.585$ però $2\ge 1.585$, l'esdeveniment $\{\ell(U)\ge H(U)\}$ és $\{\ell(U)=2\}=\{U\in\{2,3\}\}$. Per tant la probabilitat és $\tfrac23$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.29.</span></p>
+  <p>Considera un codi binari amb distribució de longituds $\{1,2,3,3,5,5\}$. L'afirmació <em>«existeix un codi binari lliure de prefixos amb aquestes longituds»</em> és certa o falsa, i per què?</p>
+  <p>(a) Falsa: $K=\frac{17}{16}&gt;1$, per tant Kraft no es compleix i no existeix tal codi<br>
+  (b) Certa: $K=1$ exactament, per tant existeix un codi lliure de prefixos<br>
+  (c) Certa: $K=\frac{15}{16}&lt;1$, per tant existeix un codi lliure de prefixos<br>
+  (d) Falsa: $K=\frac{17}{16}&gt;1$, i no existeix cap codi de cap mena amb aquestes longituds</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Calcula la suma de Kraft: $K=2^{-1}+2^{-2}+2^{-3}+2^{-3}+2^{-5}+2^{-5}=\frac{16+8+4+4+1+1}{32}=\frac{34}{32}=\frac{17}{16}=1.0625$. Com que $K&gt;1$, les regions disjuntes de les fulles superarien tot l'arbre, de manera que <strong>no</strong> existeix cap codi lliure de prefixos amb aquestes longituds. L'afirmació és <strong>falsa</strong>. (L'opció 3 és incorrecta perquè sempre existeixen codis no lliures de prefixos amb longituds arbitràries.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.30.</span></p>
+  <p>Un codi binari donat té distribució de longituds $\{1,2,2\}$. L'afirmació <em>«aquest codi és segur que és lliure de prefixos»</em> és certa o falsa?</p>
+  <p>(a) Falsa: $K=1$ només garanteix que existeix algun codi lliure de prefixos; p. ex. $\{0,00,01\}$ té aquestes longituds però no és lliure de prefixos<br>
+  (b) Certa: com que $K=1\le 1$, qualsevol codi amb aquestes longituds és lliure de prefixos<br>
+  (c) Falsa: $K=\frac{3}{2}&gt;1$, per tant cap codi amb aquestes longituds pot ser lliure de prefixos<br>
+  (d) Certa: $\{0,10,11\}$ és lliure de prefixos, per tant tot codi amb aquestes longituds també ho és</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Kraft dona $K=2^{-1}+2^{-2}+2^{-2}=\frac{1}{2}+\frac{1}{4}+\frac{1}{4}=1\le 1$, de manera que existeix <em>algun</em> codi lliure de prefixos amb aquestes longituds (p. ex. $\{0,10,11\}$). Però Kraft és una condició sobre el multiconjunt de longituds, no sobre un codi concret. El contraexemple $\{0,00,01\}$ té longituds $\{1,2,2\}$ però $0$ és prefix de $00$ i $01$, de manera que <strong>no</strong> és lliure de prefixos. L'afirmació és <strong>falsa</strong>.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.31.</span></p>
+  <p>Considera la distribució de longituds $\{1,2,3,3,3\}$. L'afirmació <em>«no podem trobar cap codi binari lliure de prefixos amb aquestes longituds»</em> és certa o falsa?</p>
+  <p>(a) Certa: $K=\frac{9}{8}&gt;1$, per tant Kraft no es compleix i no existeix cap codi lliure de prefixos<br>
+  (b) Falsa: $K=1$, per tant sí que existeix un codi lliure de prefixos<br>
+  (c) Falsa: $K=\frac{7}{8}&lt;1$, per tant sí que existeix un codi lliure de prefixos<br>
+  (d) Certa: $K=\frac{9}{8}&gt;1$, però només perquè les tres paraules de longitud 3 xoquen</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Suma de Kraft: $K=2^{-1}+2^{-2}+2^{-3}+2^{-3}+2^{-3}=\frac{4+2+1+1+1}{8}=\frac{9}{8}=1.125$. Com que $K&gt;1$, les regions disjuntes de les fulles cobririen més que tot l'arbre, cosa impossible, de manera que <strong>no</strong> existeix cap codi lliure de prefixos amb aquestes longituds. Per tant, l'afirmació que no se'n pot trobar cap és <strong>certa</strong>.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.32.</span></p>
+  <p>Un codi binari lliure de prefixos té $4$ paraules codi amb longituds enteres positives $\ell_1,\ell_2,\ell_3,\ell_4$ que satisfan la igualtat de Kraft $\sum_{i=1}^{4} 2^{-\ell_i} = \frac{15}{16}$. Quin és el conjunt (únic) de quatre longituds?</p>
+  <p>(a) $\{1,2,3,4\}$<br>
+  (b) $\{2,2,3,4\}$<br>
+  (c) $\{1,2,2,4\}$<br>
+  (d) $\{2,3,4,4\}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Multiplica per $16=2^4$: la condició esdevé $\sum_i 2^{4-\ell_i}=15$. Qualsevol $\ell_i\ge 5$ afegiria una fracció no entera, així que tots $\ell_i\le 4$, i els termes $a_i=2^{4-\ell_i}$ són monedes de $\{8,4,2,1\}$ que han de sumar $15$. L'únic multiconjunt de longitud $4$ d'aquestes monedes que suma $15$ és una de cada, $\{8,4,2,1\}$, que dona longituds $\{1,2,3,4\}$. Comprovació: $2^{-1}+2^{-2}+2^{-3}+2^{-4}=\frac{15}{16}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.33.</span></p>
+  <p>Per al codi amb $\sum_{i=1}^{4} 2^{-\ell_i} = \frac{15}{16}$ (longituds enteres positives), quantes paraules codi tenen longitud exactament $4$?</p>
+  <p>(a) Exactament una<br>
+  (b) Cap<br>
+  (c) Exactament dues<br>
+  (d) No es pot determinar</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Escrivint $a_i=2^{4-\ell_i}\in\{8,4,2,1\}$ amb $\sum a_i=15$, una paraula codi de longitud $4$ correspon a una moneda de valor $1$ (l'única senar). Si cap moneda fos $1$, les monedes parelles restants $\{2,4,8\}$ sumarien un nombre parell, mai el total senar $15$; i el multiconjunt queda fixat únicament com $\{8,4,2,1\}$, descartant dues o més. Per tant exactament una paraula codi té longitud $4$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 3.34.</span></p>
+  <p>Un codi de font binari <em>lliure de prefixos</em> té les nou longituds de paraula codi $\{1,3,3,4,4,5,5,5,5\}$. Se sap que la longitud mitjana del codi és igual a l'<em>entropia</em> de la font. Calcula aquesta longitud mitjana (en bits per símbol).</p>
+  <p>(a) $\dfrac{19}{8}=2.375$ bits/símbol<br>
+  (b) $\dfrac{34}{9}\approx 3.778$ bits/símbol<br>
+  (c) $\dfrac{27}{8}=3.375$ bits/símbol<br>
+  (d) $3.5$ bits/símbol</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La igualtat $L_{\rm av}=H(U)$ es compleix si i només si la font és diàdica amb $p_i=2^{-\ell_i}$ (l'entropia relativa $\sum_i p_i\log_2\frac{p_i}{2^{-\ell_i}}$ s'anul·la). La suma de Kraft $\tfrac12+2\cdot\tfrac18+2\cdot\tfrac1{16}+4\cdot\tfrac1{32}=1$ en confirma la validesa. Llavors $L_{\rm av}=\sum_i 2^{-\ell_i}\ell_i=\tfrac12\cdot1+2\cdot\tfrac18\cdot3+2\cdot\tfrac1{16}\cdot4+4\cdot\tfrac1{32}\cdot5=\tfrac{19}{8}=2.375$ bits/símbol. (El valor $\tfrac{34}{9}$ és un distractor arbitrari.)</p>
+  </details>
+</div>
+
   </main>
 </div>
 

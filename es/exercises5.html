@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -40,44 +40,535 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html" class="active">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Ejercicios: 5. Límites fundamentales en compresión de fuente</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+    <button id="expand-all" data-expand="Mostrar todas las soluciones" data-collapse="Ocultar todas las soluciones" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostrar todas las soluciones</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.1.</span> La longitud media del código libre de prefijos óptimo para una fuente discreta sin memoria $X=(U_1,\ldots,U_{20})$ donde cada $U_i$ toma valores en $\{a,b,c,d\}$ con probabilidades $\{\frac 12, \frac 14, \frac 18, \frac 18\}$ estará en el intervalo</p>
+  <p>(a) $[35,36)$<br>
+  (b) $\bigl[\frac 74,  \frac{11}{4})$<br>
+  (c) $\bigl[\frac 74,  \frac{9}{5})$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La longitud media del código libre de prefijos óptimo para $X$ cumple $H(X)\leq L_{\rm av} &lt; H(X)+1$. Como la fuente no tiene memoria, la entropía de $X$ es $H(X)=nH(U)$, donde $H(U)=\frac 74$, lo que conduce al resultado correcto.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.2.</span> ¿Cuál de las siguientes afirmaciones sobre una fuente de información binaria $X=(U_1,\ldots,U_n)$ es verdadera? En la respuesta, también hay que justificar por qué las demás son falsas.</p>
+  <p>(a) Si la fuente no tiene memoria, entonces $H(X)=n$.<br>
+  (b) Si $X\in\{00\cdots 0,11\cdots 1\}$ con igual probabilidad, la longitud media del código óptimo es $1$ bit.<br>
+  (c) Si los bits son independientes y equiprobables, entonces el código de Huffman para $X$ tiene longitud media $L_{\rm av}&gt;n$.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>En (a), tenemos símbolos independientes e idénticamente distribuidos de modo que $H(X)=nH(U)$. Sin embargo, en general $H(U) \leq  1$ (con igualdad solo para bits equiprobables), por lo que $H(X)\leq n$. En (b), $X$ tiene solo dos símbolos, así que el código libre de prefijos óptimo es, por ejemplo, $\{1,0\}$, con longitud media $L_{\rm av}=1$. Por último, si los bits son equiprobables e independientes, entonces $P_X(x)=2^{-n}$. Tras construir el código de Huffman, todas las hojas del árbol resultante se utilizan y tienen profundidad $n$, por tanto $L_{\rm av}=n$ (con igualdad).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.3.</span> Una fuente discreta $X=(U_1,U_2,U_3)$ emite tres símbolos consecutivos e independientes, cada uno tomando valores sobre el alfabeto $\{a,b,c\}$ con distribuciones <u>diferentes</u>: $U_1$ tiene distribución $\{\frac 13,\frac 13,\frac 13\}$, $U_2$ tiene distribución $\{\frac 12,\frac 14,\frac 14\}$ y $U_3$ tiene distribución $\{\frac 23, \frac 16, \frac 16\}$. Cualquier código binario libre de prefijos para $X$ tiene una longitud media mayor o igual que</p>
+  <p>(a) $\frac 76 + 2\log_2(3)$<br>
+  (b) $\frac{13}{6} + \frac 32 \log_2(3)$<br>
+  (c) Ninguna de las otras</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La longitud media de cualquier código libre de prefijos cumple $L_{\rm av}\geq H(X)$, donde $H(X)$ es la entropía de la fuente. Como los símbolos son independientes, tenemos que $H(X)=H(U_1)+H(U_2)+H(U_3)$. Calculando las tres entropías y tras algunas manipulaciones matemáticas, obtenemos la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.4.</span> ¿Qué valor de $p$ maximiza la eficiencia del código de Huffman para una fuente $\{a,b,c\}$ con probabilidades $\{p,p,1-2p\}$ donde $p\in\bigl(0,\frac 13\bigr)$? Puedes usar una herramienta matemática para resolver numéricamente esta pregunta.</p>
+  <p>(a) $\frac 13$<br>
+  (b) $\frac 14$<br>
+  (c) $\frac 15$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>La eficiencia del código de Huffman viene dada por $\frac{H(X)}{L_{\rm av}}$, donde $H(X)=-2p\log_2(p)-(1-2p)\log_2(1-2p)$. Si $p&lt;\frac 13$, entonces $a$ o $b$ son los símbolos menos probables y el código de Huffman resultante tendrá longitudes $\{2,2,1\}$, y por tanto $L_{\rm av}= 1+2p$. Con una herramienta matemática representamos la eficiencia en función de $p$ en el intervalo $\bigl( 0,\frac 13\bigr)$ y observamos que tiene un máximo en $p=\frac 14$, dando una eficiencia máxima de $1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.5.</span> Considera una fuente discreta sin memoria $X=(U_1,\cdots,U_n)$ donde cada $U_i$ toma valores en $\{a,b,c\}$ con igual probabilidad. Sin construir explícitamente ningún código, sino utilizando una cota superior de la longitud media del código óptimo para $X$, ¿cuál es el menor tamaño de bloque $n$ tal que la eficiencia de codificación sea al menos del $95\%$?</p>
+  <p>(a) $11$<br>
+  (b) $12$<br>
+  (c) $13$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Como $X$ no tiene memoria, la eficiencia del código libre de prefijos óptimo está acotada inferiormente como $e_n&gt;\frac{H(U)}{H(U)+\frac 1n}$. La entropía de $U$ es $H(U)=\log_2(3)$ porque los símbolos son equiprobables. Para garantizar una eficiencia de al menos el $95\%$, necesitamos que $\frac{\log_2(3)}{\log_2(3)+\frac 1n} \geq 0.95$. Despejando $n$, encontramos que $n\geq \frac{0.95}{(1-0.95)\log_2(3)}\approx 11.9877$, de modo que necesitamos al menos $n=12$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.6.</span> Considera otra fuente discreta sin memoria $V$ que también toma valores sobre $\{a,b,c,d,e\}$ pero con distribución de probabilidad $\bigl\{ \frac 12, \frac 14, \frac 18 , \frac{1}{16}, \frac{1}{16} \bigr\}$. ¿Cuál es la eficiencia del código óptimo para $V$?</p>
+  <p>(a) $0.882353$<br>
+  (b) $0.941176$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>El código de Huffman tiene distribución de longitudes $\{1,2,3,4,4\}$ y longitud media $L_{\rm av}=\frac{15}{8}$, que coincide con la entropía $H(V)$, por tanto la eficiencia es $1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.7.</span></p>
+  <p>Sea $W$ una fuente cuyo código binario óptimo tiene longitudes de palabra código dadas por una permutación de $\{2,2,2,3,3\}$, con entropía $H(W)=2.123938$ bits. Sea $X=(W_1,\dots,W_n)$ formado por $n$ copias i.i.d. de $W$. Suponga que $X$ se codifica codificando individualmente cada $W_i$ con ese código. ¿En qué intervalo se encuentra la eficiencia de este código cuando $n\to\infty$?</p>
+  <p>(a) $\left[0,\frac 12\right)$<br>
+  (b) $\left[\frac 12,\frac{24}{25}\right)$<br>
+  (c) $\left[\frac{24}{25},1\right]$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Codificar $W$ con un código con distribución de longitudes dada por una permutación de $\{2,2,2,3,3\}$ lleva a una longitud media entre $\frac{133}{60}$ y $\frac{79}{30}$, por lo que la longitud media de $X$ está entre $\frac{133}{60}n$ y $\frac{79}{30}n$. Dado que $X$ no tiene memoria, $H(X)=nH(W)$ con $H(W)=2.123938$. Combinando ambos resultados, la eficiencia se encuentra entre $0.806559$ y $0.958168$, es decir, dentro de $\left[\frac 12,\frac{24}{25}\right)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.8.</span></p>
+  <p>Sea $W$ una fuente con entropía $H(W)=2.123938$ bits, codificada con un código binario sin prefijo óptimo de longitud media $L_{\mathrm{av}}=\frac{131}{60}$ bits. ¿Cuál es la eficiencia de codificación $\eta=H(W)/L_{\mathrm{av}}$?</p>
+  <p>(a) $0.958168$<br>
+  (b) $0.972796$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>La eficiencia de codificación es $\eta=\dfrac{H(W)}{L_{\mathrm{av}}}=\dfrac{2.123938}{131/60}=\dfrac{2.123938}{2.183333}\approx 0.9728$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.9.</span></p>
+  <p>Sea $X=(W_1,\dots,W_n)$ formado por $n$ copias i.i.d. de una fuente $W$ con entropía $H(W)=2.123938$ bits. Suponga que $n=100$, de modo que $H(X)=nH(W)=212.3938$ bits. ¿Cuál de los siguientes es un valor posible de la longitud media del código óptimo para $X$?</p>
+  <p>(a) $213$<br>
+  (b) $228$<br>
+  (c) $233$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Sabemos que la longitud media del código óptimo para $X$ está acotada como $H(X)\leq L_{\rm av} &lt; H(X)+1$. Dado que $H(X)=nH(W)=212.3938$, tenemos $212.3938\leq L_{\rm av} &lt; 213.3938$, de modo que solo $213$ es posible.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.10.</span></p>
+  <p>Un generador de palabras aleatorias emite palabras de $r$ letras, donde cada letra pertenece a un alfabeto de tamaño $n$. ¿Cuál es la entropía binaria máxima del generador de palabras aleatorias?</p>
+  <p>(a) $\log_2(r)$<br>
+  (b) $\log_2(n)$<br>
+  (c) $r\log_2(n)$<br>
+  (d) $n\log_2(r)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>El generador de palabras aleatorias se puede describir como una fuente discreta $X=(U_1,\ldots,U_r)$ donde cada $U_i$ toma valores en un alfabeto de cardinalidad $n$. La entropía de $X$ satisface $H(X)\leq\log_2|{\cal X}|$, donde ${\cal X}$ es el alfabeto de $X$. Usando que $|{\cal X}|=n^r$, obtenemos la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.11.</span></p>
+  <p>Considere una fuente $W_n$ que emite secuencias de $n$ bits i.i.d. tales que la probabilidad del $1$ es el doble de la probabilidad del $0$. La longitud media del código binario óptimo libre de prefijos para representar $W_n$ se denota $L_{\rm av}(W_n)$. ¿Cuál es el valor de la siguiente razón?</p>$$\frac{L_{\rm av}(W_1)}{L_{\rm av}(W_2)}$$
+  <p>(a) $1$<br>
+  (b) $\tfrac{9}{23}$<br>
+  (c) $\tfrac{9}{17}$<br>
+  (d) $\tfrac12$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Claramente $L_{\rm av}(W_1)=1$. Usando que cada bit toma valores $\{0,1\}$ con distribución de probabilidad $\bigl\{\tfrac13,\tfrac23\bigr\}$, obtenemos que $W_2\in\{00,01,10,11\}$ con probabilidades $\bigl\{\tfrac19,\tfrac29,\tfrac29,\tfrac49\bigr\}$. El código de Huffman para $W_2$ tiene distribución de longitudes $\{3,3,2,1\}$, lo que lleva a $L_{\rm av}(W_2)=\tfrac{17}{9}$, y a la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.12.</span></p>
+  <p>Una fuente discreta sin memoria $W_n=(X_1,\ldots,X_n)$, donde cada $X_i$ toma valores en $\{a,b,c\}$ con distribución de probabilidad $\bigl\{\tfrac12,\tfrac13,\tfrac16\bigr\}$, se representa mediante dos esquemas de codificación. En el esquema de codificación (a), diseñamos el código binario óptimo libre de prefijos para $X_1$ y luego representamos cada símbolo $X_i$ con el mismo código. En el esquema de codificación (b), diseñamos el código binario óptimo libre de prefijos para $W_n$. La longitud media para representar $W_n$ con los esquemas de codificación (a) y (b) se denota respectivamente $L_{\rm av}^{\text{(a)}}(W_n)$ y $L_{\rm av}^{\text{(b)}}(W_n)$. ¿Cuál es el valor del siguiente límite?</p>$$\lim_{n\to\infty} \frac{L_{\rm av}^{\text{(b)}}(W_n)}{L_{\rm av}^{\text{(a)}}(W_n)}$$
+  <p>(a) $\tfrac{4+3\log_2(3)}{10}$<br>
+  (b) $\tfrac{4+3\log_2(3)}{9}$<br>
+  (c) $\tfrac{4+3\log_2(3)}{6}$<br>
+  (d) $\tfrac{4+3\log_2(3)}{11}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>El código de Huffman para $X_1$ tiene distribución de longitudes $\{1,2,2\}$ y longitud media $L_{\rm av}(X_1)=\tfrac32$. En el esquema de codificación (a), tenemos $L_{\rm av}(W_n) = \sum_{i=1}^n L_{\rm av}(X_i) = \tfrac{3n}{2}$ debido a concatenar el mismo código. Por otro lado, cuando $n\to\infty$ la longitud media del código de Huffman para $W_n$ satisface $\frac1n L_{\rm av}(W_n) = H(X_1)$. Combinando ambos hechos y usando que $H(X_1)= \tfrac 23 + \tfrac{\log_2(3)}{2}$, obtenemos la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.13.</span></p>
+  <p>Una fuente discreta sin memoria $W_n=(X_1,\ldots,X_n)$, donde cada $X_i\in\{a,b,c,d,e,f\}$ con igual probabilidad, se codifica con el código binario óptimo libre de prefijos. ¿En cuál de los siguientes intervalos se encuentra la longitud media por símbolo del código binario óptimo libre de prefijos para $W_{3}$?</p>
+  <p>(a) $\bigl[\tfrac{3+3\log_2(3)}{2},\tfrac{3\log_2(3) + 4}{2} \bigr)$<br>
+  (b) $\bigl[\tfrac{1+\log_2(3)}{2},\tfrac{3\log_2(3) + 4}{6} \bigr)$<br>
+  (c) $\bigl[1+\log_2(3),\tfrac{3\log_2(3) + 4}{3} \bigr)$<br>
+  (d) $\bigl[3+3\log_2(3),3\log_2(3) + 4 \bigr)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>La longitud media por símbolo del código de Huffman para $W_3$ se encuentra en $\bigl[H(X_1),H(X_1)+\tfrac 13\bigr)$. Usando que $H(X_1)=\log_2(6)$, obtenemos el resultado.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.14.</span></p>
+  <p>Defina la variable aleatoria $Z$ como $Z=\log_2 P_X(X)$, donde $X$ es una fuente discreta sin memoria $X=(U_1,\ldots,U_r)$, con cada $U_i$ tomando valores en el conjunto $\{1,2,3,\ldots,n\}$ con igual probabilidad. ¿Cuál es el valor esperado de $Z$?</p>
+  <p>(a) $r\log_2(n)$<br>
+  (b) $-r\log_2(n)$<br>
+  (c) $n\log_2(r)$<br>
+  (d) $-n\log_2(r)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Dado que $P_X(x)=\tfrac{1}{n^r}$ para todo $x$, la variable aleatoria es determinista con valor $\log_2(n^{-r})$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.15.</span> Una fuente discreta sin memoria $X=(U_1,\ldots,U_n)$ con $U_i\in\{a,b\}$ equiprobables se comprime con el código binario libre de prefijos óptimo. ¿Cuál es la longitud media por símbolo cuando $n\to\infty$?</p>
+  <p>(a) $1$ bit<br>
+  (b) $2$ bits<br>
+  (c) $\log_2(n)$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por el teorema de codificación de fuente, $\tfrac{1}{n}L_{\rm av}(X)\to H(U)=1$ bit cuando $n\to\infty$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.16.</span> Para una fuente sin memoria con entropía por símbolo $H(U)=1.5$ bits, la longitud media por símbolo del código óptimo para bloques de $n$ símbolos cumple</p>
+  <p>(a) $L_{\rm av}/n \in [1.5, 1.5+1/n)$<br>
+  (b) $L_{\rm av}/n = 1.5$ exactamente<br>
+  (c) $L_{\rm av}/n &lt; 1.5$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por las cotas de la entropía, $H(X)\leq L_{\rm av} &lt; H(X)+1$, y $H(X)=nH(U)$, de modo que $H(U)\leq L_{\rm av}/n &lt; H(U)+1/n$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.17.</span> Una fuente binaria sin memoria tiene $P(0)=\tfrac{3}{4}$. ¿Cuál es el tamaño mínimo de bloque $n$ necesario para que la eficiencia de codificación del código óptimo supere el $99\%$?</p>
+  <p>(a) $n\geq 123$<br>
+  (b) $n\geq 12$<br>
+  (c) $n\geq 50$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La eficiencia es $\geq \tfrac{H(U)}{H(U)+1/n}$. Se necesita que $\tfrac{H(U)}{H(U)+1/n}\geq 0.99$, es decir, $n\geq \tfrac{0.99}{0.01 \cdot H(U)}$. Con $H(U)=h_2(3/4)\approx 0.8113$, obtenemos $n\geq 122.03$, que se redondea hacia arriba a $n\geq 123$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.18.</span> El teorema de codificación de fuente establece que, para una DMS con entropía $H$, la longitud media por símbolo de cualquier código unívocamente decodificable cumple</p>
+  <p>(a) $L_{\rm av}/n \geq H$<br>
+  (b) $L_{\rm av}/n \leq H$<br>
+  (c) $L_{\rm av}/n = H$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El teorema de codificación de fuente establece que $H$ es una cota inferior de la longitud media por símbolo alcanzable para cualquier código unívocamente decodificable.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.19.</span> Una fuente $X=(U_1,U_2)$ tiene $U_1,U_2$ independientes, con $U_1\in\{a,b\}$ con probabilidades $\{\tfrac{3}{4},\tfrac{1}{4}\}$ y $U_2\in\{c,d\}$ equiprobables. ¿Cuánto vale $H(X)$?</p>
+  <p>(a) $h_2(\tfrac{1}{4})+1$<br>
+  (b) $h_2(\tfrac{1}{4})$<br>
+  (c) $2h_2(\tfrac{1}{4})$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por independencia, $H(X)=H(U_1)+H(U_2)=h_2(\tfrac{1}{4})+1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.20.</span> La eficiencia de un código libre de prefijos se define como</p>
+  <p>(a) $H(X)/L_{\rm av}$<br>
+  (b) $L_{\rm av}/H(X)$<br>
+  (c) $H(X)-L_{\rm av}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La eficiencia de codificación es la razón entre la entropía y la longitud media de la palabra de código, $H(X)/L_{\rm av}\leq 1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.21.</span> Una DMS con $H(U)=2$ bits se codifica con bloques de $n=10$ símbolos. La longitud media del código óptimo para $X=(U_1,\ldots,U_{10})$ se encuentra en</p>
+  <p>(a) $[20,21)$<br>
+  (b) $[18,19)$<br>
+  (c) $[21,22)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Las cotas de la entropía dan $H(X)\leq L_{\rm av}&lt;H(X)+1$. Como $H(X)=10\cdot 2=20$, obtenemos $L_{\rm av}\in[20,21)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.22.</span> Si una fuente $U$ tiene entropía $H(U)=\log_2(5)$ y el código óptimo tiene $L_{\rm av}=\tfrac{12}{5}$, la eficiencia de codificación es aproximadamente</p>
+  <p>(a) $0.9675$<br>
+  (b) $1$<br>
+  (c) $0.8293$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La eficiencia es $H(U)/L_{\rm av}=\log_2(5)/(12/5)\approx 2.3219/2.4=0.9675$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.23.</span></p>
+  <p>Una fuente discreta sin memoria emite símbolos de $\mathcal{X}=\{a,b,c\}$ con probabilidades proporcionales a $\{p,\,2p,\,3p\}$ ($p\neq 0$). ¿Cuál es la longitud media de palabra código del código binario libre de prefijos <em>óptimo</em> para esta fuente?</p>
+  <p>(a) $\tfrac{3}{2}=1.5$ bits<br>
+  (b) $\approx 1.459$ bits<br>
+  (c) $\tfrac{5}{3}\approx 1.667$ bits<br>
+  (d) $2$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Normalizando $p+2p+3p=6p=1$ se obtiene $\mathbb{P}(a)=\tfrac16$, $\mathbb{P}(b)=\tfrac13$, $\mathbb{P}(c)=\tfrac12$. El código libre de prefijos óptimo es el de Huffman: fusiona las dos menores ($\tfrac16,\tfrac26$) en $\tfrac12$, y luego con $c$, dando $\ell(c)=1$, $\ell(a)=\ell(b)=2$. Por tanto $L_{\rm av}=2\cdot\tfrac16+2\cdot\tfrac26+1\cdot\tfrac36=\tfrac{9}{6}=\tfrac32$ bits. (El valor $1.459$ es la entropía $H(X)$, una cota inferior, es decir, no la longitud óptima alcanzable.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.24.</span></p>
+  <p>Una fuente discreta $X$ es uniforme sobre el alfabeto $\mathcal{X}=\{a,b,c,d,e,f,g\}$ (siete símbolos), cada uno con probabilidad $\frac{1}{7}$. Determine la longitud media por símbolo (en bits) del código binario libre de prefijos <em>óptimo</em> para $X$.</p>
+  <p>(a) $\frac{20}{7}\approx 2.857$ bits<br>
+  (b) $\log_2 7\approx 2.807$ bits<br>
+  (c) $3$ bits<br>
+  (d) $\frac{19}{7}\approx 2.714$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El algoritmo de Huffman da las longitudes óptimas. Como $7$ no es potencia de $2$, las longitudes óptimas son una mezcla de $2$ y $3$: al construir el árbol se obtiene una palabra código de longitud $2$ y seis de longitud $3$ (conjunto de longitudes $\{2,3,3,3,3,3,3\}$). Kraft se cumple con igualdad: $2^{-2}+6\cdot 2^{-3}=\frac14+\frac34=1$. Con símbolos equiprobables, $L_{\rm av}=\frac{1}{7}(2+6\cdot 3)=\frac{20}{7}\approx 2.857$ bits, que supera la entropía $H(X)=\log_2 7\approx 2.807$, es decir, se cumple $L_{\rm av}\ge H(X)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.25.</span></p>
+  <p>Una fuente discreta sin memoria emite un bloque $X=(U_1,\ldots,U_{10})$ de $n=10$ símbolos i.i.d., cada $U_i$ uniforme en $\mathcal{X}=\{1,2,3,4,5,6\}$ (probabilidad $\tfrac{1}{6}$ cada uno). Se diseña un código libre de prefijos óptimo (de Huffman) para todo el bloque. ¿En qué intervalo se encuentra la longitud media por símbolo $L_n$? Use $\log_2 3\approx 1.58496$.</p>
+  <p>(a) $[2.58496,\ 2.68496)$ bits/símbolo<br>
+  (b) $[2.58496,\ 3.58496)$ bits/símbolo<br>
+  (c) $[2.32193,\ 2.42193)$ bits/símbolo<br>
+  (d) $[2.68496,\ 2.78496)$ bits/símbolo</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Para una fuente i.i.d., el código de bloque óptimo cumple $H(U)\le L_n&lt; H(U)+\tfrac{1}{n}$. Aquí $H(U)=\log_2 6=1+\log_2 3\approx 2.58496$ bits ($\log_2 5$ es un señuelo). Con $n=10$ el margen es $\tfrac{1}{10}=0.1$, es decir $2.58496\le L_n&lt;2.68496$. Por tanto $L_n\in[2.58496,\ 2.68496)$ bits/símbolo.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.26.</span></p>
+  <p>Una fuente discreta sin memoria $X$ toma valores en $\{a,b\}$ con $P_X(a)=0.8$, $P_X(b)=0.2$. Construimos un código de Huffman binario para bloques $W=(X_1,X_2,X_3)\in\mathcal{X}^3$. El código de Huffman óptimo asigna profundidad $1$ a $aaa$, profundidad $3$ a cada bloque con una $b$, y profundidad $5$ a cada bloque con dos $b$ y a $bbb$.</p><p>Calcula la longitud media de palabra código $L_{\rm av}$ (en bits por bloque).</p>
+  <p>(a) $L_{\rm av}=2.184$ bits/bloque<br>
+  (b) $L_{\rm av}=0.728$ bits/bloque<br>
+  (c) $L_{\rm av}=3$ bits/bloque<br>
+  (d) $L_{\rm av}=2.4$ bits/bloque</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Probabilidades de los bloques: $aaa$ tiene $P=0.512$ (profundidad $1$); cada bloque con una $b$ tiene $P=0.128$, hay tres (profundidad $3$); cada bloque con dos $b$ tiene $P=0.032$, hay tres, más $bbb$ con $P=0.008$ (todos profundidad $5$). Entonces $L_{\rm av}=1(0.512)+3(3\cdot0.128)+5(3\cdot0.032+0.008)=0.512+1.152+0.520=2.184$ bits/bloque. El valor $0.728$ es el $L_3$ por símbolo, es decir, no $L_{\rm av}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.27.</span></p>
+  <p>Para la fuente anterior (código de Huffman con $n=3$), la longitud media de palabra código es $L_{\rm av}=2.184$ bits por bloque.</p><p>Calcula la longitud media por símbolo de la fuente $L_3=L_{\rm av}/3$.</p>
+  <p>(a) $L_3\approx 0.728$ bits/símbolo<br>
+  (b) $L_3\approx 2.184$ bits/símbolo<br>
+  (c) $L_3\approx 6.552$ bits/símbolo<br>
+  (d) $L_3\approx 0.780$ bits/símbolo</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Dividiendo la longitud por bloque entre el tamaño del bloque $n=3$: $L_3=2.184/3\approx0.728$ bits/símbolo. El valor $2.184$ olvida dividir; $6.552$ multiplica en lugar de dividir; $0.780$ es $L_2$, es decir, el resultado para $n=2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.28.</span></p>
+  <p>Para la fuente binaria con $P_X(a)=0.8$, $P_X(b)=0.2$, recuerda $H(X)=h_2(0.2)\approx 0.722$ bits y las longitudes de Huffman por símbolo $L_1=1$, $L_2=0.78$, $L_3\approx 0.728$ bits.</p><p>¿Qué ordenamiento relaciona correctamente estas cantidades?</p>
+  <p>(a) $H(X)\le L_3\le L_2\le L_1$<br>
+  (b) $L_1\le L_2\le L_3\le H(X)$<br>
+  (c) $L_3\le H(X)\le L_2\le L_1$<br>
+  (d) $H(X)\le L_2\le L_3\le L_1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Sustituyendo los números: $0.722\le 0.728\le 0.78\le 1.0$, es decir, $H(X)\le L_3\le L_2\le L_1$. Cada $L_n$ cumple $H(X)\le L_n&lt;H(X)+\tfrac1n$, y la longitud por símbolo decrece hacia la entropía a medida que crece la longitud del bloque. $L_3$ debe estar por encima de $H(X)$ (nunca por debajo) y por debajo de $L_2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.29.</span></p>
+  <p>Una fuente discreta sin memoria $X$ sobre $\{a,b\}$ tiene $P_X(a)=0.8$, $P_X(b)=0.2$. La agrupamos en palabras de longitud $n=3$ y aplicamos el <em>código de Shannon</em> con longitudes $\ell(w)=\lceil -\log_2 P_W(w)\rceil$. Las probabilidades de los bloques son $0.512$ ($1$ bloque), $0.128$ ($3$ bloques), $0.032$ ($3$ bloques), $0.008$ ($1$ bloque), dando longitudes de Shannon $1,3,5,7$ respectivamente. Calcula la longitud media por símbolo $L_3=L_{\rm av}/3$.</p>
+  <p>(a) $L_3 \approx 0.7333$ bits/símbolo<br>
+  (b) $L_3 \approx 2.200$ bits/símbolo<br>
+  (c) $L_3 \approx 0.7219$ bits/símbolo<br>
+  (d) $L_3 \approx 1.333$ bits/símbolo</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Pondera cada longitud de Shannon por la probabilidad total de su grupo: $L_{\rm av}=1(0.512)+3(3\cdot 0.128)+5(3\cdot 0.032)+7(0.008)=0.512+1.152+0.480+0.056=2.200$ bits/bloque. Dividiendo por $n=3$ se obtiene $L_3=2.200/3\approx 0.7333$ bits/símbolo. (El valor $2.200$ es la longitud por bloque, no por símbolo; $0.7219$ es la entropía $H(X)$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.30.</span></p>
+  <p>Para el código de Shannon anterior, las longitudes de palabra código sobre los $8$ bloques de longitud $3$ son: una de longitud $1$, tres de longitud $3$, tres de longitud $5$ y una de longitud $7$. Evalúa la suma de Kraft $\sum_w 2^{-\ell(w)}$ y decide si existe un código sin prefijos con estas longitudes.</p>
+  <p>(a) $\sum_w 2^{-\ell(w)} = \tfrac{125}{128} \approx 0.9766 \le 1$, así que existe un código sin prefijos<br>
+  (b) $\sum_w 2^{-\ell(w)} = 1$ exactamente, así que el código es óptimo y sin prefijos<br>
+  (c) $\sum_w 2^{-\ell(w)} = \tfrac{129}{128} \approx 1.008 &gt; 1$, así que no existe ningún código sin prefijos<br>
+  (d) $\sum_w 2^{-\ell(w)} \approx 0.512 \le 1$, así que existe un código sin prefijos</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Suma $2^{-\ell}$ sobre los grupos: $1\cdot 2^{-1}+3\cdot 2^{-3}+3\cdot 2^{-5}+1\cdot 2^{-7}=\tfrac12+\tfrac38+\tfrac3{32}+\tfrac1{128}=\tfrac{64+48+12+1}{128}=\tfrac{125}{128}\approx 0.9766$. Como es $\le 1$, se cumple la desigualdad de Kraft y existe un código sin prefijos con estas longitudes (con margen $0.0234$). La regla de Shannon siempre cumple Kraft porque $2^{-\ell(w)}\le P_W(w)$ y las probabilidades suman $1$; la suma es estrictamente menor que $1$, no igual, así que el código no es óptimo.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.31.</span></p>
+  <p>La misma fuente tiene entropía $H(X)\approx 0.7219$ bits. El código de bloque de Shannon ($n=3$) alcanza $L_3\approx 0.7333$ bits/símbolo, mientras que el código de bloque óptimo de Huffman alcanza $L_3^{\text{Huff}}\approx 0.728$ bits/símbolo. ¿Qué afirmación compara correctamente estos valores con la cota de codificación de fuente $L_3 &lt; H(X)+\tfrac{1}{3}$?</p>
+  <p>(a) Ambos cumplen $H(X)\le L_3 &lt; H(X)+\tfrac13=1.0553$; Shannon ($0.7333$) es ligeramente peor que Huffman ($0.728$)<br>
+  (b) Shannon ($0.7333$) supera a Huffman ($0.728$) porque la regla de Shannon es óptima<br>
+  (c) Shannon viola la cota ya que $0.7333 &gt; H(X)+\tfrac13$<br>
+  (d) Ambos son iguales a $H(X)=0.7219$ exactamente, alcanzando el límite de la entropía</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El teorema de codificación de fuente da $H(X)\le L_3 &lt; H(X)+\tfrac1n$, aquí $0.7219\le L_3 &lt; 1.0553$. Ambos códigos están en este intervalo: Shannon $0.7333$ y Huffman $0.728$ superan $H(X)$ y quedan por debajo de $1.0553$. Como las longitudes de Shannon $\lceil-\log_2 P_W\rceil$ son subóptimas, Shannon ($0.7333$) es ligeramente peor que el óptimo de Huffman ($0.728$); solo Huffman alcanza el mínimo por bloque.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.32.</span></p>
+  <p>Una fuente $X$ es uniforme sobre $\mathcal{X}=\{-1,0,1\}$, es decir, $\mathbb{P}[X=x]=\tfrac13$ para cada símbolo. Se comprime con el código binario libre de prefijos óptimo (Huffman), que da longitudes de palabra código $\{1,2,2\}$ bits, con longitud media $L_{\rm av}=\tfrac53$ bits y $\mathrm{Var}(\ell(X))=\tfrac29$. Calcula el valor de la cota superior de Chebyshev sobre $\mathbb{P}\big[\,|\ell(X)-L_{\rm av}|\geq L_{\rm av}\,\big]$.</p>
+  <p>(a) $\dfrac{2}{25}=0.08$<br>
+  (b) $\dfrac{2}{5}=0.4$<br>
+  (c) $\dfrac{2}{9}\approx 0.22$<br>
+  (d) $\dfrac{6}{25}=0.24$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La desigualdad de Chebyshev da $\mathbb{P}[|Y-\mathbb{E}[Y]|\ge a]\le \mathrm{Var}(Y)/a^2$. Aquí $Y=\ell(X)$, su media es $L_{\rm av}=\tfrac53$, y la desviación es $a=L_{\rm av}=\tfrac53$. Por tanto la cota es $\dfrac{\mathrm{Var}(\ell(X))}{L_{\rm av}^2}=\dfrac{2/9}{25/9}=\dfrac{2}{25}=0.08$. El distractor $0.4$ olvida elevar $a$ al cuadrado, y $2/9$ usa $a=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.33.</span></p>
+  <p>La salida de una fuente discreta es la secuencia aleatoria $\boldsymbol{X}=(X_1,\ldots,X_m)$, donde cada símbolo $X_j$ toma valores en el alfabeto $\{1,2,\ldots,n\}$ (no se supone independencia ni uniformidad). Todos los logaritmos son en base $2$. ¿Cuál de las siguientes afirmaciones es verdadera en general?</p>
+  <p>(a) La longitud media de cualquier código binario libre de prefijos para $\boldsymbol{X}$ es al menos $m\log_2 n$.<br>
+  (b) La entropía de $\boldsymbol{X}$ está acotada superiormente por $n\,H(X_1)$.<br>
+  (c) La longitud media del código binario libre de prefijos óptimo para $\boldsymbol{X}$ es a lo sumo $m\log_2 n + 1$.<br>
+  (d) La probabilidad de cada secuencia posible es igual a $\frac{1}{n^m}$.</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Por subaditividad y la propiedad de entropía máxima, $H(\boldsymbol{X})\le\sum_{j=1}^m H(X_j)\le m\log_2 n$. El teorema de codificación de fuente da, para el código óptimo, $L_{\mathrm{av}}&lt;H(\boldsymbol{X})+1\le m\log_2 n+1$, es decir, la opción (c) se cumple sin suposiciones adicionales. La opción (a) falla porque la cota inferior real es $L_{\mathrm{av}}\ge H(\boldsymbol{X})$, que es inferior a $m\log_2 n$ salvo que la fuente sea i.i.d. uniforme. La opción (b) confunde la longitud del bloque $m$ con el tamaño del alfabeto $n$ (la subaditividad tiene $m$ términos), y la opción (d) requiere una fuente i.i.d. uniforme, no supuesta aquí. La afirmación verdadera es que la longitud media óptima es a lo sumo $m\log_2 n+1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.34.</span></p>
+  <p>Para una fuente discreta $X$, el código binario libre de prefijos óptimo es $\{0, 10, 11\}$ y satisface $L_{\rm av} = H(X)$ (la longitud media es igual a la entropía, en bits). Una nueva fuente es $Y = (X_1, X_2)$ con $X_1, X_2$ <em>independientes</em>, cada una distribuida como $X$. ¿Cuál es la longitud media del código binario libre de prefijos óptimo para $Y$?</p>
+  <p>(a) $3$ bits<br>
+  (b) $1.5$ bits<br>
+  (c) $4$ bits<br>
+  (d) $2.25$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $L_{\rm av}=H(X)$, la distribución es diádica con $p_i=2^{-\ell_i}$ a partir de las longitudes $\{1,2,2\}$, dando $p=\{\tfrac12,\tfrac14,\tfrac14\}$ y $H(X)=\tfrac12+\tfrac12+\tfrac12=\tfrac32$ bits. Para $X_1,X_2$ independientes, la entropía se suma, es decir, $H(Y)=2H(X)=3$ bits. La distribución del par también es diádica (productos de potencias de dos), de modo que el código óptimo alcanza la igualdad: $L_{\rm av}(Y)=H(Y)=3$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.35.</span></p>
+  <p>Una fuente binaria sin memoria tiene $P_X(a)=0.8$, $P_X(b)=0.2$, así que $H(X)=h_2(0.2)=0.721928$ bits. Aplicamos un código de Huffman a bloques de $n$ símbolos y definimos la eficiencia $e_n=H(X)/L_n$, donde $L_n=L_{\rm av}/n$. Para $n=1$ el código óptimo asigna un bit a cada uno de los dos símbolos, así que $L_1=1$. Calcula $e_1$.</p>
+  <p>(a) $e_1\approx 0.722$<br>
+  (b) $e_1\approx 0.926$<br>
+  (c) $e_1=1.000$<br>
+  (d) $e_1\approx 0.278$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Con $n=1$ un código de Huffman binario debe usar un bit por símbolo, así que $L_1=L_{\rm av}=1$. La eficiencia es $e_1=H(X)/L_1=0.721928/1=0.722$. El valor $1.000$ igualaría erróneamente $L_1$ con $H(X)$, es decir confundir longitud y entropía, y $0.278$ es la redundancia complementaria $1-H(X)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.36.</span></p>
+  <p>Para la fuente $P_X(a)=0.8$, $P_X(b)=0.2$ ($H(X)=0.721928$ bits), codificamos con Huffman bloques de $n=2$ símbolos. Las probabilidades de bloque son $P(aa)=0.64$, $P(ab)=P(ba)=0.16$, $P(bb)=0.04$, dando longitudes de Huffman $1,2,3,3$. Calcula $e_2=H(X)/L_2$ con $L_2=L_{\rm av}/2$.</p>
+  <p>(a) $e_2\approx 0.926$<br>
+  (b) $e_2\approx 0.463$<br>
+  (c) $e_2\approx 0.722$<br>
+  (d) $e_2\approx 0.992$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La longitud media de bloque es $L_{\rm av}=0.64(1)+0.16(2)+0.16(3)+0.04(3)=1.560$ bits por bloque, así que $L_2=1.560/2=0.7800$ bits por símbolo. Entonces $e_2=0.721928/0.7800=0.926$. Olvidar dividir $L_{\rm av}$ entre $n$ da el valor erróneo $0.463$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.37.</span></p>
+  <p>Para la fuente $P_X(a)=0.8$, $P_X(b)=0.2$ ($H(X)=0.721928$ bits), la codificación de Huffman por bloques da las eficiencias por símbolo $e_1\approx0.722$, $e_2\approx0.926$, $e_3\approx0.992$, $e_4\approx0.975$, $e_5\approx0.978$. ¿Cuál es el menor $n$ para el cual $e_n\ge 0.99$?</p>
+  <p>(a) $n=3$<br>
+  (b) $n=2$<br>
+  (c) $n=4$<br>
+  (d) $n=5$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Examinando las eficiencias, $e_1,e_2&lt;0.99$ mientras que $e_3\approx0.99166\ge0.99$. Como $n=3$ es el primer índice que alcanza el umbral (nótese que $e_4,e_5$ vuelven a bajar de $0.99$), la respuesta es $n=3$. Elegir $n=4$ o $n=5$ asume erróneamente un crecimiento monótono tras superar el umbral.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.38.</span></p>
+  <p>Para la fuente $P_X(a)=0.8$, $P_X(b)=0.2$, las eficiencias de codificación de Huffman por bloques son $e_1\approx0.722$, $e_2\approx0.926$, $e_3\approx0.992$, $e_4\approx0.975$, $e_5\approx0.978$. ¿Es la sucesión $e_n$ monótona creciente en $n$?</p>
+  <p>(a) No: no es monótona, ya que $e_3\approx0.992&gt;e_4\approx0.975$<br>
+  (b) Sí: $e_n$ crece estrictamente con cada $n$<br>
+  (c) Sí: $e_n$ es monótona porque el teorema de codificación de fuente garantiza $e_n\to 1$<br>
+  (d) No: $e_n$ es estrictamente decreciente en $n$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Aunque $e_1&lt;e_2&lt;e_3$, la eficiencia baja de $e_3\approx0.992$ a $e_4\approx0.975$ antes de volver a subir a $e_5\approx0.978$, por lo que no es monótona. Huffman optimiza cada longitud de bloque por separado, y la redundancia $L_n-H(X)$ depende de forma irregular de cuán bien se alinean las $2^n$ probabilidades de bloque con valores diádicos. La teoría solo garantiza $L_n\to H(X)$ (es decir, $e_n\to1$) cuando $n\to\infty$, no una aproximación monótona.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.39.</span></p>
+  <p>Para la fuente $P_X(a)=0.8$, $P_X(b)=0.2$ con $H(X)=0.721928$ bits, las cotas de codificación de fuente dan la cota inferior analítica de la eficiencia $e_n\ge \dfrac{H(X)}{H(X)+1/n}$. Evalúa esta cota inferior en $n=3$ (recuerda que el valor real es $e_3\approx0.992$).</p>
+  <p>(a) $\approx 0.684$, muy por debajo del valor real $e_3\approx0.992$ (la cota es floja)<br>
+  (b) $\approx 0.992$, esencialmente ajustada en $n=3$<br>
+  (c) $\approx 0.819$, ligeramente por debajo del valor real<br>
+  (d) $\approx 0.722$, igual a $H(X)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Sustituyendo $n=3$: $\dfrac{0.721928}{0.721928+1/3}=\dfrac{0.721928}{1.055261}=0.684$. La eficiencia real $e_3\approx0.992$ la supera ampliamente, por lo que la cota es floja: asume el peor caso $L_n$ cercano a $H(X)+1/n$, mientras que la redundancia real de Huffman para esta fuente no diádica es mucho menor.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 5.40.</span></p>
+  <p>Considere una fuente discreta sin memoria $X=(U_1,U_2,U_3)$ donde cada $U_i$ toma valores en $\{0,1,2\}$ con probabilidades $\left\{\tfrac12,\tfrac14,\tfrac14\right\}$. Sea $Y=\log_2 P_X(X)$. Usando la desigualdad de Chebyshev, calcule la cota inferior de $\mathbb{P}\!\left[\,|Y-\mathbb{E}[Y]|&lt;2\,\right]$.</p>
+  <p>(a) $\tfrac{13}{16}$<br>
+  (b) $\tfrac{3}{16}$<br>
+  (c) $\tfrac{1}{4}$<br>
+  (d) $\tfrac{15}{16}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por la falta de memoria $Y=\sum_{i=1}^3 Z_i$ con $Z=\log_2 P_U(U)$ que toma $-1$ (prob $\tfrac12$) y $-2$ (prob $\tfrac12$). Entonces $\mathbb{E}[Z]=-\tfrac32$, $\mathrm{Var}(Z)=\tfrac52-\tfrac94=\tfrac14$, es decir, $\mathrm{Var}(Y)=3\cdot\tfrac14=\tfrac34$. Chebyshev con $\varepsilon=2$ da $\mathbb{P}[|Y-\mathbb{E}[Y]|\ge2]\le\tfrac{3/4}{4}=\tfrac{3}{16}$, así que el complemento cumple $\mathbb{P}[|Y-\mathbb{E}[Y]|&lt;2]\ge 1-\tfrac{3}{16}=\tfrac{13}{16}$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

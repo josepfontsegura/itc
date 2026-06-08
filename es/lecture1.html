@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -38,36 +38,36 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html" class="active">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
   <main class="content">
@@ -84,9 +84,9 @@ La teoría de la información es una disciplina científica originada en el estu
 <p>
 Tal como escribió Shannon, “el problema fundamental de la comunicación es reproducir en un punto exactamente o aproximadamente un mensaje seleccionado en otro punto”. La forma estándar de hacerlo es mediante un codificador y un decodificador, como se muestra en la Figura 1.1. La <strong>fuente</strong> produce el mensaje (información) a transmitir, que puede ser analógico (voz, temperatura) o digital (correo electrónico). El <strong>codificador</strong> construye, a partir de la información de la fuente, una forma de onda electromagnética para transmitir por el canal. Consta de un codificador de fuente que elimina redundancia, un codificador de canal que introduce redundancia adaptada a los errores del canal, y un modulador que convierte los datos codificados en forma de onda. El <strong>canal</strong> modela las perturbaciones introducidas por la física del medio de transmisión y del receptor, incluyendo ruido y desvanecimiento en fibras ópticas, cables Ethernet, redes inalámbricas; pero también imperfecciones en sistemas de almacenamiento como el DVD, los discos flash o el ADN. El <strong>decodificador</strong> invierte los pasos del codificador e intenta recuperar el mensaje original.
 </p>
-<figure><img src="../img/tikz/lecture1-fig1.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
+<figure><img src="../img/tikz/lecture1-fig1.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
 <p>
-<figcaption>Figura 1.1. Diagrama básico de un sistema de comunicaciones.</figcaption>
+<figcaption>Diagrama básico de un sistema de comunicaciones.</figcaption>
 <a id="fig:block"></a>
 </p>
 <p>
@@ -128,7 +128,7 @@ $$
 	\mathbb{P}[X\in{\cal A}] = 1 - \mathbb{P}[X\in{\cal A}^c] = 1 - \sum_{x\in{\cal A}^c} P_X(x). \tag{1.4}$$
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problema 1.1.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.3.</span> 
 Sea $X$ una variable aleatoria que toma valores en $\{0,1,2,3\}$ con la misma probabilidad. ¿Cuál es la probabilidad de que $X$ sea impar? ¿Y la probabilidad de que $X$ sea par?
 </p>
 
@@ -168,7 +168,7 @@ $$
 Nótese que $P_{Y|X}(y|x)$ es una distribución de probabilidad válida de $Y$ dado $X=x$, ya que $\sum_{y \in {\cal Y}} P_{Y|X}(y|x) = \frac{\sum_{y\in{\cal Y}} P_{XY}(x,y)}{P_X(x)} = \frac{P_X(x)}{P_X(x)} = 1$. Análogamente para $P_{X|Y}(x|y)$.
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problema 1.2.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.4.</span> 
  	Sean $X$ e $Y$ con valores en $\{a,b\}$ y distribución conjunta $P_{XY}(a,a)=\frac 16$, $P_{XY}(a,b)=\frac 13$ y $P_{XY}(b,a)=0$. ¿Cuál es la distribución de $Y$ condicionada a $X=b$?
 </p>
 
@@ -195,7 +195,7 @@ $$\begin{gather}
 \end{gather}$$
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problema 1.3.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.5.</span> 
 Una variable aleatoria $X$ toma valores sobre el alfabeto $\{1,2\}$ con distribución de probabilidad $\{1,0\}$. Condicionada a $X=x$, otra variable aleatoria $Y$ toma valores sobre $\{1,2,3\}$ con distribución de probabilidad $\bigl\{ \frac{2-x}{3},\frac{x}{3},\frac 13 \bigr\}$. ¿Cuál es la probabilidad de que $Y$ sea impar?
 </p>
 
@@ -213,7 +213,7 @@ Una variable aleatoria $X$ toma valores sobre el alfabeto $\{1,2\}$ con distribu
 La distribución conjunta de dos variables aleatorias \(X\) e \(Y\) satisface la <strong>regla de la cadena</strong>:
 $$
 P_{XY}(x,y)=P_{Y|X}(y|x)P_{X}(x)=P_{X|Y}(x|y)P_{Y}(y). \tag{1.13}$$
-Si \(X\) e \(Y\) son <strong>independientes</strong>, entonces \(P_{Y|X}(y|x)=P_{Y}(y)\), \(P_{X|Y}(x|y)=P_{X}(x)\) y por tanto
+Si \(X\) e \(Y\) son <strong>independientes</strong>, entonces \(P_{Y|X}(y|x)=P_Y(y)\), \(P_{X|Y}(x|y)=P_X(x)\) y por tanto
 $$
 P_{XY}(x,y)=P_X(x)P_Y(y). \tag{1.14}$$
 </p>
@@ -227,7 +227,7 @@ $$
 donde ${\cal X}^n={\cal X}\times \ldots \times {\cal X}$ es el producto cartesiano de los alfabetos. Un ejemplo lo aclarará.
 </p>
 
-<div class="env-block env-example"><p><span class="env-label">Ejemplo 1.3.</span> 
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 1.6.</span> 
 	Sea $(X_1,X_2,X_3)$ con cada $X_i$ tomando valores en ${\cal X}=\{a,b\}$. El alfabeto de $(X_1,X_2,X_3)$ es ${\cal X}^3 = \{a,b\}\times \{a,b\} \times \{a,b\}=\{aaa,aab,aba,abb,baa,bab,bba,bbb\}$, con cardinalidad $|{\cal X}^3|=|{\cal X}|^3=2^3=8$. Una posible distribución es $P_{X_1X_2X_3}(x_1,x_2,x_3)=\frac 18$; otra podría ser $P_{X_1X_2X_3}(aaa)=P_{X_1X_2X_3}(bbb)=\frac 12$ y $P_{X_1X_2X_3}(x_1,x_2,x_3)=0$ en caso contrario.
 </p>
 
@@ -246,7 +246,7 @@ $$
 es decir, todas las variables aleatorias $X_i$ son independientes y tienen la misma distribución de probabilidad $P_X(x)$.
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problema 1.4.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.7.</span> 
  	Una fuente discreta sin memoria se describe por la secuencia i.i.d. $(U_1,U_2,U_3)$ donde cada $U_i$ toma valores en $\{0,1\}$ con distribución $\{p,1-p\}$. ¿Cuál es la probabilidad de que la fuente produzca una secuencia con un cero en la última posición?
  	
 </p>
@@ -283,12 +283,11 @@ $$
 $$
 </p>
 
-<div class="env-block env-example"><p><span class="env-label">Ejemplo 1.4.</span> 
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 1.8.</span> 
 <a id="ex:1.8"></a>
-Un canal discreto sin memoria tiene entrada $(X_1,X_2,X_3)$ con cada $X_i$ en $\{a,b\}$, y salida $(Y_1,Y_2,Y_3) $ con cada $Y_i$ en $\{a,b\}$. Se caracteriza por $(1.30)$ donde $P_{Y|X}(y|x)$ corresponde a la flecha que conecta $X=x$ con $Y=t $ en el gráfico siguiente:
+Un canal discreto sin memoria tiene entrada $(X_1,X_2,X_3)$ con cada $X_i$ en $\{a,b\}$, y salida $(Y_1,Y_2,Y_3) $ con cada $Y_i$ en $\{a,b\}$. Se caracteriza por $(1.30)$ donde $P_{Y|X}(y|x)$ corresponde a la flecha que conecta $X=x$ con $Y=y $ en el gráfico siguiente:
 </p>
-<p>
-<figure><img src="../img/tikz/lecture1-fig2.svg" alt="Diagram" style="display:block;margin:0 auto"></figure>
+<figure><img src="../img/tikz/lecture1-fig2.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
 
 </div>
 <p>
@@ -300,7 +299,7 @@ $$
 Del gráfico, $P_{Y|X}(a|a)=\frac 13$ y $P_{Y|X}(b|b)=\frac 12$. Como las condicionales suman $1$, deducimos $P_{Y|X}(b|a)=\frac 23$ y $P_{Y|X}(a|b)=\frac 12$. Sustituyendo en $(1.31)$, $P_{Y_1Y_2Y_3|X_1X_2X_3}(aba|aab)=\frac 13\cdot \frac 23 \cdot \frac 12 = \frac 19$.
 </p>
 
-<div class="env-block env-problem"><p><span class="env-label">Problema 1.5.</span> 
+<div class="env-block env-problem"><p><span class="env-label">Problema 1.9.</span> 
  	Para el canal del Ejemplo 1.8, suponga que la entrada $(X_1,X_2,X_3)$ tiene distribución
  	$$
 		P_{X_1X_2X_3}(x_1,x_2,x_3) = \begin{cases}
@@ -323,7 +322,7 @@ Del gráfico, $P_{Y|X}(a|a)=\frac 13$ y $P_{Y|X}(b|b)=\frac 12$. Como las condic
 	 	Como $P_{X_1X_2X_3}$ no es producto de distribuciones i.i.d., tampoco lo será $P_{Y_1Y_2Y_3}$.
 	 	Como la entrada solo tiene probabilidad no nula para $aaa$ y $bbb$, la suma $(1.34)$ tiene solo dos términos:
 	 	$$\begin{align}
-			P_{Y_1Y_2Y_3}(y_1,y_2,y_3) & = P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)P_{X_1X_2X_3}(aaa) \tag{1.35}\\ &  ~ \hspace{4em} + P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b)P_{X_1X_2X_3}(bbb) \tag{1.36}\\
+			P_{Y_1Y_2Y_3}(y_1,y_2,y_3) & = P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)P_{X_1X_2X_3}(aaa) \nonumber \tag{1.35}\\ &  ~ \hspace{4em} + P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b)P_{X_1X_2X_3}(bbb) \tag{1.36}\\
 			&= \frac 12 P_{Y|X}(y_1|a)P_{Y|X}(y_2|a)P_{Y|X}(y_3|a)  + \frac 12 P_{Y|X}(y_1|b)P_{Y|X}(y_2|b)P_{Y|X}(y_3|b). \tag{1.37}\end{align}$$
 		Solo queda evaluar, por ejemplo
 	 	$$\begin{gather}
@@ -341,7 +340,7 @@ Del gráfico, $P_{Y|X}(a|a)=\frac 13$ y $P_{Y|X}(b|b)=\frac 12$. Como las condic
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Teoría de la información y codificación 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

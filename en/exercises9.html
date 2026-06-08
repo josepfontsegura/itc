@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -40,44 +40,499 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html" class="active">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Coming soon</h1>
+      <h1>Exercises: 9. Information measures</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">This content will be available as the course progresses.</p>
+
+    <button id="expand-all" data-expand="Show all solutions" data-collapse="Hide all solutions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Show all solutions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.1.</span> What is the joint entropy $H(X_1, Z)$?</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $\log_2(3)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>Since $X_1$ and $Z$ are independent and $H(X_1)=H(Z)=1$, we have $H(X_1,Z)=2$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.2.</span> What is the mutual information $I(X_1; Y_1)$?</p>
+  <p>(a) $\tfrac12$<br>
+  (b) $1$<br>
+  (c) $\tfrac32$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The mutual information can be calculated as $I(X_1;Y_1) = H(Y_1) - H(Y_1|X_1)$. Knowing that $Y_1$ takes the values $\{1,2,3\}$ with probabilities $\{1/4, 1/2, 1/4\}$, we obtain $H(Y_1)=3/2$ bits. If $X_1=0$, then $Y_1=Z$ and therefore $H(Y_1|X_1=0)=1$. Similarly, $H(Y_1|X_1=1)=1$. Hence $H(Y_1|X_1)= (1/2)\cdot 1 + (1/2)\cdot 1 = 1$, and finally $I(X_1;Y_1)=3/2-1=1/2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.3.</span> What is the conditional entropy $H(Y_1 | X_1, Z)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Given $X_1$ and $Z$, $Y_1=X_1+Z$ is determined. Therefore, $H(Y_1|X_1,Z)=0$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.4.</span> What is the conditional entropy $H(Z \mid Y_1)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>We can write the conditional entropy as $H(Z \mid Y_1) = H(Z) - I(Z;Y_1)$, where $I(Z;Y_1) = H(Y_1) - H(Y_1 \mid Z)$. Since $H(Z)=1$, $H(Y_1)=3/2$ and $H(Y_1 \mid Z)=1$, we find that $I(Z;Y_1)=3/2-1=1/2$ and therefore $H(Z \mid Y_1)=1-1/2=1/2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.5.</span> What is the joint entropy $H(Y_1, Y_2, Z)$?</p>
+  <p>(a) $2$<br>
+  (b) $\tfrac{11}{4}$<br>
+  (c) $3$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>In this case, $H(Y_1,Y_2,Z) = H(Z) + H(Y_1,Y_2 \mid Z)$, where $H(Z)=1$. Given $Z$, $Y_1$ and $Y_2$ are conditionally independent and hence $H(Y_1,Y_2 \mid Z) = H(Y_1 \mid Z)+H(Y_2 \mid Z)$. In question 4 we found that $H(Y_1 \mid Z)=1$, while $H(Y_2 \mid Z)=1$ by symmetry. Thus, $H(Y_1,Y_2 \mid Z)=2$ and $H(Y_1,Y_2,Z)=1+2=3$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.6.</span> What is the entropy $H(X_1)$?</p>
+  <p>(a) $0$<br>
+  (b) $1$<br>
+  (c) $2$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>$X_1$ takes values in $\{0,1\}$ with equal probability ($1/2$). Therefore, $H(X_1)=\log_2(2)=1$ bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.7.</span> What is the mutual information $I(X_1; X_2)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $X_1$ and $X_2$ are independent, $I(X_1;X_2)=0$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.8.</span> What is the conditional entropy $H(Y_1 \mid Y_2, Z)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>Given $Z$, $Y_1$ and $Y_2$ are conditionally independent, hence $H(Y_1 \mid Y_2,Z)=H(Y_1 \mid Z)$. Again from question 4, we know that $H(Y_1 \mid Z)=1$, leading to the correct answer.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.9.</span> What is the joint entropy $H(X_1, X_2)$?</p>
+  <p>(a) $1$<br>
+  (b) $\log_2(3)$<br>
+  (c) $2$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>Since $X_1$ and $X_2$ are independent, $H(X_1,X_2)=H(X_1)+H(X_2)$, where both $H(X_1)$ and $H(X_2)$ equal $1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.10.</span> What is the conditional mutual information $I(X_1; Z \mid Y_1)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac14$<br>
+  (c) $\tfrac12$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>We can write the conditional mutual information as $I(X_1;Z \mid Y_1) = H(X_1 \mid Y_1) - H(X_1 \mid Y_1,Z)$. The first term can be expanded as $H(X_1 \mid Y_1) = H(X_1) - I(X_1;Y_1) = 1 - 1/2 = 1/2$, where we used that $H(X_1)=1$ and the value of $I(X_1;Y_1)$ from question 2. Given both $Y_1$ and $Z$, $X_1$ is perfectly determined, so $H(X_1 \mid Y_1,Z)=0$. Therefore, $I(X_1;Z \mid Y_1)=1/2-0=1/2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.11.</span></p>
+  <p>Consider the independent random variables $X_1$, $X_2$ and $Z$ taking values in $\{0,1\}$, $\{0,1\}$ and $\{1,2\}$, respectively, all with equal probability. Define</p>$$Y_1=X_1+Z, \qquad Y_2=X_2+Z.$$<p>What is the mutual information $I(Y_1;Y_2)$?</p>
+  <p>(a) $\frac{1}{4}$<br>
+  (b) $\frac{3}{2}$<br>
+  (c) $\frac{11}{4}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>We observe that $Y_1$ and $Y_2$ are identically distributed, but not statistically independent because both depend on the same $Z$. Both $Y_1$ and $Y_2$ take values in $\{1,2,3\}$ with marginal distributions $P_{Y_1}(y_1)$ and $P_{Y_2}(y_2)$ both given by $\bigl\{ \frac 14, \frac 12, \frac 14 \bigr\}$. Therefore, $H(Y_1)=H(Y_2)=\frac 32$. On the other hand, the joint distribution $P_{Y_1Y_2}(y_1,y_2)$ can be found by writing in a table all the combinations of the triplet $(X_1,X_2,Z)$ as $P_{Y_1Y_2}(1,1)=\frac 18$, $P_{Y_1Y_2}(1,2)=\frac 18$, $P_{Y_1Y_2}(1,3)=0$, $P_{Y_1Y_2}(2,1)=\frac 18$, $P_{Y_1Y_2}(2,2)=\frac 14$, $P_{Y_1Y_2}(2,3)=\frac 18$, $P_{Y_1Y_2}(3,1)=0$, $P_{Y_1Y_2}(3,2)=\frac 18$ and $P_{Y_1Y_2}(3,3)=\frac 18$. Therefore, $H(Y_1,Y_2)=\frac{11}{4}$. Finally, we obtain the correct answer using that $I(Y_1;Y_2)=H(Y_1)+H(Y_2)-H(Y_1,Y_2)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.12.</span> What is the value of the entropy $H(X_1\cdots X_n)$? Justify why the others are false.</p>
+  <p>(a) $n\log_2 |\mathcal{X}|$ (in bits)<br>
+  (b) $\log_2 |\mathcal{X}|$ (in bits/channel use)<br>
+  (c) $\log_2 |\mathcal{X}|$ (in bits)</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since the transmitted symbols are i.i.d., $H(X_1\cdots X_n)=nH(X_i)=n\log_2 |\mathcal{X}|$ in bits. Bits/channel use is not the unit of entropy.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.13.</span> What is the value of the empirical mutual information $\tfrac{1}{n} \sum_{i=1}^n I(X_i;Y_i)$ when the residual uncertainty is $H(X_1 \cdots X_n|Y_1 \cdots Y_n)=\tfrac{n}{3}\log_2 |\mathcal{X}|$?</p>
+  <p>(a) $\frac{2n}{3} \log_2 |\mathcal{X}|$<br>
+  (b) $\frac{n}{3} \log_2 |\mathcal{X}|$<br>
+  (c) $\frac{2}{3} \log_2 |\mathcal{X}|$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>Mutual information can be expanded as $I(X_1\cdots X_n ; Y_1\cdots Y_n)=H(X_1 \cdots X_n)-H(X_1 \cdots X_n|Y_1 \cdots Y_n)$. Since the transmitted symbols are equiprobable i.i.d., $H(X_1 \cdots X_n) = n\log_2|\mathcal{X}|$. Hence, $I(X_1 \cdots X_n ; Y_1 \cdots Y_n)= \tfrac{2n}{3} \log_2|\mathcal{X}|$. On the other hand, since the channel is memoryless and the transmitted symbols are i.i.d., we have that $$\begin{aligned} I(X_1\cdots X_n;Y_1\cdots Y_n) &= \sum_{i=1}^n I(X_i;Y_i) \\ &= \tfrac{2n}{3}\log_2 |\mathcal{X}|. \end{aligned}$$ Therefore, $\tfrac{1}{n}\sum_{i=1}^n I(X_i;Y_i)=\tfrac{2}{3}\log_2|\mathcal{X}|$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.14.</span> An experiment consists of the following two steps. First, flip a fair coin and record heads or tails. If the result is heads, roll a fair six-sided die and record its face; if the result is tails, flip a second fair coin and record its outcome. What is the entropy in bits of the outcome of the two-step experiment?</p>
+  <p>(a) $\tfrac{1+\log_2(6)}{2}$<br>
+  (b) $\tfrac{3+\log_2(3)}{2}$<br>
+  (c) $\tfrac{4+\log_2(3)}{2}$<br>
+  (d) $\tfrac{2+\log_2(6)}{2}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>The result of the experiment can be modelled by the random variable $X=(A,B)$, where $A\in\{\text{heads},\text{tails}\}$ and $B\in\{1,2,3,4,5,6,\text{heads},\text{tails}\}$. After determining all the possible outcomes for $X$, we obtain that $X$ has probability distribution $\bigl\{\tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{4}, \tfrac{1}{4}\bigr\}$, from which we can calculate $H(X)$. Alternatively, we can use the chain rule of entropy as $H(X)=H(A)+H(B|A)$, with $H(A)=1$ and $H(B|A)=\tfrac{1+\log_2(6)}{2}$, leading to the same result.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.15.</span> For two random variables $X$ and $Y$, the chain rule of entropy states</p>
+  <p>(a) $H(X,Y)=H(X)+H(Y|X)$<br>
+  (b) $H(X,Y)=H(X)+H(Y)$<br>
+  (c) $H(X,Y)=H(X)H(Y)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The chain rule is $H(X,Y)=H(X)+H(Y|X)$, always valid. The equality $H(X,Y)=H(X)+H(Y)$ holds only if $X,Y$ are independent.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.16.</span> The data processing inequality states that if $X\to Y\to Z$ is a Markov chain, then</p>
+  <p>(a) $I(X;Z)\leq I(X;Y)$<br>
+  (b) $I(X;Z)\geq I(X;Y)$<br>
+  (c) $I(X;Z)= I(X;Y)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Processing data through a channel can only lose information: $I(X;Z)\leq I(X;Y)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.17.</span> If $X$ is a deterministic function of $Y$, then $H(X|Y)=$</p>
+  <p>(a) $0$<br>
+  (b) $H(X)$<br>
+  (c) $H(Y)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>If $X=f(Y)$, knowing $Y$ determines $X$ completely, so there is no remaining uncertainty: $H(X|Y)=0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.18.</span> The mutual information $I(X;Y)$ can be written as</p>
+  <p>(a) $H(X)+H(Y)-H(X,Y)$<br>
+  (b) $H(X)-H(Y)$<br>
+  (c) $H(X,Y)-H(X)-H(Y)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>$I(X;Y)=H(X)+H(Y)-H(X,Y)$ is one of the standard forms, equivalent to $H(X)-H(X|Y)=H(Y)-H(Y|X)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.19.</span> Is mutual information always non-negative?</p>
+  <p>(a) Yes, $I(X;Y)\geq 0$ always<br>
+  (b) No, it can be negative<br>
+  (c) Only when $X$ and $Y$ are independent</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Mutual information is always non-negative, $I(X;Y)\geq 0$, with equality if and only if $X$ and $Y$ are independent.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.20.</span> For three random variables $X$, $Y$, $Z$, the chain rule for mutual information is</p>
+  <p>(a) $I(X,Y;Z)=I(X;Z)+I(Y;Z|X)$<br>
+  (b) $I(X,Y;Z)=I(X;Z)+I(Y;Z)$<br>
+  (c) $I(X,Y;Z)=I(X;Z)I(Y;Z)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The chain rule for mutual information states $I(X,Y;Z)=I(X;Z)+I(Y;Z|X)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.21.</span> Conditioning reduces entropy: $H(X|Y)\leq H(X)$. When does equality hold?</p>
+  <p>(a) When $X$ and $Y$ are independent<br>
+  (b) When $X$ is a function of $Y$<br>
+  (c) Always</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>$H(X|Y)=H(X)$ if and only if $X$ and $Y$ are independent, meaning $Y$ provides no information about $X$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.22.</span></p>
+  <p>A binary linear code generates $M$ codewords using the generator matrix $$\boldsymbol{G}=\begin{pmatrix}1&0&1&0&1&0&1\\0&1&0&1&0&1&0\\1&1&0&0&1&1&0\end{pmatrix},$$ whose three rows are linearly independent over $\mathbb{F}_2$. Let $V$ select a message from $\{1,\ldots,M\}$ uniformly, and let $\boldsymbol{X}=\boldsymbol{s}\boldsymbol{G}$ be the corresponding codeword. Compute the mutual information $I(V;\boldsymbol{X})$ (in bits).</p>
+  <p>(a) $0$<br>
+  (b) $\log_2(3)$<br>
+  (c) $7$<br>
+  (d) $3$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(d)</strong> &#9733;</p>
+    <p>The matrix has $k=3$ rows and $n=7$ columns, so there are $M=2^k=8$ messages. Since the rows are independent (rank $3$), the encoder $\boldsymbol{s}\mapsto\boldsymbol{s}\boldsymbol{G}$ is one-to-one, hence $V$ is a deterministic function of $\boldsymbol{X}$ and $H(V\mid\boldsymbol{X})=0$. With $V$ uniform, $H(V)=\log_2 8=3$ bits, so $I(V;\boldsymbol{X})=H(V)-H(V\mid\boldsymbol{X})=3-0=\boldsymbol{3}$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.23.</span></p>
+  <p>Let $X$ be a random variable taking values in $\mathcal{X}=\{1,2,3\}$ with probability distribution $\{p_1,p_2,p_3\}$. Define $Y=\lfloor X/2\rfloor$. Compute the entropy $H(Y)$ (in bits).</p>
+  <p>(a) $p_1\log_2\frac{1}{p_1}+(p_2+p_3)\log_2\frac{1}{p_2+p_3}$<br>
+  (b) $p_1\log_2\frac{1}{p_1}+p_2\log_2\frac{1}{p_2}+p_3\log_2\frac{1}{p_3}$<br>
+  (c) $(p_1+p_2)\log_2\frac{1}{p_1+p_2}+p_3\log_2\frac{1}{p_3}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Apply the deterministic map: $\lfloor 1/2\rfloor=0$, $\lfloor 2/2\rfloor=1$, $\lfloor 3/2\rfloor=1$, so $X=1$ gives $Y=0$ while $X=2,3$ both give $Y=1$. Hence $Y$ is binary with $\mathbb{P}[Y=0]=p_1$ and $\mathbb{P}[Y=1]=p_2+p_3$. Substituting into $H(Y)=\sum_y \mathbb{P}[Y=y]\log_2\frac{1}{\mathbb{P}[Y=y]}$ gives $H(Y)=p_1\log_2\frac{1}{p_1}+(p_2+p_3)\log_2\frac{1}{p_2+p_3}=h_2(p_1)$. The three-term option is $H(X)\ge H(Y)$ (it ignores the merging of $2$ and $3$); the option merging $1,2$ corresponds to a different map.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.24.</span></p>
+  <p>Let $X$ and $\hat X$ be two random variables, and define $$E=\begin{cases}2 & \hat X=X,\\[2pt] 0 & \hat X\neq X.\end{cases}$$ Let $P_{\rm e}=\mathbb{P}[\hat X\neq X]$ be the probability of error. What is $H(E)$?</p>
+  <p>(a) $h_2(P_{\rm e})$<br>
+  (b) $2h_2(P_{\rm e})$<br>
+  (c) $1-2h_2(P_{\rm e})$<br>
+  (d) $2P_{\rm e}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>$E$ is binary: $\mathbb{P}[E=0]=P_{\rm e}$ and $\mathbb{P}[E=2]=1-P_{\rm e}$. Entropy depends only on the probability vector, not on the labels $0$ and $2$, so $H(E)=-P_{\rm e}\log_2 P_{\rm e}-(1-P_{\rm e})\log_2(1-P_{\rm e})=h_2(P_{\rm e})$. The factor $2$ in option $2h_2(P_{\rm e})$ wrongly assumes the label scales entropy. Hence $H(E)=h_2(P_{\rm e})$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.25.</span></p>
+  <p>For three random variables $X$, $Y$, $Z$ with joint distribution $P_{XYZ}$ (entropies in bits), which of the following holds for every joint distribution?</p>
+  <p>(a) $H(X,Y,Z)\leq H(X)+H(Y)+H(Z)$<br>
+  (b) $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid Y)$<br>
+  (c) $H(X,Y,Z)\leq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$<br>
+  (d) $H(X,Y,Z)\geq H(X)+H(Y)+H(Z)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By the chain rule $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid X,Y)$. Since conditioning reduces entropy, $H(Y\mid X)\leq H(Y)$ and $H(Z\mid X,Y)\leq H(Z)$, giving the <em>subadditivity</em> bound $H(X,Y,Z)\leq H(X)+H(Y)+H(Z)$, with equality iff $X,Y,Z$ are mutually independent. The other options fail: the equality requires the Markov chain $X\to Y\to Z$, and the third inequality actually points the wrong way (the true relation is $\geq$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.26.</span></p>
+  <p>The exact chain rule reads $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid X,Y)$. Under what condition does the claim $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid Y)$ hold (note the last term uses $H(Z\mid Y)$ instead of $H(Z\mid X,Y)$)?</p>
+  <p>(a) It holds for every joint distribution<br>
+  (b) Only when $X\to Y\to Z$ forms a Markov chain (i.e. $Z$ is conditionally independent of $X$ given $Y$)<br>
+  (c) Only when $X$, $Y$, $Z$ are mutually independent<br>
+  (d) Only when $X$ and $Y$ are independent</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>Replacing $H(Z\mid X,Y)$ by $H(Z\mid Y)$ requires $H(Z\mid Y)=H(Z\mid X,Y)$. Since conditioning reduces entropy we only have $H(Z\mid X,Y)\leq H(Z\mid Y)$ in general; equality holds exactly when $Z$ is conditionally independent of $X$ given $Y$, that is, when $X\to Y\to Z$ is a Markov chain. This is a structural assumption, not true for an arbitrary $P_{XYZ}$ (e.g. $X$ a fair bit, $Y=0$, $Z=X$ gives $1\neq 2$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.27.</span></p>
+  <p>Consider the claim $H(X,Y,Z)\leq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$. Comparing with the chain rule $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid X,Y)$, what is the correct relation between the two sides?</p>
+  <p>(a) $H(X,Y,Z)\geq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$, so the claim is false (inequality reversed)<br>
+  (b) $H(X,Y,Z)\leq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$, so the claim is true for all distributions<br>
+  (c) The two sides are always equal<br>
+  (d) The claim holds whenever $Z$ is independent of $(X,Y)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The last two terms $H(Y\mid X)$ and $H(Z\mid X,Y)$ match the chain rule, so the comparison reduces to the first term. Since conditioning reduces entropy, $H(X\mid Y)\leq H(X)$, hence the right-hand side is at most $H(X,Y,Z)$, i.e. $H(X,Y,Z)\geq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$ — the opposite of the claim. Equality only when $X$ and $Y$ are independent; counterexample: $X=Y$ a fair bit, $Z=0$ gives $1\geq 0$ but the claim asserts $1\leq 0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.28.</span></p>
+  <p>Let $X_1$, $X_2$ and $Z$ be <em>independent</em> random variables, where $X_1,X_2\in\{0,1\}$ and $Z\in\{1,2\}$, each uniform. Define $Y_1=X_1+Z$ and $Y_2=X_2+Z$ (so $Y_1\to Z\to Y_2$ is a Markov chain). Calculate the conditional entropy $H(Y_1,Y_2\mid Z)$ (in bits).</p>
+  <p>(a) $2$ bits<br>
+  (b) $1$ bit<br>
+  (c) $0$ bits<br>
+  (d) $3$ bits</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Given $Z$, $Y_1$ and $Y_2$ depend only on the independent inputs $X_1,X_2$, so they are conditionally independent: $H(Y_1,Y_2\mid Z)=H(Y_1\mid Z)+H(Y_2\mid Z)$. For each fixed $z$, $Y_1=X_1+z$ is uniform on two values, giving $H(Y_1\mid Z=z)=\log_2 2=1$ bit (likewise for $Y_2$). Averaging over $Z$ keeps each term at $1$ bit, so the total is $1+1=2$ bits. (Directly: conditioned on any $z$, $(Y_1,Y_2)$ is uniform over $4$ values, $\log_2 4=2$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.29.</span></p>
+  <p>A discrete memoryless channel is used $n$ times, with i.i.d. inputs $X_1,\ldots,X_n$ uniform on $\{0,1,2,3\}$. The per-use average mutual information satisfies $\frac{1}{n}\sum_{i=1}^{n} I(X_i;Y_i)=\frac{3}{2}$ bits/channel use. Calculate the residual uncertainty about the transmitted block given the whole output, $H(X_1,\ldots,X_n\mid Y_1,\ldots,Y_n)$.</p>
+  <p>(a) $\dfrac{n}{2}$<br>
+  (b) $\dfrac{3n}{2}$<br>
+  (c) $2n$<br>
+  (d) $\dfrac{n}{4}$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Use $H(X^n\mid Y^n)=H(X^n)-I(X^n;Y^n)$. Since inputs are i.i.d. uniform on $4$ symbols, $H(X^n)=n\log_2 4=2n$ bits. For a DMC with i.i.d. inputs the pairs $(X_i,Y_i)$ are independent, so $I(X^n;Y^n)=\sum_i I(X_i;Y_i)=\frac{3n}{2}$. Hence $H(X^n\mid Y^n)=2n-\frac{3n}{2}=\frac{n}{2}$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.30.</span></p>
+  <p>Three random variables $X_1$, $X_2$ and $X_3$ form a Markov chain $X_1 \to X_2 \to X_3$. In addition, $X_2$ is a <em>deterministic</em> function of $X_1$. What is the joint entropy $H(X_1, X_2, X_3)$?</p>
+  <p>(a) $H(X_1) + H(X_2) + H(X_3)$<br>
+  (b) $H(X_1) + H(X_3)$<br>
+  (c) $H(X_2) + H(X_3 \mid X_2)$<br>
+  (d) $H(X_1) + H(X_3 \mid X_2)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(d)</strong> &#9733;</p>
+    <p>Start from the chain rule $H(X_1,X_2,X_3)=H(X_1)+H(X_2\mid X_1)+H(X_3\mid X_1,X_2)$. Since $X_2=f(X_1)$ is deterministic, $H(X_2\mid X_1)=0$. The Markov property $X_1\to X_2\to X_3$ makes $X_1$ and $X_3$ conditionally independent given $X_2$, so $H(X_3\mid X_1,X_2)=H(X_3\mid X_2)$. Substituting gives $H(X_1,X_2,X_3)=H(X_1)+H(X_3\mid X_2)$. (Option (c) equals $H(X_2,X_3)$ and matches only when $f$ is invertible.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.31.</span></p>
+  <p>Let $X$ and $Y$ take values in $\mathcal{X}=\{a,b\}$ and $\mathcal{Y}=\{a,b,c,d\}$. Suppose $X$ is equiprobable and $H(Y|X)=\frac32$ bits. Exactly one of the following relations is false. Which one?</p>
+  <p>(a) $H(X,Y)=3$<br>
+  (b) $H(Y)+H(X|Y)=\frac52$<br>
+  (c) $I(X;Y)=1-H(X|Y)$<br>
+  (d) $H(Y)\geq\frac32$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Since $X$ is uniform on two symbols, $H(X)=\log_2 2=1$ bit. The chain rule gives $H(X,Y)=H(X)+H(Y|X)=1+\frac32=\frac52$, so the claim $H(X,Y)=3$ is <strong>false</strong>. The others hold: (b) is the chain rule $H(Y)+H(X|Y)=H(X,Y)=\frac52$; (c) is $I(X;Y)=H(X)-H(X|Y)=1-H(X|Y)$; (d) follows from $H(Y)\ge H(Y|X)=\frac32$ (conditioning reduces entropy).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.32.</span></p>
+  <p>Consider three random variables $X$, $Y$ and $Z$. By expanding the mutual information $I(X;Y,Z)$ with the <em>chain rule</em> in two different orders and using non-negativity of conditional mutual information, which inequality can be deduced for any three random variables?</p>
+  <p>(a) $I(X;Z)\leq I(X;Y)$<br>
+  (b) $I(X;Z)\leq I(X;Y)+I(X;Z\mid Y)$<br>
+  (c) $I(X;Z)\geq I(X;Y)+I(X;Z\mid Y)$<br>
+  (d) None of the others.</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(b)</strong> &#9733;</p>
+    <p>The chain rule gives two expansions of $I(X;Y,Z)$: peeling $Y$ first, $I(X;Y)+I(X;Z\mid Y)$; peeling $Z$ first, $I(X;Z)+I(X;Y\mid Z)$. Equating them yields $I(X;Z)=I(X;Y)+I(X;Z\mid Y)-I(X;Y\mid Z)$. Since $I(X;Y\mid Z)\geq 0$, subtracting it gives $I(X;Z)\leq I(X;Y)+I(X;Z\mid Y)$, the correct option. Note $I(X;Z)\leq I(X;Y)$ is the data-processing inequality and holds only under the Markov chain $X\to Y\to Z$ (e.g. with $Y$ independent of $X$ and $Z=X$ it fails).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.33.</span></p>
+  <p>In the proof of Fano's inequality, $X,Y$ are the channel input and output, $\hat X=f(Y)$ is a deterministic estimate, and $E$ is the error indicator with $E=1$ iff $\hat X\neq X$. Applying the <em>chain rule of conditional entropy</em> to $H(X,E\mid Y)$ by expanding $X$ first and then $E$ first, which identity do you obtain?</p>
+  <p>(a) $H(X\mid Y)+H(E\mid X,Y)=H(E\mid Y)+H(X\mid E,Y)$<br>
+  (b) $H(X\mid Y)+H(E\mid Y)=H(X,E\mid Y)$<br>
+  (c) $H(X\mid Y)\,H(E\mid X,Y)=H(E\mid Y)\,H(X\mid E,Y)$<br>
+  (d) $H(X\mid Y)+H(E\mid X)=H(E\mid Y)+H(X\mid E)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>The chain rule $H(A,B\mid C)=H(A\mid C)+H(B\mid A,C)$ applied to $H(X,E\mid Y)$ gives $H(X\mid Y)+H(E\mid X,Y)$ (expand $X$ first) and $H(E\mid Y)+H(X\mid E,Y)$ (expand $E$ first). Both equal the same joint entropy, so $H(X\mid Y)+H(E\mid X,Y)=H(E\mid Y)+H(X\mid E,Y)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.34.</span></p>
+  <p>The error indicator $E$ satisfies $E=1$ iff $f(Y)\neq X$, where $f$ is deterministic. In Fano's proof, what is the value of $H(E\mid X,Y)$, and what identity does it yield from $H(X\mid Y)+H(E\mid X,Y)=H(E\mid Y)+H(X\mid E,Y)$?</p>
+  <p>(a) $H(E\mid X,Y)=0$, hence $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)$<br>
+  (b) $H(E\mid X,Y)=h(P_{\mathrm e})$, hence $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)-h(P_{\mathrm e})$<br>
+  (c) $H(E\mid X,Y)=H(E)$, hence $H(X\mid Y)=H(X\mid E,Y)$<br>
+  (d) $H(E\mid X,Y)=1$, hence $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)-1$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>$E$ is a deterministic function of the pair $(X,Y)$ (it equals $1$ exactly when $f(Y)\neq X$). The conditional entropy of a deterministic function of the conditioning variables is zero, so $H(E\mid X,Y)=0$. Substituting into the part-(a) identity gives $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.35.</span></p>
+  <p>Starting from $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)$, with $E$ Bernoulli and $\mathbb{P}(E=1)=P_{\mathrm e}$, which bound on $H(X\mid Y)$ follows by using that conditioning reduces entropy?</p>
+  <p>(a) $H(X\mid Y)\leq h(P_{\mathrm e})+H(X\mid E,Y)$<br>
+  (b) $H(X\mid Y)\geq h(P_{\mathrm e})+H(X\mid E,Y)$<br>
+  (c) $H(X\mid Y)\leq P_{\mathrm e}+H(X\mid E,Y)$<br>
+  (d) $H(X\mid Y)\leq h(P_{\mathrm e})\cdot H(X\mid E,Y)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Conditioning never increases entropy, so $H(E\mid Y)\leq H(E)$. Since $E$ is Bernoulli$(P_{\mathrm e})$, $H(E)=h(P_{\mathrm e})$. Replacing $H(E\mid Y)$ by $h(P_{\mathrm e})$ in the equality yields $H(X\mid Y)\leq h(P_{\mathrm e})+H(X\mid E,Y)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.36.</span></p>
+  <p>Expanding $H(X\mid E,Y)$ over the values of $E$, recall that when $E=0$ the estimate $f(Y)=X$ so $X$ is determined by $Y$. To what does $H(X\mid E,Y)$ simplify?</p>
+  <p>(a) $H(X\mid E=1,Y)\,\mathbb{P}(E=1)$<br>
+  (b) $H(X\mid E=0,Y)\,\mathbb{P}(E=0)$<br>
+  (c) $H(X\mid E=1,Y)+H(X\mid E=0,Y)$<br>
+  (d) $H(X\mid E=1,Y)\,\mathbb{P}(E=0)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>By averaging over $E$, $H(X\mid E,Y)=\mathbb{P}(E=0)H(X\mid E=0,Y)+\mathbb{P}(E=1)H(X\mid E=1,Y)$. When $E=0$, $X=f(Y)$ is determined by $Y$, so $H(X\mid E=0,Y)=0$ and that term vanishes. Thus $H(X\mid E,Y)=H(X\mid E=1,Y)\,\mathbb{P}(E=1)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.37.</span></p>
+  <p>Given $E=1$ and $Y$, the input $X$ ranges over the alphabet $\mathcal{X}$. Which upper bound on $H(X\mid E=1,Y)$ does the maximum-entropy property give (the one used in the standard Fano proof)?</p>
+  <p>(a) $H(X\mid E=1,Y)\leq\log_2|\mathcal{X}|$<br>
+  (b) $H(X\mid E=1,Y)\leq\ln|\mathcal{X}|$<br>
+  (c) $H(X\mid E=1,Y)\leq|\mathcal{X}|$<br>
+  (d) $H(X\mid E=1,Y)\leq\log_2(|\mathcal{X}|+1)$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Given $E=1$ and $Y$, $X$ takes at most $|\mathcal{X}|$ values. A random variable on an alphabet of size $|\mathcal{X}|$ has entropy at most $\log_2|\mathcal{X}|$ bits (maximized by the uniform distribution). Hence $H(X\mid E=1,Y)\leq\log_2|\mathcal{X}|$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercise 9.38.</span></p>
+  <p>Combining $H(X\mid Y)\leq h(P_{\mathrm e})+H(X\mid E,Y)$, the expansion $H(X\mid E,Y)=H(X\mid E=1,Y)\,P_{\mathrm e}$, and $H(X\mid E=1,Y)\leq\log_2|\mathcal{X}|$, what final bound (Fano's inequality) results?</p>
+  <p>(a) $H(X\mid Y)\leq h(P_{\mathrm e})+P_{\mathrm e}\,\log_2|\mathcal{X}|$<br>
+  (b) $H(X\mid Y)\leq h(P_{\mathrm e})+\log_2|\mathcal{X}|$<br>
+  (c) $H(X\mid Y)\leq h(P_{\mathrm e})\,P_{\mathrm e}+\log_2|\mathcal{X}|$<br>
+  (d) $H(X\mid Y)\leq P_{\mathrm e}+P_{\mathrm e}\,\log_2|\mathcal{X}|$</p>
+  <details class="solution"><summary>Show solution</summary>
+    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
+    <p>Insert the expansion into the bound: $H(X\mid Y)\leq h(P_{\mathrm e})+P_{\mathrm e}\,H(X\mid E=1,Y)$, using $\mathbb{P}(E=1)=P_{\mathrm e}$. Then bound $H(X\mid E=1,Y)\leq\log_2|\mathcal{X}|$. This gives Fano's inequality $H(X\mid Y)\leq h(P_{\mathrm e})+P_{\mathrm e}\,\log_2|\mathcal{X}|$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

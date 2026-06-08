@@ -40,44 +40,130 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html" class="active">Recuperació 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Properament</h1>
+      <h1>Examen de recuperació 2025</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Aquest contingut estarà disponible a mesura que avanci el curs.</p>
+
+    <button id="expand-all" data-expand="Mostra totes les solucions" data-collapse="Amaga totes les solucions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostra totes les solucions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Problema 1.</span> Un experiment consta de dos passos. Primer, es llença una moneda no trucada i es registra el resultat (cara o creu). Si el resultat és cara, es llença un dau no trucat de sis cares i es registra la seva cara; però si el resultat és creu, es llença una segona moneda no trucada i es registra el seu resultat. Quina és l'entropia en bits del resultat combinat dels dos passos?</p>
+  <p>(a) $\tfrac{1+\log_2(6)}{2}$<br>
+  (b) $\tfrac{3+\log_2(3)}{2}$<br>
+  (c) $\tfrac{4+\log_2(3)}{2}$<br>
+  (d) $\tfrac{2+\log_2(6)}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>El resultat de l'experiment es pot modelar mitjançant la variable aleatòria $X=(A,B)$. Després de determinar tots els resultats possibles per a $X$, obtenim que $X$ té distribució de probabilitat $\bigl\{\tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{4}, \tfrac{1}{4}\bigr\}$. Alternativament, $H(X)=H(A)+H(B|A)$, amb $H(A)=1$ i $H(B|A)=\tfrac{1+\log_2(6)}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 2.</span> Una font discreta pren valors $\{a,b,c\}$ amb probabilitats $\{p,2p,3p\}$ per a algun paràmetre $p\neq 0$. Quina és la longitud mitjana del codi binari òptim lliure de prefixos per a la font?</p>
+  <p>(a) $\log_2(3)$<br>
+  (b) $\tfrac 32$<br>
+  (c) $2$<br>
+  (d) $\tfrac{4+3\log_2(3)}{6}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Només $p=\tfrac 16$ porta a una distribució de probabilitat vàlida. El codi de Huffman per a la font té longituds $\{2,2,1\}$, així que $L_{\rm av}=9p=\tfrac 32$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 3.</span> Una font discreta sense memòria $W_n=(X_1,\ldots,X_n)$, on cada $X_i\in\{a,b,c,d,e,f\}$ amb igual probabilitat, es codifica utilitzant el codi binari òptim lliure de prefixos. En quin dels següents intervals es troba la longitud mitjana per símbol del codi binari òptim lliure de prefixos per a $W_{3}$?</p>
+  <p>(a) $\bigl[\tfrac{3+3\log_2(3)}{2},\tfrac{3\log_2(3) + 4}{2} \bigr)$<br>
+  (b) $\bigl[\tfrac{1+\log_2(3)}{2},\tfrac{3\log_2(3) + 4}{6} \bigr)$<br>
+  (c) $\bigl[1+\log_2(3),\tfrac{3\log_2(3) + 4}{3} \bigr)$<br>
+  (d) $\bigl[3+3\log_2(3),3\log_2(3) + 4 \bigr)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>La longitud mitjana per símbol del codi de Huffman per a $W_3$ es troba a $\bigl[H(X_1),H(X_1)+\tfrac 13\bigr)$. Utilitzant que $H(X_1)=\log_2(6)$, obtenim el resultat.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 4.</span> Considereu una font discreta sense memòria $X=(U_1,\ldots,U_r)$, on cada $U_i$ pren valors $\{1,2,3,\ldots,n\}$ amb igual probabilitat, i definiu la variable aleatòria $Z$ com $Z=\log_2 P_X(X)$. Quin és el valor esperat de $Z$?</p>
+  <p>(a) $r\log_2(n)$<br>
+  (b) $-r\log_2(n)$<br>
+  (c) $n\log_2(r)$<br>
+  (d) $-n\log_2(r)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Com que $P_X(x)=\tfrac{1}{n^r}$ per a totes les $x$, la variable aleatòria és determinística amb valor $\log_2(n^{-r})$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 5.</span> Les paraules codi d'un cert codi lineal $(5,1)$ amb distribució de pesos que satisfà $A_2=1$ es transmeten amb igual probabilitat per un canal binari simètric amb probabilitat de canvi de bit $p$. Quina és la probabilitat de rebre la seqüència tots uns?</p>
+  <p>(a) $\tfrac{p^5-2p^4 +2p^3}{2}$<br>
+  (b) $\tfrac{2p^5 -2p^4 +p^3}{2}$<br>
+  (c) $\tfrac{p^5-p^4+p^3}{2}$<br>
+  (d) $\tfrac{p^5+p^4+p^3}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>El codi té dues paraules codi, $00000$ i una segona paraula codi amb $2$ uns i $3$ zeros. Llavors, la probabilitat de rebre $11111$ és $\tfrac 12 p^5 + \tfrac 12 p^3(1-p)^2$. Expandint els termes i simplificant, obtenim el resultat.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 6.</span> El codi $\{000,111\}$ es transmet sobre un canal binari amb probabilitats condicionades $P_{Y|X}(0|0)=1$ i $P_{Y|X}(0|1)=\tfrac 12$. El receptor utilitza una regla de descodificació de mínima versemblança, és a dir $\hat m = \arg\min_m P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$, per descodificar la sortida del canal. Quina és la regió d'error del segon missatge?</p>
+  <p>(a) $\{001,010,011,100,101,110,111\}$<br>
+  (b) $\{000\}$<br>
+  (c) $\{000,001,010,100\}$<br>
+  (d) $\{011,101,110,111\}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que $P_{Y|X}(1|0)=0$, tenim que $P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|000)=0$ per a qualsevol sortida del canal que tingui almenys un $1$. Per tant, $\hat m = 1$ per a totes les sortides del canal excepte per a $\boldsymbol{y}=000$, per a la qual $\hat m = 2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 7.</span> Dues variables aleatòries $X$ i $Y$ prenen valors $\{a,b\}$ i $\{a,b,c,d\}$, respectivament, de manera que $X$ té valors equiprobables i que $H(Y|X)=\tfrac 32$. Quina de les següents relacions és falsa?</p>
+  <p>(a) $H(X,Y) = 3$<br>
+  (b) $H(Y) + H(X|Y) = \tfrac{5}{2}$<br>
+  (c) $I(X;Y) = 1 - H(X|Y)$<br>
+  (d) $H(Y) \geq \tfrac 32$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>L'afirmació $I(X;Y) = 1 - H(X|Y)$ és certa perquè $H(X)=1$. $H(Y)\geq \tfrac 32$ també és certa perquè el condicionament redueix l'entropia. $H(Y) + H(X|Y) = H(X,Y) = H(X)+H(Y|X) = \tfrac 52$. L'entropia conjunta no és $3$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Home</a>
@@ -38,48 +38,234 @@
       <summary><h4>Lecture notes</h4></summary>
       <a href="lecture1.html">1. Sequences of random variables</a>
       <a href="lecture2.html">2. Functions of RV &amp; concentration ineq.</a>
-      <span class="sidebar-disabled">3. Prefix-free binary source codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Fundamental limits in data compression</span>
-      <span class="sidebar-disabled">6. Error probability of channel codes</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="lecture3.html" class="active">3. Prefix-free binary source codes</a>
+      <a href="lecture4.html">4. Huffman codes</a>
+      <a href="lecture5.html">5. Fundamental limits in data compression</a>
+      <a href="lecture6.html">6. Error probability of channel codes</a>
+      <a href="lecture7.html">7. Linear codes</a>
+      <a href="lecture8.html">8. Channel capacity</a>
+      <a href="lecture9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exercises</h4></summary>
       <a href="exercises1.html">1. Random variables</a>
       <a href="exercises2.html">2. Concentration inequalities</a>
-      <span class="sidebar-disabled">3. Prefix-free codes</span>
-      <span class="sidebar-disabled">4. Huffman codes</span>
-      <span class="sidebar-disabled">5. Data compression</span>
-      <span class="sidebar-disabled">6. Error probability</span>
-      <span class="sidebar-disabled">7. Linear codes</span>
-      <span class="sidebar-disabled">8. Channel capacity</span>
-      <span class="sidebar-disabled">9. Information measures</span>
+      <a href="exercises3.html">3. Prefix-free codes</a>
+      <a href="exercises4.html">4. Huffman codes</a>
+      <a href="exercises5.html">5. Data compression</a>
+      <a href="exercises6.html">6. Error probability</a>
+      <a href="exercises7.html">7. Linear codes</a>
+      <a href="exercises8.html">8. Channel capacity</a>
+      <a href="exercises9.html">9. Information measures</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Quiz</h4></summary>
       <a href="quiz1.html">Topics 1–2</a>
-      <span class="sidebar-disabled">Topics 3–5</span>
-      <span class="sidebar-disabled">Topics 6–9</span>
+      <a href="quiz2.html">Topics 3–5</a>
+      <a href="quiz3.html">Topics 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exams</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Resit 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Resit 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
-      <h1>Coming soon</h1>
+      <h1>Lecture 3. Prefix-free binary source codes <a class="pdf-link" href="../pdf/ITC-2026-Lecture3-en.pdf">pdf</a></h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">This content will be available as the course progresses.</p>
+
+
+<h2>Introduction</h2>
+
+<p>
+The main purpose of data compression is removing the redundancy present in data in order to minimize storage space or transmission time.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Example 3.1.</span> 
+<a id="ex:3.1"></a>
+Consider a fair dice toss. It can be modeled as a random variable with alphabet $\{1,2,3,4,5,6\}$ and probability distribution $\bigl\{\frac 16,\frac 16,\frac 16,\frac 16,\frac 16,\frac 16\bigr\}$. We can use the direct binary representation and obtain
+$$
+1\mapsto 001 ~~~~~ 2\mapsto010 ~~~~~ 3\mapsto011 ~~~~~ 4\mapsto 100 ~~~~~ 5\mapsto 101 ~~~~~ 6\mapsto 110.
+\tag{3.1}
+$$
+There are alternatives to this, though. For example,
+$$
+1\mapsto 00 ~~~~~ 2\mapsto01 ~~~~~ 3\mapsto100 ~~~~~ 4\mapsto 101 ~~~~~ 5\mapsto 110 ~~~~~ 6\mapsto 111
+\tag{3.2}
+$$
+or even
+$$
+1\mapsto 1100 ~~~~~ 2\mapsto1010 ~~~~~ 3\mapsto0110 ~~~~~ 4\mapsto 1001 ~~~~~ 5\mapsto 0101 ~~~~~ 6\mapsto 0011.
+\tag{3.3}	
+$$
+</p>
+
+</div>
+
+<p>
+The above are all one-to-one (bijective) mappings, i.e., they are lossless, meaning that upon observing the binary string, the original message can always be recovered. For example, if the result several dice tosses is encoded using the source code in $(3.2)$ as $1000100$, we know that it corresponds to the source sequence $(3,2,1)$. The same sequence encoded using the source code in $(3.3)$ would be $011010101100$, much longer.
+</p>
+<p>
+In general, we will measure the efficiency of a code using the expected amount of bits required to represent a source. For a source taking values in $\{1,\ldots,r\}$ with probability distribution $\{p_1,\ldots,p_r\}$, the <strong>average length</strong> of the code is given by 
+$$
+	L_{\rm av} = \sum_{j=1}^r p_j \ell_j
+	\tag{3.4}
+$$
+where $\ell_j$ is the length (measured in binary digits) of the binary string associated with symbol $j$.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Example 3.2.</span> 
+According to the source code $(3.1)$ in Example 3.1, all symbols in the source are mapped into binary strings of length $3$. Therefore, $\ell_j=3$ for all $j\in\{1,\ldots,6\}$ in the alphabet and the average length is simply $
+	L_{\rm av}  =  3$ bits per symbol. Similarly, $L_{\rm av}=4$ bits per symbol for the code in (3.3). The code in (3.2) has variable lengths and $\ell_j=2$ for $j\in\{1,2\}$ and $\ell_j=3$ for $j\in\{3,4,5,6\}$. As a result, $L_{\rm av}=\frac 83 \approx 2.667$ bits per symbol. The code $(3.2)$ clearly provides a more efficient (shorter) way of representing the source.
+</p>
+
+</div>
+
+
+<div class="env-block env-example"><p><span class="env-label">Example 3.3.</span> <a id="ex:phone"></a>
+You would like to set up your own telephone system that connects you with your 3 best friends using binary codes. The phone number will be a <strong>codeword</strong> and the set of codewords is the <strong>code</strong>, or <strong>codebook</strong>. You know that you will call Bob $50\%$ of the times and that you will call Alice and Carol $25\%$ of the times each. The source can be them modeled using the alphabet $\{\text{Alice},\text{Bob},\text{Carol}\}$ with probability distribution $\bigl\{\frac 14, \frac 12, \frac 14 \bigr\}$. We now examine several methods to produce the phone numbers reported in Table 3.1 below. 
+</p>
+<p>
+  
+ <figcaption>Phone numbers for Example 3.3.</figcaption>
+  <a id="tab:phone"></a>
+  <table class="data-table"><tr><th>Friend</th><th>Probability</th><th>(a)</th><th>(b)</th><th>(c)</th><th>(d)</th><th>(e)</th><th>(f)</th></tr><tr><td>Alice</td><td>0.25</td><td>0011</td><td>001101</td><td>0</td><td>00</td><td>0</td><td>10</td></tr><tr><td>Bob</td><td>0.5</td><td>0011</td><td>001110</td><td>1</td><td>11</td><td>11</td><td>0</td></tr><tr><td>Carol</td><td>0.25</td><td>1100</td><td>110000</td><td>10</td><td>10</td><td>10</td><td>11</td></tr></table>
+  
+</p>
+<p>
+In code (a), Alice and Bob have the same number, therefore the system will not connect properly. The code (b) will work, since each has a different phone number, but the numbers are very long and the system becomes inefficient. Code (c) is a shorter code, however observe that the system will not work: when we dial $10$ it is unclear whether it means “Carol" or “Bob, Alice". The code (c) is not <strong>uniquely decodable</strong>.
+Code (d) is the first efficient code that works and is uniquely decodable, but why are we assigning $00$ to Alice if we dial $0$ it is clear we wish to dial Alice? An improvement is code (e); it is uniquely decodable, but it is not the most efficient since the code is assigning a 2-bit string to the most probable symbol! Finally, (f) is the <strong>optimal code</strong> with an average length of $L_{\rm av}=1.5$ bits per symbol. It is interesting to note that once you finish dialing, the system immediately knows that you have finished dialing. This is because no codeword is a prefix of any other, i.e., the code is <strong>prefix-free</strong>.
+</p>
+
+</div>
+
+
+<h2>Prefix-free codes</h2>
+
+<p>
+Prefix-free codes are variable-length codes that guarantee unique decodability and, properly designed, are efficient in terms of average length, i.e., minimize $(3.4)$.
+</p>
+<p>
+Consider a discrete memoryless source $U$ taking values over the alphabet $\{1,\ldots,r\}$. A binary source code is the set codewords ${\cal C}=\{{\cal C}(1),{\cal C}(2),\ldots,{\cal C}(r)\}$, where each ${\cal C}(j)$ is the binary sequence used to represent the source symbol $j\in\{1,\ldots,r\}$. For example, the code (f) in Table 3.1 for the source $\{\text{Alice},\text{Bob},\text{Carol}\}$ is given ${\cal C}(\text{Alice})=10$, ${\cal C}(\text{Bob})=0$ and ${\cal C}(\text{Carol})=11$, or simply the set $\{10,0,11\}$. A source sequence of length $n$ is the sequence $(u_1,\ldots,u_n)$ where each $u_i\in\{1,\ldots,r\}$.  A symbol-by-symbol encoding consists of ${\cal C}(u_1)\cdots {\cal C}(u_n)$ the concatenation of the codewords. For example, the source sequence $(\text{Alice},\text{Alice},\text{Carol},\text{Bob},\text{Carol})$ of length $n=5$ is encoded as $101011011$, a binary sequence of length 9 bits.
+</p>
+<p>
+A code is called <strong>uniquely decodable</strong> if no pair of different sequences $(u_1,\ldots,u_n)\neq (u'_1,\ldots,u'_m)$ exist such that ${\cal C}(u_1)\cdots {\cal C}(u_n)={\cal C}(u'_1)\cdots {\cal C}(u_m')$, that is, for a code to be uniquely decodable, two distinct source sequences cannot be encoded into the same codeword. Recall the phone system (c) from Example 3.3. A code is called <strong>prefix-free</strong> if no codeword is a prefix of any other codeword.
+</p>
+
+<div class="env-block env-theorem"><p><span class="env-label">Theorem 3.4.</span> 
+Prefix-free codes are uniquely decodable.
+<a id="th:ud"></a>
+</p>
+
+</div>
+
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 3.5.</span> 
+	Consider the codes ${\cal C}_1=\{0,10,110,111\}$ and ${\cal C}_2=\{0,01,011,111\}$ for a source $\{a,b,c,d\}$. Are the codes uniquely decodable and/or prefix-free? Decode the sequence $0011011110$ using both codes.
+	
+</p>
+<details class="solution"><summary>Show solution</summary>
+<p>
+		The code ${\cal C}_1$ is prefix-free because no codeword is a prefix of any other, and therefore the code is uniquely decodable. The code ${\cal C}_2$ is not prefix-free because ${\cal C}(a)$ is prefix of ${\cal C}(b)$ and ${\cal C}(c)$, while ${\cal C}(b)$ is also prefix of ${\cal C}(c)$. Observe though that the code is uniquely decodable because the bit $0$ is like a comma when read from right to left. Using the first code, the sequence to be decoded can be uniquely grouped as $0,0,110,111,10$. Since ${\cal C}^{-1}(0)=a, {\cal C}^{-1}(110)=c$, ${\cal C}^{-1}(111)=d$ and ${\cal C}^{-1}(10)=b$, we decode the sequence as $(a,a,c,d,b)$. For the second code, we need to read from right to left as $0,011,01,111,0$ to obtain $(a,c,b,d,a)$ instead.
+	
+</p>
+</details>
+
+
+</div>
+
+<p>
+Any binary code can be represented as a binary tree (see Figure 3.1). Take any codeword and regard each bit as a decision as to whether to go up (0) or down (1). Thus, every codeword can be represented by a particular path in the tree, as the two examples in Figure 3.1. In the trees, the root node is denoted with a square, intermediate nodes with small circles and leaf nodes as gray circles. Edges are represented with a solid line. Labels on the right denote binary sequences. Similarly, in Figure 3.2, we illustrate the binary tree representations of the codes (c), (d), (e) and (f) from Example 3.3. The white circle node indicates a leaf with no codeword. Observe that code (c) is not prefix-free and has a codeword along the path to another codeword. Thus, a code is prefix-free if in its tree representation all codewords appear as leaves in the tree.
+</p>
+<p>
+The following is an important result relating the existence of prefix-free codes and binary trees.
+</p>
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;align-items:center"><figure><img src="../img/tikz/lecture3-fig1.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/lecture3-fig2.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure></div>
+<p>
+<figcaption>Binary tree representation of two binary source codes.</figcaption>
+<a id="fig:generic_tree"></a>
+</p>
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;align-items:center"><figure><img src="../img/tikz/lecture3-fig3.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/lecture3-fig4.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/lecture3-fig5.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure></div>
+<p>
+<figcaption>Binary tree representation of some source codes from Example 3.3. The white circle node indicates a leaf with no codeword.</figcaption>
+<a id="fig:tree_phonec"></a>
+</p>
+
+<div class="env-block env-theorem"><p><span class="env-label">Theorem 3.6 (<strong>Kraft's inequality</strong>).</span> 
+<a id="th:kraft"></a>
+Consider a binary source code ${\cal C}$ for a source with alphabet $\{1,\ldots,r\}$ and probability distribution $\{p_1,\ldots,p_r\}$. Then, if the code is prefix-free, then
+$$
+\sum_{j=1}^r2^{-\ell_j} \leq 1.
+\tag{3.5}
+$$
+In addition, there exists a prefix-free code with lengths $\ell_j$ for $j=1,\ldots,r$ satisfying $(3.5)$.
+</p>
+
+</div>
+
+
+<div class="env-block env-example"><p><span class="env-label">Example 3.7.</span> <a id="ex:codelengths"></a>
+A code with length distribution $\{\ell_1,\ldots,\ell_r\}=\{3,4,4,4,4\}$ satisfies Kraft's inequality since  
+$$
+\sum_{j=1}^r 2^{-\ell_j} = 2^{-3}+4\cdot 2^{-4} = \frac1 8 +\frac {4}{16} = \frac 3 8\leq 1. \tag{3.6}$$
+Therefore, there exists a prefix-free codes with such lengths, for example $\{000,0010,0011,1100,1101\}$. Instead, for a length distribution $\{1,2,3,3,4\}$, we cannot construct a prefix-free code since
+$$
+2^{-1}+2^{-2}+2\cdot2^{-3} + 2^{-4} = \frac{17}{16}\geq1 \tag{3.7}$$
+A possible attempt at constructing such a code is shown in Figure 3.3, where there is one codeword of length 4 that cannot  be connected anywhere. It is not possible to construct such a code.
+</p>
+
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;align-items:center"><figure><img src="../img/tikz/lecture3-fig6.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/lecture3-fig7.svg" alt="Figure" style="max-width:90%;display:block;margin:0 auto"></figure></div>
+<p>
+<figcaption>Example of a binary tree representation of the source codes in Example 3.7.</figcaption>
+<a id="fig:extree"></a>
+</p>
+
+<p>
+We end this lecture by stating a fundamental result in data compression.
+</p>
+
+<div class="env-block env-theorem"><p><span class="env-label">Theorem 3.8.</span> <a id="th:laventropy"></a>
+The average length of any prefix-free code of lengths $\{\ell_1,\ldots,\ell_r\}$ used to represent a source $U$ taking values in $\{1,\ldots,r\}$ with probability distribution $\{p_1,\ldots,p_r\}$ satisfies
+$$
+	L_{\rm av} \geq H(U),
+	\tag{3.8}
+$$
+where $H(U)$ is <strong>the entropy of the source</strong>, measured in bits, and is given by
+$$
+	H(U) =  - \sum_{j=1}^r p_j \log_2 p_j. \tag{3.9}$$
+Note that in order to meet inequality $(3.8)$ with equality, the lengths should be such that $
+2^{-\ell_j} = p_j$ exactly for all $j=1,\dotsc,r$. 
+</p>
+
+</div>
+
+
+<div class="env-block env-problem"><p><span class="env-label">Problem 3.9.</span> 
+	Consider a source $U$ taking values in $\{1,2,3\}$ with equal probability. Find a prefix-free code of length distribution $\{1,2,2\}$ and check that Theorems 3.6 and 3.8 are satisfied.
+	
+</p>
+<details class="solution"><summary>Show solution</summary>
+<p>
+	A possible prefix-free code with such lengths is given by $\{0,10,11\}$. The code is uniquely decodable by Theorem 3.4, it satisfies Kraft's inequality in Theorem 3.6 with equality since $\sum_{j=1}^r 2^{-\ell_j} = 1$. This means that the binary tree associated with $\{0,10,11\}$ has no empty leaves! When used to represent the source $U$, it has average length $L_{\rm av}=\sum_{j=1}^r p_j\ell_j = \frac 53 \approx 1.667$ bits per symbol, and is bounded by the entropy of the source from below since
+	$$
+		H(U)=- \sum_{j=1}^r p_j \log_2 p_j = \log_2 3 \approx 1.585. \tag{3.10}$$
+	
+</p>
+</details>
+
+
+</div>
+
+<p>
+The result in $(3.8)$ states that the entropy $H(U)$ is the minimum average length required to represent a source $U$, we cannot represent it without errors with less bits per symbol. From all possible prefix-free codes, we wish to find the one that minimizes the average length in $(3.4)$. This will be the topic of our next lecture.</p>
   </main>
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Information theory and coding 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

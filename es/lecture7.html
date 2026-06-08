@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -38,48 +38,298 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html" class="active">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Tema 7. Códigos lineales <a class="pdf-link" href="../pdf/ITC-2026-Lecture7-es.pdf">pdf</a></h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+
+<h2>Introducción</h2>
+
+<p>
+El código de repetición estudiado en el tema anterior consistía en un único ($k=1$) bit de información $s\in\{0,1\}$ repetido $n$ veces. Para $n=3$, tenemos el código $\{\x_1,\x_2\}=\{000,111\}$. Cada palabra código $\x\in\{\x_1,\x_2\}$ es una secuencia de tres bits $\x=(x_1,x_2,x_3)$ <strong>generada</strong> a partir de $s$ como $x_1=x_2=x_3=s$. Para <strong>comprobar</strong> si $\x$ es palabra código, usamos las ecuaciones $x_1+x_2=0$ y $x_2+x_3=0$ en aritmética módulo 2. Escribiendo $\x$ como el vector fila $1\times 3$ $\x=(x_1 ~ x_2 ~x_3)$, podemos expresar ambos procedimientos con matrices como
+$$
+(x_1 ~x_2 ~x_3) = s\underbrace{\begin{pmatrix}
+1 &1 &1
+\end{pmatrix}}_{\boldsymbol{G}} \tag{7.1}$$
+y
+$$
+\underbrace{\begin{pmatrix}
+1 &1 &0\\
+0 &1 &1
+\end{pmatrix}
+}_{\boldsymbol{H}} \begin{pmatrix}
+x_1\\
+x_2\\
+x_3
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+0
+\end{pmatrix}, \tag{7.2}$$
+o de forma compacta como $\x=s\boldsymbol{G}$ y $\boldsymbol{H}\boldsymbol{x}^T = \boldsymbol{0}$ donde $\boldsymbol{G}$ y $\boldsymbol{H}$ son las matrices generadora y de control de paridad. Los códigos con esta estructura se denominan códigos lineales.
+</p>
+
+<h2>Códigos lineales</h2>
+
+<p>
+Un código lineal ${\cal C}=\{\x_1,\ldots,\x_M\}$ es un código binario de $M=2^k$ palabras código generadas cada una como
+$$
+	\x_m = \boldsymbol{s}_m \boldsymbol{G},
+	\tag{7.3}
+$$
+donde $\boldsymbol{s}_m$ es la representación en $k$ bits del entero $(m-1)$ y $\boldsymbol{G}$ es una matriz generadora $k\times n$. Existe una matriz de control de paridad $\boldsymbol{H}$ de dimensiones $(n-k)\times n$ tal que, para cada $m\in\{1,\ldots,M\}$,
+$$
+\boldsymbol{Hx}_m^T=\boldsymbol{0}. \tag{7.4}$$
+Las dimensiones del código son $(n,k)$; el código de repetición anterior es un código lineal $(3,1)$.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 7.1.</span> 
+<a id="ex:1"></a>
+ 	Consideremos el código lineal generado por
+ 	$$
+	\boldsymbol{G} = \begin{pmatrix}
+		0 & 1 & 0\\
+		1 & 0 & 1
+	\end{pmatrix}.
+	$$
+Como $\boldsymbol{G}$ tiene dimensiones $2\times 3$, tenemos $k=2$ y $n=3$, es decir, un código lineal $(3,2)$ con $M=2^k=4$ palabras código y tasa $R=\frac kn = \frac 23$. Los cuatro mensajes se representan como: $\boldsymbol{s}_1=00$, $\boldsymbol{s}_2=01$, $\boldsymbol{s}_3=10$ y $\boldsymbol{s}_4=11$. Utilizando $(7.3)$ obtenemos
+$$\begin{gather}
+	\x_1 = \boldsymbol{s}_1\boldsymbol{G} = \begin{pmatrix}
+		0 & 0
+	\end{pmatrix} \begin{pmatrix}
+		0 & 1 & 0\\
+		1 & 0 & 1
+	\end{pmatrix} = \begin{pmatrix}
+		 0 & 0 & 0
+	\end{pmatrix} \tag{7.5}\\
+		\x_2 = \boldsymbol{s}_2\boldsymbol{G} = \begin{pmatrix}
+		0 & 1
+	\end{pmatrix} \begin{pmatrix}
+		0 & 1 & 0\\
+		1 & 0 & 1
+	\end{pmatrix} = \begin{pmatrix}
+		 1 & 0 & 1
+	\end{pmatrix} \tag{7.6}\\
+		\x_3 = \boldsymbol{s}_3\boldsymbol{G} = \begin{pmatrix}
+		1 & 0
+	\end{pmatrix} \begin{pmatrix}
+		0 & 1 & 0\\
+		1 & 0 & 1
+	\end{pmatrix} = \begin{pmatrix}
+		 0 & 1 & 0
+	\end{pmatrix} \tag{7.7}\\
+		\x_4 = \boldsymbol{s}_4\boldsymbol{G} = \begin{pmatrix}
+		1 & 1
+	\end{pmatrix} \begin{pmatrix}
+		0 & 1 & 0\\
+		1 & 0 & 1
+	\end{pmatrix} = \begin{pmatrix}
+		 1 & 1 & 1
+	\end{pmatrix}. \tag{7.8}\end{gather}$$
+El código generado es $\{000,101,010,111\}$.
+</p>
+
+</div>
+
+<p>
+El código del ejemplo 7.1 es <strong>sistemático</strong> porque la representación binaria de los mensajes forma parte de la palabra código: $\x_m = (\boldsymbol{p}_m ~\boldsymbol{s}_m)$, donde $\boldsymbol{p}_m\in\{0,1\}^{n-k}$ es el vector de paridad. Esto implica $
+\boldsymbol{G} = (\boldsymbol{P}  \boldsymbol{I})$
+donde $\boldsymbol{P}\in\{0,1\}^{k\times (n-k)}$ es la matriz de paridad.
+</p>
+<p>
+El rendimiento de un código lineal sobre un canal de cambio de bits está relacionado con la distancia mínima entre sus palabras código. El <strong>peso de Hamming</strong> de una secuencia binaria $\x$ es el número de unos:
+$$
+w(\x) = \sum_{i=1}^n x_i \tag{7.9}$$
+donde la suma es la tradicional, no binaria. Por ejemplo, $w(111)=3$ o $w(000010)=1$. La <strong>distancia de Hamming</strong> entre dos secuencias binarias $\x$ e $\y$ es el número de posiciones en que difieren:
+$$
+d(\x,\y) = w(\x\oplus\y) \tag{7.10}$$
+donde de nuevo la suma es regular, no binaria. Por ejemplo $d(101,010)=3$ o $d(00,01)=1$. La <strong>distancia mínima de Hamming</strong> de un código es la distancia mínima entre cualquier par de palabras código diferentes:
+$$
+d_{\rm min} = \min_{\substack{\x,\x'\in{\cal C}\\\x'\neq\x}} d(\x,\x'). \tag{7.11}$$
+</p>
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 7.2.</span> 
+<a id="prob:1"></a>
+ 	Encontrad la distancia de Hamming mínima $d_{\rm min}$ del código lineal del ejemplo 7.1.
+ 	
+</p>
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+	 	El código $\{000,101,010,111\}$ tiene $M=4$ palabras código y $6$ distancias posibles entre pares distintos (la distancia de Hamming es simétrica):
+		$$\begin{gather}
+			d_{12} = d(\x_1,\x_2) = d(000,101)=2 \tag{7.12}\\
+			d_{13} = d(\x_1,\x_3) = d(000,010)=1 \tag{7.13}\\
+			d_{14} = d(\x_1,\x_4) = d(000,111)=3 \tag{7.14}\\
+			d_{23} = d(\x_2,\x_3) = d(101,010)=3 \tag{7.15}\\
+			d_{24} = d(\x_2,\x_4) = d(101,111)=1 \tag{7.16}\\
+			d_{34} = d(\x_3,\x_4) = d(010,111)=2. \tag{7.17}\end{gather}$$
+	 	Por tanto, $d_{\rm min} = \min\{2,1,3,3,1,2\} = 1$.
+ 	
+</p>
+</details>
+
+
+</div>
+
+<p>
+Cuando $M$ crece, calcular todas las distancias posibles resulta costoso. Sin embargo, para códigos lineales la suma de dos palabras código cualesquiera es una palabra código, lo que implica que la distancia mínima se puede calcular como
+$$
+d_{\rm min} = \min_{\substack{\x\in{\cal C}\\\x\neq\boldsymbol{0}}} w(\x),
+\tag{7.18}
+$$
+es decir, el peso mínimo de Hamming entre las palabras código no nulas.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 7.3.</span> 
+	En el problema 7.2, las palabras código no nulas tienen pesos $w(\x_2)=2$, $w(\x_3)=1$ y $w(\x_4)=3$. Por $(7.18)$, $d_{\rm min}=\min\{2,1,3\}=1$. Más fácil que calcular todas las distancias.
+</p>
+
+</div>
+
+<p>
+La cuestión es cómo diseñar códigos con buenas dimensiones y buena distancia mínima. El código de repetición $\{000,111\}$ tiene $d_{\rm min}=3$ pero tasa $R=\frac 13$; el código del ejemplo 7.1 tiene $R=\frac 23$ pero $d_{\rm min}=1$. Un buen equilibrio entre tasa y distancia mínima lo ofrece el código de Hamming $(7,4)$.
+</p>
+
+<h2>El código de Hamming (7,4)</h2>
+
+<p>
+El código de Hamming $(7,4)$ tiene longitud $n=7$ y dimensión $k=4$, con $
+M=2^k=16$ palabras código y tasa $R=\frac47$. Las matrices generadora y de control de paridad son
+$$
+\boldsymbol{G}=\begin{pmatrix}
+1 & 1 & 0 & 1 & 0 & 0 & 0\\
+0 & 1 & 1 & 0 & 1 & 0 & 0\\
+1 & 1 & 1 & 0 & 0 & 1 & 0\\
+\undermat{\boldsymbol{P}}{1 & 0 & 1} &\undermat{\boldsymbol{I}_{k\times k}}{ 0 & 0 & 0 & 1}
+\end{pmatrix} \tag{7.19}$$
+y
+$$
+\boldsymbol{H}=\begin{pmatrix}
+1 & 0 & 0 & 1 & 0 & 1 & 1\\
+0 & 1 & 0 & 1 & 1 & 1 & 0\\
+\undermat{\boldsymbol{I}_{(n-k)\times (n- k)}}{0 & 0 & 1} & \undermat{\boldsymbol{P}^T}{0 & 1 & 1 & 1}
+\end{pmatrix}, \tag{7.20}$$
+respectivamente. Las 16 palabras del código de Hamming, generadas según $(7.3)$, se muestran en la tabla 7.1.
+</p>
+<p>
+  
+ <figcaption>Palabras del código de Hamming $(7,4)$.</figcaption>
+  <a id="tab:hamming"></a>
+  <table class="data-table"><tr><th>$m$</th><th>$\boldsymbol{s}_m$</th><th>$\x_m$</th><th>$m$</th><th>$\boldsymbol{s}_m$</th><th>$\x_m$</th></tr><tr><td>1</td><td>0000</td><td>0000000</td><td>9</td><td>1000</td><td>1101000</td></tr><tr><td>2</td><td>0001</td><td>1010001</td><td>10</td><td>1001</td><td>0111001</td></tr><tr><td>3</td><td>0010</td><td>1110010</td><td>11</td><td>1010</td><td>0011010</td></tr><tr><td>4</td><td>0011</td><td>0100011</td><td>12</td><td>1011</td><td>1001011</td></tr><tr><td>5</td><td>0100</td><td>0110100</td><td>13</td><td>1100</td><td>1011100</td></tr><tr><td>6</td><td>0101</td><td>1100101</td><td>14</td><td>1101</td><td>0001101</td></tr><tr><td>7</td><td>0110</td><td>1000110</td><td>15</td><td>1110</td><td>0101110</td></tr><tr><td>8</td><td>0111</td><td>0010111</td><td>16</td><td>1111</td><td>1111111</td></tr></table>
+  
+</p>
+<p>
+Al ser lineal, usamos $(7.18)$ para hallar su distancia mínima. Inspeccionando la tabla, $
+d_{\rm min} = 3.$ Es decir, el código de Hamming (7,4) es un subconjunto de las $2^n=128$ secuencias de $n=7$ bits tal que dos cambios de bit en cualquier palabra código no pueden confundirse con otra palabra código. Esto se entiende mejor al estudiar la probabilidad de error.
+</p>
+
+<h2>Límites de códigos</h2>
+
+<p>
+La distancia mínima de un código lineal $(n,k)$ permite estimar la probabilidad de error $P_{\rm e}$ cuando se transmite equiprobablemente por un canal simétrico binario con probabilidad de transición $p$; la cota de la unión:
+$$
+	P_{\rm e} \leq \sum_{w=d_{\rm min}}^n A_w \sum_{t=\lceil\frac w2\rceil}^w \binom wt p^t (1-p)^{w-t},
+	\tag{7.21}
+$$
+donde $A_w$ es la distribución de peso del código; el número de palabras código con peso de Hamming $w$.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 7.4.</span> 
+	De la tabla 7.1: $A_0=1$, $A_1=A_2=0$, $A_3=A_4=7$, $A_5=A_6=0$ y $A_7=1$. La distribución de peso del código de Hamming (7,4) es $\{A_0,A_3,A_4,A_7\}=\{1,7,7,1\}$. La suma $\sum_{w=0}^n A_w = A_0 + A_3 + A_4 + A_7$ es $M$.
+</p>
+
+</div>
+
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 7.5.</span> 
+ 	Calculad la cota de la unión de la probabilidad de error del código del ejemplo 7.1 en un canal simétrico binario con probabilidad de inversión $p$.
+ 	
+</p>
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+		Del problema 7.2, $d_{\rm min}=1$ y del código $\{000,101,010,111\}$: $\{A_0,A_1,A_2,A_3\}=\{1,1,1,1\}$. La suma externa de $(7.21)$ es para $w\in\{1,2,3\}$. Para $w=1$:
+	 	$$
+			A_w \sum_{t=\lceil\frac w2\rceil}^w \binom wt p^t (1-p)^{w-t} = 1 \cdot \sum_{t=1}^1  \binom 1t p^t (1-p)^{1-t} =  p. \tag{7.22}$$
+	 	Para $w=2$:
+		 	$$
+			A_w \sum_{t=\lceil\frac w2\rceil}^w \binom wt p^t (1-p)^{w-t} = 1 \cdot \sum_{t=1}^2  \binom 2t p^t (1-p)^{2-t} = 2p(1-p) + p^2, \tag{7.23}$$
+	 	Y para $w=3$:
+	 	$$
+			A_w \sum_{t=\lceil\frac w2\rceil}^w \binom wt p^t (1-p)^{w-t} = 1 \cdot \sum_{t=2}^3  \binom 3t p^t (1-p)^{3-t} = 3p^2(1-p) + p^3. \tag{7.24}$$
+	 	Sumando:
+	 	$$
+			P_{\rm e} \leq p + 2p(1-p)+p^2+3p^2(1-p)+p^3 = -2 p^3+2 p^2+3 p. \tag{7.25}$$
+ 	
+</p>
+</details>
+
+
+</div>
+
+<p>
+Finalmente, establecemos la capacidad correctora de errores de cualquier código $(n,k)$ con distancia mínima $d_{\rm min}$. Definimos la <strong>esfera de Hamming</strong> centrada en $\x\in\{0,1\}^n$ de radio $r$ como el conjunto de secuencias binarias de longitud $n$ a distancia de Hamming menor o igual a $r$:
+$$
+S(\x,r) = \big\{ \x'\in\{0,1\}^n~|~ d(\x,\x')\leq r \big\}. \tag{7.26}$$
+Dada $d_{\rm min}$, dibujamos esferas de radio $t$ centradas en las palabras código (Figura 7.1). Para que no haya confusión tras $t$ cambios de bit, las esferas no deben solaparse: $d_{\rm min}&gt; 2t$, o equivalentemente $t&lt;\frac{d_{\rm min}}{2}$. Como $d_{\rm min}$ puede ser par o impar, el mayor valor de $t$ es
+$$
+t = \Big\lfloor \frac{d_{\rm min}-1}{2}\Big\rfloor.
+\tag{7.27}
+$$
+El valor de $(7.27)$ es el número de inversiones de bits que el código puede corregir. Si $t=\frac{d_{\rm min}}{2}$ fuera entero, las esferas se solaparían en al menos una secuencia y el decodificador no podría determinar la palabra código transmitida.
+</p>
+<figure><img src="../img/tikz/lecture7-fig1.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure>
+<p>
+<figcaption>Un código con $M=3$ palabras. Se dibujan las esferas de Hamming de radio $t$.</figcaption>
+<a id="fig:error"></a>
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 7.6.</span> 
+ 	El código de Hamming (7,4) corrige hasta $t=1$ cambio de bit. Para $m=1$, ${\cal D}_1=\{0000000,1000000,0100000, 0010000,0001000,0000100,0000010,0000001 \}$ y tras algunos cálculos, $P_{\rm e}(1)=1 - P_{\rm d}(1) = 1 - (1-p)^7 - 7p(1-p)^6$. El resultado es igual para todas las palabras código, por lo que $P_{\rm e}=1 - (1-p)^7 - 7p(1-p)^6$.
+</p>
+
+</div>
+
+<p>
+Para un código ${\cal C}$ corrector de $t$ errores, las esferas de radio $t$ no se solapan. ¿Cuál es el número máximo de palabras código $M=2^k$ que puede tener ${\cal C}$? Este es el problema de empaquetamiento de esferas, fuera del alcance de este curso.</p>
   </main>
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Teoría de la información y codificación 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

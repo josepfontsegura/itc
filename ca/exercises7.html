@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -40,44 +40,525 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html" class="active">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Properament</h1>
+      <h1>Exercicis: 7. Codis lineals</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Aquest contingut estarà disponible a mesura que avanci el curs.</p>
+
+    <button id="expand-all" data-expand="Mostra totes les solucions" data-collapse="Amaga totes les solucions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostra totes les solucions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.1.</span></p>
+  <p>Un codi binari $(3,2)$ amb matriu generadora</p>$$\boldsymbol{G} = \begin{pmatrix} 1 & 0 & 1\\ 0 & 1 & 0 \end{pmatrix}$$<p>s'utilitza sobre un canal binari asimètric amb probabilitats $P_{Y|X}(1|0)=0$ i $P_{Y|X}(0|1)=p$. El descodificador utilitza la regla</p>$$\hat m = \operatorname{argmax}_{m\in{\cal M}} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m).$$<p>La probabilitat d'error del missatge $m=3$, $P_{\rm e}(3)$, és</p>
+  <p>(a) $1-(1-p)^3$<br>
+  (b) $1-2p(1-p)-(1-p)^2$<br>
+  (c) $1-(1-p)^2$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Com que és un codi lineal, les paraules codi venen donades per $\boldsymbol{x}_m=\boldsymbol{s}_m\boldsymbol{G}$ per a cada $\boldsymbol{s}_m\in\{00,01,10,11\}$, de manera que el codi és</p>$${\cal C} = \{000,010,101,111\}.$$<p>Calculant les versemblances $P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$ per a cada missatge i sortida del canal, trobem que la regió de descodificació del missatge $m=3$ és</p>$${\cal D}_3 = \{001,100,101\}.$$<p>La probabilitat d'error</p>$$P_{\rm e}(3) = 1 - \sum_{\boldsymbol{y}\in{\cal D}_3} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_3)$$<p>s'obté llavors utilitzant les probabilitats de transició $P_{Y|X}(1|0)=0$ i $P_{Y|X}(0|1)=p$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.2.</span></p>
+  <p>El codi de Hamming $(7,4)$ amb matriu generadora</p>$$\boldsymbol{G}=\begin{pmatrix} 1 & 1 & 0 & 1 & 0 & 0 & 0\\ 0 & 1 & 1 & 0 & 1 & 0 & 0\\ 1 & 1 & 1 & 0 & 0 & 1 & 0\\ 1 & 0 & 1 & 0 & 0 & 0 & 1 \end{pmatrix}$$<p>pot corregir $t=1$ errors utilitzant un descodificador de distància de Hamming mínima. La probabilitat d'error del missatge $m=9$, $P_{\rm e}(9)$, quan s'utilitza sobre un canal binari asimètric amb probabilitats $P_{Y|X}(1|0)=p$ i $P_{Y|X}(0|1)=0$ és</p>
+  <p>(a) $1-(1-p)^4-4p(1-p)^3$<br>
+  (b) $1-(1-p)^3 -3p(1-p)^2$<br>
+  (c) $1-(1-p)^7$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La paraula codi del missatge $\boldsymbol{s}_9=1000$ ve donada per</p>$$\boldsymbol{x}_9 = \boldsymbol{s}_9\boldsymbol{G}=1101000.$$<p>Com que el codi pot corregir fins a un error del canal, la regió de descodificació del missatge $m=9$ és</p>$$\begin{aligned}{\cal D}_9 = \{&1101000,0101000,1001000,1111000,\\&1100000,1101100,1101010,1101001\}.\end{aligned}$$<p>La probabilitat d'error del missatge $m=9$ és llavors</p>$$P_{\rm e}(9) = 1 - \sum_{\boldsymbol{y}\in{\cal D}_9} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_9).$$<p>Utilitzant les probabilitats de transició s'arriba a la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.3.</span></p>
+  <p>Un codi binari $(6,3)$ amb matriu generadora</p>$$\boldsymbol{G}=\begin{pmatrix}1 & 0 & 1 & 1 & 0 & 0\\ 1 & 1 & 0 & 0 & 1 & 0\\ 0 & 1 & 1 & 0 & 0 & 1\end{pmatrix}$$<p>s'utilitza sobre un canal binari amb descodificació per distància de Hamming mínima. Quants errors pot corregir aquest codi?</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $3$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Utilitzant l'operació vector-matriu en mòdul 2 $\boldsymbol{s}_m\boldsymbol{G}$ per a $m=1,\ldots,8$, trobem el llibre de codi</p>$$\begin{aligned}{\cal C} = \{&000000,011001,110010,101011,\\&101100,110111,011110,000111\}.\end{aligned}$$<p>Com que és un codi lineal, la distància mínima del codi ve donada per</p>$$d_{\rm min} = \min_{\boldsymbol{x}\in{\cal C}\setminus\{\boldsymbol{0}\}} w(\boldsymbol{x}) = 3,$$<p>on $w(\boldsymbol{x})$ és el pes de Hamming de la paraula codi $\boldsymbol{x}$. A partir de $d_{\rm min}$ i sabent que la capacitat de correcció d'errors d'un codi lineal és $t=\lfloor \frac{d_{\rm min}-1}{2} \rfloor$, obtenim la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.4.</span></p>
+  <p>El codi binari $(6,3)$ de l'exercici 3 s'utilitza de manera equiprobable sobre un canal binari simètric amb probabilitat de creuament $p$ i es descodifica utilitzant la regla de distància de Hamming mínima. La cota de la unió a la probabilitat d'error mitjana $P_{\rm e}$ d'aquest codi és</p>
+  <p>(a) $4 \sum_{t=2}^3 {3 \choose t} p^t (1-p)^{3-t} + 3 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$<br>
+  (b) $4 \sum_{t=1}^3 {3 \choose t} p^t (1-p)^{3-t} + 3 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$<br>
+  (c) $3 \sum_{t=1}^3 {3 \choose t} p^t (1-p)^{3-t} + 4 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>A partir del llibre de codi de l'exercici anterior, obtenim que la distribució de pesos és $A_0=1$, $A_3=4$ i $A_4=3$. Aplicant l'equació (4.54) dels apunts s'arriba a la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.5.</span></p>
+  <p>El codi de Hamming $(31,26)$ pot corregir $t=2$ errors utilitzant un descodificador de distància de Hamming mínima. La probabilitat d'error mitjana del codi amb missatges equiprobables quan s'utilitza sobre un canal binari simètric amb probabilitat de creuament $p=\frac{1}{100}$ és</p>
+  <p>(a) $0.00364601$<br>
+  (b) $0.00203104$<br>
+  (c) $0.0383895$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que el codi pot corregir fins a dos errors, la probabilitat d'error ve donada per $P_{\rm e}=1-P_{\rm c}$, on $P_{\rm c}$ és la probabilitat de descodificar correctament, és a dir, la probabilitat que el canal no introdueixi cap error, un error o dos errors. Utilitzant que el canal és binari i simètric amb probabilitat de creuament $p$, obtenim</p>$$P_{\rm c} = (1-p)^{n} + {n \choose 1}p(1-p)^{n-1} + {n \choose 2}p^2(1-p)^{n-2}.$$<p>Utilitzant els valors del problema, obtenim la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.6.</span></p>
+  <p>Un codi binari lineal té la matriu de comprovació de paritat següent:</p>$$\boldsymbol{H} = \begin{pmatrix} 1 & 0 & 0 & 0 & 1 & 0\\ 0 & 1 & 0 & 1 & 0 & 1 \end{pmatrix}$$<p>Quina és la longitud $n$ de les paraules codi i la taxa $R$ del codi?</p>
+  <p>(a) $n=6$, $R=\frac{1}{6}$<br>
+  (b) $n=6$, $R=\frac{2}{3}$<br>
+  (c) $n=2$, $R=\frac{2}{3}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>La matriu de comprovació de paritat té mida $(n-k)\times n$, i la taxa es defineix com $R=k/n$. Com que $\boldsymbol{H}$ té dimensions $2\times 6$, obtenim que $k=4$ i, per tant, la resposta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.7.</span></p>
+  <p>El codi amb la matriu generadora següent:</p>$$\boldsymbol{G} = \begin{pmatrix} 0 & 1 & 0 & 1 \\ 1 & 0 & 1 & 0 \\ 0 & 1 & 1 & 0 \end{pmatrix}$$<p>s'utilitza sobre un canal binari simètric amb probabilitat d'inversió de bit $p$. La cota de la unió a la probabilitat d'error del codi és:</p>
+  <p>(a) $12p-8p^2$<br>
+  (b) $12p-8p^3+3p^4$<br>
+  (c) $1-2p^2+3p^3$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Llistant totes les paraules codi es troba la distribució de pesos $\{A_0,A_1,A_2,A_3,A_4\}=\{1,0,6,0,1\}$ i, per tant, que $d_{\rm min}=2$. L'expressió de la cota de la unió a la probabilitat d'error té dos termes:</p>$$A_2 \sum_{t=1}^2 {2\choose t} p^t (1-p)^{2-t} = 12p-6p^2,$$$$A_4 \sum_{t=2}^4 {4\choose t} p^t (1-p)^{4-t} = 6p^2-8p^3+3p^4,$$<p>que condueixen al resultat correcte.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.8.</span> Les paraules codi d'un codi lineal binari amb matriu generadora
+$$
+\begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix}
+$$
+es transmeten amb igual probabilitat per un canal binari amb probabilitats condicionades $P_{Y|X}(0|0)=0$ i $P_{Y|X}(0|1)=\tfrac13$. El receptor utilitza una regla de distància de Hamming màxima per descodificar la sortida del canal. Quina és la probabilitat d'error del codi?</p>
+  <p>(a) $\tfrac{11}{36}$<br>
+  (b) $\tfrac{5}{9}$<br>
+  (c) $\tfrac{8}{9}$<br>
+  (d) $\tfrac{35}{36}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Com que el codi generat és $\{00,10,01,11\}$ i el receptor utilitza una regla de distància de Hamming màxima, el descodificador $\hat m(\boldsymbol{y})$ és tal que $\hat m(00)=4$, $\hat m(01)=2$, $\hat m(10)=3$ i $\hat m(11)=1$. Per tant, $P_{\rm e}(1)=1-P_{\boldsymbol{Y}|\boldsymbol{X}}(11|00)=0$, $P_{\rm e}(2)=1-P_{\boldsymbol{Y}|\boldsymbol{X}}(01|10)=\tfrac 23$, $P_{\rm e}(3)=1-P_{\boldsymbol{Y}|\boldsymbol{X}}(10|01)=\tfrac 23$ i $P_{\rm e}(4)=1-P_{\boldsymbol{Y}|\boldsymbol{X}}(00|11)=\tfrac89$. Tenint en compte que les quatre paraules codi són equiprobables, obtenim el resultat.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.9.</span> Les paraules codi d'un codi lineal $(5,1)$ amb distribució de pesos que satisfà $A_2=1$ es transmeten amb igual probabilitat per un canal binari simètric amb probabilitat d'inversió de bit $p$. Quina és la probabilitat de rebre la seqüència de tot uns?</p>
+  <p>(a) $\tfrac{p^5-2p^4 +2p^3}{2}$<br>
+  (b) $\tfrac{2p^5 -2p^4 +p^3}{2}$<br>
+  (c) $\tfrac{p^5-p^4+p^3}{2}$<br>
+  (d) $\tfrac{p^5+p^4+p^3}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>El codi té dues paraules codi, $00000$ i una segona paraula codi amb $2$ uns i $3$ zeros. Aleshores, la probabilitat de rebre $11111$ és $\tfrac 12 p^5 + \tfrac 12 p^3(1-p)^2$. Desenvolupant els termes i simplificant, obtenim el resultat.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.10.</span> Un codi lineal binari té matriu generadora $\boldsymbol{G}=\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}$. Quantes paraules codi té el codi?</p>
+  <p>(a) $4$<br>
+  (b) $8$<br>
+  (c) $2$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La matriu generadora té $k=2$ files, de manera que hi ha $2^k=4$ paraules codi.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.11.</span> Per a un codi lineal, la distància mínima és igual a</p>
+  <p>(a) El pes de Hamming mínim de les paraules codi no nul·les<br>
+  (b) El pes de Hamming mínim de totes les paraules codi<br>
+  (c) El pes de Hamming màxim de totes les paraules codi</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per als codis lineals, la distància mínima és $d_{\min}=\min_{\boldsymbol{x}\in\mathcal{C}\setminus\{\boldsymbol{0}\}} w(\boldsymbol{x})$, on $w(\boldsymbol{x})$ és el pes de Hamming.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.12.</span> Una matriu de comprovació de paritat $\boldsymbol{H}$ té dimensions $3\times 7$. Quina és la taxa del codi?</p>
+  <p>(a) $\tfrac{4}{7}$<br>
+  (b) $\tfrac{3}{7}$<br>
+  (c) $\tfrac{7}{3}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La matriu $\boldsymbol{H}$ té mida $(n-k)\times n = 3\times 7$, de manera que $n=7$ i $k=4$, donant una taxa $R=k/n=4/7$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.13.</span> La seqüència de tot zeros és sempre una paraula codi d'un codi lineal binari?</p>
+  <p>(a) Sí<br>
+  (b) No<br>
+  (c) Només si la matriu generadora té una fila de tot zeros</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Un codi lineal és un subespai de $\{0,1\}^n$ i ha de contenir el vector zero. El missatge $\boldsymbol{s}=\boldsymbol{0}$ produeix $\boldsymbol{x}=\boldsymbol{0}\boldsymbol{G}=\boldsymbol{0}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.14.</span> Un codi binari $(6,3)$ té distribució de pesos $\{A_0,A_3,A_4,A_6\}=\{1,4,2,1\}$. Quant val $d_{\min}$?</p>
+  <p>(a) $3$<br>
+  (b) $4$<br>
+  (c) $6$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La distància mínima és el pes positiu més petit amb $A_w&gt;0$, que és $d_{\min}=3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.15.</span> La fita de la unió sobre la probabilitat d'error d'un codi lineal utilitza quina propietat del codi?</p>
+  <p>(a) La distribució de pesos<br>
+  (b) La matriu generadora directament<br>
+  (c) Només el nombre de paraules codi</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La fita de la unió $P_e\leq \sum_{w=d_{\min}}^n A_w P_w$ depèn de l'enumerador de pesos $\{A_w\}$ del codi.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.16.</span></p>
+  <p>Un codi de <em>Hamming</em> $(15,11)$ amb distància mínima $d_{\rm min}=3$ transmet missatges equiprobables a través d'un <em>canal binari simètric</em> (BSC) amb probabilitat de transició $p=0.02$, descodificat amb un descodificador de mínima distància de Hamming. Calcula la probabilitat que el nombre de bits invertits pel canal superi la capacitat correctora d'errors del codi.</p>
+  <p>(a) $\approx 0.03534$<br>
+  (b) $\approx 0.26143$<br>
+  (c) $\approx 0.30000$<br>
+  (d) $\approx 0.02000$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La capacitat correctora és $t=\lfloor(d_{\rm min}-1)/2\rfloor=\lfloor(3-1)/2\rfloor=1$. El nombre d'inversions $K\sim\mathrm{Bin}(15,0.02)$, així que cal $\mathbb{P}(K\ge 2)=1-\mathbb{P}(K\le 1)$. Aquí $\mathbb{P}(K=0)=0.98^{15}\approx 0.73857$ i $\mathbb{P}(K=1)=15(0.02)0.98^{14}\approx 0.22609$, donant $P_{\rm c}\approx 0.96466$. Per tant la resposta és $1-0.96466\approx 0.03534$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.17.</span></p>
+  <p>Un codi lineal binari té matriu de comprovació de paritat $$\boldsymbol{H} = \begin{pmatrix}1 & 0 & 0 & 1 & 1 & 0\\ 0 & 1 & 1 & 0 & 1 & 0\end{pmatrix}.$$ Una seqüència $\boldsymbol{x}=(x_1,\dots,x_6)$ és una paraula codi si i només si la seva síndrome $\boldsymbol{H}\boldsymbol{x}^{T}=\boldsymbol{0}\pmod 2$. D'entre les seqüències $001111$, $000110$ i $101010$, quina no pot ser una paraula codi?</p>
+  <p>(a) $000110$<br>
+  (b) $001111$<br>
+  (c) $101010$<br>
+  (d) Les tres són paraules codi vàlides</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Les files de $\boldsymbol{H}$ donen les comprovacions de paritat $s_1=x_1+x_4+x_5$ i $s_2=x_2+x_3+x_5$ (la sisena columna és zero, així que $x_6$ és irrellevant), tot $\bmod 2$. Per a $001111$: $s_1=0+1+1=0$, $s_2=0+1+1=0$, síndrome $\boldsymbol{0}$ (vàlida). Per a $101010$: $s_1=1+0+1=0$, $s_2=0+1+1=0$, síndrome $\boldsymbol{0}$ (vàlida). Per a $000110$: $s_1=0+1+1=0$ però $s_2=0+0+1=1$, donant síndrome $(0,1)^{T}\neq\boldsymbol{0}$. Per tant $000110$ no compleix la comprovació $x_2+x_3+x_5=0$ i no pot ser una paraula codi.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.18.</span></p>
+  <p>Un codi lineal binari genera $M$ paraules codi a partir de la matriu generadora $3\times 7$</p>$$\boldsymbol{G} = \begin{pmatrix}1 & 0 & 1 & 0 & 1 & 0 & 1\\ 0 & 1 & 0 & 1 & 0 & 1 & 0\\ 1 & 1 & 0 & 0 & 1 & 1 & 0\end{pmatrix},$$<p>les tres files de la qual són linealment independents sobre $\mathrm{GF}(2)$. Un missatge $V$ s'escull de manera uniforme de $\{1,\ldots,M\}$ i es codifica com $\boldsymbol{X}=\boldsymbol{s}_V\,\boldsymbol{G}$. Calcula la informació mútua $I(\boldsymbol{X};V)$ en bits.</p>
+  <p>(a) $3$ bits<br>
+  (b) $0$ bits<br>
+  (c) $7$ bits<br>
+  (d) $8$ bits</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Amb $k=3$ files independents hi ha $M=2^3=8$ missatges, i el codificador $V\mapsto\boldsymbol{X}$ és una bijecció sobre $8$ paraules codi diferents. Per tant $V$ és una funció determinista i invertible de $\boldsymbol{X}$, així que $H(V\mid\boldsymbol{X})=0$ i $I(\boldsymbol{X};V)=H(V)$. Com que $V$ és uniforme sobre $8$ valors, $H(V)=\log_2 8=3$. Per tant $I(\boldsymbol{X};V)=3-0=3$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.19.</span></p>
+  <p>Un codi lineal binari $(3,2)$ amb matriu generadora $\boldsymbol{G}=\begin{pmatrix}1&0&0\\0&1&1\end{pmatrix}$ s'utilitza sobre un <em>canal binari asimètric (canal Z)</em> amb $P_{Y|X}(0\mid 0)=1$ i $P_{Y|X}(0\mid 1)=p$, $p\in\left(0,\tfrac12\right)$. Els missatges $m=1,2,3,4$ corresponen a $\boldsymbol{m}=00,01,10,11$, i el receptor utilitza la regla de màxima versemblança (ML). Determineu la probabilitat d'error del missatge $m=2$, $P_{\mathrm e}(2)$.</p>
+  <p>(a) $p^2$<br>
+  (b) $p$<br>
+  (c) $2p(1-p)$<br>
+  (d) $2p$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La paraula codi de $m=2$ és $\boldsymbol{x}_2=\boldsymbol{m}\boldsymbol{G}=011$. En el canal Z un $0$ transmès sempre es rep com $0$, mentre que cada $1$ transmès es converteix en $0$ amb probabilitat $p$, així que $\boldsymbol{y}\in\{011,010,001,000\}$. Per a $\boldsymbol{y}=011,010,001$ la regla ML encara descodifica $\boldsymbol{x}_2$; només quan <em>tots dos</em> uns es giren donant $\boldsymbol{y}=000$ la regla ML descodifica la paraula codi $\boldsymbol{x}_1=000$ (versemblança $1$), provocant un error. Aquest esdeveniment requereix que es girin les dues posicions de $1$, amb probabilitat $p\cdot p$. Per tant $P_{\mathrm e}(2)=p^2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.20.</span></p>
+  <p>El codi de Hamming $(7,4)$ s'envia a través d'un <em>canal Z</em> (canal binari asimètric) amb $P_{Y|X}(0\mid 1)=p$ i $P_{Y|X}(1\mid 0)=0$, $p\in(0,1)$, descodificat amb un descodificador de distància de Hamming mínima. El missatge $m=14$ es codifica en la paraula codi $\boldsymbol{x}_{14}=(0,0,0,1,1,0,1)$ (pes $3$). Determina la seva probabilitat d'error $P_{\rm e}(14)$.</p>
+  <p>(a) $P_{\rm e}(14)=3p^2-2p^3$<br>
+  (b) $P_{\rm e}(14)=3p^2(1-p)$<br>
+  (c) $P_{\rm e}(14)=p^3$<br>
+  (d) $P_{\rm e}(14)=21p^2-35p^3+\cdots$ (les 7 posicions en risc)</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Al canal Z només les posicions amb $1$ poden canviar ($1\to 0$), de manera que els tres uns de $\boldsymbol{x}_{14}$ (pes $3$) canvien independentment amb probabilitat $p$; les quatre posicions amb $0$ sempre es reben correctament. El codi té $d_{\min}=3$, corregeix $t=1$ error, així que la descodificació és correcta si i només si com a molt un dels tres uns canvia: $P_{\rm c}=(1-p)^3+3p(1-p)^2$. Per tant $P_{\rm e}(14)=1-(1-p)^3-3p(1-p)^2$, que en desenvolupar-se i simplificar-se dona $\boxed{3p^2-2p^3}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.21.</span></p>
+  <p>Un codi lineal binari $(5,2)$ té matriu generadora $$\boldsymbol{G}=\begin{pmatrix}1 & 0 & 1 & 1 & 0\\ 0 & 1 & 0 & 1 & 1\end{pmatrix}.$$ Llistant totes les $2^2$ paraules codi $\boldsymbol{u}\boldsymbol{G}$ sobre $\mathbb{F}_2$, quina és la seva distribució de pesos (nombre $A_w$ de paraules codi de cada pes $w$)?</p>
+  <p>(a) $A_0=1,\;A_3=2,\;A_4=1$<br>
+  (b) $A_0=1,\;A_2=2,\;A_3=1$<br>
+  (c) $A_0=1,\;A_3=1,\;A_4=2$<br>
+  (d) $A_0=1,\;A_2=1,\;A_3=2,\;A_5=1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Les quatre paraules codi són $\boldsymbol{u}\boldsymbol{G}$ per a $\boldsymbol{u}\in\{00,01,10,11\}$: $00000$, $01011$, $10110$ i $\boldsymbol{g}_1\oplus\boldsymbol{g}_2=11101$. Els seus pesos de Hamming són $0,3,3,4$. Per tant $A_0=1,\;A_3=2,\;A_4=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.22.</span></p>
+  <p>El codi lineal binari $(5,2)$ generat per $\boldsymbol{g}_1=10110$ i $\boldsymbol{g}_2=01011$ té paraules codi $\{00000,01011,10110,11101\}$. Quina és la seva distància mínima de Hamming $d_{\min}$?</p>
+  <p>(a) $d_{\min}=3$<br>
+  (b) $d_{\min}=2$<br>
+  (c) $d_{\min}=4$<br>
+  (d) $d_{\min}=5$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per a un codi lineal la distància mínima és igual al pes mínim no nul de les paraules codi. Els pesos no nuls són $3,3,4$, de manera que $d_{\min}=\min_{w&gt;0}w=3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.23.</span></p>
+  <p>Dues paraules codi a distància de Hamming $w=3$ es transmeten per un BSC amb creuament $p\in(0,\tfrac12)$ i es descodifiquen per mínima distància. La probabilitat d'error per parelles és $P_2(w)=\sum_{i&gt;w/2}\binom{w}{i}p^{i}(1-p)^{w-i}$. Calcula $P_2(3)$.</p>
+  <p>(a) $3p^{2}-2p^{3}$<br>
+  (b) $3p^{2}(1-p)$<br>
+  (c) $p^{3}$<br>
+  (d) $3p^{2}+2p^{3}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Un error requereix invertir més de $w/2=1.5$ dels $3$ bits diferents, així $i\in\{2,3\}$: $P_2(3)=\binom{3}{2}p^{2}(1-p)+\binom{3}{3}p^{3}=3p^{2}(1-p)+p^{3}=3p^{2}-2p^{3}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.24.</span></p>
+  <p>El codi binari $(5,2)$ $\{00000,01011,10110,11101\}$ (distribució de pesos $A_3=2,\;A_4=1$) s'utilitza sobre un BSC amb creuament $p\in(0,\tfrac12)$ amb descodificació de mínima distància. Usant la cota de la unió $P_{\rm e}\le\sum_w A_w P_2(w)$ amb la convenció simètrica de mig empat, de manera que $P_2(3)=P_2(4)=3p^{2}-2p^{3}$, quina és la cota resultant sobre $P_{\rm e}$?</p>
+  <p>(a) $P_{\rm e}\le 9p^{2}-6p^{3}=3p^{2}(3-2p)$<br>
+  (b) $P_{\rm e}\le 6p^{2}-4p^{3}$<br>
+  (c) $P_{\rm e}\le 3p^{2}-2p^{3}$<br>
+  (d) $P_{\rm e}\le 12p^{2}-8p^{3}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per linealitat la cota és la mateixa per a cada paraula codi transmesa, així $P_{\rm e}\le A_3 P_2(3)+A_4 P_2(4)=2(3p^{2}-2p^{3})+(3p^{2}-2p^{3})=9p^{2}-6p^{3}=3p^{2}(3-2p)$. El terme dominant per a $p$ petit és $9p^{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.25.</span></p>
+  <p>Un codi lineal binari té matriu generadora $\boldsymbol{G} = \begin{pmatrix}1 & 1 & 0\\ 0 & 1 & 1\end{pmatrix}$. Calcula la taxa del codi $R$.</p>
+  <p>(a) $R=\tfrac{2}{3}$<br>
+  (b) $R=\tfrac{3}{2}$<br>
+  (c) $R=\tfrac{1}{3}$<br>
+  (d) $R=\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La matriu $\boldsymbol{G}$ té $k=2$ files (bits de missatge) i $n=3$ columnes (bits de paraula codi), per tant és un codi $(3,2)$. La taxa és el quocient entre bits d'informació i bits transmesos, $R=k/n=2/3\approx 0{,}667$ bits/ús.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.26.</span></p>
+  <p>Un codi lineal binari té matriu generadora $\boldsymbol{G} = \begin{pmatrix}1 & 1 & 0\\ 0 & 1 & 1\end{pmatrix}$. Llistant totes les paraules codi $\boldsymbol{c}=\boldsymbol{u}\boldsymbol{G}$, quina és la distribució de pesos $\{A_w\}$?</p>
+  <p>(a) $A_0=1,\ A_2=3$<br>
+  (b) $A_0=1,\ A_1=3$<br>
+  (c) $A_0=1,\ A_2=2,\ A_3=1$<br>
+  (d) $A_0=1,\ A_3=3$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Les $2^k=4$ paraules codi són $\mathcal{C}=\{000,110,011,101\}$, obtingudes de $\boldsymbol{c}=\boldsymbol{u}\boldsymbol{G}$ sobre $\mathbb{F}_2$. Els seus pesos de Hamming són $0,2,2,2$, per tant $A_0=1$ i $A_2=3$. Comprovació: $\sum_w A_w=1+3=4=2^k$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.27.</span></p>
+  <p>Un codi lineal binari té paraules codi $\mathcal{C}=\{000,110,011,101\}$. Calcula la seva distància mínima $d_{\rm min}$.</p>
+  <p>(a) $d_{\rm min}=2$<br>
+  (b) $d_{\rm min}=3$<br>
+  (c) $d_{\rm min}=1$<br>
+  (d) $d_{\rm min}=0$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per a un codi lineal la distància mínima és igual al pes mínim no nul, $d_{\rm min}=\min_{\boldsymbol{c}\neq\boldsymbol{0}}w(\boldsymbol{c})$. Les paraules codi no nul·les $110,011,101$ tenen totes pes $2$, per tant $d_{\rm min}=2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.28.</span></p>
+  <p>Un codi lineal binari amb descodificació per mínima distància de Hamming té $d_{\rm min}=2$. Quants errors $t$ pot corregir?</p>
+  <p>(a) $t=0$<br>
+  (b) $t=1$<br>
+  (c) $t=2$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La descodificació per mínima distància corregeix fins a $t=\lfloor(d_{\rm min}-1)/2\rfloor$ errors. Amb $d_{\rm min}=2$, $t=\lfloor 1/2\rfloor=0$: el codi només pot <em>detectar</em> un error, no corregir-lo.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.29.</span></p>
+  <p>Un codi lineal binari $(3,2)$ té paraules codi $\mathcal{C}=\{000,110,011,101\}$. Quina de les següents és una matriu de control de paritat $\boldsymbol{H}$ vàlida (que compleix $\boldsymbol{c}\boldsymbol{H}^{\top}=\boldsymbol{0}$ per a tota $\boldsymbol{c}\in\mathcal{C}$)?</p>
+  <p>(a) $\boldsymbol{H}=(1\ \ 1\ \ 1)$<br>
+  (b) $\boldsymbol{H}=(1\ \ 0\ \ 1)$<br>
+  (c) $\boldsymbol{H}=(1\ \ 1\ \ 0)$<br>
+  (d) $\boldsymbol{H}=(0\ \ 1\ \ 1)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per a un codi $(3,2)$ la matriu $\boldsymbol{H}$ té $n-k=1$ fila i ha de complir $\boldsymbol{c}\boldsymbol{H}^{\top}=\boldsymbol{0}$. Amb $\boldsymbol{H}=(1\ 1\ 1)$, $\boldsymbol{c}\boldsymbol{H}^{\top}=c_1\oplus c_2\oplus c_3$ és la paritat global; cada paraula codi té pes parell, per tant això val $0$ per a totes (p. ex. $1\oplus1\oplus0=0$). Les altres matrius fallen en almenys una paraula codi.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.30.</span></p>
+  <p>Un codi lineal binari té matriu generadora $$\boldsymbol{G} = \begin{pmatrix}0 & 1 & 0 & 1 & 0 & 0\\ 1 & 0 & 1 & 0 & 1 & 0\\ 0 & 0 & 1 & 0 & 0 & 1\end{pmatrix}.$$</p><p>Calcula l'enumerador de pesos $\{A_0,A_1,A_2,A_3,A_4,A_5\}$ del codi (on $A_i$ compta les paraules codi de pes de Hamming $i$).</p>
+  <p>(a) $\{1,\,0,\,2,\,2,\,1,\,2\}$<br>
+  (b) $\{1,\,2,\,2,\,1,\,2,\,0\}$<br>
+  (c) $\{1,\,0,\,3,\,3,\,1,\,0\}$<br>
+  (d) $\{0,\,1,\,2,\,2,\,2,\,1\}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>És un codi $(6,3)$ amb $2^3=8$ paraules codi $\boldsymbol{x}=\boldsymbol{s}\boldsymbol{G}$ (mòdul 2). En generar-les totes obtenim els pesos: $000000$ (0); $001001$, $010100$ (2 cadascuna); $101010$, $100011$ (3 cadascuna); $011101$ (4); $111110$, $110111$ (5 cadascuna). Comptant: $A_0=1,A_1=0,A_2=2,A_3=2,A_4=1,A_5=2$, que sumen $1+2+2+1+2=8=2^k$. Per tant $\{1,0,2,2,1,2\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.31.</span></p>
+  <p>Un codi lineal binari té matriu generadora $$\boldsymbol{G} = \begin{pmatrix}0 & 1 & 0 & 1 & 0 & 0\\ 1 & 0 & 1 & 0 & 1 & 0\\ 0 & 0 & 1 & 0 & 0 & 1\end{pmatrix}.$$</p><p>El seu enumerador de pesos és $\{A_0,\dots,A_5\}=\{1,0,2,2,1,2\}$. Quina és la distància mínima $d_{\min}$ del codi?</p>
+  <p>(a) $d_{\min}=1$<br>
+  (b) $d_{\min}=2$<br>
+  (c) $d_{\min}=3$<br>
+  (d) $d_{\min}=0$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Per a un codi lineal la distància mínima és igual al pes no nul més petit, ja que la distància entre dues paraules codi és igual al pes de la seva diferència (que també és paraula codi). A partir de l'enumerador $\{1,0,2,2,1,2\}$, el pes més petit amb $A_i&gt;0$ per a $i\ge 1$ és $i=2$ (per exemple la paraula codi $001001$). Per tant $d_{\min}=2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.32.</span></p>
+  <p>Un codi lineal binari té matriu de comprovació de paritat $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}.$$ Les paraules codi $\boldsymbol{c}=(c_1,\dots,c_5)$ compleixen $\boldsymbol{H}\boldsymbol{c}^{\mathsf T}=\boldsymbol{0}$. Quina de les següents és una matriu generadora vàlida d'aquest codi?</p>
+  <p>(a) $\boldsymbol{G}=\begin{pmatrix}0&0&1&1&1\\1&1&0&0&1\end{pmatrix}$<br>
+  (b) $\boldsymbol{G}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$<br>
+  (c) $\boldsymbol{G}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\end{pmatrix}$<br>
+  (d) $\boldsymbol{G}=\begin{pmatrix}1&0&1&1&1\\1&1&0&0&0\end{pmatrix}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que $\boldsymbol{H}$ té rang $3$ i $n=5$, la dimensió és $k=5-3=2$, així que $\boldsymbol{G}$ ha de tenir $2$ files. Les equacions de paritat $c_1+c_2=0$, $c_3+c_4=0$, $c_1+c_3+c_5=0$ donen les paraules codi no nul·les $00111$ i $11001$. Aquestes dues paraules codi independents formen $\boldsymbol{G}$, i efectivament $\boldsymbol{G}\boldsymbol{H}^{\mathsf T}=\boldsymbol{0}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.33.</span></p>
+  <p>Un codi lineal binari té la matriu de comprovació de paritat $3\times 5$ $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$$ de rang $3$. Quina és la seva taxa $R$?</p>
+  <p>(a) $R=\dfrac{2}{5}$<br>
+  (b) $R=\dfrac{3}{5}$<br>
+  (c) $R=\dfrac{3}{2}$<br>
+  (d) $R=\dfrac{1}{5}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La longitud de bloc és $n=5$ i el rang de $\boldsymbol{H}$ és el nombre de comprovacions de paritat $n-k=3$, així que $k=5-3=2$ símbols d'informació. La taxa és $R=k/n=2/5$. (Triar $R=3/5$ confon $k$ amb $n-k$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.34.</span></p>
+  <p>El codi lineal binari amb matriu de comprovació de paritat $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$$ té les quatre paraules codi $\{00000,\,11001,\,00111,\,11110\}$. Quina és la seva distribució de pesos (els coeficients $A_i$ que compten les paraules codi de pes $i$)?</p>
+  <p>(a) $A_0=1,\;A_3=2,\;A_4=1$ (resta $0$)<br>
+  (b) $A_0=1,\;A_2=2,\;A_4=1$ (resta $0$)<br>
+  (c) $A_0=1,\;A_3=1,\;A_4=2$ (resta $0$)<br>
+  (d) $A_0=1,\;A_2=1,\;A_3=2$ (resta $0$)</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Compta el nombre d'$1$s de cada paraula codi: $w(00000)=0$, $w(11001)=3$, $w(00111)=3$, $w(11110)=4$. Així $A_0=1$, $A_3=2$, $A_4=1$, i tota la resta $A_i=0$. Observa que no hi ha cap paraula codi de pes $2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.35.</span></p>
+  <p>El codi lineal binari amb matriu de comprovació de paritat $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$$ té pesos de paraules codi no nul·les $\{3,3,4\}$. Quina és la seva distància mínima $d_{\min}$?</p>
+  <p>(a) $d_{\min}=3$<br>
+  (b) $d_{\min}=2$<br>
+  (c) $d_{\min}=4$<br>
+  (d) $d_{\min}=5$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per a un codi lineal, $d_{\min}$ és el pes mínim no nul d'una paraula codi, $\min\{3,3,4\}=3$. Equivalentment és el menor nombre de columnes linealment dependents de $\boldsymbol{H}$: cap columna és zero ni n'hi ha dues iguals, però les columnes $1,2,5$ sumen $\boldsymbol{0}$ (ja que $(1,0,1)+(1,0,0)+(0,0,1)=(0,0,0)$), així que $d_{\min}=3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.36.</span></p>
+  <p>Un codi lineal binari amb la matriu de comprovació de paritat $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$$ té distància mínima $d_{\min}=3$ i s'utilitza amb descodificació de mínima distància (màxima versemblança). Quants errors $t$ pot corregir?</p>
+  <p>(a) $t=1$<br>
+  (b) $t=2$<br>
+  (c) $t=3$<br>
+  (d) $t=0$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Un codi amb distància mínima $d_{\min}$ corregeix $t=\lfloor (d_{\min}-1)/2\rfloor$ errors. Aquí $t=\lfloor (3-1)/2\rfloor=\lfloor 1\rfloor=1$, així que el codi corregeix un error. (Fer servir $d_{\min}-1=2$ donaria el nombre d'errors que pot detectar, no corregir.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.37.</span></p>
+  <p>Considera el codi de Hamming sistemàtic $(15,11)$ amb matriu generadora $\boldsymbol{G}=(\boldsymbol{P}\ \boldsymbol{I})$, on la primera fila de la matriu de paritat $11\times4$ $\boldsymbol{P}$ és $(1\ 1\ 0\ 0)$. La paraula codi $\boldsymbol{x}_{1025}$ (amb la indexació $\boldsymbol{x}_1,\boldsymbol{x}_2,\dots$) es transmet, i una paraula codi sistemàtica és $\boldsymbol{x}=\boldsymbol{s}\boldsymbol{G}=(\boldsymbol{s}\boldsymbol{P}\ \ \boldsymbol{s})$ sobre $\mathrm{GF}(2)$. Quin és el pes de Hamming $w_H(\boldsymbol{x}_{1025})$?</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $3$<br>
+  (d) $4$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>L'índex $1025$ correspon al missatge de valor enter $1025-1=1024=2^{10}$, es a dir, el missatge d'$11$ bits $\boldsymbol{s}=(1\,0\,\dots\,0)$ amb un sol $1$ a la primera posició. Aleshores $\boldsymbol{s}\boldsymbol{P}$ selecciona la primera fila de $\boldsymbol{P}$, donant paritat $(1\ 1\ 0\ 0)$ (dos $1$), i la part sistemàtica reprodueix $\boldsymbol{s}$ (un $1$). La paraula codi és $(1\,1\,0\,0\,|\,1\,0\dots0)$, així que $w_H=2+1=3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 7.38.</span></p>
+  <p>La paraula codi $\boldsymbol{x}_{1025}=(1\,1\,0\,0\,|\,1\,0\,0\,0\,0\,0\,0\,0\,0\,0\,0)$ del codi de Hamming $(15,11)$ (pes de Hamming $3$, amb $12$ zeros i $3$ uns) es transmet per un canal binari <em>asimètric</em> sense memòria amb probabilitats de creuament $P_{Y|X}(1\mid0)=p_0$ i $P_{Y|X}(0\mid1)=p_1$, que actua independentment sobre cadascun dels $15$ bits. Quina és la probabilitat de rebre la seqüència de tot zeros $\boldsymbol{y}=\mathbf{0}$?</p>
+  <p>(a) $(1-p_0)^{12}\,p_1^{3}$<br>
+  (b) $(1-p_1)^{12}\,p_0^{3}$<br>
+  (c) $(1-p_0)^{3}\,p_1^{12}$<br>
+  (d) $(1-p_0)^{15}\,p_1^{3}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per la manca de memòria, $\mathbb{P}[\boldsymbol{Y}=\mathbf{0}\mid\boldsymbol{X}=\boldsymbol{x}]=\prod_{i=1}^{15}P_{Y|X}(0\mid x_i)$. Cadascun dels $12$ zeros transmesos ha de romandre $0$, amb probabilitat $P_{Y|X}(0\mid0)=1-p_0$, donant $(1-p_0)^{12}$. Cadascun dels $3$ uns transmesos ha de canviar a $0$, amb probabilitat $P_{Y|X}(0\mid1)=p_1$, donant $p_1^{3}$. Per tant la probabilitat és $(1-p_0)^{12}p_1^{3}$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

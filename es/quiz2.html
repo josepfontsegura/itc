@@ -242,7 +242,7 @@
 </nav>
 
 <div class="page">
-                  <aside class="sidebar">
+                                          <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -254,44 +254,72 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html" class="active">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Cuestionario: Temas 3–5: Codificación de fuente</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+    <div class="quiz-container" id="quiz-root">
+      <!-- Progress -->
+      <div class="quiz-progress">
+        <div class="quiz-progress-text" id="quiz-progress-text">Pregunta 1 de 20</div>
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="quiz-progress-fill" style="width:5%"></div>
+        </div>
+      </div>
+
+      <!-- Card -->
+      <div class="quiz-card" id="quiz-card">
+        <div class="quiz-topic" id="quiz-topic"></div>
+        <div class="quiz-question" id="quiz-question"></div>
+        <div class="quiz-options" id="quiz-options"></div>
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+        <button class="quiz-next" id="quiz-next">Siguiente</button>
+      </div>
+
+      <!-- Score (hidden until end) -->
+      <div class="quiz-card quiz-score" id="quiz-score" style="display:none">
+        <h2>Cuestionario completado!</h2>
+        <div class="score-number" id="score-number"></div>
+        <div class="score-label" id="score-label"></div>
+        <div class="score-bar"><div class="score-bar-fill" id="score-bar-fill"></div></div>
+        <br>
+        <button class="quiz-restart" id="quiz-restart">Intentar de nuevo</button>
+      </div>
+    </div>
   </main>
 </div>
 
@@ -339,34 +367,94 @@
 
   // ---- Quiz data ----
   var questions = [
-// KAHOOT 2: Temas 3-5
+// KAHOOT 2
     {
-      topic: "Temas 3\u20135: Codificación de fuente",
-      q: "Existe un código binario de longitud fija unívocamente decodificable, para una fuente que toma valores en $\\{1,2,\\ldots,r\\}$, cuya longitud media es $\\lfloor \\log_2(r) \\rfloor$.",
+      topic: "Tema 3: C\u00f3digos sin prefijo",
+      q: "Una fuente $U$ tiene distribuci\u00f3n $\\{0.4,\\,0.4,\\,0.2\\}$ y se codifica con el c\u00f3digo de Shannon--Fano de longitudes $\\ell_j=\\lceil -\\log_2 p_j\\rceil$. Entonces la longitud media resultante supera la entrop\u00eda $H(U)$ en m\u00e1s de $0.5$ bits.",
       options: ["Verdadero", "Falso"],
       correct: 0
     },
     {
-      topic: "Temas 3\u20135: Codificación de fuente",
-      q: "El código fuente $\\{0,01,001\\}$ es unívocamente decodificable.",
+      topic: "Tema 3: C\u00f3digos sin prefijo",
+      q: "Si un c\u00f3digo binario sin prefijo alcanza longitud media $L_{\\text{av}}=H(U)$, entonces cada probabilidad $p_j$ de la fuente debe ser una potencia de $\\tfrac12$.",
       options: ["Verdadero", "Falso"],
       correct: 0
     },
     {
-      topic: "Temas 3\u20135: Codificación de fuente",
-      q: "Existe un código binario libre de prefijos con longitudes $\\{2,2,3,3,3\\}$.",
-      options: ["Verdadero", "Falso"],
-      correct: 0
-    },
-    {
-      topic: "Temas 3\u20135: Codificación de fuente",
-      q: "La longitud media del código binario libre de prefijos óptimo para una fuente $U$ que toma valores en $\\{a,b,c\\}$ con probabilidad igual satisface $L_{\\text{av}}=H(U)$.",
+      topic: "Tema 3: C\u00f3digos sin prefijo",
+      q: "Existe un c\u00f3digo binario sin prefijo con distribuci\u00f3n de longitudes de palabra c\u00f3digo $\\{1,2,2,3,3\\}$.",
       options: ["Verdadero", "Falso"],
       correct: 1
     },
     {
-      topic: "Temas 3\u20135: Codificación de fuente",
-      q: "La longitud media del código binario libre de prefijos óptimo para una fuente $U$ que toma valores en $\\{a,b,c,d\\}$ con probabilidad igual satisface $L_{\\text{av}}=H(U)$.",
+      topic: "Tema 3: C\u00f3digos sin prefijo",
+      q: "Un c\u00f3digo binario sin prefijo cuya representaci\u00f3n en \u00e1rbol tiene al menos una hoja vac\u00eda (una hoja sin palabra c\u00f3digo) debe satisfacer $\\sum_j 2^{-\\ell_j}&lt;1$.",
+      options: ["Verdadero", "Falso"],
+      correct: 0
+    },
+    {
+      topic: "Tema 3: C\u00f3digos sin prefijo",
+      q: "Todo c\u00f3digo binario de decodificaci\u00f3n \u00fanica es sin prefijo.",
+      options: ["Verdadero", "Falso"],
+      correct: 1
+    },
+    {
+      topic: "Tema 4: C\u00f3digos de Huffman",
+      q: "Una fuente con distribuci\u00f3n $\\{0.4,\\,0.3,\\,0.2,\\,0.1\\}$ se codifica con un c\u00f3digo de Huffman. La longitud media resultante satisface $L_{\\text{av}}&lt;2$ bits por s\u00edmbolo.",
+      options: ["Verdadero", "Falso"],
+      correct: 0
+    },
+    {
+      topic: "Tema 4: C\u00f3digos de Huffman",
+      q: "En cualquier c\u00f3digo de Huffman, los dos s\u00edmbolos menos probables de la fuente son hojas hermanas y, por tanto, siempre tienen la misma longitud de palabra c\u00f3digo (y m\u00e1xima).",
+      options: ["Verdadero", "Falso"],
+      correct: 0
+    },
+    {
+      topic: "Tema 4: C\u00f3digos de Huffman",
+      q: "Todo c\u00f3digo de Huffman contiene al menos una palabra c\u00f3digo de longitud $1$.",
+      options: ["Verdadero", "Falso"],
+      correct: 1
+    },
+    {
+      topic: "Tema 4: C\u00f3digos de Huffman",
+      q: "Una fuente $U$ tiene distribuci\u00f3n $\\bigl\\{\\tfrac13,\\tfrac13,\\tfrac16,\\tfrac16\\bigr\\}$. Cualquier c\u00f3digo de Huffman para $U$ tiene $L_{\\text{av}}=2$ bits por s\u00edmbolo, pero $L_{\\text{av}}&gt;H(U)$.",
+      options: ["Verdadero", "Falso"],
+      correct: 0
+    },
+    {
+      topic: "Tema 4: C\u00f3digos de Huffman",
+      q: "Si un c\u00f3digo de Huffman para una fuente $U$ satisface $L_{\\text{av}}=H(U)$, entonces este c\u00f3digo es estrictamente mejor (longitud media m\u00e1s corta) que cualquier otro c\u00f3digo sin prefijo para $U$.",
+      options: ["Verdadero", "Falso"],
+      correct: 1
+    },
+    {
+      topic: "Tema 5: L\u00edmites de la compresi\u00f3n de datos",
+      q: "Sea $X=(U_1,\\ldots,U_n)$ con s\u00edmbolos independientes $U_i$ que NO son todos id\u00e9nticamente distribuidos. Entonces en general $H(X)\\neq n\\,H(U_1)$.",
+      options: ["Verdadero", "Falso"],
+      correct: 0
+    },
+    {
+      topic: "Tema 5: L\u00edmites de la compresi\u00f3n de datos",
+      q: "Una fuente discreta sin memoria tiene $H(U)=\\tfrac32$ bits. Para longitud de bloque $n=4$, la longitud media del c\u00f3digo de Huffman \u00f3ptimo satisface $6\\leq L_{\\text{av}}&lt;7$.",
+      options: ["Verdadero", "Falso"],
+      correct: 0
+    },
+    {
+      topic: "Tema 5: L\u00edmites de la compresi\u00f3n de datos",
+      q: "Una fuente discreta sin memoria tiene $H(U)=1.2$ bits, y su c\u00f3digo de Huffman \u00f3ptimo por bloques con $n=3$ alcanza $L_3=1.5$. Entonces la eficiencia es $e_3=1.25$.",
+      options: ["Verdadero", "Falso"],
+      correct: 1
+    },
+    {
+      topic: "Tema 5: L\u00edmites de la compresi\u00f3n de datos",
+      q: "Para toda fuente discreta sin memoria $U$, la eficiencia $e_n$ del c\u00f3digo de Huffman \u00f3ptimo por bloques es estrictamente menor que $1$ para todo $n$ finito.",
+      options: ["Verdadero", "Falso"],
+      correct: 1
+    },
+    {
+      topic: "Tema 5: L\u00edmites de la compresi\u00f3n de datos",
+      q: "Para una fuente discreta sin memoria $U$, la longitud media por s\u00edmbolo del c\u00f3digo de Huffman \u00f3ptimo por bloques satisface $H(U)\\leq L_n&lt;H(U)+\\tfrac1n$, por tanto $\\lim_{n\\to\\infty}L_n=H(U)$.",
       options: ["Verdadero", "Falso"],
       correct: 0
     }

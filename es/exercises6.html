@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -40,44 +40,563 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html" class="active">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Ejercicios: 6. Probabilidad de error de códigos de canal</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+    <button id="expand-all" data-expand="Mostrar todas las soluciones" data-collapse="Ocultar todas las soluciones" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostrar todas las soluciones</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.1.</span> Dos mensajes se transmiten con igual probabilidad por un canal binario simétrico con probabilidad de inversión de bit $p$ utilizando las palabras código $\{101,010\}$. El decodificador aplica la regla $\boldsymbol{y}\mapsto \hat m$ dada por:
+$$
+\begin{aligned}
+000&\mapsto 1 & 001&\mapsto 1 & 010&\mapsto 2 & 011&\mapsto 2\\
+100&\mapsto 1 & 101&\mapsto 2 & 110&\mapsto 2 & 111&\mapsto 1
+\end{aligned}
+$$
+¿Cuál es la probabilidad de decodificar correctamente el primer mensaje?</p>
+  <p>(a) $3p-5p^2+2p^3$<br>
+  (b) $2p-2p^2$<br>
+  (c) $p+p^2-2p^3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El primer mensaje se codifica como $\boldsymbol{x}_1=101$. El decodificador toma una decisión correcta cuando, habiendo transmitido $\boldsymbol{x}_1$, se recibe una de las secuencias asignadas al mensaje $1$, es decir $\{000,001,100,111\}$. Calculando las cuatro probabilidades, por ejemplo $P_{Y|X}(000|101)=p^2(1-p)$, sumándolas y simplificando se obtiene la opción correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.2.</span> Dos mensajes se envían con igual probabilidad por un canal <u>binario asimétrico</u> con probabilidades de transición $P_{Y|X}(1|0)=p$ y $P_{Y|X}(0|1)=2p$ utilizando las palabras código $\{000,111\}$. El decodificador utiliza la regla
+$$
+\hat m = \operatorname*{arg\,max}_{m\in\{1,2\}} \, d(\boldsymbol{x}_m,\boldsymbol{y}),
+$$
+donde $d(\boldsymbol{x},\boldsymbol{y})$ es la distancia de Hamming entre las secuencias binarias $\boldsymbol{x}$ e $\boldsymbol{y}$.
+¿Cuál es el valor de $p$ que minimiza la probabilidad de error?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $\tfrac 59$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Dada una salida $\boldsymbol{y}$, el decodificador elige la palabra código a mayor distancia de Hamming, decidiendo $\hat m=1$ cuando $\boldsymbol{y}\in\{011,101,110,111\}$ y $\hat m=2$ cuando $\boldsymbol{y}\in\{000,001,010,100\}$. Con $\boldsymbol{x}_1=000$ la probabilidad de inversión de bit es $p$, mientras que con $\boldsymbol{x}_2=111$ es $2p$. Así, la probabilidad de error del primer mensaje es $(1-p)^3+3(1-p)^2p$, y la del segundo mensaje es $(1-2p)^3+3(1-2p)^2 2p$. Promediando dado que los mensajes son equiprobables y simplificando algebraicamente se obtiene $1-\tfrac{15 p^2}{2}+9 p^3$. En el intervalo válido $p\in[0,1/2]$, esta expresión se minimiza en $p=\tfrac12$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.3.</span> Dos mensajes se transmiten con igual probabilidad por un canal <u>binario asimétrico</u> con probabilidades de transición $P_{Y|X}(1|0)=\alpha$ y $P_{Y|X}(0|1)=1-\alpha$ utilizando las palabras código $\{000,111\}$. El decodificador aplica la regla
+$$
+\hat m = \operatorname*{arg\,min}_{m\in{\cal M}} 3d_{0\to 1}(\boldsymbol{x}_{m},\boldsymbol{y})+d_{1\to 0}(\boldsymbol{x}_{m},\boldsymbol{y}),
+$$
+donde $d_{0\to 1}(\boldsymbol{x},\boldsymbol{y})$ es el número de bits que cambian de $0$ a $1$ y $d_{1\to 0}(\boldsymbol{x},\boldsymbol{y})$ es el número de bits que cambian de $1$ a $0$. Por ejemplo, $d_{0\to 1}(010,110)=1$ y $d_{1\to 0}(010,110)=0$. ¿Para qué valor de $\alpha$ coinciden las probabilidades de error de ambos mensajes?</p>
+  <p>(a) $\tfrac 12$<br>
+  (b) $1-\tfrac{1}{\sqrt{2}}$<br>
+  (c) $1-\tfrac{1}{\sqrt[3]{2}}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>La regla de decodificación es tal que el decodificador decide $\hat m=1$ solo cuando $\boldsymbol{y}\in\{000\}$ y $\hat m = 2$ en caso contrario. Como resultado, podemos determinar que $P_{\rm e}(1)=1-P_{Y|X}(000|000) = 1-(1-\alpha)^3$ y que $P_{\rm e}(2)=P_{Y|X}(000|111) = (1-\alpha)^3$. Ambas coinciden cuando $\alpha=1-1/\sqrt[3]{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.4.</span> Las palabras código $\{00,11\}$ se transmiten con igual probabilidad por un canal binario simétrico con probabilidad de error de bit $p&lt;\tfrac12$. Tras recibir $\boldsymbol{y}$, el decodificador genera aleatoriamente un valor $s\in\{1,2\}$ con distribución $\{q,1-q\}$ y decodifica como
+$$
+\hat m = \begin{cases}
+1 & P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_1) &gt; P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_2),\\
+2 & P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_1) &lt; P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_2),\\
+s & \text{en caso contrario}.
+\end{cases}
+$$
+¿Cuál es la probabilidad de error del código promediada sobre $s$?</p>
+  <p>(a) $pq$<br>
+  (b) $q$<br>
+  (c) $p$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>El decodificador elige $\hat m=1$ cuando $\boldsymbol{y}=00$, $\hat m=2$ cuando $\boldsymbol{y}=11$, y $\hat m=s$ cuando $\boldsymbol{y}\in\{01,10\}$. Si $s=1$ los eventos de error son $\boldsymbol{y}\in\{11,10\}$ tras transmitir $\boldsymbol{x}_1$ o $\boldsymbol{y}\in\{01\}$ tras $\boldsymbol{x}_2$, dando $P_{\mathrm e}({\cal C}\mid s=1)=p$. Si $s=2$ los papeles se intercambian y de nuevo $P_{\mathrm e}({\cal C}\mid s=2)=p$. Promediando sobre $s$ se obtiene $P_{\mathrm e}({\cal C})=q\,p+(1-q)\,p=p$, que corresponde a la tercera opción.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.5.</span> ¿Cuál de los siguientes códigos tiene tasa $\tfrac 12$?</p>
+  <p>(a) $\{0000,1111\}$<br>
+  (b) $\{0000,0101,1010,1111\}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>La tasa de un código es $R=\tfrac{1}{n}\log_2 |\mathcal{C}|$, donde $n$ es la longitud y $|\mathcal{C}|$ el número de palabras código. El primer código tiene $n=4$ y $2$ palabras código, por lo que $R=\tfrac{1}{4}\log_2 2=\tfrac14$. El segundo código tiene $n=4$ y $4$ palabras código, por lo que $R=\tfrac{1}{4}\log_2 4=\tfrac12$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.6.</span> Para cada entero $r\geq 2$, construimos un código de longitud $2^r-1$ que transporta $2^r-r-1$ bits de información. ¿Cuál de las siguientes no es una tasa posible con esta construcción?</p>
+  <p>(a) $\frac {1011}{1023}$<br>
+  (b) $\frac {2036}{2047}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La tasa es $R=\frac{2^r-r-1}{2^r-1}$. Para $r=10$ la longitud es $2^{10}-1=1023$ y el número de bits de información es $2^{10}-10-1=1013$, dando una tasa $\frac{1013}{1023}$, no $\frac{1011}{1023}$. Para $r=11$ la longitud es $2^{11}-1=2047$ y los bits de información son $2^{11}-11-1=2036$, dando exactamente $\frac{2036}{2047}$. Por lo tanto $\frac{1011}{1023}$ no es alcanzable.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.7.</span> Un código se construye tomando todas las secuencias posibles de $n$ bits y eliminando una tercera parte de ellas. ¿Cuál es la tasa del código?</p>
+  <p>(a) $1-\frac{\log_2(3)-1}{n}$<br>
+  (b) $1-\frac{\log_2(3)}{n}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Hay $2^n$ secuencias de longitud $n$, y eliminando una tercera parte quedan $|\mathcal{C}|=\tfrac23\cdot 2^n$ palabras código. La tasa es $R=\tfrac1n\log_2|\mathcal{C}|=\tfrac1n\bigl(n+\log_2\tfrac23\bigr)=1+\tfrac1n(1-\log_2 3)=1-\frac{\log_2(3)-1}{n}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.8.</span> Supongamos que un código de canal con $r$ bits de información se transmite con igual probabilidad por un canal con memoria. ¿Es cierto entonces que $P_{\boldsymbol{X}}(\boldsymbol{x})=2^{-r}$?</p>
+  <p>(a) Sí<br>
+  (b) No</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Con $r$ bits de información hay $2^r$ mensajes equiprobables, cada uno asignado a una palabra código $\boldsymbol{x}$. Como los mensajes se transmiten con igual probabilidad, cada palabra código tiene probabilidad $P_{\boldsymbol{X}}(\boldsymbol{x})=2^{-r}$. Esto depende solo de la distribución de los mensajes y del codificador, no del canal, por lo que la presencia de memoria en el canal es irrelevante.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.9.</span> ¿Cuál de las siguientes magnitudes es igual a $|{\cal X}|$, el cardinal del alfabeto de $X$?</p>
+  <p>(a) $\sum_{x} \sum_{y} P_{Y|X}(y|x)$<br>
+  (b) $\sum_{x} P_{Y|X}(y|x)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Para cada $x$ fijo, la distribución condicional cumple $\sum_{y} P_{Y|X}(y|x)=1$. Sumando esto sobre todos los $x \in {\cal X}$ se obtiene $\sum_{x} \sum_{y} P_{Y|X}(y|x)=\sum_{x} 1 = |{\cal X}|$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.10.</span> Un código de canal de tasa $r$ y longitud $n$ se transmite con probabilidad uniforme. ¿Cuál es la entropía de la variable aleatoria que representa el mensaje transmitido?</p>
+  <p>(a) $rn$<br>
+  (b) $\frac{r}{n}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Un código de tasa $r$ y longitud $n$ tiene $M=2^{rn}$ palabras código. Cuando el mensaje sigue una distribución uniforme, su entropía es $\log_2 M = rn$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.11.</span> Un código con palabras código $\{010,101\}$ y distribución de probabilidad $\bigl\{ \frac{1}{3}, \frac{2}{3} \bigr\}$ se transmite por un canal binario sin memoria tal que $P_{Y|X}(y|x)=1$ si $y \neq x$. ¿Cuál es la probabilidad de recibir la secuencia $101$ si se envía el segundo mensaje?</p>
+  <p>(a) $0$<br>
+  (b) $1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El canal siempre invierte cada bit, ya que $P_{Y|X}(y|x)=1$ solo cuando $y \neq x$. El segundo mensaje es $\boldsymbol{x}_2=101$, que el canal convierte de forma determinista en $010$. Por tanto, la probabilidad de recibir $101$ es $0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.12.</span> El código de canal $\{0101010101,1010101010\}$ se decodifica con la regla de mínima distancia de Hamming. ¿Qué mensaje decidirá el decodificador al observar $0000000001$ a la salida del canal?</p>
+  <p>(a) $1$<br>
+  (b) $2$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La palabra recibida es $0000000001$. Su distancia de Hamming a $\boldsymbol{x}_1=0101010101$ es $4$ (difieren los cuatro $1$ de las posiciones impares), mientras que su distancia a $\boldsymbol{x}_2=1010101010$ es $6$. La distancia mínima la alcanza el primer mensaje.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.13.</span> El código $\{000,111\}$ se transmite por un canal binario simétrico con probabilidad de inversión de bit $\frac{9}{10}$ y se decodifica con la regla $g(\boldsymbol{y})=\arg\max_{m} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$. ¿Cuánto vale $g(001)$?</p>
+  <p>(a) $1$<br>
+  (b) $2$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Con probabilidad de inversión $p=\frac{9}{10}$, el canal invierte los bits más a menudo que no. Para $\boldsymbol{y}=001$: dado $\boldsymbol{x}_1=000$, se invierte exactamente un bit, así $P=(1-p)^2 p=\frac{1}{10}\cdot\frac{1}{10}\cdot\frac{9}{10}=\frac{9}{1000}$; dado $\boldsymbol{x}_2=111$, se invierten dos bits, así $P=(1-p)\,p^2=\frac{1}{10}\cdot\frac{9}{10}\cdot\frac{9}{10}=\frac{81}{1000}$. El máximo lo alcanza el segundo mensaje.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.14.</span> El código $\{0101,1010\}$ se transmite por un canal binario sin memoria con $P_{Y|X}(0|x)=x$ y se decodifica con la regla $g(\boldsymbol{y}) = \arg\max_{m} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$. ¿Cuánto vale $g(1010)$?</p>
+  <p>(a) $1$<br>
+  (b) $2$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El canal cumple $P_{Y|X}(0|0)=0$ y $P_{Y|X}(0|1)=1$, de modo que aplica de forma determinista cada bit de entrada $x$ a $1-x$ (siempre invierte el bit). Así, $\boldsymbol{x}_1=0101$ se recibe como $1010$ con probabilidad $1$, mientras que $\boldsymbol{x}_2=1010$ se recibe como $0101$. Por tanto $g(1010)=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.15.</span> El código $\{000,111\}$ se transmite por un canal binario con probabilidades condicionales $P_{Y|X}(0|0)=1$ y $P_{Y|X}(0|1)=\tfrac{1}{2}$. El receptor utiliza una regla de decodificación de mínima verosimilitud, es decir $\hat m = \arg\min_m P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$, para decodificar la salida del canal. ¿Cuál es la región de error del segundo mensaje?</p>
+  <p>(a) $\{001,010,011,100,101,110,111\}$<br>
+  (b) $\{000\}$<br>
+  (c) $\{000,001,010,100\}$<br>
+  (d) $\{011,101,110,111\}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $P_{Y|X}(1|0)=0$, tenemos $P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|000)=0$ para cualquier salida del canal que tenga al menos un $1$. Con la regla de mínima verosimilitud, $\hat m = 1$ para todas las salidas excepto $\boldsymbol{y}=000$, para la cual $\hat m = 2$. Esta es la única salida para la que el segundo mensaje se decodifica correctamente, de modo que su región de error son todas las demás salidas: $\{001,010,011,100,101,110,111\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.16.</span> Un canal discreto tiene entrada $X\in \{0,1,2\}$ y salida dada por $Y=\lfloor \frac{X-1}{2}\rfloor$, donde la función suelo $\lfloor u \rfloor$ devuelve el mayor entero menor o igual que $u$. ¿Cuál de los siguientes códigos de canal permite la transmisión sin errores a una tasa de $1$ bit por uso del canal?</p>
+  <p>(a) $\{00,02,10,21\}$<br>
+  (b) $\{0000,1111\}$<br>
+  (c) $\{012,210\}$<br>
+  (d) $\{01,02,10,20\}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La aplicación de salida da $Y=-1$ para $X=0$ e $Y=0$ tanto para $X=1$ como para $X=2$, de modo que el canal es determinista con $P_{Y|X}(-1|0)=P_{Y|X}(0|1)=P_{Y|X}(0|2)=1$. El decodificador no puede distinguir las entradas $1$ y $2$, pero sí puede distinguir $0$ de $\{1,2\}$. Una tasa de $1$ bit por uso del canal con longitud $2$ requiere $M=2^{2}=4$ palabras código cuyas imágenes bajo la aplicación sean todas distintas. El código $\{00,02,10,21\}$ se aplica a $\{(-1,-1),(-1,0),(0,-1),(0,0)\}$, que son cuatro salidas distintas, de modo que permite la transmisión sin errores. Los demás códigos contienen palabras código que colisionan una vez que se fusionan $1$ y $2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.17.</span></p>
+  <p>Considere el canal binario asimétrico con $P_{Y|X}(1|0)=p$ y $P_{Y|X}(0|1)=2p$. ¿Cuál de las siguientes es la información mutua de este canal, suponiendo que $X$ tiene probabilidad uniforme? Recuerde que $h_2(p)=-p\log_2(p)-(1-p)\log_2(1-p)$ es la función de entropía binaria.</p>
+  <p>(a) $h_2\bigl(\frac{1+p}{2} \bigr) - h_2\bigl(\frac{3p}{2}\bigr)$<br>
+  (b) $h_2\bigl(\frac{1-p}{2} \bigr) - h_2(p)$<br>
+  (c) $h_2\bigl(\frac{1-p}{2} \bigr) - \frac 32 h_2(p)$<br>
+  (d) $h_2\bigl(\frac{1+p}{2} \bigr) - \frac 12 h_2(2p) - \frac 12 h_2(1-p)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(d)</strong> &#9733;</p>
+    <p>La información mutua se puede calcular como $I(X;Y)=H(Y)-H(Y|X)$. Con $X$ uniforme, $P(Y=1)=\tfrac12 P_{Y|X}(1|0)+\tfrac12 P_{Y|X}(1|1)=\tfrac12 p+\tfrac12(1-2p)=\tfrac{1-p}{2}$, de modo que $P(Y=0)=\tfrac{1+p}{2}$ y $H(Y)=h_2\bigl(\tfrac{1+p}{2}\bigr)$. Además, $H(Y|X=0)=h_2(p)$ y $H(Y|X=1)=h_2(2p)$, dando $H(Y|X)=\tfrac12 h_2(p)+\tfrac12 h_2(2p)=\tfrac12 h_2(1-p)+\tfrac12 h_2(2p)$. Por lo tanto $I(X;Y)=h_2\bigl(\tfrac{1+p}{2}\bigr)-\tfrac12 h_2(2p)-\tfrac12 h_2(1-p)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.18.</span></p>
+  <p>El código de repetición $\{00\cdots 0,11\cdots 1\}$ con tasa $p$ bits por uso del canal se transmite equiprobablemente por el canal binario simétrico con probabilidad de inversión de bit $a$. Tras observar la salida del canal $\boldsymbol{y}$, el decodificador estima el mensaje transmitido como</p>$$\hat m = \begin{cases} 1 & \boldsymbol{y} = \boldsymbol{x}_1\\ 2 & \text{en otro caso}. \end{cases}$$<p>¿Cuál es la probabilidad de que el decodificador seleccione el segundo mensaje cuando se transmitió el primero?</p>
+  <p>(a) $p^a$<br>
+  (b) $a^p$<br>
+  (c) $1-(1-a)^\frac{1}{p}$<br>
+  (d) $1-p^a$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>La probabilidad de que $\hat m = 2$ cuando se transmitió $m=1$ es igual a $1-\mathbb{P}[\hat m = 1 \mid m =1] = 1-\mathbb{P}[\boldsymbol{Y}=00\cdots 0\mid\boldsymbol{X}=00\cdots 0]$, lo que conduce a la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.19.</span> El código de fuente binario óptimo es $\{00,01,10,11\}$. Este código se utiliza como código de canal sobre un canal binario simétrico con probabilidad de cruce $0.11$. ¿Cuál de las siguientes corresponde, respectivamente, a la tasa del código y al número de errores de bit que el código es capaz de corregir?</p>
+  <p>(a) $\frac 12$ y $0.99$<br>
+  (b) $\frac 12$ y $0$<br>
+  (c) $1$ y $0$<br>
+  (d) $1$ y $0.99$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>El código de canal $\{00,01,10,11\}$ tiene tasa $1$ y distancia mínima $0$, por lo que no puede corregir ningún error.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.20.</span> El código $\{00,11\}$ se transmite equiprobablemente por un canal binario simétrico (BSC) con probabilidad de cruce $p$. Usando la decodificación de máxima verosimilitud, ¿cuál es la probabilidad de error?</p>
+  <p>(a) $p(2-p)$<br>
+  (b) $p$<br>
+  (c) $p^2$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Con decodificación ML la decisión divide las cuatro salidas en dos mitades, p. ej. $\{00,01\}\to\hat m=1$ y $\{10,11\}\to\hat m=2$ (los empates se resuelven arbitrariamente). Dado que se envía $00$, hay error cuando la palabra recibida cae en la otra mitad, es decir, cuando el primer bit se invierte: esto ocurre con probabilidad $p(1-p)+p^2=p$. Por simetría vale lo mismo para $11$, es decir, $P_e=p$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.21.</span> Un código $\{0,1\}$ de longitud $1$ se utiliza sobre un BSC con $p=0.1$. ¿Cuál es la probabilidad de error con decodificación ML?</p>
+  <p>(a) $0.1$<br>
+  (b) $0.2$<br>
+  (c) $0.01$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Con decodificación ML sobre un BSC, la probabilidad de error es igual a la probabilidad de cruce $p=0.1$ para un código de repetición de longitud $1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.22.</span> El código $\{000,111\}$ se utiliza sobre un BSC con probabilidad de cruce $p$ y decodificación de distancia de Hamming mínima. ¿Hasta cuántos errores puede corregir el código?</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La distancia mínima es $d_{\min}=3$, por lo que el código puede corregir $t=\lfloor(3-1)/2\rfloor=1$ error.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.23.</span> Un canal tiene $P_{Y|X}(0|0)=1$ y $P_{Y|X}(1|1)=1$ (canal sin ruido). ¿Cuál es la probabilidad de error de cualquier código?</p>
+  <p>(a) $0$<br>
+  (b) Depende del código<br>
+  (c) $\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>En un canal sin ruido, la salida siempre es igual a la entrada, por lo que cualquier decodificador puede recuperar perfectamente la palabra código transmitida. La probabilidad de error es $0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.24.</span> Para un BSC con $p&gt;\tfrac{1}{2}$, ¿el decodificador de máxima verosimilitud es el mismo que el decodificador de distancia de Hamming mínima?</p>
+  <p>(a) No, el ML elige la palabra código más lejana<br>
+  (b) Sí, siempre son el mismo<br>
+  (c) Solo cuando $p=\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Cuando $p&gt;\tfrac{1}{2}$, una inversión de bit es más probable que ninguna inversión. El decodificador ML maximiza $P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$, lo que para $p&gt;\tfrac{1}{2}$ corresponde a maximizar (no minimizar) la distancia de Hamming.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.25.</span> El código de repetición $\{000,111\}$ se utiliza sobre un BSC con $p=0.01$. Usando decodificación por distancia mínima, la probabilidad de error es aproximadamente</p>
+  <p>(a) $3\times 10^{-4}$<br>
+  (b) $0.01$<br>
+  (c) $10^{-6}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El código corrige $1$ error, de modo que $P_e=1-(1-p)^3-3p(1-p)^2=3p^2(1-p)+p^3\approx 3p^2=3\times 10^{-4}$ para $p$ pequeño.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.26.</span></p>
+  <p>Un <em>canal de borrado binario</em> (BEC) tiene probabilidad de borrado $\epsilon\in(0,1)$: cada símbolo de entrada se recibe correctamente con probabilidad $1-\epsilon$, se borra a $\star$ con probabilidad $\epsilon$ y <em>nunca</em> se invierte. Dos mensajes equiprobables se codifican con $\boldsymbol{c}_1=00$ y $\boldsymbol{c}_2=11$ y se envían en dos usos independientes del canal. El decodificador devuelve $\hat m=1$ para $\boldsymbol{y}\in\{00,0\star,\star 0,\star\star\}$ y $\hat m=2$ para $\boldsymbol{y}\in\{11,1\star,\star 1\}$. Calcula la probabilidad de error media $P_{\rm e}$.</p>
+  <p>(a) $\dfrac{\epsilon^2}{2}$<br>
+  (b) $\epsilon^2$<br>
+  (c) $\dfrac{\epsilon}{2}$<br>
+  (d) $\epsilon^2(1-\epsilon)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como el canal nunca invierte bits, la única salida ambigua es el doble borrado $\star\star$. Cuando se envía $m=1$, todas las salidas alcanzables ($00,0\star,\star 0,\star\star$) se decodifican a $1$, es decir, $P_{\rm e}(1)=0$. Cuando se envía $m=2$, solo $\star\star$ (probabilidad $\epsilon^2$) se decodifica mal a $1$, es decir, $P_{\rm e}(2)=\epsilon^2$. Promediando con probabilidades iguales: $P_{\rm e}=\tfrac12\cdot 0+\tfrac12\cdot\epsilon^2=\dfrac{\epsilon^2}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.27.</span></p>
+  <p>Se transmiten dos mensajes equiprobables a través de un <em>canal binario asimétrico</em> con $P_{Y|X}(1\mid 0)=p_0$ y $P_{Y|X}(0\mid 1)=p_1$, usando las palabras código $\boldsymbol{x}_1=000$ y $\boldsymbol{x}_2=111$. El decodificador aplica la regla de <em>distancia de Hamming mínima</em>. Calcula la probabilidad de error del mensaje $m=2$, denotada $P_{\rm e}(2)$.</p>
+  <p>(a) $P_{\rm e}(2)=3p_1^2(1-p_1)+p_1^3=p_1^2(3-2p_1)$<br>
+  (b) $P_{\rm e}(2)=3p_1(1-p_1)^2+p_1^3$<br>
+  (c) $P_{\rm e}(2)=3p_0^2(1-p_0)+p_0^3=p_0^2(3-2p_0)$<br>
+  (d) $P_{\rm e}(2)=p_1^3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Con $\boldsymbol{x}_2=111$ enviada, la decodificación por distancia mínima yerra cuando $\boldsymbol{y}$ tiene a lo sumo un $1$, es decir, al menos dos de los tres $1$s transmitidos cambian a $0$. Cada cambio $1\to0$ tiene probabilidad $p_1$, así que el número de cambios es Binomial$(3,p_1)$ y $P_{\rm e}(2)=\mathbb{P}[N\ge2]=\binom{3}{2}p_1^2(1-p_1)+\binom{3}{3}p_1^3$. Esto da $P_{\rm e}(2)=3p_1^2(1-p_1)+p_1^3=p_1^2(3-2p_1)$; depende solo de $p_1$, no de $p_0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.28.</span></p>
+  <p>Cuatro mensajes equiprobables se envían por un <em>canal binario simétrico</em> (BSC) con probabilidad de inversión de bit $p$ utilizando un código binario de longitud de bloque $3$. El tercer mensaje es la palabra código $\boldsymbol{x}_3=010$, y su <em>región de error</em> es $\mathcal{E}_3=\{101,\,111\}$ (palabras recibidas decodificadas como un mensaje distinto del tercero). Calcula la probabilidad de decodificar correctamente el tercer mensaje.</p>
+  <p>(a) $1-p^{2}$<br>
+  (b) $p^{2}$<br>
+  (c) $1-p^{3}-p^{2}(1-p)$<br>
+  (d) $(1-p)^{3}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La decodificación correcta significa $\boldsymbol{Y}\notin\mathcal{E}_3$, por tanto $P_{\rm c}(3)=1-P_{\rm e}(3)$. Por la ley del BSC, $P(\boldsymbol{y}\mid\boldsymbol{x})=p^{d}(1-p)^{3-d}$ con $d$ la distancia de Hamming. Desde $010$: $d_H(010,101)=3$ da $p^{3}$, y $d_H(010,111)=2$ da $p^{2}(1-p)$. Sumando, $P_{\rm e}(3)=p^{3}+p^{2}(1-p)=p^{2}$, es decir, $P_{\rm c}(3)=1-p^{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.29.</span></p>
+  <p>Tres mensajes equiprobables se envían a través de un <em>canal binario simétrico</em> (BSC) con probabilidad de cruce $p&lt;\tfrac12$ usando las palabras código $x_1=00$, $x_2=01$, $x_3=10$. El decodificador usa $\hat m(00)=1$, $\hat m(01)=2$, $\hat m(10)=3$, $\hat m(11)=1$, por lo que la región de decodificación del mensaje 1 es $\mathcal D_1=\{00,11\}$.</p><p>Calcula la probabilidad de error condicional $P_{\mathrm e}(1)$ del mensaje 1.</p>
+  <p>(a) $2p(1-p)$<br>
+  (b) $1-(1-p)^2=2p-p^2$<br>
+  (c) $2p^2$<br>
+  (d) $(1-p)^2+p^2$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Con $x_1=00$, la salida $y$ tiene $\mathbb P(y\mid x_1)=(1-p)^{2-d}p^d$ para distancia de Hamming $d$. La decodificación correcta requiere $Y\in\mathcal D_1=\{00,11\}$: $\mathbb P(00\mid 00)=(1-p)^2$ y $\mathbb P(11\mid 00)=p^2$, es decir, $P_{\mathrm c}(1)=(1-p)^2+p^2$. Por tanto $P_{\mathrm e}(1)=1-(1-p)^2-p^2=2p-2p^2=2p(1-p)$, la probabilidad de que se invierta exactamente un bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.30.</span></p>
+  <p>En un BSC con probabilidad de cruce $p&lt;\tfrac12$, el mensaje 2 usa la palabra código $x_2=01$, y su región de decodificación es $\mathcal D_2=\{01\}$ (solo la salida sin error se decodifica como 2). Los bits se invierten de manera independiente, cada uno con probabilidad $p$.</p><p>Calcula la probabilidad de error condicional $P_{\mathrm e}(2)$ del mensaje 2.</p>
+  <p>(a) $2p-p^2$<br>
+  (b) $2p(1-p)$<br>
+  (c) $(1-p)^2$<br>
+  (d) $2p^2-p$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $\mathcal D_2=\{01\}$, el mensaje 2 se decodifica correctamente solo si ambos bits se reciben sin error: $P_{\mathrm c}(2)=(1-p)^2$. Por tanto $P_{\mathrm e}(2)=1-(1-p)^2=2p-p^2$. Cualquier inversión (simple o doble) saca la salida de $\{01\}$ y provoca un error.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.31.</span></p>
+  <p>Tres mensajes equiprobables se envían a través de un BSC con probabilidad de cruce $p&lt;\tfrac12$ usando $x_1=00$, $x_2=01$, $x_3=10$, con decodificador $\hat m(00)=1$, $\hat m(01)=2$, $\hat m(10)=3$, $\hat m(11)=1$. Las probabilidades de error por mensaje son $P_{\mathrm e}(1)=2p(1-p)$ y $P_{\mathrm e}(2)=P_{\mathrm e}(3)=2p-p^2$.</p><p>Calcula la probabilidad de error media $P_{\mathrm e}$.</p>
+  <p>(a) $2p-\tfrac{4p^2}{3}$<br>
+  (b) $2p-2p^2$<br>
+  (c) $6p-4p^2$<br>
+  (d) $2p-p^2$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Promediando sobre mensajes equiprobables ($\mathbb P(m)=\tfrac13$): $P_{\mathrm e}=\tfrac13\big(2p(1-p)+(2p-p^2)+(2p-p^2)\big)$. El paréntesis se expande a $2p-2p^2+2p-p^2+2p-p^2=6p-4p^2$, es decir, $P_{\mathrm e}=\tfrac13(6p-4p^2)=2p-\tfrac{4p^2}{3}$. El término $-\tfrac{4p^2}{3}$ refleja que la doble inversión $00\to11$ aún se decodifica correctamente. (La opción $6p-4p^2$ olvida el factor $\tfrac13$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.32.</span></p>
+  <p>Se transmiten dos mensajes equiprobables a través de un <em>canal binario asimétrico</em> sin memoria con las palabras código $\boldsymbol{x}_1=000$ y $\boldsymbol{x}_2=111$. Un $0$ transmitido se invierte con probabilidad $p$ y un $1$ transmitido se invierte con probabilidad $2p$. El receptor aplica <em>descodificación de mínima distancia de Hamming</em>. ¿Cuál es la probabilidad de error total $P_{\mathrm e}$?</p>
+  <p>(a) $P_{\mathrm e}=\dfrac{15p^2}{2}-9p^3$<br>
+  (b) $P_{\mathrm e}=15p^2-18p^3$<br>
+  (c) $P_{\mathrm e}=3p^2-2p^3$<br>
+  (d) $P_{\mathrm e}=\dfrac{15p^2}{2}-18p^3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Con las palabras código $000$ y $111$, la descodificación de mínima distancia falla cuando se invierten al menos dos de los tres bits (distancia de Hamming $3$, sin empates porque $3$ es impar). Si se envía $000$, cada bit se invierte con probabilidad $p$: $P_{\mathrm e}(1)=\binom{3}{2}p^2(1-p)+p^3=3p^2-2p^3$. Si se envía $111$, cada bit se invierte con probabilidad $2p$: $P_{\mathrm e}(2)=3(2p)^2(1-2p)+(2p)^3=12p^2-16p^3$. Promediando sobre los dos mensajes equiprobables, $P_{\mathrm e}=\tfrac12(3p^2-2p^3)+\tfrac12(12p^2-16p^3)=\tfrac12(15p^2-18p^3)=\dfrac{15p^2}{2}-9p^3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.33.</span></p>
+  <p>Se envían tres mensajes equiprobables $m\in\{1,2,3\}$ a través de un canal binario simétrico con probabilidad de cruce $p=\tfrac13$, usando las palabras código $\boldsymbol{x}_1=000$, $\boldsymbol{x}_2=010$, $\boldsymbol{x}_3=111$. El decodificador solo mira los dos últimos bits $y_2y_3$: devuelve $\hat m=1$ si $y_2y_3=00$, $\hat m=3$ si $y_2y_3=11$, y $\hat m=2$ en caso contrario. Calcula la probabilidad de error media $P_{\rm e}$.</p>
+  <p>(a) $P_{\rm e}=\tfrac{14}{27}\approx 0.519$<br>
+  (b) $P_{\rm e}=\tfrac{13}{27}\approx 0.481$<br>
+  (c) $P_{\rm e}=\tfrac{4}{9}\approx 0.444$<br>
+  (d) $P_{\rm e}=\tfrac{5}{9}\approx 0.556$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Los conjuntos de decisión son $\mathcal D_1=\{000,100\}$, $\mathcal D_2=\{001,010,101,110\}$, $\mathcal D_3=\{011,111\}$. Con $\mathbb{P}(\boldsymbol{y}\mid\boldsymbol{x})=p^{d}(1-p)^{3-d}$ y $p=\tfrac13$: los mensajes 1 y 3 dan cada uno $P_{\rm e}=1-(1-p)^3-p(1-p)^2=\tfrac{15}{27}=\tfrac59$, y el mensaje 2 da $P_{\rm e}=2p(1-p)^2+2p^2(1-p)=\tfrac{12}{27}=\tfrac49$. Promediando con probabilidad a priori $\tfrac13$: $P_{\rm e}=\tfrac13(\tfrac{15}{27}+\tfrac{12}{27}+\tfrac{15}{27})=\tfrac{14}{27}\approx0.519$ (es decir, unos catorce errores de cada veintisiete).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.34.</span></p>
+  <p>En un canal binario simétrico con $p=\tfrac13$, se envía la palabra código $\boldsymbol{x}_1=000$. El decodificador solo lee $y_2y_3$ y decodifica correctamente a $\hat m=1$ exactamente cuando $y_2y_3=00$ (el primer bit recibido es irrelevante). Calcula la probabilidad de error condicional $P_{\rm e}(1)$.</p>
+  <p>(a) $\tfrac{5}{9}$<br>
+  (b) $\tfrac{4}{9}$<br>
+  (c) $\tfrac{1}{3}$<br>
+  (d) $\tfrac{19}{27}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La decodificación correcta necesita $y_2=y_3=0$, es decir $\boldsymbol{y}\in\{000,100\}$. Estas tienen distancia de Hamming $d=0$ (prob. $(1-p)^3$) y $d=1$ (prob. $p(1-p)^2$) respecto de $000$, así que $P_{\rm c}(1)=(1-p)^3+p(1-p)^2$ y $P_{\rm e}(1)=1-(1-p)^3-p(1-p)^2$. Para $p=\tfrac13$: $(1-p)^3=\tfrac{8}{27}$, $p(1-p)^2=\tfrac{4}{27}$, de donde $P_{\rm e}(1)=1-\tfrac{12}{27}=\tfrac{15}{27}=\tfrac59$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.35.</span></p>
+  <p>En un canal binario simétrico con $p=\tfrac13$, se envía la palabra código $\boldsymbol{x}_2=010$. El decodificador solo lee $y_2y_3$ y devuelve $\hat m=2$ (correcto) exactamente cuando $y_2y_3\in\{01,10\}$, es decir $\boldsymbol{y}\in\{001,010,101,110\}$. Calcula la probabilidad de error condicional $P_{\rm e}(2)$.</p>
+  <p>(a) $\tfrac{4}{9}$<br>
+  (b) $\tfrac{5}{9}$<br>
+  (c) $\tfrac{8}{27}$<br>
+  (d) $\tfrac{2}{3}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El conjunto correcto $\mathcal D_2=\{010,110,001,101\}$ tiene distancias $d=0,1,2,3$ respecto de $010$, así que $P_{\rm c}(2)=(1-p)^3+p(1-p)^2+p^2(1-p)+p^3$. El error complementario es $P_{\rm e}(2)=2p(1-p)^2+2p^2(1-p)$. Para $p=\tfrac13$: $p(1-p)^2=\tfrac{4}{27}$ y $p^2(1-p)=\tfrac{2}{27}$, de modo que $P_{\rm e}(2)=2\cdot\tfrac{4}{27}+2\cdot\tfrac{2}{27}=\tfrac{12}{27}=\tfrac49$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.36.</span></p>
+  <p>Un <em>código de repetición</em> $\{\boldsymbol{x}_1,\boldsymbol{x}_2\}=\{00\cdots0,\,11\cdots1\}$ de longitud $n$ se utiliza sobre un BSC con probabilidad de inversión de bit $0&lt;p&lt;1$. El mensaje $1$ ($\boldsymbol{x}_1=00\cdots0$) tiene probabilidad a priori $1-\alpha$ y el mensaje $2$ ($\boldsymbol{x}_2=11\cdots1$) tiene probabilidad a priori $\alpha$. El decodificador devuelve $\hat m=2$ solo si $\boldsymbol{y}=11\cdots1$, y $\hat m=1$ en caso contrario. ¿Cuál es el límite de la probabilidad de error $P_{\rm e}$ cuando $n\to\infty$?</p>
+  <p>(a) $\alpha$<br>
+  (b) $1-\alpha$<br>
+  (c) $0$<br>
+  (d) $\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Dado el mensaje $1$, hay que invertir los $n$ bits, es decir, $P_{\rm e}(1)=p^{\,n}$. Dado el mensaje $2$, una decisión correcta requiere no invertir ningún bit, es decir, $P_{\rm e}(2)=1-(1-p)^{\,n}$. Promediando con la a priori, $P_{\rm e}=(1-\alpha)p^{\,n}+\alpha\bigl(1-(1-p)^{\,n}\bigr)$. Como $0&lt;p&lt;1$, tanto $p^{\,n}\to0$ como $(1-p)^{\,n}\to0$, por lo que $P_{\rm e}\to(1-\alpha)\cdot0+\alpha\cdot1=\boldsymbol{\alpha}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.37.</span></p>
+  <p>Dos mensajes equiprobables $m\in\{1,2\}$ se transmiten por un <em>canal binario asimétrico</em> con probabilidades de cruce $P_{Y\mid X}(1\mid 0)=p_0$ y $P_{Y\mid X}(0\mid 1)=p_1$. Las palabras código son $\boldsymbol{x}_1=101$ y $\boldsymbol{x}_2=010$, y los tres usos del canal son independientes. El decodificador fijo asocia al mensaje $2$ exactamente las salidas $\{010,011,101,110\}$ (el resto al $1$). Calcula la probabilidad de error condicional del mensaje $m=1$, $P_{\rm e}(1)$.</p>
+  <p>(a) $P_{\rm e}(1)=p_0\,p_1^{2}+2\,p_0\,p_1(1-p_1)+(1-p_0)(1-p_1)^{2}$<br>
+  (b) $P_{\rm e}(1)=p_0\,p_1^{2}+2\,p_0\,p_1(1-p_1)$<br>
+  (c) $P_{\rm e}(1)=p_1\,p_0^{2}+2\,p_1\,p_0(1-p_0)+(1-p_1)(1-p_0)^{2}$<br>
+  (d) $P_{\rm e}(1)=p_0\,p_1^{2}+p_0\,p_1(1-p_1)+(1-p_0)(1-p_1)^{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Con $\boldsymbol{x}_1=101$ transmitida, $P_{\rm e}(1)=\sum_{\boldsymbol{y}\in\mathcal{E}_1}P_{\boldsymbol{Y}\mid\boldsymbol{X}}(\boldsymbol{y}\mid 101)$ sobre la región de error $\mathcal{E}_1=\{010,011,101,110\}$. Por posición respecto a $101$: el bit $1$ (enviado $1$) se invierte con $p_1$, el bit $2$ (enviado $0$) con $p_0$, el bit $3$ (enviado $1$) con $p_1$. Los cuatro términos son $010\!:p_0p_1^2$, $011\!:p_0p_1(1-p_1)$, $110\!:p_0p_1(1-p_1)$ y $101\!:(1-p_0)(1-p_1)^2$ (la salida sin ruido, decodificada igualmente al $2$), es decir, sumando: $P_{\rm e}(1)=p_0p_1^{2}+2p_0p_1(1-p_1)+(1-p_0)(1-p_1)^{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.38.</span></p>
+  <p>Tres mensajes equiprobables se transmiten por un BSC con probabilidad de inversión de bit $p&lt;\tfrac12$ usando las palabras código $\boldsymbol{x}_1=00$, $\boldsymbol{x}_2=01$, $\boldsymbol{x}_3=11$, descodificadas por distancia de Hamming mínima. La palabra recibida $\boldsymbol{y}=10$ produce un empate entre $\boldsymbol{x}_1$ y $\boldsymbol{x}_3$; la convención (i) lo resuelve como $\hat m(10)=1$. Calcula la probabilidad de error media $P_{\rm e}^{(i)}$.</p>
+  <p>(a) $P_{\rm e}^{(i)}=\dfrac{5p-2p^2}{3}$<br>
+  (b) $P_{\rm e}^{(i)}=2p-p^2$<br>
+  (c) $P_{\rm e}^{(i)}=\dfrac{4p-2p^2}{3}$<br>
+  (d) $P_{\rm e}^{(i)}=p$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Con $\mathcal D_1=\{00,10\}$: el mensaje $1$ es correcto si y solo si el 2.º bit sobrevive, es decir, $P_{\rm e}(1)=p$. Los mensajes $2$ y $3$ solo son correctos en recepción exacta, así $P_{\rm e}(2)=P_{\rm e}(3)=1-(1-p)^2=2p-p^2$. Promediando los tres: $P_{\rm e}^{(i)}=\frac{p+2(2p-p^2)}{3}=\frac{5p-2p^2}{3}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.39.</span></p>
+  <p>El mismo BSC con las palabras código $\boldsymbol{x}_1=00$, $\boldsymbol{x}_2=01$, $\boldsymbol{x}_3=11$ y descodificación por distancia de Hamming mínima, $p&lt;\tfrac12$. El empate en $\boldsymbol{y}=10$ se resuelve ahora por la convención (ii): $\hat m(10)=3$. Calcula $P_{\rm e}^{(ii)}$ y compáralo con $P_{\rm e}^{(i)}=\dfrac{5p-2p^2}{3}$.</p>
+  <p>(a) $P_{\rm e}^{(ii)}=\dfrac{5p-2p^2}{3}=P_{\rm e}^{(i)}$<br>
+  (b) $P_{\rm e}^{(ii)}=2p-p^2&gt;P_{\rm e}^{(i)}$<br>
+  (c) $P_{\rm e}^{(ii)}=\dfrac{5p-2p^2}{3}&gt;P_{\rm e}^{(i)}$<br>
+  (d) $P_{\rm e}^{(ii)}=p&lt;P_{\rm e}^{(i)}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Asignar $10$ a $\mathcal D_3$ intercambia los papeles de los mensajes $1$ y $3$: ahora $P_{\rm e}(3)=p$ y $P_{\rm e}(1)=P_{\rm e}(2)=2p-p^2$. El multiconjunto de valores por mensaje $\{p,2p-p^2,2p-p^2\}$ no cambia (simetría del código bajo el complemento de bits $\boldsymbol{x}_1\leftrightarrow\boldsymbol{x}_3$), es decir, $P_{\rm e}^{(ii)}=\frac{5p-2p^2}{3}=P_{\rm e}^{(i)}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.40.</span></p>
+  <p>El mismo código BSC ($\boldsymbol{x}_1=00$, $\boldsymbol{x}_2=01$, $\boldsymbol{x}_3=11$, $p&lt;\tfrac12$). Ahora el empate en $\boldsymbol{y}=10$ se trata por la convención (iii): $\hat m(10)=e$, un símbolo de error contado como error de descodificación sea cual sea el mensaje enviado. Calcula la probabilidad de error media $P_{\rm e}^{(iii)}$.</p>
+  <p>(a) $P_{\rm e}^{(iii)}=2p-p^2$<br>
+  (b) $P_{\rm e}^{(iii)}=\dfrac{5p-2p^2}{3}$<br>
+  (c) $P_{\rm e}^{(iii)}=2p-2p^2$<br>
+  (d) $P_{\rm e}^{(iii)}=3p-2p^2$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Ahora $10$ no pertenece a ninguna región de decisión, es decir, cada mensaje solo es correcto en recepción exacta: $P_{\rm e}(m)=1-(1-p)^2=2p-p^2$ para $m=1,2,3$. Los tres son iguales, por tanto $P_{\rm e}^{(iii)}=2p-p^2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.41.</span></p>
+  <p>Para el mismo código con $P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}=\dfrac{5p-2p^2}{3}$ (resoluciones deterministas del empate) y $P_{\rm e}^{(iii)}=2p-p^2$ (declarar error en el empate), compara las tres convenciones para $0&lt;p&lt;\tfrac12$.</p>
+  <p>(a) $P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}&lt;P_{\rm e}^{(iii)}$, con diferencia $P_{\rm e}^{(iii)}-P_{\rm e}^{(i)}=\dfrac{p(1-p)}{3}$<br>
+  (b) $P_{\rm e}^{(iii)}&lt;P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}$, con diferencia $\dfrac{p(1-p)}{3}$<br>
+  (c) $P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}=P_{\rm e}^{(iii)}$ para todo $p$<br>
+  (d) $P_{\rm e}^{(i)}&lt;P_{\rm e}^{(ii)}&lt;P_{\rm e}^{(iii)}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Las dos resoluciones deterministas empatan entre sí por simetría. Restando, $P_{\rm e}^{(iii)}-P_{\rm e}^{(i)}=(2p-p^2)-\frac{5p-2p^2}{3}=\frac{p-p^2}{3}=\frac{p(1-p)}{3}&gt;0$ para $0&lt;p&lt;1$. Es decir, declarar un borrado empeora estrictamente el rendimiento: $P_{\rm e}^{(i)}=P_{\rm e}^{(ii)}&lt;P_{\rm e}^{(iii)}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 6.42.</span></p>
+  <p>Se envía un solo bit ($n=1$) por un <em>canal Z</em> con $P_{Y\mid X}(1\mid 0)=0$ y $P_{Y\mid X}(0\mid 1)=q$, $q\in(0,1)$. Dos mensajes $m\in\{1,2\}$ se codifican $1\mapsto X=0$, $2\mapsto X=1$, con distribución a priori $P(m{=}1)=\tfrac14$, $P(m{=}2)=\tfrac34$. Se consideran tres decodificadores: (i) $\hat m(0)=1,\ \hat m(1)=2$; (ii) $\hat m(\boldsymbol y)=2$ siempre; (iii) $\hat m(0)=2,\ \hat m(1)=1$. ¿Para qué rango de $q$ alcanza el decodificador (ii) una probabilidad de error media estrictamente menor que <em>tanto</em> el (i) como el (iii)?</p>
+  <p>(a) $q&gt;\tfrac13$<br>
+  (b) $q&lt;\tfrac13$<br>
+  (c) $q&gt;\tfrac34$<br>
+  (d) todo $q\in(0,1)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Calcula las probabilidades de error medias $P_{\rm e}=\tfrac14 P_{\rm e}(1)+\tfrac34 P_{\rm e}(2)$. Decodificador (i): $\tfrac14\cdot 0+\tfrac34 q=\tfrac{3q}{4}$. Decodificador (ii): $\tfrac14\cdot 1+\tfrac34\cdot 0=\tfrac14$. Decodificador (iii): $\tfrac14\cdot 1+\tfrac34(1-q)=1-\tfrac{3q}{4}$. Exigir $\tfrac14&lt;\tfrac{3q}{4}$ da $q&gt;\tfrac13$; exigir $\tfrac14&lt;1-\tfrac{3q}{4}$ da $q&lt;1$, es decir, cierto para todo $q$ admisible. La restricción vinculante es la comparación con (i), por lo que la respuesta es $q&gt;\tfrac13$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

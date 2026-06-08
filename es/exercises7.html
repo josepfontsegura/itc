@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -40,44 +40,525 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html" class="active">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Ejercicios: 7. Códigos lineales</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+    <button id="expand-all" data-expand="Mostrar todas las soluciones" data-collapse="Ocultar todas las soluciones" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostrar todas las soluciones</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.1.</span></p>
+  <p>Un código binario $(3,2)$ con matriz generadora</p>$$\boldsymbol{G} = \begin{pmatrix} 1 & 0 & 1\\ 0 & 1 & 0 \end{pmatrix}$$<p>se utiliza sobre un canal binario asimétrico con probabilidades $P_{Y|X}(1|0)=0$ y $P_{Y|X}(0|1)=p$. El decodificador usa la regla</p>$$\hat m = \operatorname{argmax}_{m\in{\cal M}} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m).$$<p>La probabilidad de error del mensaje $m=3$, $P_{\rm e}(3)$, es</p>
+  <p>(a) $1-(1-p)^3$<br>
+  (b) $1-2p(1-p)-(1-p)^2$<br>
+  (c) $1-(1-p)^2$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Como es un código lineal, las palabras código vienen dadas por $\boldsymbol{x}_m=\boldsymbol{s}_m\boldsymbol{G}$ para cada $\boldsymbol{s}_m\in\{00,01,10,11\}$, de modo que el código es</p>$${\cal C} = \{000,010,101,111\}.$$<p>Calculando las verosimilitudes $P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m)$ para cada mensaje y salida del canal, encontramos que la región de decodificación del mensaje $m=3$ es</p>$${\cal D}_3 = \{001,100,101\}.$$<p>La probabilidad de error</p>$$P_{\rm e}(3) = 1 - \sum_{\boldsymbol{y}\in{\cal D}_3} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_3)$$<p>se obtiene entonces usando las probabilidades de transición $P_{Y|X}(1|0)=0$ y $P_{Y|X}(0|1)=p$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.2.</span></p>
+  <p>El código de Hamming $(7,4)$ con matriz generadora</p>$$\boldsymbol{G}=\begin{pmatrix} 1 & 1 & 0 & 1 & 0 & 0 & 0\\ 0 & 1 & 1 & 0 & 1 & 0 & 0\\ 1 & 1 & 1 & 0 & 0 & 1 & 0\\ 1 & 0 & 1 & 0 & 0 & 0 & 1 \end{pmatrix}$$<p>puede corregir $t=1$ errores usando un decodificador de distancia de Hamming mínima. La probabilidad de error del mensaje $m=9$, $P_{\rm e}(9)$, cuando se utiliza sobre un canal binario asimétrico con probabilidades $P_{Y|X}(1|0)=p$ y $P_{Y|X}(0|1)=0$ es</p>
+  <p>(a) $1-(1-p)^4-4p(1-p)^3$<br>
+  (b) $1-(1-p)^3 -3p(1-p)^2$<br>
+  (c) $1-(1-p)^7$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La palabra código del mensaje $\boldsymbol{s}_9=1000$ viene dada por</p>$$\boldsymbol{x}_9 = \boldsymbol{s}_9\boldsymbol{G}=1101000.$$<p>Como el código puede corregir hasta un error del canal, la región de decodificación del mensaje $m=9$ es</p>$$\begin{aligned}{\cal D}_9 = \{&1101000,0101000,1001000,1111000,\\&1100000,1101100,1101010,1101001\}.\end{aligned}$$<p>La probabilidad de error del mensaje $m=9$ es entonces</p>$$P_{\rm e}(9) = 1 - \sum_{\boldsymbol{y}\in{\cal D}_9} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_9).$$<p>Usando las probabilidades de transición se llega a la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.3.</span></p>
+  <p>Un código binario $(6,3)$ con matriz generadora</p>$$\boldsymbol{G}=\begin{pmatrix}1 & 0 & 1 & 1 & 0 & 0\\ 1 & 1 & 0 & 0 & 1 & 0\\ 0 & 1 & 1 & 0 & 0 & 1\end{pmatrix}$$<p>se utiliza sobre un canal binario con decodificación por distancia de Hamming mínima. ¿Cuántos errores puede corregir este código?</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Usando la operación vector-matriz en módulo 2 $\boldsymbol{s}_m\boldsymbol{G}$ para $m=1,\ldots,8$, encontramos el libro de código</p>$$\begin{aligned}{\cal C} = \{&000000,011001,110010,101011,\\&101100,110111,011110,000111\}.\end{aligned}$$<p>Como es un código lineal, la distancia mínima del código viene dada por</p>$$d_{\rm min} = \min_{\boldsymbol{x}\in{\cal C}\setminus\{\boldsymbol{0}\}} w(\boldsymbol{x}) = 3,$$<p>donde $w(\boldsymbol{x})$ es el peso de Hamming de la palabra código $\boldsymbol{x}$. A partir de $d_{\rm min}$ y sabiendo que la capacidad de corrección de errores de un código lineal es $t=\lfloor \frac{d_{\rm min}-1}{2} \rfloor$, obtenemos la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.4.</span></p>
+  <p>El código binario $(6,3)$ del ejercicio 3 se utiliza de manera equiprobable sobre un canal binario simétrico con probabilidad de cruce $p$ y se decodifica usando la regla de distancia de Hamming mínima. La cota de la unión a la probabilidad de error media $P_{\rm e}$ de este código es</p>
+  <p>(a) $4 \sum_{t=2}^3 {3 \choose t} p^t (1-p)^{3-t} + 3 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$<br>
+  (b) $4 \sum_{t=1}^3 {3 \choose t} p^t (1-p)^{3-t} + 3 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$<br>
+  (c) $3 \sum_{t=1}^3 {3 \choose t} p^t (1-p)^{3-t} + 4 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>A partir del libro de código del ejercicio anterior, obtenemos que la distribución de pesos es $A_0=1$, $A_3=4$ y $A_4=3$. Aplicando la ecuación (4.54) de los apuntes se llega a la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.5.</span></p>
+  <p>El código de Hamming $(31,26)$ puede corregir $t=2$ errores usando un decodificador de distancia de Hamming mínima. La probabilidad de error media del código con mensajes equiprobables cuando se utiliza sobre un canal binario simétrico con probabilidad de cruce $p=\frac{1}{100}$ es</p>
+  <p>(a) $0.00364601$<br>
+  (b) $0.00203104$<br>
+  (c) $0.0383895$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como el código puede corregir hasta dos errores, la probabilidad de error viene dada por $P_{\rm e}=1-P_{\rm c}$, donde $P_{\rm c}$ es la probabilidad de decodificar correctamente, es decir, la probabilidad de que el canal no introduzca ningún error, un error o dos errores. Usando que el canal es binario y simétrico con probabilidad de cruce $p$, obtenemos</p>$$P_{\rm c} = (1-p)^{n} + {n \choose 1}p(1-p)^{n-1} + {n \choose 2}p^2(1-p)^{n-2}.$$<p>Usando los valores del problema, obtenemos la respuesta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.6.</span></p>
+  <p>Un código binario lineal tiene la siguiente matriz de comprobación de paridad:</p>$$\boldsymbol{H} = \begin{pmatrix} 1 & 0 & 0 & 0 & 1 & 0\\ 0 & 1 & 0 & 1 & 0 & 1 \end{pmatrix}$$<p>¿Cuál es la longitud $n$ de las palabras código y la tasa $R$ del código?</p>
+  <p>(a) $n=6$, $R=\frac{1}{6}$<br>
+  (b) $n=6$, $R=\frac{2}{3}$<br>
+  (c) $n=2$, $R=\frac{2}{3}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>La matriz de comprobación de paridad tiene tamaño $(n-k)\times n$, y la tasa se define como $R=k/n$. Como $\boldsymbol{H}$ tiene dimensiones $2\times 6$, obtenemos que $k=4$ y, por tanto, la respuesta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.7.</span></p>
+  <p>El código con la siguiente matriz generadora:</p>$$\boldsymbol{G} = \begin{pmatrix} 0 & 1 & 0 & 1 \\ 1 & 0 & 1 & 0 \\ 0 & 1 & 1 & 0 \end{pmatrix}$$<p>se utiliza sobre un canal binario simétrico con probabilidad de inversión de bit $p$. La cota de la unión a la probabilidad de error del código es:</p>
+  <p>(a) $12p-8p^2$<br>
+  (b) $12p-8p^3+3p^4$<br>
+  (c) $1-2p^2+3p^3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Listando todas las palabras código se encuentra la distribución de pesos $\{A_0,A_1,A_2,A_3,A_4\}=\{1,0,6,0,1\}$ y, por tanto, que $d_{\rm min}=2$. La expresión de la cota de la unión a la probabilidad de error tiene dos términos:</p>$$A_2 \sum_{t=1}^2 {2\choose t} p^t (1-p)^{2-t} = 12p-6p^2,$$$$A_4 \sum_{t=2}^4 {4\choose t} p^t (1-p)^{4-t} = 6p^2-8p^3+3p^4,$$<p>que conducen al resultado correcto.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.8.</span> Las palabras código de un código lineal binario con matriz generadora
+$$
+\begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix}
+$$
+se transmiten con igual probabilidad por un canal binario con probabilidades condicionadas $P_{Y|X}(0|0)=0$ y $P_{Y|X}(0|1)=\tfrac13$. El receptor utiliza una regla de distancia de Hamming máxima para decodificar la salida del canal. ¿Cuál es la probabilidad de error del código?</p>
+  <p>(a) $\tfrac{11}{36}$<br>
+  (b) $\tfrac{5}{9}$<br>
+  (c) $\tfrac{8}{9}$<br>
+  (d) $\tfrac{35}{36}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Como el código generado es $\{00,10,01,11\}$ y el receptor utiliza una regla de distancia de Hamming máxima, el decodificador $\hat m(\boldsymbol{y})$ es tal que $\hat m(00)=4$, $\hat m(01)=2$, $\hat m(10)=3$ y $\hat m(11)=1$. Por tanto, $P_{\rm e}(1)=1-P_{\boldsymbol{Y}|\boldsymbol{X}}(11|00)=0$, $P_{\rm e}(2)=1-P_{\boldsymbol{Y}|\boldsymbol{X}}(01|10)=\tfrac 23$, $P_{\rm e}(3)=1-P_{\boldsymbol{Y}|\boldsymbol{X}}(10|01)=\tfrac 23$ y $P_{\rm e}(4)=1-P_{\boldsymbol{Y}|\boldsymbol{X}}(00|11)=\tfrac89$. Teniendo en cuenta que las cuatro palabras código son equiprobables, obtenemos el resultado.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.9.</span> Las palabras código de un código lineal $(5,1)$ con distribución de pesos que satisface $A_2=1$ se transmiten con igual probabilidad por un canal binario simétrico con probabilidad de inversión de bit $p$. ¿Cuál es la probabilidad de recibir la secuencia de todo unos?</p>
+  <p>(a) $\tfrac{p^5-2p^4 +2p^3}{2}$<br>
+  (b) $\tfrac{2p^5 -2p^4 +p^3}{2}$<br>
+  (c) $\tfrac{p^5-p^4+p^3}{2}$<br>
+  (d) $\tfrac{p^5+p^4+p^3}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>El código tiene dos palabras código, $00000$ y una segunda palabra código con $2$ unos y $3$ ceros. Entonces, la probabilidad de recibir $11111$ es $\tfrac 12 p^5 + \tfrac 12 p^3(1-p)^2$. Desarrollando los términos y simplificando, obtenemos el resultado.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.10.</span> Un código lineal binario tiene matriz generadora $\boldsymbol{G}=\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}$. ¿Cuántas palabras código tiene el código?</p>
+  <p>(a) $4$<br>
+  (b) $8$<br>
+  (c) $2$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La matriz generadora tiene $k=2$ filas, por lo que hay $2^k=4$ palabras código.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.11.</span> Para un código lineal, la distancia mínima es igual a</p>
+  <p>(a) El peso de Hamming mínimo de las palabras código no nulas<br>
+  (b) El peso de Hamming mínimo de todas las palabras código<br>
+  (c) El peso de Hamming máximo de todas las palabras código</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Para los códigos lineales, la distancia mínima es $d_{\min}=\min_{\boldsymbol{x}\in\mathcal{C}\setminus\{\boldsymbol{0}\}} w(\boldsymbol{x})$, donde $w(\boldsymbol{x})$ es el peso de Hamming.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.12.</span> Una matriz de comprobación de paridad $\boldsymbol{H}$ tiene dimensiones $3\times 7$. ¿Cuál es la tasa del código?</p>
+  <p>(a) $\tfrac{4}{7}$<br>
+  (b) $\tfrac{3}{7}$<br>
+  (c) $\tfrac{7}{3}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La matriz $\boldsymbol{H}$ tiene tamaño $(n-k)\times n = 3\times 7$, por lo que $n=7$ y $k=4$, dando una tasa $R=k/n=4/7$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.13.</span> ¿La secuencia de todo ceros es siempre una palabra código de un código lineal binario?</p>
+  <p>(a) Sí<br>
+  (b) No<br>
+  (c) Solo si la matriz generadora tiene una fila de todo ceros</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Un código lineal es un subespacio de $\{0,1\}^n$ y debe contener el vector cero. El mensaje $\boldsymbol{s}=\boldsymbol{0}$ produce $\boldsymbol{x}=\boldsymbol{0}\boldsymbol{G}=\boldsymbol{0}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.14.</span> Un código binario $(6,3)$ tiene distribución de pesos $\{A_0,A_3,A_4,A_6\}=\{1,4,2,1\}$. ¿Cuánto vale $d_{\min}$?</p>
+  <p>(a) $3$<br>
+  (b) $4$<br>
+  (c) $6$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La distancia mínima es el peso positivo más pequeño con $A_w&gt;0$, que es $d_{\min}=3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.15.</span> La cota de la unión sobre la probabilidad de error de un código lineal utiliza ¿qué propiedad del código?</p>
+  <p>(a) La distribución de pesos<br>
+  (b) La matriz generadora directamente<br>
+  (c) Solo el número de palabras código</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La cota de la unión $P_e\leq \sum_{w=d_{\min}}^n A_w P_w$ depende del enumerador de pesos $\{A_w\}$ del código.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.16.</span></p>
+  <p>Un código de <em>Hamming</em> $(15,11)$ con distancia mínima $d_{\rm min}=3$ transmite mensajes equiprobables a través de un <em>canal binario simétrico</em> (BSC) con probabilidad de transición $p=0.02$, descodificado con un descodificador de mínima distancia de Hamming. Calcula la probabilidad de que el número de bits invertidos por el canal supere la capacidad correctora de errores del código.</p>
+  <p>(a) $\approx 0.03534$<br>
+  (b) $\approx 0.26143$<br>
+  (c) $\approx 0.30000$<br>
+  (d) $\approx 0.02000$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La capacidad correctora es $t=\lfloor(d_{\rm min}-1)/2\rfloor=\lfloor(3-1)/2\rfloor=1$. El número de inversiones $K\sim\mathrm{Bin}(15,0.02)$, es decir, se necesita $\mathbb{P}(K\ge 2)=1-\mathbb{P}(K\le 1)$. Aquí $\mathbb{P}(K=0)=0.98^{15}\approx 0.73857$ y $\mathbb{P}(K=1)=15(0.02)0.98^{14}\approx 0.22609$, dando $P_{\rm c}\approx 0.96466$. Por tanto la respuesta es $1-0.96466\approx 0.03534$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.17.</span></p>
+  <p>Un código lineal binario tiene matriz de comprobación de paridad $$\boldsymbol{H} = \begin{pmatrix}1 & 0 & 0 & 1 & 1 & 0\\ 0 & 1 & 1 & 0 & 1 & 0\end{pmatrix}.$$ Una secuencia $\boldsymbol{x}=(x_1,\dots,x_6)$ es una palabra código si y solo si su síndrome $\boldsymbol{H}\boldsymbol{x}^{T}=\boldsymbol{0}\pmod 2$. De entre las secuencias $001111$, $000110$ y $101010$, ¿cuál no puede ser una palabra código?</p>
+  <p>(a) $000110$<br>
+  (b) $001111$<br>
+  (c) $101010$<br>
+  (d) Las tres son palabras código válidas</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Las filas de $\boldsymbol{H}$ dan las comprobaciones de paridad $s_1=x_1+x_4+x_5$ y $s_2=x_2+x_3+x_5$ (la sexta columna es cero, es decir, $x_6$ es irrelevante), todo $\bmod 2$. Para $001111$: $s_1=0+1+1=0$, $s_2=0+1+1=0$, síndrome $\boldsymbol{0}$ (válida). Para $101010$: $s_1=1+0+1=0$, $s_2=0+1+1=0$, síndrome $\boldsymbol{0}$ (válida). Para $000110$: $s_1=0+1+1=0$ pero $s_2=0+0+1=1$, dando síndrome $(0,1)^{T}\neq\boldsymbol{0}$. Por tanto $000110$ no cumple la comprobación $x_2+x_3+x_5=0$ y no puede ser una palabra código.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.18.</span></p>
+  <p>Un código lineal binario genera $M$ palabras código a partir de la matriz generadora $3\times 7$</p>$$\boldsymbol{G} = \begin{pmatrix}1 & 0 & 1 & 0 & 1 & 0 & 1\\ 0 & 1 & 0 & 1 & 0 & 1 & 0\\ 1 & 1 & 0 & 0 & 1 & 1 & 0\end{pmatrix},$$<p>cuyas tres filas son linealmente independientes sobre $\mathrm{GF}(2)$. Un mensaje $V$ se elige de manera uniforme de $\{1,\ldots,M\}$ y se codifica como $\boldsymbol{X}=\boldsymbol{s}_V\,\boldsymbol{G}$. Calcula la información mutua $I(\boldsymbol{X};V)$ en bits.</p>
+  <p>(a) $3$ bits<br>
+  (b) $0$ bits<br>
+  (c) $7$ bits<br>
+  (d) $8$ bits</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Con $k=3$ filas independientes hay $M=2^3=8$ mensajes, y el codificador $V\mapsto\boldsymbol{X}$ es una biyección sobre $8$ palabras código distintas. Por tanto $V$ es una función determinista e invertible de $\boldsymbol{X}$, es decir, $H(V\mid\boldsymbol{X})=0$ y $I(\boldsymbol{X};V)=H(V)$. Como $V$ es uniforme sobre $8$ valores, $H(V)=\log_2 8=3$. Por tanto $I(\boldsymbol{X};V)=3-0=3$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.19.</span></p>
+  <p>Un código lineal binario $(3,2)$ con matriz generadora $\boldsymbol{G}=\begin{pmatrix}1&0&0\\0&1&1\end{pmatrix}$ se utiliza sobre un <em>canal binario asimétrico (canal Z)</em> con $P_{Y|X}(0\mid 0)=1$ y $P_{Y|X}(0\mid 1)=p$, $p\in\left(0,\tfrac12\right)$. Los mensajes $m=1,2,3,4$ corresponden a $\boldsymbol{m}=00,01,10,11$, y el receptor usa la regla de máxima verosimilitud (ML). Determine la probabilidad de error del mensaje $m=2$, $P_{\mathrm e}(2)$.</p>
+  <p>(a) $p^2$<br>
+  (b) $p$<br>
+  (c) $2p(1-p)$<br>
+  (d) $2p$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La palabra código de $m=2$ es $\boldsymbol{x}_2=\boldsymbol{m}\boldsymbol{G}=011$. En el canal Z un $0$ transmitido siempre se recibe como $0$, mientras que cada $1$ transmitido pasa a $0$ con probabilidad $p$, es decir, $\boldsymbol{y}\in\{011,010,001,000\}$. Para $\boldsymbol{y}=011,010,001$ la regla ML aún decodifica $\boldsymbol{x}_2$; solo cuando <em>ambos</em> unos se voltean dando $\boldsymbol{y}=000$ la regla ML decodifica la palabra código $\boldsymbol{x}_1=000$ (verosimilitud $1$), provocando un error. Ese evento requiere que se volteen las dos posiciones de $1$, con probabilidad $p\cdot p$. Por tanto $P_{\mathrm e}(2)=p^2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.20.</span></p>
+  <p>El código de Hamming $(7,4)$ se envía a través de un <em>canal Z</em> (canal binario asimétrico) con $P_{Y|X}(0\mid 1)=p$ y $P_{Y|X}(1\mid 0)=0$, $p\in(0,1)$, descodificado con un descodificador de distancia de Hamming mínima. El mensaje $m=14$ se codifica en la palabra código $\boldsymbol{x}_{14}=(0,0,0,1,1,0,1)$ (peso $3$). Determina su probabilidad de error $P_{\rm e}(14)$.</p>
+  <p>(a) $P_{\rm e}(14)=3p^2-2p^3$<br>
+  (b) $P_{\rm e}(14)=3p^2(1-p)$<br>
+  (c) $P_{\rm e}(14)=p^3$<br>
+  (d) $P_{\rm e}(14)=21p^2-35p^3+\cdots$ (las 7 posiciones en riesgo)</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>En el canal Z solo las posiciones con $1$ pueden cambiar ($1\to 0$), es decir, los tres unos de $\boldsymbol{x}_{14}$ (peso $3$) cambian independientemente con probabilidad $p$; las cuatro posiciones con $0$ siempre se reciben correctamente. El código tiene $d_{\min}=3$, corrige $t=1$ error, así que la descodificación es correcta si y solo si como mucho uno de los tres unos cambia: $P_{\rm c}=(1-p)^3+3p(1-p)^2$. Por tanto $P_{\rm e}(14)=1-(1-p)^3-3p(1-p)^2$, que al desarrollarse y simplificarse da $\boxed{3p^2-2p^3}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.21.</span></p>
+  <p>Un código lineal binario $(5,2)$ tiene matriz generadora $$\boldsymbol{G}=\begin{pmatrix}1 & 0 & 1 & 1 & 0\\ 0 & 1 & 0 & 1 & 1\end{pmatrix}.$$ Listando todas las $2^2$ palabras código $\boldsymbol{u}\boldsymbol{G}$ sobre $\mathbb{F}_2$, ¿cuál es su distribución de pesos (número $A_w$ de palabras código de cada peso $w$)?</p>
+  <p>(a) $A_0=1,\;A_3=2,\;A_4=1$<br>
+  (b) $A_0=1,\;A_2=2,\;A_3=1$<br>
+  (c) $A_0=1,\;A_3=1,\;A_4=2$<br>
+  (d) $A_0=1,\;A_2=1,\;A_3=2,\;A_5=1$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Las cuatro palabras código son $\boldsymbol{u}\boldsymbol{G}$ para $\boldsymbol{u}\in\{00,01,10,11\}$: $00000$, $01011$, $10110$ y $\boldsymbol{g}_1\oplus\boldsymbol{g}_2=11101$. Sus pesos de Hamming son $0,3,3,4$. Por tanto $A_0=1,\;A_3=2,\;A_4=1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.22.</span></p>
+  <p>El código lineal binario $(5,2)$ generado por $\boldsymbol{g}_1=10110$ y $\boldsymbol{g}_2=01011$ tiene palabras código $\{00000,01011,10110,11101\}$. ¿Cuál es su distancia mínima de Hamming $d_{\min}$?</p>
+  <p>(a) $d_{\min}=3$<br>
+  (b) $d_{\min}=2$<br>
+  (c) $d_{\min}=4$<br>
+  (d) $d_{\min}=5$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Para un código lineal la distancia mínima es igual al peso mínimo no nulo de las palabras código. Los pesos no nulos son $3,3,4$, de modo que $d_{\min}=\min_{w&gt;0}w=3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.23.</span></p>
+  <p>Dos palabras código a distancia de Hamming $w=3$ se transmiten por un BSC con cruce $p\in(0,\tfrac12)$ y se decodifican por mínima distancia. La probabilidad de error por parejas es $P_2(w)=\sum_{i&gt;w/2}\binom{w}{i}p^{i}(1-p)^{w-i}$. Calcula $P_2(3)$.</p>
+  <p>(a) $3p^{2}-2p^{3}$<br>
+  (b) $3p^{2}(1-p)$<br>
+  (c) $p^{3}$<br>
+  (d) $3p^{2}+2p^{3}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Un error requiere invertir más de $w/2=1.5$ de los $3$ bits distintos, así $i\in\{2,3\}$: $P_2(3)=\binom{3}{2}p^{2}(1-p)+\binom{3}{3}p^{3}=3p^{2}(1-p)+p^{3}=3p^{2}-2p^{3}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.24.</span></p>
+  <p>El código binario $(5,2)$ $\{00000,01011,10110,11101\}$ (distribución de pesos $A_3=2,\;A_4=1$) se usa sobre un BSC con cruce $p\in(0,\tfrac12)$ con decodificación de mínima distancia. Usando la cota de la unión $P_{\rm e}\le\sum_w A_w P_2(w)$ con la convención simétrica de medio empate, de modo que $P_2(3)=P_2(4)=3p^{2}-2p^{3}$, ¿cuál es la cota resultante sobre $P_{\rm e}$?</p>
+  <p>(a) $P_{\rm e}\le 9p^{2}-6p^{3}=3p^{2}(3-2p)$<br>
+  (b) $P_{\rm e}\le 6p^{2}-4p^{3}$<br>
+  (c) $P_{\rm e}\le 3p^{2}-2p^{3}$<br>
+  (d) $P_{\rm e}\le 12p^{2}-8p^{3}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por linealidad la cota es la misma para cada palabra código transmitida, así $P_{\rm e}\le A_3 P_2(3)+A_4 P_2(4)=2(3p^{2}-2p^{3})+(3p^{2}-2p^{3})=9p^{2}-6p^{3}=3p^{2}(3-2p)$. El término dominante para $p$ pequeño es $9p^{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.25.</span></p>
+  <p>Un código lineal binario tiene matriz generadora $\boldsymbol{G} = \begin{pmatrix}1 & 1 & 0\\ 0 & 1 & 1\end{pmatrix}$. Calcula la tasa del código $R$.</p>
+  <p>(a) $R=\tfrac{2}{3}$<br>
+  (b) $R=\tfrac{3}{2}$<br>
+  (c) $R=\tfrac{1}{3}$<br>
+  (d) $R=\tfrac{1}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La matriz $\boldsymbol{G}$ tiene $k=2$ filas (bits de mensaje) y $n=3$ columnas (bits de palabra código), es decir, es un código $(3,2)$. La tasa es el cociente entre bits de información y bits transmitidos, $R=k/n=2/3\approx 0{,}667$ bits/uso.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.26.</span></p>
+  <p>Un código lineal binario tiene matriz generadora $\boldsymbol{G} = \begin{pmatrix}1 & 1 & 0\\ 0 & 1 & 1\end{pmatrix}$. Listando todas las palabras código $\boldsymbol{c}=\boldsymbol{u}\boldsymbol{G}$, ¿cuál es la distribución de pesos $\{A_w\}$?</p>
+  <p>(a) $A_0=1,\ A_2=3$<br>
+  (b) $A_0=1,\ A_1=3$<br>
+  (c) $A_0=1,\ A_2=2,\ A_3=1$<br>
+  (d) $A_0=1,\ A_3=3$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Las $2^k=4$ palabras código son $\mathcal{C}=\{000,110,011,101\}$, obtenidas de $\boldsymbol{c}=\boldsymbol{u}\boldsymbol{G}$ sobre $\mathbb{F}_2$. Sus pesos de Hamming son $0,2,2,2$, es decir, $A_0=1$ y $A_2=3$. Comprobación: $\sum_w A_w=1+3=4=2^k$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.27.</span></p>
+  <p>Un código lineal binario tiene palabras código $\mathcal{C}=\{000,110,011,101\}$. Calcula su distancia mínima $d_{\rm min}$.</p>
+  <p>(a) $d_{\rm min}=2$<br>
+  (b) $d_{\rm min}=3$<br>
+  (c) $d_{\rm min}=1$<br>
+  (d) $d_{\rm min}=0$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Para un código lineal la distancia mínima es igual al peso mínimo no nulo, $d_{\rm min}=\min_{\boldsymbol{c}\neq\boldsymbol{0}}w(\boldsymbol{c})$. Las palabras código no nulas $110,011,101$ tienen todas peso $2$, es decir, $d_{\rm min}=2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.28.</span></p>
+  <p>Un código lineal binario con decodificación por mínima distancia de Hamming tiene $d_{\rm min}=2$. ¿Cuántos errores $t$ puede corregir?</p>
+  <p>(a) $t=0$<br>
+  (b) $t=1$<br>
+  (c) $t=2$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La decodificación por mínima distancia corrige hasta $t=\lfloor(d_{\rm min}-1)/2\rfloor$ errores. Con $d_{\rm min}=2$, $t=\lfloor 1/2\rfloor=0$: el código solo puede <em>detectar</em> un error, no corregirlo.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.29.</span></p>
+  <p>Un código lineal binario $(3,2)$ tiene palabras código $\mathcal{C}=\{000,110,011,101\}$. ¿Cuál de las siguientes es una matriz de control de paridad $\boldsymbol{H}$ válida (que cumple $\boldsymbol{c}\boldsymbol{H}^{\top}=\boldsymbol{0}$ para toda $\boldsymbol{c}\in\mathcal{C}$)?</p>
+  <p>(a) $\boldsymbol{H}=(1\ \ 1\ \ 1)$<br>
+  (b) $\boldsymbol{H}=(1\ \ 0\ \ 1)$<br>
+  (c) $\boldsymbol{H}=(1\ \ 1\ \ 0)$<br>
+  (d) $\boldsymbol{H}=(0\ \ 1\ \ 1)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Para un código $(3,2)$ la matriz $\boldsymbol{H}$ tiene $n-k=1$ fila y debe cumplir $\boldsymbol{c}\boldsymbol{H}^{\top}=\boldsymbol{0}$. Con $\boldsymbol{H}=(1\ 1\ 1)$, $\boldsymbol{c}\boldsymbol{H}^{\top}=c_1\oplus c_2\oplus c_3$ es la paridad global; cada palabra código tiene peso par, es decir, esto vale $0$ para todas (p. ej. $1\oplus1\oplus0=0$). Las demás matrices fallan en al menos una palabra código.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.30.</span></p>
+  <p>Un código lineal binario tiene matriz generadora $$\boldsymbol{G} = \begin{pmatrix}0 & 1 & 0 & 1 & 0 & 0\\ 1 & 0 & 1 & 0 & 1 & 0\\ 0 & 0 & 1 & 0 & 0 & 1\end{pmatrix}.$$</p><p>Calcula el enumerador de pesos $\{A_0,A_1,A_2,A_3,A_4,A_5\}$ del código (donde $A_i$ cuenta las palabras código de peso de Hamming $i$).</p>
+  <p>(a) $\{1,\,0,\,2,\,2,\,1,\,2\}$<br>
+  (b) $\{1,\,2,\,2,\,1,\,2,\,0\}$<br>
+  (c) $\{1,\,0,\,3,\,3,\,1,\,0\}$<br>
+  (d) $\{0,\,1,\,2,\,2,\,2,\,1\}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Es un código $(6,3)$ con $2^3=8$ palabras código $\boldsymbol{x}=\boldsymbol{s}\boldsymbol{G}$ (módulo 2). Al generarlas todas se obtienen los pesos: $000000$ (0); $001001$, $010100$ (2 cada una); $101010$, $100011$ (3 cada una); $011101$ (4); $111110$, $110111$ (5 cada una). Contando: $A_0=1,A_1=0,A_2=2,A_3=2,A_4=1,A_5=2$, es decir, suman $1+2+2+1+2=8=2^k$. Por tanto $\{1,0,2,2,1,2\}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.31.</span></p>
+  <p>Un código lineal binario tiene matriz generadora $$\boldsymbol{G} = \begin{pmatrix}0 & 1 & 0 & 1 & 0 & 0\\ 1 & 0 & 1 & 0 & 1 & 0\\ 0 & 0 & 1 & 0 & 0 & 1\end{pmatrix}.$$</p><p>Su enumerador de pesos es $\{A_0,\dots,A_5\}=\{1,0,2,2,1,2\}$. ¿Cuál es la distancia mínima $d_{\min}$ del código?</p>
+  <p>(a) $d_{\min}=1$<br>
+  (b) $d_{\min}=2$<br>
+  (c) $d_{\min}=3$<br>
+  (d) $d_{\min}=0$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>Para un código lineal la distancia mínima es igual al peso no nulo más pequeño, ya que la distancia entre dos palabras código es igual al peso de su diferencia (que también es palabra código). A partir del enumerador $\{1,0,2,2,1,2\}$, el peso más pequeño con $A_i&gt;0$ para $i\ge 1$ es $i=2$ (por ejemplo la palabra código $001001$). Es decir, $d_{\min}=2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.32.</span></p>
+  <p>Un código lineal binario tiene matriz de comprobación de paridad $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}.$$ Las palabras código $\boldsymbol{c}=(c_1,\dots,c_5)$ cumplen $\boldsymbol{H}\boldsymbol{c}^{\mathsf T}=\boldsymbol{0}$. ¿Cuál de las siguientes es una matriz generadora válida de este código?</p>
+  <p>(a) $\boldsymbol{G}=\begin{pmatrix}0&0&1&1&1\\1&1&0&0&1\end{pmatrix}$<br>
+  (b) $\boldsymbol{G}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$<br>
+  (c) $\boldsymbol{G}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\end{pmatrix}$<br>
+  (d) $\boldsymbol{G}=\begin{pmatrix}1&0&1&1&1\\1&1&0&0&0\end{pmatrix}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Como $\boldsymbol{H}$ tiene rango $3$ y $n=5$, la dimensión es $k=5-3=2$, es decir, $\boldsymbol{G}$ debe tener $2$ filas. Las ecuaciones de paridad $c_1+c_2=0$, $c_3+c_4=0$, $c_1+c_3+c_5=0$ dan las palabras código no nulas $00111$ y $11001$. Estas dos palabras código independientes forman $\boldsymbol{G}$, y efectivamente $\boldsymbol{G}\boldsymbol{H}^{\mathsf T}=\boldsymbol{0}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.33.</span></p>
+  <p>Un código lineal binario tiene la matriz de comprobación de paridad $3\times 5$ $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$$ de rango $3$. ¿Cuál es su tasa $R$?</p>
+  <p>(a) $R=\dfrac{2}{5}$<br>
+  (b) $R=\dfrac{3}{5}$<br>
+  (c) $R=\dfrac{3}{2}$<br>
+  (d) $R=\dfrac{1}{5}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>La longitud de bloque es $n=5$ y el rango de $\boldsymbol{H}$ es el número de comprobaciones de paridad $n-k=3$, es decir, $k=5-3=2$ símbolos de información. La tasa es $R=k/n=2/5$. (Elegir $R=3/5$ confunde $k$ con $n-k$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.34.</span></p>
+  <p>El código lineal binario con matriz de comprobación de paridad $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$$ tiene las cuatro palabras código $\{00000,\,11001,\,00111,\,11110\}$. ¿Cuál es su distribución de pesos (los coeficientes $A_i$ que cuentan las palabras código de peso $i$)?</p>
+  <p>(a) $A_0=1,\;A_3=2,\;A_4=1$ (resto $0$)<br>
+  (b) $A_0=1,\;A_2=2,\;A_4=1$ (resto $0$)<br>
+  (c) $A_0=1,\;A_3=1,\;A_4=2$ (resto $0$)<br>
+  (d) $A_0=1,\;A_2=1,\;A_3=2$ (resto $0$)</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Cuenta el número de $1$s de cada palabra código: $w(00000)=0$, $w(11001)=3$, $w(00111)=3$, $w(11110)=4$. Así $A_0=1$, $A_3=2$, $A_4=1$, y todo el resto $A_i=0$. Nótese que no hay ninguna palabra código de peso $2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.35.</span></p>
+  <p>El código lineal binario con matriz de comprobación de paridad $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$$ tiene pesos de palabras código no nulas $\{3,3,4\}$. ¿Cuál es su distancia mínima $d_{\min}$?</p>
+  <p>(a) $d_{\min}=3$<br>
+  (b) $d_{\min}=2$<br>
+  (c) $d_{\min}=4$<br>
+  (d) $d_{\min}=5$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Para un código lineal, $d_{\min}$ es el peso mínimo no nulo de una palabra código, $\min\{3,3,4\}=3$. Equivalentemente es el menor número de columnas linealmente dependientes de $\boldsymbol{H}$: ninguna columna es cero ni hay dos iguales, pero las columnas $1,2,5$ suman $\boldsymbol{0}$ (ya que $(1,0,1)+(1,0,0)+(0,0,1)=(0,0,0)$), es decir, $d_{\min}=3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.36.</span></p>
+  <p>Un código lineal binario con la matriz de comprobación de paridad $$\boldsymbol{H}=\begin{pmatrix}1&1&0&0&0\\0&0&1&1&0\\1&0&1&0&1\end{pmatrix}$$ tiene distancia mínima $d_{\min}=3$ y se utiliza con decodificación de mínima distancia (máxima verosimilitud). ¿Cuántos errores $t$ puede corregir?</p>
+  <p>(a) $t=1$<br>
+  (b) $t=2$<br>
+  (c) $t=3$<br>
+  (d) $t=0$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Un código con distancia mínima $d_{\min}$ corrige $t=\lfloor (d_{\min}-1)/2\rfloor$ errores. Aquí $t=\lfloor (3-1)/2\rfloor=\lfloor 1\rfloor=1$, es decir, el código corrige un error. (Usar $d_{\min}-1=2$ daría el número de errores que puede detectar, no corregir.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.37.</span></p>
+  <p>Considera el código de Hamming sistemático $(15,11)$ con matriz generadora $\boldsymbol{G}=(\boldsymbol{P}\ \boldsymbol{I})$, donde la primera fila de la matriz de paridad $11\times4$ $\boldsymbol{P}$ es $(1\ 1\ 0\ 0)$. La palabra código $\boldsymbol{x}_{1025}$ (con la indexación $\boldsymbol{x}_1,\boldsymbol{x}_2,\dots$) se transmite, y una palabra código sistemática es $\boldsymbol{x}=\boldsymbol{s}\boldsymbol{G}=(\boldsymbol{s}\boldsymbol{P}\ \ \boldsymbol{s})$ sobre $\mathrm{GF}(2)$. ¿Cuál es el peso de Hamming $w_H(\boldsymbol{x}_{1025})$?</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $3$<br>
+  (d) $4$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>El índice $1025$ corresponde al mensaje de valor entero $1025-1=1024=2^{10}$, es decir, el mensaje de $11$ bits $\boldsymbol{s}=(1\,0\,\dots\,0)$ con un solo $1$ en la primera posición. Entonces $\boldsymbol{s}\boldsymbol{P}$ selecciona la primera fila de $\boldsymbol{P}$, dando paridad $(1\ 1\ 0\ 0)$ (dos $1$), y la parte sistemática reproduce $\boldsymbol{s}$ (un $1$). La palabra código es $(1\,1\,0\,0\,|\,1\,0\dots0)$, por lo que $w_H=2+1=3$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Ejercicio 7.38.</span></p>
+  <p>La palabra código $\boldsymbol{x}_{1025}=(1\,1\,0\,0\,|\,1\,0\,0\,0\,0\,0\,0\,0\,0\,0\,0)$ del código de Hamming $(15,11)$ (peso de Hamming $3$, con $12$ ceros y $3$ unos) se transmite por un canal binario <em>asimétrico</em> sin memoria con probabilidades de cruce $P_{Y|X}(1\mid0)=p_0$ y $P_{Y|X}(0\mid1)=p_1$, que actúa independientemente sobre cada uno de los $15$ bits. ¿Cuál es la probabilidad de recibir la secuencia de todo ceros $\boldsymbol{y}=\mathbf{0}$?</p>
+  <p>(a) $(1-p_0)^{12}\,p_1^{3}$<br>
+  (b) $(1-p_1)^{12}\,p_0^{3}$<br>
+  (c) $(1-p_0)^{3}\,p_1^{12}$<br>
+  (d) $(1-p_0)^{15}\,p_1^{3}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Por la falta de memoria, $\mathbb{P}[\boldsymbol{Y}=\mathbf{0}\mid\boldsymbol{X}=\boldsymbol{x}]=\prod_{i=1}^{15}P_{Y|X}(0\mid x_i)$. Cada uno de los $12$ ceros transmitidos debe permanecer $0$, con probabilidad $P_{Y|X}(0\mid0)=1-p_0$, dando $(1-p_0)^{12}$. Cada uno de los $3$ unos transmitidos debe cambiar a $0$, con probabilidad $P_{Y|X}(0\mid1)=p_1$, dando $p_1^{3}$. Por tanto la probabilidad es $(1-p_0)^{12}p_1^{3}$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 

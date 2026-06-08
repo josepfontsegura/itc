@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="page">
-                <aside class="sidebar">
+      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inicio</a>
@@ -38,48 +38,235 @@
       <summary><h4>Apuntes</h4></summary>
       <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
       <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos de fuente binarios sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Límites fundamentales en compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error de códigos de canal</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="lecture3.html" class="active">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Ejercicios</h4></summary>
       <a href="exercises1.html">1. Variables aleatorias</a>
       <a href="exercises2.html">2. Desigualdades de concentración</a>
-      <span class="sidebar-disabled">3. Códigos sin prefijo</span>
-      <span class="sidebar-disabled">4. Códigos de Huffman</span>
-      <span class="sidebar-disabled">5. Compresión de fuente</span>
-      <span class="sidebar-disabled">6. Probabilidad de error</span>
-      <span class="sidebar-disabled">7. Códigos lineales</span>
-      <span class="sidebar-disabled">8. Capacidad de canal</span>
-      <span class="sidebar-disabled">9. Medidas de información</span>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Cuestionario</h4></summary>
       <a href="quiz1.html">Temas 1–2</a>
-      <span class="sidebar-disabled">Temas 3–5</span>
-      <span class="sidebar-disabled">Temas 6–9</span>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exámenes</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperación 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
     </details>
   </aside>
   <main class="content">
     <div class="lecture-header">
-      <h1>Próximamente</h1>
+      <h1>Tema 3. Códigos de fuente binarios sin prefijo <a class="pdf-link" href="../pdf/ITC-2026-Lecture3-es.pdf">pdf</a></h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Este contenido estará disponible a medida que avance el curso.</p>
+
+
+<h2>Introducción</h2>
+
+<p>
+El objetivo principal de la compresión de datos es eliminar la redundancia presente en los datos para minimizar el espacio de almacenamiento o el tiempo de transmisión.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 3.1.</span> 
+<a id="ex:3.1"></a>
+Un lanzamiento de dado justo se puede modelar como una variable aleatoria con el alfabeto $\{1,2,3,4,5,6\}$ y la distribución de probabilidad $\bigl\{\frac 16,\frac 16,\frac 16,\frac 16,\frac 16,\frac 16\bigr\}$. Podemos utilizar la representación binaria directa y obtener
+$$
+1\mapsto 001 ~~~~~ 2\mapsto010 ~~~~~ 3\mapsto011 ~~~~~ 4\mapsto 100 ~~~~~ 5\mapsto 101 ~~~~~ 6\mapsto 110.
+\tag{3.1}
+$$
+Hay alternativas a esto, sin embargo. Por ejemplo,
+$$
+1\mapsto 00 ~~~~~ 2\mapsto01 ~~~~~ 3\mapsto100 ~~~~~ 4\mapsto 101 ~~~~~ 5\mapsto 110 ~~~~~ 6\mapsto 111
+\tag{3.2}
+$$
+o incluso
+$$
+1\mapsto 1100 ~~~~~ 2\mapsto1010 ~~~~~ 3\mapsto0110 ~~~~~ 4\mapsto 1001 ~~~~~ 5\mapsto 0101 ~~~~~ 6\mapsto 0011.
+\tag{3.3}
+$$
+</p>
+
+</div>
+
+<p>
+Los anteriores son mapas uno a uno (biyectivos); no tienen pérdidas, es decir, que al observar la cadena binaria, el mensaje original siempre se puede recuperar. Por ejemplo, si el resultado de varios lanzamientos de dado se codifica utilizando el código fuente en $(3.2)$ como $1000100$, sabemos que corresponde a la secuencia fuente $(3,2,1)$. La misma secuencia codificada con el código fuente en $(3.3)$ sería $011010101100$, mucho más larga.
+</p>
+<p>
+En general, mediremos la eficiencia de un código utilizando la cantidad esperada de bits necesarios para representar una fuente. Para una fuente que toma valores en $\{1,\ldots,r\}$ con distribución de probabilidad $\{p_1,\ldots,p_r\}$, la <strong>longitud media</strong> del código viene dada por
+$$
+	L_{\rm av} = \sum_{j=1}^r p_j \ell_j
+	\tag{3.4}
+$$
+donde $\ell_j$ es la longitud (medida en dígitos binarios) de la cadena binaria asociada al símbolo $j$.
+</p>
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 3.2.</span> 
+Según el código fuente $(3.1)$ del ejemplo 3.1, todos los símbolos de la fuente se asignan a cadenas binarias de longitud $3$. Por tanto, $\ell_j=3$ para todos los $j\in\{1,\ldots,6\}$ del alfabeto y la longitud media es simplemente $
+	L_{\rm av}  =  3$ bits por símbolo. De la misma manera, $L_{\rm av}=4$ bits por símbolo para el código de (3.3). El código de (3.2) tiene longitudes variables: $\ell_j=2$ para $j\in\{1,2\}$ y $\ell_j=3$ para $j\in\{3,4,5,6\}$. Por tanto, $L_{\rm av}=\frac 83 \approx 2.667$ bits por símbolo. El código $(3.2)$ proporciona claramente una manera más eficiente (más corta) de representar la fuente.
+</p>
+
+</div>
+
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 3.3.</span> <a id="ex:phone"></a>
+Te gustaría configurar tu propio sistema telefónico que te conecte con tus 3 mejores amigos mediante códigos binarios. El número de teléfono será una <strong>palabra código</strong> y el conjunto de palabras código es el <strong>código</strong> o <strong>diccionario</strong>. Sabes que llamarás a Bernat un $50\%$ de las veces, y que llamarás a Alba y Carola un $25\%$ de las veces cada una. La fuente se puede modelar mediante el alfabeto $\{\text{Alba},\text{Bernat},\text{Carola}\}$ con distribución de probabilidad $\bigl\{\frac 14, \frac 12, \frac 14 \bigr\}$. Ahora examinemos varios métodos para producir los números de teléfono indicados en la tabla 3.1 siguiente.
+</p>
+<p>
+  
+ <figcaption>Números de teléfono para el Ejemplo 3.3.</figcaption>
+  <a id="tab:phone"></a>
+  <table class="data-table"><tr><th>Amigo</th><th>Probabilidad</th><th>(a)</th><th>(b)</th><th>(c)</th><th>(d)</th><th>(e)</th><th>(f)</th></tr><tr><td>Alba</td><td>0.25</td><td>0011</td><td>001101</td><td>0</td><td>00</td><td>0</td><td>10</td></tr><tr><td>Bernat</td><td>0.5</td><td>0011</td><td>001110</td><td>1</td><td>11</td><td>11</td><td>0</td></tr><tr><td>Carola</td><td>0.25</td><td>1100</td><td>110000</td><td>10</td><td>10</td><td>10</td><td>11</td></tr></table>
+  
+</p>
+<p>
+En el código (a), Alba y Bernat tienen el mismo número, por tanto, el sistema no se conectará correctamente. El código (b) funcionará, ya que cada uno tiene un número de teléfono diferente, pero los números son muy largos y el sistema se vuelve ineficiente. El código (c) es un código más corto, pero obsérvese que el sistema no funcionará: cuando marcamos $10$ no está claro si quiere decir “Carola” o bien “Bernat, Alba”. El código (c) no es <strong>únicamente decodificable</strong>.
+El código (d) es el primer código eficiente que funciona y se puede decodificar de manera única, pero ¿por qué asignamos $00$ a Alba si cuando marcamos $0$ está claro que queremos llamar a  Alba? Una mejora es el código (e): es únicamente decodificable, pero no es el más eficiente, ya que el código está asignando una cadena de 2 bits al símbolo más probable. Finalmente, (f) es el <strong>código óptimo</strong> con una longitud media de $L_{\rm av}=1.5$ bits por símbolo. Es interesante señalar que una vez terminamos de marcar, el sistema inmediatamente sabe que hemos terminado de marcar. Esto es porque ninguna palabra código es un prefijo de ninguna otra, es decir, el código es <strong>sin prefijo</strong>.
+</p>
+
+</div>
+
+
+<h2>Códigos sin prefijo</h2>
+
+<p>
+Los códigos sin prefijo son códigos de longitud variable que garantizan una decodificabilidad única y, diseñados correctamente, son eficientes en términos de longitud media, es decir, minimizan $(3.4)$.
+</p>
+<p>
+Considere una fuente discreta sin memoria $U$ que toma valores sobre el alfabeto $\{1,\ldots,r\}$. Un código fuente binario es el conjunto de palabras código ${\cal C}=\{{\cal C}(1),{\cal C}(2),\ldots,{\cal C}(r)\}$, donde cada ${\cal C}(j)$ es la secuencia binaria utilizada para representar el símbolo fuente $j\in\{1,\ldots,r\}$. Por ejemplo, el código (f) de la tabla 3.1 para la fuente $\{\text{Alba},\text{Bernat},\text{Carola}\}$ viene dado por ${\cal C}(\text{Alba})=10$, ${\cal C}(\text{Bernat})=0$ y ${\cal C}(\text{Carola})=11$, o simplemente el conjunto $\{10,0,11\}$. Una secuencia fuente de longitud $n$ es la secuencia $(u_1,\ldots,u_n)$ donde cada $u_i\in\{1,\ldots,r\}$. Una codificación símbolo a símbolo consiste en ${\cal C}(u_1)\cdots {\cal C}(u_n)$, la concatenación de las palabras código. Por ejemplo, la secuencia fuente $(\text{Alba},\text{Alba},\text{Carola},\text{Bernat},\text{Carola})$ de longitud $n=5$ está codificada como $101011011$, una secuencia binaria de longitud de 9 bits.
+</p>
+<p>
+Un código se denomina <strong>únicamente decodificable</strong> si no existe ningún par de secuencias diferentes $(u_1,\ldots,u_n)\neq (u'_1,\ldots,u'_m)$ de manera que ${\cal C}(u_1)\cdots {\cal C}(u_n)={\cal C}(u'_1)\cdots {\cal C}(u_m')$, es decir, para que un código sea decodificable de manera única, no se pueden codificar dos secuencias fuente diferentes en la misma palabra código. Recuerde el sistema telefónico (c) del ejemplo 3.3. Un código se denomina <strong>sin prefijo</strong> si ninguna palabra código es un prefijo de ninguna otra palabra código.
+</p>
+
+<div class="env-block env-theorem"><p><span class="env-label">Teorema 3.4.</span> 
+Los códigos sin prefijo se pueden decodificar de manera única.
+<a id="th:ud"></a>
+</p>
+
+</div>
+
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 3.5.</span> 
+Considere los códigos ${\cal C}_1=\{0,10,110,111\}$ y ${\cal C}_2=\{0,01,011,111\}$ para una fuente $\{a,b,c,d\}$. ¿Son los códigos únicamente decodificables y/o libres de prefijo? Decodifique la secuencia $0011011110$ utilizando los dos códigos.
+ 	
+</p>
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+		El código ${\cal C}_1$ es libre de prefijo porque ninguna palabra código es un prefijo de ninguna otra y, por tanto, el código se puede decodificar de manera única. El código ${\cal C}_2$ no es libre de prefijo porque ${\cal C}(a)$ es el prefijo de ${\cal C}(b)$ y ${\cal C}(c)$, mientras que ${\cal C}(b)$ también es el prefijo de ${\cal C}(c)$. Obsérvese, sin embargo, que el código es únicamente decodificable porque el bit $0$ es como una coma cuando se lee de derecha a izquierda. Utilizando el primer código, la secuencia a decodificar se puede agrupar de manera única como $0,0,110,111,10$. Como ${\cal C}^{-1}(0)=a, {\cal C}^{-1}(110)=c$, ${\cal C}^{-1}(111)=d$ y ${\cal C}^{-1}(10)=b$, decodificamos la secuencia como $(a,a,c,d,b)$. Para el segundo código, hay que leer de derecha a izquierda como $0,011,01,111,0$ para obtener $(a,c,b,d,a)$.
+ 	
+</p>
+</details>
+
+
+</div>
+
+<p>
+ Cualquier código binario se puede representar como un árbol binario (véase la Figura 3.1). Tome cualquier palabra código y considere cada bit como una decisión sobre si subir (0) o bajar (1). Así, cada palabra código puede ser representada por un camino particular en el árbol, como los dos ejemplos de la Figura 3.1. En los árboles, el nodo raíz se denota con un cuadrado, los nodos intermedios con círculos pequeños y los nodos hoja como círculos grises. Las aristas se representan con una línea sólida. Las etiquetas de la derecha denotan secuencias binarias. De manera similar, en la Figura 3.2, ilustramos las representaciones en árbol binario de los códigos (c), (d), (e) y (f) del ejemplo 3.3. El nodo del círculo blanco indica una hoja sin palabra código. Obsérvese que el código (c) no es libre de prefijos y tiene una palabra código a lo largo del camino hacia otra palabra código. Así, un código es libre de prefijos si en su representación en árbol todas las palabras código aparecen como hojas en el árbol.
+</p>
+<p>
+ El siguiente es un resultado importante relacionado con la existencia de códigos sin prefijo y árboles binarios.
+</p>
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;align-items:center"><figure><img src="../img/tikz/lecture3-fig1.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/lecture3-fig2.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure></div>
+<p>
+<figcaption>Representación en árbol de dos códigos fuente binarios.</figcaption>
+<a id="fig:generic_tree"></a>
+</p>
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;align-items:center"><figure><img src="../img/tikz/lecture3-fig3.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/lecture3-fig4.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/lecture3-fig5.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure></div>
+<p>
+<figcaption>Representación en árbol de algunos códigos fuente del ejemplo 3.3.</figcaption>
+<a id="fig:tree_phonec"></a>
+</p>
+
+<div class="env-block env-theorem"><p><span class="env-label">Teorema 3.6 (<strong>Desigualdad de Kraft</strong>).</span> 
+<a id="th:kraft"></a>
+Considere un código fuente binario ${\cal C}$ para una fuente con alfabeto $\{1,\ldots,r\}$ y distribución de probabilidad $\{p_1,\ldots,p_r\}$. Entonces, si el código es libre de prefijos, satisface
+$$
+\sum_{j=1}^r2^{-\ell_j} \leq 1.
+\tag{3.5}
+$$
+Además, existe un código sin prefijo con longitudes $\ell_j$ para $j\in\{1,\ldots,r\}$ que satisface $(3.5)$.
+</p>
+
+</div>
+
+
+<div class="env-block env-example"><p><span class="env-label">Ejemplo 3.7.</span> <a id="ex:codelengths"></a>
+Un código con distribución de longitudes $\{\ell_1,\ldots,\ell_r\}=\{3,4,4,4,4\}$ satisface la desigualdad de Kraft ya que
+$$
+\sum_{j=1}^r 2^{-\ell_j} = 2^{-3}+4\cdot 2^{-4} = \frac1 8 +\frac {4}{16} = \frac 3 8\leq 1 . \tag{3.6}$$
+Por tanto, existe un código sin prefijo con estas longitudes, por ejemplo $\{000,0010,0011,1100,1101\}$. En cambio, para una distribución de longitudes $\{1,2,3,3,4\}$, no podemos construir un código sin prefijos porque
+$$
+2^{-1}+2^{-2}+2\cdot2^{-3} + 2^{-4} = \frac{17}{16}\geq1 \tag{3.7}$$
+Un posible intento de construir este código se muestra en la Figura 3.3, donde hay una palabra código de longitud 4 que no se puede conectar en ningún sitio. No es posible construir este código.
+</p>
+
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;align-items:center"><figure><img src="../img/tikz/lecture3-fig6.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure><figure><img src="../img/tikz/lecture3-fig7.svg" alt="Figura" style="max-width:90%;display:block;margin:0 auto"></figure></div>
+<p>
+<figcaption>Ejemplo de representación en árbol de los códigos fuente del ejemplo 3.7.</figcaption>
+<a id="fig:extree"></a>
+</p>
+
+<p>
+Terminamos esta lección afirmando un resultado fundamental en la compresión de datos.
+</p>
+
+<div class="env-block env-theorem"><p><span class="env-label">Teorema 3.8.</span> <a id="th:laventropy"></a>
+La longitud media de cualquier código de longitudes sin prefijo $\{\ell_1,\ldots,\ell_r\}$ utilizado para representar una fuente $U$ que toma valores en $\{1,\ldots,r\}$ con distribución de probabilidad $\{p_1,\ldots,p_r\}$ satisface
+$$
+	L_{\rm av} \geq H(U),
+	\tag{3.8}
+$$
+donde $H(U)$ es <strong>la entropía de la fuente</strong>, medida en bits, que viene dada por
+$$
+	H(U) =  - \sum_{j=1}^r p_j \log_2 p_j. \tag{3.9}$$
+Nótese que para cumplir la desigualdad $(3.8)$ con igualdad, las longitudes deberían ser tales que $
+2^{-\ell_j} = p_j$ exactamente para todo $j\in\{1,\ldots,r\}$.
+</p>
+
+</div>
+
+
+<div class="env-block env-problem"><p><span class="env-label">Problema 3.9.</span> 
+ 	Considere una fuente $U$ que toma los valores
+ 	 $\{1,2,3\}$ con la misma probabilidad. Encuentre un código sin prefijo con distribución de longitud $\{1,2,2\}$ y compruebe que se cumplen los teoremas 3.6 y 3.8.
+	
+</p>
+<details class="solution"><summary>Mostrar solución</summary>
+<p>
+ 	Un posible código sin prefijo con estas longitudes viene dado por $\{0,10,11\}$. El código es únicamente decodificable por el Teorema 3.4, satisface la desigualdad de Kraft en el Teorema 3.6 con igualdad puesto que $\sum_{j=1}^r 2^{-\ell_j} = 1$. Esto significa que el árbol binario asociado a $\{0,10,11\}$ no tiene hojas vacías. Cuando se utiliza para representar la fuente $U$, tiene una longitud media de $L_{\rm av}=\sum_{j=1}^r p_j\ell_j = \frac 53 \approx 1.667$ bits por símbolo, y está acotado por la entropía de la fuente desde abajo ya que
+ 	$$
+		H(U)=- \sum_{j=1}^r p_j \log_2 p_j = \log_2 3 \approx 1.585. \tag{3.10}$$
+ 	
+</p>
+</details>
+
+
+</div>
+
+<p>
+El resultado de $(3.8)$ indica que la entropía $H(U)$ es la longitud media mínima necesaria para representar una fuente $U$, no podemos representarla sin errores con menos bits por símbolo. De todos los posibles códigos sin prefijo, queremos encontrar el que minimice la longitud media en $(3.4)$. Este será el tema de nuestra próxima lección.</p>
   </main>
 </div>
 <footer class="footer">
   Universitat Pompeu Fabra · Teoría de la información y codificación 2026 &middot;
-  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+  <a href="https://www.upf.edu/web/josep-font-segura">Josep Font-Segura</a> · <a href="https://www.upf.edu/web/matcom">Mathematics of Communication</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>

@@ -28,7 +28,7 @@
 </nav>
 
 <div class="page">
-        <aside class="sidebar">
+                      <aside class="sidebar">
     <details class="sidebar-section">
       <summary><h4>General</h4></summary>
       <a href="index.html">Inici</a>
@@ -40,44 +40,499 @@
       <summary><h4>Apunts</h4></summary>
       <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
       <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis de font binaris sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Límits fonamentals en compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error de codis de canal</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section" open>
       <summary><h4>Exercicis</h4></summary>
       <a href="exercises1.html">1. Variables aleatòries</a>
       <a href="exercises2.html">2. Desigualtats de concentració</a>
-      <span class="sidebar-disabled">3. Codis sense prefixe</span>
-      <span class="sidebar-disabled">4. Codis de Huffman</span>
-      <span class="sidebar-disabled">5. Compressió de font</span>
-      <span class="sidebar-disabled">6. Probabilitat d'error</span>
-      <span class="sidebar-disabled">7. Codis lineals</span>
-      <span class="sidebar-disabled">8. Capacitat de canal</span>
-      <span class="sidebar-disabled">9. Mesures d'informació</span>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html" class="active">9. Mesures d'informació</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Qüestionari</h4></summary>
       <a href="quiz1.html">Temes 1–2</a>
-      <span class="sidebar-disabled">Temes 3–5</span>
-      <span class="sidebar-disabled">Temes 6–9</span>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
     </details>
     <details class="sidebar-section">
       <summary><h4>Exàmens</h4></summary>
-      <span class="sidebar-disabled">Final 2025</span>
-      <span class="sidebar-disabled">Recuperació 2025</span>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
     </details>
   </aside>
 
   <main class="content">
     <div class="lecture-header">
-      <h1>Properament</h1>
+      <h1>Exercicis: 9. Mesures d'informació</h1>
     </div>
-    <p style="margin-top:2em;text-align:center;color:var(--text-secondary);font-size:1.1rem">Aquest contingut estarà disponible a mesura que avanci el curs.</p>
+
+    <button id="expand-all" data-expand="Mostra totes les solucions" data-collapse="Amaga totes les solucions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostra totes les solucions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.1.</span> Quina és l'entropia conjunta $H(X_1, Z)$?</p>
+  <p>(a) $1$<br>
+  (b) $2$<br>
+  (c) $\log_2(3)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Com que $X_1$ i $Z$ són independents i $H(X_1)=H(Z)=1$, tenim $H(X_1,Z)=2$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.2.</span> Quina és la informació mútua $I(X_1; Y_1)$?</p>
+  <p>(a) $\tfrac12$<br>
+  (b) $1$<br>
+  (c) $\tfrac32$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La informació mútua es calcula com $I(X_1;Y_1) = H(Y_1) - H(Y_1|X_1)$. Sabent que $Y_1$ pren els valors $\{1,2,3\}$ amb probabilitats $\{1/4, 1/2, 1/4\}$, obtenim $H(Y_1)=3/2$ bits. Si $X_1=0$, aleshores $Y_1=Z$ i per tant $H(Y_1|X_1=0)=1$. De manera anàloga, $H(Y_1|X_1=1)=1$. Així, $H(Y_1|X_1)= (1/2)\cdot 1 + (1/2)\cdot 1 = 1$, i finalment $I(X_1;Y_1)=3/2-1=1/2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.3.</span> Quina és l'entropia condicional $H(Y_1 | X_1, Z)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Donats $X_1$ i $Z$, $Y_1=X_1+Z$ queda determinat. Per tant, $H(Y_1|X_1,Z)=0$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.4.</span> Quina és l'entropia condicional $H(Z \mid Y_1)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Podem escriure l'entropia condicional com $H(Z \mid Y_1) = H(Z) - I(Z;Y_1)$, on $I(Z;Y_1) = H(Y_1) - H(Y_1 \mid Z)$. Com que $H(Z)=1$, $H(Y_1)=3/2$ i $H(Y_1 \mid Z)=1$, trobem que $I(Z;Y_1)=3/2-1=1/2$ i, per tant, $H(Z \mid Y_1)=1-1/2=1/2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.5.</span> Quina és l'entropia conjunta $H(Y_1, Y_2, Z)$?</p>
+  <p>(a) $2$<br>
+  (b) $\tfrac{11}{4}$<br>
+  (c) $3$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>En aquest cas, $H(Y_1,Y_2,Z) = H(Z) + H(Y_1,Y_2 \mid Z)$, on $H(Z)=1$. Donat $Z$, $Y_1$ i $Y_2$ són condicionalment independents i, per tant, $H(Y_1,Y_2 \mid Z) = H(Y_1 \mid Z)+H(Y_2 \mid Z)$. A la pregunta 4 vam trobar que $H(Y_1 \mid Z)=1$, mentre que $H(Y_2 \mid Z)=1$ per simetria. Així, $H(Y_1,Y_2 \mid Z)=2$ i $H(Y_1,Y_2,Z)=1+2=3$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.6.</span> Quina és l'entropia $H(X_1)$?</p>
+  <p>(a) $0$<br>
+  (b) $1$<br>
+  (c) $2$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>$X_1$ pren valors a $\{0,1\}$ amb igual probabilitat ($1/2$). Per tant, $H(X_1)=\log_2(2)=1$ bit.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.7.</span> Quina és la informació mútua $I(X_1; X_2)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que $X_1$ i $X_2$ són independents, $I(X_1;X_2)=0$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.8.</span> Quina és l'entropia condicional $H(Y_1 \mid Y_2, Z)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac12$<br>
+  (c) $1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Donat $Z$, $Y_1$ i $Y_2$ són condicionalment independents, per tant $H(Y_1 \mid Y_2,Z)=H(Y_1 \mid Z)$. De nou, de la pregunta 4 sabem que $H(Y_1 \mid Z)=1$, cosa que ens du a la resposta correcta.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.9.</span> Quina és l'entropia conjunta $H(X_1, X_2)$?</p>
+  <p>(a) $1$<br>
+  (b) $\log_2(3)$<br>
+  (c) $2$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Com que $X_1$ i $X_2$ són independents, $H(X_1,X_2)=H(X_1)+H(X_2)$, on tant $H(X_1)$ com $H(X_2)$ valen $1$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.10.</span> Quina és la informació mútua condicional $I(X_1; Z \mid Y_1)$?</p>
+  <p>(a) $0$<br>
+  (b) $\tfrac14$<br>
+  (c) $\tfrac12$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Podem escriure la informació mútua condicional com $I(X_1;Z \mid Y_1) = H(X_1 \mid Y_1) - H(X_1 \mid Y_1,Z)$. El primer terme es pot desenvolupar com $H(X_1 \mid Y_1) = H(X_1) - I(X_1;Y_1) = 1 - 1/2 = 1/2$, on hem fet servir que $H(X_1)=1$ i el valor de $I(X_1;Y_1)$ de la pregunta 2. Donats tant $Y_1$ com $Z$, $X_1$ queda perfectament determinat, de manera que $H(X_1 \mid Y_1,Z)=0$. Per tant, $I(X_1;Z \mid Y_1)=1/2-0=1/2$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.11.</span></p>
+  <p>Considereu les variables aleatòries independents $X_1$, $X_2$ i $Z$ que prenen valors a $\{0,1\}$, $\{0,1\}$ i $\{1,2\}$, respectivament, totes amb igual probabilitat. Definim</p>$$Y_1=X_1+Z, \qquad Y_2=X_2+Z.$$<p>Quina és la informació mútua $I(Y_1;Y_2)$?</p>
+  <p>(a) $\frac{1}{4}$<br>
+  (b) $\frac{3}{2}$<br>
+  (c) $\frac{11}{4}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Observem que $Y_1$ i $Y_2$ estan idènticament distribuïdes, però no són estadísticament independents perquè totes dues depenen del mateix $Z$. Tant $Y_1$ com $Y_2$ prenen valors a $\{1,2,3\}$ amb distribucions marginals $P_{Y_1}(y_1)$ i $P_{Y_2}(y_2)$ donades totes dues per $\bigl\{ \frac 14, \frac 12, \frac 14 \bigr\}$. Per tant, $H(Y_1)=H(Y_2)=\frac 32$. D'altra banda, la distribució conjunta $P_{Y_1Y_2}(y_1,y_2)$ es pot trobar escrivint en una taula totes les combinacions de la tripleta $(X_1,X_2,Z)$ com $P_{Y_1Y_2}(1,1)=\frac 18$, $P_{Y_1Y_2}(1,2)=\frac 18$, $P_{Y_1Y_2}(1,3)=0$, $P_{Y_1Y_2}(2,1)=\frac 18$, $P_{Y_1Y_2}(2,2)=\frac 14$, $P_{Y_1Y_2}(2,3)=\frac 18$, $P_{Y_1Y_2}(3,1)=0$, $P_{Y_1Y_2}(3,2)=\frac 18$ i $P_{Y_1Y_2}(3,3)=\frac 18$. Per tant, $H(Y_1,Y_2)=\frac{11}{4}$. Finalment, obtenim la resposta correcta fent servir que $I(Y_1;Y_2)=H(Y_1)+H(Y_2)-H(Y_1,Y_2)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.12.</span> Quin és el valor de l'entropia $H(X_1\cdots X_n)$? Justifica per què les altres són falses.</p>
+  <p>(a) $n\log_2 |\mathcal{X}|$ (en bits)<br>
+  (b) $\log_2 |\mathcal{X}|$ (en bits/ús del canal)<br>
+  (c) $\log_2 |\mathcal{X}|$ (en bits)</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que els símbols transmesos són i.i.d., $H(X_1\cdots X_n)=nH(X_i)=n\log_2 |\mathcal{X}|$ en bits. Bits/ús del canal no és la unitat de l'entropia.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.13.</span> Quin és el valor de la informació mútua empírica $\tfrac{1}{n} \sum_{i=1}^n I(X_i;Y_i)$ quan la incertesa residual és $H(X_1 \cdots X_n|Y_1 \cdots Y_n)=\tfrac{n}{3}\log_2 |\mathcal{X}|$?</p>
+  <p>(a) $\frac{2n}{3} \log_2 |\mathcal{X}|$<br>
+  (b) $\frac{n}{3} \log_2 |\mathcal{X}|$<br>
+  (c) $\frac{2}{3} \log_2 |\mathcal{X}|$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>La informació mútua es pot desenvolupar com $I(X_1\cdots X_n ; Y_1\cdots Y_n)=H(X_1 \cdots X_n)-H(X_1 \cdots X_n|Y_1 \cdots Y_n)$. Com que els símbols transmesos són equiprobables i i.i.d., $H(X_1 \cdots X_n) = n\log_2|\mathcal{X}|$. Per tant, $I(X_1 \cdots X_n ; Y_1 \cdots Y_n)= \tfrac{2n}{3} \log_2|\mathcal{X}|$. D'altra banda, com que el canal és sense memòria i els símbols transmesos són i.i.d., tenim que $$\begin{aligned} I(X_1\cdots X_n;Y_1\cdots Y_n) &= \sum_{i=1}^n I(X_i;Y_i) \\ &= \tfrac{2n}{3}\log_2 |\mathcal{X}|. \end{aligned}$$ Per tant, $\tfrac{1}{n}\sum_{i=1}^n I(X_i;Y_i)=\tfrac{2}{3}\log_2|\mathcal{X}|$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.14.</span> Un experiment consisteix en els dos passos següents. Primer, es llança una moneda justa i s'anota cara o creu. Si el resultat és cara, es llança un dau just de sis cares i s'anota la seva cara; si el resultat és creu, es llança una segona moneda justa i s'anota el seu resultat. Quina és l'entropia en bits del resultat de l'experiment de dos passos?</p>
+  <p>(a) $\tfrac{1+\log_2(6)}{2}$<br>
+  (b) $\tfrac{3+\log_2(3)}{2}$<br>
+  (c) $\tfrac{4+\log_2(3)}{2}$<br>
+  (d) $\tfrac{2+\log_2(6)}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>El resultat de l'experiment es pot modelar amb la variable aleatòria $X=(A,B)$, on $A\in\{\text{cara},\text{creu}\}$ i $B\in\{1,2,3,4,5,6,\text{cara},\text{creu}\}$. Després de determinar tots els resultats possibles de $X$, obtenim que $X$ té la distribució de probabilitat $\bigl\{\tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{12}, \tfrac{1}{4}, \tfrac{1}{4}\bigr\}$, a partir de la qual podem calcular $H(X)$. Alternativament, podem fer servir la regla de la cadena de l'entropia com $H(X)=H(A)+H(B|A)$, amb $H(A)=1$ i $H(B|A)=\tfrac{1+\log_2(6)}{2}$, que porta al mateix resultat.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.15.</span> Per a dues variables aleatòries $X$ i $Y$, la regla de la cadena de l'entropia estableix</p>
+  <p>(a) $H(X,Y)=H(X)+H(Y|X)$<br>
+  (b) $H(X,Y)=H(X)+H(Y)$<br>
+  (c) $H(X,Y)=H(X)H(Y)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La regla de la cadena és $H(X,Y)=H(X)+H(Y|X)$, sempre vàlida. La igualtat $H(X,Y)=H(X)+H(Y)$ només es compleix si $X,Y$ són independents.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.16.</span> La desigualtat del processament de dades estableix que si $X\to Y\to Z$ és una cadena de Markov, llavors</p>
+  <p>(a) $I(X;Z)\leq I(X;Y)$<br>
+  (b) $I(X;Z)\geq I(X;Y)$<br>
+  (c) $I(X;Z)= I(X;Y)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Processar dades a través d'un canal només pot perdre informació: $I(X;Z)\leq I(X;Y)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.17.</span> Si $X$ és una funció determinista de $Y$, llavors $H(X|Y)=$</p>
+  <p>(a) $0$<br>
+  (b) $H(X)$<br>
+  (c) $H(Y)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Si $X=f(Y)$, conèixer $Y$ determina $X$ completament, de manera que no hi ha cap incertesa restant: $H(X|Y)=0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.18.</span> La informació mútua $I(X;Y)$ es pot escriure com</p>
+  <p>(a) $H(X)+H(Y)-H(X,Y)$<br>
+  (b) $H(X)-H(Y)$<br>
+  (c) $H(X,Y)-H(X)-H(Y)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>$I(X;Y)=H(X)+H(Y)-H(X,Y)$ és una de les formes estàndard, equivalent a $H(X)-H(X|Y)=H(Y)-H(Y|X)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.19.</span> La informació mútua és sempre no negativa?</p>
+  <p>(a) Sí, $I(X;Y)\geq 0$ sempre<br>
+  (b) No, pot ser negativa<br>
+  (c) Només quan $X$ i $Y$ són independents</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La informació mútua sempre és no negativa, $I(X;Y)\geq 0$, amb igualtat si i només si $X$ i $Y$ són independents.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.20.</span> Per a tres variables aleatòries $X$, $Y$, $Z$, la regla de la cadena per a la informació mútua és</p>
+  <p>(a) $I(X,Y;Z)=I(X;Z)+I(Y;Z|X)$<br>
+  (b) $I(X,Y;Z)=I(X;Z)+I(Y;Z)$<br>
+  (c) $I(X,Y;Z)=I(X;Z)I(Y;Z)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La regla de la cadena per a la informació mútua estableix que $I(X,Y;Z)=I(X;Z)+I(Y;Z|X)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.21.</span> El condicionament redueix l'entropia: $H(X|Y)\leq H(X)$. Quan es compleix la igualtat?</p>
+  <p>(a) Quan $X$ i $Y$ són independents<br>
+  (b) Quan $X$ és una funció de $Y$<br>
+  (c) Sempre</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>$H(X|Y)=H(X)$ si i només si $X$ i $Y$ són independents, és a dir, $Y$ no aporta cap informació sobre $X$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.22.</span></p>
+  <p>Un codi lineal binari genera $M$ paraules codi mitjançant la matriu generadora $$\boldsymbol{G}=\begin{pmatrix}1&0&1&0&1&0&1\\0&1&0&1&0&1&0\\1&1&0&0&1&1&0\end{pmatrix},$$ les tres files de la qual són linealment independents sobre $\mathbb{F}_2$. Sigui $V$ la selecció d'un missatge de $\{1,\ldots,M\}$ de manera uniforme, i sigui $\boldsymbol{X}=\boldsymbol{s}\boldsymbol{G}$ la paraula codi corresponent. Calcula la informació mútua $I(V;\boldsymbol{X})$ (en bits).</p>
+  <p>(a) $0$<br>
+  (b) $\log_2(3)$<br>
+  (c) $7$<br>
+  (d) $3$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(d)</strong> &#9733;</p>
+    <p>La matriu té $k=3$ files i $n=7$ columnes, així que hi ha $M=2^k=8$ missatges. Com que les files són independents (rang $3$), el codificador $\boldsymbol{s}\mapsto\boldsymbol{s}\boldsymbol{G}$ és un a un, de manera que $V$ és una funció determinista de $\boldsymbol{X}$ i $H(V\mid\boldsymbol{X})=0$. Amb $V$ uniforme, $H(V)=\log_2 8=3$ bits, per tant $I(V;\boldsymbol{X})=H(V)-H(V\mid\boldsymbol{X})=3-0=\boldsymbol{3}$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.23.</span></p>
+  <p>Sigui $X$ una variable aleatòria que pren valors a $\mathcal{X}=\{1,2,3\}$ amb distribució de probabilitat $\{p_1,p_2,p_3\}$. Definim $Y=\lfloor X/2\rfloor$. Calcula l'entropia $H(Y)$ (en bits).</p>
+  <p>(a) $p_1\log_2\frac{1}{p_1}+(p_2+p_3)\log_2\frac{1}{p_2+p_3}$<br>
+  (b) $p_1\log_2\frac{1}{p_1}+p_2\log_2\frac{1}{p_2}+p_3\log_2\frac{1}{p_3}$<br>
+  (c) $(p_1+p_2)\log_2\frac{1}{p_1+p_2}+p_3\log_2\frac{1}{p_3}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Apliquem l'aplicació determinista: $\lfloor 1/2\rfloor=0$, $\lfloor 2/2\rfloor=1$, $\lfloor 3/2\rfloor=1$, així $X=1$ dona $Y=0$ mentre que $X=2,3$ donen tots dos $Y=1$. Per tant $Y$ és binària amb $\mathbb{P}[Y=0]=p_1$ i $\mathbb{P}[Y=1]=p_2+p_3$. Substituint a $H(Y)=\sum_y \mathbb{P}[Y=y]\log_2\frac{1}{\mathbb{P}[Y=y]}$ obtenim $H(Y)=p_1\log_2\frac{1}{p_1}+(p_2+p_3)\log_2\frac{1}{p_2+p_3}=h_2(p_1)$. L'opció de tres termes és $H(X)\ge H(Y)$ (ignora la fusió de $2$ i $3$); l'opció que fusiona $1,2$ correspon a una aplicació diferent.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.24.</span></p>
+  <p>Siguin $X$ i $\hat X$ dues variables aleatòries, i definim $$E=\begin{cases}2 & \hat X=X,\\[2pt] 0 & \hat X\neq X.\end{cases}$$ Sigui $P_{\rm e}=\mathbb{P}[\hat X\neq X]$ la probabilitat d'error. Quant val $H(E)$?</p>
+  <p>(a) $h_2(P_{\rm e})$<br>
+  (b) $2h_2(P_{\rm e})$<br>
+  (c) $1-2h_2(P_{\rm e})$<br>
+  (d) $2P_{\rm e}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>$E$ és binària: $\mathbb{P}[E=0]=P_{\rm e}$ i $\mathbb{P}[E=2]=1-P_{\rm e}$. L'entropia depèn només del vector de probabilitats, no de les etiquetes $0$ i $2$, així que $H(E)=-P_{\rm e}\log_2 P_{\rm e}-(1-P_{\rm e})\log_2(1-P_{\rm e})=h_2(P_{\rm e})$. El factor $2$ de l'opció $2h_2(P_{\rm e})$ suposa erròniament que l'etiqueta escala l'entropia. Per tant $H(E)=h_2(P_{\rm e})$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.25.</span></p>
+  <p>Per a tres variables aleatòries $X$, $Y$, $Z$ amb distribució conjunta $P_{XYZ}$ (entropies en bits), quina de les següents es compleix per a qualsevol distribució conjunta?</p>
+  <p>(a) $H(X,Y,Z)\leq H(X)+H(Y)+H(Z)$<br>
+  (b) $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid Y)$<br>
+  (c) $H(X,Y,Z)\leq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$<br>
+  (d) $H(X,Y,Z)\geq H(X)+H(Y)+H(Z)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Per la regla de la cadena $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid X,Y)$. Com que condicionar redueix l'entropia, $H(Y\mid X)\leq H(Y)$ i $H(Z\mid X,Y)\leq H(Z)$, cosa que dóna la fita de <em>subadditivitat</em> $H(X,Y,Z)\leq H(X)+H(Y)+H(Z)$, amb igualtat si i només si $X,Y,Z$ són mútuament independents. Les altres opcions fallen: la igualtat exigeix la cadena de Markov $X\to Y\to Z$, i la tercera desigualtat apunta en el sentit contrari (la relació certa és $\geq$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.26.</span></p>
+  <p>La regla de la cadena exacta diu $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid X,Y)$. Sota quina condició es compleix l'afirmació $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid Y)$ (fixa't que l'últim terme usa $H(Z\mid Y)$ en lloc de $H(Z\mid X,Y)$)?</p>
+  <p>(a) Es compleix per a qualsevol distribució conjunta<br>
+  (b) Només quan $X\to Y\to Z$ forma una cadena de Markov (és a dir, $Z$ és condicionalment independent de $X$ donat $Y$)<br>
+  (c) Només quan $X$, $Y$, $Z$ són mútuament independents<br>
+  (d) Només quan $X$ i $Y$ són independents</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>Reemplaçar $H(Z\mid X,Y)$ per $H(Z\mid Y)$ exigeix $H(Z\mid Y)=H(Z\mid X,Y)$. Com que condicionar redueix l'entropia, en general només tenim $H(Z\mid X,Y)\leq H(Z\mid Y)$; la igualtat es compleix exactament quan $Z$ és condicionalment independent de $X$ donat $Y$, és a dir, quan $X\to Y\to Z$ és una cadena de Markov. És una hipòtesi estructural, no certa per a un $P_{XYZ}$ arbitrari (p. ex. $X$ un bit just, $Y=0$, $Z=X$ dóna $1\neq 2$).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.27.</span></p>
+  <p>Considera l'afirmació $H(X,Y,Z)\leq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$. Comparant amb la regla de la cadena $H(X,Y,Z)=H(X)+H(Y\mid X)+H(Z\mid X,Y)$, quina és la relació correcta entre els dos costats?</p>
+  <p>(a) $H(X,Y,Z)\geq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$, de manera que l'afirmació és falsa (desigualtat invertida)<br>
+  (b) $H(X,Y,Z)\leq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$, de manera que l'afirmació és certa per a totes les distribucions<br>
+  (c) Els dos costats són sempre iguals<br>
+  (d) L'afirmació es compleix sempre que $Z$ és independent de $(X,Y)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Els dos últims termes $H(Y\mid X)$ i $H(Z\mid X,Y)$ coincideixen amb la regla de la cadena, així que la comparació es redueix al primer terme. Com que condicionar redueix l'entropia, $H(X\mid Y)\leq H(X)$, de manera que el costat dret és com a molt $H(X,Y,Z)$, és a dir, $H(X,Y,Z)\geq H(X\mid Y)+H(Y\mid X)+H(Z\mid X,Y)$ — el contrari de l'afirmació. Igualtat només quan $X$ i $Y$ són independents; contraexemple: $X=Y$ un bit just, $Z=0$ dóna $1\geq 0$ però l'afirmació diu $1\leq 0$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.28.</span></p>
+  <p>Siguin $X_1$, $X_2$ i $Z$ variables aleatòries <em>independents</em>, on $X_1,X_2\in\{0,1\}$ i $Z\in\{1,2\}$, cadascuna uniforme. Definim $Y_1=X_1+Z$ i $Y_2=X_2+Z$ (de manera que $Y_1\to Z\to Y_2$ és una cadena de Markov). Calcula l'entropia condicional $H(Y_1,Y_2\mid Z)$ (en bits).</p>
+  <p>(a) $2$ bits<br>
+  (b) $1$ bit<br>
+  (c) $0$ bits<br>
+  (d) $3$ bits</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Donat $Z$, $Y_1$ i $Y_2$ depenen només de les entrades independents $X_1,X_2$, de manera que són condicionalment independents: $H(Y_1,Y_2\mid Z)=H(Y_1\mid Z)+H(Y_2\mid Z)$. Per a cada $z$ fix, $Y_1=X_1+z$ és uniforme sobre dos valors, donant $H(Y_1\mid Z=z)=\log_2 2=1$ bit (igual per a $Y_2$). Fent la mitjana sobre $Z$ cada terme es manté a $1$ bit, així que el total és $1+1=2$ bits. (Directament: condicionat a qualsevol $z$, $(Y_1,Y_2)$ és uniforme sobre $4$ valors, $\log_2 4=2$.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.29.</span></p>
+  <p>Un canal discret sense memòria s'utilitza $n$ vegades, amb entrades i.i.d. $X_1,\ldots,X_n$ uniformes sobre $\{0,1,2,3\}$. La informació mútua mitjana per ús satisfà $\frac{1}{n}\sum_{i=1}^{n} I(X_i;Y_i)=\frac{3}{2}$ bits/ús del canal. Calcula la incertesa residual sobre el bloc transmès donada tota la sortida, $H(X_1,\ldots,X_n\mid Y_1,\ldots,Y_n)$.</p>
+  <p>(a) $\dfrac{n}{2}$<br>
+  (b) $\dfrac{3n}{2}$<br>
+  (c) $2n$<br>
+  (d) $\dfrac{n}{4}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Fem servir $H(X^n\mid Y^n)=H(X^n)-I(X^n;Y^n)$. Com que les entrades són i.i.d. uniformes sobre $4$ símbols, $H(X^n)=n\log_2 4=2n$ bits. Per a un DMC amb entrades i.i.d. els parells $(X_i,Y_i)$ són independents, així $I(X^n;Y^n)=\sum_i I(X_i;Y_i)=\frac{3n}{2}$. Per tant $H(X^n\mid Y^n)=2n-\frac{3n}{2}=\frac{n}{2}$ bits.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.30.</span></p>
+  <p>Tres variables aleatòries $X_1$, $X_2$ i $X_3$ formen una cadena de Markov $X_1 \to X_2 \to X_3$. A més, $X_2$ és una funció <em>determinista</em> de $X_1$. Quina és l'entropia conjunta $H(X_1, X_2, X_3)$?</p>
+  <p>(a) $H(X_1) + H(X_2) + H(X_3)$<br>
+  (b) $H(X_1) + H(X_3)$<br>
+  (c) $H(X_2) + H(X_3 \mid X_2)$<br>
+  (d) $H(X_1) + H(X_3 \mid X_2)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(d)</strong> &#9733;</p>
+    <p>Partim de la regla de la cadena $H(X_1,X_2,X_3)=H(X_1)+H(X_2\mid X_1)+H(X_3\mid X_1,X_2)$. Com que $X_2=f(X_1)$ és determinista, $H(X_2\mid X_1)=0$. La propietat de Markov $X_1\to X_2\to X_3$ fa que $X_1$ i $X_3$ siguin condicionalment independents donat $X_2$, així que $H(X_3\mid X_1,X_2)=H(X_3\mid X_2)$. Substituint, $H(X_1,X_2,X_3)=H(X_1)+H(X_3\mid X_2)$. (L'opció (c) és $H(X_2,X_3)$ i només coincideix si $f$ és invertible.)</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.31.</span></p>
+  <p>Siguin $X$ i $Y$ amb valors a $\mathcal{X}=\{a,b\}$ i $\mathcal{Y}=\{a,b,c,d\}$. Suposem que $X$ és equiprobable i $H(Y|X)=\frac32$ bits. Exactament una de les relacions següents és falsa. Quina?</p>
+  <p>(a) $H(X,Y)=3$<br>
+  (b) $H(Y)+H(X|Y)=\frac52$<br>
+  (c) $I(X;Y)=1-H(X|Y)$<br>
+  (d) $H(Y)\geq\frac32$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Com que $X$ és uniforme sobre dos símbols, $H(X)=\log_2 2=1$ bit. La regla de la cadena dona $H(X,Y)=H(X)+H(Y|X)=1+\frac32=\frac52$, així que l'afirmació $H(X,Y)=3$ és <strong>falsa</strong>. Les altres es compleixen: (b) és la regla de la cadena $H(Y)+H(X|Y)=H(X,Y)=\frac52$; (c) és $I(X;Y)=H(X)-H(X|Y)=1-H(X|Y)$; (d) se segueix de $H(Y)\ge H(Y|X)=\frac32$ (condicionar redueix l'entropia).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.32.</span></p>
+  <p>Considereu tres variables aleatòries $X$, $Y$ i $Z$. En desenvolupar la informació mútua $I(X;Y,Z)$ amb la <em>regla de la cadena</em> en dos ordres diferents i utilitzant la no-negativitat de la informació mútua condicional, quina desigualtat es pot deduir per a qualsevol trio de variables aleatòries?</p>
+  <p>(a) $I(X;Z)\leq I(X;Y)$<br>
+  (b) $I(X;Z)\leq I(X;Y)+I(X;Z\mid Y)$<br>
+  (c) $I(X;Z)\geq I(X;Y)+I(X;Z\mid Y)$<br>
+  (d) Cap de les altres.</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>La regla de la cadena dona dos desenvolupaments de $I(X;Y,Z)$: separant primer $Y$, $I(X;Y)+I(X;Z\mid Y)$; separant primer $Z$, $I(X;Z)+I(X;Y\mid Z)$. Igualant-los s'obté $I(X;Z)=I(X;Y)+I(X;Z\mid Y)-I(X;Y\mid Z)$. Com que $I(X;Y\mid Z)\geq 0$, en restar-lo resulta $I(X;Z)\leq I(X;Y)+I(X;Z\mid Y)$, l'opció correcta. Noteu que $I(X;Z)\leq I(X;Y)$ és la desigualtat de processament de dades i només es compleix sota la cadena de Markov $X\to Y\to Z$ (per exemple, amb $Y$ independent de $X$ i $Z=X$ falla).</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.33.</span></p>
+  <p>En la demostració de la desigualtat de Fano, $X,Y$ són l'entrada i la sortida del canal, $\hat X=f(Y)$ és una estimació determinista, i $E$ és l'indicador d'error amb $E=1$ si i només si $\hat X\neq X$. Aplicant la <em>regla de la cadena per a l'entropia condicional</em> a $H(X,E\mid Y)$ expandint primer $X$ i després primer $E$, quina identitat s'obté?</p>
+  <p>(a) $H(X\mid Y)+H(E\mid X,Y)=H(E\mid Y)+H(X\mid E,Y)$<br>
+  (b) $H(X\mid Y)+H(E\mid Y)=H(X,E\mid Y)$<br>
+  (c) $H(X\mid Y)\,H(E\mid X,Y)=H(E\mid Y)\,H(X\mid E,Y)$<br>
+  (d) $H(X\mid Y)+H(E\mid X)=H(E\mid Y)+H(X\mid E)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>La regla de la cadena $H(A,B\mid C)=H(A\mid C)+H(B\mid A,C)$ aplicada a $H(X,E\mid Y)$ dóna $H(X\mid Y)+H(E\mid X,Y)$ (expandint primer $X$) i $H(E\mid Y)+H(X\mid E,Y)$ (expandint primer $E$). Tots dos igualen la mateixa entropia conjunta, així que $H(X\mid Y)+H(E\mid X,Y)=H(E\mid Y)+H(X\mid E,Y)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.34.</span></p>
+  <p>L'indicador d'error $E$ compleix $E=1$ si i només si $f(Y)\neq X$, on $f$ és determinista. En la demostració de Fano, quin és el valor de $H(E\mid X,Y)$ i quina identitat s'obté a partir de $H(X\mid Y)+H(E\mid X,Y)=H(E\mid Y)+H(X\mid E,Y)$?</p>
+  <p>(a) $H(E\mid X,Y)=0$, per tant $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)$<br>
+  (b) $H(E\mid X,Y)=h(P_{\mathrm e})$, per tant $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)-h(P_{\mathrm e})$<br>
+  (c) $H(E\mid X,Y)=H(E)$, per tant $H(X\mid Y)=H(X\mid E,Y)$<br>
+  (d) $H(E\mid X,Y)=1$, per tant $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)-1$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>$E$ és una funció determinista del parell $(X,Y)$ (val $1$ exactament quan $f(Y)\neq X$). L'entropia condicional d'una funció determinista de les variables condicionants és zero, així que $H(E\mid X,Y)=0$. Substituint en la identitat de l'apartat (a) s'obté $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.35.</span></p>
+  <p>Partint de $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)$, amb $E$ de Bernoulli i $\mathbb{P}(E=1)=P_{\mathrm e}$, quina fita sobre $H(X\mid Y)$ se segueix usant que condicionar redueix l'entropia?</p>
+  <p>(a) $H(X\mid Y)\leq h(P_{\mathrm e})+H(X\mid E,Y)$<br>
+  (b) $H(X\mid Y)\geq h(P_{\mathrm e})+H(X\mid E,Y)$<br>
+  (c) $H(X\mid Y)\leq P_{\mathrm e}+H(X\mid E,Y)$<br>
+  (d) $H(X\mid Y)\leq h(P_{\mathrm e})\cdot H(X\mid E,Y)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Condicionar mai no incrementa l'entropia, així que $H(E\mid Y)\leq H(E)$. Com que $E$ és Bernoulli$(P_{\mathrm e})$, $H(E)=h(P_{\mathrm e})$. Substituint $H(E\mid Y)$ per $h(P_{\mathrm e})$ en la igualtat s'obté $H(X\mid Y)\leq h(P_{\mathrm e})+H(X\mid E,Y)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.36.</span></p>
+  <p>Expandint $H(X\mid E,Y)$ sobre els valors de $E$, recordeu que quan $E=0$ l'estimació $f(Y)=X$, així que $X$ queda determinat per $Y$. A què se simplifica $H(X\mid E,Y)$?</p>
+  <p>(a) $H(X\mid E=1,Y)\,\mathbb{P}(E=1)$<br>
+  (b) $H(X\mid E=0,Y)\,\mathbb{P}(E=0)$<br>
+  (c) $H(X\mid E=1,Y)+H(X\mid E=0,Y)$<br>
+  (d) $H(X\mid E=1,Y)\,\mathbb{P}(E=0)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Fent la mitjana sobre $E$, $H(X\mid E,Y)=\mathbb{P}(E=0)H(X\mid E=0,Y)+\mathbb{P}(E=1)H(X\mid E=1,Y)$. Quan $E=0$, $X=f(Y)$ queda determinat per $Y$, així que $H(X\mid E=0,Y)=0$ i aquest terme s'anul·la. Per tant $H(X\mid E,Y)=H(X\mid E=1,Y)\,\mathbb{P}(E=1)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.37.</span></p>
+  <p>Donat $E=1$ i $Y$, l'entrada $X$ recorre l'alfabet $\mathcal{X}$. Quina fita superior sobre $H(X\mid E=1,Y)$ dóna la propietat de màxima entropia (la que s'usa en la demostració estàndard de Fano)?</p>
+  <p>(a) $H(X\mid E=1,Y)\leq\log_2|\mathcal{X}|$<br>
+  (b) $H(X\mid E=1,Y)\leq\ln|\mathcal{X}|$<br>
+  (c) $H(X\mid E=1,Y)\leq|\mathcal{X}|$<br>
+  (d) $H(X\mid E=1,Y)\leq\log_2(|\mathcal{X}|+1)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Donat $E=1$ i $Y$, $X$ pren com a molt $|\mathcal{X}|$ valors. Una variable aleatòria sobre un alfabet de mida $|\mathcal{X}|$ té entropia com a molt $\log_2|\mathcal{X}|$ bits (maximitzada per la distribució uniforme). Per tant $H(X\mid E=1,Y)\leq\log_2|\mathcal{X}|$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Exercici 9.38.</span></p>
+  <p>Combinant $H(X\mid Y)\leq h(P_{\mathrm e})+H(X\mid E,Y)$, l'expansió $H(X\mid E,Y)=H(X\mid E=1,Y)\,P_{\mathrm e}$, i $H(X\mid E=1,Y)\leq\log_2|\mathcal{X}|$, quina fita final (desigualtat de Fano) en resulta?</p>
+  <p>(a) $H(X\mid Y)\leq h(P_{\mathrm e})+P_{\mathrm e}\,\log_2|\mathcal{X}|$<br>
+  (b) $H(X\mid Y)\leq h(P_{\mathrm e})+\log_2|\mathcal{X}|$<br>
+  (c) $H(X\mid Y)\leq h(P_{\mathrm e})\,P_{\mathrm e}+\log_2|\mathcal{X}|$<br>
+  (d) $H(X\mid Y)\leq P_{\mathrm e}+P_{\mathrm e}\,\log_2|\mathcal{X}|$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Inseriu l'expansió en la fita: $H(X\mid Y)\leq h(P_{\mathrm e})+P_{\mathrm e}\,H(X\mid E=1,Y)$, usant $\mathbb{P}(E=1)=P_{\mathrm e}$. Després afiteu $H(X\mid E=1,Y)\leq\log_2|\mathcal{X}|$. Això dóna la desigualtat de Fano $H(X\mid Y)\leq h(P_{\mathrm e})+P_{\mathrm e}\,\log_2|\mathcal{X}|$.</p>
+  </details>
+</div>
+
   </main>
 </div>
 
