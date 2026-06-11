@@ -84,7 +84,7 @@
 
     <div class="env-block env-problem">
   <p><span class="env-label">Exercise 7.1.</span></p>
-  <p>A binary $(3,2)$ code with generator matrix</p>$$\boldsymbol{G} = \begin{pmatrix} 1 & 0 & 1\\ 0 & 1 & 0 \end{pmatrix}$$<p>is used over a binary asymmetric channel with probabilities $P_{Y|X}(1|0)=0$ and $P_{Y|X}(0|1)=p$. The decoder uses the rule</p>$$\hat m = \operatorname{argmax}_{m\in{\cal M}} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m).$$<p>The error probability of message $m=3$, $P_{\rm e}(3)$, is</p>
+  <p>A binary $(3,2)$ code with generator matrix</p>$$\boldsymbol{G} = \begin{pmatrix} 1 & 0 & 1\\ 0 & 1 & 0 \end{pmatrix}$$<p>is used over a binary asymmetric channel with probabilities $P_{Y|X}(1|0)=0$ and $P_{Y|X}(0|1)=p$. The decoder uses the rule</p>$$\hat m = \operatorname{argmax}_{m\in{\cal M}} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m).$$<p>Messages $m=1,2,3,4$ correspond to information words $\boldsymbol{s}=00,01,10,11$. The error probability of message $m=3$, $P_{\rm e}(3)$, is</p>
   <p>(a) $1-(1-p)^3$<br>
   (b) $1-2p(1-p)-(1-p)^2$<br>
   (c) $1-(1-p)^2$</p>
@@ -96,7 +96,7 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Exercise 7.2.</span></p>
-  <p>The Hamming $(7,4)$ code with generator matrix</p>$$\boldsymbol{G}=\begin{pmatrix} 1 & 1 & 0 & 1 & 0 & 0 & 0\\ 0 & 1 & 1 & 0 & 1 & 0 & 0\\ 1 & 1 & 1 & 0 & 0 & 1 & 0\\ 1 & 0 & 1 & 0 & 0 & 0 & 1 \end{pmatrix}$$<p>is able to correct $t=1$ errors using a minimum Hamming distance decoder. The error probability of message $m=9$, $P_{\rm e}(9)$, when used over a binary asymmetric channel with probabilities $P_{Y|X}(1|0)=p$ and $P_{Y|X}(0|1)=0$ is</p>
+  <p>The Hamming $(7,4)$ code with generator matrix</p>$$\boldsymbol{G}=\begin{pmatrix} 1 & 1 & 0 & 1 & 0 & 0 & 0\\ 0 & 1 & 1 & 0 & 1 & 0 & 0\\ 1 & 1 & 1 & 0 & 0 & 1 & 0\\ 1 & 0 & 1 & 0 & 0 & 0 & 1 \end{pmatrix}$$<p>is able to correct $t=1$ errors using a minimum Hamming distance decoder. The error probability of message $m=9$ (information word $\boldsymbol{s}_9=1000$), $P_{\rm e}(9)$, when used over a binary asymmetric channel with probabilities $P_{Y|X}(1|0)=p$ and $P_{Y|X}(0|1)=0$ is</p>
   <p>(a) $1-(1-p)^4-4p(1-p)^3$<br>
   (b) $1-(1-p)^3 -3p(1-p)^2$<br>
   (c) $1-(1-p)^7$</p>
@@ -120,13 +120,13 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Exercise 7.4.</span></p>
-  <p>The binary $(6,3)$ code of exercise 3 is used equiprobably over a binary symmetric channel with crossover probability $p$ and decoded using the minimum Hamming distance rule. The union bound to the average error probability $P_{\rm e}$ of this code is</p>
+  <p>The binary $(6,3)$ code with generator matrix $$\boldsymbol{G}=\begin{pmatrix}1 & 0 & 1 & 1 & 0 & 0\\ 1 & 1 & 0 & 0 & 1 & 0\\ 0 & 1 & 1 & 0 & 0 & 1\end{pmatrix}$$ is used equiprobably over a binary symmetric channel with crossover probability $p$ and decoded using the minimum Hamming distance rule. The union bound to the average error probability $P_{\rm e}$ of this code is</p>
   <p>(a) $4 \sum_{t=2}^3 {3 \choose t} p^t (1-p)^{3-t} + 3 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$<br>
   (b) $4 \sum_{t=1}^3 {3 \choose t} p^t (1-p)^{3-t} + 3 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$<br>
   (c) $3 \sum_{t=1}^3 {3 \choose t} p^t (1-p)^{3-t} + 4 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(a)</strong> &#9733;</p>
-    <p>From the codebook in the former exercise, we obtain that the weight distribution is $A_0=1$, $A_3=4$ and $A_4=3$. Applying equation (4.54) of the lecture notes leads to the correct answer.</p>
+    <p>From this code, we obtain that the weight distribution is $A_0=1$, $A_3=4$ and $A_4=3$. Applying equation (4.54) of the lecture notes leads to the correct answer.</p>
   </details>
 </div>
 

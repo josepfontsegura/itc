@@ -132,7 +132,7 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Ejercicio 4.5.</span></p>
-  <p>Ahora construimos un código de Huffman para $X$ e $Y$ por separado, y codificamos $Z=(X,Y)$ concatenando el código de $X$ y el código de $Y$. ¿Cuál es la longitud media de este código para $Z$?</p>
+  <p>Considere una fuente $Z=(X,Y)$ formada por dos símbolos independientes $X$ e $Y$, donde $X$ toma valores en $\{a,b\}$ con probabilidades $\bigl\{\frac{2}{3},\frac{1}{3}\bigr\}$ e $Y$ toma valores en $\{a,b,c\}$ con probabilidades $\bigl\{\frac{1}{2},\frac{1}{3},\frac{1}{6}\bigr\}$. Construimos un código de Huffman para $X$ e $Y$ por separado, y codificamos $Z=(X,Y)$ concatenando el código de $X$ y el código de $Y$. ¿Cuál es la longitud media de este código para $Z$?</p>
   <p>(a) $\frac{5}{2}$<br>
   (b) $\frac{5}{3}$<br>
   (c) $\frac{5}{4}$</p>
@@ -144,7 +144,7 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Ejercicio 4.6.</span></p>
-  <p>Suponemos que $X$ e $Y$ en $Z=(X,Y)$ de las dos preguntas anteriores NO son independientes, sino que se distribuyen como $P_{X|Y}(a|a)=\tfrac{1}{2}$, $P_{X|Y}(a|b)=\tfrac{1}{2}$, $P_{X|Y}(a|c)=0$, mientras que $Y$ tiene la misma distribución que antes. La longitud media (en bits) del código de Huffman óptimo es</p>
+  <p>Sea $Z=(X,Y)$ con $X\in\{a,b\}$ e $Y\in\{a,b,c\}$. Ahora $X$ e $Y$ NO son independientes: $Y$ tiene distribución $\bigl\{\tfrac{1}{2},\tfrac{1}{3},\tfrac{1}{6}\bigr\}$ y $P_{X|Y}(a|a)=\tfrac{1}{2}$, $P_{X|Y}(a|b)=\tfrac{1}{2}$, $P_{X|Y}(a|c)=0$. La longitud media (en bits) del código de Huffman óptimo es</p>
   <p>(a) acotada inferiormente por $\frac{3}{2}+\frac{1}{2}\log_2 3$.<br>
   (b) acotada superiormente por $\frac{3}{2}+\frac{1}{2}\log_2 3$.<br>
   (c) acotada inferiormente por $\frac{5}{2}+\frac{1}{2}\log_2 3$.</p>
@@ -359,7 +359,7 @@
   (d) $\bar{L}=\tfrac{5}{9}\approx 0.5556$ letras/bit (mezcla de longitudes $1$ y $2$)</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>Añadimos una hoja ficticia ($0$) a las ocho hojas de $\tfrac18$ (nueve nodos). La Fusión 1 combina la ficticia con dos hojas de $\tfrac18$ en $\tfrac28$; las seis hojas de $\tfrac18$ restantes se fusionan de tres en tres en dos nodos de $\tfrac38$; la raíz fusiona $\tfrac28,\tfrac38,\tfrac38$. Cada hoja real queda a profundidad $2$, de modo que las $8$ palabras código tienen longitud $2$ y $\bar{L}=\tfrac18\cdot 8\cdot\tfrac{2}{3}=\tfrac{2}{3}\approx 0.6667$ letras/bit, igual que en (a).</p>
+    <p>Añadimos una hoja ficticia ($0$) a las ocho hojas de $\tfrac18$ (nueve nodos). La Fusión 1 combina la ficticia con dos hojas de $\tfrac18$ en $\tfrac28$; las seis hojas de $\tfrac18$ restantes se fusionan de tres en tres en dos nodos de $\tfrac38$; la raíz fusiona $\tfrac28,\tfrac38,\tfrac38$. Cada hoja real queda a profundidad $2$, de modo que las $8$ palabras código tienen longitud $2$ y $\bar{L}=\tfrac18\cdot 8\cdot\tfrac{2}{3}=\tfrac{2}{3}\approx 0.6667$ letras/bit, lo mismo que el código ternario de longitud fija.</p>
   </details>
 </div>
 
@@ -404,7 +404,7 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Ejercicio 4.27.</span></p>
-  <p>El código de Huffman ternario del apartado (a) tiene longitudes de palabra código fijas $\ell(000)=\ell(001)=3$, $\ell(010)=\ell(011)=\ell(100)=\ell(101)=\ell(110)=2$, $\ell(111)=1$. Ahora las probabilidades de los bits se <em>invierten</em>: $\mathbb{P}(0)=\tfrac23$, $\mathbb{P}(1)=\tfrac13$, de modo que cada símbolo toma la probabilidad de su complemento de bits ($000\to\tfrac8{27}$, $111\to\tfrac1{27}$, etc.). Manteniendo el mismo código, ¿cuál es la nueva longitud media por bit de la fuente?</p>
+  <p>Un código de Huffman ternario (construido para las ocho ternas de $3$ bits equiprobables) tiene longitudes de palabra código fijas $\ell(000)=\ell(001)=3$, $\ell(010)=\ell(011)=\ell(100)=\ell(101)=\ell(110)=2$, $\ell(111)=1$. Ahora las probabilidades de los bits se <em>invierten</em>: $\mathbb{P}(0)=\tfrac23$, $\mathbb{P}(1)=\tfrac13$, de modo que cada símbolo toma la probabilidad de su complemento de bits ($000\to\tfrac8{27}$, $111\to\tfrac1{27}$, etc.). Manteniendo el mismo código, ¿cuál es la nueva longitud media por bit de la fuente?</p>
   <p>(a) $\dfrac{65}{81}\approx 0.802$<br>
   (b) $\dfrac{49}{81}\approx 0.605$<br>
   (c) $\dfrac{65}{27}\approx 2.407$<br>

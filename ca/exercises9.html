@@ -83,7 +83,8 @@
     <button id="expand-all" data-expand="Mostra totes les solucions" data-collapse="Amaga totes les solucions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostra totes les solucions</button>
 
     <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 9.1.</span> Quina és l'entropia conjunta $H(X_1, Z)$?</p>
+  <p><span class="env-label">Exercici 9.1.</span></p>
+  <p>Considereu les variables aleatòries independents $X_1$, $X_2$ i $Z$ que prenen valors a $\{0,1\}$, $\{0,1\}$ i $\{1,2\}$, respectivament, totes amb igual probabilitat, i definiu $Y_1=X_1+Z$ i $Y_2=X_2+Z$. Quina és l'entropia conjunta $H(X_1, Z)$?</p>
   <p>(a) $1$<br>
   (b) $2$<br>
   (c) $\log_2(3)$</p>
@@ -94,7 +95,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 9.2.</span> Quina és la informació mútua $I(X_1; Y_1)$?</p>
+  <p><span class="env-label">Exercici 9.2.</span></p>
+  <p>Considereu les variables aleatòries independents $X_1$, $X_2$ i $Z$ que prenen valors a $\{0,1\}$, $\{0,1\}$ i $\{1,2\}$, respectivament, totes amb igual probabilitat, i definiu $Y_1=X_1+Z$ i $Y_2=X_2+Z$. Quina és la informació mútua $I(X_1; Y_1)$?</p>
   <p>(a) $\tfrac12$<br>
   (b) $1$<br>
   (c) $\tfrac32$</p>
@@ -105,7 +107,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 9.3.</span> Quina és l'entropia condicional $H(Y_1 | X_1, Z)$?</p>
+  <p><span class="env-label">Exercici 9.3.</span></p>
+  <p>Considereu les variables aleatòries independents $X_1$, $X_2$ i $Z$ que prenen valors a $\{0,1\}$, $\{0,1\}$ i $\{1,2\}$, respectivament, totes amb igual probabilitat, i definiu $Y_1=X_1+Z$ i $Y_2=X_2+Z$. Quina és l'entropia condicional $H(Y_1 | X_1, Z)$?</p>
   <p>(a) $0$<br>
   (b) $\tfrac12$<br>
   (c) $1$</p>
@@ -116,7 +119,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 9.4.</span> Quina és l'entropia condicional $H(Z \mid Y_1)$?</p>
+  <p><span class="env-label">Exercici 9.4.</span></p>
+  <p>Considereu les variables aleatòries independents $X_1$, $X_2$ i $Z$ que prenen valors a $\{0,1\}$, $\{0,1\}$ i $\{1,2\}$, respectivament, totes amb igual probabilitat, i definiu $Y_1=X_1+Z$ i $Y_2=X_2+Z$. Quina és l'entropia condicional $H(Z \mid Y_1)$?</p>
   <p>(a) $0$<br>
   (b) $\tfrac12$<br>
   (c) $1$</p>
@@ -127,18 +131,20 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 9.5.</span> Quina és l'entropia conjunta $H(Y_1, Y_2, Z)$?</p>
+  <p><span class="env-label">Exercici 9.5.</span></p>
+  <p>Considereu les variables aleatòries independents $X_1$, $X_2$ i $Z$ que prenen valors a $\{0,1\}$, $\{0,1\}$ i $\{1,2\}$, respectivament, totes amb igual probabilitat, i definiu $Y_1=X_1+Z$ i $Y_2=X_2+Z$. Quina és l'entropia conjunta $H(Y_1, Y_2, Z)$?</p>
   <p>(a) $2$<br>
   (b) $\tfrac{11}{4}$<br>
   (c) $3$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
-    <p>En aquest cas, $H(Y_1,Y_2,Z) = H(Z) + H(Y_1,Y_2 \mid Z)$, on $H(Z)=1$. Donat $Z$, $Y_1$ i $Y_2$ són condicionalment independents i, per tant, $H(Y_1,Y_2 \mid Z) = H(Y_1 \mid Z)+H(Y_2 \mid Z)$. A la pregunta 4 vam trobar que $H(Y_1 \mid Z)=1$, mentre que $H(Y_2 \mid Z)=1$ per simetria. Així, $H(Y_1,Y_2 \mid Z)=2$ i $H(Y_1,Y_2,Z)=1+2=3$ bits.</p>
+    <p>En aquest cas, $H(Y_1,Y_2,Z) = H(Z) + H(Y_1,Y_2 \mid Z)$, on $H(Z)=1$. Donat $Z$, $Y_1$ i $Y_2$ són condicionalment independents i, per tant, $H(Y_1,Y_2 \mid Z) = H(Y_1 \mid Z)+H(Y_2 \mid Z)$. Condicionat a $Z$, $Y_1=X_1+Z$ és uniforme sobre dos valors, de manera que $H(Y_1 \mid Z)=1$, i $H(Y_2 \mid Z)=1$ per simetria. Així, $H(Y_1,Y_2 \mid Z)=2$ i $H(Y_1,Y_2,Z)=1+2=3$ bits.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 9.6.</span> Quina és l'entropia $H(X_1)$?</p>
+  <p><span class="env-label">Exercici 9.6.</span></p>
+  <p>Considereu les variables aleatòries independents $X_1$, $X_2$ i $Z$ que prenen valors a $\{0,1\}$, $\{0,1\}$ i $\{1,2\}$, respectivament, totes amb igual probabilitat, i definiu $Y_1=X_1+Z$ i $Y_2=X_2+Z$. Quina és l'entropia $H(X_1)$?</p>
   <p>(a) $0$<br>
   (b) $1$<br>
   (c) $2$</p>
@@ -149,7 +155,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 9.7.</span> Quina és la informació mútua $I(X_1; X_2)$?</p>
+  <p><span class="env-label">Exercici 9.7.</span></p>
+  <p>Considereu les variables aleatòries independents $X_1$, $X_2$ i $Z$ que prenen valors a $\{0,1\}$, $\{0,1\}$ i $\{1,2\}$, respectivament, totes amb igual probabilitat, i definiu $Y_1=X_1+Z$ i $Y_2=X_2+Z$. Quina és la informació mútua $I(X_1; X_2)$?</p>
   <p>(a) $0$<br>
   (b) $\tfrac12$<br>
   (c) $1$</p>
@@ -160,18 +167,20 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 9.8.</span> Quina és l'entropia condicional $H(Y_1 \mid Y_2, Z)$?</p>
+  <p><span class="env-label">Exercici 9.8.</span></p>
+  <p>Considereu les variables aleatòries independents $X_1$, $X_2$ i $Z$ que prenen valors a $\{0,1\}$, $\{0,1\}$ i $\{1,2\}$, respectivament, totes amb igual probabilitat, i definiu $Y_1=X_1+Z$ i $Y_2=X_2+Z$. Quina és l'entropia condicional $H(Y_1 \mid Y_2, Z)$?</p>
   <p>(a) $0$<br>
   (b) $\tfrac12$<br>
   (c) $1$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
-    <p>Donat $Z$, $Y_1$ i $Y_2$ són condicionalment independents, per tant $H(Y_1 \mid Y_2,Z)=H(Y_1 \mid Z)$. De nou, de la pregunta 4 sabem que $H(Y_1 \mid Z)=1$, cosa que ens du a la resposta correcta.</p>
+    <p>Donat $Z$, $Y_1$ i $Y_2$ són condicionalment independents, per tant $H(Y_1 \mid Y_2,Z)=H(Y_1 \mid Z)$. Condicionat a $Z$, $Y_1=X_1+Z$ és uniforme sobre dos valors, així que $H(Y_1 \mid Z)=1$, cosa que ens du a la resposta correcta.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 9.9.</span> Quina és l'entropia conjunta $H(X_1, X_2)$?</p>
+  <p><span class="env-label">Exercici 9.9.</span></p>
+  <p>Considereu les variables aleatòries independents $X_1$, $X_2$ i $Z$ que prenen valors a $\{0,1\}$, $\{0,1\}$ i $\{1,2\}$, respectivament, totes amb igual probabilitat, i definiu $Y_1=X_1+Z$ i $Y_2=X_2+Z$. Quina és l'entropia conjunta $H(X_1, X_2)$?</p>
   <p>(a) $1$<br>
   (b) $\log_2(3)$<br>
   (c) $2$</p>
@@ -182,13 +191,14 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 9.10.</span> Quina és la informació mútua condicional $I(X_1; Z \mid Y_1)$?</p>
+  <p><span class="env-label">Exercici 9.10.</span></p>
+  <p>Considereu les variables aleatòries independents $X_1$, $X_2$ i $Z$ que prenen valors a $\{0,1\}$, $\{0,1\}$ i $\{1,2\}$, respectivament, totes amb igual probabilitat, i definiu $Y_1=X_1+Z$ i $Y_2=X_2+Z$. Quina és la informació mútua condicional $I(X_1; Z \mid Y_1)$?</p>
   <p>(a) $0$<br>
   (b) $\tfrac14$<br>
   (c) $\tfrac12$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
-    <p>Podem escriure la informació mútua condicional com $I(X_1;Z \mid Y_1) = H(X_1 \mid Y_1) - H(X_1 \mid Y_1,Z)$. El primer terme es pot desenvolupar com $H(X_1 \mid Y_1) = H(X_1) - I(X_1;Y_1) = 1 - 1/2 = 1/2$, on hem fet servir que $H(X_1)=1$ i el valor de $I(X_1;Y_1)$ de la pregunta 2. Donats tant $Y_1$ com $Z$, $X_1$ queda perfectament determinat, de manera que $H(X_1 \mid Y_1,Z)=0$. Per tant, $I(X_1;Z \mid Y_1)=1/2-0=1/2$.</p>
+    <p>Podem escriure la informació mútua condicional com $I(X_1;Z \mid Y_1) = H(X_1 \mid Y_1) - H(X_1 \mid Y_1,Z)$. El primer terme es pot desenvolupar com $H(X_1 \mid Y_1) = H(X_1) - I(X_1;Y_1) = 1 - 1/2 = 1/2$, on hem fet servir que $H(X_1)=1$ i $I(X_1;Y_1)=H(Y_1)-H(Y_1\mid X_1)=\tfrac32-1=\tfrac12$ (ja que $Y_1$ pren els valors $\{1,2,3\}$ amb probabilitats $\{\tfrac14,\tfrac12,\tfrac14\}$, i donat $X_1$, $Y_1=X_1+Z$ té $H(Y_1\mid X_1)=1$). Donats tant $Y_1$ com $Z$, $X_1$ queda perfectament determinat, de manera que $H(X_1 \mid Y_1,Z)=0$. Per tant, $I(X_1;Z \mid Y_1)=1/2-0=1/2$.</p>
   </details>
 </div>
 
@@ -205,7 +215,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 9.12.</span> Quin és el valor de l'entropia $H(X_1\cdots X_n)$? Justifica per què les altres són falses.</p>
+  <p><span class="env-label">Exercici 9.12.</span></p>
+  <p>Considereu un canal discret sense memòria amb seqüència d'entrada $(X_1,\ldots,X_n)$ i seqüència de sortida $(Y_1,\ldots,Y_n)$, on els símbols transmesos són i.i.d. i uniformement distribuïts en un alfabet de cardinalitat $|\mathcal{X}|$. Quin és el valor de l'entropia $H(X_1\cdots X_n)$? Justifica per què les altres són falses.</p>
   <p>(a) $n\log_2 |\mathcal{X}|$ (en bits)<br>
   (b) $\log_2 |\mathcal{X}|$ (en bits/ús del canal)<br>
   (c) $\log_2 |\mathcal{X}|$ (en bits)</p>
@@ -216,7 +227,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 9.13.</span> Quin és el valor de la informació mútua empírica $\tfrac{1}{n} \sum_{i=1}^n I(X_i;Y_i)$ quan la incertesa residual és $H(X_1 \cdots X_n|Y_1 \cdots Y_n)=\tfrac{n}{3}\log_2 |\mathcal{X}|$?</p>
+  <p><span class="env-label">Exercici 9.13.</span></p>
+  <p>Considereu un canal discret sense memòria amb seqüència d'entrada $(X_1,\ldots,X_n)$ i seqüència de sortida $(Y_1,\ldots,Y_n)$, on els símbols transmesos són i.i.d. i uniformement distribuïts en un alfabet de cardinalitat $|\mathcal{X}|$. Quin és el valor de la informació mútua empírica $\tfrac{1}{n} \sum_{i=1}^n I(X_i;Y_i)$ quan la incertesa residual és $H(X_1 \cdots X_n|Y_1 \cdots Y_n)=\tfrac{n}{3}\log_2 |\mathcal{X}|$?</p>
   <p>(a) $\frac{2n}{3} \log_2 |\mathcal{X}|$<br>
   (b) $\frac{n}{3} \log_2 |\mathcal{X}|$<br>
   (c) $\frac{2}{3} \log_2 |\mathcal{X}|$</p>
@@ -479,7 +491,7 @@
   (d) $H(E\mid X,Y)=1$, per tant $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)-1$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>$E$ és una funció determinista del parell $(X,Y)$ (val $1$ exactament quan $f(Y)\neq X$). L'entropia condicional d'una funció determinista de les variables condicionants és zero, així que $H(E\mid X,Y)=0$. Substituint en la identitat de l'apartat (a) s'obté $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)$.</p>
+    <p>$E$ és una funció determinista del parell $(X,Y)$ (val $1$ exactament quan $f(Y)\neq X$). L'entropia condicional d'una funció determinista de les variables condicionants és zero, així que $H(E\mid X,Y)=0$. Substituint en la identitat de l'enunciat s'obté $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)$.</p>
   </details>
 </div>
 

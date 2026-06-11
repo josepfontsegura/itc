@@ -402,7 +402,7 @@
   (d) $I(X;Y)=h_2(q)-q\,h_2(p)-(1-q)\,h_2(2p)$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>Use $I(X;Y)=H(Y)-H(Y\mid X)$ y sustituya los apartados (a) y (b): $I(X;Y)=h_2\bigl(q(1-p)+(1-q)2p\bigr)-q\,h_2(p)-(1-q)\,h_2(2p)$. La opción 2 suma en vez de restar $H(Y\mid X)$; la opción 3 tiene el signo invertido; la opción 4 usa erróneamente $H(X)=h_2(q)$ en lugar de $H(Y)$ (es decir, solo coinciden en el caso sin ruido $p=0$).</p>
+    <p>Use $I(X;Y)=H(Y)-H(Y\mid X)$ y sustituya los $H(Y)$ y $H(Y\mid X)$ dados en el enunciado: $I(X;Y)=h_2\bigl(q(1-p)+(1-q)2p\bigr)-q\,h_2(p)-(1-q)\,h_2(2p)$. La opción 2 suma en vez de restar $H(Y\mid X)$; la opción 3 tiene el signo invertido; la opción 4 usa erróneamente $H(X)=h_2(q)$ en lugar de $H(Y)$ (es decir, solo coinciden en el caso sin ruido $p=0$).</p>
   </details>
 </div>
 
@@ -558,7 +558,7 @@
   (d) $q^\star\approx 0.679$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>Derivando con $\frac{d}{dp}h_2(p)=\log_2\frac{1-p}{p}$ con $p=\frac14+\frac34 q$ y factor $\frac34$ de la regla de la cadena: $I'(q)=\frac34\log_2\frac{1-p}{p}+h_2(\frac14)=0$, dando el sesgo óptimo de salida $p^\star\approx0.679$. Sustituyendo hacia atrás $q=\frac{p-1/4}{3/4}$ resulta $q^\star\approx \mathbf{0.572}$. Nótese que $0.679$ es el sesgo de salida $p^\star$, no $q$; $\frac13$ es la entrada (subóptima) del apartado (a).</p>
+    <p>Derivando con $\frac{d}{dp}h_2(p)=\log_2\frac{1-p}{p}$ con $p=\frac14+\frac34 q$ y factor $\frac34$ de la regla de la cadena: $I'(q)=\frac34\log_2\frac{1-p}{p}+h_2(\frac14)=0$, dando el sesgo óptimo de salida $p^\star\approx0.679$. Sustituyendo hacia atrás $q=\frac{p-1/4}{3/4}$ resulta $q^\star\approx \mathbf{0.572}$. Nótese que $0.679$ es el sesgo de salida $p^\star$, no $q$; $\frac13$ es solo un valor de entrada (subóptimo), no el óptimo.</p>
   </details>
 </div>
 
@@ -571,7 +571,7 @@
   (d) $C=1$ bit</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>La capacidad es $I$ evaluada en la entrada óptima: $C=h_2(0.679)-(1-0.572)\,h_2(\frac14)\approx \mathbf{0.558}$ bits por uso del canal. La forma cerrada del canal Z $C=\log_2(1+(1-p)\,p^{p/(1-p)})$ con $p=\frac14$ lo confirma. Nótese que $C\approx0.558&gt;0.459$, el valor en la entrada subóptima del apartado (a), ya que la capacidad maximiza $I$ sobre todas las entradas.</p>
+    <p>La capacidad es $I$ evaluada en la entrada óptima: $C=h_2(0.679)-(1-0.572)\,h_2(\frac14)\approx \mathbf{0.558}$ bits por uso del canal. La forma cerrada del canal Z $C=\log_2(1+(1-p)\,p^{p/(1-p)})$ con $p=\frac14$ lo confirma. Nótese que $C\approx0.558&gt;0.459$, el valor de $I$ en la entrada subóptima $q=\tfrac13$, ya que la capacidad maximiza $I$ sobre todas las entradas.</p>
   </details>
 </div>
 

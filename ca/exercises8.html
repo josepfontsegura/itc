@@ -402,7 +402,7 @@
   (d) $I(X;Y)=h_2(q)-q\,h_2(p)-(1-q)\,h_2(2p)$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Usa $I(X;Y)=H(Y)-H(Y\mid X)$ i substitueix els apartats (a) i (b): $I(X;Y)=h_2\bigl(q(1-p)+(1-q)2p\bigr)-q\,h_2(p)-(1-q)\,h_2(2p)$. L'opció 2 suma en lloc de restar $H(Y\mid X)$; l'opció 3 té el signe invertit; l'opció 4 usa erròniament $H(X)=h_2(q)$ en lloc de $H(Y)$ (només coincideixen en el cas sense soroll $p=0$).</p>
+    <p>Usa $I(X;Y)=H(Y)-H(Y\mid X)$ i substitueix els $H(Y)$ i $H(Y\mid X)$ donats a l'enunciat: $I(X;Y)=h_2\bigl(q(1-p)+(1-q)2p\bigr)-q\,h_2(p)-(1-q)\,h_2(2p)$. L'opció 2 suma en lloc de restar $H(Y\mid X)$; l'opció 3 té el signe invertit; l'opció 4 usa erròniament $H(X)=h_2(q)$ en lloc de $H(Y)$ (només coincideixen en el cas sense soroll $p=0$).</p>
   </details>
 </div>
 
@@ -558,7 +558,7 @@
   (d) $q^\star\approx 0.679$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Derivant amb $\frac{d}{dp}h_2(p)=\log_2\frac{1-p}{p}$ amb $p=\frac14+\frac34 q$ i factor $\frac34$ de la regla de la cadena: $I'(q)=\frac34\log_2\frac{1-p}{p}+h_2(\frac14)=0$, donant el biaix òptim de sortida $p^\star\approx0.679$. Substituint enrere $q=\frac{p-1/4}{3/4}$ resulta $q^\star\approx \mathbf{0.572}$. Observa que $0.679$ és el biaix de sortida $p^\star$, no $q$; $\frac13$ és l'entrada (subòptima) de l'apartat (a).</p>
+    <p>Derivant amb $\frac{d}{dp}h_2(p)=\log_2\frac{1-p}{p}$ amb $p=\frac14+\frac34 q$ i factor $\frac34$ de la regla de la cadena: $I'(q)=\frac34\log_2\frac{1-p}{p}+h_2(\frac14)=0$, donant el biaix òptim de sortida $p^\star\approx0.679$. Substituint enrere $q=\frac{p-1/4}{3/4}$ resulta $q^\star\approx \mathbf{0.572}$. Observa que $0.679$ és el biaix de sortida $p^\star$, no $q$; $\frac13$ és només un valor d'entrada (subòptim), no l'òptim.</p>
   </details>
 </div>
 
@@ -571,7 +571,7 @@
   (d) $C=1$ bit</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>La capacitat és $I$ avaluada a l'entrada òptima: $C=h_2(0.679)-(1-0.572)\,h_2(\frac14)\approx \mathbf{0.558}$ bits per ús del canal. La forma tancada del canal Z $C=\log_2(1+(1-p)\,p^{p/(1-p)})$ amb $p=\frac14$ ho confirma. Observa que $C\approx0.558&gt;0.459$, el valor a l'entrada subòptima de l'apartat (a), ja que la capacitat maximitza $I$ sobre totes les entrades.</p>
+    <p>La capacitat és $I$ avaluada a l'entrada òptima: $C=h_2(0.679)-(1-0.572)\,h_2(\frac14)\approx \mathbf{0.558}$ bits per ús del canal. La forma tancada del canal Z $C=\log_2(1+(1-p)\,p^{p/(1-p)})$ amb $p=\frac14$ ho confirma. Observa que $C\approx0.558&gt;0.459$, el valor de $I$ a l'entrada subòptima $q=\tfrac13$, ja que la capacitat maximitza $I$ sobre totes les entrades.</p>
   </details>
 </div>
 

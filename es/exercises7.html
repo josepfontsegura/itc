@@ -84,7 +84,7 @@
 
     <div class="env-block env-problem">
   <p><span class="env-label">Ejercicio 7.1.</span></p>
-  <p>Un código binario $(3,2)$ con matriz generadora</p>$$\boldsymbol{G} = \begin{pmatrix} 1 & 0 & 1\\ 0 & 1 & 0 \end{pmatrix}$$<p>se utiliza sobre un canal binario asimétrico con probabilidades $P_{Y|X}(1|0)=0$ y $P_{Y|X}(0|1)=p$. El decodificador usa la regla</p>$$\hat m = \operatorname{argmax}_{m\in{\cal M}} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m).$$<p>La probabilidad de error del mensaje $m=3$, $P_{\rm e}(3)$, es</p>
+  <p>Un código binario $(3,2)$ con matriz generadora</p>$$\boldsymbol{G} = \begin{pmatrix} 1 & 0 & 1\\ 0 & 1 & 0 \end{pmatrix}$$<p>se utiliza sobre un canal binario asimétrico con probabilidades $P_{Y|X}(1|0)=0$ y $P_{Y|X}(0|1)=p$. El decodificador usa la regla</p>$$\hat m = \operatorname{argmax}_{m\in{\cal M}} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m).$$<p>Los mensajes $m=1,2,3,4$ corresponden a las palabras de información $\boldsymbol{s}=00,01,10,11$. La probabilidad de error del mensaje $m=3$, $P_{\rm e}(3)$, es</p>
   <p>(a) $1-(1-p)^3$<br>
   (b) $1-2p(1-p)-(1-p)^2$<br>
   (c) $1-(1-p)^2$</p>
@@ -96,7 +96,7 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Ejercicio 7.2.</span></p>
-  <p>El código de Hamming $(7,4)$ con matriz generadora</p>$$\boldsymbol{G}=\begin{pmatrix} 1 & 1 & 0 & 1 & 0 & 0 & 0\\ 0 & 1 & 1 & 0 & 1 & 0 & 0\\ 1 & 1 & 1 & 0 & 0 & 1 & 0\\ 1 & 0 & 1 & 0 & 0 & 0 & 1 \end{pmatrix}$$<p>puede corregir $t=1$ errores usando un decodificador de distancia de Hamming mínima. La probabilidad de error del mensaje $m=9$, $P_{\rm e}(9)$, cuando se utiliza sobre un canal binario asimétrico con probabilidades $P_{Y|X}(1|0)=p$ y $P_{Y|X}(0|1)=0$ es</p>
+  <p>El código de Hamming $(7,4)$ con matriz generadora</p>$$\boldsymbol{G}=\begin{pmatrix} 1 & 1 & 0 & 1 & 0 & 0 & 0\\ 0 & 1 & 1 & 0 & 1 & 0 & 0\\ 1 & 1 & 1 & 0 & 0 & 1 & 0\\ 1 & 0 & 1 & 0 & 0 & 0 & 1 \end{pmatrix}$$<p>puede corregir $t=1$ errores usando un decodificador de distancia de Hamming mínima. La probabilidad de error del mensaje $m=9$ (palabra de información $\boldsymbol{s}_9=1000$), $P_{\rm e}(9)$, cuando se utiliza sobre un canal binario asimétrico con probabilidades $P_{Y|X}(1|0)=p$ y $P_{Y|X}(0|1)=0$ es</p>
   <p>(a) $1-(1-p)^4-4p(1-p)^3$<br>
   (b) $1-(1-p)^3 -3p(1-p)^2$<br>
   (c) $1-(1-p)^7$</p>
@@ -120,13 +120,13 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Ejercicio 7.4.</span></p>
-  <p>El código binario $(6,3)$ del ejercicio 3 se utiliza de manera equiprobable sobre un canal binario simétrico con probabilidad de cruce $p$ y se decodifica usando la regla de distancia de Hamming mínima. La cota de la unión a la probabilidad de error media $P_{\rm e}$ de este código es</p>
+  <p>El código binario $(6,3)$ con matriz generadora $$\boldsymbol{G}=\begin{pmatrix}1 & 0 & 1 & 1 & 0 & 0\\ 1 & 1 & 0 & 0 & 1 & 0\\ 0 & 1 & 1 & 0 & 0 & 1\end{pmatrix}$$ se utiliza de manera equiprobable sobre un canal binario simétrico con probabilidad de cruce $p$ y se decodifica usando la regla de distancia de Hamming mínima. La cota de la unión a la probabilidad de error media $P_{\rm e}$ de este código es</p>
   <p>(a) $4 \sum_{t=2}^3 {3 \choose t} p^t (1-p)^{3-t} + 3 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$<br>
   (b) $4 \sum_{t=1}^3 {3 \choose t} p^t (1-p)^{3-t} + 3 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$<br>
   (c) $3 \sum_{t=1}^3 {3 \choose t} p^t (1-p)^{3-t} + 4 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>A partir del libro de código del ejercicio anterior, obtenemos que la distribución de pesos es $A_0=1$, $A_3=4$ y $A_4=3$. Aplicando la ecuación (4.54) de los apuntes se llega a la respuesta correcta.</p>
+    <p>A partir de este código, obtenemos que la distribución de pesos es $A_0=1$, $A_3=4$ y $A_4=3$. Aplicando la ecuación (4.54) de los apuntes se llega a la respuesta correcta.</p>
   </details>
 </div>
 

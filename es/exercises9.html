@@ -83,7 +83,8 @@
     <button id="expand-all" data-expand="Mostrar todas las soluciones" data-collapse="Ocultar todas las soluciones" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostrar todas las soluciones</button>
 
     <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 9.1.</span> ¿Cuál es la entropía conjunta $H(X_1, Z)$?</p>
+  <p><span class="env-label">Ejercicio 9.1.</span></p>
+  <p>Considere las variables aleatorias independientes $X_1$, $X_2$ y $Z$ que toman valores en $\{0,1\}$, $\{0,1\}$ y $\{1,2\}$, respectivamente, todas con igual probabilidad, y defina $Y_1=X_1+Z$ y $Y_2=X_2+Z$. ¿Cuál es la entropía conjunta $H(X_1, Z)$?</p>
   <p>(a) $1$<br>
   (b) $2$<br>
   (c) $\log_2(3)$</p>
@@ -94,7 +95,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 9.2.</span> ¿Cuál es la información mutua $I(X_1; Y_1)$?</p>
+  <p><span class="env-label">Ejercicio 9.2.</span></p>
+  <p>Considere las variables aleatorias independientes $X_1$, $X_2$ y $Z$ que toman valores en $\{0,1\}$, $\{0,1\}$ y $\{1,2\}$, respectivamente, todas con igual probabilidad, y defina $Y_1=X_1+Z$ y $Y_2=X_2+Z$. ¿Cuál es la información mutua $I(X_1; Y_1)$?</p>
   <p>(a) $\tfrac12$<br>
   (b) $1$<br>
   (c) $\tfrac32$</p>
@@ -105,7 +107,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 9.3.</span> ¿Cuál es la entropía condicional $H(Y_1 | X_1, Z)$?</p>
+  <p><span class="env-label">Ejercicio 9.3.</span></p>
+  <p>Considere las variables aleatorias independientes $X_1$, $X_2$ y $Z$ que toman valores en $\{0,1\}$, $\{0,1\}$ y $\{1,2\}$, respectivamente, todas con igual probabilidad, y defina $Y_1=X_1+Z$ y $Y_2=X_2+Z$. ¿Cuál es la entropía condicional $H(Y_1 | X_1, Z)$?</p>
   <p>(a) $0$<br>
   (b) $\tfrac12$<br>
   (c) $1$</p>
@@ -116,7 +119,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 9.4.</span> ¿Cuál es la entropía condicional $H(Z \mid Y_1)$?</p>
+  <p><span class="env-label">Ejercicio 9.4.</span></p>
+  <p>Considere las variables aleatorias independientes $X_1$, $X_2$ y $Z$ que toman valores en $\{0,1\}$, $\{0,1\}$ y $\{1,2\}$, respectivamente, todas con igual probabilidad, y defina $Y_1=X_1+Z$ y $Y_2=X_2+Z$. ¿Cuál es la entropía condicional $H(Z \mid Y_1)$?</p>
   <p>(a) $0$<br>
   (b) $\tfrac12$<br>
   (c) $1$</p>
@@ -127,18 +131,20 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 9.5.</span> ¿Cuál es la entropía conjunta $H(Y_1, Y_2, Z)$?</p>
+  <p><span class="env-label">Ejercicio 9.5.</span></p>
+  <p>Considere las variables aleatorias independientes $X_1$, $X_2$ y $Z$ que toman valores en $\{0,1\}$, $\{0,1\}$ y $\{1,2\}$, respectivamente, todas con igual probabilidad, y defina $Y_1=X_1+Z$ y $Y_2=X_2+Z$. ¿Cuál es la entropía conjunta $H(Y_1, Y_2, Z)$?</p>
   <p>(a) $2$<br>
   (b) $\tfrac{11}{4}$<br>
   (c) $3$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
-    <p>En este caso, $H(Y_1,Y_2,Z) = H(Z) + H(Y_1,Y_2 \mid Z)$, donde $H(Z)=1$. Dado $Z$, $Y_1$ y $Y_2$ son condicionalmente independientes y, por tanto, $H(Y_1,Y_2 \mid Z) = H(Y_1 \mid Z)+H(Y_2 \mid Z)$. En la pregunta 4 encontramos que $H(Y_1 \mid Z)=1$, mientras que $H(Y_2 \mid Z)=1$ por simetría. Así, $H(Y_1,Y_2 \mid Z)=2$ y $H(Y_1,Y_2,Z)=1+2=3$ bits.</p>
+    <p>En este caso, $H(Y_1,Y_2,Z) = H(Z) + H(Y_1,Y_2 \mid Z)$, donde $H(Z)=1$. Dado $Z$, $Y_1$ y $Y_2$ son condicionalmente independientes y, por tanto, $H(Y_1,Y_2 \mid Z) = H(Y_1 \mid Z)+H(Y_2 \mid Z)$. Condicionado a $Z$, $Y_1=X_1+Z$ es uniforme sobre dos valores, de modo que $H(Y_1 \mid Z)=1$, y $H(Y_2 \mid Z)=1$ por simetría. Así, $H(Y_1,Y_2 \mid Z)=2$ y $H(Y_1,Y_2,Z)=1+2=3$ bits.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 9.6.</span> ¿Cuál es la entropía $H(X_1)$?</p>
+  <p><span class="env-label">Ejercicio 9.6.</span></p>
+  <p>Considere las variables aleatorias independientes $X_1$, $X_2$ y $Z$ que toman valores en $\{0,1\}$, $\{0,1\}$ y $\{1,2\}$, respectivamente, todas con igual probabilidad, y defina $Y_1=X_1+Z$ y $Y_2=X_2+Z$. ¿Cuál es la entropía $H(X_1)$?</p>
   <p>(a) $0$<br>
   (b) $1$<br>
   (c) $2$</p>
@@ -149,7 +155,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 9.7.</span> ¿Cuál es la información mutua $I(X_1; X_2)$?</p>
+  <p><span class="env-label">Ejercicio 9.7.</span></p>
+  <p>Considere las variables aleatorias independientes $X_1$, $X_2$ y $Z$ que toman valores en $\{0,1\}$, $\{0,1\}$ y $\{1,2\}$, respectivamente, todas con igual probabilidad, y defina $Y_1=X_1+Z$ y $Y_2=X_2+Z$. ¿Cuál es la información mutua $I(X_1; X_2)$?</p>
   <p>(a) $0$<br>
   (b) $\tfrac12$<br>
   (c) $1$</p>
@@ -160,18 +167,20 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 9.8.</span> ¿Cuál es la entropía condicional $H(Y_1 \mid Y_2, Z)$?</p>
+  <p><span class="env-label">Ejercicio 9.8.</span></p>
+  <p>Considere las variables aleatorias independientes $X_1$, $X_2$ y $Z$ que toman valores en $\{0,1\}$, $\{0,1\}$ y $\{1,2\}$, respectivamente, todas con igual probabilidad, y defina $Y_1=X_1+Z$ y $Y_2=X_2+Z$. ¿Cuál es la entropía condicional $H(Y_1 \mid Y_2, Z)$?</p>
   <p>(a) $0$<br>
   (b) $\tfrac12$<br>
   (c) $1$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
-    <p>Dado $Z$, $Y_1$ y $Y_2$ son condicionalmente independientes, por tanto $H(Y_1 \mid Y_2,Z)=H(Y_1 \mid Z)$. De nuevo, de la pregunta 4 sabemos que $H(Y_1 \mid Z)=1$, lo que conduce a la respuesta correcta.</p>
+    <p>Dado $Z$, $Y_1$ y $Y_2$ son condicionalmente independientes, por tanto $H(Y_1 \mid Y_2,Z)=H(Y_1 \mid Z)$. Condicionado a $Z$, $Y_1=X_1+Z$ es uniforme sobre dos valores, así que $H(Y_1 \mid Z)=1$, lo que conduce a la respuesta correcta.</p>
   </details>
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 9.9.</span> ¿Cuál es la entropía conjunta $H(X_1, X_2)$?</p>
+  <p><span class="env-label">Ejercicio 9.9.</span></p>
+  <p>Considere las variables aleatorias independientes $X_1$, $X_2$ y $Z$ que toman valores en $\{0,1\}$, $\{0,1\}$ y $\{1,2\}$, respectivamente, todas con igual probabilidad, y defina $Y_1=X_1+Z$ y $Y_2=X_2+Z$. ¿Cuál es la entropía conjunta $H(X_1, X_2)$?</p>
   <p>(a) $1$<br>
   (b) $\log_2(3)$<br>
   (c) $2$</p>
@@ -182,13 +191,14 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 9.10.</span> ¿Cuál es la información mutua condicional $I(X_1; Z \mid Y_1)$?</p>
+  <p><span class="env-label">Ejercicio 9.10.</span></p>
+  <p>Considere las variables aleatorias independientes $X_1$, $X_2$ y $Z$ que toman valores en $\{0,1\}$, $\{0,1\}$ y $\{1,2\}$, respectivamente, todas con igual probabilidad, y defina $Y_1=X_1+Z$ y $Y_2=X_2+Z$. ¿Cuál es la información mutua condicional $I(X_1; Z \mid Y_1)$?</p>
   <p>(a) $0$<br>
   (b) $\tfrac14$<br>
   (c) $\tfrac12$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
-    <p>Podemos escribir la información mutua condicional como $I(X_1;Z \mid Y_1) = H(X_1 \mid Y_1) - H(X_1 \mid Y_1,Z)$. El primer término se puede desarrollar como $H(X_1 \mid Y_1) = H(X_1) - I(X_1;Y_1) = 1 - 1/2 = 1/2$, donde hemos usado que $H(X_1)=1$ y el valor de $I(X_1;Y_1)$ de la pregunta 2. Dados tanto $Y_1$ como $Z$, $X_1$ queda perfectamente determinado, de modo que $H(X_1 \mid Y_1,Z)=0$. Por tanto, $I(X_1;Z \mid Y_1)=1/2-0=1/2$.</p>
+    <p>Podemos escribir la información mutua condicional como $I(X_1;Z \mid Y_1) = H(X_1 \mid Y_1) - H(X_1 \mid Y_1,Z)$. El primer término se puede desarrollar como $H(X_1 \mid Y_1) = H(X_1) - I(X_1;Y_1) = 1 - 1/2 = 1/2$, donde hemos usado que $H(X_1)=1$ y $I(X_1;Y_1)=H(Y_1)-H(Y_1\mid X_1)=\tfrac32-1=\tfrac12$ (ya que $Y_1$ toma los valores $\{1,2,3\}$ con probabilidades $\{\tfrac14,\tfrac12,\tfrac14\}$, y dado $X_1$, $Y_1=X_1+Z$ tiene $H(Y_1\mid X_1)=1$). Dados tanto $Y_1$ como $Z$, $X_1$ queda perfectamente determinado, de modo que $H(X_1 \mid Y_1,Z)=0$. Por tanto, $I(X_1;Z \mid Y_1)=1/2-0=1/2$.</p>
   </details>
 </div>
 
@@ -205,7 +215,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 9.12.</span> ¿Cuál es el valor de la entropía $H(X_1\cdots X_n)$? Justifica por qué las demás son falsas.</p>
+  <p><span class="env-label">Ejercicio 9.12.</span></p>
+  <p>Considere un canal discreto sin memoria con secuencia de entrada $(X_1,\ldots,X_n)$ y secuencia de salida $(Y_1,\ldots,Y_n)$, donde los símbolos transmitidos son i.i.d. y uniformemente distribuidos en un alfabeto de cardinalidad $|\mathcal{X}|$. ¿Cuál es el valor de la entropía $H(X_1\cdots X_n)$? Justifica por qué las demás son falsas.</p>
   <p>(a) $n\log_2 |\mathcal{X}|$ (en bits)<br>
   (b) $\log_2 |\mathcal{X}|$ (en bits/uso del canal)<br>
   (c) $\log_2 |\mathcal{X}|$ (en bits)</p>
@@ -216,7 +227,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 9.13.</span> ¿Cuál es el valor de la información mutua empírica $\tfrac{1}{n} \sum_{i=1}^n I(X_i;Y_i)$ cuando la incertidumbre residual es $H(X_1 \cdots X_n|Y_1 \cdots Y_n)=\tfrac{n}{3}\log_2 |\mathcal{X}|$?</p>
+  <p><span class="env-label">Ejercicio 9.13.</span></p>
+  <p>Considere un canal discreto sin memoria con secuencia de entrada $(X_1,\ldots,X_n)$ y secuencia de salida $(Y_1,\ldots,Y_n)$, donde los símbolos transmitidos son i.i.d. y uniformemente distribuidos en un alfabeto de cardinalidad $|\mathcal{X}|$. ¿Cuál es el valor de la información mutua empírica $\tfrac{1}{n} \sum_{i=1}^n I(X_i;Y_i)$ cuando la incertidumbre residual es $H(X_1 \cdots X_n|Y_1 \cdots Y_n)=\tfrac{n}{3}\log_2 |\mathcal{X}|$?</p>
   <p>(a) $\frac{2n}{3} \log_2 |\mathcal{X}|$<br>
   (b) $\frac{n}{3} \log_2 |\mathcal{X}|$<br>
   (c) $\frac{2}{3} \log_2 |\mathcal{X}|$</p>
@@ -479,7 +491,7 @@
   (d) $H(E\mid X,Y)=1$, por tanto $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)-1$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>$E$ es una función determinista del par $(X,Y)$ (vale $1$ exactamente cuando $f(Y)\neq X$). La entropía condicional de una función determinista de las variables condicionantes es cero, es decir, $H(E\mid X,Y)=0$. Sustituyendo en la identidad del apartado (a) se obtiene $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)$.</p>
+    <p>$E$ es una función determinista del par $(X,Y)$ (vale $1$ exactamente cuando $f(Y)\neq X$). La entropía condicional de una función determinista de las variables condicionantes es cero, es decir, $H(E\mid X,Y)=0$. Sustituyendo en la identidad del enunciado se obtiene $H(X\mid Y)=H(E\mid Y)+H(X\mid E,Y)$.</p>
   </details>
 </div>
 

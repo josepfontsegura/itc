@@ -84,7 +84,7 @@
 
     <div class="env-block env-problem">
   <p><span class="env-label">Exercici 7.1.</span></p>
-  <p>Un codi binari $(3,2)$ amb matriu generadora</p>$$\boldsymbol{G} = \begin{pmatrix} 1 & 0 & 1\\ 0 & 1 & 0 \end{pmatrix}$$<p>s'utilitza sobre un canal binari asimètric amb probabilitats $P_{Y|X}(1|0)=0$ i $P_{Y|X}(0|1)=p$. El descodificador utilitza la regla</p>$$\hat m = \operatorname{argmax}_{m\in{\cal M}} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m).$$<p>La probabilitat d'error del missatge $m=3$, $P_{\rm e}(3)$, és</p>
+  <p>Un codi binari $(3,2)$ amb matriu generadora</p>$$\boldsymbol{G} = \begin{pmatrix} 1 & 0 & 1\\ 0 & 1 & 0 \end{pmatrix}$$<p>s'utilitza sobre un canal binari asimètric amb probabilitats $P_{Y|X}(1|0)=0$ i $P_{Y|X}(0|1)=p$. El descodificador utilitza la regla</p>$$\hat m = \operatorname{argmax}_{m\in{\cal M}} P_{\boldsymbol{Y}|\boldsymbol{X}}(\boldsymbol{y}|\boldsymbol{x}_m).$$<p>Els missatges $m=1,2,3,4$ corresponen a les paraules d'informació $\boldsymbol{s}=00,01,10,11$. La probabilitat d'error del missatge $m=3$, $P_{\rm e}(3)$, és</p>
   <p>(a) $1-(1-p)^3$<br>
   (b) $1-2p(1-p)-(1-p)^2$<br>
   (c) $1-(1-p)^2$</p>
@@ -96,7 +96,7 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Exercici 7.2.</span></p>
-  <p>El codi de Hamming $(7,4)$ amb matriu generadora</p>$$\boldsymbol{G}=\begin{pmatrix} 1 & 1 & 0 & 1 & 0 & 0 & 0\\ 0 & 1 & 1 & 0 & 1 & 0 & 0\\ 1 & 1 & 1 & 0 & 0 & 1 & 0\\ 1 & 0 & 1 & 0 & 0 & 0 & 1 \end{pmatrix}$$<p>pot corregir $t=1$ errors utilitzant un descodificador de distància de Hamming mínima. La probabilitat d'error del missatge $m=9$, $P_{\rm e}(9)$, quan s'utilitza sobre un canal binari asimètric amb probabilitats $P_{Y|X}(1|0)=p$ i $P_{Y|X}(0|1)=0$ és</p>
+  <p>El codi de Hamming $(7,4)$ amb matriu generadora</p>$$\boldsymbol{G}=\begin{pmatrix} 1 & 1 & 0 & 1 & 0 & 0 & 0\\ 0 & 1 & 1 & 0 & 1 & 0 & 0\\ 1 & 1 & 1 & 0 & 0 & 1 & 0\\ 1 & 0 & 1 & 0 & 0 & 0 & 1 \end{pmatrix}$$<p>pot corregir $t=1$ errors utilitzant un descodificador de distància de Hamming mínima. La probabilitat d'error del missatge $m=9$ (paraula d'informació $\boldsymbol{s}_9=1000$), $P_{\rm e}(9)$, quan s'utilitza sobre un canal binari asimètric amb probabilitats $P_{Y|X}(1|0)=p$ i $P_{Y|X}(0|1)=0$ és</p>
   <p>(a) $1-(1-p)^4-4p(1-p)^3$<br>
   (b) $1-(1-p)^3 -3p(1-p)^2$<br>
   (c) $1-(1-p)^7$</p>
@@ -120,13 +120,13 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Exercici 7.4.</span></p>
-  <p>El codi binari $(6,3)$ de l'exercici 3 s'utilitza de manera equiprobable sobre un canal binari simètric amb probabilitat de creuament $p$ i es descodifica utilitzant la regla de distància de Hamming mínima. La cota de la unió a la probabilitat d'error mitjana $P_{\rm e}$ d'aquest codi és</p>
+  <p>El codi binari $(6,3)$ amb matriu generadora $$\boldsymbol{G}=\begin{pmatrix}1 & 0 & 1 & 1 & 0 & 0\\ 1 & 1 & 0 & 0 & 1 & 0\\ 0 & 1 & 1 & 0 & 0 & 1\end{pmatrix}$$ s'utilitza de manera equiprobable sobre un canal binari simètric amb probabilitat de creuament $p$ i es descodifica utilitzant la regla de distància de Hamming mínima. La cota de la unió a la probabilitat d'error mitjana $P_{\rm e}$ d'aquest codi és</p>
   <p>(a) $4 \sum_{t=2}^3 {3 \choose t} p^t (1-p)^{3-t} + 3 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$<br>
   (b) $4 \sum_{t=1}^3 {3 \choose t} p^t (1-p)^{3-t} + 3 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$<br>
   (c) $3 \sum_{t=1}^3 {3 \choose t} p^t (1-p)^{3-t} + 4 \sum_{t=2}^4 {4 \choose t} p^t (1-p)^{4-t}$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>A partir del llibre de codi de l'exercici anterior, obtenim que la distribució de pesos és $A_0=1$, $A_3=4$ i $A_4=3$. Aplicant l'equació (4.54) dels apunts s'arriba a la resposta correcta.</p>
+    <p>A partir d'aquest codi, obtenim que la distribució de pesos és $A_0=1$, $A_3=4$ i $A_4=3$. Aplicant l'equació (4.54) dels apunts s'arriba a la resposta correcta.</p>
   </details>
 </div>
 

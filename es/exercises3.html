@@ -94,7 +94,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 3.2.</span> ¿Cuál de los siguientes es un código libre de prefijos válido para la fuente?</p>
+  <p><span class="env-label">Ejercicio 3.2.</span></p>
+  <p>Una fuente discreta sin memoria emite dos letras consecutivas del alfabeto $\{a,b,c\}$, independientemente y con igual probabilidad, de modo que su valor es uno de los $9$ pares $\{aa,ab,ac,ba,bb,bc,ca,cb,cc\}$. ¿Cuál de los siguientes es un código libre de prefijos válido para la fuente?</p>
   <p>(a) Todas las secuencias binarias de $3$ bits.<br>
   (b) El código resultante de la concatenación del código para $\{a,b,c\}$ dado por $\{0,1,10\}$.<br>
   (c) Un código formado por secuencias diferentes de $4$ bits.</p>
@@ -113,7 +114,8 @@ que claramente no es libre de prefijos. Cualquier código formado por $9$ secuen
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 3.3.</span> ¿Cuál de las siguientes afirmaciones es incorrecta? En tu respuesta a esta pregunta, también debes explicar por qué las otras son correctas.</p>
+  <p><span class="env-label">Ejercicio 3.3.</span></p>
+  <p>Una fuente discreta sin memoria emite dos letras consecutivas de $\{a,b,c\}$, independientemente y con igual probabilidad (sus $9$ valores $\{aa,\ldots,cc\}$ son, por tanto, equiprobables). Cada valor se codifica concatenando, para cada una de sus dos letras, el código binario $a\mapsto 0$, $b\mapsto 10$, $c\mapsto 11$. ¿Cuál de las siguientes afirmaciones es incorrecta? En tu respuesta a esta pregunta, también debes explicar por qué las otras son correctas.</p>
   <p>(a) El código resultante es libre de prefijos con longitud media $\tfrac{10}{3}$ bits.<br>
   (b) La entropía de la fuente es $2\log_2(3)$ bits.<br>
   (c) La longitud media del código es un $1.05155\%$ superior a la entropía.</p>
@@ -132,8 +134,9 @@ y la razón entre la longitud media y la entropía es $1.05155$, lo que implica 
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Ejercicio 3.4.</span> ¿Cuál es ahora la longitud media del código de la pregunta 5?</p>
-  <p>(a) La misma que antes.<br>
+  <p><span class="env-label">Ejercicio 3.4.</span></p>
+  <p>Una fuente emite dos letras de $\{a,b,c\}$: la primera letra se elige con igual probabilidad, y la segunda letra depende de la primera — si la primera letra es $a$, la segunda se toma de $\{a,b,c\}$ con probabilidades $\bigl\{\frac{1}{2},\frac{1}{4},\frac{1}{4}\bigr\}$, en caso contrario se elige con igual probabilidad. Cada una de las dos letras se codifica con el código binario $a\mapsto 0$, $b\mapsto 10$, $c\mapsto 11$, y las dos palabras código se concatenan. ¿Cuál es la longitud media de este código?</p>
+  <p>(a) $\tfrac{10}{3}$ bits<br>
   (b) $\tfrac{59}{18}$ bits<br>
   (c) $\tfrac{8}{3}$ bits</p>
   <details class="solution"><summary>Mostrar solución</summary>

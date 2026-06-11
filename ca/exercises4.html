@@ -132,7 +132,7 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Exercici 4.5.</span></p>
-  <p>Ara construïm un codi de Huffman per a $X$ i $Y$ per separat, i codifiquem $Z=(X,Y)$ concatenant el codi de $X$ i el codi de $Y$. Quina és la longitud mitjana d'aquest codi per a $Z$?</p>
+  <p>Considereu una font $Z=(X,Y)$ formada per dos símbols independents $X$ i $Y$, on $X$ pren valors a $\{a,b\}$ amb probabilitats $\bigl\{\frac{2}{3},\frac{1}{3}\bigr\}$ i $Y$ pren valors a $\{a,b,c\}$ amb probabilitats $\bigl\{\frac{1}{2},\frac{1}{3},\frac{1}{6}\bigr\}$. Construïm un codi de Huffman per a $X$ i $Y$ per separat, i codifiquem $Z=(X,Y)$ concatenant el codi de $X$ i el codi de $Y$. Quina és la longitud mitjana d'aquest codi per a $Z$?</p>
   <p>(a) $\frac{5}{2}$<br>
   (b) $\frac{5}{3}$<br>
   (c) $\frac{5}{4}$</p>
@@ -144,7 +144,7 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Exercici 4.6.</span></p>
-  <p>Suposem que $X$ i $Y$ a $Z=(X,Y)$ de les dues preguntes anteriors NO són independents, sinó que es distribueixen com $P_{X|Y}(a|a)=\tfrac{1}{2}$, $P_{X|Y}(a|b)=\tfrac{1}{2}$, $P_{X|Y}(a|c)=0$, mentre que $Y$ té la mateixa distribució que abans. La longitud mitjana (en bits) del codi de Huffman òptim és</p>
+  <p>Sigui $Z=(X,Y)$ amb $X\in\{a,b\}$ i $Y\in\{a,b,c\}$. Ara $X$ i $Y$ NO són independents: $Y$ té distribució $\bigl\{\tfrac{1}{2},\tfrac{1}{3},\tfrac{1}{6}\bigr\}$ i $P_{X|Y}(a|a)=\tfrac{1}{2}$, $P_{X|Y}(a|b)=\tfrac{1}{2}$, $P_{X|Y}(a|c)=0$. La longitud mitjana (en bits) del codi de Huffman òptim és</p>
   <p>(a) fitada inferiorment per $\frac{3}{2}+\frac{1}{2}\log_2 3$.<br>
   (b) fitada superiorment per $\frac{3}{2}+\frac{1}{2}\log_2 3$.<br>
   (c) fitada inferiorment per $\frac{5}{2}+\frac{1}{2}\log_2 3$.</p>
@@ -359,7 +359,7 @@
   (d) $\bar{L}=\tfrac{5}{9}\approx 0.5556$ lletres/bit (barreja de longituds $1$ i $2$)</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>Afegim una fulla fictícia ($0$) a les vuit fulles de $\tfrac18$ (nou nodes). La Fusió 1 combina la fictícia amb dues fulles de $\tfrac18$ en $\tfrac28$; les sis fulles de $\tfrac18$ restants es fusionen de tres en tres en dos nodes de $\tfrac38$; l'arrel fusiona $\tfrac28,\tfrac38,\tfrac38$. Cada fulla real queda a profunditat $2$, de manera que les $8$ paraules codi tenen longitud $2$ i $\bar{L}=\tfrac18\cdot 8\cdot\tfrac{2}{3}=\tfrac{2}{3}\approx 0.6667$ lletres/bit, igual que a (a).</p>
+    <p>Afegim una fulla fictícia ($0$) a les vuit fulles de $\tfrac18$ (nou nodes). La Fusió 1 combina la fictícia amb dues fulles de $\tfrac18$ en $\tfrac28$; les sis fulles de $\tfrac18$ restants es fusionen de tres en tres en dos nodes de $\tfrac38$; l'arrel fusiona $\tfrac28,\tfrac38,\tfrac38$. Cada fulla real queda a profunditat $2$, de manera que les $8$ paraules codi tenen longitud $2$ i $\bar{L}=\tfrac18\cdot 8\cdot\tfrac{2}{3}=\tfrac{2}{3}\approx 0.6667$ lletres/bit, el mateix que el codi ternari de longitud fixa.</p>
   </details>
 </div>
 
@@ -404,7 +404,7 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Exercici 4.27.</span></p>
-  <p>El codi de Huffman ternari de l'apartat (a) té longituds de paraula codi fixes $\ell(000)=\ell(001)=3$, $\ell(010)=\ell(011)=\ell(100)=\ell(101)=\ell(110)=2$, $\ell(111)=1$. Ara les probabilitats dels bits s'<em>inverteixen</em>: $\mathbb{P}(0)=\tfrac23$, $\mathbb{P}(1)=\tfrac13$, de manera que cada símbol pren la probabilitat del seu complement de bits ($000\to\tfrac8{27}$, $111\to\tfrac1{27}$, etc.). Mantenint el mateix codi, quina és la nova longitud mitjana per bit de la font?</p>
+  <p>Un codi de Huffman ternari (construït per a les vuit ternes de $3$ bits equiprobables) té longituds de paraula codi fixes $\ell(000)=\ell(001)=3$, $\ell(010)=\ell(011)=\ell(100)=\ell(101)=\ell(110)=2$, $\ell(111)=1$. Ara les probabilitats dels bits s'<em>inverteixen</em>: $\mathbb{P}(0)=\tfrac23$, $\mathbb{P}(1)=\tfrac13$, de manera que cada símbol pren la probabilitat del seu complement de bits ($000\to\tfrac8{27}$, $111\to\tfrac1{27}$, etc.). Mantenint el mateix codi, quina és la nova longitud mitjana per bit de la font?</p>
   <p>(a) $\dfrac{65}{81}\approx 0.802$<br>
   (b) $\dfrac{49}{81}\approx 0.605$<br>
   (c) $\dfrac{65}{27}\approx 2.407$<br>

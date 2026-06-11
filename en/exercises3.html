@@ -94,7 +94,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 3.2.</span> Which of the following is a valid prefix-free code for the source?</p>
+  <p><span class="env-label">Exercise 3.2.</span></p>
+  <p>A discrete memoryless source emits two consecutive letters from the alphabet $\{a,b,c\}$, independently and with equal probability, so its value is one of the $9$ pairs $\{aa,ab,ac,ba,bb,bc,ca,cb,cc\}$. Which of the following is a valid prefix-free code for the source?</p>
   <p>(a) All binary sequences of $3$ bits.<br>
   (b) The code resulting from the concatenation of the code for $\{a,b,c\}$ given by $\{0,1,10\}$.<br>
   (c) A code given by different sequences of $4$ bits.</p>
@@ -113,7 +114,8 @@ which is clearly not prefix free. Any code given by $9$ different sequences of $
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 3.3.</span> Which of the following statements is incorrect? In your answer to this question, you must also explain why the others are correct.</p>
+  <p><span class="env-label">Exercise 3.3.</span></p>
+  <p>A discrete memoryless source emits two consecutive letters from $\{a,b,c\}$, independently and with equal probability (its $9$ values $\{aa,\ldots,cc\}$ are therefore equiprobable). Each value is encoded by concatenating, for each of its two letters, the binary code $a\mapsto 0$, $b\mapsto 10$, $c\mapsto 11$. Which of the following statements is incorrect? In your answer to this question, you must also explain why the others are correct.</p>
   <p>(a) The resulting code is prefix free with average length $\tfrac{10}{3}$ bits.<br>
   (b) The entropy of the source is $2\log_2(3)$ bits.<br>
   (c) The average length of the code is $1.05155\%$ higher than the entropy.</p>
@@ -132,8 +134,9 @@ and the ratio between the average length and the entropy is $1.05155$, implying 
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercise 3.4.</span> What is now the average length of the code in question 5?</p>
-  <p>(a) The same as before.<br>
+  <p><span class="env-label">Exercise 3.4.</span></p>
+  <p>A source outputs two letters from $\{a,b,c\}$: the first letter is chosen with equal probability, and the second letter depends on the first — if the first letter is $a$, the second is drawn from $\{a,b,c\}$ with probabilities $\bigl\{\frac{1}{2},\frac{1}{4},\frac{1}{4}\bigr\}$, otherwise it is chosen with equal probability. Each of the two letters is encoded with the binary code $a\mapsto 0$, $b\mapsto 10$, $c\mapsto 11$, and the two codewords are concatenated. What is the average length of this code?</p>
+  <p>(a) $\tfrac{10}{3}$ bits<br>
   (b) $\tfrac{59}{18}$ bits<br>
   (c) $\tfrac{8}{3}$ bits</p>
   <details class="solution"><summary>Show solution</summary>

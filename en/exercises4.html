@@ -132,7 +132,7 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Exercise 4.5.</span></p>
-  <p>Now, we construct a Huffman code for $X$ and $Y$ separately, and encode $Z=(X,Y)$ by concatenating the code for $X$ and the code for $Y$. What is the average length of this code for $Z$?</p>
+  <p>Consider a source $Z=(X,Y)$ given by two independent symbols $X$ and $Y$, where $X$ takes values in $\{a,b\}$ with probabilities $\bigl\{\frac{2}{3},\frac{1}{3}\bigr\}$ and $Y$ takes values in $\{a,b,c\}$ with probabilities $\bigl\{\frac{1}{2},\frac{1}{3},\frac{1}{6}\bigr\}$. We construct a Huffman code for $X$ and $Y$ separately, and encode $Z=(X,Y)$ by concatenating the code for $X$ and the code for $Y$. What is the average length of this code for $Z$?</p>
   <p>(a) $\frac{5}{2}$<br>
   (b) $\frac{5}{3}$<br>
   (c) $\frac{5}{4}$</p>
@@ -144,7 +144,7 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Exercise 4.6.</span></p>
-  <p>We assume that $X$ and $Y$ in $Z=(X,Y)$ from the previous two questions are NOT independent, but distributed as $P_{X|Y}(a|a)=\tfrac{1}{2}$, $P_{X|Y}(a|b)=\tfrac{1}{2}$, $P_{X|Y}(a|c)=0$, while $Y$ has the same distribution as before. The average length (in bits) of the optimal Huffman code is</p>
+  <p>Let $Z=(X,Y)$ with $X\in\{a,b\}$ and $Y\in\{a,b,c\}$. Now $X$ and $Y$ are NOT independent: $Y$ has distribution $\bigl\{\tfrac{1}{2},\tfrac{1}{3},\tfrac{1}{6}\bigr\}$ and $P_{X|Y}(a|a)=\tfrac{1}{2}$, $P_{X|Y}(a|b)=\tfrac{1}{2}$, $P_{X|Y}(a|c)=0$. The average length (in bits) of the optimal Huffman code is</p>
   <p>(a) lower bounded by $\frac{3}{2}+\frac{1}{2}\log_2 3$.<br>
   (b) upper bounded by $\frac{3}{2}+\frac{1}{2}\log_2 3$.<br>
   (c) lower bounded by $\frac{5}{2}+\frac{1}{2}\log_2 3$.</p>
@@ -359,7 +359,7 @@
   (d) $\bar{L}=\tfrac{5}{9}\approx 0.5556$ letters/bit (mix of lengths $1$ and $2$)</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(a)</strong> &#9733;</p>
-    <p>Add one dummy leaf ($0$) to the eight $\tfrac18$ leaves (nine nodes). Merge 1 combines the dummy with two $\tfrac18$ leaves into $\tfrac28$; the remaining six $\tfrac18$ leaves merge in twos into two $\tfrac38$ nodes; the root then merges $\tfrac28,\tfrac38,\tfrac38$. Every real leaf sits at depth $2$, so all $8$ codewords have length $2$ and $\bar{L}=\tfrac18\cdot 8\cdot\tfrac{2}{3}=\tfrac{2}{3}\approx 0.6667$ letters/bit, matching part (a).</p>
+    <p>Add one dummy leaf ($0$) to the eight $\tfrac18$ leaves (nine nodes). Merge 1 combines the dummy with two $\tfrac18$ leaves into $\tfrac28$; the remaining six $\tfrac18$ leaves merge in twos into two $\tfrac38$ nodes; the root then merges $\tfrac28,\tfrac38,\tfrac38$. Every real leaf sits at depth $2$, so all $8$ codewords have length $2$ and $\bar{L}=\tfrac18\cdot 8\cdot\tfrac{2}{3}=\tfrac{2}{3}\approx 0.6667$ letters/bit, the same as the fixed-length ternary code.</p>
   </details>
 </div>
 
@@ -404,7 +404,7 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Exercise 4.27.</span></p>
-  <p>The ternary Huffman code from part (a) has fixed codeword lengths $\ell(000)=\ell(001)=3$, $\ell(010)=\ell(011)=\ell(100)=\ell(101)=\ell(110)=2$, $\ell(111)=1$. Now the bit probabilities are <em>reversed</em>: $\mathbb{P}(0)=\tfrac23$, $\mathbb{P}(1)=\tfrac13$, so each symbol takes the probability of its bit-complement ($000\to\tfrac8{27}$, $111\to\tfrac1{27}$, etc.). Keeping the same code, what is the new average length per source bit?</p>
+  <p>A ternary Huffman code (built for the eight equiprobable $3$-bit triples) has fixed codeword lengths $\ell(000)=\ell(001)=3$, $\ell(010)=\ell(011)=\ell(100)=\ell(101)=\ell(110)=2$, $\ell(111)=1$. Now the bit probabilities are <em>reversed</em>: $\mathbb{P}(0)=\tfrac23$, $\mathbb{P}(1)=\tfrac13$, so each symbol takes the probability of its bit-complement ($000\to\tfrac8{27}$, $111\to\tfrac1{27}$, etc.). Keeping the same code, what is the new average length per source bit?</p>
   <p>(a) $\dfrac{65}{81}\approx 0.802$<br>
   (b) $\dfrac{49}{81}\approx 0.605$<br>
   (c) $\dfrac{65}{27}\approx 2.407$<br>

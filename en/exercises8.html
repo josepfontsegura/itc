@@ -402,7 +402,7 @@
   (d) $I(X;Y)=h_2(q)-q\,h_2(p)-(1-q)\,h_2(2p)$</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(a)</strong> &#9733;</p>
-    <p>Use $I(X;Y)=H(Y)-H(Y\mid X)$ and substitute parts (a) and (b): $I(X;Y)=h_2\bigl(q(1-p)+(1-q)2p\bigr)-q\,h_2(p)-(1-q)\,h_2(2p)$. Option 2 adds instead of subtracts $H(Y\mid X)$; option 3 has the sign reversed; option 4 wrongly uses $H(X)=h_2(q)$ in place of $H(Y)$ (these coincide only in the noiseless case $p=0$).</p>
+    <p>Use $I(X;Y)=H(Y)-H(Y\mid X)$ and substitute the $H(Y)$ and $H(Y\mid X)$ given in the statement: $I(X;Y)=h_2\bigl(q(1-p)+(1-q)2p\bigr)-q\,h_2(p)-(1-q)\,h_2(2p)$. Option 2 adds instead of subtracts $H(Y\mid X)$; option 3 has the sign reversed; option 4 wrongly uses $H(X)=h_2(q)$ in place of $H(Y)$ (these coincide only in the noiseless case $p=0$).</p>
   </details>
 </div>
 
@@ -558,7 +558,7 @@
   (d) $q^\star\approx 0.679$</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(a)</strong> &#9733;</p>
-    <p>Differentiate using $\frac{d}{dp}h_2(p)=\log_2\frac{1-p}{p}$ with $p=\frac14+\frac34 q$ and chain-rule factor $\frac34$: $I'(q)=\frac34\log_2\frac{1-p}{p}+h_2(\frac14)=0$, giving the optimal output bias $p^\star\approx0.679$. Back-substituting $q=\frac{p-1/4}{3/4}$ yields $q^\star\approx \mathbf{0.572}$. Note $0.679$ is the output bias $p^\star$, not $q$; $\frac13$ is the (suboptimal) input of part (a).</p>
+    <p>Differentiate using $\frac{d}{dp}h_2(p)=\log_2\frac{1-p}{p}$ with $p=\frac14+\frac34 q$ and chain-rule factor $\frac34$: $I'(q)=\frac34\log_2\frac{1-p}{p}+h_2(\frac14)=0$, giving the optimal output bias $p^\star\approx0.679$. Back-substituting $q=\frac{p-1/4}{3/4}$ yields $q^\star\approx \mathbf{0.572}$. Note $0.679$ is the output bias $p^\star$, not $q$; $\frac13$ is merely a (suboptimal) input value, not the optimum.</p>
   </details>
 </div>
 
@@ -571,7 +571,7 @@
   (d) $C=1$ bit</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(a)</strong> &#9733;</p>
-    <p>Capacity is $I$ evaluated at the optimal input: $C=h_2(0.679)-(1-0.572)\,h_2(\frac14)\approx \mathbf{0.558}$ bits per channel use. The Z-channel closed form $C=\log_2(1+(1-p)\,p^{p/(1-p)})$ with $p=\frac14$ confirms it. Note $C\approx0.558&gt;0.459$, the value at the suboptimal input of part (a), since capacity maximizes $I$ over all inputs.</p>
+    <p>Capacity is $I$ evaluated at the optimal input: $C=h_2(0.679)-(1-0.572)\,h_2(\frac14)\approx \mathbf{0.558}$ bits per channel use. The Z-channel closed form $C=\log_2(1+(1-p)\,p^{p/(1-p)})$ with $p=\frac14$ confirms it. Note $C\approx0.558&gt;0.459$, the value of $I$ at the suboptimal input $q=\tfrac13$, since capacity maximizes $I$ over all inputs.</p>
   </details>
 </div>
 

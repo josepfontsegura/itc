@@ -94,7 +94,8 @@
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 3.2.</span> Quin dels següents és un codi lliure de prefixos vàlid per a la font?</p>
+  <p><span class="env-label">Exercici 3.2.</span></p>
+  <p>Una font discreta sense memòria emet dues lletres consecutives de l'alfabet $\{a,b,c\}$, independentment i amb igual probabilitat, de manera que el seu valor és un dels $9$ parells $\{aa,ab,ac,ba,bb,bc,ca,cb,cc\}$. Quin dels següents és un codi lliure de prefixos vàlid per a la font?</p>
   <p>(a) Totes les seqüències binàries de $3$ bits.<br>
   (b) El codi resultant de la concatenació del codi per a $\{a,b,c\}$ donat per $\{0,1,10\}$.<br>
   (c) Un codi format per seqüències diferents de $4$ bits.</p>
@@ -113,7 +114,8 @@ que clarament no és lliure de prefixos. Qualsevol codi format per $9$ seqüènc
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 3.3.</span> Quina de les afirmacions següents és incorrecta? En la teva resposta a aquesta pregunta, també has d'explicar per què les altres són correctes.</p>
+  <p><span class="env-label">Exercici 3.3.</span></p>
+  <p>Una font discreta sense memòria emet dues lletres consecutives de $\{a,b,c\}$, independentment i amb igual probabilitat (els seus $9$ valors $\{aa,\ldots,cc\}$ són, per tant, equiprobables). Cada valor es codifica concatenant, per a cadascuna de les seves dues lletres, el codi binari $a\mapsto 0$, $b\mapsto 10$, $c\mapsto 11$. Quina de les afirmacions següents és incorrecta? En la teva resposta a aquesta pregunta, també has d'explicar per què les altres són correctes.</p>
   <p>(a) El codi resultant és lliure de prefixos amb longitud mitjana $\tfrac{10}{3}$ bits.<br>
   (b) L'entropia de la font és $2\log_2(3)$ bits.<br>
   (c) La longitud mitjana del codi és un $1.05155\%$ superior a l'entropia.</p>
@@ -132,8 +134,9 @@ i la raó entre la longitud mitjana i l'entropia és $1.05155$, cosa que implica
 </div>
 
 <div class="env-block env-problem">
-  <p><span class="env-label">Exercici 3.4.</span> Quina és ara la longitud mitjana del codi de la pregunta 5?</p>
-  <p>(a) La mateixa que abans.<br>
+  <p><span class="env-label">Exercici 3.4.</span></p>
+  <p>Una font emet dues lletres de $\{a,b,c\}$: la primera lletra es tria amb igual probabilitat, i la segona lletra depèn de la primera — si la primera lletra és $a$, la segona es pren de $\{a,b,c\}$ amb probabilitats $\bigl\{\frac{1}{2},\frac{1}{4},\frac{1}{4}\bigr\}$, altrament es tria amb igual probabilitat. Cadascuna de les dues lletres es codifica amb el codi binari $a\mapsto 0$, $b\mapsto 10$, $c\mapsto 11$, i les dues paraules codi es concatenen. Quina és la longitud mitjana d'aquest codi?</p>
+  <p>(a) $\tfrac{10}{3}$ bits<br>
   (b) $\tfrac{59}{18}$ bits<br>
   (c) $\tfrac{8}{3}$ bits</p>
   <details class="solution"><summary>Mostra la solució</summary>
