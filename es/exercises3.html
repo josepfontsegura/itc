@@ -285,8 +285,8 @@ combinar ambos resultados lleva a la misma respuesta.</p>
   (b) Sí, es libre de prefijos<br>
   (c) Sí, pero no libre de prefijos</p>
   <details class="solution"><summary>Mostrar solución</summary>
-    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
-    <p>La palabra código $0$ es un prefijo de $01$, y $01$ es un prefijo de $011$. La secuencia $011$ se puede decodificar como el tercer símbolo o bien como el primero seguido del segundo, de modo que no es unívocamente decodificable.</p>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Aunque $0$ es prefijo de $01$ y $01$ es prefijo de $011$ (y por tanto el código no es libre de prefijos), cada palabra código empieza por $0$ y no contiene ningún otro $0$. Así, un $0$ siempre marca el inicio de una nueva palabra código y cualquier concatenación se decodifica de forma única &mdash; por ejemplo $0\cdot 01=001$, que difiere de $011$. El código es, pues, unívocamente decodificable pero no libre de prefijos; es la inversión del código libre de prefijos $\{0,10,110\}$.</p>
   </details>
 </div>
 

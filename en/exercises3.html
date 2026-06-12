@@ -285,8 +285,8 @@ combining both results leads to the same answer.</p>
   (b) Yes, it is prefix-free<br>
   (c) Yes, but not prefix-free</p>
   <details class="solution"><summary>Show solution</summary>
-    <p>The correct answer is <strong>(a)</strong> &#9733;</p>
-    <p>The codeword $0$ is a prefix of $01$, and $01$ is a prefix of $011$. The sequence $011$ can be decoded as either the third symbol or the first followed by the second, so it is not uniquely decodable.</p>
+    <p>The correct answer is <strong>(c)</strong> &#9733;</p>
+    <p>Although $0$ is a prefix of $01$ and $01$ is a prefix of $011$ (so the code is not prefix-free), every codeword begins with $0$ and contains no further $0$. Hence a $0$ always marks the start of a new codeword and any concatenation parses uniquely &mdash; for instance $0\cdot 01=001$, which differs from $011$. The code is therefore uniquely decodable but not prefix-free; it is the reversal of the prefix-free code $\{0,10,110\}$.</p>
   </details>
 </div>
 

@@ -285,8 +285,8 @@ combinar tots dos resultats porta a la mateixa resposta.</p>
   (b) Sí, és lliure de prefixos<br>
   (c) Sí, però no lliure de prefixos</p>
   <details class="solution"><summary>Mostra la solució</summary>
-    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
-    <p>La paraula codi $0$ és un prefix de $01$, i $01$ és un prefix de $011$. La seqüència $011$ es pot descodificar com el tercer símbol o bé com el primer seguit del segon, de manera que no és unívocament descodificable.</p>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Encara que $0$ és prefix de $01$ i $01$ és prefix de $011$ (i per tant el codi no és lliure de prefixos), cada paraula codi comença amb $0$ i no conté cap altre $0$. Així, un $0$ sempre marca l'inici d'una nova paraula codi i qualsevol concatenació es descodifica de manera única &mdash; per exemple $0\cdot 01=001$, que difereix de $011$. El codi és, doncs, unívocament descodificable però no lliure de prefixos; és la inversió del codi lliure de prefixos $\{0,10,110\}$.</p>
   </details>
 </div>
 
