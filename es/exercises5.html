@@ -150,13 +150,13 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Ejercicio 5.7.</span></p>
-  <p>Sea $W$ una fuente cuyo código binario óptimo tiene longitudes de palabra código dadas por una permutación de $\{2,2,2,3,3\}$, con entropía $H(W)=2.123938$ bits. Sea $X=(W_1,\dots,W_n)$ formado por $n$ copias i.i.d. de $W$. Suponga que $X$ se codifica codificando individualmente cada $W_i$ con ese código. ¿En qué intervalo se encuentra la eficiencia de este código cuando $n\to\infty$?</p>
+  <p>Sea $W$ una fuente discreta sin memoria que toma valores en $\{a,b,c,d,e\}$ con distribución de probabilidad $\left\{\frac{2}{5},\frac{7}{30},\frac{3}{20},\frac{13}{120},\frac{13}{120}\right\}$ (de modo que $H(W)=2.123938$ bits). Sea $X=(W_1,\dots,W_n)$ formado por $n$ copias i.i.d. de $W$. Suponga que cada $W_i$ se codifica individualmente con un código binario libre de prefijos cuyas longitudes son una permutación de $\{2,2,2,3,3\}$ (no necesariamente la asignación óptima). ¿En qué intervalo se encuentra la eficiencia de este código cuando $n\to\infty$?</p>
   <p>(a) $\left[0,\frac 12\right)$<br>
   (b) $\left[\frac 12,\frac{24}{25}\right)$<br>
   (c) $\left[\frac{24}{25},1\right]$</p>
   <details class="solution"><summary>Mostrar solución</summary>
     <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
-    <p>Codificar $W$ con un código con distribución de longitudes dada por una permutación de $\{2,2,2,3,3\}$ lleva a una longitud media entre $\frac{133}{60}$ y $\frac{79}{30}$, por lo que la longitud media de $X$ está entre $\frac{133}{60}n$ y $\frac{79}{30}n$. Dado que $X$ no tiene memoria, $H(X)=nH(W)$ con $H(W)=2.123938$. Combinando ambos resultados, la eficiencia se encuentra entre $0.806559$ y $0.958168$, es decir, dentro de $\left[\frac 12,\frac{24}{25}\right)$.</p>
+    <p>Codificar cada $W_i$ con un código libre de prefijos cuyas longitudes son una permutación de $\{2,2,2,3,3\}$ da una longitud media por símbolo entre $\frac{133}{60}$ (asignando las dos palabras de longitud $3$ a los dos símbolos menos probables, $\frac{13}{120}$ cada uno) y $\frac{79}{30}$ (asignándolas a los dos más probables). Por tanto, la longitud media de $X$ está entre $\frac{133}{60}n$ y $\frac{79}{30}n$. Dado que $X$ no tiene memoria, $H(X)=nH(W)$ con $H(W)=2.123938$, de modo que la eficiencia $\eta=H(X)/L_{\mathrm{av}}(X)=H(W)/L_{\mathrm{av}}(W)$ no depende de $n$ y se encuentra entre $0.806559$ y $0.958168$, es decir, dentro de $\left[\frac 12,\frac{24}{25}\right)$. Observe que el código óptimo para $W$ tiene longitudes $\{1,2,3,4,4\}$, no $\{2,2,2,3,3\}$.</p>
   </details>
 </div>
 

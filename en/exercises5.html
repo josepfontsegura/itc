@@ -150,13 +150,13 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Exercise 5.7.</span></p>
-  <p>Let $W$ be a source whose optimal binary prefix-free code has codeword lengths given by a permutation of $\{2,2,2,3,3\}$, with entropy $H(W)=2.123938$ bits. Let $X=(W_1,\dots,W_n)$ consist of $n$ i.i.d. copies of $W$. Assume that $X$ is encoded by individually encoding each $W_i$ with that code. In which interval lies the efficiency of this code as $n\to\infty$?</p>
+  <p>Let $W$ be a discrete memoryless source taking values in $\{a,b,c,d,e\}$ with probability distribution $\left\{\frac{2}{5},\frac{7}{30},\frac{3}{20},\frac{13}{120},\frac{13}{120}\right\}$ (so that $H(W)=2.123938$ bits). Let $X=(W_1,\dots,W_n)$ consist of $n$ i.i.d. copies of $W$. Assume that each $W_i$ is encoded individually with a binary prefix-free code whose codeword lengths are a permutation of $\{2,2,2,3,3\}$ (not necessarily the optimal assignment). In which interval lies the efficiency of this code as $n\to\infty$?</p>
   <p>(a) $\left[0,\frac 12\right)$<br>
   (b) $\left[\frac 12,\frac{24}{25}\right)$<br>
   (c) $\left[\frac{24}{25},1\right]$</p>
   <details class="solution"><summary>Show solution</summary>
     <p>The correct answer is <strong>(b)</strong> &#9733;</p>
-    <p>Encoding $W$ with a code with length distribution given by a permutation of $\{2,2,2,3,3\}$ leads to an average length between $\frac{133}{60}$ and $\frac{79}{30}$, hence the average length of $X$ is between $\frac{133}{60}n$ and $\frac{79}{30}n$. Since $X$ is memoryless, $H(X)=nH(W)$ with $H(W)=2.123938$. Combining both results, the efficiency lies between $0.806559$ and $0.958168$, which falls in $\left[\frac 12,\frac{24}{25}\right)$.</p>
+    <p>Encoding each $W_i$ with a prefix-free code whose lengths are a permutation of $\{2,2,2,3,3\}$ gives a per-symbol average length between $\frac{133}{60}$ (assigning the two length-$3$ codewords to the two least probable symbols, $\frac{13}{120}$ each) and $\frac{79}{30}$ (assigning them to the two most probable symbols). Hence the average length of $X$ is between $\frac{133}{60}n$ and $\frac{79}{30}n$. Since $X$ is memoryless, $H(X)=nH(W)$ with $H(W)=2.123938$, so the efficiency $\eta=H(X)/L_{\mathrm{av}}(X)=H(W)/L_{\mathrm{av}}(W)$ does not depend on $n$ and lies between $0.806559$ and $0.958168$, which falls in $\left[\frac 12,\frac{24}{25}\right)$. Note that the optimal code for $W$ has lengths $\{1,2,3,4,4\}$, not $\{2,2,2,3,3\}$.</p>
   </details>
 </div>
 

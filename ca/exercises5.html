@@ -150,13 +150,13 @@
 
 <div class="env-block env-problem">
   <p><span class="env-label">Exercici 5.7.</span></p>
-  <p>Sigui $W$ una font el codi binari òptim de la qual té longituds de paraula codi donades per una permutació de $\{2,2,2,3,3\}$, amb entropia $H(W)=2.123938$ bits. Sigui $X=(W_1,\dots,W_n)$ format per $n$ còpies i.i.d. de $W$. Suposeu que $X$ es codifica codificant individualment cada $W_i$ amb aquell codi. En quin interval es troba l'eficiència d'aquest codi quan $n\to\infty$?</p>
+  <p>Sigui $W$ una font discreta sense memòria que pren valors en $\{a,b,c,d,e\}$ amb distribució de probabilitat $\left\{\frac{2}{5},\frac{7}{30},\frac{3}{20},\frac{13}{120},\frac{13}{120}\right\}$ (de manera que $H(W)=2.123938$ bits). Sigui $X=(W_1,\dots,W_n)$ format per $n$ còpies i.i.d. de $W$. Suposeu que cada $W_i$ es codifica individualment amb un codi binari lliure de prefixos les longituds del qual són una permutació de $\{2,2,2,3,3\}$ (no necessàriament l'assignació òptima). En quin interval es troba l'eficiència d'aquest codi quan $n\to\infty$?</p>
   <p>(a) $\left[0,\frac 12\right)$<br>
   (b) $\left[\frac 12,\frac{24}{25}\right)$<br>
   (c) $\left[\frac{24}{25},1\right]$</p>
   <details class="solution"><summary>Mostra la solució</summary>
     <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
-    <p>Codificar $W$ amb un codi amb distribució de longituds donada per una permutació de $\{2,2,2,3,3\}$ porta a una longitud mitjana entre $\frac{133}{60}$ i $\frac{79}{30}$, de manera que la longitud mitjana de $X$ està entre $\frac{133}{60}n$ i $\frac{79}{30}n$. Com que $X$ no té memòria, $H(X)=nH(W)$ amb $H(W)=2.123938$. Combinant tots dos resultats, l'eficiència es troba entre $0.806559$ i $0.958168$, que cau dins de $\left[\frac 12,\frac{24}{25}\right)$.</p>
+    <p>Codificar cada $W_i$ amb un codi lliure de prefixos les longituds del qual són una permutació de $\{2,2,2,3,3\}$ dona una longitud mitjana per símbol entre $\frac{133}{60}$ (assignant les dues paraules de longitud $3$ als dos símbols menys probables, $\frac{13}{120}$ cadascun) i $\frac{79}{30}$ (assignant-les als dos més probables). Per tant, la longitud mitjana de $X$ està entre $\frac{133}{60}n$ i $\frac{79}{30}n$. Com que $X$ no té memòria, $H(X)=nH(W)$ amb $H(W)=2.123938$, de manera que l'eficiència $\eta=H(X)/L_{\mathrm{av}}(X)=H(W)/L_{\mathrm{av}}(W)$ no depèn de $n$ i es troba entre $0.806559$ i $0.958168$, que cau dins de $\left[\frac 12,\frac{24}{25}\right)$. Observeu que el codi òptim per a $W$ té longituds $\{1,2,3,4,4\}$, no pas $\{2,2,2,3,3\}$.</p>
   </details>
 </div>
 
