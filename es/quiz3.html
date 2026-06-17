@@ -361,7 +361,7 @@
       "\\pyx": "P_{Y|X}",
       "\\pxy": "P_{XY}",
       "\\pxcy": "P_{X|Y}",
-      "\\undermat": "\\underbrace{\\begin{matrix}#2\\end{matrix}}_{\\text{#1}}"
+      "\\undermat": "\\mathrlap{\\smash{\\underbrace{\\phantom{\\begin{matrix}#2\\end{matrix}}}_{#1}}}#2"
     },
     trust: true,
     throwOnError: false
