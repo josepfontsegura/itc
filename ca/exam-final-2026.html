@@ -2,62 +2,181 @@
 <html lang="ca">
 <head>
   <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem("itc-theme");if(!t){t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})()</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
   <title>Examen final 2026 - ITC 2026</title>
   <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
-    body {
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 1.4rem; padding: 2rem 1.5rem;
-      background: #ffffff;
-      color: #a6a299;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      text-align: center;
-    }
-    .joker { width: 72px; height: auto; opacity: .55; }
-    p { max-width: 30rem; font-size: .92rem; line-height: 1.6; }
-    a.home { color: #b9b5ac; text-decoration: none; font-size: .8rem;
-             border-bottom: 1px solid #e4e1d9; padding-bottom: 2px; }
-    a.home:hover { color: #c8102e; border-color: #c8102e; }
-  </style>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
   <script data-goatcounter="https://josepfontsegura.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
-  <svg class="joker" viewBox="0 0 180 220" fill="none" stroke="#b4b0a7"
-       stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
-       xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Joker">
-    <!-- hat points -->
-    <path d="M60 92 C44 80 40 60 48 50"/>
-    <path d="M90 76 C86 60 88 48 90 40"/>
-    <path d="M120 92 C136 80 140 60 132 50"/>
-    <!-- bells -->
-    <circle cx="44" cy="46" r="6" fill="#b4b0a7" stroke="none"/>
-    <circle cx="90" cy="34" r="6" fill="#b4b0a7" stroke="none"/>
-    <circle cx="136" cy="46" r="6" fill="#b4b0a7" stroke="none"/>
-    <!-- hat band -->
-    <path d="M55 94 Q90 72 125 94"/>
-    <!-- face -->
-    <ellipse cx="90" cy="142" rx="50" ry="54"/>
-    <!-- left eye winking, right eye open -->
-    <path d="M66 134 Q77 126 88 134"/>
-    <circle cx="110" cy="131" r="3.6" fill="#b4b0a7" stroke="none"/>
-    <!-- nose -->
-    <circle cx="90" cy="148" r="3.2" fill="#b4b0a7" stroke="none"/>
-    <!-- grin -->
-    <path d="M66 162 Q90 190 114 162"/>
-  </svg>
+<nav class="navbar">
+  <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  <a class="navbar-brand" href="index.html">
+    <img src="../img/upf-logo.svg" alt="UPF" style="height:42px;margin-right:0.75rem"> <span class="navbar-brand-text">Teoria de la informació i la codificació 2026</span>
+  </a>
+  <div class="navbar-actions">
+    <button class="search-toggle" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-hint">⌘K</span></button>
+    <button class="theme-toggle" aria-label="Toggle dark mode"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+  </div>
+  <div class="lang-switcher">
+    <a href="../ca/exam-final-2026.html" class="active">CA</a>
+    <a href="../es/exam-final-2026.html">ES</a>
+    <a href="../en/exam-final-2026.html">EN</a>
+  </div>
+</nav>
 
-  <p>L'examen de 2026 encara no est&agrave; publicat. Bon intent, per&ograve;.</p>
+<div class="page">
+    <aside class="sidebar">
+    <details class="sidebar-section">
+      <summary><h4>General</h4></summary>
+      <a href="index.html">Inici</a>
+      <a href="guide.html">Guia d'aprenentatge</a>
+      <a href="https://gestioacademica.upf.edu/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&amp;idiomaPais=ca.ES&amp;_anoAcademico=2025&amp;_codAsignatura=23970" target="_blank">Guia docent<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      <a href="https://aulaglobal.upf.edu/course/view.php?id=87616" target="_blank">Aula Global<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Apunts</h4></summary>
+      <a href="lecture1.html">1. Seqüències de variables aleatòries</a>
+      <a href="lecture2.html">2. Funcions de VA i desigualtats de concentració</a>
+      <a href="lecture3.html">3. Codis de font binaris sense prefixe</a>
+      <a href="lecture4.html">4. Codis de Huffman</a>
+      <a href="lecture5.html">5. Límits fonamentals en compressió de font</a>
+      <a href="lecture6.html">6. Probabilitat d'error de codis de canal</a>
+      <a href="lecture7.html">7. Codis lineals</a>
+      <a href="lecture8.html">8. Capacitat de canal</a>
+      <a href="lecture9.html">9. Mesures d'informació</a>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Exercicis</h4></summary>
+      <a href="exercises1.html">1. Variables aleatòries</a>
+      <a href="exercises2.html">2. Desigualtats de concentració</a>
+      <a href="exercises3.html">3. Codis sense prefixe</a>
+      <a href="exercises4.html">4. Codis de Huffman</a>
+      <a href="exercises5.html">5. Compressió de font</a>
+      <a href="exercises6.html">6. Probabilitat d'error</a>
+      <a href="exercises7.html">7. Codis lineals</a>
+      <a href="exercises8.html">8. Capacitat de canal</a>
+      <a href="exercises9.html">9. Mesures d'informació</a>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Qüestionari</h4></summary>
+      <a href="quiz1.html">Temes 1–2</a>
+      <a href="quiz2.html">Temes 3–5</a>
+      <a href="quiz3.html">Temes 6–9</a>
+    </details>
+    <details class="sidebar-section" open>
+      <summary><h4>Exàmens</h4></summary>
+      <a href="exam-final-2026.html" class="active">Final 2026</a>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperació 2025</a>
+    </details>
+  </aside>
 
-  <a class="home" href="index.html">Torna al lloc del curs</a>
+  <main class="content">
+    <div class="lecture-header">
+      <h1>Examen final 2026</h1>
+    </div>
 
+    <button id="expand-all" data-expand="Mostra totes les solucions" data-collapse="Amaga totes les solucions" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostra totes les solucions</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Problema 1.</span> Una font envia un bit d'informació que val $0$ amb probabilitat $\tfrac34$. La línia és sorollosa. Un $0$ enviat arriba com a $1$ amb probabilitat $\tfrac15$, mentre que un $1$ enviat sempre arriba correctament. Si arriba un $1$, quina és la probabilitat que s'hagués enviat un $1$?</p>
+  <p>(a) $\tfrac14$<br>
+  (b) $\tfrac25$<br>
+  (c) $\tfrac58$<br>
+  (d) $\tfrac38$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Per probabilitat total, arriba un $1$ amb probabilitat $\tfrac34\cdot\tfrac15+\tfrac14\cdot1=\tfrac{3}{20}+\tfrac14=\tfrac25$. Per la regla de Bayes, la probabilitat que s'hagués enviat un $1$ quan arriba un $1$ és $\dfrac{\tfrac14\cdot1}{\tfrac25}=\tfrac58$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 2.</span> Un bit d'informació val $1$ amb probabilitat $p$. Quina fita dona la desigualtat de Chebyshev per a la probabilitat que el bit s'allunyi de la seva mitjana almenys mitja unitat?</p>
+  <p>(a) $4p(1-p)$<br>
+  (b) $2p(1-p)$<br>
+  (c) $p(1-p)$<br>
+  (d) $4p$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>El bit val $0$ amb probabilitat $1-p$, de manera que la seva mitjana és $p$ i la seva variància és $p(1-p)$. La desigualtat de Chebyshev dona $\Pr\bigl(|X-p|\ge\tfrac12\bigr)\le\dfrac{p(1-p)}{(1/2)^2}=4p(1-p)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 3.</span> Un codi binari lliure de prefixos té quatre paraules de codi. Tres són $0$, $10$ i $110$. La quarta paraula de codi és tan curta com sigui possible. Els quatre símbols, en aquest ordre, tenen probabilitats $\tfrac25$, $\tfrac15$, $\tfrac15$ i $\tfrac15$. Quina és l'eficiència d'aquest codi?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{5\log_2(5)-2}{10}$<br>
+  (c) $\tfrac{5\log_2(5)-2}{9}$<br>
+  (d) $\tfrac{5\log_2(5)-2}{11}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>La quarta paraula no pot començar per $0$, $10$ ni $110$, i $11$ és prefix de $110$; per tant, la més curta possible és $111$, de longitud $3$. La longitud mitjana és $1\cdot\tfrac25+2\cdot\tfrac15+3\cdot\tfrac15+3\cdot\tfrac15=2$, i l'entropia és $-\tfrac25\log_2(\tfrac25)-\tfrac35\log_2(\tfrac15)=\log_2(5)-\tfrac25$. L'eficiència és l'entropia dividida per la longitud mitjana, $\tfrac{5\log_2(5)-2}{10}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 4.</span> Una font emet, de manera independent, una de dues lletres: la primera amb probabilitat $\tfrac34$ i la segona amb probabilitat $\tfrac14$. Per comprimir-la, s'agrupen les lletres de dues en dues i es construeix un codi binari lliure de prefixos òptim per a aquests parells. Quants bits per lletra s'utilitzen de mitjana?</p>
+  <p>(a) $\tfrac{31}{32}$<br>
+  (b) $1$<br>
+  (c) $2-\tfrac34\log_2(3)$<br>
+  (d) $\tfrac{27}{32}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(d)</strong> &#9733;</p>
+    <p>Els quatre parells tenen probabilitats $\tfrac9{16}$, $\tfrac3{16}$, $\tfrac3{16}$ i $\tfrac1{16}$. El codi òptim (de Huffman) té longituds $1$, $2$, $3$ i $3$, de manera que la seva longitud mitjana per parell és $1\cdot\tfrac9{16}+2\cdot\tfrac3{16}+3\cdot\tfrac3{16}+3\cdot\tfrac1{16}=\tfrac{27}{16}$. Per lletra és $\tfrac{27}{32}$, per sota de l'$1$ bit per lletra de codificar lletra a lletra i per sobre de l'entropia $2-\tfrac34\log_2(3)$. El codi de Shannon subòptim (longituds $\lceil-\log_2 p\rceil$) donaria $\tfrac{31}{32}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 5.</span> Un sol bit d'informació, amb la mateixa probabilitat de ser $0$ o $1$, es protegeix amb un codi de repetició de taxa $\tfrac13$. El receptor descodifica per majoria. El canal actua sobre cada bit de manera independent i mai no canvia un $0$, però canvia un $1$ en un $0$ amb probabilitat $p$, amb $0&lt;p&lt;1$. Quina és la probabilitat que la paraula rebuda sigui diferent de la paraula de codi enviada però es descodifiqui correctament?</p>
+  <p>(a) $\tfrac{3p(1-p)^2}{2}$<br>
+  (b) $3p(1-p)^2$<br>
+  (c) $\tfrac{3p^2(1-p)}{2}$<br>
+  (d) $\tfrac{p^3}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(a)</strong> &#9733;</p>
+    <p>Les dues paraules de codi són $000$ i $111$. Si s'envia $000$, cap bit no pot canviar, de manera que la paraula rebuda mai no en difereix. Si s'envia $111$, la paraula rebuda difereix però encara es descodifica com a $111$ exactament quan un sol $1$ esdevé $0$ (els altres dos mantenen la majoria), amb probabilitat $3p(1-p)^2$. Fent la mitjana sobre les dues paraules igualment probables s'obté $\tfrac{3p(1-p)^2}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 6.</span> Un codi binari lineal té matriu de control de paritat $\begin{pmatrix}1&amp;1&amp;1\end{pmatrix}$. Les seves paraules de codi s'envien amb la mateixa probabilitat per un canal que inverteix cada bit de manera independent amb probabilitat $p$, amb $0&lt;p&lt;\tfrac12$. Quina és la probabilitat de rebre només zeros?</p>
+  <p>(a) $\tfrac18$<br>
+  (b) $(1-p)^3$<br>
+  (c) $\tfrac{(1-p)^3+3p^2(1-p)}{4}$<br>
+  (d) $\tfrac{(1-p)^3+p^3}{2}$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(c)</strong> &#9733;</p>
+    <p>Les paraules de codi són els mots de $3$ bits amb un nombre parell d'uns: $000$, $011$, $101$ i $110$ (pesos $0$, $2$, $2$, $2$). Per rebre $000$ des d'una paraula de pes $w$, els seus $w$ uns han de canviar i els $3-w$ zeros no, amb probabilitat $p^w(1-p)^{3-w}$. Fent la mitjana sobre les quatre paraules igualment probables s'obté $\tfrac{(1-p)^3+3p^2(1-p)}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 7.</span> S'escull un nombre $X$ a l'atzar, amb la mateixa probabilitat, de $\{1,2,3\}$. Un segon nombre $Y$ val $1$ quan $X$ és $3$, i val $0$ altrament. Quina és la informació mútua entre $X$ i $Y$, en bits?</p>
+  <p>(a) $\log_2(3)$<br>
+  (b) $\log_2(3)-\tfrac23$<br>
+  (c) $0$<br>
+  (d) $\tfrac13\log_2(3)$</p>
+  <details class="solution"><summary>Mostra la solució</summary>
+    <p>La resposta correcta és <strong>(b)</strong> &#9733;</p>
+    <p>$Y$ és una funció de $X$, així que conèixer $X$ elimina tota la incertesa sobre $Y$; per tant, la informació és igual a l'entropia de $Y$. Com que $Y$ val $1$ amb probabilitat $\tfrac13$ i $0$ amb probabilitat $\tfrac23$, aquesta entropia és $-\tfrac13\log_2\tfrac13-\tfrac23\log_2\tfrac23=\log_2(3)-\tfrac23$.</p>
+  </details>
+</div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  Universitat Pompeu Fabra &middot; Teoria de la informació i la codificació 2026 &middot;
+  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> &middot; <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>
+<script src="../script.js"></script>
 </body>
 </html>

@@ -2,62 +2,181 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem("itc-theme");if(!t){t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})()</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
   <title>Examen final 2026 - ITC 2026</title>
   <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
-    body {
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 1.4rem; padding: 2rem 1.5rem;
-      background: #ffffff;
-      color: #a6a299;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      text-align: center;
-    }
-    .joker { width: 72px; height: auto; opacity: .55; }
-    p { max-width: 30rem; font-size: .92rem; line-height: 1.6; }
-    a.home { color: #b9b5ac; text-decoration: none; font-size: .8rem;
-             border-bottom: 1px solid #e4e1d9; padding-bottom: 2px; }
-    a.home:hover { color: #c8102e; border-color: #c8102e; }
-  </style>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
   <script data-goatcounter="https://josepfontsegura.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
-  <svg class="joker" viewBox="0 0 180 220" fill="none" stroke="#b4b0a7"
-       stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
-       xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Joker">
-    <!-- hat points -->
-    <path d="M60 92 C44 80 40 60 48 50"/>
-    <path d="M90 76 C86 60 88 48 90 40"/>
-    <path d="M120 92 C136 80 140 60 132 50"/>
-    <!-- bells -->
-    <circle cx="44" cy="46" r="6" fill="#b4b0a7" stroke="none"/>
-    <circle cx="90" cy="34" r="6" fill="#b4b0a7" stroke="none"/>
-    <circle cx="136" cy="46" r="6" fill="#b4b0a7" stroke="none"/>
-    <!-- hat band -->
-    <path d="M55 94 Q90 72 125 94"/>
-    <!-- face -->
-    <ellipse cx="90" cy="142" rx="50" ry="54"/>
-    <!-- left eye winking, right eye open -->
-    <path d="M66 134 Q77 126 88 134"/>
-    <circle cx="110" cy="131" r="3.6" fill="#b4b0a7" stroke="none"/>
-    <!-- nose -->
-    <circle cx="90" cy="148" r="3.2" fill="#b4b0a7" stroke="none"/>
-    <!-- grin -->
-    <path d="M66 162 Q90 190 114 162"/>
-  </svg>
+<nav class="navbar">
+  <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  <a class="navbar-brand" href="index.html">
+    <img src="../img/upf-logo.svg" alt="UPF" style="height:42px;margin-right:0.75rem"> <span class="navbar-brand-text">Teoría de la información y codificación 2026</span>
+  </a>
+  <div class="navbar-actions">
+    <button class="search-toggle" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-hint">⌘K</span></button>
+    <button class="theme-toggle" aria-label="Toggle dark mode"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+  </div>
+  <div class="lang-switcher">
+    <a href="../ca/exam-final-2026.html">CA</a>
+    <a href="../es/exam-final-2026.html" class="active">ES</a>
+    <a href="../en/exam-final-2026.html">EN</a>
+  </div>
+</nav>
 
-  <p>El examen de 2026 todav&iacute;a no est&aacute; publicado. Buen intento.</p>
+<div class="page">
+    <aside class="sidebar">
+    <details class="sidebar-section">
+      <summary><h4>General</h4></summary>
+      <a href="index.html">Inicio</a>
+      <a href="guide.html">Guía de aprendizaje</a>
+      <a href="https://gestioacademica.upf.edu/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&amp;idiomaPais=ca.ES&amp;_anoAcademico=2025&amp;_codAsignatura=23970" target="_blank">Guía docente<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      <a href="https://aulaglobal.upf.edu/course/view.php?id=87616" target="_blank">Aula Global<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Apuntes</h4></summary>
+      <a href="lecture1.html">1. Secuencias de variables aleatorias</a>
+      <a href="lecture2.html">2. Funciones de VA y desigualdades de concentración</a>
+      <a href="lecture3.html">3. Códigos de fuente binarios sin prefijo</a>
+      <a href="lecture4.html">4. Códigos de Huffman</a>
+      <a href="lecture5.html">5. Límites fundamentales en compresión de fuente</a>
+      <a href="lecture6.html">6. Probabilidad de error de códigos de canal</a>
+      <a href="lecture7.html">7. Códigos lineales</a>
+      <a href="lecture8.html">8. Capacidad de canal</a>
+      <a href="lecture9.html">9. Medidas de información</a>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Ejercicios</h4></summary>
+      <a href="exercises1.html">1. Variables aleatorias</a>
+      <a href="exercises2.html">2. Desigualdades de concentración</a>
+      <a href="exercises3.html">3. Códigos sin prefijo</a>
+      <a href="exercises4.html">4. Códigos de Huffman</a>
+      <a href="exercises5.html">5. Compresión de fuente</a>
+      <a href="exercises6.html">6. Probabilidad de error</a>
+      <a href="exercises7.html">7. Códigos lineales</a>
+      <a href="exercises8.html">8. Capacidad de canal</a>
+      <a href="exercises9.html">9. Medidas de información</a>
+    </details>
+    <details class="sidebar-section">
+      <summary><h4>Cuestionario</h4></summary>
+      <a href="quiz1.html">Temas 1–2</a>
+      <a href="quiz2.html">Temas 3–5</a>
+      <a href="quiz3.html">Temas 6–9</a>
+    </details>
+    <details class="sidebar-section" open>
+      <summary><h4>Exámenes</h4></summary>
+      <a href="exam-final-2026.html" class="active">Final 2026</a>
+      <a href="exam-final-2025.html">Final 2025</a>
+      <a href="exam-resit-2025.html">Recuperación 2025</a>
+    </details>
+  </aside>
 
-  <a class="home" href="index.html">Volver al sitio del curso</a>
+  <main class="content">
+    <div class="lecture-header">
+      <h1>Examen final 2026</h1>
+    </div>
 
+    <button id="expand-all" data-expand="Mostrar todas las soluciones" data-collapse="Ocultar todas las soluciones" style="display:block;margin:0 auto 1.5rem;font-size:0.85rem;padding:0.5rem 1.2rem;border:2px solid var(--upf-red);color:var(--upf-red);border-radius:6px;font-weight:500;background:var(--bg);cursor:pointer;">Mostrar todas las soluciones</button>
+
+    <div class="env-block env-problem">
+  <p><span class="env-label">Problema 1.</span> Una fuente envía un bit de información que vale $0$ con probabilidad $\tfrac34$. La línea es ruidosa. Un $0$ enviado llega como $1$ con probabilidad $\tfrac15$, mientras que un $1$ enviado siempre llega correctamente. Si llega un $1$, ¿cuál es la probabilidad de que se hubiera enviado un $1$?</p>
+  <p>(a) $\tfrac14$<br>
+  (b) $\tfrac25$<br>
+  (c) $\tfrac58$<br>
+  (d) $\tfrac38$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Por probabilidad total, llega un $1$ con probabilidad $\tfrac34\cdot\tfrac15+\tfrac14\cdot1=\tfrac{3}{20}+\tfrac14=\tfrac25$. Por la regla de Bayes, la probabilidad de que se hubiera enviado un $1$ cuando llega un $1$ es $\dfrac{\tfrac14\cdot1}{\tfrac25}=\tfrac58$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 2.</span> Un bit de información vale $1$ con probabilidad $p$. ¿Qué cota da la desigualdad de Chebyshev para la probabilidad de que el bit se aleje de su media al menos media unidad?</p>
+  <p>(a) $4p(1-p)$<br>
+  (b) $2p(1-p)$<br>
+  (c) $p(1-p)$<br>
+  (d) $4p$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>El bit vale $0$ con probabilidad $1-p$, de modo que su media es $p$ y su varianza es $p(1-p)$. La desigualdad de Chebyshev da $\Pr\bigl(|X-p|\ge\tfrac12\bigr)\le\dfrac{p(1-p)}{(1/2)^2}=4p(1-p)$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 3.</span> Un código binario libre de prefijos tiene cuatro palabras de código. Tres son $0$, $10$ y $110$. La cuarta palabra de código es lo más corta posible. Los cuatro símbolos, en este orden, tienen probabilidades $\tfrac25$, $\tfrac15$, $\tfrac15$ y $\tfrac15$. ¿Cuál es la eficiencia de este código?</p>
+  <p>(a) $1$<br>
+  (b) $\tfrac{5\log_2(5)-2}{10}$<br>
+  (c) $\tfrac{5\log_2(5)-2}{9}$<br>
+  (d) $\tfrac{5\log_2(5)-2}{11}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>La cuarta palabra no puede empezar por $0$, $10$ ni $110$, y $11$ es prefijo de $110$; por tanto, la más corta posible es $111$, de longitud $3$. La longitud media es $1\cdot\tfrac25+2\cdot\tfrac15+3\cdot\tfrac15+3\cdot\tfrac15=2$, y la entropía es $-\tfrac25\log_2(\tfrac25)-\tfrac35\log_2(\tfrac15)=\log_2(5)-\tfrac25$. La eficiencia es la entropía dividida entre la longitud media, $\tfrac{5\log_2(5)-2}{10}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 4.</span> Una fuente emite, de forma independiente, una de dos letras: la primera con probabilidad $\tfrac34$ y la segunda con probabilidad $\tfrac14$. Para comprimirla, se agrupan las letras de dos en dos y se construye un código binario libre de prefijos óptimo para esos pares. ¿Cuántos bits por letra se usan de media?</p>
+  <p>(a) $\tfrac{31}{32}$<br>
+  (b) $1$<br>
+  (c) $2-\tfrac34\log_2(3)$<br>
+  (d) $\tfrac{27}{32}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(d)</strong> &#9733;</p>
+    <p>Los cuatro pares tienen probabilidades $\tfrac9{16}$, $\tfrac3{16}$, $\tfrac3{16}$ y $\tfrac1{16}$. El código óptimo (de Huffman) tiene longitudes $1$, $2$, $3$ y $3$, de modo que su longitud media por par es $1\cdot\tfrac9{16}+2\cdot\tfrac3{16}+3\cdot\tfrac3{16}+3\cdot\tfrac1{16}=\tfrac{27}{16}$. Por letra es $\tfrac{27}{32}$, por debajo del $1$ bit por letra de codificar letra a letra y por encima de la entropía $2-\tfrac34\log_2(3)$. El código de Shannon subóptimo (longitudes $\lceil-\log_2 p\rceil$) daría $\tfrac{31}{32}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 5.</span> Un solo bit de información, con la misma probabilidad de ser $0$ o $1$, se protege con un código de repetición de tasa $\tfrac13$. El receptor decodifica por mayoría. El canal actúa sobre cada bit de forma independiente y nunca cambia un $0$, pero cambia un $1$ en un $0$ con probabilidad $p$, con $0&lt;p&lt;1$. ¿Cuál es la probabilidad de que la palabra recibida sea diferente de la palabra de código enviada pero se decodifique correctamente?</p>
+  <p>(a) $\tfrac{3p(1-p)^2}{2}$<br>
+  (b) $3p(1-p)^2$<br>
+  (c) $\tfrac{3p^2(1-p)}{2}$<br>
+  (d) $\tfrac{p^3}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(a)</strong> &#9733;</p>
+    <p>Las dos palabras de código son $000$ y $111$. Si se envía $000$, ningún bit puede cambiar, de modo que la palabra recibida nunca difiere de ella. Si se envía $111$, la palabra recibida difiere pero aún se decodifica como $111$ exactamente cuando un solo $1$ se convierte en $0$ (los otros dos mantienen la mayoría), con probabilidad $3p(1-p)^2$. Promediando sobre las dos palabras igualmente probables se obtiene $\tfrac{3p(1-p)^2}{2}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 6.</span> Un código binario lineal tiene matriz de control de paridad $\begin{pmatrix}1&amp;1&amp;1\end{pmatrix}$. Sus palabras de código se envían con la misma probabilidad por un canal que invierte cada bit de forma independiente con probabilidad $p$, con $0&lt;p&lt;\tfrac12$. ¿Cuál es la probabilidad de recibir solo ceros?</p>
+  <p>(a) $\tfrac18$<br>
+  (b) $(1-p)^3$<br>
+  (c) $\tfrac{(1-p)^3+3p^2(1-p)}{4}$<br>
+  (d) $\tfrac{(1-p)^3+p^3}{2}$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(c)</strong> &#9733;</p>
+    <p>Las palabras de código son las palabras de $3$ bits con un número par de unos: $000$, $011$, $101$ y $110$ (pesos $0$, $2$, $2$, $2$). Para recibir $000$ desde una palabra de peso $w$, sus $w$ unos deben cambiar y los $3-w$ ceros no, con probabilidad $p^w(1-p)^{3-w}$. Promediando sobre las cuatro palabras igualmente probables se obtiene $\tfrac{(1-p)^3+3p^2(1-p)}{4}$.</p>
+  </details>
+</div>
+
+<div class="env-block env-problem">
+  <p><span class="env-label">Problema 7.</span> Se elige un número $X$ al azar, con la misma probabilidad, de $\{1,2,3\}$. Un segundo número $Y$ vale $1$ cuando $X$ es $3$, y vale $0$ en caso contrario. ¿Cuál es la información mutua entre $X$ e $Y$, en bits?</p>
+  <p>(a) $\log_2(3)$<br>
+  (b) $\log_2(3)-\tfrac23$<br>
+  (c) $0$<br>
+  (d) $\tfrac13\log_2(3)$</p>
+  <details class="solution"><summary>Mostrar solución</summary>
+    <p>La respuesta correcta es <strong>(b)</strong> &#9733;</p>
+    <p>$Y$ es una función de $X$, así que conocer $X$ elimina toda la incertidumbre sobre $Y$; por tanto, la información es igual a la entropía de $Y$. Como $Y$ vale $1$ con probabilidad $\tfrac13$ y $0$ con probabilidad $\tfrac23$, esta entropía es $-\tfrac13\log_2\tfrac13-\tfrac23\log_2\tfrac23=\log_2(3)-\tfrac23$.</p>
+  </details>
+</div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  Universitat Pompeu Fabra &middot; Teoría de la información y codificación 2026 &middot;
+  <a href="https://www.upf.edu/web/josep-font-segura" target="_blank">Josep Font-Segura</a> &middot; <a href="https://www.upf.edu/web/matcom" target="_blank">Mathematics of Communication</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>
+<script src="../script.js"></script>
 </body>
 </html>
